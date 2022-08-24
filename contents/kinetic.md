@@ -2,10 +2,9 @@
 
 ## The Meaning of f(v)
 
-The fluid theory we have been using so far is the simplest description of a plasma; it is indeed fortunate that this approximation is sufficiently accurate to describe the
-majority of observed phenomena. There are some phenomena, however, for which a fluid treatment is inadequate. For these, we need to consider the velocity distribution function $f(\mathbf{v})$ for each species; this treatment is called kinetic theory. In fluid theory, the dependent variables are functions of only four independent variables: $x, y, z,$ and $t$. This is possible because the velocity distribution of each species is assumed to be Maxwellian everywhere and can therefore be uniquely specified by only one number, the temperature $T$. Since collisions can be rare in high-temperature plasmas, deviations from thermal equilibrium can be maintained for relatively long times. As an example, consider two velocity distributions $f_1(v_x)$ and $f_2(v_x)$ in a one-dimensional system. (@fig:1d_distributions) These two distributions will have entirely different behaviors, but as long as the areas under the curves are the same, fluid theory does not distinguish between them.
+The fluid theory we have been using so far is the simplest description of a plasma; it is indeed fortunate that this approximation is sufficiently accurate to describe the majority of observed phenomena. There are some phenomena, however, for which a fluid treatment is inadequate. For these, we need to consider the velocity distribution function $f(\mathbf{v})$ for each species; this treatment is called kinetic theory. In fluid theory, the dependent variables are functions of only four independent variables: $x, y, z,$ and $t$. This is possible because the velocity distribution of each species is assumed to be Maxwellian everywhere and can therefore be uniquely specified by only one number, the temperature $T$. Since collisions can be rare in high-temperature plasmas, deviations from thermal equilibrium can be maintained for relatively long times. As an example, consider two velocity distributions $f_1(v_x)$ and $f_2(v_x)$ in a one-dimensional system. (@fig:distributions_1d) These two distributions will have entirely different behaviors, but as long as the areas under the curves are the same, fluid theory does not distinguish between them.
 
-![Examples of non-Maxwellian distribution functions](images/1d_distributions.png){#fig:1d_distributions}
+![Examples of non-Maxwellian distribution functions](images/distributions_1d.png){#fig:distributions_1d}
 
 The density is a function of four scalar variables: $n=n(\mathbf{r}, t)$. When we consider velocity distributions, we have seven independent variables: $f = f(\mathbf{r}, \mathbf{v}, t)$.
 By $f(\mathbf{r}, \mathbf{v}, t)$, we mean that the number of particles per meter cubed at position $\mathbf{r}$ and time $t$ with velocity components between $v_x$ and $v_x + dv_x$, $v_y and $v_y + dv_y$, and $v_z$ and $v_z + dv_z$ is
@@ -37,7 +36,7 @@ $$ {#eq:f_normalization_dimensionless}
 
 Note that $\hat{f}$ is still a function of seven variables, since the shape of the distribution, as well as the density, can change with space and time. From @eq:f_normalization, it is clear that $\hat{f}$ has the dimensions $(\text{m}/\text{s})^{-3}$; and consequently, from @eq:f_normalization_dimensionless, f has the dimensions $\text{s}^3 \text{m}^{-6}$.
 
-A particularly important distribution function is the Maxwellian[^dist]:
+A particularly important distribution function is the Maxwellian:
 
 $$
 \hat{f}_m = (m/2\pi k_B T)^{3/2}\exp(-v^2/v_{th}^2)
@@ -56,8 +55,6 @@ $$
 $$
 
 one easily verifies that the integral of $\hat{f}_m$ over $dv_x dv_y dv_z$ is unity.
-
-[^dist]: The Maxwellian distribution is probably the most studied one theoretically, but may not be the most commonly observed distribution in a collisionless space plasma system. In recent years, another distribution named [Kappa distribution](https://link.springer.com/article/10.1007/s11214-013-9982-9) has gained more attention.
 
 There are several average velocities of a Maxwellian distribution that are commonly used. The root-mean-square velocity is given by
 
@@ -117,7 +114,7 @@ $$ {#eq:g_dist}
 
 @fig:f_g shows the difference between $g(v)$ and a one-dimensional Maxwellian distribution $f(v_x)$. Although $f(v_x)$ is maximum for $v_x=0$, $g(v)$ is zero for $v=0$.
 
-![One- and three-dimensional Maxwellian velocity distributions](images/f_g.png){#fig:f_g}
+![One- and three-dimensional Maxwellian velocity distributions.](images/f_g.png){#fig:f_g}
 
 This is just a consequence of the vanishing of the volume in phase space for $v=0$. Sometimes $g(v)$ is carelessly denoted by $f(v)$, as distinct from $f(\mathbf{v})$; but $g(v)$ is a different function of its argument than $f(\mathbf{v})$ is of its argument. From eq:g_dist, it is clear that $g(v)$ has dimensions $\text{s}/\text{m}^4$.
 
@@ -127,6 +124,10 @@ ADD EXAMPLE DISTRIBUTIONS!
 * anisotropic
 * beam
 * crescent shape
+
+### Kappa Distribution
+
+The Maxwellian distribution is probably the most studied one theoretically, but may not be the most commonly observed distribution in a collisionless space plasma system. In recent years, another distribution named [Kappa distribution](https://link.springer.com/article/10.1007/s11214-013-9982-9) has gained more attention.
 
 ## Equations of Kinetic Theory
 
@@ -166,13 +167,13 @@ This is called the _Fokker-Planck equation_; it takes into account binary Coulom
 The colon operator $\mathbf{a}\mathbf{b}:\mathbf{c}\mathbf{d} = a_ib_jc_id_j$.
 
 The fact that $df/dt$ is constant in the absence of collisions means that particles follow the contours of constant $f$ as they move around in phase space. As an example of how these contours can be used, consider the beam-plasma instability
-of Section ???. In the unperturbed plasma, the electrons all have velocity $v_0$, and the contour of constant $f$ is a straight line. The function $f(x, v_x)$ is a wall rising out of the plane of the paper at $v_x=v_0$. The electrons move along the trajectory shown. When a wave develops, the electric field $\mathbf{E}_1$ causes electrons to suffer changes in $v_x$ as they stream along. The trajectory then develops a sinusoidal ripple (@fig:1d_beam_e_dist B). This ripple travels at the phase velocity, not the particle velocity. Particles stay on the curve as they move relative to the wave. If $\mathbf{E}_1$ becomes very large as the wave grows, and if there are a few collisions, some electrons will be trapped in the electrostatic potential of the wave. In coordinate space, the wave potential appears as in @fig:wave_potential. In phase space, $f(x, v_x)$ will have peaks wherever there is a potential trough (@fig:contour_dist). Since the contours of $f$ are also electron trajectories, one sees that some electrons move in closed orbits in phase space; these are just the trapped electrons.
+of Section ???. In the unperturbed plasma, the electrons all have velocity $v_0$, and the contour of constant $f$ is a straight line. The function $f(x, v_x)$ is a wall rising out of the plane of the paper at $v_x=v_0$. The electrons move along the trajectory shown. When a wave develops, the electric field $\mathbf{E}_1$ causes electrons to suffer changes in $v_x$ as they stream along. The trajectory then develops a sinusoidal ripple (@fig:beam_e_dist_1d B). This ripple travels at the phase velocity, not the particle velocity. Particles stay on the curve as they move relative to the wave. If $\mathbf{E}_1$ becomes very large as the wave grows, and if there are a few collisions, some electrons will be trapped in the electrostatic potential of the wave. In coordinate space, the wave potential appears as in @fig:wave_potential. In phase space, $f(x, v_x)$ will have peaks wherever there is a potential trough (@fig:contour_dist). Since the contours of $f$ are also electron trajectories, one sees that some electrons move in closed orbits in phase space; these are just the trapped electrons.
 
-![(A) Representation in one-dimensional phase space of a beam of electrons all with the same velocity $v_0$. The distribution function $f(x, v_x)$ is infinite along the line and zero elsewhere. The line is also the trajectory of individual electrons, which move in the direction of the arrow. (B) when a plasma wave exists in the electron beam. The entire pattern moves to the right with the phase velocity of the wave. If the observer goes to the frame of the wave, the pattern would stand still, and electrons would be seen to trace the curve with the velocity $v_0-v_\phi$.](images/1d_beam_e_dist.png){#fig:1d_beam_e_dist}
+![(A) Representation in one-dimensional phase space of a beam of electrons all with the same velocity $v_0$. The distribution function $f(x, v_x)$ is infinite along the line and zero elsewhere. The line is also the trajectory of individual electrons, which move in the direction of the arrow. (B) when a plasma wave exists in the electron beam. The entire pattern moves to the right with the phase velocity of the wave. If the observer goes to the frame of the wave, the pattern would stand still, and electrons would be seen to trace the curve with the velocity $v_0-v_\phi$.](images/beam_e_dist_1d.png){#fig:beam_e_dist_1d}
 
 ![The potential of a plasma wave, as seen by an electron. The pattern moves with the velocity $v_\phi$. An electron with small velocity relative to the wave would be trapped in a potential trough and be carried along with the wave.](images/wave_potential.png){#fig:wave_potential}
 
-![Electron trajectories, or contours of constant $f$, as seen in the wave frame, in which the pattern is stationary. This type of diagram, appropriate for finite distributions $f(v)$, is easier to understand than the $\delta$-function distribution of @fig:1d_beam_e_dist.](images/contour_dist.png){#fig:contour_dist}
+![Electron trajectories, or contours of constant $f$, as seen in the wave frame, in which the pattern is stationary. This type of diagram, appropriate for finite distributions $f(v)$, is easier to understand than the $\delta$-function distribution of @fig:beam_e_dist_1d.](images/contour_dist.png){#fig:contour_dist}
 
 Electron trapping is a nonlinear phenomenon which cannot be treated by straightforward solution of the Vlasov equation. However, electron trajectories can be followed on a computer, and the results are often presented in the form
 of a plot like @fig:contour_dist.
@@ -181,7 +182,7 @@ ADD A TWO STREAM INSTABILITY PHASE ANIMATION!
 
 ## Derivation of the Fluid Equations
 
-This has been repeated multiple times. The energy equation derivation can be found in [An introductory guide to fluid models with anisotropic temperatures.](https://arxiv.org/abs/1901.09354)
+This has been repeated multiple times. The energy equation derivation can be found in [An introductory guide to fluid models with anisotropic temperatures](https://arxiv.org/abs/1901.09354).
 
 ## Plasma Oscillations and Landau Damping
 
