@@ -134,7 +134,7 @@ The fundamental equation which $f(\mathbf{r}, \mathbf{v}, t)$ has to satisfy is 
 
 $$
 \frac{\partial f}{\partial t} + \mathbf{v}\cdot\nabla f +\frac{\mathbf{F}}{m}\cdot\frac{\partial f}{\partial v} = \Big( \frac{\partial f}{\partial t} \Big)_c
-$$
+$$ {#eq:boltzmann}
 
 Here $\mathbf{F}$ is the force acting on the particles, and $(\partial f/\partial t)_C$ is the time rate of change of $f$ due to collisions[^numerical_diffusion]. The symbol $\nabla$ stands, as usual, for the gradient in $(x, y, z)$ space. The symbol $\partial/\partial\mathbf{v}$ or $\nabla_v$ stands for the gradient in velocity space:
 
@@ -143,6 +143,45 @@ $$
 $$
 
 [^numerical_diffusion]: For simulations, the effect of numerical diffusion may be treated as one type of "collision".
+
+In a sufficiently hot plasma, collisions can be neglected. If, furthermore, the force $\mathbf{F}$ is entirely electromagnetic, @eq:boltzmann takes the special form
+
+$$
+\frac{\partial f}{\partial t} + \mathbf{v}\cdot\nabla f +\frac{\mathbf{F}}{m}\cdot\frac{\partial f}{\partial v} = 0
+$$ {#eq:vlasov}
+
+This is called the _Vlasov equation_. Because of its comparative simplicity, this is the equation most commonly studied in kinetic theory. When there are collisions with neutral atoms, the collision term in @eq:boltzmann can be approximated by
+
+$$
+\Big( \frac{\partial f}{\partial t} \Big)_c = \frac{f_n - f}{\tau}
+$$
+
+where $f_n$ is the distribution function of the neutral atoms, and $\tau$ is a constant collision time. This is called a _Krook collision term_. It is the kinetic generalization of the collision term in Eq. (5.5) in F. F. Chen's book. When there are Coulomb collisions, @eq:boltzmann can be approximated by
+
+$$
+\frac{df}{dt} = -\frac{\partial}{\partial\mathbf{v}}\cdot(f\left<\Delta\mathbf{v}\right>)\frac{1}{2}\frac{\partial^2}{\partial\mathbf{v}\partial\mathbf{v}}:(f\left<\Delta\mathbf{v}\Delta\mathbf{v}\right>)
+$$ {#eq:fokker_planck}
+
+This is called the _Fokker-Planck equation_; it takes into account binary Coulomb collisions only. Here, $\Delta\mathbf{v}$ is the change of velocity in a collision, and @eq:fokker_planck is a shorthand way of writing a rather complicated expression.
+The colon operator $\mathbf{a}\mathbf{b}:\mathbf{c}\mathbf{d} = a_ib_jc_id_j$.
+
+The fact that $df/dt$ is constant in the absence of collisions means that particles follow the contours of constant $f$ as they move around in phase space. As an example of how these contours can be used, consider the beam-plasma instability
+of Section ???. In the unperturbed plasma, the electrons all have velocity $v_0$, and the contour of constant $f$ is a straight line. The function $f(x, v_x)$ is a wall rising out of the plane of the paper at $v_x=v_0$. The electrons move along the trajectory shown. When a wave develops, the electric field $\mathbf{E}_1$ causes electrons to suffer changes in $v_x$ as they stream along. The trajectory then develops a sinusoidal ripple (@fig:1d_beam_e_dist B). This ripple travels at the phase velocity, not the particle velocity. Particles stay on the curve as they move relative to the wave. If $\mathbf{E}_1$ becomes very large as the wave grows, and if there are a few collisions, some electrons will be trapped in the electrostatic potential of the wave. In coordinate space, the wave potential appears as in @fig:wave_potential. In phase space, $f(x, v_x)$ will have peaks wherever there is a potential trough (@fig:contour_dist). Since the contours of $f$ are also electron trajectories, one sees that some electrons move in closed orbits in phase space; these are just the trapped electrons.
+
+![(A) Representation in one-dimensional phase space of a beam of electrons all with the same velocity $v_0$. The distribution function $f(x, v_x)$ is infinite along the line and zero elsewhere. The line is also the trajectory of individual electrons, which move in the direction of the arrow. (B) when a plasma wave exists in the electron beam. The entire pattern moves to the right with the phase velocity of the wave. If the observer goes to the frame of the wave, the pattern would stand still, and electrons would be seen to trace the curve with the velocity $v_0-v_\phi$.](images/1d_beam_e_dist.png){#fig:1d_beam_e_dist}
+
+![The potential of a plasma wave, as seen by an electron. The pattern moves with the velocity $v_\phi$. An electron with small velocity relative to the wave would be trapped in a potential trough and be carried along with the wave.](images/wave_potential.png){#fig:wave_potential}
+
+![Electron trajectories, or contours of constant $f$, as seen in the wave frame, in which the pattern is stationary. This type of diagram, appropriate for finite distributions $f(v)$, is easier to understand than the $\delta$-function distribution of @fig:1d_beam_e_dist.](images/contour_dist.png){#fig:contour_dist}
+
+Electron trapping is a nonlinear phenomenon which cannot be treated by straightforward solution of the Vlasov equation. However, electron trajectories can be followed on a computer, and the results are often presented in the form
+of a plot like @fig:contour_dist.
+
+ADD A TWO STREAM INSTABILITY PHASE ANIMATION!
+
+## Derivation of the Fluid Equations
+
+This has been repeated multiple times. The energy equation derivation can be found in [An introductory guide to fluid models with anisotropic temperatures.](https://arxiv.org/abs/1901.09354)
 
 ## Plasma Oscillations and Landau Damping
 
@@ -158,15 +197,9 @@ Since $\mathbf{v}$ is now an independent variable and is not to be linearized, t
 
 $$
 \frac{\partial f_1}{\partial t} + \mathbf{v}\cdot\nabla f_1 - \frac{e}{m}\mathbf{E}_1\cdot\frac{\partial f_0}{\partial \mathbf{v}} = 0
-$$
+$$ {#eq:vlasov_1st}
 
-As before, we assume the ions are massive and fixed and that the waves are plane waves in the x direction
-
-$$
-f_1 \propto e^{i(kx - \omega t)}
-$$
-
-Then the linearized Vlasov equation becomes
+As before, we assume the ions are massive and fixed and that the waves are plane waves in the x direction $f_1 \propto e^{i(kx - \omega t)}$. Then the linearized Vlasov equation becomes
 
 $$
 \begin{aligned}
@@ -203,7 +236,7 @@ Since we are dealing with a one-dimensional problem we may drop the subscript x,
 
 $$
 1 = \frac{\omega_p^2}{k}\int_{-\infty}^{\infty}\frac{\partial \hat{f}_0/\partial v}{v - \omega/k}dv
-$$
+$$ {#eq:dispersion_0th}
 
 Here, $\hat{f}_0$ is understood to be a one-dimensional distribution function, the integrations over $v_y$ and $v_z$ having been made. This equation holds for any equilibrium distribution $\hat{f}_0(v)$.
 
@@ -218,21 +251,21 @@ $$
 where $G$ is the integrand, $C_1$ is the path along the real axis, $C_2$ is the semicircle at infinity, and $R(\omega/k)$ is the residue at $\omega/k$. This works if the integral over $C_2$ vanishes. Unfortunately, this does not happen for a Maxwellian distribution, which contains the factor
 
 $$
-exp(-v^2/v_{th}^2)
+\exp(-v^2/v_{th}^2)
 $$
 
 This factor becomes large for $v\rightarrow \pm i \infty$, and the contribution from $C_2$ cannot be neglected. Landau showed that when the problem is properly treated as an initial value problem the correct contour to use is the curve $C_1$ passing below the singularity. This integral must in general be evaluated numerically.
 
-Although an exact analysis of this problem is complicated, we can obtain an approximate dispersion relation for the case of large phase velocity and weak damping. In this case, the pole at $\omega/k$ lies near the real $v$ axis. The contour prescribed by Landau is then a straight line along the $\Re(v)$ axis with a small semicircle around the pole. In going around the pole, one obtains $2\pi i$ time half the residue there. Then the dispersion equation becomes
+Although an exact analysis of this problem is complicated, we can obtain an approximate dispersion relation for the case of large phase velocity and weak damping. In this case, the pole at $\omega/k$ lies near the real $v$ axis. The contour prescribed by Landau is then a straight line along the $\Re(v)$ axis with a small semicircle around the pole. In going around the pole, one obtains $2\pi i$ time half the residue there. Then @eq:dispersion_0th becomes
 
 $$
 1 = \frac{\omega_p^2}{k^2} \Big[ P\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0/\partial v}{v - (\omega/k)}dv + i\pi \frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=\omega/k} \Big]
 $$
 
-where $P$ stands for the Cauchy principal value. To evaluate this, we integrate along the real $v$ axis but stop just before encountering the pole. If the phase velocity $v_\phi = \omega/k$ is sufficiently large, as we assume, there will not be much contribution from the neglected part of the contour, since both $\hat{f}_0$ and $\partial\hat{f}/\partial v$ are very small there. The integral above can be evaluated by integration by parts:
+where $P$ stands for the Cauchy principal value. To evaluate this, we integrate along the real $v$ axis but stop just before encountering the pole. If the phase velocity $v_\phi = \omega/k$ is sufficiently large, as we assume, there will not be much contribution from the neglected part of the contour, since both $\hat{f}_0$ and $\partial\hat{f}_0/\partial v$ are very small there. The integral above can be evaluated by integration by parts:
 
 $$
-\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0}{\partial v}\frac{dv}{v - v_\phi}dv = \Big[ \frac{\hat{f}_0}{v-v_\phi} \Big]_{-\infty}^{\infty} - \int_{-\infty}^{\infty}\frac{-\hat{f}_0 dv}{(v-v_\phi)^2} = \int_{-\infty}^{\infty}\frac{\hat{f}_0 dv}{(v-v_\phi)^2}
+\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0}{\partial v}\frac{dv}{v - v_\phi} = \Big[ \frac{\hat{f}_0}{v-v_\phi} \Big]_{-\infty}^{\infty} - \int_{-\infty}^{\infty}\frac{-\hat{f}_0 dv}{(v-v_\phi)^2} = \int_{-\infty}^{\infty}\frac{\hat{f}_0 dv}{(v-v_\phi)^2}
 $$
 
 Since this is just an average of $(v-v_\phi)^{-2}$ over the distribution, the real part of the dispersion relation can be written
@@ -268,7 +301,7 @@ $$
 \end{aligned}
 $$
 
-If the thermal correction is small, we may replace $\omega^2$ by $\omega_p^2$ in the second term. We then have
+If the thermal correction is small (i.e. the second term on the right-hand side is small, such that $\omega \approx \omega_p$), we may replace $\omega^2$ by $\omega_p^2$ in the second term. We then have
 
 $$
 \omega^2 = \omega_p^2 + \frac{3k_B T_e}{m}k^2
@@ -279,7 +312,7 @@ which is the same as that been obtained from the fluid equations with $\gamma=3$
 We now return to the imaginary term in the dispersion relation. In evaluating this small term, it will be sufficiently accurate to neglect the thermal correction to the real part of $\omega$ and let $\omega^2\approx \omega_p^2$. From the evaluation of the real part above we see that the principle value of the integral is approximately $k^2/\omega^2$. The dispersion relation now becomes
 
 $$
-1 = \frac{\omega^2}{\omega^2} + i\pi\frac{\omega_p^2}{k^2}\frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=v_\phi}
+1 = \frac{\omega_p^2}{\omega^2} + i\pi\frac{\omega_p^2}{k^2}\frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=v_\phi}
 $$
 
 $$
@@ -302,7 +335,7 @@ We may approximate $v_\phi$ by $\omega_p/k$ in the coefficient, but in the expon
 
 $$
 \begin{aligned}
-\Im(\omega) &= -\frac{\pi}{2}\frac{\omega_p^3}{k^2}\frac{2\omega_p}{k\sqrt{\pi}}\frac{1}{v_{th}^3}\exp\Big( \frac{-\omega^2}{k^2 v_{th}^2} \Big) \\
+\Im(\omega) &= -\frac{\pi}{2}\frac{\omega_p^2}{k^2}\frac{2\omega_p}{k\sqrt{\pi}}\frac{1}{v_{th}^3}\exp\Big( \frac{-\omega^2}{k^2 v_{th}^2} \Big) \\
 &= -\sqrt{\pi}\omega_p \Big( \frac{\omega_p}{kv_{th}} \Big)^3 \exp\Big( \frac{-\omega_p^2}{k^2 v_{th}^2}\Big)\exp\Big( \frac{-3}{2} \Big) \\
 \Im\Big(\frac{\omega}{\omega_p}\Big) &= -0.22 \sqrt{\pi}\Big( \frac{\omega_p}{kv_{th}} \Big)^3 \exp\Big( \frac{-1}{2k^2\lambda_D^2} \Big)
 \end{aligned}
@@ -312,14 +345,14 @@ Since $\Im(\omega)$ is negative, there is a collisionless damping of plasma wave
 
 ## The Meaning of Landau Damping
 
-The theoretical discovery of wave damping without energy dissipation by collisions is perhaps the most astounding result of plasma physics research. That this is a real effect has been demonstrated in the laboratory. Although a simple physical explanation for this damping is now available, it is a triumph of applied mathematics that this unexpected effect was first discovered purely mathematically in the course of a careful analysis of a contour integral. Landau damping is a characteristic of collisionless plasmas, but it may also have application in other fields. For instance, in the kinetic treatment of galaxy formation, stars can be considered as atoms of a plasma interacting via gravitational rather than electromagnetic forces. Instabilities of the gas of stars can cause spiral arms to form, but this process is limited by Landau damping.
+__The theoretical discovery of wave damping without energy dissipation by collisions is perhaps the most astounding result of plasma physics research__. That this is a real effect has been demonstrated in the laboratory. Although a simple physical explanation for this damping is now available, it is a triumph of applied mathematics that this unexpected effect was first discovered purely mathematically in the course of a careful analysis of a contour integral. Landau damping is a characteristic of collisionless plasmas, but it may also have application in other fields. For instance, in the kinetic treatment of galaxy formation, stars can be considered as atoms of a plasma interacting via gravitational rather than electromagnetic forces. Instabilities of the gas of stars can cause spiral arms to form, but this process is limited by Landau damping.
 
 To see what is responsible for Landau damping, we first notice that $\Im(\omega)$ arises from the pole at $v=v_\phi$. Consequently, the effect is connected with those particles in the distribution that have a velocity nearly equal to the phase velocity --- the "resonant particles". These particles travel along with the wave and do not see a rapidly fluctuating electric field: they can, therefore, exchange energy with the wave effectively. The easiest way to understand this exchange of energy is to picture a surfer trying to catch an ocean wave. (Warning: this picture is only for directing our thinking along the right lines; it does not correctly explain the damping.) If the surfboard is not moving, it merely bobs up and down as the wave goes by and does not gain any energy on the average. Similarly, a boat propelled much faster than the wave cannot exchange much energy with the wave. However, if the surfboard has almost the same velocity as the wave, it can be caught and pushed along by the wave; this is, after all, the main purpose of the exercise. In that case, the surfboard gains energy, and therefore the wave must lose energy and is damped. On the other hand, if the surfboard should be moving slightly faster than the wave, it would push on the wave as it moves uphill; then the wave could gain energy. In a plasma, there are electrons both faster and slower than the wave. A Maxwellian distribution, however, has more slow electrons than fast ones. Consequently, there are more particles taking energy from the wave than vice versa, and the wave is damped. As particles with $v\approx v_\phi$ are trapped in the wave, $f(v)$ is flattened near the phase velocity. This distortion is $f_1(v)$ which we calculated. As seen in Fig (ADD IT!), the perturbed distribution function contains the same number of particles but has gained total energy (at the expense of the wave).
 
 From this discussion, one can surmise that if $f_0(v)$ contained more fast particles than slow particles, a wave can be excited. Indeed, from the expression of $\omega$
-above, it is apparent that $\Im(\omega)$ is positive if $\partial\hat{f}_0/\partial v$ is positive at $v=v_\phi$. Such a distribution is shown in Fig.7-19 (ADD IT!). Waves with $v_\phi$ in the region of positive slope will be unstable, gaining energy at the expense of the particles. This is just hte finite-temperature analogy of the two stream instability. When there are two cold ($k_B T=0$) electron streams in motion, $f_0(v)$ consists of two $\delta$-functions. This is clearly unstable because $\partial f_0/\partial v$ is infinite; and indeed, we foud the instability from fluid theory. When the streams have fnite temperature, kinetic theory tells us that the relative densities and temperatures of the two stream must be such as to have a region of positive $\partial f_0(v)/\partial v$ between them; more precisely, the total distribution function must have a minimum for instability.
+above, it is apparent that $\Im(\omega)$ is positive if $\partial\hat{f}_0/\partial v$ is positive at $v=v_\phi$. Such a distribution is shown in Fig.7-19 (ADD IT!). Waves with $v_\phi$ in the region of positive slope will be unstable, gaining energy at the expense of the particles. This is just the finite-temperature analogy of the two stream instability. When there are two cold ($k_B T=0$) electron streams in motion, $f_0(v)$ consists of two $\delta$-functions. This is clearly unstable because $\partial f_0/\partial v$ is infinite; and indeed, we found the instability from fluid theory. When the streams have fnite temperature, kinetic theory tells us that the relative densities and temperatures of the two stream must be such as to have a region of positive $\partial f_0(v)/\partial v$ between them; more precisely, the total distribution function must have a minimum for instability.
 
-The physical picture of a surfer catching waves is very appealing, but it is not precise enough to give us a real understanding of Landau damping. There are actually two kinds of Landau damping. Both kinds are independent of dissipative collisional mechanisms. If a particle is caught in the potential well of a wave, the phenomenon is called "trapping". As in the case of a surfer, particles can indeed gain or lose energy in trapping. However, trapping does not lie within the purview of the linear theory. That this is true can be seen from the equation of motion
+__The physical picture of a surfer catching waves is very appealing, but it is not precise enough to give us a real understanding of Landau damping__. There are actually two kinds of Landau damping. Both kinds are independent of dissipative collisional mechanisms. If a particle is caught in the potential well of a wave, the phenomenon is called "trapping". As in the case of a surfer, particles can indeed gain or lose energy in trapping. However, trapping does not lie within the purview of the linear theory. That this is true can be seen from the equation of motion
 
 $$
 m\ddot{x} = qE(x)
@@ -328,10 +361,10 @@ $$
 If one evaluates $E(x)$ by inserting the exact value of $x$, the equation would be nonlinear, since $E(x)$ is somehting like $\sin kx$. What is done in linear theory is to use for $x$ the unperturbed orbit; i.e. $x=x_0 + v_0 t$. Then this becomes linear. This approximation, however, is no longer valid when a particle is trapped. When it encounters a potential hill large enough to reflect it, its velocity and position are, of course, greatly affected by the wave and are not close to their unperturbed values. In fluid theory, the equation of motion is
 
 $$
-m\Big[ \dot{\mathbf{v}}+(\mathbf{v}\cdot\nabla)\mathbf{v} \Big] = q\mathbf{E}(x)
+m\Big[ \frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)\mathbf{v} \Big] = q\mathbf{E}(x)
 $$
 
-Here, $\mathbf{E}(x)$ is to be evaluated in the laboratory frame, which is easy; but to make up for it, there is the $(\mathbf{v}\cdot\nabla)\mathbf{v}$ term. The neglect of $(\mathbf{v}_1\cdot\nabla)\mathbf{v}_1$ in linear theory amounts to the same thing as using unperturbed orbits. In kinetic theory, the nonlinear term that is neglected is, from the first-order Vlasov equation,
+Here, $\mathbf{E}(x)$ is to be evaluated in the laboratory frame, which is easy; but to make up for it, there is the $(\mathbf{v}\cdot\nabla)\mathbf{v}$ term. The neglect of $(\mathbf{v}_1\cdot\nabla)\mathbf{v}_1$ in linear theory amounts to the same thing as using unperturbed orbits. In kinetic theory, the nonlinear term that is neglected is, from the first-order Vlasov @eq:vlasov_1st,
 
 $$
 \frac{q}{m}E_1\frac{\partial f_1}{\partial v}
@@ -715,7 +748,7 @@ $$
 k/k_D^2 = \frac{1}{2}Z^\prime(\zeta_e)
 $$
 
-which is the same as Eq.7-54 when $f_{0e}$ is Maxwellian.
+which is the same as @eq:dispersion_0th when $f_{0e}$ is Maxwellian.
 
 ### Ion Waves and Their Damping
 
