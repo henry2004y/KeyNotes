@@ -323,7 +323,7 @@ Treating the imaginary term as small, we can bring it to the right-hand side and
 
 $$
 \omega = \omega_p\Big( 1 + i\frac{\pi}{2}\frac{\omega_p^2}{k^2}\frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=v_\phi} \Big)
-$$
+$$ {#eq:landau}
 
 If $\hat{f}_0$ is a one-dimensional Maxwellian, we have
 
@@ -343,7 +343,7 @@ $$
 
 Since $\Im(\omega)$ is negative, there is a collisionless damping of plasma waves; this is called _Landau damping_. As is evident from the expression, this damping is extremely small for small $k\lambda_D$, but becomes important for $k\lambda_D = \mathcal{O}(1)$. This effect is connected with $f_1$, the distortion of the distribution function caused by the wave.
 
-## The Meaning of Landau Damping
+## The Meaning of Landau Damping {#sec:landau_damping}
 
 __The theoretical discovery of wave damping without energy dissipation by collisions is perhaps the most astounding result of plasma physics research__. That this is a real effect has been demonstrated in the laboratory. Although a simple physical explanation for this damping is now available, it is a triumph of applied mathematics that this unexpected effect was first discovered purely mathematically in the course of a careful analysis of a contour integral. Landau damping is a characteristic of collisionless plasmas, but it may also have application in other fields. For instance, in the kinetic treatment of galaxy formation, stars can be considered as atoms of a plasma interacting via gravitational rather than electromagnetic forces. Instabilities of the gas of stars can cause spiral arms to form, but this process is limited by Landau damping.
 

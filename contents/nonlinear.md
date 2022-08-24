@@ -12,7 +12,7 @@ Nonlinear phenomena can be grouped into three broad categories:
   * Plasma sheath.
 
 2. _Wave-particle interactions_.
-  * Particle trapping can lead to nonlinear damping (@sec:trapping).
+  * Particle trapping can lead to nonlinear damping (@sec:landau_damping).
   * A classic example is the quasilinear effect, in which the equilibrium of the plasma is changed by the waves. Consider the case of a plasma with an electron beam (Fig.8-1). Since the distribution function has a region where $df_0/dv$ is positive, the system has inverse Landau damping, and plasma oscillations with $v_\phi$ in the positive-slope region are unstable (@eq:landau). The resonant electrons are the first to be affected by wave-particle interactions, and their distribution function will be changed by the wave electric field. The waves are stabilized when $f_e(v)$ is flattened by the waves, as shown by the dashed line in Fig.8-1 @fig:unstable_f, so tha the new equilibrium distribution no longer has a positive slope.
   * Plasma wave echoes (@sec:echo).
 
@@ -279,7 +279,7 @@ $$
 
 This is the upper critical Mach number. Shock waves in a cold-ion plasma therefore exist only for $1<\mu<1.6$.
 
-As in the case of sheaths, the physical situation is best explained by a diagram of $n_i$ and $n_e$ vs. $\chi$ (@fig:shock_density). This diagram differs from @fig:sheath_n_variation because of the change of sign of $\phi$. Since the ions are now decelerated rather than accelerated, $n_i$ will appraoch infinity at $\chi=\mu^2/2$. The lowe critical Mach number ensures that the $n_i$ curve lies below the $n_e$ curve at small $\chi$, so that the potential $\phi(x)$ starts off with the right sign for its curvature. When the curve $n_{i1}$ crosses the $n_e$ curve, the soliton (@fig:shock_soliton) has an inflection point. Finally, when $\chi$ is large enough that the areas under the $n_i$ and $n_e$ curves are equal, the soliton reaches a peak, and the $n_{i1}$ and $n_e$ curves are retraced as $\chi$ goes back to zero. The equality of the areas ensures that the net charge in the soliton is zero; therefore, there is no electric field outside. If $\mu$ is larger than 1.6, we have the curve $n_{i2}$, in which the area under the curve is too small even when $\chi$ has reached its maximum value of $\mu^2/2$.
+As in the case of sheaths, the physical situation is best explained by a diagram of $n_i$ and $n_e$ vs. $\chi$ (@fig:shock_n). This diagram differs from @fig:sheath_n_variation because of the change of sign of $\phi$. Since the ions are now decelerated rather than accelerated, $n_i$ will appraoch infinity at $\chi=\mu^2/2$. The lowe critical Mach number ensures that the $n_i$ curve lies below the $n_e$ curve at small $\chi$, so that the potential $\phi(x)$ starts off with the right sign for its curvature. When the curve $n_{i1}$ crosses the $n_e$ curve, the soliton (@fig:shock_soliton) has an inflection point. Finally, when $\chi$ is large enough that the areas under the $n_i$ and $n_e$ curves are equal, the soliton reaches a peak, and the $n_{i1}$ and $n_e$ curves are retraced as $\chi$ goes back to zero. The equality of the areas ensures that the net charge in the soliton is zero; therefore, there is no electric field outside. If $\mu$ is larger than 1.6, we have the curve $n_{i2}$, in which the area under the curve is too small even when $\chi$ has reached its maximum value of $\mu^2/2$.
 
 ![Variation of ion and electron density (logarithmic scale) with normalized potential $\chi$ in a soliton. The ion density is drawn for two cases: Mach number greater than and less than 1.6.](images/shock_n.png){#fig:shock_n}
 
@@ -564,7 +564,7 @@ I do not understand parametric instability so far. Too hard.
 ### The Parametric Decay Instability
 
 
-## Plasma Echoes
+## Plasma Echoes {#sec:echo}
 
 Echoes in a plasma are the excitement of new waves due to nonlinear interaction. The excitement may happen at an arbitrarily large time, which is the main source of difficulties in understanding Landau damping. Since Landau damping _does not involve collisions or dissipation_, it is a _reversible_ process. That this is true is vividly demonstrated by the remarkable phenomenon of plasma echoes.
 
