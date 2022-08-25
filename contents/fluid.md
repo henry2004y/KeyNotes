@@ -1,5 +1,27 @@
 # Plasmas as Fluid {#sec:fluid}
 
+## MHD
+
+There are three basic assumptions in MHD:
+
+$$
+\begin{aligned}
+\epsilon\omega/4\pi\sigma& \ll 1, \\
+(v/c)^2&\ll 1,\\
+\lambda/ L& \ll 1,
+\end{aligned}
+$$
+
+where $\omega$ is the plasma frequency, $v$ is the plasma bulk velocity, $\lambda$ is the average free distance, and $L$ is the system characteristic length.
+
+Standard orderings of ideal MHD can also be written as
+
+$$
+\epsilon \sim \omega/\Omega_c \sim k\rho
+$$
+
+where the plasma varies on frequency scales $\omega$ small compared to the gyrofrequency $\Omega_c$, and varies on spatial scales $1/k$ long compared to the gyroradius $\rho$. (Here, $\epsilon$ means a "small" value.) Thus it covers phenomenon related to compressional and shear Alfvén waves and instabilities, ion acoustic waves, and ion and electron kinetic effects such as Landau damping. However, it does not include drift-waves or other micro-instabilities because they result from finite Larmor radius (FLR) effects which vanish in the usual MHD ordering. 
+
 ## Two-Fluid Model {#sec:2fluid}
 
 Besides the Vlasov theory, we can apply the simpler but equally powerful 2-fluid model, in which electrons and ions are treated as two different fluids. The general procedure of obtaining the dispersion relation for electrostatic wave is:

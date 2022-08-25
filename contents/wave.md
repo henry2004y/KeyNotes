@@ -64,8 +64,8 @@ With $\nabla\rightarrow i\mathbf{k},\ \partial/\partial t\rightarrow -i\omega$, 
 
 $$
 \begin{aligned}
-i\mathbf{k}\times\mathbf{E}&=i\omega \mathbf{B} \notag\\
-i\mathbf{k}\times\mathbf{B}&=-i\mu_0\epsilon\omega\mathbf{E} \notag\\
+i\mathbf{k}\times\mathbf{E}&=i\omega \mathbf{B} \\
+i\mathbf{k}\times\mathbf{B}&=-i\mu_0\epsilon\omega\mathbf{E} \\
 \Rightarrow k^2\mathbf{E}-\cancel{(\mathbf{k}\cdot\mathbf{E})\mathbf{k}}&=\omega^2 \mu_0\epsilon \mathbf{E}.
 \end{aligned}
 $$
@@ -411,3 +411,365 @@ $$
 so that in general, the trajectory is elliptical. For $\omega\ll \omega_{cs}$, we find $x_s \ll y_s$, so the motion is principally across both the $\mathbf{E}$ and $\mathbf{B}_0$ directions. However, for $\omega\gg\omega_{cj},x_j\gg y_j$ the motion is principally parallel to the electric field. In this latter case, we would call the particles _unmagnetized_, since the magnetic influence is small. Since it is possible for the wave frequency to be well above the ion cyclotron frequency at the same time it is well below the electron cyclotron frequency, it is possible for ions to be effectively unmagnetized while electrons are magnetized. From the discussion here, it is also clear that in the MHD low frequency regime the $\mathbf{E}\times\mathbf{B}$ drift is important, whereas for high frequency regimes (i.e. unmagnetized), the electric field influence is more important.
 
 When $\omega\simeq\omega_{cs}$, then the linear solutions exhibit resonance effects with large amplitudes, and at resonance, the radius increases uniformly in time and no steady-state solution exists. In this vicinity, we expect the cold plasma approximation to fail and either thermal, inhomogeneous, or nonlinear effects to dominate the dynamics.
+
+## Warm Plasma
+
+Taking one step forward, we can no longer neglect the kinetic effects, i.e. the cold assumption is no longer valid. For the sake of simplicity, we only consider the 1D case. The approach is very similar to cold plasma situation, except that we have _pressure_ included in the equation, and we also need to specify the relation of pressure and temperature through the equation of state.
+
+__2-fluid approach__
+
+Equilibrium:
+
+$$
+\begin{aligned}
+&m_i=\infty,\ T_i=0,\ v_{i,0}=0,\ n_{e0}=n_{i0}=n_0,\ E_0=0,\ B_0=0 \\
+&P_0=const.,\ v_{e0}=0
+\end{aligned}
+$$
+
+The equation of motion for electron is
+
+$$
+\frac{\partial \mathbf{v}}{\partial t}+\mathbf{v}\cdot\nabla\mathbf{v}=-\frac{e}{m_e}\mathbf{E}-\frac{\nabla P}{\rho}
+$$
+
+Assume
+
+$$
+\begin{aligned}
+&P=P_0 \Big( \frac{n}{n_0}\Big)^\gamma  &\text{adiabatic}\\
+&P=nk_B T_e  &\text{isothermal}(\gamma=1)
+\end{aligned}
+$$
+
+Define $P_1=\Big( \partial P/\partial \rho\Big)\rho_1\equiv {v_{th}}^2\rho_1={v_{th}}^2 n_1 m=k_BTn_1$. Decompose the primitive variables into equilibrium and perturbation components:
+
+$$
+\begin{aligned}
+&n= n_0+n_1=n_0+\tilde{n}_1e^{-i\omega t+ikx} \\
+&v=\cancel{v_0}+v_1=\tilde{v}_1 e^{-i\omega t+ikx} \\
+&P=P_0+P_1=P_0+\tilde{P}_1e^{-i\omega t+ikx}
+\end{aligned}
+$$
+
+Substituting into the equation of motion and keeping only first order terms, we get
+
+$$
+\begin{aligned}
+\frac{\partial v_1}{\partial t}&=-\frac{e}{m_e}(E_1)-\frac{\nabla (P_1)}{n_0m_e} \\
+-i\omega v_1&=-\frac{e}{m_e}E_1-\frac{ik{v_{th}}^2 n_1}{n_0}
+\end{aligned}
+$$
+
+The continuity equation gives
+
+$$
+\begin{aligned}
+\frac{\partial n}{\partial t}+\frac{\partial}{\partial x}\Big( nv\Big)=0 \\
+\Rightarrow v_1=\frac{\omega n_1}{kn_0}
+\end{aligned}
+$$
+
+Substituting this into the linearized equation of motion, we get
+
+$$
+n_1=\frac{kn_0eE_1}{im_e(\omega^2-k^2{v_{th}}^2)}
+$$
+
+which is the density perturbation in response to $E_1$. Following the same approach as before, we can easily get the dielectric function:
+
+$$
+\frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2-k^2{v_{th}}^2}
+$$
+
+Let $\epsilon=0$, we get the dispersion relation for warm plasma
+
+$$
+\omega^2=k^2{v_{th}}^2+{\omega_{pe}}^2
+$$
+
+This is called the \emph{Bohm-Gross dispersion relation}.
+
+__Vlasov approach__
+
+Assume Maxwellian distribution for electrons:
+
+$$
+g_e(v)=\frac{1}{\sqrt{2\pi}}\frac{1}{v_{th,e}}e^{-v^2/2{v_{th,e}}^2}
+$$
+
+Assuming $\frac{\omega}{k}\gg v_{th,e}$, i.e. the phase speed is much larger than the characteristic thermal speed, we can do Taylor series expansion
+
+$$
+\frac{1}{(v-\omega/k)^2}=\frac{1}{(\omega/k)^2}\frac{1}{(1-kv/\omega)^2}\approx \frac{k^2}{\omega^2}\Big[ 1+\frac{2kv}{\omega}+\frac{3k^2v^2}{\omega^2}+...\Big]
+$$
+
+Then the dielectric function is
+
+$$
+\begin{aligned}
+\frac{\epsilon}{\epsilon_0}&=1-\frac{{\omega_{pe}}^2}{k^2}\int_{-\infty}^{\infty}dv g(v)\frac{k^2}{\omega^2}\Big[ 1+\frac{2kv}{\omega}+\frac{3k^2v^2}{\omega^2}+...\Big] \\
+&\doteq 1-\frac{{\omega_{pe}}^2}{\omega^2}\Big[ 1+\frac{3k^2{v_{th}}^2}{\omega^2} \Big] .
+\end{aligned}
+$$
+
+Let $\epsilon=0$, we can get the dispersion relation for warm plasma,
+
+$$
+\begin{aligned}
+&\text{lowest order: } \omega=\pm \omega_{pe}, \\
+&\text{first order:} 1-\frac{{\omega_{pe}}^2}{\omega^2}\Big( 1+\frac{3k^2{v_{th}}^2}{{\omega_{pe}}^2}\Big)=0\Rightarrow \omega^2={\omega_{pe}}^2+3k^2{v_{th,e}}^2.
+\end{aligned}
+$$
+
+Note here we insert $0^{th}$ order solution to $1^{st}$ order equation to get the next level approximation. Comparing with the results from 2-fluid theory, we see that the expression is very similar except a discrepancy in the coefficient. This is owing to the fact that we do not specify $\gamma$ in the equation of state. Actually, there are still ambiguities and debates about the exact equation of state. I wonder if I can get the exact coefficient under some assumption.
+
+The opposite limit case: $\frac{\omega}{k}\ll v_{th}$. From 2-fluid theory,
+
+$$
+\frac{\epsilon}{\epsilon_0}\approxeq1+\frac{{\omega_{pe}}^2}{k^2{v_{th,e}}^2}
+$$
+
+From Vlasov theory,
+
+$$
+\begin{aligned}
+\frac{\epsilon}{\epsilon_0}&=1-\frac{{\omega_{pe}}^2}{k^2}\int_{-\infty}^{\infty}dv\frac{\partial g/\partial v}{v-\omega/k}=
+1-\frac{{\omega_{pe}}^2}{k^2}\int_{-\infty}^{\infty}\frac{1}{v-\cancel{\omega/k}}\frac{1}{\sqrt{2\pi}}\frac{1}{v_{th,e}}\Big(\frac{-v}{{v_{th,e}}^2} \Big) e^{-v^2/2{v_{th,e}}^2}dv  \\
+&=1+\frac{{\omega_{pe}}^2}{k^2}\int_{-\infty}^{\infty}\frac{1}{v_{th,e}^2}\frac{1}{\sqrt{2\pi}} e^{-v^2/2{v_{th,e}}^2}dv \\
+&=1+\frac{{\omega_{pe}}^2}{k^2{v_{th,e}}^2}.
+\end{aligned}
+$$
+
+So we can see in the two limit cases that they "almost" give the same results!
+
+If we include ion motion in the 2-fluid theory ($n_{1i}\neq0, T_i\neq0,m_i\neq\infty$), applying the linear superposition property, we have
+
+$$
+\frac{\epsilon}{\epsilon_0}=\underbrace{1}_{\nabla\cdot(\epsilon_0\mathbf{E}_1)}-\underbrace{\frac{{\omega_{pe}}^2}{\omega^2-k^2{v_{th,e}}^2}}_{en_{1e}}-\underbrace{\frac{{\omega_{pi}}^2}{\omega^2-k^2{v_{th,i}}^2}}_{en_{1i}}
+$$
+
+__Ion-acoustic wave__
+
+Assume $v_{th,e}\gg \frac{\omega}{k}\gg v_{th,i}$, we have the simplified dielectric function
+
+$$
+\frac{\epsilon}{\epsilon_0}=1+\frac{{\omega_{pe}}^2}{k^2{v_{th,e}}^2}-\frac{{\omega_{pi}}^2}{\omega^2}
+$$
+
+Assume quasi-neutrality condition: $n_{1e}\approx n_{1i}$, s.t.
+
+$$
+\nabla\cdot(\epsilon_0\mathbf{E}_1)=e(n_{1e}-n_{1i})\approx 0
+$$
+
+so we can ignore the "1" in the dielectric function. Let $\epsilon=0$, we get
+
+$$
+\begin{aligned}
+\frac{{\omega_{pe}}^2}{k^2{v_{th,e}}^2}-\frac{{\omega_{pi}}^2}{\omega^2}=0 \\
+\Rightarrow \omega^2=k^2{v_{th,e}}^2\frac{m_e}{m_i},\ \frac{\omega}{k}=\sqrt{\frac{k_BT_e}{m_i}}\equiv c_s
+\end{aligned}
+$$
+
+Physically, electron sees the electric field created by ions due to ion plasma oscillation. Since electrons move much faster than ions, this electric field is nearly electrostatic for electrons. As a result, electron just follows the ion motion.
+
+There are some other ways to get the ion-acoustic wave. If $\omega\ll \omega_{pe}$, we can treat this wave as electrostatic wave for electron. The distribution for electron number density is
+
+$$
+\begin{aligned}
+&n_{e}=n_0e^{e\phi/k_B T_e}\approxeq n_{0e}+n_{1e} \approxeq n_0[1+\frac{e\phi}{k_BT_e}+...] \\
+\Rightarrow &n_{1e}=n_0\frac{e\phi}{k_BT_e}=\frac{n_0eE_1}{-ikm_e{v_{th,e}}^2}
+\end{aligned}
+$$
+
+Note that here the tilde signs $\sim$ of the variables are neglected for convenience without ambiguity. 
+
+Do we need to calculate $n_{1i}$??? Yes. MORE to do here!
+
+Also, from the linearized equation of motion for electron,
+
+$$
+\begin{aligned}
+\frac{\partial v_{e1}}{\partial t}=-\frac{e}{m_e}E_1-\frac{\nabla P_1}{n_0m_e} \\
+-i\omega v_{e1}=-\frac{e}{m_e}E_1-\frac{ik P_1}{n_0m_e}=-\frac{e}{m_e}E_1-\frac{ik n_{1e}k_BT_e}{n_0m_e}
+\end{aligned}
+$$
+
+In the $\omega\rightarrow 0$ limit, $LHS\doteq0$, we get
+
+$$
+n_{1e}= \frac{n_0eE_1}{-ikm_e{v_{th,e}}^2}
+$$
+
+Then again we get the dielectric function through Poisson's equation.
+
+
+## Electrostatic Wave in a Magnetized Plasma
+
+Now we continue to discuss the property of electrostatic waves with background magnetic field.
+
+First let us introduce a useful result for continuity equation. Assuming $n_0=n_0(\mathbf{x}),\ \mathbf{v}_0=\mathbf{v}_0(\mathbf{x})$ in equilibrium, $\mathbf{x}_1=\mathbf{x}_1(\mathbf{x},t)$ is the perturbation in displacement. We can show that the linearized continuity equation has an equivalent form:
+
+$$
+\frac{\partial n_1(\mathbf{x},t)}{\partial t}+\nabla\cdot[ n_0(\mathbf{x})\mathbf{v}_1(\mathbf{x},t)+n_1(\mathbf{x},t)\mathbf{v}_0(\mathbf{x},t)]=0
+\Leftrightarrow n_1(\mathbf{x},t)=-\nabla\cdot[n_0(\mathbf{x})\mathbf{x}_1(\mathbf{x},t)]
+$$
+
+The proof is related to mass conservation shown as follows. Intuitively, you can think of this as the degree of condensation only depends on displacement, not on how you get there (speed).
+
+In 1D,
+
+$$
+\begin{aligned}
+n_0=n_0(x_0)=\text{unperturbed density} \\
+x= x_0+x_1(x_0,t)=\text{instantanenous position} \\
+n(x_0,t)=n_0(x_0)+n_1(x_0,t)=\text{total density}
+\end{aligned}
+$$
+
+At time $t$, $[x_0,x_0+dx]\rightarrow[x_0+x_1(x_0,t),x_0+dx+x_1(x_0+dx,t)]$. Due to mass conservation, we have (This looks like the derivation of deformation in fluid dynamics.)
+
+$$
+\begin{aligned}
+n_0(x_0)dx&=[n_0(x_0+x_1)+n_1(x_0+x_1,t)]\cdot[x_0+dx+x_1(x_0+dx,t)-(x_0+x_1(x_0,t))] \\
+&\approx \Big[n_0(x_0)+x_1\frac{\partial n_0(x_0)}{\partial x_0}+n_1(x_0,t)\Big]dx\Big[1+\frac{\partial x_1(x_0,t)}{\partial x_0}\Big] 
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+&\Rightarrow n_0(x_0)=n_0(x_0)+n_0(x_0)\frac{\partial x_1(x_0,t)}{\partial x_0}+x_1\frac{\partial n_0(x_0)}{\partial x_0}+n_1(x_0,t) \\
+&\Rightarrow n_1(x_0,t)=-n_0(x_0)\frac{\partial x_1(x_0,t)}{\partial x_0}-x_1\frac{\partial n_0}{\partial x_0}=-\frac{\partial}{\partial x_0}\big[ n_0(x_0)x_1(x_0,t) \big] \\
+&\Rightarrow n_1(x,t)=-\frac{\partial}{\partial x}\big[ n_0(x)x_1(x,t)\big]
+\end{aligned}
+$$
+
+The simplest equilibrium state in a constant magnetized plasma is
+
+$$
+\begin{aligned}
+&n_{i0}=n_{e0}=n_0,\ \mathbf{E}_0=0,\ \mathbf{B}_0=B_0\widehat{z} \\
+&\mathbf{v}_{e0}=\mathbf{v}_{i0}=0,\ T_e=0,\ T_i=0,\ m_i=\infty
+\end{aligned}
+$$
+
+Now introduce an electrostatic perturbation ($\mathbf{E}_1=-\nabla\phi_1$)
+
+$$
+\begin{aligned}
+\mathbf{E}_1=\tilde{\mathbf{E}_1}e^{-i\omega t+i\mathbf{k}\cdot\mathbf{x}}=-i\mathbf{k}\tilde{\phi}_1 e^{-i\omega t+i\mathbf{k}\cdot\mathbf{x}}
+\end{aligned}
+$$
+
+we can confirm that this is indeed an electrostatic perturbation since $\mathbf{E}_1\parallel \mathbf{k}$ and $\mathbf{B}_1=0$.
+
+_Case 1_: $\mathbf{k}=k_z\widehat{z}\parallel \mathbf{B}_0$, i.e. parallel propagation. Then $\mathbf{E}_1=\widehat{z}E_{1z}e^{-i\omega t+ik_z z}$. This is the same as if there is no magnetic field, so the dielectric function is
+
+$$
+\frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2}.
+$$
+
+_Case 2_: $\mathbf{k}\perp \mathbf{B}_0$, i.e. perpendicular propagation. Without loss of generality, let $\mathbf{k}=k_x\widehat{x}$. Then
+
+$$
+\mathbf{E}_1=\widehat{x}\tilde{E}_{1x}e^{-i\omega t+ik_x x}.
+$$
+
+The equations of motion in x,y direction are (cold plasma)
+
+$$
+\begin{aligned}
+\ddot{x}_1 &= -\frac{e}{m_e}[E_{1x}+\dot{y}_1B_0], \\
+\ddot{y}_1 &= -\frac{e}{m_e}[-\dot{x}_1B_0], \\
+\Rightarrow \dot{y}_1&=\frac{eB_0}{m_e}x_1=|\Omega_e| x_1  \\
+\ddot{x}_1&=-\frac{e}{m_e}[E_{1x}+|\Omega_e|\cdot{y_1}B_0]=-\frac{e}{m_e}E_{1x}-{\Omega_e}^2 x_1,  \\
+\Rightarrow x_1&=\frac{-\frac{e}{m_e}E_{1x}}{-\omega^2+{\Omega_e}^2}.
+\end{aligned}
+$$
+
+Then we have the perturbed density in response to the perturbed electric field $E_{1x}$:
+
+$$
+\begin{aligned}
+n_1=-n_0\nabla\cdot\mathbf{x}_1=-n_0ik_x x_1=-n_0ik_x\frac{-\frac{e}{m_e}E_{1x}}{-\omega^2+{\Omega_e}^2}
+\end{aligned}
+$$
+
+From Poisson's equation, we get the dielectric function (the same method as before):
+
+$$
+\frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2-{\Omega_e}^2}
+$$
+
+Let $\epsilon=0$, we have
+
+$$
+\omega=\sqrt{{\omega_{pe}}^2+{\Omega_e}^2}\equiv \omega_{UH}
+$$
+
+which is called the \emph{upper hybrid} frequency. This is the highest characteristic frequency in plasma. This upper hybrid wave is a havoc to some beam generator devices as it appears near the electron collector. 
+
+What if ions are included? Similar to previous derivations and notice that we are still within the range of linear theory, we have
+
+$$
+\frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2-{\Omega_e}^2}-\frac{{\omega_{pi}}^2}{\omega^2-{\Omega_i}^2}.
+$$
+
+For $\Omega_i\ll \omega\ll \Omega_e$ with quasi-neutrality condition $n_{1e}\approx n_{1i}$, we can have a simplified dispersion relation by letting $\epsilon=0$:
+
+$$
+\begin{aligned}
+&\frac{{\omega_{pe}}^2}{{\Omega_{e}}^2}=\frac{{\omega_{pi}}^2}{\omega^2}\\
+\Rightarrow& \omega=\sqrt{{\omega_{pi}}^2\frac{{\Omega_e}^2}{{\omega_{pe}}^2}}=\sqrt{|\Omega_e \Omega_i|}\equiv \omega_{LH}
+\end{aligned}
+$$
+
+which gives us the _low hybrid wave_ frequency. It equals to the geometric mean of the two cyclotron frequencies. Actually, this can be obtained from pure plasma motion argument. Recall that $\Omega_i \ll \omega \ll \Omega_e$ means that for electrons the plasma seems to be nonmagnetized, so they moves only under the electric field,
+
+$$
+v_{1ex}=\frac{-eE_{1x}}{m_e(-i\omega)}
+$$
+
+On the other hand, for ions the magnetic field is strong while electric field still exists, so it experiences polarization drift along the direction of perturbed electric field,
+
+$$
+v_{1ix}=\frac{1}{\Omega_i}\frac{\partial}{\partial t}\Big( \frac{E_{1x}}{B_0}\Big)
+$$
+
+Under quasi-neutrality condition, $v_{1ix}=v_{1ex}$, so we have
+
+$$
+\frac{-eE_{1x}}{m_e(-i\omega)}=\frac{1}{\Omega_i}\frac{\partial}{\partial t}\Big( \frac{E_{1x}}{B_0}\Big) \Rightarrow \omega=\sqrt{|\Omega_e \Omega_i|}
+$$
+
+If we consider warm plasma for 1D, there is an additional pressure term in the momentum equation. The continuity equation together with Poisson's equation give the relation of perturbed displacement and electric field:
+
+$$
+\begin{aligned}
+&n_1=-\nabla\cdot(n_0\mathbf{x}_1)=-ik_xn_0x_1 \\
+&\nabla\cdot(\epsilon_0\mathbf{E}_1)=ik_x\epsilon_0E_{1}=-en_{1e}=eik_xn_0x_1 \\
+\Rightarrow& E_{1}=\frac{en_0x_1}{\epsilon_0}
+\end{aligned}
+$$
+
+Substituting into the momentum equation, we get
+
+$$
+\begin{aligned}
+\ddot{x}_1+{\Omega_e}^2x_1&=-\frac{e}{m_e}E_{1}-\frac{\nabla P_1}{n_0m_e}  \\
+&=-{\omega_{pe}}^2 x_1-{k_x}^2{v_{th,e}}^2x_1
+\end{aligned}
+$$
+
+where $v_{th,e}=\sqrt{k_BT_e/m_e}$. This gives us (You can gain a sense of the equivalent force law from the dispersion relation.)
+
+$$
+\omega^2={\omega_{pe}}^2+{\Omega_e}^2+{k_x}^2{v_{th,e}}^2
+$$
+
+This is also equivalent to the dielectric function
+
+$$
+\frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2-{\Omega_{e}}^2-{k_x}^2{v_{th,e}}^2}
+$$

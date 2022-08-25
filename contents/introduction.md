@@ -1,5 +1,50 @@
 # Introduction {#sec:intro}
 
+* What does MHD study?
+
+solid, liquid, gas, __plasma__
+
+* What is plasma?
+
+Quasi-neutral ionized gases. 
+
+* Where is plasma?
+  * Astrophysics \& geophysics
+    * Dynamo
+    * Shock
+    * Reconnection
+    * Particle acceleration
+  * Engineering \& application
+    * Controlled fusion
+    * Power conversion
+    * Reentry of intercontinental ballistic missiles and spacecrafts
+    * Plasma jet as a new propulsion for space vehicles
+    * Global warming
+
+* Methodologies applied in plasma physics
+  * Kinetic theory
+    * Microscopic point of view
+    * Positive, negative \& neutral particles
+    * EM force, collisions
+    * Ordinary gas .vs. Plasma
+      * binary collision
+      * free between collisions
+
+$$
+\begin{aligned}
+&nf(\mathbf{x}+d\mathbf{x},\mathbf{p}+d\mathbf{p},t+dt)d\mathbf{x}d\mathbf{p}-nf(\mathbf{x},\mathbf{p},t)d\mathbf{x}d\mathbf{p} \\
+=&\frac{\partial (nf(\mathbf{x},\mathbf{p},t))}{\partial t}\Big|_{\text{collision}}d\mathbf{x}d\mathbf{p}dt \nonumber \\
+=&\frac{\partial (nf)}{\partial t}+\frac{\partial nf}{\partial \mathbf{x}}\cdot\frac{\mathbf{p}}{m}+\frac{nf}{\partial \mathbf{p}}\cdot\mathbf{F}
+\end{aligned}
+$$
+
+This is also called the _Fokker-Planck_ term.
+
+* Theory of continuum
+  * Macroscopic point of view, bulk motion
+  * Fundamental equations from conservation laws
+  * Electro-Magneto-Hydro-Dynamics (EMHD)
+
 Definition: Plasma = _ionized gas_
 
 In plasma physics we usually use energy units "eV" instead of temperature. Given Boltzmann constant $k_B=1.38\times10^{-23}J/K$,
@@ -15,10 +60,10 @@ There are generally two kinds of plasma:
 At the beginning, it is important to get the idea of size. Starting from two basic length scales:
 
 * $a_0\equiv \text{atomic scale }$($\sim 10^{-10}\text{m}$)
-* n=\text{number density} ($\sim 1/cm^3$ to $10^{20}/\text{cm}^3$)
+* n = number density ($\sim 1/cm^3$ to $10^{20}/\text{cm}^3$)
 
 Physically, $n$ represents the number of particles in a unit volume, from which we know $n^{-1/3}$ has unit of length. It means a typical length for a single particle.
-Ionized state implies that $k_B  T\gg E_i=$ ionization potential energy$\sim \frac{e^2}{4\pi\epsilon_0 a_0}\approx 14eV$). 
+Ionized state implies that $k_B T\gg E_i=$ ionization potential energy$\sim \frac{e^2}{4\pi\epsilon_0 a_0}\approx 14eV$). 
 
 Gaseous state implies that $n^{-1/3}\gg a_0$.
 
