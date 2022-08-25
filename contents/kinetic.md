@@ -236,7 +236,7 @@ $$
 Since we are dealing with a one-dimensional problem we may drop the subscript x, begin careful not to confuse $v$ (which is really $v_x$) with the total velocity $v$ used earlier:
 
 $$
-1 = \frac{\omega_p^2}{k}\int_{-\infty}^{\infty}\frac{\partial \hat{f}_0/\partial v}{v - \omega/k}dv
+1 = \frac{\omega_p^2}{k^2}\int_{-\infty}^{\infty}\frac{\partial \hat{f}_0/\partial v}{v - \omega/k}dv
 $$ {#eq:dispersion_0th}
 
 Here, $\hat{f}_0$ is understood to be a one-dimensional distribution function, the integrations over $v_y$ and $v_z$ having been made. This equation holds for any equilibrium distribution $\hat{f}_0(v)$.

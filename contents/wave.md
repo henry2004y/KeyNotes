@@ -1,6 +1,132 @@
 # Waves {#sec:waves}
 
-## Waves in a Cold Uniform Plasma
+## Classification of EM Waves in Uniform Plasma
+
+$$
+\begin{aligned}
+&\left\{
+\begin{array}{ll}
+\mathbf{k}\parallel \mathbf{B}_0 & \text{Parallel Propagation}, \\
+\mathbf{k}\perp\mathbf{B}_0 & \text{Perpendicular Propagation}
+\end{array} \right. \\
+&\left\{
+\begin{array}{ll}
+\mathbf{k}\parallel \mathbf{E}_1 & \text{Longitudinal Waves}, \\
+\mathbf{k}\perp\mathbf{E}_1 & \text{Transverse Waves}
+\end{array} \right. \\
+&\left\{
+\begin{array}{ll}
+\mathbf{B}_1 = 0 & \text{Electrostatic Waves}, \\
+\mathbf{B}_1 \neq 0 & \text{Electromagnetic Waves}
+\end{array} \right.
+\end{aligned}
+$$
+
+Note:
+
+1. Wave is longitudinal $\Longleftrightarrow$ Wave is electrostatic
+2. Wave is transverse $\implies$ Wave is electromagnetic
+3. Wave is electromagnetic $\centernot\implies$ Wave is transverse. You can always add a component of $\mathbf{E}_1$ parallel to $\mathbf{k}$ without changing $\mathbf{B}_1$.
+
+## ES vs. EM Waves
+
+As we will see in @sec:CPDR, the dielectric function is defined in @eq:d_e_relation. From other perspectives, the dielectric function shows up in the Ampère's law as well as the Poisson's equation
+
+$$
+\begin{aligned}
+\nabla\times\mathbf{B}=\mu_0\mathbf{j}+\mu_0\epsilon_0\frac{\partial\mathbf{E}}{\partial t}&\equiv\mu_0\pmb{\epsilon}\cdot\frac{\partial \mathbf{E}}{\partial t} \\
+\nabla\cdot(\mathbf{\epsilon_0 \mathbf{E}_1}) + q_j n_j \equiv\nabla\cdot(\pmb{\epsilon}\cdot\mathbf{E}_1) &= 0
+\end{aligned}
+$$
+
+Let us consider waves in an _isotropic_ plasma. For isotropic plasmas, the dielectric tensor $\pmb{\epsilon}$ shrinks to a scalar $\epsilon$. For cold plasma (static ion background), the dielectric function is
+
+$$
+\frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2}
+$$
+
+For electrostatic (ES) waves, let $\epsilon=0$, we have
+
+$$
+\omega=\pm\omega_{pe}
+$$
+
+For electromagnetic (EM) waves, from Maxwell's equations we have
+
+\begin{aligned}
+\nabla\times\mathbf{E}&=-\frac{\partial \mathbf{B}}{\partial t}, \\
+\nabla\times\mathbf{B}&=\mu_0\mathbf{j}+\mu_0\epsilon_0\frac{\partial\mathbf{E}}{\partial t}\equiv\mu_0\epsilon\frac{\partial \mathbf{E}}{\partial t}.
+\end{aligned}
+
+With $\nabla\rightarrow i\mathbf{k},\ \partial/\partial t\rightarrow -i\omega$, we can get the dispersion relation
+
+\begin{aligned}
+i\mathbf{k}\times\mathbf{E}&=i\omega \mathbf{B} \notag\\
+i\mathbf{k}\times\mathbf{B}&=-i\mu_0\epsilon\omega\mathbf{E} \notag\\
+\Rightarrow k^2\mathbf{E}-\cancel{(\mathbf{k}\cdot\mathbf{E})\mathbf{k}}&=\omega^2 \mu_0\epsilon \mathbf{E}.
+\end{aligned}
+
+If $\mathbf{k}\perp\mathbf{E}$, by substituting the dielectric function inside we have
+
+\begin{aligned}
+k^2=\omega^2 \epsilon\mu_0=\omega^2\epsilon_0\mu_0\Big[ 1-\frac{{\omega_{pe}}^2}{\omega^2}\Big] \nonumber \\
+\Rightarrow \omega^2=k^2c^2+{\omega_{pe}}^2.
+\end{aligned}
+
+For both waves, $\nabla\cdot(\epsilon\mathbf{E}_1)=0\Rightarrow i\epsilon(\mathbf{k}\cdot\mathbf{E}_1)=0$ is always valid. However, for electrostatic wave, $\mathbf{E}_1=-\nabla\phi_1=-i\mathbf{k}\phi_1\Rightarrow \mathbf{k}\parallel \mathbf{E}_1\Rightarrow \epsilon=0$, while for EM wave, usually $\mathbf{k}\perp\mathbf{E}_1$\footnote{$\mathbf{k}\perp\mathbf{E}_1 \implies $ EM wave, but EM waves do not necessarily need to be transverse. You can always add a component of $\mathbf{E}_1$ parallel to $\mathbf{k}$ without changing $\mathbf{B}_1$.}, $\epsilon$ does not need to be zero. Therefore, _getting the dispersion relation by setting $\epsilon$ to 0 is only valid for isotropic ES waves_. For EM waves, there's a systematic way to get all the dispersion relations starting from dielectric function, explained in detail in @sec:CPDR. Here we just have a simple summary of the steps.
+
+From Maxwell's equation for the perturbed field,
+
+\begin{aligned}
+\nabla\times\mathbf{E}_1 &= -\mu_0\frac{\partial \mathbf{H}_1}{\partial t} \\
+\nabla\times\mathbf{H}_1 &= \mathbf{J}_1 +\epsilon_0\frac{\partial \mathbf{E}_1}{\partial t}
+\end{aligned}
+
+where we have assumed
+
+$$
+\begin{Bmatrix}
+\mathbf{E}_1(\mathbf{x},t) \\ \mathbf{H}_1(\mathbf{x},t)
+\end{Bmatrix}  = \Re
+\begin{Bmatrix}
+\tilde{\mathbf{E}_1}e^{i\mathbf{k}\cdot\mathbf{x}-i\omega t} \\
+\tilde{\mathbf{H}_1}e^{i\mathbf{k}\cdot\mathbf{x}-i\omega t}
+\end{Bmatrix}
+$$
+
+It quickly follows that
+
+\begin{aligned}
+\mathbf{k}\times\mathbf{E}_1 &= \mu_0 \omega \mathbf{H}_1 \\
+i\mathbf{k}\times\mathbf{H}_1 &= i\mathbf{k}\times\Big( \frac{\mathbf{k}\times\mathbf{E}_1}{\mu_0 \omega}\Big) = \mathbf{J}_1 - \epsilon_0 i\omega\mathbf{E}_1
+\end{aligned}
+
+Then there comes the wave equation
+
+$$
+\mathbf{k}\times(\mathbf{k}\times\mathbf{E}_1) = \mathbf{k}(\mathbf{k}\cdot\mathbf{E}_1) - k^2\mathbf{E}_1 =  -i\omega \mu_0 \mathbf{J}_1 -\frac{\omega^2}{c^2}\mathbf{E}_1 \equiv -\frac{\omega^2}{c^2}\frac{\epsilon}{\epsilon_0}\mathbf{E}_1
+$$
+
+If we can express the total current density as a function of perturbed electric field, $\mathbf{J}_1 = \mathbf{J}_1(\mathbf{E}_1)$, from MHD, 2-fluid, or Vlasov model combining with the property of the media, we can obtain the expression for the dielectric function $\epsilon$. With some effort, we get
+
+$$
+\mathbf{A}
+\begin{pmatrix}
+E_{1x} \\ E_{1y} \\ E_{1z}
+\end{pmatrix} = 0
+$$
+
+from which the condition for non-trivial solutions leads to
+
+$$
+\det{A} = 0 \Rightarrow
+\begin{cases}
+\text{eigenvalue for } \omega = \omega(\mathbf{k}) \\
+\text{eigenvectors} \Rightarrow \text{polarization of E field}
+\end{cases}
+$$
+
+## Waves in a Cold Uniform Plasma {#sec:CPDR}
 
 As long as $T_e = T_i = 0$, the linear plasma waves can easily be generalized to an arbitrary number of charged particle species and an arbitrary angle of propagation $\theta$ relative to the magnetic field. Waves that depend on finite $T$, such as ion acoustic waves, are not included in this treatment. The derivations go back to late 1920s when Appleton and Wilhelm Altar first calculated the cold plasma dispersion relation (CPDR).
 
@@ -191,7 +317,7 @@ n^2\sin\theta\cos\theta & 0 & P-n^2\sin^2\theta
 \end{pmatrix}
 \begin{pmatrix}
 E_x \\ E_y \\ E_z
-\end{pmatrix}
+\end{pmatrix} = 0
 $$ {#eq:dielectric}
 
 From this it is clear that the $E_x$, $E_y$ components are coupled to $E_z$ only if one deviates from the principal angles $\theta = 0, 90^o$.
