@@ -48,8 +48,9 @@ This is also called the _Fokker-Planck_ term.
 Definition: Plasma = _ionized gas_
 
 In plasma physics we usually use energy units "eV" instead of temperature. Given Boltzmann constant $k_B=1.38\times10^{-23}J/K$,
+
 $$
-1eV=(11600K)\times k_B=1.602\times 10^{-19}J ([V]=[J]/[C]).
+1eV=(11600\text{K})\times k_B=1.602\times 10^{-19}\text{J} ([V]=[J]/[C])
 $$
 
 There are generally two kinds of plasma:

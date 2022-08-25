@@ -164,7 +164,7 @@ $$
 \mathbf{D} = \epsilon_0 \mathbf{E} + \frac{i}{\omega}\mathbf{j}
 $$ {#eq:electric_displacement_field}
 
-is the __electric displacement field__ or __electric induction__.  It accounts for the effects of free and bound charge within materials (i.e. plasma).
+is the __electric displacement field__ or __electric induction__.  It accounts for the effects of _free and bound charge within materials_ (i.e. plasma).
 Here we have assumed an $\exp(-i\omega t)$ dependence for all plasma motions. Let the current $\mathbf{j}$ be proportional to $\mathbf{E}$ but not necessarily in the same direction (because of the magnetic field $B_0\hat{\mathbf{z}}$); we may then define a conductivity tensor $\pmb{\sigma}$ by the relation
 
 $$
@@ -183,7 +183,7 @@ $$
 \pmb{\epsilon} = \epsilon_0 (\mathbf{I} + i\pmb{\sigma}/\epsilon_0\omega)
 $$
 
-where $\mathbf{I}$ is the unit tensor.
+where $\mathbf{I}$ is the unit tensor. In electromagnetism, a __dielectric__ is an electrical insulator that can be polarised by an applied electric field. When a dielectric material is placed in an electric field, electric charges do not flow through the material as they do in an electrical conductor, because they have no loosely bound, or free, electrons that may drift through the material, but instead they shift, only slightly, from their average equilibrium positions, causing dielectric polarisation.
 
 To evaluate $\pmb{\sigma}$, we use the linearized fluid equation of motion for species $s$, neglecting the collision and pressure terms:
 
