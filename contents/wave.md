@@ -53,34 +53,42 @@ $$
 
 For electromagnetic (EM) waves, from Maxwell's equations we have
 
+$$
 \begin{aligned}
 \nabla\times\mathbf{E}&=-\frac{\partial \mathbf{B}}{\partial t}, \\
 \nabla\times\mathbf{B}&=\mu_0\mathbf{j}+\mu_0\epsilon_0\frac{\partial\mathbf{E}}{\partial t}\equiv\mu_0\epsilon\frac{\partial \mathbf{E}}{\partial t}.
 \end{aligned}
+$$
 
 With $\nabla\rightarrow i\mathbf{k},\ \partial/\partial t\rightarrow -i\omega$, we can get the dispersion relation
 
+$$
 \begin{aligned}
 i\mathbf{k}\times\mathbf{E}&=i\omega \mathbf{B} \notag\\
 i\mathbf{k}\times\mathbf{B}&=-i\mu_0\epsilon\omega\mathbf{E} \notag\\
 \Rightarrow k^2\mathbf{E}-\cancel{(\mathbf{k}\cdot\mathbf{E})\mathbf{k}}&=\omega^2 \mu_0\epsilon \mathbf{E}.
 \end{aligned}
+$$
 
 If $\mathbf{k}\perp\mathbf{E}$, by substituting the dielectric function inside we have
 
+$$
 \begin{aligned}
 k^2=\omega^2 \epsilon\mu_0=\omega^2\epsilon_0\mu_0\Big[ 1-\frac{{\omega_{pe}}^2}{\omega^2}\Big] \nonumber \\
 \Rightarrow \omega^2=k^2c^2+{\omega_{pe}}^2.
 \end{aligned}
+$$
 
 For both waves, $\nabla\cdot(\epsilon\mathbf{E}_1)=0\Rightarrow i\epsilon(\mathbf{k}\cdot\mathbf{E}_1)=0$ is always valid. However, for electrostatic wave, $\mathbf{E}_1=-\nabla\phi_1=-i\mathbf{k}\phi_1\Rightarrow \mathbf{k}\parallel \mathbf{E}_1\Rightarrow \epsilon=0$, while for EM wave, usually $\mathbf{k}\perp\mathbf{E}_1$\footnote{$\mathbf{k}\perp\mathbf{E}_1 \implies $ EM wave, but EM waves do not necessarily need to be transverse. You can always add a component of $\mathbf{E}_1$ parallel to $\mathbf{k}$ without changing $\mathbf{B}_1$.}, $\epsilon$ does not need to be zero. Therefore, _getting the dispersion relation by setting $\epsilon$ to 0 is only valid for isotropic ES waves_. For EM waves, there's a systematic way to get all the dispersion relations starting from dielectric function, explained in detail in @sec:CPDR. Here we just have a simple summary of the steps.
 
 From Maxwell's equation for the perturbed field,
 
+$$
 \begin{aligned}
 \nabla\times\mathbf{E}_1 &= -\mu_0\frac{\partial \mathbf{H}_1}{\partial t} \\
 \nabla\times\mathbf{H}_1 &= \mathbf{J}_1 +\epsilon_0\frac{\partial \mathbf{E}_1}{\partial t}
 \end{aligned}
+$$
 
 where we have assumed
 
@@ -96,10 +104,12 @@ $$
 
 It quickly follows that
 
+$$
 \begin{aligned}
 \mathbf{k}\times\mathbf{E}_1 &= \mu_0 \omega \mathbf{H}_1 \\
 i\mathbf{k}\times\mathbf{H}_1 &= i\mathbf{k}\times\Big( \frac{\mathbf{k}\times\mathbf{E}_1}{\mu_0 \omega}\Big) = \mathbf{J}_1 - \epsilon_0 i\omega\mathbf{E}_1
 \end{aligned}
+$$
 
 Then there comes the wave equation
 
