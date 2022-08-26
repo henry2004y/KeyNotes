@@ -605,7 +605,7 @@ $$
 Then again we get the dielectric function through Poisson's equation.
 
 
-## Electrostatic Wave in a Magnetized Plasma
+## Electrostatic Wave in a Magnetized Plasma {#sec:es_wave_magnetized}
 
 Now we continue to discuss the property of electrostatic waves with background magnetic field.
 
