@@ -773,3 +773,15 @@ This is also equivalent to the dielectric function
 $$
 \frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2-{\Omega_{e}}^2-{k_x}^2{v_{th,e}}^2}
 $$
+
+## Summary of Basic MHD Waves
+
+![Plasma oscillation, also known as Langmuir wave.](https://s8.gifyu.com/images/plasma.gif){#fig:langmuir_wave}
+
+![Lower hybrid wave.](https://s8.gifyu.com/images/lowerhybrid.gif){#fig:lowerhybrid_wave}
+
+![Alfvén wave.](https://s8.gifyu.com/images/alfven.gif){#fig:alfven_wave}
+
+![Whistler wave.](https://s8.gifyu.com/images/whistler.gif){#fig:whistler_wave}
+
+![Fast wave.](https://s8.gifyu.com/images/fast.gif){#fig:fast_wave}

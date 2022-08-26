@@ -184,7 +184,7 @@ ADD A TWO STREAM INSTABILITY PHASE ANIMATION!
 
 This has been repeated multiple times. The energy equation derivation can be found in [An introductory guide to fluid models with anisotropic temperatures](https://arxiv.org/abs/1901.09354).
 
-## Plasma Oscillations and Landau Damping
+## Plasma Oscillations and Landau Damping {#sec:landau}
 
 As an elementary illustration of the use of the Vlasov equation, we shall derive the dispersion relation for electron plasma oscillations, which is originally treated from the fluid point of view. This derivation will require a knowledge of contour integration.
 
@@ -261,7 +261,7 @@ Although an exact analysis of this problem is complicated, we can obtain an appr
 
 $$
 1 = \frac{\omega_p^2}{k^2} \Big[ P\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0/\partial v}{v - (\omega/k)}dv + i\pi \frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=\omega/k} \Big]
-$$
+$$ {#eq:landau_residue}
 
 where $P$ stands for the Cauchy principal value. To evaluate this, we integrate along the real $v$ axis but stop just before encountering the pole. If the phase velocity $v_\phi = \omega/k$ is sufficiently large, as we assume, there will not be much contribution from the neglected part of the contour, since both $\hat{f}_0$ and $\partial\hat{f}_0/\partial v$ are very small there. The integral above can be evaluated by integration by parts:
 

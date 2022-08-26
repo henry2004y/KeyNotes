@@ -1,31 +1,5 @@
 # Math {#sec:math}
 
-## Green's Function
-
-The Vlasov theory and the 2-fluid theory only tell us when instability will happen, but neither tell us the severity of instability. To know the magnitude of instability mathematically, we can introduce Green's function
-
-$$
-G(x,t)=\frac{2}{\pi}\int_{-\infty}^{\infty}e^{i\omega(k) t-ikx}dk
-$$
-
-where $t$ is the beam's pulse length and $x$ is the propagation distance. At $t=0$, we have
-
-$$
-\begin{aligned}
-G(x,0)&=\frac{2}{\pi}\int_{-\infty}^{\infty}e^{-ikx}dk=\frac{2}{ik\pi}e^{ikx}\big|_{k=-\infty}^{k=\infty} \\
-&=\lim_{k\rightarrow\infty}\frac{2}{ix\pi}\big[ \cos{kx}+i\sin{kx}-\cos{kx}+i\sin{kx} \big] \\
-&=\lim_{k\rightarrow\infty}\frac{1}{\pi}\frac{\sin{kx}}{x}=\delta(x)
-\end{aligned}
-$$
-
-The integral $\int_0^{+\infty}\frac{\sin x}{x}dx$ is called the Dirichlet integral. It is a very famous and important generalized improper integral. Here at least you can see that 
-
-$$
-\int_{-\infty}^{\infty}G(x,0)=\frac{2}{\pi}\int_0^\infty \frac{\sin kx}{x}dx=1\quad \textrm{and}\quad G(0,0)=\infty
-$$
-
-So not strictly speaking, this is the delta function. (Further study!)
-
 ## Complex Analysis
 
 In complex analysis, the following statements are equivalent:
@@ -35,21 +9,21 @@ In complex analysis, the following statements are equivalent:
 3. $df(z)/dz$ exists at $z=z_0$.
 4. $f(z)$ has a convergent Taylor expansion about $z=z_0$.
 5. The $n^{th}$ derivative $d^nf(z)/dz^n$ exists at $z=z_0$ for all $n$.
-6. The Cauchy-Riemann condition is satisfied at $z=z_0$.
+6. The _Cauchy-Riemann condition_ is satisfied at $z=z_0$. Take $u$ and $v$ to be the real and imaginary parts respectively of a complex-valued function of a single complex variable $z = x + iy$, $f(x + iy) = u(x,y) + iv(x,y)$.
 
 $$
 \begin{aligned}
 \frac{\partial u}{\partial x}&=\frac{\partial v}{\partial y} \\
-\frac{\partial u}{\partial y}&=-\frac{\partial v}{\partial x}.
+\frac{\partial u}{\partial y}&=-\frac{\partial v}{\partial x}
 \end{aligned}
 $$
 
 An idea of _analytic continuation_ is introduced here. In practice, an analytic function is usually defined by means of some mathematical expression --- such as a polynomial, an infinite series, or an integral. Ordinarily, there is some region within which the expression is meaningful and does yield an analytic function. Outside this region, the expression may cease to be meaningful, and the question then arises as to whether or not there is any way of extending the definition of the function so that this "extended" function is analytic over a larger region. A simple example is given as follows.
 
-_Ex1_
+_Ex.1_ Polynomial series
 
 $$
-f(z)=\sum_0^{\infty} z^n
+f(z)=\sum_{n=0}^{\infty} z^n
 $$
 
 which describes an analytic function for $|z|<1$ but which diverges for $|z|>1$. However, the function
@@ -60,25 +34,25 @@ $$
 
 is analytic over the whole plane (except at $z=1$), and it coincides with $f(z)$ inside the unit circle. 
 
-Such a function $g(z)$, which coincides with a given analytic $f(z)$ over that region for which $f(z)$ is defined by which also is analytic over some extension of that region, is said to be an \emph{analytic continuation} of $f(z)$. It is useful to think of $f(z)$ and $g(z)$ as being one and the same function and to consider that the formula defining $f(z)$ failed to provide the values of $f(z)$ in the extended region because of some defect in the mode of description rather than because of some limitation inherent in $f(z)$ itself. [c.f. G.F.Carrier, M.Krook and C.E.Pearson, Functions of a Complex Variable, McGraw-Hill (1966), p.63]
+Such a function $g(z)$, which coincides with a given analytic $f(z)$ over that region for which $f(z)$ is defined by which also is analytic over some extension of that region, is said to be an _analytic continuation_ of $f(z)$. It is useful to think of $f(z)$ and $g(z)$ as being the same function and to consider that the formula defining $f(z)$ failed to provide the values of $f(z)$ in the extended region because of some defect in the mode of description rather than because of some limitation inherent in $f(z)$ itself. [c.f. G.F.Carrier, M.Krook and C.E.Pearson, Functions of a Complex Variable, McGraw-Hill (1966), p.63]
 
-_Ex2_
+_Ex.2_ Laplace transform
 
 $$
-\mathcal{L}[1]= \int_0^\infty dt 1\cdot e^{i\omega t}=-\frac{1}{i\omega}, \textrm{if Im}(\omega)>0
+\mathcal{L}[1]= \int_0^\infty dt 1\cdot e^{i\omega t}=-\frac{1}{i\omega},\, \textrm{if } \Im(\omega)>0
 $$
 
-If you have a pure real frequency $\omega$, then when you integrate $v$ over the real axis, at $v=\omega/k$ you will encounter a singular point. Actually, this integration is convergent if and only if $Im\{ \omega\}>0$. $-\frac{1}{i\omega}$ is the \emph{analytic continuation} of $f(\omega)$ for all complex $\omega$ except $\omega=0$.
+If you have a pure real frequency $\omega$, then when you integrate $v$ over the real axis, at $v=\omega/k$ you will encounter a singular point. Actually, this integration is convergent if and only if $\Im(\omega)>0$. $-\frac{1}{i\omega}$ is the _analytic continuation_ of $f(\omega)$ for all complex $\omega$ except $\omega=0$.
 
-To calculate the integral around singular points, we may take advantage of Cauchy Integral Formula and the Residual theorem.
+To calculate the integral around singular points, we may take advantage of the Cauchy integral formula and the residual theorem.
 
-__Theorem 2.1__
+__Theorem 2.1__ Cauchy integral
 
-Let $C_\epsilon$ be a circular arc of radius $\epsilon$, centered at $\alpha$, subtending angle $\theta_0$ in counterclockwise direction. 
+Let $C_\epsilon$ be a circular arc of radius $\epsilon$, centered at $\alpha$, with subtended angle $\theta_0$ in counterclockwise direction. 
 Let $f(z)$ be an analytic function on $C_\epsilon+$inside $C_\epsilon$. Then
 
 $$
-\lim_{\epsilon\rightarrow0}\int_{c_\epsilon}\frac{f(z)dz}{z-\alpha}=i\theta_0 f(\alpha).
+\lim_{\epsilon\rightarrow0}\int_{c_\epsilon}\frac{f(z)dz}{z-\alpha}=i\theta_0 f(\alpha)
 $$ 
 
 _Proof:_
@@ -89,17 +63,17 @@ LHS=\lim_{\epsilon\rightarrow0}\int_{C_\epsilon}\frac{f(\alpha+\epsilon e^{i\the
 $$
 □
 
-__Theorem 2.2__
+__Theorem 2.2__ Residue
 
 Let $f(z)$ be an analytic function on a closed contour $C+$inside $C$. If point $\alpha$ is inside $C$, we have
 
 $$
-f(\alpha)=\frac{1}{2\pi i}\oint_c \frac{f(z)dz}{z-\alpha}.
+f(\alpha)=\frac{1}{2\pi i}\oint_c \frac{f(z)dz}{z-\alpha}
 $$ 
 
 _Proof_:
 
-$\frac{f(z)}{z-\alpha}$ is analytic within region bounded by $C+L_1-C_\epsilon+L_2$. Therefore
+$\frac{f(z)}{z-\alpha}$ is analytic within region bounded by $C+L_1-C_\epsilon+L_2$, where $L_1$ and $L_2$ are two paths that connects/breaks $C$ and $C_\epsilon$. Therefore
 
 $$
 \begin{aligned}
@@ -109,30 +83,27 @@ $$
 $$
 □
 
-There is another purely algebraic proof shown on wiki. It is also very simple and clear.
+There is also a purely algebraic proof available.
 
+Note that the value of $f(z)$ on $C$ determines value of $f(\alpha)$ for all $\alpha$ within $C$. This has a close relation to the potential theory. Actually, what Cauchy-Riemann condition says physically is that the potential flow is both irrotational and incompressible!
 
-Note that the value of $f(z)$ on $C$ determines value of $f(\alpha)$ for all $\alpha$ within $C$. This has a close relation to the potential theory. Actually, what Cauchy-Riemann condition says physically is that the potential flow is both irrotational and imcompressible!
-
-__Theorem 2.3__
+__Theorem 2.3__ Residual theorem
 
 Let $f(z)$ be an analytic function on $C+$inside $C$. If point $\alpha$ is inside $C$, we have
 $$
-\oint_c \frac{f(z)dz}{z-\alpha}=2\pi i f(\alpha)\equiv 2\pi i Res\Big[ \frac{f(z)}{z-x};z=\alpha \Big].
+\oint_c \frac{f(z)dz}{z-\alpha}=2\pi i f(\alpha)\equiv 2\pi i \text{Res}\Big[ \frac{f(z)}{z-x};z=\alpha \Big]
 $$ 
 □
 
-Applying this powerful theorem, we can calculate many integrals analytically which contain singular points.
+Khan Academy has a [nice video](https://youtu.be/YWIseo5LwgQ) on this. Applying this powerful theorem, we can calculate many integrals analytically which contain singular points.
 
-_Ex3_
-
-integral figure needed!
+_Ex.3_
 
 $$
-f(\omega)=\int_{-\infty}^{\infty}dv \frac{e^{iv}}{v-\omega}=2\pi ie^{i\omega},\ Im(\omega)>0
+f(\omega)=\int_{-\infty}^{\infty}dv \frac{e^{iv}}{v-\omega}=2\pi ie^{i\omega},\,\Im(\omega)>0
 $$
 
-Pick a semi-circle contour $C_R$ in the upper plane of complex v. Let $C$ be a closed contour of a line along the real axis $Re(v)$ and the semi-circle $C_R$. $e^{iv}$ is analytic along and inside $C$, so
+Pick a semi-circle contour $C_R$ in the upper plane of complex v. Let $C$ be a closed contour of a line along the real axis $\Re(v)$ and the semi-circle $C_R$. $e^{iv}$ is analytic along and inside $C$, so
 
 $$
 f(\omega)=\Big(\oint_C-\int_{C_R}\Big)\frac{dv e^{iv}}{v-\omega}=2\pi i e^{i\omega}-\int_{C_R}\frac{dv e^{iv}}{v-\omega}=2\pi i e^{i\omega} \textrm{ as } R\rightarrow \infty
@@ -142,9 +113,9 @@ $$
 \Big( e^{iv}=e^{i(v_r+iv_i)}=e^{iv_r}e^{-v_i},v_i>0 ; v-\omega\rightarrow\infty\Big)
 $$
 
-$2\pi ie^{i\omega}$ is the \emph{analytic continuation} of $f(\omega)$ for all $\omega$. Analytic continuation is achieved if we deform the contour integration in the complex $v$ plane.
+$2\pi ie^{i\omega}$ is the _analytic continuation_ of $f(\omega)$ for all $\omega$. Analytic continuation is achieved if we deform the contour integration in the complex $v$ plane.
 
-_Ex4_
+_Ex.4_
 
 $$
 \frac{\epsilon(\omega)}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{k^2}\chi(\omega)
@@ -155,9 +126,24 @@ where
 $$
 \begin{aligned}
 \chi(\omega)&=\int_{-\infty}^{\infty}dv \frac{\partial g/\partial v}{v-\omega/k},\ Im(\omega)>0 \\
-&=\int_L dv\frac{\partial g(v)\partial v}{v-\omega/k}, \textrm{for all complex $\omega$, as long as $L$ lies below $\omega$}
+&=\int_L dv\frac{\partial g(v)/\partial v}{v-\omega/k}, \textrm{for all complex $\omega$, as long as $L$ lies below $\omega$}
 \end{aligned}
 $$
+
+Landau integral: pick a trajectory _under_ the singular point in the complex plane to achieve the integration.
+
+FIGURE NEEDED!
+
+Let $C_\epsilon$ be a small semi-circle under $\omega/k$. Then
+
+$$
+\begin{aligned}
+\frac{\epsilon(\omega)}{\epsilon_0}&=1-\frac{{\omega_{pe}}^2}{k^2}\Big[  P\int_{-\infty}^{\infty}dv\frac{\partial g(v)\partial v}{v-\omega/k}+\int_{C_\epsilon}dv\frac{\partial g(v)\partial v}{v-\omega/k} \Big] \notag \\
+&=1-\frac{{\omega_{pe}}^2}{k^2}\Big[  P\int_{-\infty}^{\infty}dv\frac{\partial g(v)\partial v}{v-\omega/k}+i\pi\frac{\partial g(v)}{\partial v}\big|_{v=\frac{\omega}{k}} \Big]
+\end{aligned}
+$$
+
+where $P$ denotes the principle value integral. This is the same as @eq:landau_residue that will be discussed in @sec:landau.
 
 ## Helmholtz's Theorem
 
@@ -298,3 +284,29 @@ $$
 $$
 
 Note that $(x,y,z)$ and $r$ are all normalized to the radius of the planet $R$.
+
+## Green's Function
+
+The Vlasov theory and the 2-fluid theory only tell us when instability will happen, but neither tell us the severity of instability. To know the magnitude of instability mathematically, we can introduce Green's function
+
+$$
+G(x,t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx-i\omega(k) t}dk
+$$
+
+where $t$ is the beam's pulse length and $x$ is the propagation distance. At $t=0$, we have
+
+$$
+\begin{aligned}
+G(x,0)&=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}dk=\frac{1}{2i\pi x}e^{ikx}\bigg|_{k=-\infty}^{k=\infty} \\
+&=\lim_{k\rightarrow\infty}\frac{1}{2i\pi x}\big[ \cos{kx}+i\sin{kx}-\cos{kx}+i\sin{kx} \big] \\
+&=\lim_{k\rightarrow\infty}\frac{1}{\pi}\frac{\sin{kx}}{x}=\delta(x)
+\end{aligned}
+$$
+
+where $\delta(x)$ is the $\delta$-function.
+
+The integral $\int_0^{\infty}\frac{\sin x}{x}dx$ is called the Dirichlet integral. It is a very famous and important generalized improper integral. Here at least you can see that 
+
+$$
+\int_{-\infty}^{\infty}G(x,0)=\frac{1}{\pi}\int_0^\infty \frac{\sin kx}{x}dx=1\quad \textrm{and}\quad G(0,0)=\infty
+$$
