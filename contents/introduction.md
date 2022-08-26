@@ -168,7 +168,7 @@ It should be noted that, despite the conventional requirement \ref{eq:length_lim
 
 ## Debye Shielding
 
-(Problem 4 on P27 Bellan)
+(Problem 4 on P27 [@bellan2008fundamentals])
 
 Maxwell distribution: 
 
