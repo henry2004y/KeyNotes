@@ -63,13 +63,15 @@ $$
 
 The field strength goes down as $R$ increases, which implies that the inner semi-tube is in good curvature and the outer semi-tube is in bad curvature. By plotting mechanical potential=$\mu B$ along the B-line as a function of $\theta$, we can see that there are bumps and valleys. Particles with low $v_\parallel$ are trapped, and those with large $v_\parallel$ are transit particles. Tokamak is an _average minimum B geometry_, because particles spend longer time on hills (stable region) and less time in valleys (unstable region). This geometry is not as robust as Ioffe bar magnetic mirror, since some particles with small $v_\parallel$ are always trapped in bad curvature region.
 
-See more in [@chen1984introduction], Third Edition, Chapter Application of Plasmas.
+See more in [@chen2016introduction], Third Edition, Chapter Application of Plasmas.
 
 ## Rayleigh-Taylor Instability
 
-Rayleigh-Taylor Instability is probably the most famous kind of instability. It is also called flute instability, gravitational instability or interchange instability.
+The Rayleigh-Taylor instability is probably the most famous kind of instability. It is also called _flute instability_, _gravitational instability_ or _interchange instability_.
 
-Here we use a 2-fluid model and a so-called "diffuse boundary" model [@chen1984introduction] to describe it mathematically. Recall the structure of magnetic mirror: we have curved magnetic field lines and high density plasma at the center. From the discussion in @sec:single_particle_instability, we know that the central part of magnetic mirror is unstable for Rayleigh-Taylor instability because of centrifugal force. Let us simplify the scenario and study the problem in Cartesian coordinates. The centrifugal force is irrelevant to particle charge and proportional to particle mass, so both ions and electrons have the same acceleration due to it. Let us replace the centrifugal force with gravity $\mathbf{g}$. In fig:RT_instability, there are high density plasma on top and low density plasma on the bottom, with a distribution $\partial n_o/\partial x<0$.
+Here we use a 2-fluid model and a so-called "diffuse boundary" model [@chen2016introduction] to describe it mathematically. Recall the structure of magnetic mirror: we have curved magnetic field lines and high density plasma at the center. From the discussion in @sec:single_particle_instability, we know that the central part of magnetic mirror is unstable for Rayleigh-Taylor instability because of centrifugal force. Let us simplify the scenario and study the problem in Cartesian coordinates. The centrifugal force is irrelevant to particle charge and proportional to particle mass, so both ions and electrons have the same acceleration due to it. Let us replace the centrifugal force with gravity $\mathbf{g}$. In @fig:RT_instability, there are high density plasma on top and low density plasma on the bottom, with a distribution $\partial n_o/\partial x<0$.
+
+![Simultaion of Rayleigh-Taylor instability [@rahman2019relaxation].](images/Rayleigh_Taylor_Instability.png){#fig:RT_instability}
 
 ### 2-Fluid Diffuse Boundary Model
 
@@ -78,13 +80,13 @@ The continuity and momentum equations are:
 $$
 \begin{aligned}
 \frac{\partial n_j}{\partial t}+\nabla\cdot(n_j \mathbf{v_j})&=0 \\
-\frac{\partial \mathbf{v_j}}{\partial t}+\mathbf{v_j}\cdot\nabla\mathbf{v_j}&=\frac{q_j}{m_j}\big[ \mathbf{E}+\mathbf{v_j}\times\mathbf{B} \big]-\frac{\nabla P_j}{n_j m_j} + \mathbf{g}
+\frac{\partial \mathbf{v_j}}{\partial t}+\mathbf{v_j}\cdot\nabla\mathbf{v_j}&=\frac{q_j}{m_j}\big( \mathbf{E}+\mathbf{v_j}\times\mathbf{B} \big)-\frac{\nabla P_j}{n_j m_j} + \mathbf{g}
 \end{aligned}
 $$
 
 where $j=e^-, i^+$ for electrons and ions.
 
-Assume
+Assume an one-dimensional case
 
 $$
 \begin{aligned}
@@ -95,7 +97,7 @@ n_0 = n_0(x), \frac{\partial n_0}{\partial x}<0\ (\textrm{nonuniform plasma}) \\
 \end{aligned}
 $$
 
-Note that there is no diamagnetic current if $P_e=P_i=0$:
+Note that there is no diamagnetic current if $P_e=P_i=0$ (no electric field so no current along $\mathbf{B}_0$ ?):
 
 $$
 \begin{aligned}
@@ -105,23 +107,20 @@ $$
 \end{aligned}
 $$
 
-I need to check this: could there be a current along $\mathbf{B}_0$?
-
-Every instability comes after stability. What is the force that balances the gravity? It turns out to be the Lorentz force from $\mathbf{v}\times\mathbf{B}$ term: the separation of electrons and ions creates currents, and currents lead to force.
+Instability arises when an equilibrium state is violated. What is the force that balances the gravity? It turns out to be the Lorentz force $\mathbf{v}\times\mathbf{B}$ term: the separation of electrons and ions creates currents, and currents lead to force.
 
 ADD FIGURE!
 
-In equilibrium,
+In equilibrium, $\frac{\partial}{\partial t}=0$, $\frac{\partial}{\partial y}\big[ n_{0j}(x)v_{0j} \big]=0,$ $v_{0j}=\text{const.}$,
 
 $$
 \begin{aligned}
 &\frac{\partial{n_{oj}}}{{\partial t}}+\nabla\cdot(n_{oj}\mathbf{v}_{oj})=0 \\
-&\textrm{because}\ \frac{\partial}{\partial t}=0,\ \frac{\partial}{\partial y}\big[ n_{oj}(x)v_{oj} \big]=0, v_{oj}=\textrm{const.}\\
 &\frac{q_j}{m_j}\mathbf{v}_j\times\mathbf{B}_0+\mathbf{g}=0 \\
 \Rightarrow & 
 \begin{cases}
-\mathbf{v}_i=\frac{gm_i}{q_iB_0}(-\hat{y})=-\frac{g}{\Omega_i}\hat{y}=-\hat{y}v_{oi}, \\
-\mathbf{v}_e=\frac{gm_e}{q_eB_0}(\hat{y})=\frac{g}{\Omega_e}\hat{y}=\hat{y}v_{oe}\approx 0 (v_{oe}\ll v_{oi}),
+\mathbf{v}_i=\frac{gm_i}{q_iB_0}(-\hat{y})=-\frac{g}{\Omega_i}\hat{y}=-\hat{y}v_{oi} \\
+\mathbf{v}_e=\frac{gm_e}{q_eB_0}(\hat{y})=\frac{g}{\Omega_e}\hat{y}=\hat{y}v_{oe}\approx 0 (v_{oe}\ll v_{oi})
 \end{cases}
 \end{aligned}
 $$
@@ -137,12 +136,12 @@ $$
 \end{aligned}
 $$
 
-In addition, we adopt the so-called "local approximation", i.e. we assume $\partial \phi_1(x)/\partial x=0$, $\frac{\partial}{\partial x}\big[ E_1,\mathbf{v}_1,n_1 \big]=0$. This is a very drastic assumption that greatly simplifies the problem but cannot be justified. This assumption is commonly used in many textbooks, both explicitly and implicitly (e.g. Bellan used this to treat universal instability). (Remember in solving the Vlasov equations, we integrate along the unperturbed orbits --- this also requires this assumption.)
+In addition, we adopt the so-called "local approximation", i.e. we assume $\partial \phi_1/\partial x=0$, $\frac{\partial}{\partial x}\big[ E_1,\mathbf{v}_1,n_1 \big]=0$. This is a very drastic assumption that greatly simplifies the problem but cannot be justified. This assumption is commonly used in many textbooks, both explicitly and implicitly (e.g. [@bellan2008fundamentals] used this to treat universal instability. Remember in solving the Vlasov equations, we integrate along the unperturbed orbits, which also requires this assumption.)
 
 In this case,
 
 $$
-\mathbf{E}_1=0\hat{x}+E_{1y}\hat{y}=\hat{y}\widetilde{E}_{1y}e^{-i\omega t+ik_y y}
+\mathbf{E}_1=0\hat{x}+E_{1y}\hat{y}=\hat{y}\widetilde{E}_{1y}e^{ik_y y-i\omega t}
 $$
 
 where $\widetilde{E}_{1y}=i k_y \phi_1$ is a constant. 
@@ -216,8 +215,8 @@ Assume perturbations of the form
 
 $$
 \begin{aligned}
-p_1(\mathbf{x},t) &= p_1(x) e^{-i\omega t +ik_y y} \\
-\rho_1(\mathbf{x},t) &= \rho_1(x) e^{-i\omega t + i k_y y} \\
+p_1(\mathbf{x},t) &= p_1(x) e^{ik_y y-i\omega t} \\
+\rho_1(\mathbf{x},t) &= \rho_1(x) e^{i k_y y-i\omega t} \\
 \mathbf{U}_1 &=\frac{\partial \pmb{\xi}_1}{\partial t}=-i\omega\pmb{\xi}_1
 \end{aligned}
 $$
@@ -249,7 +248,7 @@ $$
 \end{aligned}
 $$
 
-Assume incompressibility,
+Assume incompressibility
 
 $$
 \nabla\cdot\mathbf{u}=0\Rightarrow \nabla\cdot\mathbf{u}_1=0,\ \nabla\cdot\pmb{\xi}_1=\frac{\partial \xi_{1x}}{\partial x}+ik_y \xi_{1y}=0
@@ -267,7 +266,7 @@ $$
 -\rho_0\omega^2 \xi_{1x} = -\frac{\partial}{\partial x}\big[ \rho_0\omega^2 \frac{1}{{k_y}^2}\frac{\partial \xi_{1x}}{\partial x}\big] - g\xi_{1x}\frac{\partial \rho_0}{\partial x}
 $$ {#eq:RT_MHD_linear}
 
-This is the governing equation for Rayleight Taylor instability, which is the same as Eq.(10.15) in Bellan`s textbook. Note that here we have no assumption on x-dependence: if we simply use local approximation as before, this immediately gives you the identical result.
+This is the governing equation for Rayleight Taylor instability, which is the same as Eq.(10.15) in [@bellan2008fundamentals]. Note that here we have no assumption on x-dependence: if we simply use local approximation as before, this immediately gives you the identical result.
 
 To treat the sharp boundary problem, we assume
 
@@ -275,8 +274,8 @@ $$
 \begin{aligned}
 \rho_0= \left\{
 \begin{array}{rl}
-\textrm{const.} & \text{if } x<0, \\
-0 & \text{if } x>0.
+\textrm{const.} & \text{if } x<0 \\
+0 & \text{if } x>0
 \end{array} \right.
 \end{aligned}
 $$
@@ -308,10 +307,10 @@ $$
 The density profile obeys
 
 $$
-\frac{\partial \rho_0}{\partial x}=-\rho_0\delta(x).
+\frac{\partial \rho_0}{\partial x}=-\rho_0\delta(x)
 $$
 
-Integrate the governing equation Eq.(\ref{eq:RT_MHD_linear}) from $x=0^-$ to $x=0^+$ yields
+Integrating the governing @eq:RT_MHD_linear from $x=0^-$ to $x=0^+$ yields
 
 $$
 \begin{aligned}
@@ -388,8 +387,8 @@ The electric field which satisfies @eq:RT_dielectric within the plasma and the b
 
 $$
 \begin{aligned}
-E_y &= \frac{\sigma_0}{\mu_0\epsilon}\sin ky e^{-kz} \\
-E_z &= \frac{\sigma_0}{\mu_0\epsilon}\cos ky e^{-kz}
+E_y &= \frac{\sigma_0}{\mu_0\epsilon}\sin ky\, e^{-kz} \\
+E_z &= \frac{\sigma_0}{\mu_0\epsilon}\cos ky\, e^{-kz}
 \end{aligned}
 $$
 
@@ -426,7 +425,7 @@ $$
 \frac{\mathrm{d}a}{dt}=-\frac{\sigma_0}{\mu_0 B}
 $$
 
-@eq:RT_time_rate_surface_charge} and @eq:RT_surface_bc yield
+@eq:RT_time_rate_surface_charge and @eq:RT_surface_bc yield
 
 $$
 \frac{d\sigma_0}{dt}=-\frac{NMg}{\mu_0B}ak
@@ -677,7 +676,7 @@ which is valid as long as $k_y\tau\ll1$,i.e., long wave length limit.
 
 ![Illustration of an electron sheet with surface charge density $\sigma_0$, charge density $\rho_0$ and thickness $\tau$. The electric field is generated by electron charge in the sheet, and the $\mathbf{E}\times\mathbf{B}$ drift will cause a velocity shear through the sheet. This velocity shear will lead to K-H instability.](images/electron_sheet.png){#fig:electron_sheet}
 
-Bellan textbook P537. 
+[@bellan2008fundamentals] P537. 
 
 FIGURE NEEDED from H.W.3.4
 Consider the diocotron instabity on a MELBA-like annular electron beam which propagates inside a metallic drift tube. Let $V = $ beam voltage, $I =$ beam current, $a =$ beam radius, $\tau=$ annular beam thickness ($\tau\ll 1$)m $L=$ length of drift tube, $T = $ beam's pulselength, $B=$ axial magnetic field. Note that the combined self-electric and self-magnetic field of the beam produces a slow rotational $\mathbf{E}\times\mathbf{B}$ drift in the $\theta-$direction. This azimuthal drift velocity, $v_{0\theta}$, is much less than the axial velocity of the beam, but it is sheared. 
@@ -873,7 +872,7 @@ as the safety factor. A real number for q is about 2 to 3.
 
 __Ideal MHD Approach__
 
-Now we use a more standard way to treat the kink mode. (Section 10.9 of Bellan) Assume we have a plasma column with radius $a$. Inside the column, we assume infinite conductivity, $\sigma=\infty$; outside the column, we assume vacuum so that we can only have current flow on surface $r=a$. Thus, besides the universal background magnetic field in z direction, we also have an azimuthal field due to surface current. (You will see later that the decay in $\theta$ actually drives the kink instability.) 
+Now we use a more standard way to treat the kink mode. (Section 10.9 [@bellan2008fundamentals]) Assume we have a plasma column with radius $a$. Inside the column, we assume infinite conductivity, $\sigma=\infty$; outside the column, we assume vacuum so that we can only have current flow on surface $r=a$. Thus, besides the universal background magnetic field in z direction, we also have an azimuthal field due to surface current. (You will see later that the decay in $\theta$ actually drives the kink instability.) 
 
 In equilibrium,
 
@@ -1094,7 +1093,7 @@ $$
 (\hat{n}\cdot\mathbf{B})_1=0
 $$
 
-The equation for the perturbed boundary (Eq.(10.146) of Bellan) gives
+The equation for the perturbed boundary (Eq.(10.146) of [@bellan2008fundamentals]) gives
 
 $$
 r-\xi_r-a =0
