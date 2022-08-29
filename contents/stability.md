@@ -75,6 +75,8 @@ Here we use a 2-fluid model and a so-called "diffuse boundary" model [@chen2016i
 
 ### 2-Fluid Diffuse Boundary Model
 
+This section is similar to Section 6.7 in [@chen2016introduction].
+
 The continuity and momentum equations are:
 
 $$
@@ -119,21 +121,18 @@ $$
 &\frac{q_j}{m_j}\mathbf{v}_j\times\mathbf{B}_0+\mathbf{g}=0 \\
 \Rightarrow & 
 \begin{cases}
-\mathbf{v}_i=\frac{gm_i}{q_iB_0}(-\hat{y})=-\frac{g}{\Omega_i}\hat{y}=-\hat{y}v_{oi} \\
-\mathbf{v}_e=\frac{gm_e}{q_eB_0}(\hat{y})=\frac{g}{\Omega_e}\hat{y}=\hat{y}v_{oe}\approx 0 (v_{oe}\ll v_{oi})
+\mathbf{v}_i=\frac{gm_i}{q_iB_0}(-\hat{y})=-\frac{g}{\Omega_i}\hat{y}=-\hat{y}v_{0i} \\
+\mathbf{v}_e=\frac{gm_e}{q_eB_0}(\hat{y})=\frac{g}{\Omega_e}\hat{y}=\hat{y}v_{0e}\approx 0 (v_{0e}\ll v_{0i})
 \end{cases}
 \end{aligned}
 $$
 
-where $\Omega_i,\ \Omega_e$ are the gyro-frequency for ions and electrons.
+where $\Omega_i,\ \Omega_e$ are the gyro-frequency for ions and electrons respectively.
 
-Now, we introduce an electrostatic perturbation on this equilibrium state,
+Now, we introduce an electrostatic perturbation on this equilibrium state ($\mathbf{B}_1(\mathbf{x},t)=0$, $\nabla\times\mathbf{E}_1=-\frac{\partial \mathbf{B}_1}{\partial t}=i\omega\mathbf{B}_1=0$, $\mathbf{E}_1$ can be written as a gradient of a scalar potential)
 
 $$
-\begin{aligned}
-&\mathbf{E}_1(\mathbf{x},t)=-\nabla\Phi_1 = -\nabla\big[ \phi_1(x)e^{-i\omega t+ik_y y} \big] \\
-\Rightarrow &\mathbf{B}_1(\mathbf{x},t)=0,\ \textrm{because}\ \nabla\times\mathbf{E}_1=0=-\frac{\partial \mathbf{B}_1}{\partial t}=i\omega\mathbf{B}_1
-\end{aligned}
+\mathbf{E}_1(\mathbf{x},t)=-\nabla\Phi_1 = -\nabla\big[ \phi_1(x)e^{ik_y y-i\omega t} \big]
 $$
 
 In addition, we adopt the so-called "local approximation", i.e. we assume $\partial \phi_1/\partial x=0$, $\frac{\partial}{\partial x}\big[ E_1,\mathbf{v}_1,n_1 \big]=0$. This is a very drastic assumption that greatly simplifies the problem but cannot be justified. This assumption is commonly used in many textbooks, both explicitly and implicitly (e.g. [@bellan2008fundamentals] used this to treat universal instability. Remember in solving the Vlasov equations, we integrate along the unperturbed orbits, which also requires this assumption.)
@@ -144,7 +143,7 @@ $$
 \mathbf{E}_1=0\hat{x}+E_{1y}\hat{y}=\hat{y}\widetilde{E}_{1y}e^{ik_y y-i\omega t}
 $$
 
-where $\widetilde{E}_{1y}=i k_y \phi_1$ is a constant. 
+where $\widetilde{E}_{1y}=-i k_y \phi_1$ is a constant. 
 
 Linearization:
 
@@ -155,36 +154,36 @@ $$
 \end{aligned}
 $$
 
-After getting rid of the equilibrium terms and high order terms, we have (Notice that $\mathbf{g}$ does not even appear here! In MHD, it does, in a very explicit way.)
+Getting rid of the equilibrium and high-order terms, we have (Notice that $\mathbf{g}$ does not even appear here! In MHD, it does, in a very explicit way.)
 
 $$
 \begin{aligned}
--i(\omega-k_yv_{0y})n_1=-n_0 ik_y v_{1y} - v_{1x}\frac{\partial n_0}{\partial x} \\
-\frac{D}{Dt}\mathbf{v}_1=-i(\omega k_yv_{0y})\mathbf{v}_1=\frac{q}{m}\big( \mathbf{E}_1+\mathbf{v}_1\times\mathbf{B}_0 \big)
+i(k_yv_{0y}-\omega)n_1=-n_0 ik_y v_{1y} - v_{1x}\frac{\partial n_0}{\partial x} \\
+\frac{d}{dt}\mathbf{v}_1=i(k_yv_{0y}-\omega)\mathbf{v}_1=\frac{q}{m}\big( \mathbf{E}_1+\mathbf{v}_1\times\mathbf{B}_0 \big)
 \end{aligned}
 $$
 
-Now, from the linearized momentum, we can get the x and y component of perturbed velocity; intuitively, you can guess the expression:
+Now, from the linearized momentum equation, we can get the x and y components of perturbed velocity; intuitively, you can guess the expression:
 
 $$
 \begin{aligned}
 &v_{1,ix}=\frac{E_{1y}}{B_0},\ v_{1,ex}=\frac{E_{1y}}{B_0}\\
-&v_{1,iy}=\frac{1}{\Omega_i}\frac{d}{dt}\Big(\frac{E_{1y}}{B_0} \Big)=\frac{-i(\omega-k_yv_{0i})}{\Omega_i}\Big( \frac{E_{1y}}{B_0}\Big),\ v_{1,ey}=\frac{1}{\Omega_e}\frac{d}{dt}\Big(\frac{E_{1y}}{B_0} \Big)\approx0
+&v_{1,iy}=\frac{1}{\Omega_i}\frac{d}{dt}\Big(\frac{E_{1y}}{B_0} \Big)=\frac{i(k_yv_{0i}-\omega)}{\Omega_i}\Big( \frac{E_{1y}}{B_0}\Big),\ v_{1,ey}=\frac{1}{\Omega_e}\frac{d}{dt}\Big(\frac{E_{1y}}{B_0} \Big)\approx0
 \end{aligned}
 $$
 
-where in x direction, it is the ExB drift, and in y direction, it is the polarization drift.
+where in the x direction, it is the $\mathbf{E}\times\mathbf{B}$ drift, and in the y direction, it is the polarization drift.
 
-From the linearized continuity equation,
+From the linearized continuity equation
 
 $$
 \begin{aligned}
--i(\omega-k_y v_{0,1i})n_{1i} &= -n_0 ik_y v_{1,yi} - v_{1,xi}\frac{\partial n_0}{\partial x} \\
+i(k_y v_{0,yi}-\omega)n_{1i} &= -n_0 ik_y v_{1,yi} - v_{1,xi}\frac{\partial n_0}{\partial x} \\
 -i\omega n_{1e} &= - v_{1,xe}\frac{\partial n_0}{\partial x}
 \end{aligned}
 $$
 
-Then we can get $n_{1e}=n_{1e}(E_{1y}),\ n_{1i}=n_{1i}(E_{1y})$. Set $n_{1e}=n_{1i}$, we have the dispersion relation
+Then we can get $n_{1e}=n_{1e}(E_{1y}),\ n_{1i}=n_{1i}(E_{1y})$. Setting $n_{1e}=n_{1i}$, we have the dispersion relation
 
 $$
 \omega(\omega-k_y v_{0i})=g\frac{1}{n_0}\frac{\partial n_0}{\partial x}
@@ -193,10 +192,10 @@ $$
 When $k_y\rightarrow0$,
 
 $$
-\omega^2=g\frac{1}{n_0}\frac{\partial n_0}{\partial x}<0 \Rightarrow\ \textrm{instability!}
+\omega^2=g\frac{1}{n_0}\frac{\partial n_0}{\partial x}<0 \Rightarrow\ \text{instability!}
 $$
 
-Let`s think about this 2-fluid approach for a while. Apparently, we cannot treat a sharp boundary, namely $\frac{\partial n_0}{\partial x}=\delta(x)$, with exactly the same equations. However, it's quite a surprise that MHD approach can easily do that. 
+Let's think about this 2-fluid approach for a while. Apparently, we cannot treat a sharp boundary, namely $\frac{\partial n_0}{\partial x}=\delta(x)$, with exactly the same equations. However, it's quite a surprise that MHD approach can easily do that, as we will see in the next section.
 
 ### Single fluid MHD method
 
@@ -205,11 +204,11 @@ In equilibrium, $\mathbf{g}=\hat{x}g,\ \mathbf{B}_0=\hat{z}B_0(x),\ \mathbf{U}_0
 $$
 \begin{aligned}
 \frac{\partial \rho_0}{\partial t}+\nabla\cdot(\rho_0 \mathbf{U}_0)=0 \\
-0=\frac{1}{\mu_0}\big[ -\frac{1}{2}\frac{\partial}{\partial x}({B_0}^2)\big] -\frac{\partial}{\partial x}p_0(x)+\rho_0(x)g
+0=\frac{1}{\mu_0}\Big[ -\frac{1}{2}\frac{\partial}{\partial x}({B_0}^2)\Big] -\frac{\partial}{\partial x}p_0(x)+\rho_0(x)g
 \end{aligned}
 $$
 
-Note that there's a difference between cases where different pressure is dominant. For example, in z-pinch the magnetic pressure is dominant, while in a laser pulse, the kinetic pressure is usually dominant.
+Note that there's a difference between cases where different pressure is dominant. For example, in z-pinch the magnetic pressure is dominant, while in a laser pulse, the thermal pressure is usually dominant.
 
 Assume perturbations of the form
 
@@ -233,18 +232,18 @@ B^2 = (\mathbf{B}_0+\mathbf{B}_1)\cdot(\mathbf{B}_1+\mathbf{B}_1)\approx 2\mathb
 \end{aligned}
 $$
 
-The tension term has no x or y component, so we can just ignore it. Then the linearized force law can be written as
+The tension term has no x or y component, so we can just ignore it. Then the linearized momentum equation can be written as
 
 $$
-\rho_0\frac{\partial \mathbf{u}_1}{\partial t}=\rho_0\frac{\partial^2\pmb{\xi}_1}{\partial t^2}=-\nabla\big( \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\big) - \nabla p_1 +\rho_1\mathbf{g}
+\rho_0\frac{\partial \mathbf{u}_1}{\partial t}=\rho_0\frac{\partial^2\pmb{\xi}_1}{\partial t^2}=-\nabla\Big( \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\Big) - \nabla p_1 +\rho_1\mathbf{g}
 $$
 
 which can be separated into two scalar equations
 
 $$
 \begin{aligned}
--\rho_0 \omega^2 \xi_{1x} &= -\frac{\partial}{\partial x}\big( \frac{\mathbf{B}_1\cdot\mathbf{B}_1}{\mu_0}+p_1 \big) +\rho_1 g \\
--\rho_0 \omega^2 \xi_{1y} &= -ik_y\big( \frac{\mathbf{B}_1\cdot\mathbf{B}_1}{\mu_0}+p_1\big)
+-\rho_0 \omega^2 \xi_{1x} &= -\frac{\partial}{\partial x}\Big( \frac{\mathbf{B}_1\cdot\mathbf{B}_1}{\mu_0}+p_1 \Big) +\rho_1 g \\
+-\rho_0 \omega^2 \xi_{1y} &= -ik_y\Big( \frac{\mathbf{B}_1\cdot\mathbf{B}_1}{\mu_0}+p_1\Big)
 \end{aligned}
 $$
 
@@ -254,19 +253,19 @@ $$
 \nabla\cdot\mathbf{u}=0\Rightarrow \nabla\cdot\mathbf{u}_1=0,\ \nabla\cdot\pmb{\xi}_1=\frac{\partial \xi_{1x}}{\partial x}+ik_y \xi_{1y}=0
 $$
 
-together with the linearized continuity equation (@sec:es_wave_magnetized), we get
+The linearized continuity equation (@sec:es_wave_magnetized) yields
 
 $$
 \rho_1=-\nabla\cdot(\rho_0\pmb{\xi}_1)=\xi_{1x}\frac{\partial}{\partial x}\rho_0
 $$
 
-Combining the x,y components and substitute $\xi_{1y}$ with the gradient in x, we have
+Combining the last four equations, we have
 
 $$
--\rho_0\omega^2 \xi_{1x} = -\frac{\partial}{\partial x}\big[ \rho_0\omega^2 \frac{1}{{k_y}^2}\frac{\partial \xi_{1x}}{\partial x}\big] - g\xi_{1x}\frac{\partial \rho_0}{\partial x}
+-\rho_0\omega^2 \xi_{1x} = -\frac{\partial}{\partial x}\Big[ \rho_0\omega^2 \frac{1}{{k_y}^2}\frac{\partial \xi_{1x}}{\partial x}\Big] - g\xi_{1x}\frac{\partial \rho_0}{\partial x}
 $$ {#eq:RT_MHD_linear}
 
-This is the governing equation for Rayleight Taylor instability, which is the same as Eq.(10.15) in [@bellan2008fundamentals]. Note that here we have no assumption on x-dependence: if we simply use local approximation as before, this immediately gives you the identical result.
+This is the governing equation for the Rayleigh-Taylor instability, which is the same as Eq.(10.15) in [@bellan2008fundamentals]. Note that here we have no assumption on the x-dependence; if we simply use the local approximation as before, this immediately gives you the identical result.
 
 To treat the sharp boundary problem, we assume
 
@@ -285,7 +284,7 @@ Then for $x<0$,
 $$
 \begin{aligned}
 \frac{\partial^2 \xi_{1x}}{\partial x^2} -{k_y}^2 \xi_{1x} = 0 \\
-\Rightarrow\ \xi_{1x}=Ae^{k^y x} + Be^{-k_y x}
+\Rightarrow\ \xi_{1x}=Ae^{k_y x} + Be^{-k_y x}
 \end{aligned}
 $$
 
@@ -294,14 +293,14 @@ and for $x>0$,
 $$
 \begin{aligned}
 \frac{\partial^2 \xi_{1x}}{\partial x^2} -{k_y}^2 \xi_{1x} = 0 \\
-\Rightarrow\ \xi_{1x}=Ce^{k^y x} + De^{-k_y x}
+\Rightarrow\ \xi_{1x}=Ce^{k_y x} + De^{-k_y x}
 \end{aligned}
 $$
 
 The coefficient $B$ and $C$ must be zero because of infinite field requirement. Due to continuity at $x=0$, we set
 
 $$
-A = D = \xi_0.
+A = D = \xi_0
 $$
 
 The density profile obeys
@@ -314,12 +313,12 @@ Integrating the governing @eq:RT_MHD_linear from $x=0^-$ to $x=0^+$ yields
 
 $$
 \begin{aligned}
-&-\frac{\rho_0 \omega^2}{{k_y}^2}\frac{\xi_{1x}}{\partial x}\big|_{x=0^-}^{x=0^+} - g\xi_{1x}(-\rho_0)=0 \\
+&-\frac{\rho_0 \omega^2}{{k_y}^2}\frac{\xi_{1x}}{\partial x}\bigg|_{x=0^-}^{x=0^+} - g\xi_{1x}(-\rho_0)=0 \\
 \Rightarrow &\omega^2=k_y g
 \end{aligned}
 $$
 
-Therefore the growth rate is $\gamma=\sqrt{k_y g}$. You may realize that $\mathbf{k}\cdot\mathbf{B}_0=0$ here, so this stablizing term vanishes in the dispersion relation.
+Therefore the growth rate is $\gamma=\Im(\omega)=\sqrt{k_y g}$. You may realize that $\mathbf{k}\cdot\mathbf{B}_0=0$ here, so this magnetic stablizing term vanishes in the dispersion relation.
 
 ### 2-fluid sharp boundary model
 
@@ -336,7 +335,7 @@ $$ {#eq:RT_displacement_z}
 where $a$, the amplitude of the disturbance, is considered small and $k(=2\pi/\lambda)$ is the wave number of the disturbance in the y-direction. The drift resulting from gravity is given by
 
 $$
-\mathbf{V}_g = \frac{m}{q}\frac{\mathbf{g}\times\mathbf{B}}{B^2}.
+\mathbf{V}_g = \frac{m}{q}\frac{\mathbf{g}\times\mathbf{B}}{B^2}
 $$
 
 Since the magnetic field is in the x-direction, the electrons will drift to the right and the positive ions will drift to the left. The gravity drift, therefore, causes a charge separation in the plasma and the resulting boundary has the form shown in fig:RT_displacement. The surface charge $\delta\sigma$ due to the separation ($\delta\Delta z$) of ions and electrons is given by
@@ -408,8 +407,8 @@ From the foregoing equations we obtain
 
 $$
 \begin{aligned}
-V_y &= \frac{\sigma_0}{\mu_0 B}\cos ky e^{-kz} \\
-V_z &=-\frac{\sigma_0}{\mu_0 B}\sin ky e^{-kz}
+V_y &= \frac{\sigma_0}{\mu_0 B}\cos ky\, e^{-kz} \\
+V_z &=-\frac{\sigma_0}{\mu_0 B}\sin ky\, e^{-kz}
 \end{aligned}
 $$
 
