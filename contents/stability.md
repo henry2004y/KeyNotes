@@ -26,7 +26,7 @@ The relation between magnetic flux and current is similar to charge and voltage,
 2. sausage mode;
 3. current wire into helix.
 
-## Implication of Single Particle Motion on Instabilities
+## Implication of Single Particle Motion on Instabilities {#sec:particle_motion_instability}
 
 This section provides some qualitative understanding of instabilities in plasma. Thinking of instabilities from the prospective of single particle motion provides us the physical intuition of the causes and development of instabilities from a very basic level.
 
@@ -370,7 +370,7 @@ $$
 \nabla\cdot(\epsilon\mathbf{E})=\frac{1}{\mu_0}\frac{\sigma}{dz}
 $$
 
-where $\sigma$ is the surface charge density and $\mathrm{d}z$ is the infinitesimal thickness of the layer. We now integrate this equation over an element of volumn $\mathrm{d}S\mathrm{d}z$. The right-hand side gives the charge within the volumn element ($\sigma\mathrm{d}S$). Making use of Gauss`s theorem to transform the left-hand side, we obtain
+where $\sigma$ is the surface charge density and $\mathrm{d}z$ is the infinitesimal thickness of the layer. We now integrate this equation over an element of volumn $\mathrm{d}S\mathrm{d}z$. The right-hand side gives the charge within the column element ($\sigma\mathrm{d}S$). Making use of Gauss`s theorem to transform the left-hand side, we obtain
 
 $$
 \epsilon E_z dS = \frac{1}{\mu_0}\sigma dS = \frac{1}{\mu_0}\sigma_0 \cos ky dS
@@ -792,36 +792,36 @@ If a "kink" begins to develop in a column the magnetic forces on the inside of t
 KeyNotes.plot_kink()
 ```
 
-The kink instability is the most dangerous instability in Tokamak. We have discussed this kind of micro-instability from the view of single particle motion; here, we will explore this a little bit further.
+The kink instability is the most dangerous instability in Tokamak. We have discussed this kind of micro-instability from the view of single particle motion in @sec:particle_motion_instability; here, we will explore this a little bit further.
 
 __String model__
 
-First, imaging a current-carrying plasma column, shown in the x-z plane in fig:kink_column. The metallic wire carries current under tension $T$, and $\mu=$mass/length is the mass per length. From the basic mechanics, $C_s=\sqrt{T/\mu}$ is the acoustic velocity in the system. Let $\mathbf{B}_0=\hat{z}B_0,\ \pmb{\xi}=\pmb{\xi}(\mathbf{x},t)$. We can show that, if the current $\mathbf{I}$ is sufficientyly strong, there will be kink instability.
+First, image a current-carrying plasma column, shown in the x-z plane in fig:kink_column. The metallic wire carries current under tension $T$, and $\mu=$mass/length is the mass per length. From the basic mechanics, $C_s=\sqrt{T/\mu}$ is the acoustic velocity in the system. Let the background field $\mathbf{B}_0=\hat{z}B_0$ and the displacement $\pmb{\xi}=\pmb{\xi}(\mathbf{x},t)$. We can show that, if the current $\mathbf{I}$ is sufficiently strong, there will be kink instability.
 
-ADD PLASMA COLUMN FIGURE!
+ADD PLASMA KINK COLUMN FIGURE!
 
 Assume the displacement in x-y plane has the form
 
 $$
-\pmb{\xi} = (\xi_x,\xi_y)e^{-i\omega+ik_z z}
+\pmb{\xi} = (\xi_x,\xi_y)e^{ik_z z-i\omega t}
 $$
 
-The force law gives (i.e. the basic string model in most math physics equations textbook)
+The force law gives (i.e. the basic string model in mechanics textbooks)
 
 $$
-\mu\frac{\partial^2\pmb{\xi}}{\partial t^2}=T\frac{\partial^2\pmb{\xi}}{\partial z^2}+ \text{force per unit length}.
+\mu\frac{\partial^2\pmb{\xi}}{\partial t^2}=T\frac{\partial^2\pmb{\xi}}{\partial z^2}+ \text{force per unit length}
 $$
 
-Here, the external force _per length_ is the Lorentz force, 
+Here, the external force _per length_ is the Lorentz force (which is why we say the R-T instability is current-driven), 
 
 $$
 \begin{aligned}
-\mathbf{I}\times\mathbf{B}&=\big( \hat{x}I\frac{\partial \xi_x}{\partial z}+\hat{y}I\frac{\partial\xi_y}{\partial z}+\hat{z}0 \big)\times B_0\hat{z} \\
-&=IB_0 \big[ \hat{x}\frac{\partial\xi_y}{\partial z}-\hat{y}\frac{\partial \xi_x}{\partial z}\big]
+\mathbf{I}\times\mathbf{B}&=\Big( \hat{x}I\frac{\partial \xi_x}{\partial z}+\hat{y}I\frac{\partial\xi_y}{\partial z}+\hat{z}0 \Big)\times B_0\hat{z} \\
+&=IB_0 \Big( \hat{x}\frac{\partial\xi_y}{\partial z}-\hat{y}\frac{\partial \xi_x}{\partial z}\Big)
 \end{aligned}
 $$
 
-In scalar form, the force law gives
+In scalar forms, the force law gives
 
 $$
 \begin{aligned}
@@ -836,11 +836,9 @@ $$
 \omega^2 = {k_z}^2{C_s}^2 \pm \frac{IB_0}{\mu_0 \mu}k_z
 $$
 
-The dispersion relation is a representation of force-law. The first term on the right-hand side is a stabilizing term due to tension; the second term with a minus sign is a destabilizing term due to Lorentz force. Note that the expression is very similar to R-T instability. 
+The dispersion relation is a representation of the force-law. The first term on the right-hand side is a stabilizing term due to tension; the second term with a minus sign is a destabilizing term due to Lorentz force. Note that the expression is very similar to R-T instability. (Which one?)
 
-__Bold extrapolation to Tokamak__
-
-We can immediately estimate the scenario in Tokamak. Take the radius of the column cut as $a$, wave number $k_z\sim 1/R$ (i.e. wave length is on the order of tokamak radius), ${C_s}^2={V_A}^2={B_{0z}}^2/(\mu_0\rho_0)$ (i.e. tension in plasma give rises to Alfv\'{e}n wave), then the current is
+We can immediately estimate the scenario in a Tokamak. Take the radius of the column cut as $a$, wave number $k_z\sim 1/R$ (i.e. wave length is on the order of tokamak radius), ${C_s}^2={V_A}^2={B_{0z}}^2/(\mu_0\rho_0)$ (i.e. tension in plasma give rises to Alfvén wave), then the current is
 
 $$
 I=J_z(\pi a^2)=\frac{B_\theta 2\pi a}{\mu_0} \sim \frac{B_\theta a}{\mu_0}
@@ -861,17 +859,17 @@ $$
 \end{aligned}
 $$
 
-which is called \emph{Kruskal-Shafranov} stability criterion. Usually we define
+which is called the _Kruskal-Shafranov stability criterion_. Usually we define
 
 $$
 q\equiv\frac{a}{R}\frac{B_{0z}}{B_{0\theta}}=\frac{a}{R}\frac{B_t}{B_p}
 $$
 
-as the safety factor. A real number for q is about 2 to 3.
+as the safety factor. A real value for $q$ is about 2 to 3.
 
 __Ideal MHD Approach__
 
-Now we use a more standard way to treat the kink mode. (Section 10.9 [@bellan2008fundamentals]) Assume we have a plasma column with radius $a$. Inside the column, we assume infinite conductivity, $\sigma=\infty$; outside the column, we assume vacuum so that we can only have current flow on surface $r=a$. Thus, besides the universal background magnetic field in z direction, we also have an azimuthal field due to surface current. (You will see later that the decay in $\theta$ actually drives the kink instability.) 
+Now we use a more standard way to treat the kink mode. (Section 10.9 [@bellan2008fundamentals]) Assume we have a plasma column with radius $a$. Inside the column, we assume infinite conductivity, $\sigma=\infty$; outside the column, we assume vacuum so that we can only have current flow on surface $r=a$. Thus, besides the universal background magnetic field in the z direction, we also have an azimuthal field due to surface current. (You will see later that the decay in $\theta$ actually drives the kink instability.) 
 
 In equilibrium,
 
@@ -892,19 +890,19 @@ $$
 
 is satisfied automatically both for $r>a$ and $r<a$.
 
-Let us introduce a small perturbation in the form $\sim e^{-i\omega t+ikz + im\theta}$:
+Let us introduce a small perturbation
 
 $$
-\pmb{\xi}_{1r}(\mathbf{x},t) = \widetilde{\xi_{1r}}(r)e^{-i\omega t+ikz + im\theta}
+\pmb{\xi}_{1r}(\mathbf{x},t) = \widetilde{\xi}_{1r}(r)e^{ikz + im\theta-i\omega t}
 $$
 
 such that at $r=a$,
 
 $$
-\pmb{\xi}_{1r}(\mathbf{x},t)\big|_{r=a} = \widetilde{\xi_{1a}}(r)e^{-i\omega t+ikz + im\theta}
+\pmb{\xi}_{1r}(\mathbf{x},t)\big|_{r=a} = \widetilde{\xi}_{1a}(r)e^{ikz + im\theta-i\omega t}
 $$
 
-Before running into linearized equations, we can first take a look at different wave modes. That is, what will the perturbation looks like at a fixed time $t$ with different $m$? For simplicity, let us assume $t=0$. (You can always assume a time shift to this.) The displacement is the real part of $\pmb{\xi}$,
+Before running into linearized equations, we can first take a look at different wave modes. That is, what will the perturbation looks like at a fixed time $t$ with different $m$? For simplicity, let us assume $t=0$. (You can always make a time shift.) The actual displacement is the real part of $\pmb{\xi}$,
 
 $$
 \xi_{1r} = \xi_{1a}\cos(k_z z+m\theta)
@@ -913,7 +911,7 @@ $$
 For $m=0$,
 
 $$
-\xi_(1r) = \xi_{1a}\cos(k_z z)
+\xi_{1r} = \xi_{1a}\cos(k_z z)
 $$
 
 which is the sausage mode.
@@ -924,15 +922,15 @@ $$
 \xi_{1r} = \xi_{1a}\cos(k_z z+\theta)
 $$
 
-If you draw the displacement down for $k_z z=0,\frac{\pi}{2},\pi,\frac{3}{2}\pi$, you can see one rotation in a $2\pi$ period, which indicates a shape of helix. This is often called the kink mode.
+If we draw the displacement down for $k_z z=0,\frac{\pi}{2},\pi,\frac{3}{2}\pi$, you can see one rotation in a $2\pi$ period, which indicates a shape of helix. This is often called the kink mode.
 
-For $m=n$,
+For higher $m$,
 
 $$
-\xi_{1r} = \xi_{1a}\cos(k_z z+n\theta)
+\xi_{1r} = \xi_{1a}\cos(k_z z+m\theta)
 $$
 
-which looks like n intertwine helixes in one axial wavelength.
+which looks like $m$ intertwine helixes in one axial wavelength.
 
 Now let's return to the perturbed equations. Here we will assume incompressibility as the equation of state,
 

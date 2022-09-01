@@ -54,7 +54,7 @@ function plot_kink()
 
    p = surface(X, Y, Z, axis=(type=Axis3,), colormap=(:turbo, 0.7))
 
-   caption = "(m = $m, n = $n) kink mode."
+   caption = "Plasma column (poloidal m = $m, toroidal n = $n) kink mode in a Tokamak."
    label = "kink"
 
    Options(p; caption, label)
@@ -83,7 +83,7 @@ function plot_balloon()
 
    p = surface(X, Y, Z, axis=(type=Axis3,), colormap=(:turbo, 0.7))
 
-   caption = "(m = $m, n = $n) balloon mode."
+   caption = "Plasma column (poloidal m = $m, toroidal n = $n) balloon mode."
    label = "balloon"
 
    Options(p; caption, label)
@@ -119,7 +119,7 @@ function plot_tearing()
 
    p = surface(X, Y, Z, axis=(type=Axis3,), colormap=(:turbo, 0.7))
 
-   caption = "(m = $m, n = $n) tearing mode."
+   caption = "Plasma column (poloidal m = $m, toroidal n = $n) tearing mode."
    label = "tearing"
 
    Options(p; caption, label)
