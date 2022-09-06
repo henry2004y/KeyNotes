@@ -2,6 +2,66 @@
 
 This chapter discusses plasma equilibrium and stability, or more precisely, instability. We are interested in when, where, and how instabilities arise in plasmas.
 
+Magnetic fields are ubiquitous in cosmological objects. General questions exist about why are they of the form that they are:
+
+* Why does this particular form remain?
+* How does it get to this form?
+
+Anything that reorganizes magnetic field is a transport phenomenon therefore instabilities are of great interest. From hydrodynamic instabilities to plasma instabilities, we need to realize the role of magnetic field and kinetic physics in the instability process:
+
+* Existing hydro-instability may be affected by the presence of magnetic field
+* Instability may be driven by presence of magnetic fields
+* Instability that does not exist in hydrodynamics may arise in the kinetic description.
+
+There exists a massive catalogue of MHD instabilities.
+
+| Type         | Description       |
+|--------------|-------------------|
+| Beam acoustic instability |  |
+| Bump-in-tail instability |  |
+| Buneman instability |  |
+| Cherenkov instability |  |
+| Chute instability |  |
+| Coalescence instability |  |
+| Collapse instability |  |
+| Counter-streaming instability |  |
+| Cyclotron instabilities | Alfvén, electron, electrostatic, ion, magnetoacoustic |
+| Disruptive instability |  |
+| Double mission instability |  |
+| Drift instability | |
+| Electrothermal instability |  |
+| Fan instability |  |
+| Filamentation instability |  |
+| Firehose instability | Hose |
+| Free electron maser instability |  |
+| Gyrotron instability |  |
+| Helical instability | Helix |
+| Interchange instability | Rayleigh-Taylor, flute, ballooning, kink, sausage |
+| Ion beam instability |  |
+| Lower hybrid drift instability |  |
+| Magnetic drift instability |  |
+| Modulation instability |  |
+| Non-Abelian instability | Chromo-Weibel |
+| Pair instability |  |
+| Parker instability | Magnetic buoyancy |
+| Peratt instability |  |
+| Pinch instability |  |
+| Tearing mode instability |  |
+| Two stream instability | Kelvin-Helmholtz |
+| Weak beam instability |  |
+| Weibel instability |  |
+| Z-pinch instability | Bennett pinck |
+
+The basic methodology of examining instabilities
+
+* Take the equations
+* Linearize about an equilibrium solution
+* Add some perturbations and see what happens
+  * Look for _normal mode_ solutions $e^{i(\mathbf{k}\cdot\mathbf{x}-\omega t)}$ and find a relationship between the growth rate $\Im(\omega)$ and the wavenumbers of the disturbance $\mathbf{k}$ and the parameters of the problem (i.e. dispersion relation).
+  * Use the _MHD energy principle_: calculate $\delta W$, the change in potential energy associated wit the disturbance, and look for disturbances with $\delta W<0$ (the existence of any one means unstable; need $\delta W>0 \forall$ types of disturbances).
+
+## Analogy of the Energy Principle
+
 First, let us have an intuitive inspection from the energy principle. In classical mechanics, we learn that motion acts to lower the energy in the system. For the simplest Rayleigh-Taylor instability between two fluids with different density, we can easily decide if there is an instability by checking the total potential energy change. In a current-carrying plasma, similar motions can be developed. The energy can be expressed as
 
 $$
@@ -50,7 +110,7 @@ In general, we can define two configuration categories: the unstable situation, 
 
 A famous Russian scientist Ioffe introduced conducting bars around the mirror to create an _absolute minimum B-geometry_, where in any point away from the center the B field is stronger. This indeed supresses the R-T instability, but the whole system is, unfortunately, still unstable due to micro-instabilities caused by lost cone distribution. The inverted population (more high speed particles than low speed ones) will lead to instabilities. Later scientists came up with the idea of adding cold gas to modify the distribution, but the cold gas injection procedure eventually kills the mirror configuration.
 
-### Stability in Tokamak
+### Stability in the Tokamak
 
 In a classical Tokamak geometry, the poloidal and toroidal magnetic field together created a spiral around the torus.
 
@@ -67,7 +127,12 @@ See more in [@chen2016introduction], Third Edition, Chapter Application of Plasm
 
 ## Rayleigh-Taylor Instability
 
-The Rayleigh-Taylor instability is probably the most famous kind of instability. It is also called _flute instability_, _gravitational instability_ or _interchange instability_.
+The Rayleigh-Taylor instability is probably the most important MHD instability. It is also called _gravitational instability_ , _flute instability_ or more generally, _interchange instability_. In ordinary hydrodynamics, a Rayleigh-Taylor
+instability arises when one attempts to support a heavy fluid on top of a light fluid: the interface becomes "rippled", allowing the heavy fluid to fall through the light fluid. In plasmas, a Rayleigh-Taylor instability can occur when a dense
+plasma is supported against gravity by the pressure of a magnetic field.
+
+The situation would not be of much interest or relevance in its own right, since actual gravitational forces are rarely of much importance in plasmas. However, in curved magnetic fields, the centrifugal force on the plasma due to particle motion along the curved field-lines acts like a "gravitational" force (@sec:gravity_field). For this reason, the analysis of the Rayleigh-Taylor instability provides useful insight as to the stability properties of plasmas in curved magnetic fields.
+Rayleigh-Taylor-like instabilities driven by actual field curvature are the most virulent type of MHD instability in non-uniform plasmas.
 
 Here we use a 2-fluid model and a so-called "diffuse boundary" model [@chen2016introduction] to describe it mathematically. Recall the structure of magnetic mirror: we have curved magnetic field lines and high density plasma at the center. From the discussion in @sec:single_particle_instability, we know that the central part of magnetic mirror is unstable for Rayleigh-Taylor instability because of centrifugal force. Let us simplify the scenario and study the problem in Cartesian coordinates. The centrifugal force is irrelevant to particle charge and proportional to particle mass, so both ions and electrons have the same acceleration due to it. Let us replace the centrifugal force with gravity $\mathbf{g}$. In @fig:RT_instability, there are high density plasma on top and low density plasma on the bottom, with a distribution $\partial n_o/\partial x<0$.
 
@@ -1257,7 +1322,49 @@ which only depends on wavenumber and distance.
 
 ### Sausage Mode
 
-The $m=0$ mode known as the sausage instability.
+The $m=0$ mode is known as the sausage instability. There is no $B_z$ so we have purely toroidal field. The initial equilibrium is established with radially inward Lorentz force and outward pressure gradient. But it is unstable to interchange due to curvature. When a perturbation that causes the rings to shrink, magnetic field in the plasma increases so that the $\mathbf{J}\times\mathbf{B}$ Lorentz force increases. There is nothing to counter this radially inward force increase, which leads to instability.
+
+The dispersion relation is
+
+$$
+\omega^2 = -2\frac{p_0}{\rho_0}\frac{k}{R_c^2}
+$$
+
+Adding $B_z$ to the interior plasma stabilizes sausage instability: the magnetic pressure caused by $B_z$ pushes back to oppose squeezing. The pressure balance at the interface gives
+
+$$
+p_0 + \frac{B_{0z}^2}{2\mu_0} = \frac{B_\phi^2}{2\mu_0}
+$$
+
+With the modified dispersion relation
+
+$$
+\omega^2 = -2\frac{p_0}{\rho_0 a^2} + \frac{B_{0z}^2}{\mu_0\rho_0 a^2}
+$$
+
+we have the condition for stability
+
+$$
+B_{0z}^2 > \frac{1}{2}B_\phi^2
+$$
+
+THIS IS PROBABLY DUPLICATE WITH THE PREVIOUS SECTION.
+
+### Kink Mode
+
+However, even when the sausage mode is suppressed, the configuration is still unstable to the kink mode. This $m=1$ mode retains circular cross-section of the tube and the perturbation is a kink of the tube into a helix. Without $B_z$, the system is unstable for all $k$; with $B_z$, it is unstable for wavelengths long enough such that the pitch of the perturbation follows the pitch of the helix, i.e. the crests/troughs of the perturbations follow the fieldlines of tube
+
+$$
+B_\phi/R + k B_Z \ge 0
+$$
+
+In terms of a twist $\Phi = 2LB_\phi/RB_z$, this criterion is equivalent to
+
+$$
+k\ge-\frac{\Phi}{2L}
+$$
+
+The perturbation Lorentz force $\mathbf{j}_1\times\mathbf{B}_0$ is zero. (???)
 
 ### Ballooning Mode
 

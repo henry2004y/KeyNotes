@@ -159,7 +159,7 @@ It is important to note that $\mathbf{v}_E$ is independent of q, m, and $v_\perp
 
 The three-dimensional orbit in space is therefore a slanted helix with changing pitch.
 
-### Gravitational Field
+### Gravitational Field {#sec:gravity_field}
 
 The foregoing result can be applied to other forces by replacing $q\mathbf{E}$ in the equation of motion by a general force $\mathbf{F}$. The guiding center drift caused by $\mathbf{F}$ is then
 
