@@ -171,7 +171,7 @@ In particular, if $\mathbf{F}$ is the force of gravity $m\mathbf{g}$, there is a
 
 $$
 \mathbf{v}_g = \frac{m}{q}\frac{\mathbf{g}\times\mathbf{B}}{B^2}
-$$
+$$ {#eq:gravity_drift}
 
 This is similar to the drift $\mathbf{v}_E$ in that it is perpendicular to both the force and $\mathbf{B}$, but it differs in one important respect. The drift $\mathbf{v}_g$ changes sign with the particle’s charge. Under a gravitational force, ions and electrons drift in opposite directions, so there is a net current density in the plasma given by
 

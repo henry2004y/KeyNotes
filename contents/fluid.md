@@ -39,8 +39,8 @@ $$
 &T=\sum_s{\frac{n_s}{n}T_s} \\
 &\mathbf{u}=\frac{1}{\rho}\sum_s \rho_s \mathbf{u}_s \\
 &\mathbf{v}_s=\mathbf{u}_s -\mathbf{u},\quad \text{relative velocity of the } s^{th} \text{ species} \\
-&\sigma^ = \sum_s{\sigma_s^}=\sum_s{q_s n_s} \\
-&\mathbf{j}=\sum_s{\mathbf{j}_s}=\sum_s{\sigma_s^ \mathbf{u}_s}=\sum_s{\sigma_s}\mathbf{v}_s+\mathbf{u}\sum_s{\sigma_s}=\sum_s{\sigma_s \mathbf{v}_s}+\sigma\mathbf{u}=\mathbf{j}_{cd}+ \mathbf{j}_{cv} \\
+&\sigma = \sum_s{\sigma_s}=\sum_s{q_s n_s} \\
+&\mathbf{j}=\sum_s{\mathbf{j}_s}=\sum_s{\sigma_s \mathbf{u}_s}=\sum_s{\sigma_s}\mathbf{v}_s+\mathbf{u}\sum_s{\sigma_s}=\sum_s{\sigma_s \mathbf{v}_s}+\sigma\mathbf{u}=\mathbf{j}_{cd}+ \mathbf{j}_{cv} \\
 &\quad \text{where } \mathbf{j}_{cd}=\sum_s{\sigma_s}\mathbf{v}_s \text{ is the conduction current density} \\
 &\quad \quad \quad \quad\mathbf{j}_{cv}=\sigma \mathbf{u} \text{ is the convection current density} \\
 &\epsilon=\frac{1}{\rho}\sum_s{\rho_s\epsilon_s}=e+\frac{u^2}{2}+\phi \text{ (internal + kinetic + potential)}
@@ -324,13 +324,13 @@ y momentum by motion in the x direction, for instance. This shear stress cannot 
 When the distribution function is an isotropic Maxwellian, $\mathbf{P}$ is written
 
 $$
-\mathbf{P} = \pmatrix{p & 0 & 0 \\ 0 & p & 0 \\ 0 & 0 & p}
+\mathbf{P} = \begin{pmatrix}p & 0 & 0 \\ 0 & p & 0 \\ 0 & 0 & p\end{pmatrix}
 $$
 
 $-\nabla\cdot\mathbf{P} = \nabla p$. A plasma could have two temperatures $T_\perp$ and $T_\parallel$ in the presence of a magnetic field. In that case, there would be two pressures $T_\perp$ and $T_\parallel$ in the presence of a magnetic field. In that case, there would be two pressure $p_\perp = nk_B T_\perp$ and $p_\parallel = nk_B T_\parallel$. The stress tensor is then
 
 $$
-\mathbf{P} = \pmatrix{p_\perp & 0 & 0 \\ 0 & p_\perp & 0 \\ 0 & - & p_\parallel}
+\mathbf{P} = \begin{pmatrix}p_\perp & 0 & 0 \\ 0 & p_\perp & 0 \\ 0 & - & p_\parallel\end{pmatrix}
 $$
 
 where the coordinate of the third row or column is the direction of $\mathbf{B}$. This is still diagonal and shows isotropy in a plane perpendicular to $\mathbf{B}$.
@@ -392,7 +392,7 @@ where $C$ is a constant and $\gamma$ is the ratio of specific heats $C_p/C_\nu$.
 
 $$
 \frac{\nabla p}{p} = \gamma \frac{\nabla n}{n}
-$$
+$$ {#eq:eos_nabla_p}
 
 For isothermal compression, we have
 
@@ -438,6 +438,36 @@ simultaneous solution of this set of 16 equations in 16 unknowns gives a self-co
 
 ## Fluid Drifts Perpendicular to B
 
+Since a fluid element is composed of many individual particles, one would expect the fluid to have drifts perpendicular to $\mathbf{B}$ if the individual guiding centers have such drifts. However, since the $\nabla p$ term appears only in the fluid equations, there is a drift associated with it which the fluid elements have but the particles do not have. For each species, we have an equation of motion
+
+$$
+mn\Big[ \underbrace{\frac{\partial\mathbf{u}}{\partial t}}_{1}+\underbrace{(\mathbf{u}\cdot\nabla)\mathbf{u}}_{2}\Big] = q n (\mathbf{E}+\underbrace{\mathbf{u}\times\mathbf{B}}_{3}) - \nabla p
+$$ {#eq:momentum_single_fluid_ratio}
+
+Consider the ratio of term 1 to term 3:
+
+$$
+\frac{\text{term }1}{\text{term }3} \approx \bigg\lvert\frac{mni\omega v_\perp}{qnv_\perp B}\bigg\rvert \approx \frac{\omega}{\omega_c}
+$$ 
+
+Here we have taken $\partial/\partial t=i\omega$ and are concerned only with $\mathbf{v}_\perp$. For drifts slow compared with the time scale associated with $\omega_c$, we may neglect term 1. We shall also neglect the $(\mathbf{u}\cdot\nabla)\mathbf{u}$ term and show a _posteriori_ that this is all right. Let $\mathbf{E}$ and $\mathbf{B}$ be uniform, but let $n$ and $p$ have a gradient. This is the usual situation in a magnetically confined plasma column (Fig. 3.4 ADD FIGURE!). Taking the cross product of @eq:momentum_single_fluid_ratio with B, we have (neglecting the left-hand side)
+
+$$
+\begin{aligned}
+0 &= qn[\mathbf{E}\times\mathbf{B}+(\mathbf{u}_\perp\times\mathbf{B})\times\mathbf{B}] - \nabla p\times\mathbf{B} \\
+&= qn[\mathbf{E}\times\mathbf{B}+\mathbf{B}(\cancel{\mathbf{u}_\perp\cdot\mathbf{B}})-\mathbf{u}_\perp\mathbf{B}^2] - \nabla p\times\mathbf{B} \\
+&= qn[\mathbf{E}\times\mathbf{B}-\mathbf{u}_\perp\mathbf{B}^2] - \nabla p\times\mathbf{B}
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+\mathbf{u}_\perp = \frac{\mathbf{E}\times\mathbf{B}}{B^2} -\frac{\nabla p \times\mathbf{B}}{qnB^2} \equiv \mathbf{u}_E + \mathbf{u}_D
+$$
+
+where
+
 $$
 \mathbf{u}_E\equiv\frac{\mathbf{E}\times\mathbf{B}}{B^2}\quad\mathbf{E}\times\mathbf{B}\,\text{drift}
 $$
@@ -445,6 +475,42 @@ $$
 $$
 \mathbf{u}_D\equiv-\frac{\nabla\times\mathbf{B}}{qnB^2}\quad\text{Diagmanetic drift}
 $$
+
+The drift $\mathbf{u}_E$ is the same as for guiding centers, but there is now a new drift $\mathbf{u}_D$, called the diamagnetic drift. Since $\mathbf{u}_D$ is perpendicular to the direction of the gradient, our neglect of $(\mathbf{u}\cdot\nabla)\mathbf{u}$ is justified if $\mathbf{E}=0$. If $\mathbf{E}=-\nabla\phi\neq 0$, $(\mathbf{u}\cdot\nabla)\mathbf{u}$ is still zero if $\nabla\phi$ and $\nabla p$ are in the same direction; otherwise, there could be a more complicated solution involving $(\mathbf{u}\cdot\nabla)\mathbf{u}$.
+
+With the help of @eq:eos_nabla_p, we can write the diamagnetic drift as
+
+$$
+\mathbf{u}_D = \pm \frac{\gamma k_B T}{eB}\frac{\hat{z}\times\nabla n}{n}
+$$
+
+In particular, for an isothermal plasma in the geometry of Fig.3.4 (ADD IT!), in which $\nabla n = \partial n\partial r\hat{r} = n^\prime\hat{r}$ ($n^\prime < 0$), we have the following formulas familiar to experimentalists who have worked with Q-machines
+
+$$
+\begin{aligned}
+\mathbf{u}_{Di} &= \frac{k_B T_i}{eB}\frac{n^\prime}{n}\hat{\theta} \\
+\mathbf{u}_{De} &= -\frac{k_B T_e}{eB}\frac{n^\prime}{n}\hat{\theta}
+\end{aligned}
+$$
+
+The physical reason for this drift can be seen from Fig. 3.5 (ADD IT!). Here we have drawn the orbits of ions gyrating in a magnetic field. There is a density gradient toward the left, as indicated by the density of orbits. Through any fixed volume element there are more ions moving downward than upward, since the downward-moving ions come from a region of higher density. There is, therefore, a fluid drift perpendicular to $\nabla n$ and $\mathbf{B}$, _even though the guiding centers are stationary_. The diamagnetic drift reverses sign with $q$ because the direction of gyration reverses. The magnitude of $\mathbf{u}_D$ does not depend on mass because the $m^{-1/2}$ dependence of the velocity is cancelled by the $m^{1/2}$ dependence of the Larmor radius---less of the density gradient is sampled during a gyration if the mass is small.
+
+Since ions and electrons drift in opposite directions, there is a diamagnetic current. For $\gamma=Z=1$, this is given by
+
+$$
+\mathbf{j}_D = ne(\mathbf{u}_{Di} - \mathbf{u}_{De}) = (k_B T_i + k_B T_e)\frac{\mathbf{B}\times\nabla n}{B^2}
+$$
+
+In the particle picture, one would not expect to measure a current if the guiding centers do not drift. In the fluid picture, the current $\mathbf{j}_D$ flows wherever there is a pressure gradient. These two viewpoints can be reconciled if one considers that all experiments must be carried out in a finite-sized plasma. Suppose the plasma were in a rigid box (Fig. 3.6 ADD IT!). If one were to calculate the current from the single-particle picture, one would have to take into account the particles at the edges which have cycloidal paths. Since there are more particles on the left than on the right, there is a
+net current downward, in agreement with the fluid picture.
+
+The reader may not be satisfied with this explanation because it was necessary to specify reflecting walls. If the walls were absorbing or if they were removed, one would find that electric fields would develop because more of one species---the one
+with larger Larmor radius---would collected than the other. Then the guiding centers would drift, and the simplicity of the model would be lost. Alternatively, one could imagine trying to measure the diamagnetic current with a current probe
+(Fig. 3.7 ADD IT!). This is just a transformer with a core of magnetic material. The primary winding is the plasma current threading the core, and the secondary is a multiturn winding all around the core. Let the whole thing be infinitesimally thin, so it does not intercept any particles. It is clear from Fig. 3.7 that a net upward current would be measured, there being higher density on the left than on the right, so that the diamagnetic current is a real current. From this example, one can see that it can be quite tricky to work with the single-particle picture. The fluid theory usually gives the right results when applied straightforwardly, even though it contains "fictitious" drifts like the diamagnetic drift.
+
+(I need to think carefully about these pictures.)
+
+What about the grad-B and curvature drifts which appeared in the single-particle picture? The curvature drift also exists in the fluid picture, since the centrifugal force is felt by all the particles in a fluid element as they move around a bend in the magnetic field. A term $\bar{F}_{cf} = \overline{nmv_\parallel^2}/R_c = nk_B T_\parallel / R_c$ has to be added to the right-hand side of the fluid equation of motion. This is equivalent to a gravitational force $mng$, with $g = k_BT_\parallel/m R_c$, and leads to a drift $\mathbf{u}_g=(m/q)(\mathbf{g}\times\mathbf{B})/B^2$, as in the particle picture (@eq:gravity_drift). 
 
 ## Fluid Drifts Parallel to B
 
