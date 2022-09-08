@@ -481,11 +481,11 @@ field weaker by the same amount on the other side; the correction to $\mathbf{v}
 
 $$
 \mathbf{v}_E = \Big( 1 + \frac{1}{4}r_L^2\nabla^2 \Big) \frac{\mathbf{E}\times\mathbf{B}}{B^2}
-$$
+$$ {#eq:vE}
 
 The second term is called the *finite-Larmor-radius effect*. What is the significance of this correction? Since $r_L$ is much larger for ions than for electrons, $\mathbf{v}_E$ is no longer independent of species. If a density clump occurs in a plasma, an electric field can cause the ions and electrons to separate, generating another electric field. If there is a feedback mechanism that causes the second electric field to enhance the first one, $\mathbf{E}$ grows indefinitely, and the plasma is unstable. Such an instability, called a *drift instability*, is one type of plasma instabilities. The grad-B drift, of course, is also a finite-Larmor-radius effect and also causes charges to separate. However, $\mathbf{v}_{\nabla B} \propto kr_L$ whereas the correction term above is proportional to $k^2 r_L^2$. The nonuniform-E-field effect, therefore, is important at relatively large k, or small scale lengths of the inhomogeneity. For this reason, drift instabilities belong to a more general class called *microinstabilities*.
 
-## Time-Varying E Field
+## Time-Varying E Field {#sec:time-varying_E}
 
 Let us now take $\mathbf{E}$ and $\mathbf{B}$ to be uniform in space but varying in time. First, consider the case in which $\mathbf{E}$ alone varies sinusoidally in time, and let it lie along the x axis:
 
@@ -548,8 +548,8 @@ $$
 Since $\mathbf{v}_p$ is in opposite directions for ions and electrons, there is a *polarization current*; for Z = 1, this is
 
 $$
-\mathbf{j}_p = ne(v_{ip} - v_{ep}) = \frac{ne}{eB^2}(M+m)\frac{d\mathbf{E}}{dt} = \frac{\rho}{B}\frac{d\mathbf{E}}{dt}
-$$
+\mathbf{j}_p = ne(v_{ip} - v_{ep}) = \frac{ne}{eB^2}(M+m)\frac{d\mathbf{E}}{dt} = \frac{\rho}{B^2}\frac{d\mathbf{E}}{dt}
+$$ {#eq:polarization_current}
 
 where $\rho$ is the mass density.
 

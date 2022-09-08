@@ -1,5 +1,233 @@
 # Plasmas as Fluid {#sec:fluid}
 
+In a plasma the situation is much more complicated than that single particle orbits; the $\mathbf{E}$ and $\mathbf{B}$ fields are not prescribed but are determined by the positions and motions of the charges themselves. One must solve a self-consistent problem; that is, find a set of particle trajectories and field patterns such that the particles will generate the
+fields as they move along their orbits and the fields will cause the particles to move in those exact orbits. And this must be done in a time-varying situation. It sounds very hard, but it is not.
+
+We have seen that a typical plasma density might be $10^{18}$ ion–electron pairs per $\text{m}^3$. If each of these particles follows a complicated trajectory and it is necessary to
+follow each of these, predicting the plasma's behavior would be a hopeless task. Fortunately, this is not usually necessary because, surprisingly, the majority-perhaps as much as 80%-of plasma phenomena observed in real experiments can be explained by a rather crude model. This model is that used in fluid mechanics, in which the identity of the individual particle is neglected, and only the motion of fluid elements is taken into account. Of course, in the case of plasmas, the fluid contains electrical charges. In an ordinary fluid, frequent collisions
+between particles keep the particles in a fluid element moving together. It is surprising that such a model works for plasmas, which generally have infrequent collisions. But we shall see that there is a reason for this.
+
+A more refined treatment-the kinetic theory of plasmas-requires more mathematical calculation. An introduction to kinetic theory is given in @sec:kinetic.
+
+In some plasma problems, neither fluid theory nor kinetic theory is sufficient to describe the plasma's behavior. Then one has to fall back on the tedious process of
+following the individual trajectories. Brute-force computer simulation can play an important role in filling the gap between theory and experiment in those instances where even kinetic theory cannot come close to explaining what is observed.
+
+## Definitions
+
+| Variable       | Description       |
+|----------------|-------------------|
+| $m_s$          | mass |
+| $q_s$          | charge |
+| $n_s$          | number density |
+| $\rho_s$       | mass density |
+| $\sigma_s, \rho^\ast$     | charge density ($=n_s q_s$) |
+| $T_s$          | temperature |
+| $p_s$          | scalar pressure |
+| $\mathbf{u}_s$ | flow velocity |
+| $\mathbf{j}_s$ | current density ($=\rho_s^\ast \mathbf{u}_s$) |
+| $e_s$          | internal energy |
+| $\phi_s$       | potential energy |
+| $\epsilon_s$   | total energy ($=e_s+\frac{\mathbf{u_s}^2}{2}+\phi_s$) |
+
+where $s$ denotes the species (e.g. $\text{H}^+, \text{O}^+$). Do not confuse $\sigma$ here with conductivity. Then the total quantities without subscripts can be written as
+
+$$
+\begin{aligned}
+&n=\sum_s{n_s} \\
+&\rho=\sum_{s}\rho_s=\sum_{s}{m_s n_s} \\
+&p=\sum_s{p_s} \\
+&T=\sum_s{\frac{n_s}{n}T_s} \\
+&\mathbf{u}=\frac{1}{\rho}\sum_s \rho_s \mathbf{u}_s \\
+&\mathbf{v}_s=\mathbf{u}_s -\mathbf{u},\quad \text{relative velocity of the } s^{th} \text{ species} \\
+&\sigma^ = \sum_s{\sigma_s^}=\sum_s{q_s n_s} \\
+&\mathbf{j}=\sum_s{\mathbf{j}_s}=\sum_s{\sigma_s^ \mathbf{u}_s}=\sum_s{\sigma_s}\mathbf{v}_s+\mathbf{u}\sum_s{\sigma_s}=\sum_s{\sigma_s \mathbf{v}_s}+\sigma\mathbf{u}=\mathbf{j}_{cd}+ \mathbf{j}_{cv} \\
+&\quad \text{where } \mathbf{j}_{cd}=\sum_s{\sigma_s}\mathbf{v}_s \text{ is the conduction current density} \\
+&\quad \quad \quad \quad\mathbf{j}_{cv}=\sigma \mathbf{u} \text{ is the convection current density} \\
+&\epsilon=\frac{1}{\rho}\sum_s{\rho_s\epsilon_s}=e+\frac{u^2}{2}+\phi \text{ (internal + kinetic + potential)}
+\end{aligned}
+$$
+
+It can be easily verified that
+
+$$
+\sum_s{\rho_s\mathbf{v}_s}=0
+$$
+
+In this note we tried to use $\mathbf{v}$ for all species/particle-based velocities, and $\mathbf{u}$ for all bulk velocities.
+
+We have 5 independent unknown quantities for each species: $n_j, \mathbf{u}_j, p_j$. The pressure can be replaced by temperature $T_j$. Additionally, we have the 6 EM field quantities: $\mathbf{B}, \mathbf{E}$. For a 2-fluid despcription with ions and electrons, altogether we have $5*2+6=16$ unknowns, so we need 16 equations to determine the system.
+
+## Relation of Plasma Physics to Ordinary Electromagnetics
+
+### Maxwell's Equations
+
+In vacuum:
+
+$$
+\begin{aligned}
+\epsilon_0 \nabla\cdot\mathbf{E} &= \sigma \\
+\nabla\cdot\mathbf{E} &= -\dot{\mathbf{B}} \\
+\nabla\cdot\mathbf{B} &= 0 \\
+\nabla\times\mathbf{B} &= \mu_0 (\mathbf{j}+\epsilon_0\dot{\mathbf{E}})
+\end{aligned}
+$$
+
+In a medium:
+
+$$
+\begin{aligned}
+\nabla\cdot\mathbf{D} &= \sigma \\
+\nabla\cdot\mathbf{E} &= -\dot{\mathbf{B}} \\
+\nabla\cdot\mathbf{B} &= 0 \\
+\nabla\times\mathbf{H} &= \mathbf{j}+\dot{\mathbf{D}} \\
+\mathbf{D} &= \epsilon\mathbf{E} \\
+\mathbf{B} &= \mu\mathbf{H}
+\end{aligned}
+$$
+
+$\sigma$ and $\mathbf{j}$ stand for the "free" charge and current densities. The "bound" charge and current densities arising from polarization and magnetization of the medium are included in the definition of the quantities $\mathbf{D}$ and $\mathbf{H}$ in terms of $\epsilon$ and $\mu$. In a plasma, the ions and electrons comprising the plasma are the equivalent of the "bound" charges and currents. Since these charges move in a complicated way, it is impractical to try to lump their effects into two constants $\epsilon$ and $\mu$. Consequently, in plasma physics, one generally works with the vacuum equations, in which $\sigma$ and $\mathbf{j}$ include _all_ the charges and currents, both external and internal.
+
+Note that we have used $\mathbf{E}$ and $\mathbf{B}$ in the vacuum equations rather than their counterparts $\mathbf{D}$ and $\mathbf{H}$, which are related by the constants $\epsilon_0$ and $\mu_0$. This is because the forces $q\mathbf{E}$ and $\mathbf{j}\times\mathbf{B}$ depend on $\mathbf{E}$ and $\mathbf{B}$ rather than $\mathbf{D}$ and $\mathbf{H}$, and it is not
+necessary to introduce the latter quantities as long as one is dealing with the vacuum equations.
+
+### Classical Treatment of Magnetic Materials
+
+Since each gyrating particle has a magnetic moment, it would seem that the logical thing to do would be to consider a plasma as a magnetic material with a permeability $\mu_m$. ((We have put a subscript $m$ on the permeability to distinguish it from the adiabatic invariant $\mu$.) To see why this is _not_ done in practice, let us review the way magnetic materials are usually treated.
+
+The ferromagnetic domains, say, of a piece of iron have magnetic moments $\mu_i$, giving rise to a bulk magnetization
+
+$$
+\mathbf{M} = \frac{1}{V}\sum_i\mu_i
+$$
+
+per unit volume. This has the same effect as a bound current density equal to
+
+$$
+\mathbf{j}_b = \nabla\times\mathbf{M}
+$$
+
+In the vacuum Ampère's law, we must include in $\mathbf{j}$ both this current and the "free", or externally applied, current $\mathbf{j}_f$:
+
+$$
+\mu_0^{-1}\nabla\times\mathbf{B} = \mathbf{j}_f + \mathbf{j}_b + \epsilon_0 \dot{\mathbf{E}}
+$$
+
+We wish to write this equation in the simple form
+
+$$
+\nabla\times\mathbf{H} = \mathbf{j}_f + \epsilon_0\dot{\mathbf{E}}
+$$
+
+by including $\mathbf{j}_b$ in the definition of $\mathbf{H}$. This can be done if we let
+
+$$
+\mathbf{H} = \mu_0^{-1}\mathbf{B} - \mathbf{M}
+$$
+
+To get a simple relation between $\mathbf{B}$ and $\mathbf{H}$, we assume $\mathbf{M}$ to be proportional to $\mathbf{B}$ or $\mathbf{H}$:
+
+$$
+\mathbf{M} = \chi_m \mathbf{H}
+$$
+
+The constant $\chi_m$ is the magnetic susceptibility. We now have
+
+$$
+\mathbf{B} = \mu_0(1+\chi_m)\mathbf{H} \equiv \mu_m \mathbf{H}
+$$
+
+This simple relation between $\mathbf{B}$ and $\mathbf{H}$ is possible because of the linear relation between $\mathbf{M}$ and $\mathbf{H}$.
+
+In a plasma with a magnetic field, each particle has a magnetic moment $\mu_\alpha$, and the quantity $\mathbf{M}$ is the sum of all these $\mu_\alpha$'s in 1 $\text{m}^3$. But now we have
+
+$$
+\mu_\alpha = \frac{mv_{\perp\alpha}^2}{2B}\propto \frac{1}{B}\quad \mathbf{M}\propto \frac{1}{B}
+$$
+
+The relation between $\mathbf{M}$ and $\mathbf{H}$ (or $\mathbf{B}$) is no longer linear, and we cannot write $\mathbf{B} = \mu_m\mathbf{H}$ with $\mu_m$ constant. It is therefore not useful to consider a plasma as a magnetic medium.
+
+### Classical Treatment of Dielectrics
+
+The polarization $\mathbf{P}$ per unit volume is the sum over all the individual moments $\mathbf{p}_i$ of the electric dipoles. This gives rise to a bound charge density
+
+$$
+\sigma_b = -\nabla\cdot\mathbf{P}
+$$ {#eq:bound_charge_polarization}
+
+In the vacuum equation, we must include both the bound charge and the free charge:
+
+$$
+\epsilon_0\nabla\cdot\mathbf{E} = \sigma_f + \sigma_b
+$$
+
+We wish to write this in the simple form
+
+$$
+\nabla\cdot\mathbf{D} = \sigma_f
+$$
+
+by including $\sigma_b$ in the definition of $\mathbf{D}$. This can be done by letting
+
+$$
+\mathbf{D} = \epsilon_0\mathbf{E} + \mathbf{P} \equiv \epsilon \mathbf{E}
+$$
+
+If $\mathbf{P}$ is linearly proportional to $\mathbf{E}$,
+
+$$
+\mathbf{P} = \epsilon_0 \chi_e\mathbf{E}
+$$
+
+then $\epsilon$ is a constant given by
+
+$$
+\epsilon = (1+\chi_e)\epsilon_0
+$$
+
+There is no a priori reason why a relation like the above cannot be valid in a plasma, so we may proceed to try to get an expression for $\epsilon$ in a plasma.
+
+### The Dielectric Constant of a Plasma
+
+We have seen in @sec:time-varying_E that a fluctuating $\mathbf{E}$ field gives rise to a polarization current $\mathbf{j}_p$. This leads, in turn, to a polarization charge given by the equation of continuity:
+
+$$
+\frac{\partial \sigma_p}{\partial t} + \nabla\cdot\mathbf{j}_p = 0
+$$
+
+This is the equivalent of @eq:bound_charge_polarization, except that, as we noted before, a polarization effect does not arise in a plasma unless the electric field is time varying. Since we have an explicit expression for $\mathbf{j}_p$ but not for $\sigma_p$, it is easier to work with the Ampère's law:
+
+$$
+\nabla\times\mathbf{B} = \mu_0(\mathbf{j}_f +\mathbf{j}_p + \epsilon\dot{\mathbf{E}})
+$$
+
+We wish to write this in the form
+
+$$
+\nabla\times\mathbf{B} = \mu_0(\mathbf{j}_f + \epsilon\dot{\mathbf{E}})
+$$
+
+This can be done if we let
+
+$$
+\epsilon = \epsilon_0 + \frac{j_p}{\dot{E}}
+$$
+
+From @eq:polarization_current for $\mathbf{j}_p$, we have
+
+$$
+\epsilon = \epsilon_0 + \frac{\rho}{B^2}\quad \text{or}\quad \epsilon_R\equiv \frac{\epsilon}{\epsilon_0} = 1+\frac{\mu_0\rho c^2}{B^2}
+$$ {#eq:dielectric_constant_low-frequency}
+
+This is the _low-frequency plasma dielectric constant for transverse motions_. The qualifications are necessary because our expression for $\mathbf{j}_p$ is valid only for $\omega^2\ll\omega_c^2$ and for $\mathbf{E}$ perpendicular to $\mathbf{B}$. The general expression for $\epsilon$, of course, is very complicated and hardly fits on one page.
+
+Note that as $\rho\rightarrow 0$, $\epsilon_R$ approaches its vacuum value, unity, as it should. As $B\rightarrow\infty$, $\epsilon_R$ also approaches unity. This is because the polarization drift $\mathbf{v}_p$ then vanishes, and the particles do not move in response to the transverse electric field. In a usual laboratory plasma, the second term in @eq:dielectric_constant_low-frequency is large compared with unity. For instance, if $n=10^{16}\,\text{m}^{-3}$ and $B=0.1\,\text{T}$ we have (for hydrogen)
+
+$$
+\frac{\mu_0\rho c^2}{B^2} = \frac{(4\pi\times 10^{-7})(10^{16})(1.67\times 10^{-27})(3\times 10^8)^2}{(0.1)^2} = 189
+$$
+
+This means that the electric fields due to the particles in the plasma greatly alter the fields applied externally. A plasma with large $\epsilon$ shields out alternating fields, just as a plasma with small $\lambda_D$ shields out dc fields.
+
 ## MHD
 
 There are three basic assumptions in MHD:
@@ -21,6 +249,212 @@ $$
 $$
 
 where the plasma varies on frequency scales $\omega$ small compared to the gyrofrequency $\Omega_c$, and varies on spatial scales $1/k$ long compared to the gyroradius $\rho$. (Here, $\epsilon$ means a "small" value.) Thus it covers phenomenon related to compressional and shear Alfvén waves and instabilities, ion acoustic waves, and ion and electron kinetic effects such as Landau damping. However, it does not include drift-waves or other micro-instabilities because they result from finite Larmor radius (FLR) effects which vanish in the usual MHD ordering. 
+
+### Equation of Continuity
+
+The integral form of mass conservation for each species is
+
+$$
+\frac{d}{dt}\int_V \rho_s dx^3=0
+$$
+
+The conservation of matter requires that the total number of particles $N_s$ in a volume V can change only if there is a net flux of particles across the surface S bounding that volume. Since the particle flux density is $n_s\mathbf{u}_s$, we have, by the divergence theorem,
+
+$$
+\frac{\partial N_s}{\partial t} = \int_V\frac{\partial n_s}{\partial t}dV = -\oint n\mathbf{u}_s\cdot d\mathbf{S} = - \int_V \nabla\cdot(n_s\mathbf{u}_s)dV
+$$
+
+Since this must hold for any volume V, the integrands must be equal:
+
+$$
+\frac{\partial n_s}{\partial t} + \nabla\cdot(n_s\mathbf{u}_s) = 0
+$$
+
+There is one such _equation of continuity_ for each species. Any sources or sinks of particles are to be added to the right-hand side.
+
+### Momentum Equation
+
+Maxwell’s equations tell us what $\mathbf{E}$ and $\mathbf{B}$ are for a given state of the plasma. To solve the self-consistent problem, we must also have an equation giving the plasma’s response to given $\mathbf{E}$ and $\mathbf{B}$. In the fluid approximation, we consider the plasma to be composed of two or more interpenetrating fluids, one for each species. In the simplest case, when there is only one species of ion, we shall need two equations of motion, one for the positively charged ion fluid and one for the negatively charged electron fluid. In a partially ionized gas, we shall also need an equation for the fluid of neutral atoms. The neutral fluid will interact with the ions and electrons only through collisions. The ion and electron fluids will interact with each other even in the absence of collisions, because of the $\mathbf{E}$ and $\mathbf{B}$ fields they generate.
+
+The equation of motion for a single particle is
+
+$$
+m\frac{d\mathbf{v}}{dt} = q(\mathbf{E}+\mathbf{v}\times\mathbf{B})
+$$ {#eq:single_motion}
+
+Assume first that there are no collisions and no thermal motions. Then all the particles in a fluid element move together, and the average velocity $\mathbf{u}$ of the particles in the element is the same as the individual particle velocity $\mathbf{v}$. The fluid equation is obtained simply by multiplying @eq:single_motion by the density $n$:
+
+$$
+mn\frac{d\mathbf{u}}{dt} = qn(\mathbf{E}+\mathbf{u}\times\mathbf{B})
+$$ {#eq:single_fluid1}
+
+This is, however, not a convenient form to use. In @eq:single_motion, the time derivative is to be taken _at the position of the particles_. On the other hand, we wish to have an equation for fluid elements _fixed in space_, because it would be impractical to do otherwise. Consider a drop of cream in a cup of coffee as a fluid element. As the coffee is stirred, the drop distorts into a filament and finally disperses all over the cup, losing its identity. A fluid element at a fixed spot in the cup, however, retains its identity although particles continually go in and out of it.
+
+To make the transformation to variables in a fixed frame, consider $\mathbf{G}(x,t)$ to be any property of a fluid in one-dimensional x space. The change of $\mathbf{G}$ with time _in a frame moving with the fluid_ is the sum of two terms:
+
+$$
+\frac{d\mathbf{G}(x,t)}{dt} = \frac{\partial \mathbf{G}}{\partial t} + \frac{\partial \mathbf{G}}{\partial x}\frac{\partial x}{\partial t} = \frac{\partial \mathbf{G}}{\partial t} + u_x\frac{\partial \mathbf{G}}{\partial x}
+$$
+
+The first term on the right represents the change of $\mathbf{G}$ at a fixed point in space, and the second term represents the change of G as the observer moves with the fluid into a region in which $\mathbf{G}$ is different. In three dimensions, this generalizes to
+
+$$
+\frac{d\mathbf{G}}{dt} = \frac{\partial \mathbf{G}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{G}
+$$
+
+This is called the _convective derivative_ and is sometimes written $\frac{D\mathbf{G}}{Dt}$. Note that $(\mathbf{u}\cdot\nabla)$ is a _scalar_ differential operator.
+
+In the case of a plasma, we take $\mathbf{G}$ to be the fluid velocity $\mathbf{u}$ and write @eq:single_fluid1 as
+
+$$
+mn\Big[\frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u}\Big] = qn(\mathbf{E}+\mathbf{u}\times\mathbf{B})
+$$
+
+where $\partial\mathbf{u}/\partial t$ is the time derivative in a fixed frame.
+
+**Stress Tensor** --> scalar pressure
+
+$$
+mn\Big[\frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u}\Big] = qn(\mathbf{E}+\mathbf{u}\times\mathbf{B}) - \nabla p
+$$ {#eq:single_fluid2}
+
+What we have shown here is only a special case: the transfer of x momentum by motion in the x direction; and we have assumed that the fluid is isotropic, so that the same result holds in the y and z directions. But it is also possible to transfer
+y momentum by motion in the x direction, for instance. This shear stress cannot be represented by a scalar $p$ but must be given by a tensor $\mathbf{P}$, the stress tensor, whose components $P_{ij}= mn\overline{v_i v_j}$ specify both the direction of motion and the component of momentum involved. In the general case the term $\nabla p$ is replaced by $-\nabla\cdot\mathbf{P}$.
+
+When the distribution function is an isotropic Maxwellian, $\mathbf{P}$ is written
+
+$$
+\mathbf{P} = \pmatrix{p & 0 & 0 \\ 0 & p & 0 \\ 0 & 0 & p}
+$$
+
+$-\nabla\cdot\mathbf{P} = \nabla p$. A plasma could have two temperatures $T_\perp$ and $T_\parallel$ in the presence of a magnetic field. In that case, there would be two pressures $T_\perp$ and $T_\parallel$ in the presence of a magnetic field. In that case, there would be two pressure $p_\perp = nk_B T_\perp$ and $p_\parallel = nk_B T_\parallel$. The stress tensor is then
+
+$$
+\mathbf{P} = \pmatrix{p_\perp & 0 & 0 \\ 0 & p_\perp & 0 \\ 0 & - & p_\parallel}
+$$
+
+where the coordinate of the third row or column is the direction of $\mathbf{B}$. This is still diagonal and shows isotropy in a plane perpendicular to $\mathbf{B}$.
+
+In an ordinary fluid, the off-diagonal elements of $\mathbf{P}$ are usually associated with viscosity. When particles make collisions, they come off with an average velocity in the direction of the fluid velocity $\mathbf{u}$ at the point where they made their last collision. This momentum is transferred to another fluid element upon the next collision. This tends to equalize $\mathbf{u}$ at different points, and the resulting resistance to shear flow is what we intuitively think of as viscosity. The longer the mean free path, the farther momentum is carried, and the larger is the viscosity. In a plasma
+there is a similar effect which occurs even in the absence of collisions. The Larmor gyration of particles (particularly ions) brings them into different parts of the plasma and tends to equalize the fluid velocities there. The Larmor radius rather than the mean free path sets the scale of this kind of collisionless viscosity. It is a _finite-Larmor-radius effect_ which occurs in addition to collisional viscosity and is closely related to the $\mathbf{v}_E$ drift in a nonuniform $\mathbf{E}$ field (@eq:vE).
+
+**Collisions**
+
+If there is a neutral gas, the charged fluid will exchange momentum with it through collisions. The momentum lost per collision will be proportional to the relative velocity $\mathbf{u}-\mathbf{u}_0$, where $\mathbf{u}_0$ is the velocity of the neutral fluid. If $\tau$, the mean free time between collisions, is approximately constant, the resulting force term can be roughly written as $-mn(\mathbf{u}-\mathbf{u}_0)/\tau$. The equation of motion can be generalized to include anisotropic pressure and neutral collisions as follows:
+
+$$
+mn\Big[\frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u}\Big] = qn(\mathbf{E}+\mathbf{u}\times\mathbf{B}) - \nabla\cdot\overleftrightarrow{P} - \frac{mn(\mathbf{u}-\mathbf{u}_0)}{\tau} 
+$$ {#eq:momentum_single}
+
+This can also be written as (including the pressure term and other forces)
+
+$$
+\rho\frac{d\mathbf{u}}{dt}=(\rho^\ast \mathbf{E}+\mathbf{j}\times\mathbf{B})-\nabla\cdot\overleftrightarrow{P}+\mathbf{f}_n
+$$
+
+or, in an equivalent conservative form,
+
+$$
+\frac{\partial (\rho\mathbf{u})}{\partial t}+\nabla\cdot(\rho\mathbf{u}\mathbf{u})=(\rho^\ast \mathbf{E}+\mathbf{j}\times\mathbf{B})-\nabla\cdot\overleftrightarrow{P}+\mathbf{f}_n
+$$
+
+Collisions between charged particles have not been included; these will be discussed in sec:collision ADD IT!.
+
+**Comparison with Ordinary Hydrodynamics**
+
+Ordinary fluids obey the Navier–Stokes equation
+
+$$
+\rho\Big[ \frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u} \Big] = -\nabla p + \rho\nu\nabla^2\mathbf{u}
+$$ {#eq:navier_stokes}
+
+This is the same as @eq:momentum_single except for the absence of electromagnetic forces and collisions between species (there being only one species). The viscosity term $\rho\nu\nabla^2\mathbf{u}$, where $\nu$ is the kinematic viscosity coefficient, is just the collisional part of $\nabla\cdot\overleftrightarrow{P} - \nabla p$ in the absence of magnetic fields.
+@eq:navier_stokes describes a fluid in which there are frequent collisions between particles. @eq:momentum_single, on the other hand, was derived without any explicit statement of the collision rate. Since the two equations are identical except for the $\mathbf{E}$ and $\mathbf{B}$ terms, can @eq:momentum_single really describe a plasma species? The answer is a guarded yes, and the reasons for this will tell us the limitations of the fluid theory.
+
+In the derivation of @eq:momentum_single, we did actually assume implicitly that there were many collisions. This assumption came in the derivation of the pressure tensor (TO BE ADDED!) when we took the velocity distribution to be Maxwellian. Such a distribution generally comes about as the result of frequent collisions. However, this assumption was used only to take the
+average of $v^2$. Any other distribution with the same average would give us the same answer. The fluid theory, therefore, is not very sensitive to deviations from the Maxwellian distribution, but there are instances in which these deviations are
+important. Kinetic theory must then be used.
+
+There is also an empirical observation by Irving Langmuir which helps the fluid theory. In working with the electrostatic probes which bear his name, Langmuir discovered that the electron distribution function was far more nearly Maxwellian
+than could be accounted for by the collision rate. This phenomenon, called _Langmuir’s paradox_, has been attributed at times to high-frequency oscillations. There has been no satisfactory resolution of the paradox, but this seems to be one of the few instances in plasma physics where nature works in our favor.
+
+Another reason the fluid model works for plasmas is that the magnetic field, when there is one, can play the role of collisions in a certain sense. When a particle is accelerated, say by an $\mathbf{E}$ field, it would continuously increase in velocity if it were allowed to free-stream. When there are frequent collisions, the particle comes to a limiting velocity proportional to $\mathbf{E}$. The electrons in a copper wire, for instance, drift together with a velocity $\mathbf{v}=\mu\mathbf{E}$, where $\mu$ is the mobility. A magnetic field also limits free-streaming by forcing particles to gyrate in Larmor orbits. The electrons in a plasma also drift together with a velocity proportional to $\mathbf{E}$, namely, $\mathbf{v}_E=\mathbf{E}\times\mathbf{B}/B^2$. In this sense, a collisionless plasma behaves like a collisional fluid. Of course, particles do free-stream _along_ the magnetic field, and the fluid picture is not particularly suitable for motions in that direction. _For motions perpendicular to $\mathbf{B}$, the fluid theory is a good approximation_.
+
+**Equation of State**
+
+One more relation is needed to close the system of equations. For this, the simplest way is to use the thermodynamic equation of state relating $p$ to $n$:
+
+$$
+p = C\rho^\gamma
+$$
+
+where $C$ is a constant and $\gamma$ is the ratio of specific heats $C_p/C_\nu$. The term $\nabla p$ is therefore given by
+
+$$
+\frac{\nabla p}{p} = \gamma \frac{\nabla n}{n}
+$$
+
+For isothermal compression, we have
+
+$$
+\nabla p = \nabla(nk_B T) = k_B T\nabla n
+$$
+
+so that, clearly, $\gamma=1$. For adiabatic compression, $k_B T$ will also change, giving $\gamma$ a value larger than one. If $N$ is the number of degrees of freedom, $\gamma$ is given by
+
+$$
+\gamma = (2+N)/N
+$$
+
+The validity of the equation of state requires that heat flow be negligible; that is, that thermal conductivity be low. Again, this is more likely to be true in directions perpendicular to $\mathbf{B}$ than parallel to it. Fortunately, most basic phenomena can be described adequately by the crude assumption of the equation of state.
+
+**The Complete Set of Fluid Equations**
+
+For simplicity, let the plasma have only two species: ions and electrons; extension to more species is trivial. The charge and current densities are then given by
+
+$$
+\begin{aligned}
+\sigma &= n_i q_i + n_e q_e \\
+\mathbf{j} &= n_i q_i \mathbf{v}_i + n_e q_e \mathbf{v}_e
+\end{aligned}
+$$
+
+We shall neglect collisions and viscosity. The above discussions form the following equation set:
+
+$$
+\begin{aligned}
+\epsilon_0\nabla\cdot\mathbf{E} = n_i q_i + n_e q_e \\
+\nabla\times\mathbf{E} = -\dot{\mathbf{B}} \\
+\nabla\cdot\mathbf{B} = 0 \\
+\mu_0^{-1}\nabla\times\mathbf{B} = n_i q_i \mathbf{u}_i + n_e q_e \mathbf{u}_e + \epsilon_0\dot{\mathbf{E}} \\
+m_jn_j\Big[ \frac{\partial\mathbf{u}_j}{\partial t}+(\mathbf{u}_j\cdot\nabla)\mathbf{u}_j\Big] = q_j n_j (\mathbf{E}+\mathbf{u}_j\times\mathbf{B}) - \nabla p_j\quad j=i,e \\
+\frac{\partial n_j}{\partial t} + \nabla\cdot(n_j\mathbf{u}_j) = 0\quad j=i,e \\
+p_j = C_j n_j^\gamma\quad j=i,e
+\end{aligned}
+$$ {#eq:fluid_set}
+
+There are 16 scalar unknowns: $n_i, n_e, p_i, p_e, \mathbf{u}_i, \mathbf{u}_e, \mathbf{E}$, and $\mathbf{B}$. There are apparently 18 scalar equations if we count each vector equation as three scalar equations. However, two of Maxwell’s equations are superfluous, since the two of the equations can be recovered from the divergences of the other two. The
+simultaneous solution of this set of 16 equations in 16 unknowns gives a self-consistent set of fields and motions in the fluid approximation.
+
+## Fluid Drifts Perpendicular to B
+
+$$
+\mathbf{u}_E\equiv\frac{\mathbf{E}\times\mathbf{B}}{B^2}\quad\mathbf{E}\times\mathbf{B}\,\text{drift}
+$$
+
+$$
+\mathbf{u}_D\equiv-\frac{\nabla\times\mathbf{B}}{qnB^2}\quad\text{Diagmanetic drift}
+$$
+
+## Fluid Drifts Parallel to B
+
+## The Plasma Approximation
+
+The previous example reveals an important characteristic of plasmas that has wide application. We are used to solving for $\mathbf{E}$ from Poisson’s equation when we are given the charge density $\sigma$. In a plasma, the opposite procedure is generally used. $\mathbf{E}$ is found from the equations of motion, and Poisson's equation is used only to find $\sigma$. The reason is that a plasma has an overriding tendency to remain neutral. If the ions move, the electrons will follow. $\mathbf{E}$ must adjust itself so that the orbits of the electrons and ions preserve neutrality. The charge density is of secondary importance; it will adjust itself so that Poisson's equation is satisfied. This is true, of course, only for low-frequency motions in which the electron inertia is not a factor.
+
+In a plasma, it is usually possible to assume $n_i=n_e$ and $\nabla\cdot\mathbf{E}\neq 0$ at the same time. We shall call this the _plasma approximation_. It is a fundamental trait of plasmas, one which is difficult for the novice to understand. _Do not use Poisson's equation to obtain $\mathbf{E}$ unless it is unavoidable_! In the set of fluid equations @eq:fluid_set, we may now eliminate Poisson's equation and also eliminate one of the unknowns by setting $n_i = n_e = n$.
+
+The _plasma approximation_ is almost the same as the condition of quasineutrality discussed earlier but has a more exact meaning. Whereas quasineutrality refers to a general tendency for a plasma to be neutral in its state of rest, the plasma approximation is a mathematical shortcut that one can use even for wave motions. As long as these motions are slow enough that both ions and electrons have time to move, it is a good approximation to replace Poisson's equation by the equation $n_i=n_e$. Of course, if only one species can move and the other cannot follow, such as in high-frequency electron waves, then the plasma approximation is not valid, and $\mathbf{E}$ must be found from Maxwell's equations rather than from the ion and electron equations of motion. We shall return to the question of the validity of the plasma approximation when we come to the theory of ion waves. At that time, it will become clear why we had to use Poisson's equation in the derivation of Debye shielding.
 
 ## Two-Fluid Model {#sec:2fluid}
 

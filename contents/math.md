@@ -310,3 +310,7 @@ The integral $\int_0^{\infty}\frac{\sin x}{x}dx$ is called the Dirichlet integra
 $$
 \int_{-\infty}^{\infty}G(x,0)=\frac{1}{\pi}\int_0^\infty \frac{\sin kx}{x}dx=1\quad \textrm{and}\quad G(0,0)=\infty
 $$
+
+## Normalization
+
+In physics we frequently have to deal with unit conversions. A solid understanding of the unit system and normalization methods paves the path for understanding the scales behind systems.
