@@ -182,7 +182,12 @@ ADD A TWO STREAM INSTABILITY PHASE ANIMATION!
 
 ## Derivation of the Fluid Equations
 
-This has been repeated multiple times. The energy equation derivation can be found in [An introductory guide to fluid models with anisotropic temperatures](https://arxiv.org/abs/1901.09354).
+This has been repeated multiple times.
+
+The fluid equations we have been using are simply moments of the Boltzmann equation. The lowest moment is obtained by integrating @eq:vlasov with $\mathbf{F}$ specialized to the Lorentz force:
+
+
+The energy equation derivation can be found in [An introductory guide to fluid models with anisotropic temperatures](https://arxiv.org/abs/1901.09354).
 
 ## Plasma Oscillations and Landau Damping {#sec:landau}
 

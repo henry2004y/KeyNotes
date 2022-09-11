@@ -1,5 +1,136 @@
 # Waves {#sec:waves}
 
+## Plasma Oscillations {#sec:oscillations}
+
+If the electrons in a plasma are displaced from a uniform background of ions, electric fields will be built up in such a direction as to restore the neutrality of the plasma by pulling the electrons back to their original positions. Because of their inertia, the electrons will overshoot and oscillate around their equilibrium positions with a characteristic frequency known as the _plasma frequency_. This oscillation is so fast that the massive ions do not have time to respond to the oscillating field and may be considered as fixed. In Fig. 4.2 (ADD IT!), the open rectangles represent typical elements of the ion fluid, and the darkened rectangles the alternately displaced elements of the electron fluid. The resulting charge bunching causes a spatially periodic $\mathbf{E}$ field, which tends to restore the electrons to their neutral positions.
+
+We shall derive an expression for the plasma frequency $\omega_p$ in the simplest case, making the following assumptions:
+
+1. There is no magnetic field;
+2. there are no thermal motions ($k_B T=0$);
+3. the ions are fixed in space in a uniform distribution;
+4. the plasma is infinite in extent; and
+5. the electron motions occur only in the x direction. As a consequence of the last assumption, we have
+
+$$
+\nabla = \hat{x}\partial/\partial,\, \mathbf{E} = E\hat{x},\, \nabla\times\mathbf{E} =0,\, \mathbf{E}=-\nabla\phi
+$$
+
+There is, therefore, no fluctuating magnetic field; this is an electrostatic oscillation.
+
+The electron equations of continuity and motion are
+
+$$
+\begin{aligned}
+\frac{\partial n_e}{\partial t} + \nabla\cdot(n_e\mathbf{u}_e) = 0 \\
+mn_e\Big[ \frac{\partial \mathbf{u}_e}{\partial t} + (\mathbf{u}_e\cdot\nabla)\mathbf{u}_e \Big] = -en_e\mathbf{E}
+\end{aligned}
+$$
+
+The only Maxwell equation we shall need is the one that does not involve $\mathbf{B}$: Poisson's equation. This case is an exception to the general rule of @sec:plasma_approximation that Poisson's equation cannot be used to find $\mathbf{E}$. This is a high-frequency oscillation; electron inertia is important, and the deviation from neutrality is the main effect in this particular case. Consequently, we write
+
+$$
+\epsilon_0\nabla\cdot\mathbf{E} = \epsilon_0 \partial \mathbf{E}/\partial x = e(n_i - n_e)
+$$
+
+The last three equations together can be easily solved by the procedure of _linearization_. By this we mean that the amplitude of oscillation is small, and terms containing higher powers of amplitude factors can be neglected. We first separate the dependent variables into two parts: an "equilibrium" part indicated by a subscript 0, and a "perturbation" part indicated by a subscript 1:
+
+$$
+n_e = n_0 + n_1\quad \mathbf{u}_e = \mathbf{u}_0 + \mathbf{u}_1\quad \mathbf{E}_e = \mathbf{E}_0 + \mathbf{E}_1
+$$
+
+The equilibrium quantities express the state of the plasma in the absence of the oscillation. Since we have assumed a uniform neutral plasma at rest before the electrons are displaced, we have
+
+$$
+\begin{aligned}
+\nabla n_0 = \mathbf{u}_0 = \mathbf{E}_0 = 0 \\
+\frac{\partial n_0}{\partial t} = \frac{\partial\mathbf{u}_0}{\partial t} =  \frac{\partial\mathbf{E}_0}{\partial t} = 0
+\end{aligned}
+$$
+
+The momentum equation now becomes
+
+$$
+m\frac{\partial \mathbf{u}_1}{\partial t} = -e\mathbf{E}
+$$
+
+The term $(\mathbf{u}_1\cdot\nabla)\mathbf{u}_1$ is seen to be quadratic in an amplitude quantity, and we shall
+linearize by neglecting it. The _linear theory_ is valid as long as $|u_1|$ is small enough that such quadratic terms are indeed negligible. Similarly, the continuity equation becomes
+
+$$
+\frac{\partial n_1}{\partial t} + n_0 \nabla\cdot\mathbf{u}_1 = 0
+$$
+
+In Poisson's equation, we note that $n_{i0}=n_{e0}$ in equilibrium and that $n_{i1}=0$ by the assumption of fixed ions, so we have
+
+$$
+\epsilon_0 \partial \mathbf{E}/\partial x = -en_1
+$$
+
+The oscillating quantities are assumed to behave sinusoidally:
+
+$$
+\begin{aligned}
+\mathbf{n}_1 &= n_1 e^{i(kx-\omega t)} \\
+\mathbf{u}_1 &= \mathbf{u}_1 e^{i(kx-\omega t)}\hat{x} \\
+\mathbf{E}_1 &= \mathbf{E}_1 e^{i(kx-\omega t)}\hat{x}
+\end{aligned}
+$$
+
+The time derivative $\partial/\partial t$ can therefore be replaced by $-i\omega$, and the gradient $\nabla$ by $ik\hat{x}$. Now the linearized equations become
+
+$$
+\begin{aligned}
+-im\omega n_1 &= -n_0 ik u_1 \\
+-i\omega u_1 &= -eE_1 \\
+-ik\epsilon_0 E_1 &= -en_1
+\end{aligned}
+$$
+
+Eliminating $n_1$ and $E_1$, we have
+
+$$
+-m\omega u_1 = -i\frac{n_0e^2}{\epsilon_0 \omega}u_1
+$$
+
+If $u_1$ does not vanish, we must have
+
+$$
+\omega^2 = \frac{n_0 e^2}{\epsilon_0 m}
+$$
+
+The _plasma frequency_ is therefore
+
+$$
+\omega_p = \sqrt{\frac{n_0 e^2}{\epsilon_0 m}} \quad \text{rad/s}
+$$ {#eq:plasma_frequency}
+
+Numerically, one can use the approximate formula
+
+$$
+\omega_p / 2\pi = f_p \approx 9\sqrt{n}\quad \text{m}^{-3}
+$$
+
+This frequency, depending only on the plasma density, is one of the fundamental parameters of a plasma. Because of the smallness of $m$, the plasma frequency is usually very high. For instance, in a plasma of density $n=10^{18}\,\text{m}^{-3}$, we have
+
+$$
+f_p\approx 9(10^{18})^{1/2} = 9\times 10^9\,\text{s}^{-1} = 9\,\text{GHz}
+$$
+
+Radiation at $f_p$ normally lies in the microwave range. We can compare this with another electron frequency: $\omega_c$. A useful numerical formula is
+
+$$
+f_{ce}\simeq 28\,\text{GHz/T}
+$$
+
+Thus if $B=0.32$ T and $n=10^{18}\,\text{m}^{-3}$, the cyclotron frequency is approximately equal to the plasma frequency for electrons.
+
+@eq:plasma_frequency tells us that if a plasma oscillation is to occur at all, it must have a frequency depending only on $n$. In particular, $\omega$ does not depend on $k$, so the group velocity $d\omega/dk$ is zero. The disturbance does not propagate. How this can happen can be made clear with a mechanical analogy (Fig. 4.3 @fig:independent_springs). Imagine a number of heavy balls suspended by springs equally spaced in a line. If all the springs are identical, each ball will oscillate vertically with the same frequency. If the balls are started in the proper phases relative to one another, they can be made to form a wave propagating in either direction. The frequency will be fixed by the springs, but the wavelength can be chosen arbitrarily. The two undisturbed balls at the ends will not be affected, and the initial disturbance does not propagate. Either traveling waves or standing waves can be created, as in the case of a stretched rope. Waves on a rope, however, must propagate because each segment is connected to neighboring segments.
+
+![Synthesis of a wave from an assembly of independent oscillators.](images/independent_springs.png){#fig:independent_springs}
+
+This analogy is not quite accurate, because plasma oscillations have motions in the direction of $\mathbf{k}$ rather than transverse to $\mathbf{k}$. However, as long as electrons do not collide with ions or with each other, they can still be pictured as independent oscillators moving horizontally (in @fig:independent_springs). But what about the electric field? Won't that extend past the region of initial disturbance and set neighboring layers of plasma into oscillation? In our simple example, it will not, because the electric field due to equal numbers of positive and negative infinite plane charge sheets is zero. In any finite system, however, plasma oscillations will propagate. In Fig. 4.4 ADD IT!, the positive and negative (shaded) regions of a plane plasma oscillation are confined in a cylindrical tube. The fringing electric field causes a coupling of the disturbance to adjacent layers, and the oscillation does not stay localized.
+
 ## Classification of EM Waves in Uniform Plasma
 
 $$

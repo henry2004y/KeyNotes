@@ -514,7 +514,7 @@ What about the grad-B and curvature drifts which appeared in the single-particle
 
 ## Fluid Drifts Parallel to B
 
-## The Plasma Approximation
+## The Plasma Approximation {#sec:plasma_approximation}
 
 The previous example reveals an important characteristic of plasmas that has wide application. We are used to solving for $\mathbf{E}$ from Poisson’s equation when we are given the charge density $\sigma$. In a plasma, the opposite procedure is generally used. $\mathbf{E}$ is found from the equations of motion, and Poisson's equation is used only to find $\sigma$. The reason is that a plasma has an overriding tendency to remain neutral. If the ions move, the electrons will follow. $\mathbf{E}$ must adjust itself so that the orbits of the electrons and ions preserve neutrality. The charge density is of secondary importance; it will adjust itself so that Poisson's equation is satisfied. This is true, of course, only for low-frequency motions in which the electron inertia is not a factor.
 
