@@ -668,6 +668,20 @@ $$
 \mathbf{v}_p = \pm \frac{1}{\omega_c B}\frac{d\mathbf{E}}{dt}
 $$
 
+A non-relativistic equation for the guiding center is given by Northrop in 1963:
+
+$$
+\frac{d\mathbf{R}}{dt} = v_\parallel\hat{b} + \frac{\hat{b}}{B}\times \Big[ -\mathbf{E} + \frac{m}{q}\Big( v_\parallel\frac{d\hat{b}}{dt} + \frac{d\mathbf{v}_{E\times B}}{dt} \Big) + \frac{\mu}{q}\nabla B \Big]
+$$
+
+and the parallel motion can be described by (???)
+
+$$
+\frac{d(mv_\parallel)}{dt} = m\mathbf{u}_q E_\parallel - \mu\hat{b}\cdot\nabla B
+$$
+
+By applying the guiding center approximation, we reduce the number of independent variables from 6 $(x,y,z,v_x,v_y,v_z)$ to 5 $(x,y,z,v_\perp, v_\parallel)$.
+
 ## Adiabatic Invariants
 
 It is well known in classical mechanics that whenever a system has a periodic motion, the action integral $\oint p dq$ taken over a period is a constant of the motion. Here $p$ and $q$ are the generalized momentum and coordinate which repeat themselves in the motion. If a slow change is made in the system, so that the motion is not quite periodic, the constant of the motion does not change and is then called an *adiabatic invariant*. By slow here we mean slow compared with the period of motion, so that the integral $\oint p dq$ is well defined even though it is strictly no longer an integral over a closed path. Adiabatic invariants play an important role in plasma physics; they allow us to obtain simple answers in many instances involving
@@ -799,3 +813,17 @@ An example of the violation of J invariance is given by a plasma heating scheme 
 
 Referring again to the earth dipole case, we see that the slow drift of a guiding center around the earth constitutes a third type of periodic motion. The adiabatic invariant connected with this turns out to be the total magnetic flux $\Phi$ enclosed by the drift surface. It is almost obvious that, as $\mathbf{B}$ varies, the particle will stay on a surface such that the total
 number of magnetic field lines enclosed remains constant. This invariant, $\Phi$, has few applications because most fluctuations of $\mathbf{B}$ occur on a time scale short compared with the drift period. As an example of the violation of $\Phi$ invariance, we can cite some recent work on the excitation of hydromagnetic waves in the ionosphere. These waves have a long period comparable to the drift time of a particle around the earth. The particles can therefore encounter the wave in the same phase each time around. If the phase is right, the wave can be excited by the conversion of particle drift energy to wave energy.
+
+## Test Particle Model
+
+The test particle method is not self-consistent, because we only describe the effect of the fields onto particles, but not vice versa. This reduces the PDEs to ODEs which is much simpler to solve. Despite of this, we use the trajectories of test particles to infer approximate kinetic properties of the system. You will see many examples of understanding more complicated scenario using the drifts derived from test particle motions, especially in terms of stability analysis.
+
+There are four methods in test particle modelling:
+
+1. Trajectory sampling. It solves individual particle trajectories, but it may not be trivial to select the samples.
+
+2. Forward Monte Carlo. We inject particles in source regions where $f$ is known, and follow them until they reach the regions of interest. This is similar to PIC, except that the fields are not self-consistent.
+
+3. _Forward Liouville_.
+
+4. _Backward Liouville_. It also makes use of the Liouville's theorem for $f$, but there is no sampling, neither in $\mathbf{x}$ nor in $\mathbf{v}$ space, implying no statistical errors. The procedure starts by choosing a given point $\mathbf{x}$ in space ...
