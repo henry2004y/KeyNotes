@@ -90,9 +90,10 @@ Note that the value of $f(z)$ on $C$ determines value of $f(\alpha)$ for all $\a
 __Theorem 2.3__ Residual theorem
 
 Let $f(z)$ be an analytic function on $C+$inside $C$. If point $\alpha$ is inside $C$, we have
+
 $$
 \oint_c \frac{f(z)dz}{z-\alpha}=2\pi i f(\alpha)\equiv 2\pi i \text{Res}\Big[ \frac{f(z)}{z-x};z=\alpha \Big]
-$$ 
+$$ {#eq:residual_thm}
 □
 
 Khan Academy has a [nice video](https://youtu.be/YWIseo5LwgQ) on this. Applying this powerful theorem, we can calculate many integrals analytically which contain singular points.

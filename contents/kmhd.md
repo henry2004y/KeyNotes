@@ -227,9 +227,75 @@ p_\parallel &= \sum_s \int d\mathbf{w}m_sw_\parallel^2 f_s
 \end{aligned}
 $$
 
-We still need the kinetic equation to calculate $f_s$ --- this kinetic equation will need to be somewhat reduced to solve for the lowest-order, gyrotropic PDF $f_s(w_\perp, w_\parallel)$. In pursuit of instant justification, we will postpone doing this and first derive some results that do not need the $f_s$ equation (i.e. the Firehose instability).
+We still need the kinetic equation to calculate $f_s$ --- this kinetic equation will need to be somewhat reduced to solve for the lowest-order, gyrotropic PDF $f_s(w_\perp, w_\parallel)$. In pursuit of instant justification, we can postpone doing this and first derive some results that do not need the $f_s$ equation (i.e. the Firehose instability) in @sec:firehose. For mirror modes, let us continue on the kinetic equation
 
-## Firehose Instability: Linear Theory
+$$
+\Omega_s\Big( \frac{\partial f_s}{\partial\theta} \Big)_{w_\perp, w_\parallel} = \frac{d f_s}{dt} + \mathbf{w}\cdot\nabla f_s + \Big[ \frac{q_s}{m_s}\Big( \mathbf{E}+\frac{\mathbf{u}_s\times\mathbf{B}}{c} \Big) - \frac{d\mathbf{u}_s}{dt} \Big]\cdot\frac{\partial f_s}{\partial\mathbf{w}} - C(f_s)
+$$
+
+To the lowest order,
+
+$$
+\Big( \frac{\partial f_s^0}{\partial\theta} \Big)_{w_\perp, w_\parallel} = 0
+$$
+
+To the first order,
+
+$$
+\Omega_s\Big( \frac{\partial f_s^1}{\partial\theta} \Big)_{w_\perp, w_\parallel} = \frac{d f_s^0}{dt} + \mathbf{w}\cdot\nabla f_s^0 + \Big[ \frac{q_s^0}{m_s}\Big( \mathbf{E}+\frac{\mathbf{u}_s\times\mathbf{B}}{c} \Big) - \frac{d\mathbf{u}_s}{dt} \Big]\cdot\frac{\partial f_s^0}{\partial\mathbf{w}} - C(f_s^0)
+$$
+
+When we integrate over $\theta$, the left-hand side is eliminated (???),
+
+$$
+\bigg\lvert \frac{d f_s}{dt} + \mathbf{w}\cdot\nabla f_s + (\mathbf{a}_s - \mathbf{w}\cdot\nabla\mathbf{u}_s)\cdot\frac{\partial f_s}{\partial\mathbf{w}} - C(f_s) \bigg\rvert_\theta = 0
+$$
+
+where $f_s = f_s(w_\perp,w_\parallel)$. To do this averaging, tranform variables $(t,\mathbf{r},\mathbf{w}) \rightarrow(t,\mathbf{r},w_\perp,w_\parallel,\theta)$. With
+
+$$
+\begin{aligned}
+w_\parallel &= \mathbf{w}\cdot\hat{b}(t,\mathbf{r}) \\
+w_\perp &= |\mathbf{w} - w_\parallel\hat{b}|
+\end{aligned}
+$$
+
+and some algebras (to be filled in!!! Check online notes.), we have
+
+$$
+\frac{D f_s}{Dt} + \frac{1}{B}\frac{D B}{Dt}\frac{w_\perp}{2}\frac{\partial f_s}{\partial w_\perp} + \Big( \frac{q_s}{m_s}E_\parallel - \frac{D\mathbf{u}_s}{Dt}\cdot\hat{b} - \frac{w_\perp^2}{2}\frac{\nabla_\parallel B}{B} \Big)\frac{\partial f_s}{\partial w_\parallel} = C(f_s)
+$$
+
+where
+
+$$
+D/Dt = d/dt + w_\parallel \hat{b}\cdot\nabla = \partial/\partial t + \mathbf{u}_s\cdot\nabla + w_\parallel \hat{b}\cdot\nabla
+$$
+
+This is not terribly transparent and it is perhaps better to write this equation in different, "more physical" variables. Let
+
+$$
+f_s(w_\perp, w_\parallel) = F_s(\mu, \epsilon)
+$$
+
+where $\mu = m_sw_\perp^2/2B$ is the magnetic moment of a gyrating particle and $\epsilon=m_sw^2/2 = m_s(w_\perp^2+w_\parallel^2)/2$. Since $\mu$ is conserved when $\omega\ll\Omega_s$, $F_s$ satisfies
+
+$$
+\frac{D F_s}{Dt} + \Big[ m_sw_\parallel\Big( \frac{q_s}{m_s}E_\parallel - \frac{D\mathbf{u}_s}{Dt}\cdot\hat{b} \Big) +\mu\frac{dB}{dt} \Big]\frac{\partial F_s}{\partial\epsilon} = C(F_s)
+$$ {#eq:kmhd_kinetic_1storder}
+
+The first term is the total derivative in the guiding center coordinates. The second term is the accelaration by parallel electric field. The third term takes account of the fact that $\epsilon$ does not include the bulk velocity. The fourth term is the _betatron acceleration_ due to $\mu$ conservation (???):
+
+$$
+\begin{aligned}
+\epsilon &= \mu B + \frac{m_sw_\parallel^2}{2} \\
+\dot{\epsilon} &= \mu \dot{B}
+\end{aligned}
+$$
+
+$E_\parallel$ is determined by imposing $\sum_s q_s n_s = 0$.
+
+## Firehose Instability: Linear Theory {#sec:firehose}
 
 Suppose we have some "macroscopic" solution of our (yet to be fully derived) equilibrium. We allow high-frequency, short-wavelength perturbations ($\omega\ll u/l, kl \ll 1$ ???) of this solution, and seek solutions in the form
 
@@ -326,6 +392,145 @@ $$
 \omega\rho\mathbf{k}_\perp\cdot\delta\mathbf{u}_\perp = \rho\omega^2 \frac{\delta B}{B} = k_\perp^2\Big( \delta p_\perp + \frac{B\delta B}{\mu_0} \Big) + k_\parallel^2\Big( p_\perp - p_\parallel + \frac{B^2}{\mu_0} \Big) \frac{\delta B}{B}
 $$ {#eq:kmhd_momentum_perturb_perp}
 
-Note the $p_\perp$ term here: we need kinetic theory to calculate this!
+Note the $p_\perp$ term here: we need kinetic theory to calculate this! Fortunately we have @eq:kmhd_kinetic_1storder ready for calculating
+
+$$
+\delta p_\perp = \int d\mathbf{w}\frac{m_sw_\perp^2}{2}\delta f_s(w_\perp, w_\parallel)
+$$
+
+$\delta f_s(w_\perp, w_\parallel)$ can be obtained by calculating $F_s(\mu,\epsilon)$ and transforming back to $w_\perp,w_\parallel$.
+
+There is a cute subtlety: our macroscopic scale ???, around which we are expanding the distribution is
+
+$$
+F_{os}(\mu,\epsilon) = f_{0,s}(w_\perp,w_\parallel) = f_{0,s}\Big( \sqrt{\frac{2B_0\mu}{m_s}},\sqrt{\frac{2(\epsilon-\mu B_0)}{m_s}} \Big)
+$$
+
+which contains $B_0$ the unperturbed magnetic field. $\mu$ in $F_0$ contains $B_0+\delta B$, and this has to be taken into account when transforming to $w_\perp,w_\parallel$. Now when we perturb everything:
+
+$$
+\begin{aligned}
+F_s(\mu,\epsilon) &= F_{0s}(\mu,\epsilon) + \delta F_s \\
+&= f_{0s}(w_\perp,w_\parallel) + \delta f_s \\
+&= f_{0s}\Big( \sqrt{\frac{2\mu(B_0+\delta B)}{m_s}},\sqrt{\frac{2[\epsilon-\mu(B_0+\delta B)]}{m_s}} \Big) + \delta f_s \\
+&= f_{0s}\Big( \sqrt{\frac{2\mu B_0}{m_s}+\frac{2\mu}{m_s}\delta B},\sqrt{\frac{2(\epsilon-\mu B_0)}{m_s}} -\frac{2\mu}{m_s}\delta B \Big) + \delta f_s \\
+&\approx f_{0s}\Big( \sqrt{\frac{2\mu B_0}{m_s}},\sqrt{\frac{2(\epsilon-\mu B_0)}{m_s}} \Big) + \frac{2\mu}{m_s}\delta B\Big(\frac{\partial f_{0s}}{\partial w_\perp^2}-\frac{\partial f_{0s}}{\partial w_\parallel^2} \Big) + \delta f_s
+\end{aligned}
+$$
+
+Thus
+
+$$
+\delta f_s = \delta F_s - w_\perp^2\frac{\delta B}{B}\Big(\frac{\partial f_{0s}}{\partial w_\perp^2}-\frac{\partial f_{0s}}{\partial w_\parallel^2} \Big)
+$$
+
+If $f_{0s}$ is a bi-Maxwellian,
+
+$$
+f_{0s} = \frac{n_s}{\pi^{3/2}v_{\text{th}\perp s}^3}e^{-\frac{w_\perp^2}{v_{\text{th}\perp s}}-\frac{w_\parallel^2}{v_{\text{th}\parallel s}^2}}
+$$
+
+then this can be further written as
+
+$$
+\delta f_s = \delta F_s + w_\perp^2\frac{\delta B}{B}\frac{m_sn_s}{2}\Big(\frac{1}{p_{\perp s}} - \frac{1}{p_{\parallel s}} \Big) f_{0s}
+$$
+
+This then gives us
+
+$$
+\begin{aligned}
+\delta p_{\perp s} &= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta f_s \\
+&= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s - \int d\mathbf{w}\frac{m_s w_\perp^4}{2}\Big(\frac{\partial f_{0s}}{\partial w_\perp^2}-\frac{\partial f_{0s}}{\partial w_\parallel^2} \Big)\frac{\delta B}{B} \\
+&= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s - 2\pi\int dw_\perp w_\perp d w_\parallel \frac{m_s w_\perp^4}{2}\Big(\frac{\partial f_{0s}}{\partial w_\perp^2}-\frac{\partial f_{0s}}{\partial w_\parallel^2} \Big)\frac{\delta B}{B} \\
+&= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s - 2 \int d\mathbf{w}\frac{mw_\perp^2}{2}f_{0s}\frac{\delta B}{B} + \int d\mathbf{w}\frac{m_s w_\perp^4}{2}\frac{\partial f_{0s}}{\partial w_\parallel^2}\frac{\delta B}{B} \\
+&= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s + \frac{\delta B}{B}\Big( 2p_{\perp s} - \frac{2 p_{\perp s}^2}{p_{\parallel s}} ds )
+\end{aligned}
+$$ {#eq:kmhd_pperp_perturb}
+
+The $\delta F_s$ can be obtained by ignoring collisions and linearizing and Fourier-transforming @eq:kmhd_kinetic_1storder:
+
+$$
+\begin{aligned}
+-i(\omega - k_\parallel w_\parallel)\delta F_s = - \Big[ m_sw_\parallel\Big( \frac{q_s}{m_s}E_\parallel - i(\omega-k_\parallel w_\parallel) \delta u_{\parallel s}\Big) -i\omega\mu\delta B \Big]\frac{\partial F_{0s}}{\partial \epsilon} \\
+\delta F_s = -i\frac{w_\parallel q_s E_\parallel}{\omega-k_\parallel w_\parallel}\frac{\partial F_{0s}}{\partial \epsilon} - \delta u_{\parallel s}m_sw_\parallel\frac{\partial F_{0s}}{\partial\epsilon} - \frac{\omega}{\omega-k_\parallel w_\parallel}\mu\delta B\frac{\partial F_{0s}}{\partial\epsilon}
+\end{aligned}
+$$
+
+The first term can be ignored if $\beta\gg 1$; otherwise $E_\parallel$ can be got by imposing $\sum_s q_s n_s = 0$. The second term can be shown (ADD IT!) to be equivalent to $\delta u_{\parallel s}\partial f_{0s}/\partial w_\parallel$, so this will not contribute to $\delta p_\perp$ because it integrates to 0. The third term can be written as
+
+$$
+\frac{\omega}{\omega-k_\parallel w_\parallel}\mu\delta B\frac{\partial F_{0s}}{\partial\epsilon} = \frac{\omega}{\omega-k_\parallel w_\parallel}\frac{w_\perp^2}{2}\frac{\delta B}{B}\frac{1}{w_\parallel}\frac{\partial f_{0s}}{\partial w_\parallel} = frac{\omega}{\omega-k_\parallel w_\parallel} w_\perp^2\frac{\delta B}{B}\frac{\partial f_{0s}}{\partial w_\parallel^2}
+$$
+
+Thus, the "relevant" part of $\delta F_s$ is
+
+$$
+\delta F_s = -frac{\omega}{\omega-k_\parallel w_\parallel} w_\perp^2\frac{\delta B}{B}\frac{\partial f_{0s}}{\partial w_\parallel^2}
+$$
+
+and its contribution to $\delta p_{\perp s}$ is
+
+$$
+\int d\mathbf{w}\frac{m_sw_\perp^2}{2}\delta F_s = \frac{\delta B}{B}\frac{\omega}{|k_\parallel|}\int\frac{dw_\parallel}{w_\parallel - \frac{\omega}{|k_\parallel|}} \Big[ \frac{\partial}{\partial w_\parallel^2}\int d\mathbf{w}_\perp \frac{m_sw_\perp^4}{2} f_{0s} \Big]
+$$
+
+Here we have $|k_\parallel|$ because if $k_\parallel <0$, we can change the variable $w_\parallel \rightarrow -w_\parallel$. This involves the Landau integral, which can be evaluated with the residual theorem @eq:residual_thm:
+
+$$
+\frac{1}{w_\parallel - \frac{\omega}{|k_\parallel|}} = P\frac{1}{w_\parallel - \frac{\omega}{|k_\parallel|}} + i\pi\delta\Big(w_\parallel - \frac{\omega}{|k_\parallel|} \Big)
+$$
+
+so
+
+$$
+\begin{aligned}
+\int d\mathbf{w}\frac{m_sw_\perp^2}{2}\delta F_s &= \frac{\delta B}{B}\Big[ \cancel{\frac{\omega}{|k_\parallel|}P\int\frac{dw_\parallel}{w_\parallel - \frac{\omega}{|k_\parallel|}} \big[ ... \big]} + i\pi\frac{\omega}{|k_\parallel}\big[ ... \big]_{w_\parallel} \Big] 
+\end{aligned}
+$$
+
+The first term is 0 when we assume $\omega\ll k_\parallel v_{\text{th}s\parallel}$; the second term must be kept because it is the lowest-order imaginary part which will lead to instability.
+
+For a bi-Maxwellian,
+
+$$
+\Big[ \frac{\partial}{\partial w_\parallel^2}\int d\mathbf{w}_\perp\frac{m_sw_\perp^4}{2}f_{0s} \Big]_{w_\parallel=\omega/|k_\parallel|} = -\frac{2p_{\perp s}^2}{p_{\parallel s}}\frac{e^{-\frac{\omega^2}{k_\parallel^2 v_{\text{th}\parallel}^2}}}{\sqrt{\pi}v_{\text{th}\parallel}}
+$$
+
+The exponential term is nearly 1. If it is not a bi_Maxwellian, then we need to multiply by a coefficient $\sigma_s \sim 1$.
+
+@eq:kmhd_pperp_perturb becomes (???)
+
+$$
+\delta p_{\perp s} = \frac{\delta B}{B}\Big[ 2p_{\perp s} - \frac{2p_{\perp s}^2}{p_{\parallel s}}\Big( \alpha_s + i\sqrt{\pi}\frac{\omega}{|k_\parallel|v_{\text{th}\parallel s}}\sigma_s \Big) \Big]
+$$
+
+This goes into @eq:kmhd_momentum_perturb_perp:
+
+$$
+\rho \omega^2 = k_\perp^2\frac{B^2}{4\pi}\Big[ \sum_s(1 - \frac{p_{\perp s}}{p_{\parallel s}}\alpha_s)\beta_{\perp s} - i\sum_s \sigma_s\frac{p_{\perp s}}{p_{\parallel s}}\beta_{\perp s}\sqrt{\pi}\frac{\omega}{|k_\parallel| v_{\text{th} \parallel s}} + 1 \Big] + k_\parallel^2 \frac{B^2}{4\pi}\Big[ \sum_s\frac{\beta_{\perp s}}{2}\big( 1 - \frac{p_{\parallel s}}{p_{\perp s}} \big) + 1 \Big]
+$$
+
+The left-hand side can be neglected because $\omega\ll k_\parallel v_{\text{th}\parallel}$. The electron thermal velocity $v_{\text{th}\parallel e}$ in the denominator can be neglected because $v_{\text{th}\parallel e} \gg v_{\text{th}\parallel i}$. The growth rate $\gamma$ is the imaginary part of $\omega$. Reorganize the last equation:
+
+$$
+\sigma_i\frac{p_{\perp i}}{p_{\parallel i}}\beta_{\perp i}\sqrt{\pi}\frac{\gamma}{|k_\parallel|v_{\text{th} i \parallel}} = \sum_s \Big(\frac{p_\perp s}{p_\parallel s}\alpha_s - 1 \Big)\beta_{\perp s} - 1 -\frac{k_\parallel^2}{k_\perp^2}\Big[ \sum_s\frac{\beta_{\perp s}}{2}\big( 1-\frac{p_{\parallel s}}{p_{\perp s}}\big) + 1 \Big]
+$$ {#eq:kmhd_mirror_growth}
+
+where $\Lambda\equiv \sum_s \Big(\frac{p_\perp s}{p_\parallel s}\alpha_s - 1 \Big)\beta_{\perp s} - 1$ triggers instability if this is positive:
+
+$$
+\sum_s \Big(\frac{p_\perp s}{p_\parallel s}\alpha_s - 1 \Big)\beta_{\perp s} > 1
+$$
+
+Examining where this comes from, we see that this amounts to $\delta p_\perp$ modifying the magnetic pressure force and turn it from positive to negative:
+
+$$
+\delta p_\perp + \frac{B\delta B}{4\pi} = \frac{B\delta B}{4\pi}\Big[ \underbrace{1}_{\text{B pressure}} - \underbrace{\sum_s\Big( \frac{p_{\perp s}}{p_{\parallel s}}\alpha_s - 1 \Big)\beta_{\perp s}}_{\substack{\text{non-resonant} \\ \text{particle pressure}}} + \underbrace{...}_{\substack{\text{resonant particle} \\ \text{pressure}}} \Big]
+$$
+
+Thus, fundamentally, pressure anisotropy makes it easier to compress or rarefy magnetic field --- and things become unstable when the sign of the pressure flips and it becomes energetically profitable to create compressions and rarefications. The dispersion relation @eq:kmhd_mirror_growth is basically a statement of pressure balance between the magnetic pressure, the non-resonant particle pressure $\delta p_\perp$ and the resonant particle pressure $\propto\gamma$, which came from the _betatron acceleration_ $\mu dB/dt$ in @eq:kmhd_kinetic_1storder.
+
+The betatron acceleration term refers to what happens in the stable case. When magnetic pressure opposes formation of $\delta B$ perturbations (say, troughs), to compensate it, we must have $\gamma<0$ and energy goes from $\delta B$ to resonant particles, which are accelerated by the mirror force. The corresponding decaying of $\delta B$ is the well-known _Bosues damping_ (landau damping of "mirror field", Bosues 1966, also known as transit-time damping from Stix's book. See more discussion on the physics in Southwood & Kivelson 1993.) 
 
 TO BE CONTINUED...
