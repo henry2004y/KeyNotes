@@ -83,4 +83,4 @@ $$
 \gamma = -\int qvE\delta f dv = -\int qvE\frac{\delta f}{f}f dv = \sum_j q_j v_j w_j E(x_j)
 $$
 
-Since now the particle weight is proportional to $\delta f/f$, the system noise would be significantly reduced. Of course this requires the prior assumption $|\delta f| \ll f$ to be valid.
+Since now the particle weight is proportional to $\delta f/f$, the system noise would be significantly reduced by $(\delta f/f)^2$; in other words, for the same noise level the number of macro-particles required would be reduced by $(\delta f/f)^2$, which is typically $\mathcal{O}(10^6)$. Of course this requires the prior assumption $|\delta f| \ll f$ to be valid.

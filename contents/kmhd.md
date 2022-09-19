@@ -179,7 +179,7 @@ $$
 &= -w_{\perp 2}\frac{\partial f_s}{\partial w_{\perp 1}} + w_{\perp 2}\frac{\partial f_s}{\partial w_{\perp 2}} \\
 &= \mathbf{w}\times\hat{b}\cdot\frac{\partial f_s}{\partial \mathbf{w}}
 \end{aligned}
-$$
+$$ {#eq:kmhd_cylindrical_vspace}
 
 This is why we say the third term in @eq:kmhd_boltzmann represents a rotation in the velocity space, or more exactly, in the perpendicular velocity plane.
 
