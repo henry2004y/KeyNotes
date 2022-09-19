@@ -6,14 +6,14 @@ Here we assume that the EM fields are prescribed and not affected by the charged
 
 ## Uniform E and B Fields
 
-The convention here is that velocity $\mathbf{V}$ represents single particle velocity as you will see through most of this chapter.
+The convention here is that velocity $\mathbf{v}$ represents single particle velocity as you will see through most of this chapter.
 
 ### E=0
 
 In this case, a charged particle has a simple cyclotron gyration. The equation of motion is
 
 $$
-m\frac{d\mathbf{V}}{dt} = q\mathbf{V}\times\mathbf{B}
+m\frac{d\mathbf{v}}{dt} = q\mathbf{v}\times\mathbf{B}
 $$
 
 Taking $\widehat{z}$ to be the direction of $\mathbf{B}$ ($\mathbf{B} = B\widehat{z}$), we have
@@ -21,18 +21,18 @@ Taking $\widehat{z}$ to be the direction of $\mathbf{B}$ ($\mathbf{B} = B\wideha
 $$
 \begin{aligned}
 m\dot{v}_x = qB v_y,\quad m\dot{v}_y = -qB v_x,\quad m\dot{v}_z = 0, \\
-\ddot{v}_x = \frac{qB}{m}\dot{v}_y = -\big( \frac{qB}{m}\big)^2 v_x \\
-\ddot{v}_y = \frac{qB}{m}\dot{v}_x = -\big( \frac{qB}{m}\big)^2 v_y
+\ddot{v}_x = \frac{qB}{m}\dot{v}_y = -\Big( \frac{qB}{m}\Big)^2 v_x \\
+\ddot{v}_y = \frac{qB}{m}\dot{v}_x = -\Big( \frac{qB}{m}\Big)^2 v_y
 \end{aligned}
 $$
 
 This describes a simple harmonic oscillator at the *cyclotron frequency*, which we define to be
 
 $$
-\omega_c \equiv \frac{| q | B}{m}s
+\omega_c \equiv \frac{| q | B}{m}
 $$
 
-By the convention we have chosen, $\omega_c$ is always nonnegative. The solution of velocity is then
+By the convention we have chosen, $\omega_c$ is always nonnegative. The unit of $\omega_c$ in SI units is rad/s. To convert it to hertz, we need to divide it by $2\pi$. The solution of velocity is then
 
 $$
 v_{x,y} = v_\perp \exp(\pm i \omega_c t + i\delta_{x,y})
@@ -63,7 +63,9 @@ We define the *Larmor radius* to be
 
 $$
 r_L \equiv \frac{v_\perp}{\omega_c} = \frac{mv_\perp}{|q| B}
-$$
+$$ {#eq:larmor_radius}
+
+Note that $2\pi$ does not appear in @eq:larmor_radius!
 
 Taking the real part of the positions, we have
 
@@ -81,7 +83,7 @@ This describes a circular orbit about a *guiding center* ($x_0, y_0$) which is f
 If now we allow an electric field to be present, the motion will be found to be the sum of two motions: the usual circular Larmor gyration plus a drift of the guiding center. We may choose $\mathbf{E}$ to lie in the x-z plane so that $E_y = 0$. As before, the z component of velocity is unrelated to the transverse components and can be treated separately. The equations of motion is now
 
 $$
-m\dot{\mathbf{V}} = q( \mathbf{E} + \mathbf{V}\times\mathbf{B} )
+m\dot{\mathbf{v}} = q( \mathbf{E} + \mathbf{v}\times\mathbf{B} )
 $$
 
 whose z component is
