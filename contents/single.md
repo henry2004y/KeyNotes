@@ -686,8 +686,7 @@ By applying the guiding center approximation, we reduce the number of independen
 
 ## Adiabatic Invariants
 
-It is well known in classical mechanics that whenever a system has a periodic motion, the action integral $\oint p dq$ taken over a period is a constant of the motion. Here $p$ and $q$ are the generalized momentum and coordinate which repeat themselves in the motion. If a slow change is made in the system, so that the motion is not quite periodic, the constant of the motion does not change and is then called an *adiabatic invariant*. By slow here we mean slow compared with the period of motion, so that the integral $\oint p dq$ is well defined even though it is strictly no longer an integral over a closed path. Adiabatic invariants play an important role in plasma physics; they allow us to obtain simple answers in many instances involving
-complicated motions. There are three adiabatic invariants, each corresponding to a different type of periodic motion.
+It is well known in classical mechanics that whenever a system has a periodic motion, the action integral $\oint p dq$ taken over a period is a constant of the motion. Here $p$ and $q$ are the generalized momentum and coordinate which repeat themselves in the motion. If a slow change is made in the system, so that the motion is not quite periodic, the constant of the motion does not change and is then called an *adiabatic invariant*. By slow here we mean slow compared with the period of motion, so that the integral $\oint p dq$ is well defined even though it is strictly no longer an integral over a closed path. Adiabatic invariants play an important role in plasma physics; they allow us to obtain simple answers in many instances involving complicated motions. There are three adiabatic invariants, each corresponding to a different type of periodic motion.
 
 ### The First Adiabatic Invariant
 
@@ -813,8 +812,15 @@ An example of the violation of J invariance is given by a plasma heating scheme 
 
 ### The Third Adiabatic Invariant
 
-Referring again to the earth dipole case, we see that the slow drift of a guiding center around the earth constitutes a third type of periodic motion. The adiabatic invariant connected with this turns out to be the total magnetic flux $\Phi$ enclosed by the drift surface. It is almost obvious that, as $\mathbf{B}$ varies, the particle will stay on a surface such that the total
-number of magnetic field lines enclosed remains constant. This invariant, $\Phi$, has few applications because most fluctuations of $\mathbf{B}$ occur on a time scale short compared with the drift period. As an example of the violation of $\Phi$ invariance, we can cite some recent work on the excitation of hydromagnetic waves in the ionosphere. These waves have a long period comparable to the drift time of a particle around the earth. The particles can therefore encounter the wave in the same phase each time around. If the phase is right, the wave can be excited by the conversion of particle drift energy to wave energy.
+Referring again to the earth dipole case, we see that the slow drift of a guiding center around the earth constitutes a third type of periodic motion. The adiabatic invariant connected with this turns out to be the total magnetic flux $\Phi$ enclosed by the drift surface.
+
+$$
+\Phi = \int\mathbf{B}\cdot d\mathbf{S}
+$$
+
+It is almost obvious that, as $\mathbf{B}$ varies, the particle will stay on a surface such that the total number of magnetic field lines enclosed remains constant. This invariant, $\Phi$, has few applications because most fluctuations of $\mathbf{B}$ occur on a time scale short compared with the drift period. As an example of the violation of $\Phi$ invariance, we can cite some recent work on the excitation of hydromagnetic waves in the ionosphere. These waves have a long period comparable to the drift time of a particle around the earth. The particles can therefore encounter the wave in the same phase each time around. If the phase is right, the wave can be excited by the conversion of particle drift energy to wave energy.
+
+Here are some time scales to remember for a 1 MeV proton in the Earth's radiation belt. The drift period is about 10 mins, the bounce period is about 0.1 s, and the gyroperiod is about 0.1 ms (TO BE CONFIRMED FROM MILLA'S THESIS!). 
 
 ## Test Particle Model
 
