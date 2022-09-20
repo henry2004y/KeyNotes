@@ -1,22 +1,22 @@
 # Kinetic MHD {#sec:kmhd}
 
-This is taken from the hand-written lecture notes from Prof. Alexander Schekochihin.
+This is taken from the hand-written lecture notes from Prof. Alexander Schekochihin. Theoretical physicists love CGS units, but I tend to use SI units here. In later part of the note, there may be mixed units, so be careful.
 
 We start by showing how for magnetized, weakly collisional plasmas ($\nu_\text{colli} \ll \Omega_s$, $r_L\ll \lambda_\text{mfp}$, where $\lambda_\text{mfp}$ is the mean free path), low-frequency ($\omega \ll \Omega_s$), long-wavelength ($kr_L\ll 1$) dynamics can be decided by a set of equations that look almost like the familiar MHD. We will see later on that the ways in which they are not MHD will profoundly affact the dynamics --- indeed we do not fully understand the full implication of this in high-$\beta$ plasmas. This is consequently one of the frontier topics in theoretical plasma astrophysics.
 
 Let us start from first principles. Any plasma that is going to be of interest to us is described by the Vlasov-Maxwell-Landau system of equations:
 
 $$
-\frac{\partial f_s}{\partial t} + \mathbf{v}\cdot\nabla f_s + \frac{q_s}{m_s}\Big[\mathbf{E} + \mathbf{u}\times\mathbf{B} \Big]\frac{\partial f_s}{\partial\mathbf{v}} = C(f_s)
+\frac{\partial f_s}{\partial t} + \mathbf{v}\cdot\nabla f_s + \frac{q_s}{m_s}\Big[\mathbf{E} + \mathbf{v}\times\mathbf{B} \Big]\frac{\partial f_s}{\partial\mathbf{v}} = C(f_s)
 $$ {#eq:kmhd_boltzmann}
 
 The Maxwell's equation can be simplified based on our assumptions.
 
 $$
-\nabla\cdot\mathbf{E} = \epsilon_0 \sim_s q_s n_s,\, n_s=intd\mathbf{v}f_s
+\nabla\cdot\mathbf{E} = \epsilon_0 \sum_s q_s n_s,\, n_s=\int d\mathbf{v}f_s
 $$
 
-$\nabla\cdot\mathbf{E}$ is small when $k^2\lambda_{De}\ll 1$, and the right-hand side simply gives the quasineutrality condition.
+$\nabla\cdot\mathbf{E}$ is small when $k^2\lambda_{De}\ll 1$, and this simply gives the quasineutrality condition.
 
 $$
 \nabla\cdot\mathbf{B} = 0
@@ -27,15 +27,15 @@ $$
 $$
 
 $$
-\nabla\times\mathbf{B} = \mu_0\mathbf{j} + \cancel{\epsilon_0\mu_0 \frac{\partial\mathbf{E}}{\partial t}},\, \mathbf{j} = \sum_s n_s q_s \mathbf{u}_s, \mathbf{u}_s = \frac{1}{n_s}d\mathbf{v}\mathbf{v} f_s
+\nabla\times\mathbf{B} = \mu_0\mathbf{j} + \cancel{\epsilon_0\mu_0 \frac{\partial\mathbf{E}}{\partial t}},\, \mathbf{j} = \sum_s n_s q_s \mathbf{u}_s, \mathbf{u}_s = \frac{1}{n_s}\int d\mathbf{v}\mathbf{v} f_s
 $$
 
-The second term can be neglected since $\omega\ll kc$ for low frequency waves and non-relativistic motions. 
+The displacement current can be neglected since $\omega\ll kc$ for low frequency waves and non-relativistic motions. 
 
 Intuitively, we tend to think of the plasma as a fluid (or a multi-fluid of several species) with some density $n_s$, velocity $\mathbf{u}_s$ and perhaps pressure, temperature, etc. This is rooted in our experience with collisional gases ($\nu\gg \omega$), which are in local Maxwellian equilibrium:
 
 $$
-f_s = \frac{n_s}{(\pi v_{th,s}^2)^{3/2}}e^{-\frac{(\mathbf{v}-\mathbf{v}_s)^2}{v_{th,s}^2}},\, v_{th,s} = \sqrt{\frac{2k_B T_s}{m_s}}
+f_s = \frac{n_s}{(\pi v_{\text{th},s}^2)^{3/2}}e^{-\frac{(\mathbf{v}-\mathbf{v}_s)^2}{v_{\text{th},s}^2}},\, v_{\text{th},s} = \sqrt{\frac{2k_B T_s}{m_s}}
 $$
 
 where $n_s, \mathbf{u}_s$ and $T_s$ are governed by fluid equations.
@@ -93,12 +93,12 @@ $$
 \mathbf{a}_s = \frac{q_s}{m_s}\Big(\mathbf{E} + \mathbf{u}_s\times\mathbf{B} \Big) - \frac{d\mathbf{u}_s}{dt}
 $$
 
-and now we always have $\int d\mathbf{w}\mathbf{w}f_s = 0$ by definition. The strategy now is to take moments of @eq:boltzmann_change_of_var. The zeroth moment ($\int d\mathbf{w}$) gives
+and now we always have $\int d\mathbf{w}\mathbf{w}f_s = 0$ by definition. The strategy now is to take moments of @eq:boltzmann_change_of_var. The zeroth-order moment ($\int d\mathbf{w}$) gives
 
 $$
 \begin{aligned}
 \int \frac{df_s}{dt} d\mathbf{w} + \int (\mathbf{w}\cdot\nabla)f_s d\mathbf{w} + \int \Big[... \Big]\cdot\frac{\partial f_s}{\partial\mathbf{w}} d\mathbf{w} = 0 \\
-\frac{d}{dt}\int f_s d\mathbf{w} + \nabla\cdot\int \mathbf{w}f_s d\mathbf{w} - \int (\mathbf{w}\cdot\nabla\mathbf{u}_s)\cdot\frac{\partial f_s}{\partial\mathbf{w}} d\mathbf{w} = 0 \\
+\frac{d}{dt}\int f_s d\mathbf{w} + \cancel{\nabla\cdot\int \mathbf{w}f_s d\mathbf{w}} - \int (\mathbf{w}\cdot\nabla\mathbf{u}_s)\cdot\frac{\partial f_s}{\partial\mathbf{w}} d\mathbf{w} = 0 \\
 \frac{dn_s}{dt} + \int f_s \frac{\partial}{\partial\mathbf{w}}\big(\mathbf{w}\cdot\nabla\mathbf{u}_s \big)d\mathbf{w} = 0 \\
 \frac{dn_s}{dt} + \int f_s \frac{\partial}{\partial w_j}\big(w_i \frac{\partial}{\partial x_i}u_{sj} \big)dw_j = 0 \\
 \frac{dn_s}{dt} + \int f_s \delta_{ij}\frac{\partial}{\partial x_i}u_{sj}dw_j + \int f_s  w_i \cancel{\frac{\partial^2 u_{sj}}{\partial x_i \partial w_j}}dw_j = 0 \\
@@ -112,18 +112,18 @@ or
 
 $$
 \frac{\partial n_s}{\partial t} + \nabla\cdot(n_s\mathbf{u}_s) = 0
-$$
+$$ {#eq:kmhd_continuity}
 
-The first order moments give ($\int d\mathbf{w}m_s\mathbf{w}$)
+The first-order moment ($\int d\mathbf{w}m_s\mathbf{w}$) gives
 
 $$
-\nabla\cdot\int d\mathbf{w}m_s\mathbf{w} \mathbf{w}f_s - m_sn_s\mathbf{a}_s = \int d\mathbf{w}m_s\mathbf{w}C(f_s) = \mathbf{R}_s
+\nabla\cdot\int d\mathbf{w}m_s\mathbf{w} \mathbf{w}f_s - m_sn_s\mathbf{a}_s = \int d\mathbf{w}m_s\mathbf{w}C(f_s) \equiv \mathbf{R}_s
 $$
 
 where $\int d\mathbf{w}m_s\mathbf{w} \mathbf{w}f_s = \mathbf{P}_s$ is the pressure tensor and  $\mathbf{R}_s$ is the collisional friction. Unpacking $\mathbf{a}_s$, we have the momentum equation for each species $s$
 
 $$
-m_sn_s\frac{d\mathbf{u}_s}{dt} = -\nabla\cdot\mathbf{P}_s + q_s n_s(\mathbf{E} +\mathbf{w}\times\mathbf{B}) + \mathbf{R}_s
+m_sn_s\frac{d\mathbf{u}_s}{dt} = -\nabla\cdot\mathbf{P}_s + q_s n_s(\mathbf{E} +\mathbf{u}_s\times\mathbf{B}) + \mathbf{R}_s
 $$ {#eq:kmhd_momentum_species}
 
 Summing over all the species,
@@ -137,6 +137,8 @@ $$
 \end{aligned}
 $$
 
+It is useful to emphasize that $d/dt = \partial/\partial t + \mathbf{u}\cdot\nabla$. Later we will see the notation of $D/Dt$, which is used to remind us of the fact that $\mathbf{w}$ is involved.
+
 We also need an equation for the magnetic field. It is Faraday's law:
 
 $$
@@ -149,15 +151,27 @@ $$
 \mathbf{E} = -\mathbf{u}_s\times\mathbf{B} + \frac{\nabla\cdot\mathbf{P}_s}{q_sn_s} - \frac{\mathbf{R}_s}{q_sn_s} + \frac{m_s}{q_s}\frac{d\mathbf{u}_s}{dt}
 $$
 
-The second term is small since $kr_s/M_A \ll 1$(long wave + incompressible plasma???), the third term is small since $\nu_s/\Omega_s\ll 1$, and the fourth term is small since $\omega/\Omega_s\ll 1$. This means that $\mathbf{u}_s = \mathbf{E}\times\mathbf{B}/B^2 = \mathbf{u}_\perp$, the perpendicular component of the velocity is the same for all species. Then we get the induction equation from Faraday's law:
+Based on the following arguments:
+
+* $\nabla\cdot\mathbf{P}_s/(q_sn_s)$ is small since $kr_s/M_A \ll 1$(long wave + incompressible plasma???),
+* $\mathbf{R}_s/(q_sn_s)$ is small since $\nu_s/\Omega_s\ll 1$,
+* $(m_s/q_s) d\mathbf{u}_s/dt$ is small since $\omega/\Omega_s\ll 1$
+
+we have the simplest Ohm's law and in turn $\mathbf{u}_s = \mathbf{E}\times\mathbf{B}/B^2 = \mathbf{u}_\perp$, the perpendicular component of the velocity is the same for all species. Then we get the induction equation from Faraday's law:
 
 $$
-\frac{\partial\mathbf{B}}{\partial t} = \nabla\times(\nabla\times\mathbf{B})
+\frac{\partial\mathbf{B}}{\partial t} = \nabla\times(\mathbf{u}\times\mathbf{B})
 $$ {#eq:kmhd_induction}
+
+or
+
+$$
+\frac{d\mathbf{B}}{dt} = \mathbf{B}\cdot\nabla\mathbf{u} - \mathbf{B}\nabla\cdot\mathbf{u}
+$$ {#eq:kmhd_induction2}
 
 The three equations we have so far are very similar to MHD, except for the pressure tensor. Obviously, all the kinetic magic is hidden in $\mathbf{P}$.
 
-Going back to @eq:kmhd_momentum_species, it is key to notice that
+Going back to @eq:boltzmann_change_of_var, it is key to notice that
 
 $$
 \frac{q_s}{m_s}\mathbf{w}\times\mathbf{B}\cdot\frac{\partial f_s}{\partial\mathbf{w}} = -\Omega_s\Big( \frac{\partial f_s}{\partial\mathbf{\theta}}\Big)_{w_\perp,w_\parallel}
@@ -176,25 +190,31 @@ $$
 \frac{\partial f_s}{\partial \theta} &= \frac{\partial f_s}{\partial w_{\perp 1}}\frac{\partial w_{\perp 1}}{\partial \theta} + \frac{\partial f_s}{\partial w_{\perp 1}}\frac{\partial w_{\perp 1}}{\partial \theta} + \frac{\partial f_s}{\partial w_{\parallel}}\cancel{\frac{\partial w_{\parallel}}{\partial \theta}} \\
 &= \frac{\partial f_s}{\partial w_{\perp 1}}\frac{\partial w_\perp \cos\theta}{\partial \theta} + \frac{\partial f_s}{\partial w_{\perp 2}}\frac{\partial w_\perp \sin\theta}{\partial \theta} \\
 &= -\frac{\partial f_s}{\partial w_{\perp 1}}w_\perp \sin\theta + \frac{\partial f_s}{\partial w_{\perp 2}}w_\perp \cos\theta \\
-&= -w_{\perp 2}\frac{\partial f_s}{\partial w_{\perp 1}} + w_{\perp 2}\frac{\partial f_s}{\partial w_{\perp 2}} \\
+&= -w_{\perp 2}\frac{\partial f_s}{\partial w_{\perp 1}} + w_{\perp 1}\frac{\partial f_s}{\partial w_{\perp 2}} \\
 &= \mathbf{w}\times\hat{b}\cdot\frac{\partial f_s}{\partial \mathbf{w}}
 \end{aligned}
 $$ {#eq:kmhd_cylindrical_vspace}
 
 This is why we say the third term in @eq:kmhd_boltzmann represents a rotation in the velocity space, or more exactly, in the perpendicular velocity plane.
 
-From @eq:boltzmann_change_of_var
+From @eq:boltzmann_change_of_var, if we apply the lowest order of approximation,
 
 $$
 \Omega_s\Big( \frac{\partial f_s}{\partial\mathbf{\theta}}\Big)_{w_\perp,w_\parallel} = \underbrace{\frac{d f_s}{dt}}_{\substack{\omega/\Omega_s\ll 1 \\ kr_su_s/v_{th,s}\ll 1}} + \underbrace{\mathbf{w}\cdot\nabla f_s}_{kr_s\ll 1} + (\underbrace{\mathbf{a}_s}_{kr_s\ll 1} - \underbrace{\mathbf{w}\cdot\nabla\mathbf{u}_s}_{kr_sM_A\ll 1})\cdot\frac{\partial f_s}{\partial \mathbf{w}} - \underbrace{C(f_s)}_{\nu_s\ll\Omega_s} = 0
+$$ {#eq:kmhd_kinetic}
+
+which essentially tells us that $f_s=f_s(w_\perp,w_\parallel,\theta) = f_s(w_\perp,w_\parallel)$ is gyrotropic. Let us use $<>$ to denote averaging over a gyroperiod:
+
+$$
+\left< A \right> = \int_0^{2\pi} A d\theta
 $$
 
-which essentially tells us that $f_s=f_s(w_\perp,w_\parallel,\theta) = f_s(w_\perp,w_\parallel)$ is gyrotropic. We can use this fact to simplify the pressure tensor:
+We can use gyrotropy to simplify the pressure tensor:
 
 $$
 \begin{aligned}
-\mathbf{P}_s &= \int d\mathbf{w}m_s\left< \mathbf{w}\mathbf{w} \right>f_s(t,\mathbf{r},w_\perp,w_\parallel) \\
-&= \int d\mathbf{w}m_s\left< \frac{w_\perp^2}{2}(\mathbf{I} - \hat{b}\hat{b}) + w_\parallel^2\hat{b}\hat{b} \right>f_s(t,\mathbf{r},w_\perp,w_\parallel) \\
+\mathbf{P}_s &= \int d\mathbf{w}m_s\left< \mathbf{w}\mathbf{w} \right>f_s(\mathbf{r},w_\perp,w_\parallel,t) \\
+&= \int d\mathbf{w}m_s \big[\frac{w_\perp^2}{2}(\mathbf{I} - \hat{b}\hat{b}) + w_\parallel^2\hat{b}\hat{b} \big] f_s(\mathbf{r},w_\perp,w_\parallel,t) \\
 &= (\mathbf{I} - \hat{b}\hat{b})\int d\mathbf{w}\frac{m_sw_\perp^2}{2}f_s + \hat{b}\hat{b}\int d\mathbf{w}m_sw_\parallel^2 f_s \\
 &= \begin{pmatrix} p_{\perp s} & 0 & 0 \\ 0 & p_{\perp s} & 0 \\ 0 & 0 & p_{\parallel s} \end{pmatrix}
 \end{aligned}
@@ -215,7 +235,7 @@ $$
 \rho\frac{d\mathbf{u}}{dt} = -\nabla\Big( \underbrace{p_\perp + \frac{B^2}{2\mu_0}}_{\text{total scalar pressure}} \Big) + \nabla\cdot\Big[ \hat{b}\hat{b}\big( \underbrace{p_\perp - p_\parallel}_{\text{pressure anisotropy stress}} + \underbrace{\frac{B^2}{\mu_0}}_{\text{Maxwell stress}} \big) \Big]
 $$ {#eq:kmhd_momentum_species_gyrotropic}
 
-The pressure anisotropy stress is the key new feature compared to usual MHD. It should be important provided $p_\perp - p_\parallel \gtrsim B^2$, or $(p_\perp - p_\parallel)/p \gtrsim 2/\beta$. Therefore this is more likely to matter in high-$\beta$ plasmas.
+The pressure anisotropy stress is the key new feature compared to usual MHD. It should be important provided $p_\perp - p_\parallel \gtrsim B^2/\mu_0$, or $(p_\perp - p_\parallel)/p \gtrsim 2/\beta$. Therefore this is more likely to matter in high-$\beta$ plasmas.
 
 To summarize what we have gotten so far: to work out motions and magnetic fields in a plasma, solve @eq:kmhd_momentum_species_gyrotropic for $\mathbf{u}$ and @eq:kmhd_induction for $\mathbf{B}$, where
 
@@ -227,31 +247,21 @@ p_\parallel &= \sum_s \int d\mathbf{w}m_sw_\parallel^2 f_s
 \end{aligned}
 $$
 
-We still need the kinetic equation to calculate $f_s$ --- this kinetic equation will need to be somewhat reduced to solve for the lowest-order, gyrotropic PDF $f_s(w_\perp, w_\parallel)$. In pursuit of instant justification, we can postpone doing this and first derive some results that do not need the $f_s$ equation (i.e. the Firehose instability) in @sec:firehose. For mirror modes, let us continue on the kinetic equation
-
-$$
-\Omega_s\Big( \frac{\partial f_s}{\partial\theta} \Big)_{w_\perp, w_\parallel} = \frac{d f_s}{dt} + \mathbf{w}\cdot\nabla f_s + \Big[ \frac{q_s}{m_s}\Big( \mathbf{E}+\frac{\mathbf{u}_s\times\mathbf{B}}{c} \Big) - \frac{d\mathbf{u}_s}{dt} \Big]\cdot\frac{\partial f_s}{\partial\mathbf{w}} - C(f_s)
-$$
-
-To the lowest order,
-
-$$
-\Big( \frac{\partial f_s^0}{\partial\theta} \Big)_{w_\perp, w_\parallel} = 0
-$$
+We still need the kinetic equation to calculate $f_s$ --- this kinetic equation will need to be somewhat reduced to solve for the lowest-order, gyrotropic $f_s(w_\perp, w_\parallel)$. In pursuit of instant justification, we can postpone doing this and first derive some results that do not need the $f_s$ equation (i.e. the Firehose instability) as in @sec:firehose. For mirror modes, let us continue from the kinetic @eq:kmhd_kinetic for higher orders. We have already known that the lowest order approximation gives gyrotropic distributions.
 
 To the first order,
 
 $$
-\Omega_s\Big( \frac{\partial f_s^1}{\partial\theta} \Big)_{w_\perp, w_\parallel} = \frac{d f_s^0}{dt} + \mathbf{w}\cdot\nabla f_s^0 + \Big[ \frac{q_s^0}{m_s}\Big( \mathbf{E}+\frac{\mathbf{u}_s\times\mathbf{B}}{c} \Big) - \frac{d\mathbf{u}_s}{dt} \Big]\cdot\frac{\partial f_s^0}{\partial\mathbf{w}} - C(f_s^0)
+\Omega_s\Big( \frac{\partial f_s^1}{\partial\theta} \Big)_{w_\perp, w_\parallel} = \frac{d f_s^0}{dt} + \mathbf{w}\cdot\nabla f_s^0 + ( \mathbf{a}_s -\mathbf{w}\cdot\nabla\mathbf{u}_s )\cdot\frac{\partial f_s^0}{\partial\mathbf{w}} - C(f_s^0)
 $$
 
-When we integrate over $\theta$, the left-hand side is eliminated (???),
+The left-hand side can be eliminated by integrating over $\theta$, so we have
 
 $$
-\bigg\lvert \frac{d f_s}{dt} + \mathbf{w}\cdot\nabla f_s + (\mathbf{a}_s - \mathbf{w}\cdot\nabla\mathbf{u}_s)\cdot\frac{\partial f_s}{\partial\mathbf{w}} - C(f_s) \bigg\rvert_\theta = 0
+\left< \frac{d f_s}{dt} + \mathbf{w}\cdot\nabla f_s + (\mathbf{a}_s - \mathbf{w}\cdot\nabla\mathbf{u}_s)\cdot\frac{\partial f_s}{\partial\mathbf{w}} - C(f_s) \right> = 0
 $$
 
-where $f_s = f_s(w_\perp,w_\parallel)$. To do this averaging, tranform variables $(t,\mathbf{r},\mathbf{w}) \rightarrow(t,\mathbf{r},w_\perp,w_\parallel,\theta)$. With
+where $f_s = f_s(w_\perp,w_\parallel)$. To do this averaging, we tranform variables from $(t,\mathbf{r},\mathbf{w}) \rightarrow(t,\mathbf{r},w_\perp,w_\parallel,\theta)$. With
 
 $$
 \begin{aligned}
@@ -278,32 +288,32 @@ $$
 f_s(w_\perp, w_\parallel) = F_s(\mu, \epsilon)
 $$
 
-where $\mu = m_sw_\perp^2/2B$ is the magnetic moment of a gyrating particle and $\epsilon=m_sw^2/2 = m_s(w_\perp^2+w_\parallel^2)/2$. Since $\mu$ is conserved when $\omega\ll\Omega_s$, $F_s$ satisfies
+where $\mu = m_sw_\perp^2/2B$ is the magnetic moment of a gyrating particle and $\epsilon=m_sw^2/2 = m_s(w_\perp^2+w_\parallel^2)/2$. Since $\mu$ is conserved when $\omega\ll\Omega_s$, $F_s$ satisfies (DERIVE THIS!!!)
 
 $$
 \frac{D F_s}{Dt} + \Big[ m_sw_\parallel\Big( \frac{q_s}{m_s}E_\parallel - \frac{D\mathbf{u}_s}{Dt}\cdot\hat{b} \Big) +\mu\frac{dB}{dt} \Big]\frac{\partial F_s}{\partial\epsilon} = C(F_s)
 $$ {#eq:kmhd_kinetic_1storder}
 
-The first term is the total derivative in the guiding center coordinates. The second term is the accelaration by parallel electric field. The third term takes account of the fact that $\epsilon$ does not include the bulk velocity. The fourth term is the _betatron acceleration_ due to $\mu$ conservation (???):
+The first term is the convective derivative in the guiding center coordinates. The second term is the accelaration by parallel electric field, where $E_\parallel$ is determined by imposing $\sum_s q_s n_s = 0$. The third term takes account of the fact that $\epsilon$ does not include the bulk velocity. The fourth term is the _betatron acceleration_ due to $\mu$ conservation:
 
 $$
 \begin{aligned}
 \epsilon &= \mu B + \frac{m_sw_\parallel^2}{2} \\
-\dot{\epsilon} &= \mu \dot{B}
+\dot{\epsilon} &= \mu \dot{B}\,(w_\parallel\text{ constant})
 \end{aligned}
 $$
 
-$E_\parallel$ is determined by imposing $\sum_s q_s n_s = 0$.
+Betatron acceleration refers to situations in which the magnetic field strength increases slowly in time (compared with a gyroperiod), so that $\mu$ remains constant, but the particle kinetic energy is not constant due to the presence of electric fields (associated with the time-varying magnetic field). Then, the perpendicular energy is increased due to constancy of $\mu$. 
 
 ## Firehose Instability: Linear Theory {#sec:firehose}
 
-Suppose we have some "macroscopic" solution of our (yet to be fully derived) equilibrium. We allow high-frequency, short-wavelength perturbations ($\omega\ll u/l, kl \ll 1$ ???) of this solution, and seek solutions in the form
+Suppose we have some "macroscopic" solution of our (yet to be fully derived) equilibrium. We allow low-frequency, short-wavelength perturbations ($\omega\ll u/l, kl \gg 1$ ASK???) of this solution, and seek solutions in the form
 
 $$
-\mathbf{u} + \delta\mathbf{u}, \mathbf{B} +\delta\mathbf{B}, \text{etc.}
+\mathbf{B} +\delta\mathbf{B}, \text{etc.}
 $$
 
-with infinitesimal perturbations $\propto e^{i(\mathbf{k}\cdot\mathbf{r}-\omega t)}$.
+with infinitesimal perturbations $\propto e^{i(\mathbf{k}\cdot\mathbf{r}-\omega t)}$. Note that the velocity $\mathbf{u}$ is treated as a perturbation term (background velocity is simply a drift??? Ask!).
 
 From @eq:kmhd_induction
 
@@ -314,22 +324,22 @@ $$
 \end{aligned}
 $$ {#eq:kmhd_induction_perturb}
 
-From @eq:kmhd_momentum_species_gyrotropic
-
-$$
-\begin{aligned}
--\omega\rho\delta\mathbf{u} &= -\mathbf{k}\Big(\delta p_\perp + \frac{B\delta B}{\mu_0}\Big) + \mathbf{k}\cdot\Big[ \Big(\delta\hat{b}\hat{b} + \hat{b}\delta{b}\Big)\Big( p_\perp - p_\parallel + \frac{B^2}{\mu_0} \Big) +\hat{b}\hat{b}\Big( \delta p_\perp - \delta p_\parallel + \frac{B\delta B}{\mu_0} \Big) \Big] \\
-&= -\mathbf{k}_\perp \Big(\delta p_\perp + \frac{B\delta B}{\mu_0}\Big) - \hat{b}k_\parallel \Big[ \delta p_\parallel + (p_\perp - p_\parallel)\frac{\delta B}{B} \Big] + \delta\hat{b} k_\parallel \Big( p_\perp - p_\parallel + \frac{B^2}{\mu_0} \Big)
-\end{aligned}
-$$ {#eq:kmhd_momentum_perturb}
-
-where
+Note that
 
 $$
 \mathbf{k}\cdot\delta\hat{b} = k_\parallel \frac{\delta B}{B}
 $$
 
-From @eq:kmhd_induction_perturb, the perturbation of $\hat{b}$, can be written as (this is a bit hard to understand!)
+from @eq:kmhd_momentum_species_gyrotropic
+
+$$
+\begin{aligned}
+-\omega\rho\delta\mathbf{u} &= -\mathbf{k}\Big(\delta p_\perp + \frac{B\delta B}{\mu_0}\Big) + \mathbf{k}\cdot\Big[ \Big(\delta\hat{b}\hat{b} + \hat{b}\delta\hat{b}\Big)\Big( p_\perp - p_\parallel + \frac{B^2}{\mu_0} \Big) +\hat{b}\hat{b}\Big( \delta p_\perp - \delta p_\parallel + \frac{2B\delta B}{\mu_0} \Big) \Big] \\
+&= -\mathbf{k}_\perp \Big(\delta p_\perp + \frac{B\delta B}{\mu_0}\Big) - \hat{b}k_\parallel \Big[ \delta p_\parallel + (p_\perp - p_\parallel)\frac{\delta B}{B} \Big] + \delta\hat{b} k_\parallel \Big( p_\perp - p_\parallel + \frac{B^2}{\mu_0} \Big)
+\end{aligned}
+$$ {#eq:kmhd_momentum_perturb}
+
+$\delta\hat{b}$ has two parts: the Alfvénic part $\delta\mathbf{B}_\perp/B$ and the compressional part $\delta\mathbf{B}_\parallel/B$. From @eq:kmhd_induction_perturb, the Alfvénic perturbation of $\hat{b}$ can be written as
 
 $$
 \delta\hat{b} = \frac{\delta\mathbf{B}_\perp}{B} = -\frac{k_\parallel}{\omega}\delta\mathbf{u}_\perp
@@ -351,30 +361,30 @@ $$
 \gamma = k_\parallel v_{th\parallel}\sqrt{\bigg\lvert A+\frac{2}{\beta_\parallel}\bigg\rvert}
 $$
 
-Thus, negative $A$ ($p_\parallel > p_\perp$) locally weakens tention, i.e. slows down Alfvén waves, and makes it energetically easier to bend the field lines. For $A<-2/\beta_\parallel$, the elasticity of field lines is lost and we have the firehose instability. ADD FIGURE!
+Thus, negative $A$ ($p_\parallel > p_\perp$) locally weakens tention, i.e. slows down Alfvén waves, and makes it energetically easier to bend the field lines. For $A<-2/\beta_\parallel$, the elasticity of field lines is lost and we have the firehose instability.
 
-Along a flux tube, $p_\parallel$ is the destabilizing force, the curvature force is the stabilizing force.
+![Along a flux tube, $p_\parallel$ is the destabilizing force, the curvature force is the stabilizing force..](images/firehose.png){#fig:firehose}
 
 Key points:
 
 * Nothing surprising that $p_\parallel > p_\perp$ leads to an instability: it is a non-equilibrium situation, so a source of free energy.
 
-* $\gamma\propto k_\parallel$ UV catastrophe: so, within KMHD ($\omega\ll\Omega_i, kr_i\ll 1$), the wavenumber of peak $gamma$ is not captured. Including finite larmor radius gives (HOW? AND ARE THE EXPRESSIONS CORRECT?)
+* $\gamma\propto k_\parallel$ leads to UV catastrophe: within KMHD ($\omega\ll\Omega_i, kr_i\ll 1$), the wavenumber of peak $gamma$ is not captured. Including finite larmor radius gives (Oxford MNRAS 405, 291? ARE THE EXPRESSIONS CORRECT?)
 
 $$
 \begin{aligned}
 \gamma_{\text{peak}}\sim \bigg\lvert A + \frac{2}{\beta_\parallel} \bigg\rvert \Omega_i \\
-k_{\parallel\text{peak}}r_i\sim \bigg\lvert A + \frac{2}{\beta_\parallel} \bigg\rvert^1/2
+k_{\parallel\text{peak}}r_i\sim \bigg\lvert A + \frac{2}{\beta_\parallel} \bigg\rvert^{1/2}
 \end{aligned}
 $$
 
-so the instability is very fast at microscale. Any high-$\beta$ macroscopic solution with $p_\parallel > p_\perp$ will blow up instantly. (hyzhou: Is it because $\gamma_\text{peak} is very small?$) What happens next is decided by the nonlinear saturation of the firehose. It was a transformative moment when Justin Kasper in 2002 discovered that the firehose stability boundary constrains most observed solar wind states, followed by Hellinger in 2006. Bale in 2009 showed that there is an increased fluctuation level at the boundary.
+so the instability is very fast (???) at microscale ($k$ very large?). Any high-$\beta$ macroscopic solution with $p_\parallel > p_\perp$ will blow up instantly. (hyzhou: Is it because $\gamma_\text{peak}$ is very small?) What happens next is decided by the nonlinear saturation of the firehose. It was a transformative moment when Justin Kasper in 2002 discovered that the firehose stability boundary constrains most observed solar wind states, followed by Hellinger in 2006. Bale in 2009 showed that there is an increased fluctuation level at the boundary.
 
 ADD FIGURE ABOUT THE FIREHOSE STABILITY REGIME FIGURE!
 
 ## Mirror Instability: Linear Theory
 
-Let us go back to @eq:kmhd_induction_perturb and @eq:kmhd_momentum_perturb and get apart from Alfvénic what other perturbations there are and when they are stable. We have already looked at $\hat{b}=\delta \mathbf{B}_\perp/B$. Now consider
+Let us go back to @eq:kmhd_induction_perturb and @eq:kmhd_momentum_perturb and get apart from Alfvénic what other perturbations there are and when they are stable. We have already looked at the Alfvénic perturbation $\delta\hat{b}=\delta \mathbf{B}_\perp/B$. Now consider
 
 $$
 \frac{\delta B}{B} = \frac{\delta B_\parallel}{B}
@@ -386,7 +396,7 @@ $$
 \omega\frac{\delta B}{B} = \mathbf{k}_\perp\cdot\delta\mathbf{u}_\perp
 $$
 
-Take $\mathbf{k}\cdot$ @eq:kmhd_momentum_perturb:
+Take $\mathbf{k}_\perp\cdot$ @eq:kmhd_momentum_perturb:
 
 $$
 \omega\rho\mathbf{k}_\perp\cdot\delta\mathbf{u}_\perp = \rho\omega^2 \frac{\delta B}{B} = k_\perp^2\Big( \delta p_\perp + \frac{B\delta B}{\mu_0} \Big) + k_\parallel^2\Big( p_\perp - p_\parallel + \frac{B^2}{\mu_0} \Big) \frac{\delta B}{B}
