@@ -274,7 +274,7 @@ and some algebras (to be filled in!!! Check online notes.), we have
 
 $$
 \frac{D f_s}{Dt} + \frac{1}{B}\frac{D B}{Dt}\frac{w_\perp}{2}\frac{\partial f_s}{\partial w_\perp} + \Big( \frac{q_s}{m_s}E_\parallel - \frac{D\mathbf{u}_s}{Dt}\cdot\hat{b} - \frac{w_\perp^2}{2}\frac{\nabla_\parallel B}{B} \Big)\frac{\partial f_s}{\partial w_\parallel} = C(f_s)
-$$
+$$ {#eq:kmhd_boltzmann_1storder}
 
 where
 
@@ -410,20 +410,20 @@ $$
 
 $\delta f_s(w_\perp, w_\parallel)$ can be obtained by calculating $F_s(\mu,\epsilon)$ and transforming back to $w_\perp,w_\parallel$.
 
-There is a cute subtlety: our macroscopic scale ???, around which we are expanding the distribution is
+Here is a cute subtlety: our macroscopic scale ???, around which we are expanding the distribution is
 
 $$
-F_{os}(\mu,\epsilon) = f_{0,s}(w_\perp,w_\parallel) = f_{0,s}\Big( \sqrt{\frac{2B_0\mu}{m_s}},\sqrt{\frac{2(\epsilon-\mu B_0)}{m_s}} \Big)
+F_{0s}(\mu,\epsilon) = f_{0s}(w_\perp,w_\parallel) = f_{0s}\Big( \sqrt{\frac{2B_0\mu}{m_s}},\sqrt{\frac{2(\epsilon-\mu B_0)}{m_s}} \Big)
 $$
 
-which contains $B_0$ the unperturbed magnetic field. $\mu$ in $F_0$ contains $B_0+\delta B$, and this has to be taken into account when transforming to $w_\perp,w_\parallel$. Now when we perturb everything:
+which contains $B_0$ the unperturbed magnetic field. $\mu$ in $F_0$ contains $B_0+\delta B$, and this has to be taken into account when transforming to $w_\perp,w_\parallel$. Now when we perturb everything (ONE STEP I COULDN'T UNDERSTAND!):
 
 $$
 \begin{aligned}
 F_s(\mu,\epsilon) &= F_{0s}(\mu,\epsilon) + \delta F_s \\
 &= f_{0s}(w_\perp,w_\parallel) + \delta f_s \\
 &= f_{0s}\Big( \sqrt{\frac{2\mu(B_0+\delta B)}{m_s}},\sqrt{\frac{2[\epsilon-\mu(B_0+\delta B)]}{m_s}} \Big) + \delta f_s \\
-&= f_{0s}\Big( \sqrt{\frac{2\mu B_0}{m_s}+\frac{2\mu}{m_s}\delta B},\sqrt{\frac{2(\epsilon-\mu B_0)}{m_s}} -\frac{2\mu}{m_s}\delta B \Big) + \delta f_s \\
+&= f_{0s}\Big( \sqrt{\frac{2\mu B_0}{m_s}+\frac{2\mu}{m_s}\delta B},\sqrt{\frac{2(\epsilon-\mu B_0)}{m_s} -\frac{2\mu}{m_s}\delta B} \Big) + \delta f_s \\
 &\approx f_{0s}\Big( \sqrt{\frac{2\mu B_0}{m_s}},\sqrt{\frac{2(\epsilon-\mu B_0)}{m_s}} \Big) + \frac{2\mu}{m_s}\delta B\Big(\frac{\partial f_{0s}}{\partial w_\perp^2}-\frac{\partial f_{0s}}{\partial w_\parallel^2} \Big) + \delta f_s
 \end{aligned}
 $$
@@ -437,28 +437,28 @@ $$
 If $f_{0s}$ is a bi-Maxwellian,
 
 $$
-f_{0s} = \frac{n_s}{\pi^{3/2}v_{\text{th}\perp s}^3}e^{-\frac{w_\perp^2}{v_{\text{th}\perp s}}-\frac{w_\parallel^2}{v_{\text{th}\parallel s}^2}}
+f_{0s} = \frac{n_s}{\pi^{3/2}v_{\text{th}\perp s}^2 v_{\text{th}\parallel s}}\exp\Big(-\frac{w_\perp^2}{v_{\text{th}\perp s}^2}-\frac{w_\parallel^2}{v_{\text{th}\parallel s}^2}\Big)
 $$
 
 then this can be further written as
 
 $$
-\delta f_s = \delta F_s + w_\perp^2\frac{\delta B}{B}\frac{m_sn_s}{2}\Big(\frac{1}{p_{\perp s}} - \frac{1}{p_{\parallel s}} \Big) f_{0s}
+\delta f_s = \delta F_s + w_\perp^2\frac{\delta B}{B}\Big(\frac{1}{v_{\text{th}\perp s}^2} - \frac{1}{v_{\text{th}\parallel s}^2} \Big) f_{0s} = \delta F_s + w_\perp^2\frac{\delta B}{B}\frac{m_sn_s}{2}\Big(\frac{1}{p_{\perp s}} - \frac{1}{p_{\parallel s}} \Big) f_{0s}
 $$
 
-This then gives us
+This then gives us ($\mathbf{v}_{th} = \mathbf{w}$???)
 
 $$
 \begin{aligned}
 \delta p_{\perp s} &= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta f_s \\
 &= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s - \int d\mathbf{w}\frac{m_s w_\perp^4}{2}\Big(\frac{\partial f_{0s}}{\partial w_\perp^2}-\frac{\partial f_{0s}}{\partial w_\parallel^2} \Big)\frac{\delta B}{B} \\
-&= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s - 2\pi\int dw_\perp w_\perp d w_\parallel \frac{m_s w_\perp^4}{2}\Big(\frac{\partial f_{0s}}{\partial w_\perp^2}-\frac{\partial f_{0s}}{\partial w_\parallel^2} \Big)\frac{\delta B}{B} \\
-&= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s - 2 \int d\mathbf{w}\frac{mw_\perp^2}{2}f_{0s}\frac{\delta B}{B} + \int d\mathbf{w}\frac{m_s w_\perp^4}{2}\frac{\partial f_{0s}}{\partial w_\parallel^2}\frac{\delta B}{B} \\
-&= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s + \frac{\delta B}{B}\Big( 2p_{\perp s} - \frac{2 p_{\perp s}^2}{p_{\parallel s}} ds )
+&= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s + \int d\mathbf{w}\frac{m_s w_\perp^4}{2}\Big(\frac{1}{v_{\text{th}\perp s}^2}-\frac{1}{v_{\text{th}\parallel s}^2} \Big)f_{0s}\frac{\delta B}{B} \\
+&= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s + \int d\mathbf{w}\frac{mw_\perp^2}{2}f_{0s}\frac{\delta B}{B} - \int d\mathbf{w}\frac{2(m_s w_\perp^2/2)^2}{m_s w_\parallel^2}f_{0s}\frac{\delta B}{B} \\
+&= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s + \frac{\delta B}{B}\Big( p_{\perp s} - \frac{2 p_{\perp s}^2}{p_{\parallel s}} ds )
 \end{aligned}
 $$ {#eq:kmhd_pperp_perturb}
 
-The $\delta F_s$ can be obtained by ignoring collisions and linearizing and Fourier-transforming @eq:kmhd_kinetic_1storder:
+The $\delta F_s$ can be obtained by ignoring collisions and linearizing and Fourier-transforming @eq:kmhd_kinetic_1storder ($\mathbf{u}_s$ is 0? Or high order?):
 
 $$
 \begin{aligned}
@@ -467,25 +467,41 @@ $$
 \end{aligned}
 $$
 
-The first term can be ignored if $\beta\gg 1$; otherwise $E_\parallel$ can be got by imposing $\sum_s q_s n_s = 0$. The second term can be shown (ADD IT!) to be equivalent to $\delta u_{\parallel s}\partial f_{0s}/\partial w_\parallel$, so this will not contribute to $\delta p_\perp$ because it integrates to 0. The third term can be written as
+The first term can be ignored if $\beta\gg 1$ (???); otherwise $E_\parallel$ can be got by imposing $\sum_s q_s n_s = 0$. The second term can be shown to be equivalent to $\delta u_{\parallel s}\partial f_{0s}/\partial w_\parallel$:
 
 $$
-\frac{\omega}{\omega-k_\parallel w_\parallel}\mu\delta B\frac{\partial F_{0s}}{\partial\epsilon} = \frac{\omega}{\omega-k_\parallel w_\parallel}\frac{w_\perp^2}{2}\frac{\delta B}{B}\frac{1}{w_\parallel}\frac{\partial f_{0s}}{\partial w_\parallel} = frac{\omega}{\omega-k_\parallel w_\parallel} w_\perp^2\frac{\delta B}{B}\frac{\partial f_{0s}}{\partial w_\parallel^2}
+\begin{aligned}
+\frac{\partial f_{0s}}{\partial w_\parallel} &= \frac{\partial f_{0s}}{\partial \epsilon}\frac{\partial \epsilon}{\partial w_\parallel} + \frac{\partial f_{0s}}{\partial\mu}\cancel{\frac{\partial \mu}{\partial w_\parallel}} \\
+&= \frac{\partial F_{0s}}{\partial\epsilon}m_s w_\parallel
+\end{aligned}
+$$
+
+so this will not contribute to $\delta p_\perp$ because it is an odd function that integrates to 0 in $\mathbf{w}$ space (???):
+
+$$
+\frac{\partial f_{0s}}{\partial w_\parallel} = f_{0s}\Big( -\frac{2w_\parallel}{v_{\text{th}\parallel s}^2} \Big) = -2\frac{f_{0s}}{w_\parallel}
+$$
+
+
+The third term can be written as
+
+$$
+\frac{\omega}{\omega-k_\parallel w_\parallel}\mu\delta B\frac{\partial F_{0s}}{\partial\epsilon} = \frac{\omega}{\omega-k_\parallel w_\parallel}\frac{m_sw_\perp^2}{2}\frac{\delta B}{B}\frac{1}{w_\parallel}\frac{\partial f_{0s}}{\partial w_\parallel} = \frac{\omega}{\omega-k_\parallel w_\parallel} m_sw_\perp^2\frac{\delta B}{B}\frac{\partial f_{0s}}{\partial w_\parallel^2}
 $$
 
 Thus, the "relevant" part of $\delta F_s$ is
 
 $$
-\delta F_s = -frac{\omega}{\omega-k_\parallel w_\parallel} w_\perp^2\frac{\delta B}{B}\frac{\partial f_{0s}}{\partial w_\parallel^2}
+\delta F_s = -\frac{\omega}{\omega-k_\parallel w_\parallel} m_sw_\perp^2\frac{\delta B}{B}\frac{\partial f_{0s}}{\partial w_\parallel^2}
 $$
 
 and its contribution to $\delta p_{\perp s}$ is
 
 $$
-\int d\mathbf{w}\frac{m_sw_\perp^2}{2}\delta F_s = \frac{\delta B}{B}\frac{\omega}{|k_\parallel|}\int\frac{dw_\parallel}{w_\parallel - \frac{\omega}{|k_\parallel|}} \Big[ \frac{\partial}{\partial w_\parallel^2}\int d\mathbf{w}_\perp \frac{m_sw_\perp^4}{2} f_{0s} \Big]
+\int d\mathbf{w}\frac{m_sw_\perp^2}{2}\delta F_s = \frac{\delta B}{B}\frac{\omega}{|k_\parallel|}\int\frac{dw_\parallel}{w_\parallel - \frac{\omega}{|k_\parallel|}} \Big[ \frac{\partial}{\partial w_\parallel^2}\int d\mathbf{w}_\perp \frac{m_s^2w_\perp^4}{2} f_{0s} \Big]
 $$
 
-Here we have $|k_\parallel|$ because if $k_\parallel <0$, we can change the variable $w_\parallel \rightarrow -w_\parallel$. This involves the Landau integral, which can be evaluated with the residual theorem @eq:residual_thm:
+Here we have $|k_\parallel|$ because if $k_\parallel <0$, we can change the variable $w_\parallel \rightarrow -w_\parallel$. This involves the Landau integral, which can be evaluated with the residual theorem @eq:residual_thm when integrate in the complex plane mostly along the real axis and the large semicircle in the upper half plane except for a small semicircle just below the pole (ADD FIGURE!):
 
 $$
 \frac{1}{w_\parallel - \frac{\omega}{|k_\parallel|}} = P\frac{1}{w_\parallel - \frac{\omega}{|k_\parallel|}} + i\pi\delta\Big(w_\parallel - \frac{\omega}{|k_\parallel|} \Big)
@@ -495,19 +511,19 @@ so
 
 $$
 \begin{aligned}
-\int d\mathbf{w}\frac{m_sw_\perp^2}{2}\delta F_s &= \frac{\delta B}{B}\Big[ \cancel{\frac{\omega}{|k_\parallel|}P\int\frac{dw_\parallel}{w_\parallel - \frac{\omega}{|k_\parallel|}} \big[ ... \big]} + i\pi\frac{\omega}{|k_\parallel}\big[ ... \big]_{w_\parallel} \Big] 
+\int d\mathbf{w}\frac{m_sw_\perp^2}{2}\delta F_s &= \frac{\delta B}{B}\Big[ \cancel{\frac{\omega}{|k_\parallel|}P\int\frac{dw_\parallel}{w_\parallel - \frac{\omega}{|k_\parallel|}} \big[ ... \big]} + i\pi\frac{\omega}{|k_\parallel|}\big[ ... \big]_{w_\parallel}=\omega/|k_\parallel| \Big] 
 \end{aligned}
 $$
 
-The first term is 0 when we assume $\omega\ll k_\parallel v_{\text{th}s\parallel}$; the second term must be kept because it is the lowest-order imaginary part which will lead to instability.
+The first term is small when we assume $\omega\ll k_\parallel v_{\text{th}s\parallel}$; the second term must be kept because it is the lowest-order imaginary part which will lead to instability.
 
-For a bi-Maxwellian,
+For a bi-Maxwellian (HAVEN'T CHECKED!),
 
 $$
-\Big[ \frac{\partial}{\partial w_\parallel^2}\int d\mathbf{w}_\perp\frac{m_sw_\perp^4}{2}f_{0s} \Big]_{w_\parallel=\omega/|k_\parallel|} = -\frac{2p_{\perp s}^2}{p_{\parallel s}}\frac{e^{-\frac{\omega^2}{k_\parallel^2 v_{\text{th}\parallel}^2}}}{\sqrt{\pi}v_{\text{th}\parallel}}
+\Big[ \frac{\partial}{\partial w_\parallel^2}\int d\mathbf{w}_\perp\frac{m_s^2w_\perp^4}{2}f_{0s} \Big]_{w_\parallel=\omega/|k_\parallel|} = -\frac{2p_{\perp s}^2}{p_{\parallel s}}\frac{e^{-\frac{\omega^2}{k_\parallel^2 v_{\text{th}\parallel s}^2}}}{\sqrt{\pi}v_{\text{th}\parallel s}}
 $$
 
-The exponential term is nearly 1. If it is not a bi_Maxwellian, then we need to multiply by a coefficient $\sigma_s \sim 1$.
+The exponential term is nearly 1. If it is not a bi-Maxwellian, then we need to multiply by a coefficient $\sigma_s \sim 1$.
 
 @eq:kmhd_pperp_perturb becomes (???)
 
@@ -515,17 +531,17 @@ $$
 \delta p_{\perp s} = \frac{\delta B}{B}\Big[ 2p_{\perp s} - \frac{2p_{\perp s}^2}{p_{\parallel s}}\Big( \alpha_s + i\sqrt{\pi}\frac{\omega}{|k_\parallel|v_{\text{th}\parallel s}}\sigma_s \Big) \Big]
 $$
 
-This goes into @eq:kmhd_momentum_perturb_perp:
+This goes into @eq:kmhd_momentum_perturb_perp (WHAT IS $\alpha_s$???):
 
 $$
-\rho \omega^2 = k_\perp^2\frac{B^2}{4\pi}\Big[ \sum_s(1 - \frac{p_{\perp s}}{p_{\parallel s}}\alpha_s)\beta_{\perp s} - i\sum_s \sigma_s\frac{p_{\perp s}}{p_{\parallel s}}\beta_{\perp s}\sqrt{\pi}\frac{\omega}{|k_\parallel| v_{\text{th} \parallel s}} + 1 \Big] + k_\parallel^2 \frac{B^2}{4\pi}\Big[ \sum_s\frac{\beta_{\perp s}}{2}\big( 1 - \frac{p_{\parallel s}}{p_{\perp s}} \big) + 1 \Big]
+\rho \omega^2 = k_\perp^2\frac{B^2}{\mu_0}\Big[ \sum_s(1 - \frac{p_{\perp s}}{p_{\parallel s}}\alpha_s)\beta_{\perp s} - i\sum_s \sigma_s\frac{p_{\perp s}}{p_{\parallel s}}\beta_{\perp s}\sqrt{\pi}\frac{\omega}{|k_\parallel| v_{\text{th} \parallel s}} + 1 \Big] + k_\parallel^2 \frac{B^2}{\mu_0}\Big[ \sum_s\frac{\beta_{\perp s}}{2}\big( 1 - \frac{p_{\parallel s}}{p_{\perp s}} \big) + 1 \Big]
 $$
 
-The left-hand side can be neglected because $\omega\ll k_\parallel v_{\text{th}\parallel}$. The electron thermal velocity $v_{\text{th}\parallel e}$ in the denominator can be neglected because $v_{\text{th}\parallel e} \gg v_{\text{th}\parallel i}$. The growth rate $\gamma$ is the imaginary part of $\omega$. Reorganize the last equation:
+The left-hand side can be neglected because $\omega\ll k_\parallel v_{\text{th}\parallel s}$. The electron thermal velocity $v_{\text{th}\parallel e}$ in the denominator can be neglected because $v_{\text{th}\parallel e} \gg v_{\text{th}\parallel i}$. The growth rate $\gamma$ is the imaginary part of $\omega$. Reorganize the last equation:
 
 $$
-\sigma_i\frac{p_{\perp i}}{p_{\parallel i}}\beta_{\perp i}\sqrt{\pi}\frac{\gamma}{|k_\parallel|v_{\text{th} i \parallel}} = \sum_s \Big(\frac{p_\perp s}{p_\parallel s}\alpha_s - 1 \Big)\beta_{\perp s} - 1 -\frac{k_\parallel^2}{k_\perp^2}\Big[ \sum_s\frac{\beta_{\perp s}}{2}\big( 1-\frac{p_{\parallel s}}{p_{\perp s}}\big) + 1 \Big]
-$$ {#eq:kmhd_mirror_growth}
+\sigma_i\frac{p_{\perp i}}{p_{\parallel i}}\beta_{\perp i}\sqrt{\pi}\frac{\gamma}{|k_\parallel|v_{\text{th}\parallel i}} = \sum_s \Big(\frac{p_\perp s}{p_\parallel s}\alpha_s - 1 \Big)\beta_{\perp s} - 1 -\frac{k_\parallel^2}{k_\perp^2}\Big[ \sum_s\frac{\beta_{\perp s}}{2}\big( 1-\frac{p_{\parallel s}}{p_{\perp s}}\big) + 1 \Big]
+$$ {#eq:kmhd_mirror_dispersion}
 
 where $\Lambda\equiv \sum_s \Big(\frac{p_\perp s}{p_\parallel s}\alpha_s - 1 \Big)\beta_{\perp s} - 1$ triggers instability if this is positive:
 
@@ -533,14 +549,169 @@ $$
 \sum_s \Big(\frac{p_\perp s}{p_\parallel s}\alpha_s - 1 \Big)\beta_{\perp s} > 1
 $$
 
-Examining where this comes from, we see that this amounts to $\delta p_\perp$ modifying the magnetic pressure force and turn it from positive to negative:
+Examining where this comes from, we see that this amounts to $\delta p_\perp$ modifying the magnetic pressure force and turn (???) it from positive to negative:
 
 $$
-\delta p_\perp + \frac{B\delta B}{4\pi} = \frac{B\delta B}{4\pi}\Big[ \underbrace{1}_{\text{B pressure}} - \underbrace{\sum_s\Big( \frac{p_{\perp s}}{p_{\parallel s}}\alpha_s - 1 \Big)\beta_{\perp s}}_{\substack{\text{non-resonant} \\ \text{particle pressure}}} + \underbrace{...}_{\substack{\text{resonant particle} \\ \text{pressure}}} \Big]
+\delta p_\perp + \frac{B\delta B}{\mu_0} = \frac{B\delta B}{\mu_0}\Big[ \underbrace{1}_{\text{B pressure}} - \underbrace{\sum_s\Big( \frac{p_{\perp s}}{p_{\parallel s}}\alpha_s - 1 \Big)\beta_{\perp s}}_{\substack{\text{non-resonant} \\ \text{particle pressure}}} + \underbrace{...}_{\substack{\text{resonant particle} \\ \text{pressure}}} \Big]
 $$
 
-Thus, fundamentally, pressure anisotropy makes it easier to compress or rarefy magnetic field --- and things become unstable when the sign of the pressure flips and it becomes energetically profitable to create compressions and rarefications. The dispersion relation @eq:kmhd_mirror_growth is basically a statement of pressure balance between the magnetic pressure, the non-resonant particle pressure $\delta p_\perp$ and the resonant particle pressure $\propto\gamma$, which came from the _betatron acceleration_ $\mu dB/dt$ in @eq:kmhd_kinetic_1storder.
+Thus, fundamentally, pressure anisotropy makes it easier to compress or rarefy magnetic field --- and things become unstable when the sign of the pressure flips and it becomes energetically profitable to create compressions and rarefications. (ADD FIGURE!) The dispersion relation @eq:kmhd_mirror_dispersion is basically a statement of pressure balance between the magnetic pressure, the non-resonant particle pressure $\delta p_\perp$ and the resonant particle pressure $\propto\gamma$, which came from the _betatron acceleration_ $\mu dB/dt$ in @eq:kmhd_kinetic_1storder.
 
-The betatron acceleration term refers to what happens in the stable case. When magnetic pressure opposes formation of $\delta B$ perturbations (say, troughs), to compensate it, we must have $\gamma<0$ and energy goes from $\delta B$ to resonant particles, which are accelerated by the mirror force. The corresponding decaying of $\delta B$ is the well-known _Bosues damping_ (landau damping of "mirror field", Bosues 1966, also known as transit-time damping from Stix's book. See more discussion on the physics in Southwood & Kivelson 1993.) 
+The betatron acceleration term refers to what happens in the stable case. When magnetic pressure opposes formation of $\delta B$ perturbations (say, troughs), to compensate it, we must have $\gamma<0$ and energy goes from $\delta B$ to resonant particles, which are accelerated by the mirror force. The corresponding decaying of $\delta B$ is the well-known _Bosues damping_ (???)(landau damping of "mirror field", Bosues 1966, also known as transit-time damping from Stix's book. See more discussion on the physics in Southwood & Kivelson 1993.) 
 
-TO BE CONTINUED...
+To finish the job, note that, from @kmhd_mirror_dispersion (ADD FIGURE!) for a given $k_\perp$
+
+$$
+\Big( \frac{\partial\gamma}{\partial k_\parallel} \Big)_{k_\perp} \propto \Lambda - \frac{k_\parallel^2}{k_\perp^2}\Big[\sum_s\frac{\beta_{\perp s}}{2}\Big(1-\frac{p_\parallel s}{p_\perp s} \Big) + 1 \Big]
+$$
+
+The maximum for the right-hand side is $\frac{2}{3}\Lambda$ (PROVE IT!), so the maximum growth rate
+
+$$
+\gamma = \frac{|k_\parallel|v_{\text{th}\parallel i}}{\sqrt{\pi}}\frac{2}{3}\Lambda \frac{p_{\parallel i}}{p_{\perp i}}\frac{1}{\sigma_i\beta_{\perp i}}
+$$
+
+We have assumed $\gamma\ll k_\parallel v_{\text{th}\parallel s}$, which is indeed true if
+
+$$
+\Lambda\frac{1}{\beta_{\perp i}} = \big(\sum_s A_s \beta_{\perp s} - 1 \big)\frac{1}{\beta_{\perp i}}\ll 1
+$$
+
+so our approximations are consistent.
+
+If close to marginal (???),
+
+$$
+\frac{k_\parallel}{k_\perp}\sim\sqrt{\Lambda}\ll 1
+$$
+
+so mirror modes are highly oblique near the threshold.
+
+Another important point is that again we encounter the UV catastrophe since $\gamma\propto k_\parallel$. The mirror mode is a fast, microscale instability whose peak growth rate is outside KMHD regime. Including finite larmor radius gives (Hellinger 2007 PoP 14, 082105?)
+
+$$
+\gamma_{\text{peak}}\sim\Big(A-\frac{1}{\beta}\Big)^2\beta\Omega_i,\quad k_{\text{peak}}r_i\sim\Big( A-\frac{1}{\beta}\Big)\beta
+$$
+
+Thus, any high-$\beta$ macroscopic solution of KMHD with $p_\perp>p_\parallel$ will blow up, just like the case for $p_\parallel > p_\perp$, and again what happens next depends on how mirror instability saturates. Note that $A_e$ is ignored since $A_e\ll A_i$ (?). The mirror instability condition is
+
+$$
+\begin{aligned}
+\frac{p_{\perp i}}{p_{\parallel i}} - 1 > \frac{1}{\beta_{\perp i}} = \frac{1}{\beta_{\parallel i}}\frac{p_{\parallel i}}{p_{\perp i}} \\
+\frac{p_{\perp i}}{p_{\parallel i}}\Big( \frac{p_{\perp i}}{p_{\parallel i}}-1\Big) > \frac{1}{\beta_{\parallel i}}
+\end{aligned}
+$$
+
+(ADD FIGURE!) The solar wind indeed seems to stay within these boundaries. (ADD REFS!)
+
+## Origin of Pressure Anisotropy
+
+So far we have seen that the bottom line is that any macroscopic, high-$\beta$ KMHD solution that has $p_\perp\neq p_\parallel$ (more precisely, $|p_\perp - p_\parallel|/p \gtrsim 1/\beta$) will be voilently unstable to either firehose or mirror --- both of which are fast and micro-scale modes giving rise to fluctuations outside the KMHD regime (and, by the way, also outside gyrokinetics --- too close to cyclotron frequency, $k_\parallel/k_\perp$ not small enough, $\delta\mathbf{B}/B$ also not small enough). How worried should this make us about the applicability of KMHD to high-$\beta$ plasmas that are not collisional enough to be fully fluid (i.e. $\nu\ll\Omega_s$)?
+
+The answer is, _very worried_! A key property of low-frequency, weakly collisional dynamics is that the magnetic moment $\mu=m_sw_\perp^2/2B$ is conserved by particles. The mean $\mu$ of particles of species $s$ is
+
+$$
+<\mu>_w = \frac{1}{n_s}\int d\mathbf{w}\mu f_s = \frac{p_{\perp s}}{n_s B} = \text{const.}
+$$
+
+For the purpose of a qualitative discussion, let us pretend for a moment that $n_s=\text{const}$ (incompressible plasmas, $\beta\gg 1$). Then the above conservation relation says that, locally in a fluid element ($\mathbf{w}$ is peculari velocity), every time you change $\mathbf{B}$, you must change $p_{\perp s}$ proportionally (but not $p_{\parallel s}$). Thus we expect (?)
+
+$$
+\frac{1}{p_{\perp s}}\frac{d p_{\perp s}}{dt}\sim\underbrace{\frac{1}{B}\frac{dB}{dt}}_{\mu\text{ conservation}} - \underbrace{\nu_s\frac{p_{\perp s}-p_{\parallel s}}{p_{\perp s}}}_{\substack{\text{relaxation of pressure} \\ \text{anisotropy by collisions}}}
+$$ {#eq:kmhd_pressure_change}
+
+It is useful to remind ourselves that $d/dt$ is in the $\mathbf{u}_s$ frame.
+Balancing the two effects on the right-hand side,
+
+$$
+\Delta_s = \frac{p_{\perp s} - p_{\parallel s}}{p_{\perp s}} \sim\frac{1}{\nu_s}\frac{1}{B}\frac{dB}{dt}
+$$ {#eq:kmhd_pressure_balance}
+
+This expression is valid only if $\Delta_s\ll 1$, i.e. $\nu_s\gg \frac{1}{B}\frac{dB}{dt}$, otherwise $\Delta_s$ will grow with time as B is changed. Thus
+
+* B increases locally $\rightarrow \Delta_s >0 \rightarrow$ mirror
+* B decreases locally $\rightarrow \Delta_s <0 \rightarrow$ firehose 
+
+As nealy any large-scale dynamics involves local changes in $\mathbf{B}$, this means that nearly any macroscopic solution of KMHD in the high-$\beta$ regime will be unstable. A very good example is the dynamo problem: when magnetic field is randomly stretched by turbulence, leading (in MHD) to exponential growth of magnetic energy (and, eventually, to saturated fields we observe), locally one find structures of this sort: (ADD FIGURE!)
+
+Generally speaking, in order to understand long-time evolution, we need some sort of mean-field theory for the large-scale effect of the microscale instabilities on the dynamics. Presumably, this is to keep preserve anisotropy, marginal out (?) the instabilities (as indeed appears to be confirmed by the solar wind measurements --- see Bale + 2009).
+
+There are two ways in which this can happen --- firehose and mirror fluctuations might scatter particles, leading to higher effective collisionality and ? control the pressure anisotropy
+
+$$
+-\frac{2}{\beta}\lesssim \frac{p_\perp - p_\parallel}{p}\lesssim \frac{1}{\beta}
+$$
+
+They might inhibit changes of B, which is another way of keeping $\Delta$ under control. Which of these matters for dynamics, see the speculative overview of the possible consequences of either mechanisim in MNRAS 440, 3226 (2014).
+
+* nonlinear firehose: Rosin+ MNRAS 413 2011
+* nonlinear mirror: Rincon+ MNRAS 447, 2015
+* PIC simulations: Kunz+ PRL, 2014
+
+## Remarks
+
+### Remark I
+
+If we assume incompressibility, the magnetic induction @eq:kmhd_induction2 becomes
+
+$$
+\begin{aligned}
+\frac{d\mathbf{B}}{dt} = \mathbf{B}\cdot\nabla\mathbf{u} \\
+\frac{1}{B}\frac{dB}{dt} = \hat{b}\hat{b}:\nabla\mathbf{u}
+\end{aligned}
+$$
+
+Then, from @eq:kmhd_pressure_balance,
+
+$$
+p_{\perp s} - p_{\parallel s}\sim\frac{p_s}{\nu_c}\hat{b}\hat{b}:\nabla\mathbf{u}
+$$
+
+where $p_s/\nu_c$ is the parallel dynamical viscosity. Putting this back into @eq:kmhd_momentum_species_gyrotropic, we get the lowest order ??? MHD equation. So, from the large-scale point of view, pressure anisotropy is viscous stress --- but the resulting equations are ill-posed (blow up via instabilities with $\gamma\propto k_\parallel$).
+
+### Remark II
+
+More rigorously, @eq:kmhd_pressure_change can be obtained via "CGL equations", i.e. the evolution equations of $p_{\perp s}$ and $p_{\parallel s}$. Namely $\int d\mathbf{w}\frac{m_sw_\perp^2}{2}$ @eq:kmhd_boltzmann_1storder:
+
+$$
+p_{\perp s}\frac{d}{dt}\ln\frac{p_{\perp s}}{n_s B} = -\nabla\cdot(q_{\perp s}\hat{b}) - q_{\perp s}\nabla\cdot\hat{b} - \nu_s(p_{\perp s} - p_{\parallel s})
+$$ {#eq:kmhd_cgl_perp}
+
+$\int d\mathbf{w}m_sw_\parallel^2$ @eq:kmhd_boltzmann_1storder:
+
+$$
+p_{\parallel s}\frac{d}{dt}\ln\frac{p_{\parallel s}B^2}{n_s^3} = -\nabla\cdot(q_{\parallel s}\hat{b}) + 2q_{\perp s}\nabla\cdot\hat{b} - 2\nu_s (p_{\parallel s} - p_{\perp s})
+$$ {#eq:kmhd_cgl_par}
+
+The left-hand side is the conservation of $J=\oint dl w_\parallel$, i.e. "bounce invariant". The new feature here is heat fluxes:
+
+$$
+\begin{aligned}
+q_{\perp s} = \int d\mathbf{w}\frac{m_sw_\perp^2}{2}w_\parallel f_s \\
+q_{\parallel s} = \int d\mathbf{w}m_sw_\parallel^3 f_s
+\end{aligned}
+$$
+
+They are here because particles can flow in and out of a fluid element and thus affect the conservation (or otherwise) of $<\mu>_w$ and $<J^2>_w$ within it.
+
+Finally, from @eq:kmhd_cgl_perp and @eq:kmhd_cgl_par,
+
+$$
+\begin{aligned}
+\frac{d}{dt}(p_{\perp s} - p_{\parallel s}) &= (p_{\perp s} + 2p_{\parallel s})\frac{1}{B}\frac{dB}{dt} + (p_{\perp s} - 3p_{\parallel s})\frac{1}{n_s}\frac{dn_s}{dt} \\
+&-\nabla\cdot[(q_{\perp s}-q_{\parallel s})\hat{b}] - 3q_{\perp s}\nabla\cdot\hat{b} - 3\nu_s(p_{\perp s} - p_{\parallel s})
+\end{aligned}
+$$
+
+???
+
+$$
+\begin{aligned}
+\Delta_s &= \frac{p_{\perp s}-p_{\parallel s}}{p_s} \\
+&\approx \frac{1}{\nu_s}\Big\{ \frac{1}{B}\frac{dB}{dt} - \frac{2}{3}\frac{1}{n_s}\frac{dn_s}{dt} - \frac{\nabla\cdot[((q_{\perp s} - q_{\parallel s})\hat{b})] + 3q_{\perp s}\nabla\cdot\hat{b}}{3p_s} \Big\}
+\end{aligned}
+$$
+
+Typically, what prominent here are electron heat fluxes. So heat fluxes can also lead to anisotropies and so macroscopic solutions of KMHD involving temperature gradients will also go unstable at microscales!
+
+So here we are, we cannot change B at large scales, we cannot compress/rarefy the plasma and we cannot have temperature gradients without having to ??? everything exploding and ??? new equations. Enjoy!
