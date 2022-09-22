@@ -270,7 +270,7 @@ w_\perp &= |\mathbf{w} - w_\parallel\hat{b}|
 \end{aligned}
 $$
 
-and some algebras (to be filled in!!! Check online notes.), we have
+and some algebras (??? Check online notes.), we have
 
 $$
 \frac{D f_s}{Dt} + \frac{1}{B}\frac{D B}{Dt}\frac{w_\perp}{2}\frac{\partial f_s}{\partial w_\perp} + \Big( \frac{q_s}{m_s}E_\parallel - \frac{D\mathbf{u}_s}{Dt}\cdot\hat{b} - \frac{w_\perp^2}{2}\frac{\nabla_\parallel B}{B} \Big)\frac{\partial f_s}{\partial w_\parallel} = C(f_s)
@@ -288,22 +288,25 @@ $$
 f_s(w_\perp, w_\parallel) = F_s(\mu, \epsilon)
 $$
 
-where $\mu = m_sw_\perp^2/2B$ is the magnetic moment of a gyrating particle and $\epsilon=m_sw^2/2 = m_s(w_\perp^2+w_\parallel^2)/2$. Since $\mu$ is conserved when $\omega\ll\Omega_s$, $F_s$ satisfies (DERIVE THIS!!!)
+where $\mu = m_sw_\perp^2/2B$ is the magnetic moment of a gyrating particle and $\epsilon=m_sw^2/2 = m_s(w_\perp^2+w_\parallel^2)/2$. Since $\mu$ is conserved when $\omega\ll\Omega_s$, $F_s$ satisfies (???)
 
 $$
 \frac{D F_s}{Dt} + \Big[ m_sw_\parallel\Big( \frac{q_s}{m_s}E_\parallel - \frac{D\mathbf{u}_s}{Dt}\cdot\hat{b} \Big) +\mu\frac{dB}{dt} \Big]\frac{\partial F_s}{\partial\epsilon} = C(F_s)
 $$ {#eq:kmhd_kinetic_1storder}
 
-The first term is the convective derivative in the guiding center coordinates. The second term is the accelaration by parallel electric field, where $E_\parallel$ is determined by imposing $\sum_s q_s n_s = 0$. The third term takes account of the fact that $\epsilon$ does not include the bulk velocity. The fourth term is the _betatron acceleration_ due to $\mu$ conservation:
+* The first term is the convective derivative in the guiding center coordinates.
+* The second term is the acceleration by parallel electric field, where $E_\parallel$ is determined by imposing $\sum_s q_s n_s = 0$.
+* The third term takes account of the fact that $\epsilon$ does not include the bulk velocity.
+* The fourth term is the _betatron acceleration_ due to $\mu$ conservation:
 
 $$
 \begin{aligned}
 \epsilon &= \mu B + \frac{m_sw_\parallel^2}{2} \\
-\dot{\epsilon} &= \mu \dot{B}\,(w_\parallel\text{ constant})
+\dot{\epsilon} &= \mu \dot{B}\,(w_\parallel\text{ constant???})
 \end{aligned}
 $$
 
-Betatron acceleration refers to situations in which the magnetic field strength increases slowly in time (compared with a gyroperiod), so that $\mu$ remains constant, but the particle kinetic energy is not constant due to the presence of electric fields (associated with the time-varying magnetic field). Then, the perpendicular energy is increased due to constancy of $\mu$. 
+Betatron acceleration refers to situations in which the magnetic field strength increases slowly in time (compared with a gyroperiod), so that $\mu$ remains constant, but the particle kinetic energy is not constant due to the presence of electric fields (associated with the time-varying magnetic field). Then, the perpendicular energy is increased due to constancy of $\mu$. As we will see soon in @sec:mirror, this is the key for explaining mirror modes.
 
 ## Firehose Instability: Linear Theory {#sec:firehose}
 
@@ -382,7 +385,7 @@ so the instability is very fast (???) at microscale ($k$ very large?). Any high-
 
 ADD FIGURE ABOUT THE FIREHOSE STABILITY REGIME FIGURE!
 
-## Mirror Instability: Linear Theory
+## Mirror Instability: Linear Theory {#sec:mirror}
 
 Let us go back to @eq:kmhd_induction_perturb and @eq:kmhd_momentum_perturb and get apart from Alfvénic what other perturbations there are and when they are stable. We have already looked at the Alfvénic perturbation $\delta\hat{b}=\delta \mathbf{B}_\perp/B$. Now consider
 
@@ -559,13 +562,13 @@ Thus, fundamentally, pressure anisotropy makes it easier to compress or rarefy m
 
 The betatron acceleration term refers to what happens in the stable case. When magnetic pressure opposes formation of $\delta B$ perturbations (say, troughs), to compensate it, we must have $\gamma<0$ and energy goes from $\delta B$ to resonant particles, which are accelerated by the mirror force. The corresponding decaying of $\delta B$ is the well-known _Bosues damping_ (???)(landau damping of "mirror field", Bosues 1966, also known as transit-time damping from Stix's book. See more discussion on the physics in Southwood & Kivelson 1993.) 
 
-To finish the job, note that, from @kmhd_mirror_dispersion (ADD FIGURE!) for a given $k_\perp$
+To finish the job, note that, from @eq:kmhd_mirror_dispersion (ADD FIGURE!) for a given $k_\perp$
 
 $$
-\Big( \frac{\partial\gamma}{\partial k_\parallel} \Big)_{k_\perp} \propto \Lambda - \frac{k_\parallel^2}{k_\perp^2}\Big[\sum_s\frac{\beta_{\perp s}}{2}\Big(1-\frac{p_\parallel s}{p_\perp s} \Big) + 1 \Big]
+\frac{\partial\gamma}{\partial k_\parallel}\bigg\rvert_{k_\perp} \propto \Lambda - \frac{k_\parallel^2}{k_\perp^2}\Big[\sum_s\frac{\beta_{\perp s}}{2}\Big(1-\frac{p_\parallel s}{p_\perp s} \Big) + 1 \Big]
 $$
 
-The maximum for the right-hand side is $\frac{2}{3}\Lambda$ (PROVE IT!), so the maximum growth rate
+The maximum for the right-hand side is $\frac{2}{3}\Lambda$ (???), so the maximum growth rate
 
 $$
 \gamma = \frac{|k_\parallel|v_{\text{th}\parallel i}}{\sqrt{\pi}}\frac{2}{3}\Lambda \frac{p_{\parallel i}}{p_{\perp i}}\frac{1}{\sigma_i\beta_{\perp i}}
