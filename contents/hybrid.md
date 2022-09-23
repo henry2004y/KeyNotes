@@ -22,7 +22,7 @@ $$
 \mathbf{V}_s = \int d^3 v \mathbf{v}_s f_s(\mathbf{r}_s,\mathbf{v}_s,t)
 $$
 
-or in the corresponding discrete forms where the distribution function is represented as a group of super-particles with a specific shape function. In this way it behaves more like a particle cloud.
+or in the corresponding discrete forms where the distribution function is represented as a group of macro-particles with a specific shape function. In this way it behaves more like a particle cloud.
 
 The crucial assumption in the hybrid model is the _quasi-neutrality_, that is, the electrons move fast enough to cancel any charge-density fluctuations and $\rho=0$ is always satisfied. By assuming quasi-neutrality, we can
 
@@ -39,7 +39,7 @@ $$
 and the relation
 
 $$
-\mathbf{V}_e = \mathbf{V}_i - \mathbf{J}/n_e e
+\mathbf{v}_e = \mathbf{v}_i - \mathbf{J}/n_e e
 $$ {#eq:hybrid_Je}
 
 The basic equations used in the conventional PIC hybrid model first has a particle pusher for individual ions 
@@ -52,7 +52,7 @@ $$
 \frac{d\mathbf{v}_j}{dt} = \frac{q_j}{m_j}\big( \mathbf{E} + \mathbf{v}_j \times \mathbf{B} \big)
 $$
 
-where the subscript $j$ and $e$ indicate the indices for individual ions and the electron fluid and other notations are standard. The lowercase velocities are velocities for each super-particle.
+where the subscript $j$ and $e$ indicate the indices for individual ions and the electron fluid and other notations are standard. The lowercase velocities are velocities for each macro-particle.
 
 Alternatively, if we rely on a Vlasov system, we directly solve for the distribution function $f(\mathbf{r}_s, \mathbf{v}_s, t)$ from the Vlasov equation
 
@@ -86,11 +86,17 @@ $$
 P_e = n_e k_B T_e
 $$
 
-where $n_e \approx n_i$ and $T_e=T_i$. Note however in a plasma electron pressure is usually higher than ion temperature, so this is a very crude assumption. 
+where $n_e \approx n_i$ and $T_e=T_i$. Note however in a plasma electron pressure is usually higher than ion temperature, so this is a very crude assumption. Another commonly used assumption is an adiabatic process
+
+$$
+P_e = n_e^\gamma k_B T_e
+$$
+
+where $\gamma=5/3$ is the adiabatic index for a monatomic ideal gas.
 
 ## Finite Electron Inertia
 
-The conventional hybrid simulation model dealing with kinetic ions and a massless charge-neutralizing electron fluid is known to be susceptible to numerical instability due to divergence of the whistler-mode wave dispersion, as well as division-by-density operation in regions of low density. Consequently, a pure vacuum region is not allowed to exist in the simulation domain unless some ad hoc technique is used.
+The conventional hybrid simulation model dealing with kinetic ions and a massless charge-neutralizing electron fluid is known to be susceptible to numerical instability due to divergence of the whistler-mode wave dispersion, as well as division-by-density operation in regions of low density. The Alfvén wave at short wavelength comparable to ion inertia length has dispersion due to the decoupling between ion and electron dynamics. There thus appears the whistler mode whose frequency diverges as $\omega \propto k^2$. This means that the maximum phase velocity in the system increases rapidly without bound, implying numerical difficulty. The division-by-density issue originates from @eq:hybrid_Je and appears in the Hall and electron pressure gradient terms. Consequently, a pure vacuum region is not allowed to exist in the simulation domain unless some ad hoc technique is used.
 
 The finite electron inertia correction is proposed to solve the whistler-mode wave dispersion issue. The conventional way to include a finite electron inertia correction into the hybrid model is to introduce the following so-called generalized electromagnetic field $\widehat{\mathbf{E}}, \widehat{\mathbf{B}}$, defined as
 
