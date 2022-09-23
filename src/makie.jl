@@ -124,3 +124,26 @@ function plot_tearing()
 
    Options(p; caption, label)
 end
+
+function plot_conductivity()   
+   x = range(0, 4.5, length=100) # Ωₑ / νc
+   
+   σₚ = @. 1 / (1+x^2)
+   σₕ = @. x / (1+x^2)
+   σpar = ones(length(x))
+
+   f = Figure(fontsize=25, resolution=(600, 420))
+   ax = Axis(f[1, 1],
+       xlabel=L"\Omega_e / \nu_c",
+       ylabel=L"\sigma"
+   )
+
+   p1 = lines!(ax, x, σₚ, linewidth=5, label="Pedersen")
+   p2 = lines!(ax, x, σₕ, linewidth=5, label="Hall")
+   p3 = lines!(ax, x, σpar, linewidth=5, label="Parallel")
+   axislegend(ax; position=:rc)
+
+   caption = "Pedersen, Hall and parallel conductivity."
+   label = "conductivity"
+   Options(f; caption, label)
+end

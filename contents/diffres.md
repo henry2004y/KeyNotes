@@ -323,7 +323,29 @@ $$
 
 where $n_0(\mathbf{r})$ is the initial density distribution. After the density has fallen far below its initial value, it decays _reciprocally_ with time, $n\propto 1/\alpha t$. This is a fundamentally different behavior from the case of diffusion, in which the time variation is exponential.
 
+Figure 5.9 (ADD IT!) shows the results of measurements of the density decay in the afterglow of a weakly ionized H plasma. When the density is high, recombination, which is proportional to $n^2$, is dominant, and the density decays reciprocally. After the density has reached a low value, diffusion becomes dominant, and the decay is thenceforth exponential.
+
 ## Diffusion Across a Magnetic Field
+
+The rate of plasma loss by diffusion can be decreased by a magnetic field; this is the problem of confinement in controlled fusion research. Consider a weakly ionized plasma in a magnetic field (@fig:gyration_collision ADD IT!). Charged particles will move along $\mathbf{B}$ by diffusion and mobility according to @eq:species_flux, since $\mathbf{B}$ does not affect motion in the parallel direction. Thus we have, for each species,
+
+$$
+\Tau_z = \pm\mu n E_z - D\frac{\partial n}{\partial z}
+$$
+
+If there were no collisions, particles would not diffuse at all in the perpendicular direction --- they would continue to gyrate about the same magnetic field line. There are, of course, particle drifts across $\mathbf{B}$ because of electric fields or gradients in $\mathbf{B}$, but these can be arranged to be parallel to the walls. For instance, in a perfectly symmetric cylinder (@fig:drift_cylinder ADD IT!), the gradients are all in the radial direction, so that the guiding center drifts are in the azimuthal direction. The drifts would then be harmless.
+
+![A charged particle in a magnetic field will gyrate about the same line of force until it makes a collision.](images/gyration_collision.png){#fig:gyration_collision}
+
+![Particle drifts in a cylindrically symmetric plasma column do not lead to losses.](images/drifts_cylinder.png){#fig:drift_cylinder}
+
+When there are collisions, particles migrate across $\mathbf{B}$ to the walls along the gradients. They do this by a random-walk process (@fig:diffusion_collision_neutral ADD IT!). When an ion, say, collides with a neutral atom, the ion leaves the collision traveling in a different direction. It continues to gyrate about the magnetic field in the same direction, but its phase of gyration is changed discontinuously. (The Larmor radius may also change, but let us suppose that the ion does not gain or lose energy on the average.)
+
+![Diffusion of gyrating particles by collisions with neutral atoms.](images/diffusion_collision_neutral.png){#fig:diffusion_collision_neutral}
+
+The guiding center, therefore, shifts position in a collision and undergoes a random walk. The particles will diffuse in the direction opposite $\nabla n$. The step length in the random walk is no longer $\lambda_m$, as in magnetic-field-free diffusion, but has instead the magnitude of the Larmor radius $r_L$. Diffusion across $\mathbf{B}$ can therefore be slowed down by decreasing $r_L$; that is, by increasing B.
+
+To see how this comes about, we write the perpendicular component of the fluid equation of motion for either species as follows:
 
 ### Ambipolar Diffusion Across B
 
@@ -341,9 +363,97 @@ When two particles of opposite charge collide, however, the situation is entirel
 
 ### Plasma Resistivity
 
-### Mechanics of Coulomb Collisions
+Resistivity is the inverse of conductivity. Consider the effect of collisions as friction in the equation of motion:
 
-Pedersen, Hall, and parallel conductivity
+$$
+m\frac{d\mathbf{u}_e}{dt} = q(\mathbf{E}+\mathbf{u}_e\times\mathbf{B}) - m\nu_c(\mathbf{u}_e - \mathbf{u}^\prime)
+$$
+
+where $\mathbf{u}^\prime$ is the velocity of the collision targets.
+
+* In unmagnetized plasma, let $\mathbf{B}=0$.
+
+Assume a steady state with cold electrons ($\mathbf{u}_e = \mathbf{v}_e$) and non-moving targets $\mathbf{u}^\prime = 0$, we can easily have
+
+$$
+\mathbf{E} = -\frac{m_e\nu_c}{e}\mathbf{u}_e
+$$
+
+Since the electron current is defined as
+
+$$
+\mathbf{J} = -en_e\mathbf{u}_e
+$$
+
+we have from the last two equations
+
+$$
+\mathbf{J} = \frac{n_e e^2}{m_e\nu_c}\mathbf{E} \equiv \sigma\mathbf{E}
+$$ {#eq:classical_conductivity}
+
+where $\sigma$ is the classical conductivity.
+
+* In magnetized plasma, let $\mathbf{B}=b\hat{z}$.
+
+Similarly to the unmagnetized case,
+
+$$
+0 = -e(\mathbf{E} + \mathbf{u}_e\times\mathbf{B}) - \nu_c m_e\mathbf{u}_e
+$$
+
+In order to avoid confusion, let $\sigma_0$ denote the classical conductivity from @eq:classical_conductivity. Using the definition of current density and writing in scalar forms, we now have
+
+$$
+\begin{aligned}
+J_x &= \sigma_0 E_x - \frac{\Omega_e}{\nu_c}J_y \\
+J_y &= \sigma_0 E_y - \frac{\Omega_e}{\nu_c}J_x \\
+J_z &= \sigma_0 E_z
+\end{aligned}
+$$
+
+the solution of which gives
+
+$$
+\begin{aligned}
+J_x &= \frac{\nu_c^2}{\nu_c^2 + \Omega_e^2}\sigma_0 E_x - \frac{\Omega_e \nu_c}{\nu_c^2 + \Omega_e^2}E_y \\
+J_y &= \frac{\nu_c^2}{\nu_c^2 + \Omega_e^2}\sigma_0 E_y - \frac{\Omega_e \nu_c}{\nu_c^2 + \Omega_e^2}E_x \\
+J_z &= \sigma_0 E_z
+\end{aligned}
+$$
+
+or in matrix form,
+
+$$
+\begin{pmatrix} J_x \\ J_y \\ J_z \end{pmatrix} = 
+\begin{pmatrix} \sigma_P & -\sigma_H & 0 \\ \sigma_H & \sigma_P & 0 \\ 0 & 0 & \sigma_\parallel \end{pmatrix}
+\begin{pmatrix} E_x \\ E_y \\ E_z \end{pmatrix}
+$$
+
+where
+
+$$
+\begin{aligned}
+\sigma_P &= \frac{\nu_c^2}{\nu_c^2 + \Omega_e^2}\sigma_0\quad\text{Pedersen conductivity}&(\perp\mathbf{B}\&\parallel\mathbf{E}) \\
+\sigma_H &= \frac{\Omega_e \nu_c}{\nu_c^2 + \Omega_e^2}\sigma_0\quad\text{Hall conductivity}&(\perp\mathbf{B}\&\perp\mathbf{E}) \\
+\sigma_\parallel &= \sigma_0 = \frac{n_e e^2}{m_e\nu_c}\quad\text{parallel conductivity}&(\parallel\mathbf{B})
+\end{aligned}
+$$
+
+Currents that have a component parallel to the magnetic field are very important in plasma physics. From @fig:conductivity, we see that $\Omega_e \simeq \nu_c$ is the most complicated regime where the three conductivities are comparable, and $\Omega_e \gg \nu_c$ is the most anisotropic regime as particles are tightly bound in the perpendicular direction but free to move along $\mathbf{B}$.
+
+```jl
+KeyNotes.plot_conductivity()
+```
+
+The study of conductivity is most relevant in the Earth's ionosphere, where $\Omega_e \simeq \nu_c$ happens at about 100 km above from the ground, and $\sigma_0$ is on the order of 100 S/m. Ionosphere forms within the atmosphere through the mechanisms of electron impact ionization and photoionization and in turn contribute in a crucial way to the plasma interactions. The ionosphere is electrically conductive and thus carry part of a current system that is continued outside the ionosphere by plasma currents to be discussed below. The properties of the ionospheric currents are usually described in terms of the electrical conductivity of the ionosphere. Because a strong background magnetic field threads the ionospheres, the conductivities are strongly anisotropic. In the direction of the magnetic field, the conductivity is referred to as the parallel or Birkeland conductivity. The Birkeland conductivity is so high that it short-circuits the field-aligned component of the ionospheric electric field, and normally electrical equipotentials align with the ionospheric magnetic field lines. Perpendicular to the magnetic field direction, the conductivity has components parallel to the electric field $\sigma_P$ and perpendicular to the electric field $\sigma_H$.
+
+Because the electric field vanishes in the field-aligned direction through the ionosphere, it is meaningful to integrate the transverse $\sigma_P$ and $\sigma_H$ along the magnetic field direction to evaluate the Pedersen and Hall conductances $\Sigma_P$ and $\Sigma_H$, respectively. The forces that act on a flux tube in the ionosphere can be expressed in terms of these conductances and the force balance expressions can consequently be used to derive other properties of the ionospheric flow such as its velocity.
+
+Mass loading contributes to the electrodynamics of the plasma interaction in ways that are analogous to the contributions of the ionospheric conductivities. Pickup ionization conserves momentum. An increase of the ion density results in a reduction of the flow velocity and its associated electric field. Thus in developing the theory of the interaction, pickup effects can be directly incorporated into the above conductances and the interaction region extends well above the atmospheric exobase.
+
+The Pedersen current (aligned with the electric field) exerts forces that slow the flow in the ionosphere. The Hall current flows perpendicular to the electric and magnetic field, thereby breaking the symmetry of the interaction. The Hall current results in a rotation of the flow away from the corotation direction and produces ionospheric asymmetries.
+
+### Mechanics of Coulomb Collisions
 
 ### Physical Meaning of η
 
