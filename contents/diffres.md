@@ -467,7 +467,7 @@ $$
 \eta \approx \frac{\pi e^2m^{1/2}}{(4\pi\epsilon_0)^2 (k_B T_e)^{3/2}}
 $$ {#eq:coulomb_resistivity_maxwellian}
 
-This is the resistivity based on large-angle collisions alone. In practice, because of the long range of the Coulomb force, small-angle collisions are much more frequent, and the cumulative effect of many small-angle deflections turns out to be larger than the effect of large-angle collisions. It was shown by Spitzer that Eq. (5.70) should be multiplied by a factor $\ln \Lambda$:
+This is the resistivity based on large-angle collisions alone. In practice, because of the long range of the Coulomb force, small-angle collisions are much more frequent, and the cumulative effect of many small-angle deflections turns out to be larger than the effect of large-angle collisions. It was shown by Spitzer that @eq:coulomb_resistivity_maxwellian should be multiplied by a factor $\ln \Lambda$:
 
 $$
 \eta\approx\frac{\pi e^2m^{1/2}}{(4\pi\epsilon_0)^2 (k_B T_e)^{3/2}}\ln\Lambda
