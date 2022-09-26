@@ -228,7 +228,9 @@ $$
 
 This means that the electric fields due to the particles in the plasma greatly alter the fields applied externally. A plasma with large $\epsilon$ shields out alternating fields, just as a plasma with small $\lambda_D$ shields out dc fields.
 
-## MHD
+## The Single-Fluid MHD Equations
+
+In Chen's book, this is introduced in the diffusion chapter 5.7, which is a bit weird.
 
 There are three basic assumptions in MHD:
 

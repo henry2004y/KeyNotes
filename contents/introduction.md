@@ -170,7 +170,7 @@ behaves as if it had a mind of its own.
 
 ## Concept of Temperature
 
-## Debye Shielding
+## Debye Shielding {#sec:debye}
 
 (Problem 4 on P27 [@bellan2008fundamentals])
 
@@ -284,7 +284,7 @@ The following are useful forms of @eq:debye_length:
 $$
 \begin{aligned}
 \lambda_D &= 69 (T_e/n)^{1/2}\,\text{m},\quad T_e \text{ in K} \\
-\lambda_D &= 7430 (k_B T_e/n)^{1/2}\,\text{m},\quad T_e \text{ in eV} 
+\lambda_D &= 7430 (k_B T_e/n)^{1/2}\,\text{m},\quad k_BT_e \text{ in eV} 
 \end{aligned}
 $$
 

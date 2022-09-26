@@ -95,7 +95,7 @@ We now consider how a plasma created in a container decays by diffusion to the w
 
 $$
 \frac{\partial n}{\partial t} + \nabla\cdot\Gamma_s = 0
-$$
+$$ {#eq:diffusion_continuity}
 
 with $\Gamma_s$ given by @eq:species_flux. It is clear that if $\Gamma_i$ and $\Gamma_e$ were not equal, a serious charge imbalance would soon arise. If the plasma is much larger than a Debye length, it must be quasineutral; and one would expect that the rates of diffusion of ions and electrons would somehow adjust themselves so that the two species leave at the same rate. How this happens is easy to see. The electrons, being lighter, have higher thermal velocities and tend to leave the plasma first. A positive charge is left behind, and an electric field is set up of such a polarity as to retard the loss of
 electrons and accelerate the loss of ions. The required $\mathbf{E}$ field is found by setting $\Gamma_i=\Gamma_e=\Gamma$. From @@eq:species_flux, we can write
@@ -330,7 +330,7 @@ Figure 5.9 (ADD IT!) shows the results of measurements of the density decay in t
 The rate of plasma loss by diffusion can be decreased by a magnetic field; this is the problem of confinement in controlled fusion research. Consider a weakly ionized plasma in a magnetic field (@fig:gyration_collision ADD IT!). Charged particles will move along $\mathbf{B}$ by diffusion and mobility according to @eq:species_flux, since $\mathbf{B}$ does not affect motion in the parallel direction. Thus we have, for each species,
 
 $$
-\Tau_z = \pm\mu n E_z - D\frac{\partial n}{\partial z}
+\Gamma_z = \pm\mu n E_z - D\frac{\partial n}{\partial z}
 $$
 
 If there were no collisions, particles would not diffuse at all in the perpendicular direction --- they would continue to gyrate about the same magnetic field line. There are, of course, particle drifts across $\mathbf{B}$ because of electric fields or gradients in $\mathbf{B}$, but these can be arranged to be parallel to the walls. For instance, in a perfectly symmetric cylinder (@fig:drift_cylinder ADD IT!), the gradients are all in the radial direction, so that the guiding center drifts are in the azimuthal direction. The drifts would then be harmless.
@@ -349,6 +349,20 @@ To see how this comes about, we write the perpendicular component of the fluid e
 
 ### Ambipolar Diffusion Across B
 
+Because the diffusion and mobility coefficients are anisotropic in the presence of a magnetic field, the problem of ambipolar diffusion is not as straightforward as in the $B = 0$ case. Consider the particle fluxes perpendicular to $\mathbf{B}$ (Fig. 5.13 ADD IT!). Ordinarily, since $\Gamma_{e\perp}$ is smaller than $\Gamma_{i\perp}$, a transverse electric field would be set up so as to aid electron diffusion and retard ion diffusion. However, this electric field can be short-circuited by an imbalance of the fluxes along $\mathbf{B}$. That is, the negative charge resulting from $\Gamma_{e\perp} < \Gamma_{i\perp}$ can be dissipated by electrons escaping along the field lines. Although the total diffusion must be ambipolar, the perpendicular part of the losses need not be ambipolar. The ions can diffuse out primarily radially, while the electrons diffuse out primarily along $\mathbf{B}$. Whether or not this in fact happens depends on the particular experiment. In short plasma columns with the field lines terminating on conducting plates, one would expect the ambipolar electric field to be
+short-circuited out. Each species then diffuses radially at a different rate. In long, thin plasma columns terminated by insulating plates, one would expect the radial diffusion to be ambipolar because escape along $\mathbf{B}$ is arduous.
+
+Mathematically, the problem is to solve simultaneously the continuity @eq:diffusion_continuity for ions and electrons. It is not the fluxes $\mathbf{\Gamma}_j$, but the divergence $\nabla\cdot\mathbf{\Gamma}_j$ which must be set equal to each other. Separating $\nabla\cdot\mathbf{\Gamma}_j$ into perpendicular and parallel components, we have
+
+$$
+\begin{aligned}
+\nabla\cdot\mathbf{\Gamma}_i &= \nabla_\perp\cdot(\mu_i n \mathbf{E}_\perp - D_{i\perp}\nabla n) + \frac{\partial}{\partial z}\Big( \mu_inE_z - D_i\frac{\partial n}{\partial z} \Big) \\
+\nabla\cdot\mathbf{\Gamma}_e &= \nabla_\perp\cdot(\mu_e n \mathbf{E}_\perp - D_{e\perp}\nabla n) + \frac{\partial}{\partial z}\Big( -\mu_enE_z - D_e\frac{\partial n}{\partial z} \Big)
+\end{aligned}
+$$
+
+The equation resulting from setting $\nabla\cdot\mathbf{\Gamma}_i = \nabla\cdot\mathbf{\Gamma}_e$ cannot easily be separated into one-dimensional equations. Furthermore, the answer depends sensitively on the boundary conditions at the ends of the field lines. Unless the plasma is so long that parallel diffusion can be neglected altogether, there is no simple answer to the problem of ambipolar diffusion across a magnetic field.
+
 ## Collisions in Fully Ionized Plasmas
 
 When the plasma is composed of ions and electrons alone, all collisions are Coulomb collisions between charged particles. However, there is a distinct difference between 
@@ -362,6 +376,195 @@ remains stationary. For this reason, collisions between like particles give rise
 When two particles of opposite charge collide, however, the situation is entirely different (Fig. 5.17 ADD IT!). The worst case is now the $180^o$ collision, in which the particles emerge with their velocities reversed. Since they must continue to gyrate about the magnetic field lines in the proper sense, both guiding centers will move in the same direction. _Unlike-particle collisions give rise to diffusion_. The physical picture is somewhat different for ions and electrons because of the disparity in mass. The electrons bounce off the nearly stationary ions and random-walk in the usual fashion. The ions are slightly jostled in each collision and move about as a result of frequent bombardment by electrons. Nonetheless, because of the conservation of momentum in each collision, the rates of diffusion are the same for ions and electrons, as we shall show.
 
 ### Plasma Resistivity
+
+The fluid equations of motion including the effects of charged-particle collisions may be written as follows
+
+$$
+\begin{aligned}
+m_i n\frac{d\mathbf{v}_i}{dt} &= en(\mathbf{E}+\mathbf{v}_i\times\mathbf{B}) - \nabla p_i -\nabla\cdot\pmb{\pi}_i + \mathbf{P}_{ie} \\
+m_e n\frac{d\mathbf{v}_e}{dt} &= -en(\mathbf{E}+\mathbf{v}_e\times\mathbf{B}) - \nabla p_e -\nabla\cdot\pmb{\pi}_e + \mathbf{P}_{ei}
+\end{aligned}
+$$ {#eq:resistivity_fluid_momentum}
+
+The terms $\mathbf{P}_{ie}$ and $\mathbf{P}_{ei}$ represent, respectively, the momentum gain of the ion fluid caused by collisions with electrons, and vice versa. The stress tensor $\mathbf{P}_j$ has been split into the isotropic part $p_j$ and the anisotropic viscosity tensor $\pmb{\pi}_j$. Like-particle collisions, which give rise to stresses within each fluid individually, are contained in $\pmb{\pi}_j$. Since these collisions do not give rise to much diffusion, we shall ignore the
+terms $\nabla\cdot\pmb{\pi}_j$. As for the terms $\mathbf{P}_{ie}$ and $\mathbf{P}_{ei}$, which represent the friction between the two fluids, the conservation of momentum requires
+
+$$
+\mathbf{P}_{ie} = -\mathbf{P}_{ei}
+$$
+
+We can write $\mathbf{P}_{ei}$ in terms of the collision frequency in the usual manner:
+
+$$
+\mathbf{P}_{ei} = mn(\mathbf{v}_i - \mathbf{v}_e)\nu_{ei}
+$$
+
+and similarly for $\mathbf{P}_{ie}$. Since the collisions are Coulomb collisions, one would expect $\mathbf{P}_{ei}$ to be proportional to the Coulomb force, which is proportional to $e^2$ (for singly-charged ions). Furthermore, $\mathbf{P}_{ei}$ must be proportional to the density of electrons $n_e$ and to the density of scattering centers $n_i$, which, of course, is equal to $n_e$. Finally, $\mathbf{P}_{ei}$ should be proportional to the relative velocity of the two fluids. On physical
+grounds, then, we can write $\mathbf{P}_{ei}$ as
+
+$$
+\mathbf{P}_{ei} = \eta e^2n^2(\mathbf{v}_i - \mathbf{v}_e)
+$$ {#eq:coulomb_collision_momentum}
+
+where $\eta$ is a constant of proportionality. Comparing this with the last equation, we see that
+
+$$
+\nu_{ei} = \frac{ne^2}{m}\eta
+$$ {#eq:coulomb_collision_frequency}
+
+The constant $\eta$ is the _specific resistivity_ of the plasma; that this jibes with the usual meaning of resistivity will become clear shortly.
+
+### Mechanics of Coulomb Collisions
+
+When an electron collides with a neutral atom, no force is felt until the electron is close to the atom on the scale of atomic dimensions; the collisions are like billiard-ball collisions. When an electron collides with an ion, the electron is gradually deflected by the long-range Coulomb field of the ion. Nonetheless, one can derive an effective cross section for this kind of collision. It will suffice for our purposes to give an order-of-magnitude estimate of the cross section. In Fig. 5.18 ADD IT!, an electron of velocity $\mathbf{v}$ approaches a fixed ion of charge $e$. In the absence of Coulomb forces, the
+electron would have a distance of closest approach $r_0$, called the impact parameter. In the presence of a Coulomb attraction, the electron will be deflected by an angle $\chi$, which is related to $r_0$. The Coulomb force is
+
+![Orbit of an electron making a Coulomb collision with an ion.](images/Coulomb_collusion.png){#fig:coulomb_collision}
+
+$$
+F = -\frac{e^2}{4\pi\epsilon_0 r^2}
+$$
+
+This force is felt during the time the electron is in the vicinity of the ion; this time is roughly
+
+$$
+T \approx r_0 / v
+$$
+
+The change in the electron's momentum is therefore approximately
+
+$$
+\Delta(mv) = |FT| \approx \frac{e^2}{4\pi\epsilon_0r_0v}
+$$
+
+We wish to estimate the cross section for large-angle collisions, in which $\chi \ge 90^o$. For a $9^o0$ collision, the change in $mv$ is of the order of $mv$ itself. Thus
+
+$$
+\Delta(mv) \simeq mv \simeq e^2/4\pi\epsilon_0r_0v,\quad r_0 = e^2/4\pi\epsilon_0 mv^2
+$$ {#eq:impact_parameter}
+
+The cross section is then
+
+$$
+\sigma = \pi r_0^2 = e^4 / 16\pi\epsilon_0^2 m^2v^4
+$$
+
+The collision frequency is, therefore,
+
+$$
+\nu_{ei} = n\sigma v = ne^4/16\pi\epsilon_0^2 m^2 v^3
+$$ {#eq:coulomb_collision_freq}
+
+and the resistivity is
+
+$$
+\eta = \frac{m}{ne^2}\nu_{ei} = \frac{e^2}{16\pi\epsilon_0^2 mv^3}
+$$ {#eq:coulomb_resistivity}
+
+For a Maxwellian distribution of electrons, we may replace $v^2$ by $k_B T_e/m$ for our order-of-magnitude estimate:
+
+$$
+\eta \approx \frac{\pi e^2m^{1/2}}{(4\pi\epsilon_0)^2 (k_B T_e)^{3/2}}
+$$ {#eq:coulomb_resistivity_maxwellian}
+
+This is the resistivity based on large-angle collisions alone. In practice, because of the long range of the Coulomb force, small-angle collisions are much more frequent, and the cumulative effect of many small-angle deflections turns out to be larger than the effect of large-angle collisions. It was shown by Spitzer that Eq. (5.70) should be multiplied by a factor $\ln \Lambda$:
+
+$$
+\eta\approx\frac{\pi e^2m^{1/2}}{(4\pi\epsilon_0)^2 (k_B T_e)^{3/2}}\ln\Lambda
+$$ {#eq:coulomb_resistivity_maxwellian_correction}
+
+where
+
+$$
+\Lambda = \overline{\lambda_D/r_0} = 12\pi n\lambda_D^3
+$$
+
+This factor represents the maximum impact parameter, in units of $r_0$ as given by @eq:impact_parameter, averaged over a Maxwellian distribution. The maximum impact parameter is taken to be $\lambda_D$ because Debye shielding suppresses the Coulomb field at larger distances. Although $\Lambda$ depends on $n$ and $k_BT_e$, its logarithm is insensitive to the exact values of the plasma parameters. Typical values of $\ln \Lambda$ are given below ($\lambda_D$ defined in @sec:debye).
+
+| $k_B T_e\,[\text{eV}]$ | $n\,[\text{m}^{-3}]$ | $\ln\Lambda$  |   |
+|------------------------|----------------------|---------------|---|
+| $0.2$  | $10^{15}$ | 10.7 | (Q-machine)      |
+| $2$    | $10^{17}$ | 11.8 | (lab plasma)     |
+| $100$  | $10^{19}$ | 15.4 | (typical torus)  |
+| $10^4$ | $10^{21}$ | 20.0 | (fusion reactor) |
+| $10^3$ | $10^{27}$ | 9.6  | (laser plasma)   |
+
+It is evident that $\ln \Lambda$ varies only a factor of two as the plasma parameters range over many orders of magnitude. For most purposes, it will be sufficiently accurate to let $\ln \Lambda=10$ regardless of the type of plasma involved.
+
+### Physical Meaning of η
+
+Let us suppose that an electric field $\mathbf{E}$ exists in a plasma and that the current that it drives is all carried by the electrons, which are much more mobile than the ions. Let $B=0$ and $k_BT_e=0$, so that $\nabla\cdot\mathbf{P}_e=0$. Then, in steady state, the electron equation of motion from @eq:resistivity_fluid_momentum reduces to
+
+$$
+en\mathbf{E} = \mathbf{P}_{ei}
+$$ {#eq:resistivity_momentum_steady}
+
+Since $\mathbf{j}=en(\mathbf{v}_i-\mathbf{v}_e)$, @eq:coulomb_collision_momentum can be written
+
+$$
+\mathbf{P}_{ei} = \eta en\mathbf{j}
+$$
+
+so that @eq:resistivity_momentum_steady becomes
+
+$$
+\mathbf{E} = \eta\mathbf{j}
+$$ {#eq:ohm}
+
+This is simply Ohm's law, and the constant $\eta$ is just the specific resistivity. The expression for $\eta$ in a plasma, as given by @eq:coulomb_resistivity_maxwellian or @eq:coulomb_resistivity_maxwellian_correction, has several features which should be pointed out.
+
+1. In @eq:coulomb_resistivity_maxwellian_correction, we see that $\eta$ is _independent of density_ (except for the weak dependence in $\ln\Lambda$). This is a rather surprising result, since it means that if a field $\mathbf{E}$ is applied to a plasma, the current $\mathbf{j}$, as given by @eq:ohm, is independent of the number of charge carriers. The reason is that although
+$j$ increases with $n_e$, the frictional drag against the ions increases with $n_i$. Since $n_e=n_i$ these two effects cancel.
+This cancellation can be seen in @eq:coulomb_collision_freq and @eq:coulomb_resistivity. The collision frequency $\nu_{ei}$ is indeed proportional to $n$, but the factor $n$ cancels out in $\eta$. A fully ionized plasma behaves quite differently from
+a weakly ionized one in this respect. In a weakly ionized plasma, we have $\mathbf{j}=-ne\mathbf{v}_e,\mathbf{v}_e=-\mu_e\mathbf{E}$, so that $\mathbf{j}=ne\mu_e\mathbf{E}$. Since the electron mobility $\mu_e$ depends only on the density of _neutrals_, the current is proportional to the plasma density $n$.
+
+2. @eq:coulomb_resistivity_maxwellian_correction shows that $\eta$ is proportional to $T_e^{-3/2}$. As a plasma is heated, the Coulomb cross section decreases, and the resistivity drops rather rapidly with increasing temperature. Plasmas at thermonuclear temperatures (tens of keV) are essentially collisionless; this is the reason so much theoretical research is done on collisionless plasmas. Of course, there must always be some collisions; otherwise, there wouldn't be any fusion reactions either. An easy way to heat a plasma is simply to pass a current through it. The $I^2R$ or $\eta j^2$ losses then turn up as an increase in electron temperature. This is called _ohmic heating_. The $(k_BT_e)^{-3/2}$ dependence of $\eta$, however, does not allow this method to be used up to thermonuclear temperatures. The plasma becomes such a good conductor at temperatures above 1 keV that ohmic heating is a very slow process in that range.
+
+3. @eq:coulomb_collision_freq shows that $\nu_{ei}$ varies as $v^{-3}$. The fast electrons in the tail of the velocity distribution make very few collisions. The current is therefore carried mainly by these electrons rather than by the bulk of the electrons in the main body of the distribution. The strong dependence on $v$ has another interesting consequence. If an electric field is suddenly applied to a plasma, a phenomenon known as _electron runaway_ can occur. A few electrons which happen to be moving fast in the direction of $-\mathbf{E}$ when the field is applied will have gained so much energy before encountering an ion that they can make only a glancing collision. This allows them to pick up more energy from the electric
+field and decrease their collision cross section even further. If E is large enough, the cross section falls so fast that these runaway electrons never make a collision. They form an accelerated electron beam detached from the main body of the distribution.
+
+### Numerical Values of η
+
+Exact computations of $\eta$ which take into account the ion recoil in each collision and are properly averaged over the electron distribution were first given by Spitzer. The following result for hydrogen is sometimes called the Spitzer resistivity:
+
+$$
+\eta_\parallel = 5.2\times 10^{-5}\frac{Z\ln\Lambda}{T^{3/2}[\text{eV}]}\, [\text{ohm}\cdot\text{m}]
+$$ {#eq:spitzer_resistivity}
+
+Here $Z$ is the ion charge number, which we have taken to be 1 elsewhere. Since the dependence on $m_i$ is weak, these values can also be used for other gases. The subscript $\parallel$ means that this value of $\eta$ is to be used for motions parallel to $\mathbf{B}$. For motions perpendicular to $\mathbf{B}$, one should use $\eta_\perp$ given by
+
+$$
+\eta_\perp = 2.0 \eta_\parallel
+$$
+
+This does not mean that conductivity along $\mathbf{B}$ is only two times better than conductivity across $\mathbf{B}$. A factor like $\omega_c^2\tau^2$ still has to be taken into account. The factor 2.0 comes from a difference in weighting of the various velocities in the electron distribution. In perpendicular motions, the slow electrons, which have small Larmor radii, contribute more to the resistivity than in parallel motions.
+
+For $k_BT_e=100\, \text{eV}$, @eq:spitzer_resistivity yields
+
+$$
+\eta = 5\times 10^{-7}\, [\text{ohm}\cdot\text{m}]
+$$
+
+This is to be compared with various metallic conductors:
+
+| material | $\eta\, [\text{ohm}\cdot\text{m}]$ |
+|------------------------|----------------------|
+| copper  | $2\times10^{-8}$ |
+| stainless steel    | $7\times10^{-7}$ |
+| mercury  | $1\times10^{6}$ |
+
+A 100-eV plasma, therefore, has a conductivity like that of stainless steel.
+
+### Pulsed Currents
+
+When a steady-state current is drawn between two electrodes aligned along the magnetic field, electrons are the dominant current carrier, and sheaths are set up at the cathode to limit the current to the set value. When the current is pulsed,
+however, it takes time to set up the current distribution. It was shown by Stenzel and Urrutia that this time is controlled by whistler waves (R-waves), which must travel the length of the device to communicate the voltage information.
+
+### Collisions Between Species
+
+Y.Y talked about this during his lecture that the collision rate among ions or electrons is much larger than the collision rate between ions and electrons. I need to go back to the notes. See also [StackExchange Q&A](https://physics.stackexchange.com/questions/143738/why-are-ions-and-electrons-at-different-temperatures-in-a-plasma).
+
+### Conductivity Tensor
 
 Resistivity is the inverse of conductivity. Consider the effect of collisions as friction in the equation of motion:
 
@@ -452,16 +655,6 @@ Because the electric field vanishes in the field-aligned direction through the i
 Mass loading contributes to the electrodynamics of the plasma interaction in ways that are analogous to the contributions of the ionospheric conductivities. Pickup ionization conserves momentum. An increase of the ion density results in a reduction of the flow velocity and its associated electric field. Thus in developing the theory of the interaction, pickup effects can be directly incorporated into the above conductances and the interaction region extends well above the atmospheric exobase.
 
 The Pedersen current (aligned with the electric field) exerts forces that slow the flow in the ionosphere. The Hall current flows perpendicular to the electric and magnetic field, thereby breaking the symmetry of the interaction. The Hall current results in a rotation of the flow away from the corotation direction and produces ionospheric asymmetries.
-
-### Mechanics of Coulomb Collisions
-
-### Physical Meaning of η
-
-### Numerical Values of η
-
-### Pulsed Currents
-
-## The Single-Fluid MHD Equations
 
 ## Diffusion of Fully Ionized Plasmas
 

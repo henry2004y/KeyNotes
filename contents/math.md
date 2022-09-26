@@ -401,3 +401,11 @@ which is often considered one of Hamilton's equations of motion additionally to 
 $$
 \dot{\mathbf{p}} = \mathbf{Q}
 $$
+
+One interesting application of the Hamilton's equation in plasma physics is the prove of Vlasov equation (See Giulia's notes)
+
+$$
+\frac{df(\mathbf{q},\mathbf{p},t)}{dt} = 0
+$$
+
+You may also find the application in deriving the gyrokinetic equations.
