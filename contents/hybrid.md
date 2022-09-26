@@ -19,7 +19,7 @@ n_s = \int d^3 v f_s(\mathbf{r}_s,\mathbf{v}_s,t)
 $$
 
 $$
-\mathbf{V}_s = \int d^3 v \mathbf{v}_s f_s(\mathbf{r}_s,\mathbf{v}_s,t)
+\mathbf{u}_s = \frac{1}{n_s}\int d^3 v \mathbf{v}_s f_s(\mathbf{r}_s,\mathbf{v}_s,t)
 $$
 
 or in the corresponding discrete forms where the distribution function is represented as a group of macro-particles with a specific shape function. In this way it behaves more like a particle cloud.
@@ -70,7 +70,7 @@ The generalized Ohm's law is used to determine the time evolution of the electri
 
 $$
 \mathbf{E} = - \mathbf{V}_i \times \mathbf{B} + \frac{1}{n_i e}(\nabla\times\mathbf{B})\times\mathbf{B} - \frac{1}{n_i e}\nabla\cdot\overleftrightarrow{P}_e + \eta \mathbf{J}
-$$
+$$ {#eq:hybrid_ohm}
 
 where the current in the Hall term has already been replaced by the curvature of B. The last term can either represent collision/physical resistivity, or artificial resistivity/numerical diffusion.
 
@@ -89,10 +89,28 @@ $$
 where $n_e \approx n_i$ and $T_e=T_i$. Note however in a plasma electron pressure is usually higher than ion temperature, so this is a very crude assumption. Another commonly used assumption is an adiabatic process
 
 $$
-P_e = n_e^\gamma k_B T_e
+P_e = n_e^\gamma k_B T_e = n_0(n/n_0)^\gamma k_B T_{e0}
 $$
 
 where $\gamma=5/3$ is the adiabatic index for a monatomic ideal gas.
+
+### Pros and Cons
+
+Strengths:
+
+* No approximations to ion physics.
+* Valid for $\omega/\Omega_i \sim kr_i \sim 1$.
+* No issues for high-$\beta$ regimes.
+* Simple implementation of particle push that can be readily optimized.
+* Removes stiffest electron scales.
+
+Limitations:
+
+* Need to resolve ion gyrofrequency.
+* Stiff EMHD whistler waves $\Delta t_{CFL}\sim \Delta x^2$.
+* No electron Landau damping.
+* Explicit time-stepping schemes can be complex.
+* No existing method conserves momentum or energy.
 
 ## Finite Electron Inertia
 
@@ -163,3 +181,58 @@ $$
 $$
 
 instead of the physical electron mass $m_e$. Here $V_A$ is the Alfvén speed calculated from the local density and magnetic field, and $\alpha$ is the maximum allowed Courant number ($\le 0.5$).
+
+## Comparison with Hall MHD
+
+If we moments the zeroth and first moments of the ion Vlasov equation,
+
+$$
+\begin{aligned}
+\frac{\partial n}{\partial t} + \nabla\cdot(n\mathbf{u}_i) = 0
+\frac{\partial mn\mathbf{u}_i}{\partial t} + \nabla\cdot\Big[ mn\mathbf{u}_i\mathbf{u}_i - \frac{\mathbf{B}\mathbf{B}}{\mu_0} + \frac{B^2}{2\mu_0}\mathbf{I} + \overleftrightarrow{P} \Big] = 0
+\end{aligned}
+$$
+
+The difference between Hall MHD and hybrid model is the treatment of the pressure tensor term. For Hall MHD with constant $T_{i0}/T_{e0}$,
+
+$$
+\overleftrightarrow{P} = p_e(1 + T_{i0}/T_{e0})\mathbf{I} 
+$$
+
+For hybrid models,
+
+$$
+\overleftrightarrow{P} = p_e\mathbf{I} + \int m_i f_i \mathbf{w}\mathbf{w}d\mathbf{w}
+$$
+
+Thus Hall-MHD is a "cold-ion" model in the sense that it does not include ion finite Larmor radius (FLR) or other kinetic effects from warm distribution functions.
+
+## Normalization
+
+We need three independent reference scales for normalized ion units in a hybrid model. For instance, We can take a magnetic field scale $B_0$, density scale $n_0$, and mass scale $m_0$. The general variable transformation from the original units to normalized units is
+
+$$
+\chi = \chi_0\tilde{\chi}
+$$
+
+where $\tilde{\chi}$ denote the variable in the normalized units and the scale $\chi_0$ shall be in the original units (e.g. SI).
+
+Typically we use the inverse of gyrofrequency for the time scale
+
+$$
+T_0 = \Omega_{c0}^{-1} = \frac{m_0}{e B_0}
+$$
+
+and Alfvén speed for the velocity scale
+
+$$
+v_0 = v_A = \frac{B_0}{\sqrt{\mu_0 n_0 m_0}}
+$$
+
+Then the length scale is taken to be the ion skin-depth, or inertial length
+
+$$
+L_0 = d_i = \frac{v_A}{\Omega_{ci}}
+$$
+
+A common trick we can use is to artificially increase the ion mass such that the length scale is increased $\propto \sqrt{m_0}$.
