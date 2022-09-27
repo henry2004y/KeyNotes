@@ -1427,3 +1427,35 @@ The mirror instability has zero parallel phase velocity in the plasma frame of r
 It follows, by analogy with other uses of the term that we can call particles with near zero parallel velocity _resonant_.
 
 ![Illustration of mirror instability.](images/instability_mirror.png){#fig:instability_mirror}
+
+(Song+ 1994) presented a set of identification criteria for distinguishing among various forms of high $\beta$ MHD waves, with mirror modes having the properties:
+
+* Compressional fluctuations:
+
+$$
+(\delta\mathbf{B}^2 - \delta \mathbf{B}_\parallel^2) / \delta \mathbf{B}_\parallel^2 < 1
+$$ 
+
+* Anti-correlated $\delta Pi$ and $\delta P_B$:
+
+$$
+\delta P_i / \delta P_B < 0
+$$
+
+* Stationary in plasma rest frame:
+
+$$
+\Big(\delta \mathbf{v}^2 / \mathbf{v}_0^2 \Big) / \Big( \delta \mathbf{B}^2 / \mathbf{B}_0^2 \Big) \approx 0
+$$
+
+The last criterion is referred to as the Doppler ratio and is used to distinguish between slow mode waves (value $\ge 1$) and mirror modes (value near zero). 
+
+## Cyclotron Instability
+
+I still don't see the dispersion relations for these types of instabilities...
+
+### Ion Cyclotron Instability
+
+There is another instability (besides mirror instability) that occurs at frequencies below the ion gyrofrequency in the presence of ion pitch angle anisotropy, the _electromagnetic ion cyclotron instability_ (EMIC). This is a resonant instability in which the energy for the instability is fed from a subset of the particle population that are in gyroresonance with the unstable wave.
+
+From Earth's magnetosheath observations, mirror modes dominates even though the linear dispersion relation predicts a smaller growth rate compared with EMIC waves. Gary argued in the 1990s that this is because of a small portion of heavier species (e.g. helium) that modifies the growth rate. Local hybrid simulations (e.g. the example from hybrid VPIC in ISSS14) supports this. However, researchers have not reached a consensus on whether ion cyclotron instability suppress mirror instability or vice versa.
