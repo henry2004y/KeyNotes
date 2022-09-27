@@ -310,13 +310,7 @@ Betatron acceleration refers to situations in which the magnetic field strength 
 
 ## Firehose Instability: Linear Theory {#sec:firehose}
 
-Suppose we have some "macroscopic" solution of our (yet to be fully derived) equilibrium. We allow low-frequency, short-wavelength perturbations ($\omega\ll u/l, kl \gg 1$) of this solution, and seek solutions in the form
-
-$$
-\mathbf{B} +\delta\mathbf{B}, \text{etc.}
-$$
-
-with infinitesimal perturbations $\propto e^{i(\mathbf{k}\cdot\mathbf{r}-\omega t)}$. Note that the velocity $\mathbf{u}$ is treated as a perturbation term (background velocity is simply a drift).
+Suppose we have some "macroscopic" solution of our (yet to be fully derived) equilibrium. We allow low-frequency, short-wavelength perturbations ($\omega\ll u/l, kl \gg 1$) of this solution, and seek solutions in the form $\mathbf{X} +\delta\mathbf{X}$ with infinitesimal perturbations $\propto e^{i(\mathbf{k}\cdot\mathbf{r}-\omega t)}$. Note that the velocity $\mathbf{u}$ is treated as a perturbation term (background velocity is simply a drift).
 
 From @eq:kmhd_induction
 
@@ -327,13 +321,7 @@ $$
 \end{aligned}
 $$ {#eq:kmhd_induction_perturb}
 
-Note that
-
-$$
-\mathbf{k}\cdot\delta\hat{b} = k_\parallel \frac{\delta B}{B}
-$$
-
-from @eq:kmhd_momentum_species_gyrotropic
+Inserting @eq:perturb_k_bhat into @eq:kmhd_momentum_species_gyrotropic, we have
 
 $$
 \begin{aligned}
@@ -366,7 +354,7 @@ $$
 
 Thus, negative $A$ ($p_\parallel > p_\perp$) locally weakens tention, i.e. slows down Alfvén waves, and makes it energetically easier to bend the field lines. For $A<-2/\beta_\parallel$, the elasticity of field lines is lost and we have the firehose instability.
 
-![Along a flux tube, $p_\parallel$ is the destabilizing force, the curvature force is the stabilizing force..](images/firehose.png){#fig:firehose}
+![Along a flux tube, $p_\parallel$ is the destabilizing force, the curvature force is the stabilizing force.](images/instability_firehose.png){#fig:firehose}
 
 Key points:
 
@@ -617,7 +605,9 @@ $$
 \end{aligned}
 $$
 
-(ADD FIGURE!) The solar wind indeed seems to stay within these boundaries. (ADD REFS!)
+@fig:instability_mirror_firehose shows observation from Wind spacecraft. The solar wind indeed seems to stay within these boundaries. (ADD REFS!)
+
+![Collective solar wind observation data ($\sim 1e6$) from Wind spacecraft. The lines represent the instability thresholds for mirror and firehose instability, respectively.](images/instability_mirror_firehose_solarwind.png){#fig:instability_mirror_firehose}
 
 ## Origin of Pressure Anisotropy
 

@@ -312,6 +312,36 @@ $$
 \int_{-\infty}^{\infty}G(x,0)=\frac{1}{\pi}\int_0^\infty \frac{\sin kx}{x}dx=1\quad \textrm{and}\quad G(0,0)=\infty
 $$
 
+## Linearization
+
+In linear wave analysis, we need to check how small perturbations evolve in the PDEs. For plasma physics, it is usually very useful to transform into a magnetic field guided coordinates, with the notation $\parallel$ being parallel to the background magnetic field and $\perp$ being perpendicular to the background magnetic field $\mathbf{B}$. Besides the perturbation of plasma moments (i.e. density, velocity, pressure, etc.), we also need the perturbations to the magnitude of the magnetic field B and the unit vector $\hat{\mathbf{b}}$. Linearzing $B^2 = \mathbf{B}\cdot\mathbf{B}$, we find
+
+$$
+\delta B = \hat{\mathbf{b}}\cdot\delta\mathbf{B} = \delta B_\parallel
+$$ {#eq:perturb_b}
+
+Linearzing $\hat{\mathbf{b}} = \mathbf{B}/B$, we obtain
+
+$$
+\begin{aligned}
+\delta\hat{\mathbf{b}} = \delta\Big(\frac{\mathbf{B}}{B}\Big) = \frac{\delta\mathbf{B}B - \delta B\mathbf{B}}{B^2} = \frac{\delta\mathbf{B}}{B} - \frac{\delta \mathbf{B}_\parallel}{B} = \frac{\delta \mathbf{B}_\perp}{B}
+\end{aligned}
+$$ {#eq:perturb_bhat}
+
+The divergence-free of magnetic field gives
+
+$$
+\mathbf{k}\cdot\delta\mathbf{B} = k_\parallel \delta B_\parallel + k_\perp \delta B_\perp = 0
+$$
+
+Thus
+
+$$
+\mathbf{k}\cdot\hat{\mathbf{b}} = \mathbf{k}\cdot\frac{\delta \mathbf{B}_\perp}{B} = \frac{k_\perp \delta B_\perp}{B} = -k_\parallel\frac{\delta B_\parallel}{B} = -k_\parallel\frac{\delta B}{B}
+$$ {#eq:perturb_k_bhat}
+
+These seemingly trivial relations have profound implications in physics. @eq:perturb_b tells us that the perturbation of magnetic field magnitude has only contribution from the parallel component, which is why in satellite observations people only look at parallel perturbations for compressional wave modes. @eq:perturb_bhat tells us that the perturbation in the unit vector is only related to the perpendicular fluctuations.
+
 ## Normalization
 
 In physics we frequently have to deal with unit conversions. A solid understanding of the unit system and normalization methods paves the path for understanding the scales behind systems.

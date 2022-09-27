@@ -784,9 +784,9 @@ V_{\theta}\big|_{r=a+\tau} &= \frac{1}{B_{z}}[V_{0z}B_\theta - E_r]\big|_{r=a+\t
 \end{aligned}
 $$
 
-where $\gamma=(1-\beta)^{-1/2}=1+V/(511keV)$, and $\beta= V_{0z}/c$.
+where $\gamma=(1-\beta)^{-1/2}=1+V/(511\text{ keV})$, and $\beta= V_{0z}/c$.
 
-Let $\nu=\frac{I}{\beta I_A}$ be the Budker parameter, $I_A=4\pi\epsilon_0 mc^2/e=17kA$ be the Alfvén-Lawson current, and $\Omega=\frac{eB_{0z}}{m_e}$ be the nonrelativistic cyclotron frequency associated with the axial B field, we have
+Let $\nu=\frac{I}{\beta I_A}$ be the Budker parameter, $I_A=4\pi\epsilon_0 mc^2/e=17\,\text{kA}$ be the Alfvén-Lawson current, and $\Omega=\frac{eB_{0z}}{m_e}$ be the nonrelativistic cyclotron frequency associated with the axial B field, we have
 
 $$
 V_\theta\big|_{r=a+\tau} = \frac{2c^2\nu}{\Omega a\gamma^2}
@@ -1385,3 +1385,45 @@ KeyNotes.plot_tearing()
 ```
 
 ## Kinetic Mode
+
+## Pressure Anisotropy Instabilities
+
+When we shift to the MHD with anisotropic pressure tensor
+
+$$
+P_{ij} = p_\perp \delta_{ij} + (p_\parallel - p_\perp)B_i B_j / B^2
+$$
+
+where $p_\perp$ and $p_\parallel$ are the pressures perpendicular and parallel w.r.t. the magnetic field, respectively. For the strong magnetic field approximation, the two pressures are related to the plasma density and the magnetic field strength by two adiabatic equations,
+
+$$
+\begin{aligned}
+\frac{d}{dt}\Big( \frac{p_\parallel B^2}{\rho^3} \Big) &= 0 \\
+\frac{d}{dt}\Big( \frac{p_\perp}{\rho B} \Big) &= 0
+\end{aligned}
+$$
+
+This is also known as the _double adiabatic theory_, which is also what many people remember to be the key conclusion from the [CGL theory](https://doi.org/10.1098/rspa.1956.0116). Here I want to emphasize the meaning of _adiabatic_ again: this assumes zero heat flux. If the system is not adiabatic, the conservation of these two quantities related to the parallel and perpendicular pressure is no longer valid, and additional terms may come into play such as the stochastic heating.
+
+Now imagine an increasing magnetic field $B$. For an initially Maxwellian distributed plasma like a circle in the phase space, it will get stretched in the perpendicular direction and become an oval; conversely, if the magnetic field is decreasing, it will get stretched in the parallel direction.
+
+### Firehose Instability
+
+See more in @sec:firehose.
+
+### Mirror Instability
+
+[Southwood & Kivelson](https://www-thphys.physics.ox.ac.uk/people/AlexanderSchekochihin/notes/LESHOUCHES15/SouthwoodKivelson93_Mirror.pdf) had a nice paper explaining the physics of mirror instability.
+
+The mirror instability is prevalent in planetary and cometary magnetosheaths and other high $\beta$ environment. It is recognized as one of the two magnetohydrodynamic instabilities that occur in the presence of extreme velocity space (pitch angle) anisotropy in a uniform plasma, the other instability being the firehose. The mirror mode has gained increasing interest following its identification in spacecraft data from the magnetosheath and solar wind.
+Although the instability was originally derived from magnetohydrodynamic fluid theory, later work showed that there were significant differences between the fluid theory and a more rigorous kinetic approach, as we will see in @sec:mirror.
+
+The instability occurs when $\beta$, the ratio of plasma to magnetic pressure. The anisotropy $(p_\perp - p_par)/p_par$ required for instability $\propto \beta^{-1}$. In planetary magnetosheaths the source of anisotropy is likely to be the planetary bow shock and in cometary environments the ion pickup process is a natural source of anisotropy. Both types of environment tend to have relatively large values of $\beta$.
+
+Any nonlinear saturation mechanism of the mirror instability is likely to leave the plasma spatially structured, as is also strongly suggested by the many observations. In practice, in almost any experimental detection of a plasma instability, the wave fields and the plasma population will have evolved to some quasi-steady condition that represents a nonlinear saturated state of the instability. In the spatially structured magnetic field associated with the minor instability in both its linear and nonlinear phase, different parts of the ion distribution will resonate with an ion cyclotron wave as the wave propagates along the inhomogeneous field. This effect is likely to inhibit the growth of the ion cyclotron mode, which theoretically also exists in the same frequency band.
+
+The mirror instability is referred to as a "fluid" instability, alluding to the fact that the phase space (pitch angle) anisotropy of the bulk of the hot plasma distribution serves as the source of energy. The instability grows because of a subtle coupling between a group of particles with small velocity parallel to the field and the rest of the population.
+The mirror instability has zero parallel phase velocity in the plasma frame of reference.
+It follows, by analogy with other uses of the term that we can call particles with near zero parallel velocity _resonant_.
+
+![Illustration of mirror instability.](images/instability_mirror.png){#fig:instability_mirror}
