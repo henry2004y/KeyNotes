@@ -559,6 +559,8 @@ The physical reason for the polarization current is simple. Consider an ion at r
 
 The polarization effect in a plasma is similar to that in a solid dielectric, where $\mathbf{D} = \epsilon_0\mathbf{E} + \mathbf{P}$. The dipoles in a plasma are ions and electrons separated by a distance $r_L$. But since ions and electrons can move around to preserve quasineutrality, the application of a steady $\mathbf{E}$ field does not result in a polarization field $\mathbf{P}$. However, if $\mathbf{E}$ oscillates, an oscillating current $\mathbf{j}_p$ results from the lag due to the ion inertia.
 
+It is obvious that in this case the $\mathbf{E}\times\mathbf{B}$ drift speed depends on time and the guiding center coordinate system is non-inertial. The polarization drift arises from the fictuous (inertial) force $-m d\mathbf{v}_E/dt$. It means that the guiding center locations will not change due to the polarization drift!
+
 ## Time-Varying B Field
 
 Finally, we allow the magnetic field to vary in time. Since the Lorentz force is always perpendicular to $\mathbf{v}$, a magnetic field itself cannot impart energy to a charged particle. However, associated with $\mathbf{B}$ is an electric field given by
