@@ -43,7 +43,7 @@ where $N$ is the number of markers in the phase space region $\Omega$. This Mont
 
 The key feature that makes PIC more feasible than the brute-force nbody method is the reduction of computational cost. Given $N$ macro-particles in the system, a brute force method has a complexity of $\mathcal{O}(N^2)$, and a PIC method has $\mathcal{O}(N\log N)$. A rough idea how this is possible can be obtained by ignoring the pair interactions and consider collective effects especially for those particles at a large distance.
 
-## δf Method
+## δf Method {#sec:delta_f}
 
 Consider the growth rate of a single unstable wave in a 1D-1V Vlasov-Poisson system of plasma. The energy conservation leads to
 

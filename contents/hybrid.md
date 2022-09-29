@@ -236,3 +236,113 @@ L_0 = d_i = \frac{v_A}{\Omega_{ci}}
 $$
 
 A common trick we can use is to artificially increase the ion mass such that the length scale is increased $\propto \sqrt{m_0}$.
+
+## Numerical Stability
+
+Nonlinear numerical simulations typically need some dissipation for stability. This is achieved either via:
+
+1. Explicit terms in equations ("physical dissipation").
+2. Upwinding of advective terms (implicit dissipation via discretization)
+
+Hybrid models usually follow 1) by adding dissipation in Ohm's law:
+
+$$
+\mathbf{E} = \underbrace{\mathbf{E}^\ast}_{\text{frictionless }\mathbf{E}} + \underbrace{\eta\mathbf{j}}_{\text{resistivity}} - \underbrace{\eta_H \nabla^2\mathbf{j}}_{\text{hyper-resistivity}}
+$$
+
+The reason that we need hyper-resistivity is because the Hall term is badly behaved (stiff?). Slide 33 Stainer???
+The hyper-resistivity term has a similar form of an electron collisional viscosity $\eta_H\nabla^2\mathbf{u}_e$. But the coefficient is too large for space, sometimes argued as "anomalous viscosity".
+
+Extra care shall be taken for conservation when including the frictional terms. For momentum conservation, we should use $\mathbf{E}^\ast$ for the macro-particle pusher or Vlasov solver, and only use $\mathbf{E}$ for updating $\mathbf{B}$. For energy conservation, it requires a separate electron pressure equation with frictional heating $H_e = \eta j^2 + \eta_H \nabla \mathbf{j}:\nabla\mathbf{j}$ and heat flux $\mathbf{q}_e$:
+
+$$
+(\gamma-1)^{-1}\Big[\frac{\partial p_e}{\partial t} + \nabla\cdot(\mathbf{u}_e p_e) \Big] + p_e\nabla\cdot\mathbf{u}_e = H_e - \nabla\cdot\mathbf{q}_e
+$$
+
+### Finite Grid Instability
+
+Imagine a scenario where cold ion beams move through uniform spatial mesh. It was shown by [@rambo1995finite] that non-conservative (explicit) schemes are unstable for Ti /Te << 1 regardless of spatial resolution. The precise threshold in $T_i /T_e$ and beam velocity depends on shape-function for macroparticles. This instability causes unstable (exponential) heating of ions until some saturation value and also violates momentum conservation. Implict momentum and energy conserving
+schemes are stable w.r.t. these instabilities.
+
+## Tests
+
+### Proton Cyclotron Anisotropy Instability
+
+This is an electromagnetic and multi-ion verification test. We have an 1D-3V electromagnetic instability driven by $p_{i\perp}/p_{i\parallel} > 1$. Maximum growth happens at $\mathbf{k}\times\mathbf{B}=0$ with a finite real frequency. For the initial perturbation, we choose $k_x \Delta x = 0.065$. We set an 1D simulation with 64 cells and 10K particles/cell, $\Delta t \Omega_{ci} = 0.01$, dissipation=0.
+
+![PCAI results from a VPIC hybrid simulation.](images/EMIC_hybrid_vpic.png){#fig:vpic_pcai}
+
+PCAI results for nominal parameters:
+
+* Transverse velocity and magnetic field components grow from noise (left-handed Alfvén waves).
+* Agree with linear theory for these parameters ($\gamma/\Omega_{ci} =0.162$).
+* Pressure anisotropy decreases until saturation.
+
+When we add a 20% density fraction of a minor species of alpha particles ($\text{He}^+$), the growth rate is modified.
+
+![Growth rate from a VPIC hybrid simulation.](images/EMIC_growth_hybrid_vpic.png){#fig:vpic_cai_growth}
+
+The growth rates across a range of $\beta$ and anisotropy can be computed and compared with a linear solve, e.g. [HYDROS](https://github.com/dtold/HYDROS).
+
+### Landau Damped Ion Acoustic Wave
+
+The fundamental electrostatic mode in the hybrid-PIC model is the ion acoustic wave. This is also driven by pressure perturbations. In fluid models (e.g. Hall MHD), this wave is undamped. However, in the hybrid-PIC, Landau resonance damps the wave and locally flattens ion VDF, which is analogous to electron Landau damping of Langmuir oscillations.
+
+The dispersion relation is
+
+$$
+\frac{dZ(\zeta)}{d\zeta} = 2\frac{T_i}{T_e},\quad \zeta\equiv \frac{\omega-i\gamma}{kv_{\text{th},i}}
+$$
+
+![Growth rate from a VPIC hybrid simulation.](images/Ion_acoustic_wave_hybrid_vpic.png){#fig:vpic_ldiaw}
+
+The nominal simulation parameters are:
+
+$$
+T_i = 1/3,\, \gamma=5/3,\, c_s = \sqrt{\gamma T_e/m_i} = 1,\, k_x = \pi/8,\, \delta n = 2\times 10^{-2}
+$$
+
+Results for nominal parameters
+
+* Damping rate: $\gamma = -0.0932$.
+* Initial perturbation damps to noise floor. Noise can be reduced by:
+  1. Use more particles/cell (noise $\sim 1/\sqrt(N_p)$).
+  2. Binomial smoothing/higher order shape functions.
+  3. Using low-discrepancy quasi-Random numbers to seed particles (noise $\sim 1/N_p$).
+  4. Most efficient: Delta-F (See @sec:delta_f).
+
+### Magnetic Reconnection Island Coalescence
+
+Magnetic islands are 2D versions of flux-ropes. Here we set a self-driven reconnection problem of coupling of ideal island motion to micro-scale reconnection physics. Ion kinetic effects are crucial in reconnection studies.
+
+Unstable Fadeev island equilibrium: the magnetic field $\mathbf{B}$ is given by $\nabla\times\mathbf{A}$, where in this setup we only need
+
+$$
+A_y = -\lambda B_0 \ln[\text{cosh}(z/\lambda) + \epsilon\cos(z/\lambda)]
+$$
+
+And the density is given by
+
+$$
+n = n_0(1-\epsilon^2)/[\text{cosh}(z/\lambda) + \epsilon\cos(z/\lambda)]^2 + n_b
+$$
+
+The pressure balance gives
+
+$$
+\beta = \frac{2\mu_0 n_0 k_B (T_{i0}+ T_{e0})}{B_0^2} = 1
+$$
+
+The nominal simulation parameters are:
+
+$$
+\lambda = 5d_i,\, \epsilon = 0.4,\, n_b = 0.2n_0,\, T_i/T_e = 1,\, \eta = 10^{-3},\, \eta_H = 5\times10^{-3},\, \gamma = 1
+$$
+
+and for the numerical parameters, we have a 2D space with $256\times128$ cells, 50 particles/cell, $\Delta t\Omega_{ci} = 0.005$.
+
+![Magnetic island coalescence from a VPIC hybrid simulation.](images/magnetic_islands_hybrid_vpic.png){#fig:vpic_reconnection2d}
+
+### Collisionless Shock
+
+This is a 2D magnetospheric shock problem, with a $M_A = 11.4$ shock injected from the right (open) boundary and a reflecting left boundary to drive the collisionless shock.
