@@ -10,7 +10,7 @@ The resonant mode coupling is one of major physical processes in the space plasm
 * In the 1980s the cavity model was proposed to link the discrete frequencies to the eigenmodes if we treated the magnetosphere as a cavity.
 * In the 1990s the waveguide model was proposed based on the cavity idea to loose the constrain in the azimuthal direction.
 
-Now, the big question is: where do the quantized numbers of the observed ULF waves come from [Kivelson & Southwood, 1986]?Researchers borrowed ideas from ionospheric radio propagation, laser fusion and plasma physics and came up with the names _cavity_ and _waveguide_. For the box model that we will discuss in the next section, if the $z$ boundaries are perfectly reflecting, wave fields must have standing structure in the $z$ direction, and allowed parallel wave numbers are quantized ($k_z = m\pi/c$, as in @eq:flr_kz_quantized). If the boundaries are weakly absorptive, the parallel wave numbers are complex, but the real parts are still quantized as above. If we impose periodic boundary conditions in $y$, the wavenumber in $y$ $k_y$ needs to be quantized as well.
+Now, the big question is: where do the quantized numbers of the observed ULF waves come from [Kivelson & Southwood, 1986]?Researchers borrowed ideas from ionospheric radio propagation, laser fusion and plasma physics and came up with the names _cavity_ and _waveguide_. For the box model that we will discuss in the next section, if the $z$ boundaries are perfectly reflecting, wave fields must have standing structure in the $z$ direction, and allowed parallel wave numbers are quantized ($k_z = m\pi/c$, as in @eq:flr_xz_quantized). If the boundaries are weakly absorptive, the parallel wave numbers are complex, but the real parts are still quantized as above. If we impose periodic boundary conditions in $y$, the wavenumber in $y$ $k_y$ needs to be quantized as well.
 
 ## Governing Equations
 
@@ -43,25 +43,25 @@ $$ {#eq:flr_e_wave}
 
 ### Axisymmetric Spherical Coordinates
 
-First, let's treat the problem in spherical coordinates $(r,\theta,\varphi)$, as done by Henry Radoski and Robert Carovillano in 1966.
+First, let's treat the problem in spherical coordinates $(r,\theta,\phi)$, as done by [@radoski1966axisymmetric].
 
-In the analysis below the perturbed variables, $\mathbf{B}_1$, $\mathbf{E}$, $\mathbf{j}$ and $\mathbf{u}$ are treated as axisymmetric, i.e. in spherical coordinates any perturbed function has the form
+The background density is taken to be only a function of the radial distance, $\rho = \rho(r)$. In the analysis below the perturbed variables, $\mathbf{B}_1$, $\mathbf{E}$, $\mathbf{j}$ and $\mathbf{u}$ are treated as axisymmetric, i.e. in spherical coordinates any perturbed function has the form
 
 $$
-\mathbf{\delta} = \delta_r(r,\theta)\hat{r} + \delta_\theta(r,\theta)\hat{\theta} + \delta_\varphi(r,\theta)\hat{\varphi}
+\mathbf{\delta} = \delta_r(r,\theta)\hat{r} + \delta_\theta(r,\theta)\hat{\theta} + \delta_\phi(r,\theta)\hat{\phi}
 $$
 
 Under this symmetry, the variables can be separated into two independent sets referred to as the _toroidal_ and _poloidal_ variables:
 
 * Toroidal variables
 
-$u_\varphi, B_{1\varphi}, E_r, E_\theta, j_r, j_\theta;\, \nabla\cdot\mathbf{v} = \frac{1}{r\sin\theta}\frac{\partial u_\varphi}{\partial \varphi}\equiv 0$ (incompressible)
+$u_\phi, B_{1\phi}, E_r, E_\theta, j_r, j_\theta;\, \nabla\cdot\mathbf{v} = \frac{1}{r\sin\theta}\frac{\partial u_\phi}{\partial \phi}\equiv 0$ (incompressible)
 
 * Poloidal variables
 
-$u_r, u_\theta, B_{1r}, B_{1\theta}, E_\varphi, j_\varphi ;\, \nabla\cdot\mathbf{E} = \frac{1}{r\sin\theta}\frac{\partial E_\varphi}{\partial \varphi}\equiv 0$
+$u_r, u_\theta, B_{1r}, B_{1\theta}, E_\phi, j_\phi ;\, \nabla\cdot\mathbf{E} = \frac{1}{r\sin\theta}\frac{\partial E_\phi}{\partial \phi}\equiv 0$
 
-One insight into these two sets of variables can be gained from the Poynting vector $\mathbf{S}$. The simplest MHD Ohm's law constrains the electric field $\mathbf{E}$ to be perpendicular to the background magnetic field $\mathbf{B}_0$. For the toroidal mode, $\mathbf{E}$ lies in a meridional plane and $B_{1\varphi}$ is out of plane, so $\mathbf{S}$ is directed along the field lines. For the poloidal mode, $\mathbf{S}$ is in a meridional plane and parallel to the wave vector $\mathbf{k}$, because
+One insight into these two sets of variables can be gained from the Poynting vector $\mathbf{S}$. The simplest MHD Ohm's law constrains the electric field $\mathbf{E}$ to be perpendicular to the background magnetic field $\mathbf{B}_0$. For the toroidal mode, $\mathbf{E}$ lies in a meridional plane and $B_{1\phi}$ is out of plane, so $\mathbf{S}$ is directed along the field lines. For the poloidal mode, $\mathbf{S}$ is in a meridional plane and parallel to the wave vector $\mathbf{k}$, because
 
 $$\mathbf{B}_1 = -i\mathbf{k}\times\mathbf{E}\Rightarrow \mathbf{S}\parallel\mathbf{E}\times\mathbf{B}_1 \parallel \mathbf{E}\times(\mathbf{k}\times\mathbf{E})=E^2\mathbf{k} - \cancel{(\mathbf{E}\cdot\mathbf{k})}\mathbf{E} \parallel \mathbf{k}
 $$
@@ -70,16 +70,16 @@ for a transverse EM wave ($\mathbf{E}\perp\mathbf{k}$). Thus the toroidal mode i
 
 To clarify my early misunderstanding: _a toroidal mode is not propagating in the toroidal direction_! Similarly, _a poloidal mode does not propagate in the poloidal direction_. In fact, it is more common to have a fast poloidal mode propagating in the azimuthal direction, then coupling to the Alfvén toroidal mode along the ambient magnetic field direction, then being observed on the ground.
 
-For the axisymmetric poloidal electric field $E_\varphi \sim e^{i\omega t}$, @eq:flr_e_wave becomes (I HAVEN‘T DERIVED THIS!)
+For the axisymmetric poloidal electric field $E_\phi \sim e^{i\omega t}$, @eq:flr_e_wave becomes (I HAVEN‘T DERIVED THIS!)
 
 $$
-B_0^2[\nabla^2 - (r^2 \sin^2\theta)^{-1}] E_\varphi = -\mu_0 \rho \omega^2 E_\varphi
+B_0^2[\nabla^2 - (r^2 \sin^2\theta)^{-1}] E_\phi = -\mu_0 \rho \omega^2 E_\phi
 $$
 
-This is the decoupled poloidal wave equation. For a dipole field, $B_0^2 = \frac{M^2(1+3\mu^2)}{r^6}$, where $M$ is the magnetic moment and $\mu = \cos\theta$ is the colatitude. A solution for $E_\varphi$ is sought after a separation of the unknowns of the form
+This is the decoupled poloidal wave equation. For a dipole field, $B_0^2 = \frac{M^2(1+3\mu^2)}{r^6}$, where $M$ is the magnetic moment and $\mu = \cos\theta$ is the colatitude. A solution for $E_\phi$ is sought after a separation of the unknowns of the form
 
 $$
-E_\varphi = \sum_{l=1}^{\infty} f_l(r) P_l^m(\mu)
+E_\phi = \sum_{l=1}^{\infty} f_l(r) P_l^m(\mu)
 $$
 
 where $P_l^m$ is the associated Legendre function with integer indices $l$ and $m$. Why this form you may ask? It's a mathematical hypothesis based on experience and talents. With this representation the poloidal wave equation becomes
@@ -112,27 +112,27 @@ $$
 
 From @eq:poloidal_spherical_sol, we know that radial amplitudes of opposite parity do not couple. Since only $l\ge 1$ occurs in @eq:poloidal_spherical_assump, there are two fundamental unknown radial amplitudes: one for odd $l$ and one for even $l$.
 
-We assume perfect reflection at the boundaries so that the transverse components of $E$, i.e. $E_\theta$ and $E_\varphi$, are zeros. The walls are assumed to be rigid so that $u_r = 0$. The normal component of $\mathbf{B}_1$ also vanishes from the governing equations.
+We assume perfect reflection at the boundaries so that the transverse components of $E$, i.e. $E_\theta$ and $E_\phi$, are zeros. The walls are assumed to be rigid so that $u_r = 0$. The normal component of $\mathbf{B}_1$ also vanishes from the governing equations.
 
 The toroidal wave equation seems to be too complicated for me following Radoski's derivations...
 
 ### Cylindrical Coordinates
 
-In cylindrical coordinates $(r,\varphi,z)$, assuming perturbations of the form $e^{i(m\varphi - \omega t)}$, we can separate the linearized equations (I HAVEN'T DERIVED THIS!),
+In cylindrical coordinates $(r,\phi,z)$, assuming perturbations of the form $e^{i(m\phi - \omega t)}$, we can separate the linearized equations (I HAVEN'T DERIVED THIS!),
 
 $$
-\Big[ \omega^2 \mu_0 \rho - \frac{1}{r}(\mathbf{B}_0\cdot\nabla)r^2(\mathbf{B}_0\cdot\nabla) \Big]\frac{u_\varphi}{r} = \omega m \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{r}
+\Big[ \omega^2 \mu_0 \rho - \frac{1}{r}(\mathbf{B}_0\cdot\nabla)r^2(\mathbf{B}_0\cdot\nabla) \Big]\frac{u_\phi}{r} = \omega m \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{r}
 $$ {#eq:cylindrical_mhd_toroidal}
 
 $$
-\Big[\omega^2 \mu_0 \rho - rB^2 (\mathbf{B}_0\cdot\nabla)\frac{1}{r^2 B^2}(\mathbf{B}_0\cdot\nabla) \Big]rE_\varphi = i\omega B^2 (\mathbf{B}_0\times\nabla)_\varphi \Big( \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{B^2} \Big)
+\Big[\omega^2 \mu_0 \rho - rB^2 (\mathbf{B}_0\cdot\nabla)\frac{1}{r^2 B^2}(\mathbf{B}_0\cdot\nabla) \Big]rE_\phi = i\omega B^2 (\mathbf{B}_0\times\nabla)_\phi \Big( \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{B^2} \Big)
 $$ {#eq:cylindrical_mhd_poloidal}
 
 $$
-i\omega \mathbf{B}_0\cdot\mathbf{B}_1 = \frac{1}{r}(\mathbf{B}\times\nabla)_\varphi (rE_\phi) - imB^2\frac{u_\varphi}{r}
+i\omega \mathbf{B}_0\cdot\mathbf{B}_1 = \frac{1}{r}(\mathbf{B}\times\nabla)_\phi (rE_\phi) - imB^2\frac{u_\phi}{r}
 $$
 
-The first two equations are from the momentum equation. $\mathbf{B}_0\cdot\nabla$ is the derivative along the direction of $\mathbf{B}$. These are wave equations coupled by the terms on the RHS which depend on $\mathbf{B}_0\cdot\mathbf{B}_1$, the compressional part of the magnetic perturbation. The third equation is from Faraday's law and Ohm's law. It shows how $\mathbf{B}_0\cdot\mathbf{B}_1$, $E_\varphi$ and $u_\varphi$ are related and closes the set. Since the transverse dispersion relation depends only on $k_\parallel$, it is tempting to think of the LHS of @eq:cylindrical_mhd_toroidal and @eq:cylindrical_mhd_poloidal as representing pseudo-transverse mode oscillations, and the RHS as representing the coupling due to the fast mode which has a compressional component.
+The first two equations are from the momentum equation. $\mathbf{B}_0\cdot\nabla$ is the derivative along the direction of $\mathbf{B}$. These are wave equations coupled by the terms on the RHS which depend on $\mathbf{B}_0\cdot\mathbf{B}_1$, the compressional part of the magnetic perturbation. The third equation is from Faraday's law and Ohm's law. It shows how $\mathbf{B}_0\cdot\mathbf{B}_1$, $E_\phi$ and $u_\phi$ are related and closes the set. Since the transverse dispersion relation depends only on $k_\parallel$, it is tempting to think of the LHS of @eq:cylindrical_mhd_toroidal and @eq:cylindrical_mhd_poloidal as representing pseudo-transverse mode oscillations, and the RHS as representing the coupling due to the fast mode which has a compressional component. When $m\neq 0$, the phase variation of the toroidal mode in the $\phi$ direction leads to a compressional perturbation in the magnetic field. The polarizations of the toroidal and poloidal oscillations are no longer orthogonal, and thus there is coupling.
 
 If $m = 0$ the RHS of @eq:cylindrical_mhd_toroidal vanishes. The LHS then describes a mode in which the electric field is purely radial and the magnetic and velocity perturbations are azimuthal. Magnetic L shells decouple and each shell oscillates azimuthally independently of each other. This is the Alfvénic _toroidal_ mode. If $m\rightarrow\infty$, for the RHS to remain finite, $\mathbf{B}_0\cdot\mathbf{B}_1\rightarrow0$ so the RHS of @eq:cylindrical_mhd_poloidal vanishes. @eq:cylindrical_mhd_poloidal then describes a mode in which $\mathbf{E}$ is azimuthal and $\mathbf{u}$ and $\mathbf{b}$ are contained in a meridian plane. This is the compressional _poloidal_ mode.
 
@@ -276,7 +276,7 @@ $$
 \frac{1}{V_A^2}\frac{\partial^2 \xi_y}{\partial t^2} - \frac{\partial \xi_y}{\partial z^2} &= -\frac{1}{B_0}\frac{\partial B_{1z}}{\partial y} \\
 B_{1z} &= - B_0 \Big( \frac{\partial \xi_x}{\partial x} + \frac{\partial \xi_y}{\partial y} \Big)
 \end{aligned}
-$$
+$$ {#eq:flr_box_displacement_b1z}
 
 The first two equations are the $x$ and $y$ component of the momentum equation, and the last equation is the magnetic field advection equation (Faraday's law + Ohm's law). Recall that $B_{1z}$ is the compressional perturbation to the ambient magnetic field. Then on the RHS of the second equation, it is the azimuthal gradient in the fast compressional mode $\partial B_{1z}/\partial y$ that drives the response in the azimuthal place displacement $\xi_y$. It is like the LHS is a simple harmonic oscillator and the RHS is the forcing term. Recall that we are seeking for solutions of the form $e^{i(k_y y + k_z z - \omega t)}$. From here we can see that
 
@@ -285,3 +285,139 @@ The first two equations are the $x$ and $y$ component of the momentum equation, 
 * if $k_y \neq 0$ or $\infty$, the wave modes are coupled together and energy initially in the fast mode may mode convert to Alfvén wave energy on localized field lines.
 
 __Uniform density and background magnetic field__
+
+Let $\rho = \text{const.}$, $V_A = \text{const.}$. From @eq:flr_box_displacement_b1z,
+
+$$
+\begin{aligned}
+\ddot{B_{1z}} &= - B_0 \Big( \frac{\partial \ddot{\xi_x}}{\partial x} + \frac{\partial \ddot{\xi_y}}{\partial y} \Big) = V_A^2 \Big( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} \Big) B_{1z} \\ &= V_A^2 \nabla^2 B_{1z}
+\end{aligned}
+$$
+
+Consider normal modes of waveguides of the form $e^{\mathbf{k}\cdot\mathbf{r} - i\omega t}$, where $\mathbf{k} = (k_x, k_y, k_z)$. The dispersion relation for the fast mode is then
+
+$$
+\omega^2 = V_A^2 (k_x^2 + k_y^2 + k_z^2)
+$$ {#eq:flr_uniform_fast}
+
+In an infinite medium this relation gives nondispersive propagation. Since we are interested primarily in propagation along the waveguide (i.e., in the $y$ direction) we shall define $v_p$ and $v_g$ to be the phase and group velocities along $\hat{y}$. Employing @eq:flr_uniform_fast gives
+
+$$
+\begin{aligned}
+v_p &= \frac{\omega}{k_y} = \frac{k}{k_y}V_A \\
+v_g &= \frac{\partial\omega}{\partial k_y} = \frac{k_y}{k}V_A
+\end{aligned}
+$$
+
+which yields the familiar waveguide relation
+
+$$
+v_p v_g = V_A^2
+$$ {#eq:flr_waveguide_relation}
+
+The shear Alfvén wave has the same velocity parallel to the field line (because it is cold). However, in a waveguide the boundary conditions in the $x$ and $z$ directions restrict the choice of wavenumbers and introduce dispersion. Suppose that the boundaries in $x$ are perfectly reflecting (e.g. $\xi_x = \frac{\partial B_{1z}}{\partial y} = 0$) as are those in $z$ ($\xi_x = \xi_y = B_{1z} = 0$) which represent the ionospheric boundary for closed field lines. Then
+
+$$
+\begin{aligned}
+k_x &= \pm n \pi / a,\, &n = 1,2,3... \\
+k_z &= \pm m \pi / c,\, &m = 1,2,3...
+\end{aligned}
+$$ {#eq:flr_xz_quantized} 
+
+where $a$ is the box length in x and $c$ is the box length in z (i.e. length of field lines). See [@wright1994dispersion] for illustrating the dispersion of waveguide propagation in this case.
+
+If we believe that the boundary at $x = a$ is not a reflector but is driven, it would be appropriate to impose a wavenumber $k_y$ along the outer boundary and solve for $k_x$ given $k_z$. This is the case when the magnetopause is driven by the Kelvin-Helmholtz instability. In this situation $k_x$ is found to be imaginary, and the mode is evanescent in x. (It this the reason why people now favor waveguide over the KHI-driven FLR idea?)
+
+__Nonuniform density and magnetic field__
+
+The simplest assumptions in this case would be $\rho = \rho(x)$, $B_0 = B_0(x)$ (Maybe even $B_0 = \text{const.}$?), and that the Alfvén speed $V_A$ is monotonically decreasing with $x$, $\partial V_A / \partial x < 0$. Then again we get @eq:flr_wave_bz. Solving this equation for given boundary conditions in $x$ yields a set of orthogonal eigenfunctions $B_{1z}(x)$ and eigenfrequencies.
+
+The main features of the solution are:
+
+1. A singularity/resonance occurs at position $x_r$ where
+
+$$
+\omega^2 = k_z^2 V_A^2(x_r)
+$$
+
+Across $x_r$ there will be a $180^o$ phase shift for the perturbed terms. (A successful explanation of phase changes at those discrete frequencies from different latitudes on the ground is a strong proof of the validity of the model.) Energy is been absorbed at the resonance point from fast mode to Alfvén mode. Dissipation is required, otherwise the amplitude of the Alfvén wave grows secularly. Ionospheric dissipation near the resonant field line is likely to be one important process limiting the growth of the resonance amplitude.
+
+2. The first order term in @eq:flr_wave_bz dominate near $x=x_r$, but is small in the propagating interval. In the WKB limit (ADD LINKS!), we consider waves of short wavelength in $x$; i.e. second order derivatives of $B_{1z}$ are much larger than first order derivatives. In the lowest order WKB analysis we may neglect the first order derivatives and solve
+
+$$
+\frac{\partial^2 B_{1z}}{\partial x^2} + \Big( \frac{\omega^2}{V_A^2} - k_y^2 - k_z^2 \Big) B_{1z} = 0
+$$ {#eq:flr_wave_bz_wkb}
+
+The "effective" local wavenumber in $x$ is given by
+
+$$
+k_x^2(x, \omega) = \frac{\omega^2}{V_A^2(x)} - k_y^2 - k_z^2
+$$ {#eq:flr_kx_effective}
+
+and the solution can be written in the form
+
+$$
+B_{1z}(x) = A k_x^{-1/2} e^{i\int k_x dx} + B k_x^{-1/2}e^{-i\int k_x dx}
+$$
+
+where $A$ and $B$ are constants. The positive exponent represents a wave propagating in the positive $x$ direction towards the magnetopause, and the negative exponent represents one propagating away from the magnetopause. This is like an imperfect standing wave solution.
+
+The solution for $B_{1z}$ has a turning point at $x_t$ defined via $k_x^2 = 0$, which gives
+
+$$
+\omega^2 = (k_y^2 + k_z^2)V_A^2(x_t)
+$$
+
+In the low Alfvén speed region $[x_t, x_m]$ the fast mode may propagate, while in the high Alfvén speed region $[0, x_t]$ the mode is evanescent. Note that $0 < x_r < x_t < x_m$ for a given $\omega$ and $k_z$. Thus the resonant singularity $x_r$ is in the evanescent tail of the fast mode.
+
+The Bohr-Sommerfeld (or phase integral) condition which the wave must satisfy is
+
+$$
+\int_{x_t}^{x_m} k_x(x,\omega_n) dx = (n+\alpha)\pi\qquad n = 1,2,3...
+$$ {#eq:cavity_eigen_wkb}
+
+where $x_m = a$ is the location of the outer boundary in x and the phase factor $\alpha$ is determined by the boundary conditions in x. For a perfect reflector at $a$ ($\xi_x=0$), and evanescent decay at small x we find $\alpha = -1/4$. 
+
+Based on this condition, you can probably tell that in the $x$ direction we expect quasi-standing wave solution between $x_t$ and $x_m$. @eq:cavity_eigen_wkb is an integral relation for the eigenfrequencies of the fast mode: we specify $k_y$, $k_z$, and $n$ (the number of the mode in x), then find the n-th eigenfrequency $\omega_n$ as that frequency for which the criterion is met. Once we compute $\omega_n$, we can then compute $x_r = x_r(\omega_n)$. These are the most observable signatures of the discrete modes.
+
+The analogy of a magnetosphere to a cavity came before the analogy to a waveguide. In a cavity model the azimuthal direction $\phi$ or $y$ direction is finite, and the wavenumber $k_y$ is determined by the given scale size $b$. In the axisymmetric cylindrical coordinates $(r,\phi,z)$, where $\phi$ is the azimuthal angle and $z$ is the coordinate along the field lines, the field has the form $\sim e^{im\phi},\, m=0,1,2$.\footnote{$E(\phi=0)=E(\phi=2\pi)$} This is a weak point of the theory because the magnetosphere is far from axisymmetric and there are no other obvious boundaries to define the cavity. If the system is similar to a waveguide, then $k_y$ can have a continuum of values, and the waveguide allows propagation over a wide band of frequencies.
+
+The discrete frequency spectrum of the fast cavity modes is suitable for driving a series of Alfvén resonance; however, it is not obvious that the continuous frequency spectrum of the fast waveguide modes will be able to drive resonances at discrete frequencies. A key observation to make waveguide mode valid is that _the frequency that contributes the most to @eq:cavity_eigen_wkb is very insensitive to the waveguide wavenumber $k_y$_. [@walker1992spatial] and [Wright 1992] dedicated at arguing this point. If $k_y$ is not fixed (but $k_z$ is fixed), then @eq:cavity_eigen_wkb is the dispersion relation for the waveguide expressing $\omega$ as a function of $k_y$. The Alfvén speed is a strong function of the L shell, typically $\sim L^{-3}$. Thus, if the turning point $x_t$ is reasonably deep within the magnetosphere, the range over which $\omega^2/V_A^2 \gg k_y^2 + k_z^2$ contributes most significantly to the integral. The result is that over a wide range of wavelengths the frequency is very insensitive to $k_y$. Only when $k_y$ is quite large this is not true, and then the turning point is near the magnetopause, and the wave does not penetrate very deeply into the magnetosphere. Each waveguide mode has a phase velocity $\omega/k_y$ and a group velocity $d\omega/dk_y$. Since @eq:cavity_eigen_wkb defines $\omega$ as a function of $k_y$, we can substitute @eq:flr_kx_effective into @eq:cavity_eigen_wkb and differentiate with respect to $k_y$ (assuming $\alpha$ is a constant):
+
+$$
+\begin{aligned}
+\frac{\partial}{\partial k_y}\int_{x_t}^{x_m}\Big(\frac{\omega^2}{V_A(x)^2}-k_y^2 - k_z^2\Big)^{1/2}dx = 0 \\
+\int_{x_t}^{x_m}\frac{1}{2}k_x^{-1}\Big( \frac{1}{V_A^2}\frac{\partial \omega^2}{\partial k_y} - 2k_y \Big)dx = 0 \\
+\frac{\omega}{k_y}\frac{\partial\omega}{\partial k_y}\int_{x_t}^{x_m}k_x^{-1}V_A^{-2}dx = \int_{x_t}^{x_m} k_x^{-1}dx
+\end{aligned}
+$$
+
+$$
+v_p v_g \equiv \frac{\omega}{k_y}\frac{d\omega}{dk_y} = \frac{\int_{x_t}^{x_m}k_x^{-1}dx}{\int_{x_t}^{x_m}V_A^{-2}k_x^{-1}dx}
+$$
+
+The RHS is the reciprocal of the weighted mean of $V_A^{-2}$ with weighting function $k_x^{-1}$. Thus we can write
+
+$$
+v_p v_g = \left<V_A^{-2}\right>^{-1}
+$$ {#eq:flr_waveguide_relation_modified}
+
+In a uniform waveguide filled with plasma for which the Alfvén speed was $V_A$ the well-known waveguide relation @eq:flr_waveguide_relation would be recovered. In this more complicated case where the Alfvén speed is not constant throughout the waveguide the RHS of @eq:flr_waveguide_relation_modified is an appropriately weight mean of $V_A^{-2}$. In general the phase velocity $v_p$ is much larger than the mean Alfvén velocity in the guide, and the group velocity $v_g$ is much smaller. This is also consistent with the weak dependence of $\omega$ on $k_y$ such that $v_g$ is small. The consequence is that even if the ends of the guide are open, the time taken for energy to be propagated along it is long compared with the period of the oscillations.
+
+Therefore, the waveguide model proposes the following explanation. Disturbances in the solar wind move along the magnetopause, producing a disturbance on the boundary which is propagated tailward with speed $v_w$. Generally $v_w \gg V_A$. Such a disturbance is likely to excite waveguide modes with phase velocities equal to $v_w$. Because the frequency of the modes is very insensitive to $k_y$, the same frequencies (determined by eigenmodes in $x$ and $z$) are excited no matter what the velocity. The disturbance moving with the wave can feed energy continuously into it. This then requires
+
+$$
+k_y = \frac{\omega}{v_w}
+$$
+
+i.e., _the azimuthal wavenumber is determined by the velocity of the source rather than by a boundary condition on $y$_.
+Thus we have a discrete value of wavenumber and a discrete fast mode frequency spectrum, without relying on the resonance modes from the cavity model.
+
+Such a disturbance could arise from more than one type of source. If it arose from an impulse in the solar wind, then one
+would expect the waveguide response to be a ringing at the natural frequencies of its modes with growth on the time scale
+required to establish the mode and decay on the time scale for leakage to the resonance and loss in the ionosphere or elsewhere. Alternatively the waveguide modes could be excited by the Kelvin-Helmholtz instability. In this case it could be expected that the waveguide modes would all be excited continuously and would be driven so long as the solar wind velocity
+and the characteristics of the magnetopause were maintained.
+
+![From Wright 1992.](images/FLR_waveguides_Wright.png){#fig:flr_wright}
+
+![From [@samson1992field].](images/FLR_waveguides_Samson.png){#fig:flr_samson}
