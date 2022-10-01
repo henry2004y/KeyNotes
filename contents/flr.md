@@ -1,6 +1,6 @@
 # Field Line Resonance {#sec:flr}
 
-The resonant mode coupling is one of major physical processes in the space plasmas including the magnetic reconnection and collisionless shock wave. The field line resonance describes _the resonant interaction between compressional fast waves and shear Alfvén waves in a non-uniform plasma_ such as the Earth magnetosphere. The concept of this resonant mode coupling was first outlined by Tsutomu Tamao in 1961 and later discussed in his seminal paper on hydromagnetic coupling resonances (Tamao, 1965). Experimental work by John Samson+ (1971) made resonant mode coupling the current paradigm of planetary magnetospheric ULF wave research.
+The resonant mode coupling is one of major physical processes in the space plasmas including the magnetic reconnection and collisionless shock wave. The field line resonance describes _the resonant interaction between compressional fast waves and shear Alfvén waves in a non-uniform plasma_ such as the Earth magnetosphere. The concept of this resonant mode coupling was first outlined by Tsutomu Tamao in 1961 and later discussed in his seminal paper on hydromagnetic coupling resonances (Tamao, 1965). Experimental work by John Samson+ (1971) made resonant mode coupling the current paradigm of planetary magnetospheric ULF wave research. Thinking of magnetosphere as a microwave oven: instead of heating food with microwaves, we heat Earth with EM waves.
 
 ## Historial Review
 
@@ -12,7 +12,7 @@ The resonant mode coupling is one of major physical processes in the space plasm
 
 Now, the big question is: where do the quantized numbers of the observed ULF waves come from [Kivelson & Southwood, 1986]?Researchers borrowed ideas from ionospheric radio propagation, laser fusion and plasma physics and came up with the names _cavity_ and _waveguide_. For the box model that we will discuss in the next section, if the $z$ boundaries are perfectly reflecting, wave fields must have standing structure in the $z$ direction, and allowed parallel wave numbers are quantized ($k_z = m\pi/c$, as in @eq:flr_xz_quantized). If the boundaries are weakly absorptive, the parallel wave numbers are complex, but the real parts are still quantized as above. If we impose periodic boundary conditions in $y$, the wavenumber in $y$ $k_y$ needs to be quantized as well.
 
-## Governing Equations
+## MHD Theory
 
 The theory starts from linearized MHD equations, by ignoring pressure, gravity, viscosity and rotation,
 
@@ -118,7 +118,7 @@ The toroidal wave equation seems to be too complicated for me following Radoski'
 
 ### Cylindrical Coordinates
 
-In cylindrical coordinates $(r,\phi,z)$, assuming perturbations of the form $e^{i(m\phi - \omega t)}$, we can separate the linearized equations (I HAVEN'T DERIVED THIS!),
+In cylindrical coordinates $(r,\phi,z)$, assuming perturbations of the form $e^{i(m\phi - \omega t)}$, we can separate the linearized equations ([@hughes1994magnetospheric] I HAVEN'T DERIVED THIS!),
 
 $$
 \Big[ \omega^2 \mu_0 \rho - \frac{1}{r}(\mathbf{B}_0\cdot\nabla)r^2(\mathbf{B}_0\cdot\nabla) \Big]\frac{u_\phi}{r} = \omega m \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{r}
@@ -255,7 +255,7 @@ $$
 \frac{\partial^2}{\partial x^2}E_y - k_y^2 \frac{\partial}{\partial x}R^2(x)\frac{1}{(R^2 - k_z^2)(R^2 - k_z^2 - k_y^2)}\frac{\partial E_y}{\partial x} + (R^2 - k_z^2 - k_y^2)E_y = 0
 $$ {#eq:flr_Ey}
 
-@eq:flr_Ey can also be written as a second order differential equation of $B_{1z}$, the compressional component of the magnetic field (see @eq:perturb_b), as [Kivelson & Southwood 1985](LINK???) did in proposing the idea of cavity modes:
+@eq:flr_Ey can also be written as a second order differential equation of $B_{1z}$, the compressional component of the magnetic field (see @eq:perturb_b), as [@kivelson1985resonant] did in proposing the idea of cavity modes:
 
 $$
 \frac{\partial^2 B_{1z}}{\partial x^2} - \frac{ \frac{\partial R^2}{\partial x}}{R^2 - k_z^2}\frac{\partial B_{1z}}{\partial x} + ( R^2 - k_y^2 - k_z^2 ) B_{1z} = 0
@@ -266,6 +266,106 @@ or equivalently,
 $$
 \frac{\partial^2 B_{1z}}{\partial x^2} - \frac{\omega^2 \partial V_A^{-2}/\partial x}{\omega^2/V_A^2 - k_z^2}\frac{\partial B_{1z}}{\partial x} + \Big( \frac{\omega^2}{V_A^2} - k_y^2 - k_z^2 \Big) B_{1z} = 0
 $$ {#eq:flr_wave_bz}
+
+Let us first get some intuitions about @eq:flr_Ey (following [@glassmeier1999magnetospheric], but note that there are sign errors and wrong equations in the original paper!). This equation exhibits strong singularities found in the denominator of its second term, much as first described by Tamao (1965). The following solutions are possible. If $R^2 - k_z^2 - k_y^2 > 0$, from which $R^2 - k_z^2 > 0$ follows, no singularities appear. Assuming $k_y \approx 0$, the above equation reduces to
+
+$$
+\frac{\partial^2}{\partial x^2}E_y + (R^2 - k_z^2)E_y = 0
+$$
+
+For a linear density profile, i.e. $R^2 = \alpha_0^2 + \alpha^2 x$, with the definition of the turning point $x_t$ via $R^2 = k_z^2$, and the transformation $s = \alpha^{2/3}(x-x_t)>0$,
+
+$$
+\begin{aligned}
+\frac{\partial E_y}{\partial x} &= \frac{\partial E_y}{\partial(\alpha^{-2/3}s+x_t)} = \alpha^{2/3}\frac{\partial E_y}{\partial s} \\
+\frac{\partial^2 E_y}{\partial x^2} &=  \alpha^{4/3}\frac{\partial^2 E_y}{\partial s^2}
+\end{aligned}
+$$
+
+$$
+\frac{\partial^2 E_y}{\partial s^2} + sE_y = 0
+$$
+
+This is the Airy or Stokes equation (@sec:airy) with the two principal solutions displayed in @fig:flr_airy. The solution $Bi(s)$ is unphysical as it implies unlimited growth of $E_y$ behind the turning point at $s=0$. Thus $E_y(s) = Ai(s)$ is the required solution. The turning point actually is the point of total reflection of the wave field. Its appearance can be understood on the following grounds. The "effective" local wavenumber in $x$ is given by
+
+$$
+k_x^2(x, \omega) = \frac{\omega^2}{V_A^2(x)} - k_y^2 - k_z^2
+$$ {#eq:flr_kx_effective}
+
+If $V_A^2$ increases with $x$, that is with $s$ in the Airy function plot, $k_x^2$ has to decrease as $\omega, k_y$ and $k_z$ stay constant. Eventually $k_x^2$ may become negative, which implies an imaginary wave number $k_x$. At this turning point the wave will be reflected.
+
+```jl
+KeyNotes.plot_airy_minus_x()
+```
+
+Next if $R^2 - k_z^2 - k_y^2 < 0$, $R^2 - k_z^2 = 0$ may occur. Assuming again a linear density profile, defining a resonance point $x_r$ via $R^2 = k_z^2$, and $s = x-x_r$, the electric field perturbation transforms close to the resonance point $x - x_r = 0$ into
+
+$$
+\frac{\partial^2 E_y}{\partial s^2} - \frac{1}{s}\frac{s_{k_y}}{s-s_{k_y}}\frac{\partial E_y}{\partial s} + \alpha^2(s-s_{k_y}) E_y = 0
+$$ {#eq:flr_ey_perturbation}
+
+where $s_{k_y} = k_y^2/\alpha^2$.
+
+At the resonance point its solution exhibits a clear singularity, that is unlimited growth of $E_y$. A discussion of the general solution of the electric field perturbation equation for the case $R^2 - k_z^2 - k_y^2 < 0$ is lengthy. Schematically the solution is given in the bottom panel of @fig:flr_airy. It can be seen that in front of the turning point the solution is similar to an Airy function, while behind it singular behaviour is observed at the resonance point.
+
+![Airy functions and field line resonance. $x_\omega=x_r, x_T=x_t$ in our notation.](images/Airy_FLR.png){#fig:flr_airy}
+
+When we do similar operations to @eq:flr_wave_bz, we have [@kivelson1985resonant]
+
+$$
+\frac{\partial^2 B_{1z}}{\partial s^2} - \frac{1}{s}\frac{\partial B_{1z}}{\partial s} + \alpha(s-s_{k_y})B_{1z} = 0
+$$ {#eq:flr_bz_perturbation}
+
+The solution of @eq:flr_bz_perturbation, which looks very similar to the Airy function, is discussed by [@kivelson1986coupling]. (TO BE ADDED!)
+For $s \ll 0$, the solutions are a combination of purely evanescent and growing components. For $s\gg s_{k_y}$, the solutions are combinations of oscillatory functions. 
+
+The following physical interpretation is tempting. The MHD wave propagating into the magnetosphere is a fast mode wave generated by, e.g. plasma instabilities at the magnetopause. Eventually the wave reaches the turning point where reflection occurs. If conditions are favourable, that is if a resonance point occurs, part of the fast mode wave energy can tunnel into the resonance, where coupling from the fast mode disturbance into an Alfvén mode perturbation takes place. This scenario is schematically shown in @fig:flr_schematic, where the reflection or turning point is assumed to coincide with the magnetopause. The point of maximum coupling or "resonant mode coupling" is given by $\omega = k_\parallel V_A(x)$, where $\omega$ is the fast mode wave frequency, $k_\parallel$ is the field-aligned component of the fast mode wave vector and $V_A(x)$ is the local Alfvén velocity. This is also the Alfvén dispersion relation.
+
+![Schematic view of the field line resonance, driven by unstable surface wave.](images/schematic_FLR.png){#fig:flr_schematic}
+
+The energy that is carried into the magnetosphere across the background field by the non-guided fast mode is accumulated in the plane of resonant mode coupling (i.e. the y–z plane through $x_r$ in @fig:box_config) in the form of the guided Alfvén wave. It is this localized accumulation of energy due to resonant mode coupling between a non-guided mode and a guided mode that constitutes a field line resonance. This wave energy accumulation can be described by
+
+$$
+\frac{\partial w}{\partial t} + \nabla\cdot\mathbf{S} = -h
+$$
+
+where $w$ is the wave energy density, $\mathbf{S}$ is the Poynting flux, and $h$ a dissipation term, describing energy loss due to e.g. ionospheric Joule heating. As the background parameters only vary in the radial direction, this equation reduces to
+
+$$
+\frac{\partial w}{\partial t} = -\frac{d}{dr}S_x - h
+$$
+
+Integration across the width of the coupling region in a radial direction leads to the following rate equation:
+
+$$
+\frac{\partial W}{\partial t} = c_e S_{ng} - S_h^{\text{off}} - H
+$$
+
+where $W$ is the energy per area that is being accumulated in the coupling, $c_e$ is a coupling efficiency, $S_{ng}$ the incoming Poynting flux of the non-guided mode, and $S_g^{\text{off}}$ the "off-angle" component of the Poynting flux of that mode to which the non-guided mode couples. Including this term $S_g^{\text{off}}$ allows us to consider energy losses due to coupling to not strictly guided modes. A finite off-angle component of the coupled wave mode would render the energy accumulation less efficient or may even inhibit the build-up of a resonance. Off-angle components may arise if the transverse scale of the coupled wave become small enough for finite ion gyroradius or finite electron inertia becoming important. In this case the coupled mode is a **kinetic Alfvén mode**. The parameter $c_e$ denotes the coupling efficiency, that is the fraction of energy of the non-guided mode that is converted into the guided mode. Finally, $H$ gives the dissipative losses, integrated in the $x$ direction.
+
+It is now instructive to evaluate the rate Equation for the ideal MHD regime. As the Alfvén mode is a strictly guided mode its Poynting flux is directed exactly parallel to the background magnetic field. In other words, $S_h^{\text{off}}=0$, and Equation reads
+
+$$
+\frac{\partial W}{\partial t} = c_e S_{\text{fast}}
+$$
+
+where $S_{\text{fast}} = S_{ng}$ is the Poynting flux of the non-guided MHD mode. Thus, the energy density in the coupling region is continuously increasing as there is no outward transport of energy to balance the incoming Poynting flux of the fast mode. However, ionospheric Joule heating provides a significant dissipation mechanism with H limiting the energy density.
+
+Note that resonant mode coupling is only a _necessary_ condition for field line resonances to occur. A _sufficient_ condition is critical coupling to a strictly guided mode and absence of any dissipation.
+
+At the resonance a phase shift of $180^o$ between the toroidal field components ($E_x$ in the box model, $b_\phi$ in the dipole coordinate) on both sides of the resonance is apparent. This phase shift can be understood using Maxwell's equations with the polarization current $\mathbf{j}_\perp = \rho_0/B_0^2\cdot d\mathbf{E}/dt$, and deriving
+
+$$
+(R^2 - k_z^2)E_x = ik_y \Big( \frac{\partial E_y}{\partial x} - ik_y E_x \Big) = k_y \omega b_z
+$$
+
+At the resonance $R^2 = k_z^2$, thus $b_z=0$, and for the electric field polarization we have
+
+$$
+\frac{E_x}{E_y} = -\frac{i}{k_y E_y}\frac{\partial E_y}{\partial x}
+$$
+
+The polarization therefore depends on $k_y$ as well as $\partial E_y/\partial x$. As $k_y$ changes sign across local noon for, e.g., K-H instability generated fast mode waves at the magnetopause and $\partial E_y/\partial x$ changes sign across the resonance point.
 
 Note that @eq:flr_wave_bz has a long history, all the way back to 1951, as mentioned in [Kivelson & Southwood 1986](LINK???).
 Later studies prefer to use plasma displacement and perturbed magnetic field component $B_{1z}$ to describe the model. We have the governing equations
@@ -348,19 +448,13 @@ $$
 \frac{\partial^2 B_{1z}}{\partial x^2} + \Big( \frac{\omega^2}{V_A^2} - k_y^2 - k_z^2 \Big) B_{1z} = 0
 $$ {#eq:flr_wave_bz_wkb}
 
-The "effective" local wavenumber in $x$ is given by
-
-$$
-k_x^2(x, \omega) = \frac{\omega^2}{V_A^2(x)} - k_y^2 - k_z^2
-$$ {#eq:flr_kx_effective}
-
 and the solution can be written in the form
 
 $$
 B_{1z}(x) = A k_x^{-1/2} e^{i\int k_x dx} + B k_x^{-1/2}e^{-i\int k_x dx}
 $$
 
-where $A$ and $B$ are constants. The positive exponent represents a wave propagating in the positive $x$ direction towards the magnetopause, and the negative exponent represents one propagating away from the magnetopause. This is like an imperfect standing wave solution.
+where $A$ and $B$ are constants, and $k_x$ is the "effective" wavenumber defined in @eq:flr_kx_effective. The positive exponent represents a wave propagating in the positive $x$ direction towards the magnetopause, and the negative exponent represents one propagating away from the magnetopause. This is like an imperfect standing wave solution.
 
 The solution for $B_{1z}$ has a turning point at $x_t$ defined via $k_x^2 = 0$, which gives
 

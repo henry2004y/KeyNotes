@@ -134,8 +134,8 @@ function plot_conductivity()
 
    f = Figure(fontsize=25, resolution=(600, 420))
    ax = Axis(f[1, 1],
-       xlabel=L"\Omega_e / \nu_c",
-       ylabel=L"\sigma"
+      xlabel=L"\Omega_e / \nu_c",
+      ylabel=L"\sigma"
    )
 
    p1 = lines!(ax, x, σₚ, linewidth=5, label="Pedersen")
@@ -145,5 +145,80 @@ function plot_conductivity()
 
    caption = "Pedersen, Hall and parallel conductivity."
    label = "conductivity"
+   Options(f; caption, label)
+end
+
+function plot_airy()
+   x = -15:.1:5
+   a = @. airyai(x)
+   i_ = 1:159
+   b = @. airybi(x[i_])
+
+   f = Figure(fontsize=25, resolution=(800, 420))
+   ax = Axis(f[1, 1],
+      xlabel="x",
+      ylabel="y",
+   )
+
+   p1 = lines!(ax, x, a, linewidth=3, label="Ai(x)")
+   p2 = lines!(ax, x[i_], b, linewidth=3, label="Bi(x)")
+   axislegend(ax)
+
+   caption = "Airy functions."
+   label = "airy"
+   Options(f; caption, label)
+end
+
+function plot_airy_minus_x()
+   x = -5:.1:15
+   a = @. airyai(-x)
+   i_ = 43:length(x)
+   b = @. airybi(-x[i_])
+
+   f = Figure(fontsize=25, resolution=(800, 420))
+   ax = Axis(f[1, 1],
+      xlabel="s",
+      ylabel="Ey",
+   )
+
+   p1 = lines!(ax, x, a, linewidth=3, label="Ai(s)")
+   p2 = lines!(ax, x[i_], b, linewidth=3, label="Bi(s)")
+   axislegend(ax)
+
+   caption = "Airy functions solutions for the simplified field line resonance equation."
+   label = "airy_flr"
+   Options(f; caption, label)
+end
+
+function plot_airy_ode()
+   # Initial Conditions: y → 0 as x → ∞
+   x₀ = [airyai(10.0)]
+   dx₀ = [airyaiprime(10.0)]
+   tspan = (10.0, -15.0)
+
+   # Define the problem
+   function airy_equation(ddu, du, u, ω, t)
+      ddu .= t*u
+   end
+
+   # Pass to solvers
+   prob = SecondOrderODEProblem(airy_equation, dx₀, x₀, tspan)
+   sol = solve(prob, DPRKN6())
+
+   # Extract solutions
+   x = sol.t
+   a = getindex.(sol.u,2)
+
+   f = Figure(fontsize=25, resolution=(800, 420))
+   ax = Axis(f[1, 1],
+      xlabel="x",
+      ylabel="y",
+   )
+
+   p1 = lines!(ax, x, a, linewidth=3, label="Ai(x)")
+   axislegend(ax)
+
+   caption = "Numerical solution of Airy function of the first kind."
+   label = "airy_ode"
    Options(f; caption, label)
 end

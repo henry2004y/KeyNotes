@@ -342,6 +342,28 @@ $$ {#eq:perturb_k_bhat}
 
 These seemingly trivial relations have profound implications in physics. @eq:perturb_b tells us that the perturbation of magnetic field magnitude has only contribution from the parallel component, which is why in satellite observations people only look at parallel perturbations for compressional wave modes. @eq:perturb_bhat tells us that the perturbation in the unit vector is only related to the perpendicular fluctuations.
 
+## Airy Function {#sec:airy}
+
+[Airy functions](https://en.wikipedia.org/wiki/Airy_function) $Ai(x), Bi(x)$ are special functions to the differential equation
+
+$$
+\frac{d^2 y}{dx^2} - xy = 0
+$$ {#eq:stokes}
+
+@eq:stokes, known as the _Airy equation_ or _Stokes equation_, is the simplest second-order linear differential equation with a turning point (a point where the character of the solutions changes from oscillatory to exponential). The two linearly independent solutions are shown in @fig:airy.
+
+```jl
+KeyNotes.plot_airy()
+```
+
+$Ai(x)$ is the solution for $y\rightarrow 0$ as $x\rightarrow\infty$, whereas $Bi(x)$ is the solution for $y\rightarrow\infty$ as $x\rightarrow\infty$. As an interesting experiment, we can check if $Ai(x)$ is recovered from solving the second order ODE numerically:
+
+```jl
+@sco KeyNotes.plot_airy_ode()
+```
+
+Here we start from the right boundary and move towards the left.
+
 ## Normalization
 
 In physics we frequently have to deal with unit conversions. A solid understanding of the unit system and normalization methods paves the path for understanding the scales behind systems.

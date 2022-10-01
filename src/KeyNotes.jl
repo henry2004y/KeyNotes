@@ -9,6 +9,8 @@ using Reexport: @reexport
 using CairoMakie
 using CairoMakie.Makie: Figure, FigureAxisPlot
 using LazyGrids: ndgrid
+using SpecialFunctions
+using OrdinaryDiffEq
 
 export M, example_dataframe
 
