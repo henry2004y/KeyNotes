@@ -14,7 +14,7 @@ Now, the big question is: where do the quantized numbers of the observed ULF wav
 
 ## MHD Theory
 
-The theory starts from linearized MHD equations, by ignoring pressure, gravity, viscosity and rotation,
+The theory starts from linearized cold MHD equations. Recall that the slow mode vanishes in cold MHD, and the fast mode moves at Alfvén speed. By ignoring pressure, gravity, viscosity and rotation, we have
 
 $$
 \begin{aligned}
