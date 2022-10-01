@@ -286,7 +286,7 @@ $$
 \frac{\partial^2 E_y}{\partial s^2} + sE_y = 0
 $$
 
-This is the Airy or Stokes equation (@sec:airy) with the two principal solutions displayed in @fig:flr_airy. The solution $Bi(s)$ is unphysical as it implies unlimited growth of $E_y$ behind the turning point at $s=0$. Thus $E_y(s) = Ai(s)$ is the required solution. The turning point actually is the point of total reflection of the wave field. Its appearance can be understood on the following grounds. The "effective" local wavenumber in $x$ is given by
+This is the Airy or Stokes equation (@sec:airy) with the two principal solutions displayed in @fig:airy_flr. The solution $Bi(s)$ is unphysical as it implies unlimited growth of $E_y$ behind the turning point at $s=0$. Thus $E_y(s) = Ai(s)$ is the required solution. The turning point actually is the point of total reflection of the wave field. Its appearance can be understood on the following grounds. The "effective" local wavenumber in $x$ is given by
 
 $$
 k_x^2(x, \omega) = \frac{\omega^2}{V_A^2(x)} - k_y^2 - k_z^2
@@ -306,9 +306,9 @@ $$ {#eq:flr_ey_perturbation}
 
 where $s_t = k_y^2/\alpha^2$.
 
-At the resonance point its solution exhibits a clear singularity, that is unlimited growth of $E_y$. A discussion of the general solution of the electric field perturbation equation for the case $R^2 - k_z^2 - k_y^2 < 0$ is lengthy. Schematically the solution is given in the bottom panel of @fig:flr_airy. It can be seen that in front of the turning point the solution is similar to an Airy function, while behind it singular behaviour is observed at the resonance point.
+At the resonance point its solution exhibits a clear singularity with unlimited growth of $E_y$. In front of the turning point $s>s_t$ the solution is similar to an Airy function, while behind it singular behaviour is observed at the resonance point $s=0$. I do not show the solution BECAUSE I DON'T KNOW HOW TO WRITE IT DOWN! But let us now follow [@kivelson1985resonant] and check the equivalent perturbation @eq:flr_wave_bz for $B_{1z}$.
 
-When we do similar operations to @eq:flr_wave_bz, we have [@kivelson1985resonant]
+When we do similar operations to @eq:flr_wave_bz, we have
 
 $$
 \frac{\partial^2 B_{1z}}{\partial s^2} - \frac{1}{s}\frac{\partial B_{1z}}{\partial s} + \alpha(s-s_t)B_{1z} = 0
