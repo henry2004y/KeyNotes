@@ -222,3 +222,45 @@ function plot_airy_ode()
    label = "airy_ode"
    Options(f; caption, label)
 end
+
+function plot_b1z_ode()
+   # Initial Conditions
+   x₀1 = [0.033]
+   dx₀1 = [1.0]
+   x₀2 = [0.28]
+   dx₀2 = [0.0]
+
+   tspan = (15.0, 1.0)
+
+   # Define the problem
+   function b1z_equation(ddu, du, u, α, t)
+      ddu .= du/(t - 1) - (t - 2)*u
+   end
+
+   # Pass to solvers
+   prob = SecondOrderODEProblem(b1z_equation, dx₀1, x₀1, tspan)
+   sol1 = solve(prob, Nystrom4(), dt=0.05)
+   prob = SecondOrderODEProblem(b1z_equation, dx₀2, x₀2, tspan)
+   sol2 = solve(prob, Nystrom4(), dt=0.05)
+
+   # Extract solutions
+   x = sol1.t
+   a = getindex.(sol1.u, 2)
+   b = getindex.(sol2.u, 2)
+
+   f = Figure(fontsize=25, resolution=(800, 500))
+   ax = Axis(f[1, 1],
+      xticks = 0:15,
+      xlabel="x",
+      ylabel=L"B_{1z}",
+   )
+
+   p1 = lines!(ax, x, a, linewidth=3, label="R(x)")
+   p2 = lines!(ax, x, b, linewidth=3, label="S(x)")
+   axislegend(ax; position=(0.25,1.0), framevisible=false)
+   vlines!(ax, [1.0,2.0], color = :black)
+
+   caption = "Numerical solution of field line resonance perturbation equation for \$\\alpha=1,x_r=1,x_t=2\$. The singular behavior at \$x_r=1\$ for \$S(x)\$ is not so obvious and the boundary conditions on the right side are hard-coded."
+   label = "b1z_ode"
+   Options(f; caption, label)
+end
