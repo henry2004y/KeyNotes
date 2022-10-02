@@ -310,7 +310,7 @@ $$
 @eq:electric_displacement_field becomes
 
 $$
-\mathbf{D} = \epsilon\big( \mathbf{I} + \frac{i}{\epsilon_0\omega} \Big)\cdot\mathbf{E} = \pmb{\epsilon}\cdot\mathbf{E}
+\mathbf{D} = \epsilon\Big( \mathbf{I} + \frac{i}{\epsilon_0\omega} \Big)\cdot\mathbf{E} = \pmb{\epsilon}\cdot\mathbf{E}
 $$ {#eq:d_e_relation}
 
 Thus the effective dielectric constant of the plasma is the tensor
@@ -394,7 +394,7 @@ Use of @eq:jx in @eq:electric_displacement_field gives
 $$
 \begin{aligned}
 \frac{1}{\epsilon_0}D_x &= E_x -\frac{1}{2}\sum_s \frac{\omega_{ps}^2}{\omega^2}\Big[ \Big( \frac{\omega}{\omega\pm\omega_{cs}} + \frac{\omega}{\omega\mp\omega_{cs}} )E_x \\
-&+ \Big( \frac{\omega}{\omega\mp\omega_{cs}} + \frac{\omega}{\omega\pm\omega_{cs}} )iE_y \Big]. \\
+&+ \Big( \frac{\omega}{\omega\mp\omega_{cs}} + \frac{\omega}{\omega\pm\omega_{cs}} )iE_y \Big] \\
 \end{aligned}
 $$ {#eq:dx}
 
@@ -409,7 +409,7 @@ P &\equiv 1-\sum_s\frac{\omega_{ps}^2}{\omega^2}
 \end{aligned}
 $$ {#eq:stix_notation}
 
-where "R" stands for right, "L" stands for left, "S" stands for sum, "D" stands for difference, and "P" stands for plasma. Using these in @eq:dx and proceeding similarly with the $y$ and $z$ components, we obtain
+where "R" stands for right, "L" stands for left, "S" stands for sum, "D" stands for difference, and "P" stands for plasma. Do not confuse D with the electric displacement field $\mathbf{D}$. Using these in @eq:dx and proceeding similarly with the $y$ and $z$ components, we obtain
 
 $$
 \begin{aligned}
@@ -438,13 +438,13 @@ $$ {#eq:wave1}
 Assuming an $\exp(i\mathbf{k}\cdot\mathbf{r})$ spatial dependence of $\mathbf{E}$ and defining a vector index of refraction
 
 $$
-\mathbf{n}=\frac{c}{\omega}\mathbf{k},
+\mathbf{n}=\frac{c}{\omega}\mathbf{k}
 $$
 
 we can write @eq:wave1 as
 
 $$
-\mathbf{n}\times(\mathbf{n}\times\mathbf{E})+\pmb{\epsilon}_R\cdot\mathbf{E} = 0.
+\mathbf{n}\times(\mathbf{n}\times\mathbf{E})+\pmb{\epsilon}_R\cdot\mathbf{E} = 0
 $$ {#eq:wave2}
 
 The uniform plasma is isotropic in the $x-y$ plane, so we may choose the $y$ axis so that $k_y = 0$, without loss of generality. If $\theta$ is the angle between $\mathbf{k}$ and $\mathbf{B}_0$, we then have
@@ -473,26 +473,26 @@ From this it is clear that the $E_x$, $E_y$ components are coupled to $E_z$ only
 $$
 \begin{aligned}
 (iD)^2&(P-n^2\sin^2\theta) + (S - n^2)  \\
-&\times [(S-n^2\cos^2\theta)(P-n^2\sin^2\theta)-n^4\sin^2\theta\cos^2\theta] = 0.
+&\times [(S-n^2\cos^2\theta)(P-n^2\sin^2\theta)-n^4\sin^2\theta\cos^2\theta] = 0
 \end{aligned}
 $$ {#eq:dispersion_2ndcol}
 
 By replacing $\cos^2\theta$ by $1-\sin^2\theta$, we can solve for $\sin^2\theta$, obtaining
 
 $$
-\sin^2\theta = \frac{-P(n^4-2Sn^2+RL)}{n^4(S-P)+n^2(PS-RL)}.
+\sin^2\theta = \frac{-P(n^4-2Sn^2+RL)}{n^4(S-P)+n^2(PS-RL)}
 $$
 
 We have used the identity $S^2 -  D^2 = RL$. Similarly,
 
 $$
-\cos^2\theta = \frac{Sn^4 - (PS + RL)n^2 + PRL}{n^4(S-P)+n^2(PS-RL)}.
+\cos^2\theta = \frac{Sn^4 - (PS + RL)n^2 + PRL}{n^4(S-P)+n^2(PS-RL)}
 $$
 
 Dividing the last two equations, we obtain
 
 $$
-\tan^2\theta = \frac{P(n^4-2Sn^2+RL)}{Sn^4-(PS+RL)n^2+PRL}.
+\tan^2\theta = \frac{P(n^4-2Sn^2+RL)}{Sn^4-(PS+RL)n^2+PRL}
 $$
 
 Since $2S = R + L$, the numerator and denominator can be factored to give the cold-plasma dispersion relation
@@ -501,7 +501,34 @@ $$
 \tan^2\theta = \frac{P(n^2-R)(n^2-L)}{(Sn^2-RL)(n^2-P)}
 $$ {#eq:cold_plasma_dispersion}
 
-The principal modes of cold plasma waves can be recovered by setting $\theta = 0$ and $90^o$. When $\theta = 0^o$, there are three roots: $P=0$ (Langmuir wave), $n^2=R$ (R wave), and $n^2=L$ (L wave). When $\theta = 90^o$, there are two roots: $n^2=RL/S$ (extraordinary wave) and $n^2=P$ (ordinary wave). By inserting the definitions of @eq:stix_notation, one can verify that these are identical to the dispersion relations given in separate derivations, with the addition of corrections due to ion motions.
+### Wave Modes
+
+The principal modes of cold plasma waves can be recovered by setting $\theta = 0^0$ and $90^o$. When $\theta = 0^o$,
+
+$$
+P(n^2-R)(n^2-L) = 0
+$$
+
+There are three roots:
+
+* $P=0$ (Langmuir wave)
+* $n^2=R$ (R wave)
+* $n^2=L$ (L wave)
+
+When $\theta = 90^o$,
+
+$$
+(Sn^2-RL)(n^2-P) = 0
+$$
+ 
+There are two roots:
+
+* $n^2=RL/S$ (extraordinary wave)
+* $n^2=P$ (ordinary wave)
+
+By inserting the definitions of @eq:stix_notation, one can verify that these are identical to the dispersion relations given in separate derivations, with the addition of corrections due to ion motions.
+
+### Resonances
 
 The resonances can be found by letting $n$ go to $\infty$. We then have
 
@@ -509,17 +536,62 @@ $$
 \tan^2\theta_{res} = -P/S
 $$
 
-This shows that the resonance frequencies depend on angle $\theta$. If $\theta=0^o$, the possible solutions are $P = 0$ and $S = \infty$. The former is the plasma resonance $\omega=\omega_p$, while the latter occurs when either $R = \infty$ (electron cyclotron resonance) or $L =\infty$ (ion cyclotron resonance). If $θ = 90^o$, the possible solutions are $P =\infty$ or $S = 0$. The former cannot occur for finite $\omega_p$ and $\omega$, and the latter yields the upper and lower
-hybrid frequencies, as well as the two-ion hybrid frequency when there is more than one ion species.
+This shows that the resonance frequencies depend on angle $\theta$.
 
-The cutoffs can be found by setting $n = 0$ in @eq:dispersion_2ndcol. Again using $S^2-D^2 = RL$, we find that the condition for cutoff is independent of $\theta$:
+* If $\theta=0^o$, the possible solutions are $P = 0$ and $S = \infty$. The former is the plasma resonance $\omega=\omega_p$, while the latter occurs when either $R = \infty$ (electron cyclotron resonance) or $L =\infty$ (ion cyclotron resonance).
+* If $θ = 90^o$, the possible solutions are $P =\infty$ or $S = 0$. The former cannot occur for finite $\omega_p$ and $\omega$, and the latter yields the upper and lower hybrid frequencies, as well as the two-ion hybrid frequency when there is more than one ion species.
+
+### Cutoffs
+
+The cutoffs can be found by setting $n = 0$ in @eq:cold_plasma_dispersion. Again using $S^2-D^2 = RL$, we find that the condition for cutoff is independent of $\theta$:
 
 $$
 PRL = 0
 $$
 
-The conditions $R = 0$ and $L = 0$ yield the $\omega_R$ and $\omega_L$ cutoff frequencies, with the addition of ion corrections. The condition $P = 0$ is seen to correspond to cutoff as well as to resonance. This degeneracy is due to our neglect of thermal motions. Actually, $P = 0$ (or $\omega = \omega_p$) is a resonance for longitudinal waves and a
-cutoff for transverse waves. The information contained in @eq:cold_plasma_dispersion is summarized in the Clemmow–Mullaly–Allis (CMA) diagram. One further result, not in the diagram, can be obtained easily from this formulation. The middle line of @eq:dielectric reads
+* The conditions $R = 0$ and $L = 0$ yield the $\omega_R$ and $\omega_L$ cutoff frequencies, with the addition of ion corrections.
+
+For R-waves, the cutoff frequency can be approximated by (???)
+
+$$
+\omega_{R=0} \approx \frac{\omega_{ce}}{2}\Big[ 1 + \sqrt{1+4\omega_{pe}^2/\omega_{ce}^2}\Big]
+$$
+
+In the low density limit, $\omega_p\ll\omega_c$, (???)
+
+$$
+\omega_{R=0} \approx \omega_{ce}(1+\omega_{pe}^2/\omega_{ce}^2)
+$$
+
+In the high density limit, $\omega_p\gg\omega_c$, (???)
+
+$$
+\omega_{R=0} \approx \omega_{pe} + \omega_{ce}/2
+$$
+
+For L-waves, the cutoff frequency can be approximated by (???)
+
+$$
+\omega_{L=0} \approx \frac{\omega_{ce}}{2}\Big[ -1 + \sqrt{1+4\omega_{pe}^2/\omega_{ce}^2}\Big]
+$$
+
+In the low density limit, $\omega_p\ll\omega_c$, (???)
+
+$$
+\omega_{L=0} \approx \omega_{pe}^2/\omega_{ce}
+$$
+
+In the high density limit, $\omega_p\gg\omega_c$, (???)
+
+$$
+\omega_{L=0} \approx \omega_{pe} - \omega_{ce}/2
+$$
+
+* The condition $P = 0$ is seen to correspond to cutoff as well as to resonance. This degeneracy is due to our neglect of thermal motions. Actually, $P = 0$ (or $\omega = \omega_p$) is a resonance for longitudinal waves and a cutoff for transverse waves.
+
+### Polarizations
+
+The information contained in @eq:cold_plasma_dispersion is summarized in the Clemmow–Mullaly–Allis (CMA) diagram. One further result, not in the diagram, can be obtained easily from this formulation. The middle line of @eq:dielectric reads
 
 $$
 iDE_x + (S-n^2)E_y = 0
@@ -528,10 +600,43 @@ $$
 Thus the polarization in the plane perpendicular to $\mathbf{B}_0$ is given by
 
 $$
-\frac{iE_x}{E_y} = \frac{n^2 - S}{D}.
+\frac{iE_x}{E_y} = \frac{n^2 - S}{D}
 $$
 
 From this it is easily seen that waves are linearly polarized at resonance ($n^2=\infty$) and circularly polarized at cutoff ($n^2 = 0$, $R = 0$ or $L = 0$; thus $S = \pm D$).
+
+### Low Frequency Limit
+
+It is very useful to obtain the circularly polarized wave dispersion relation in the MHD regime.
+
+The R-wave corresponds to electron. When $\omega\ll\omega_{ce}$,
+
+$$
+\begin{aligned}
+n^2 = R - 1 - \frac{\omega_{pi}^2}{\omega(\omega+\omega_{ci})} - \frac{\omega_{pe}^2}{\omega(\omega-\omega_{ce})} \\
+k^2 c^2 = \omega^2\Big( 1+\frac{\omega_{pe}^2}{\omega\omega_{ce}}-\frac{\omega_{pi}^2}{\omega\omega_{ci}}\frac{\omega_{ci}}{\omega_{ci}+\omega} \Big) = \omega^2 \Big[ 1+\frac{\omega_{pe}^2}{\omega_{ce}(\omega_{ci}+\omega)}\Big] \\
+k^2 c^2 = \omega^2\Big( 1+\frac{c^2}{v_A^2}\frac{\omega_{ci}}{\omega_{ci}+\omega}\Big)
+\end{aligned}
+$$
+
+For $\omega_{ci}\ll\omega\ll\omega_{ce}$, we can make further simplification:
+
+$$
+k^2c^2 = \omega^2\Big(1+\frac{\omega_{pe}^2}{\omega\omega_{ce}} \Big)
+$$
+
+This is the whistler wave. For $\omega\ll\omega_{ci}$, Alfvén wave is recovered.
+
+The L-wave corresponds to ion. When $\omega<\omega_{ci}$,
+
+$$
+\begin{aligned}
+k^2c^2 &= \omega^2\Big[1+\frac{\omega_{pi}^2}{\omega_{ci}(\omega_{ci}-\omega)} \Big] \\
+&= \omega^2\Big( 1+\frac{c^2}{v_A^2}\frac{\omega_{ci}}{\omega_{ci}-\omega} \Big)
+\end{aligned}
+$$
+
+For $\omega\lesssim\omega_{ci}$, we get the ion-cyclotron wave; for $\omega\ll\omega_{ci}$, Alfvén wave is recovered.
 
 ## Particle Motions
 
@@ -653,8 +758,8 @@ Let $\epsilon=0$, we can get the dispersion relation for warm plasma,
 
 $$
 \begin{aligned}
-&\text{lowest order: } \omega=\pm \omega_{pe}, \\
-&\text{first order:} 1-\frac{{\omega_{pe}}^2}{\omega^2}\Big( 1+\frac{3k^2{v_{th}}^2}{{\omega_{pe}}^2}\Big)=0\Rightarrow \omega^2={\omega_{pe}}^2+3k^2{v_{th,e}}^2.
+&\text{lowest order: } \omega=\pm \omega_{pe} \\
+&\text{first order:} 1-\frac{{\omega_{pe}}^2}{\omega^2}\Big( 1+\frac{3k^2{v_{th}}^2}{{\omega_{pe}}^2}\Big)=0\Rightarrow \omega^2={\omega_{pe}}^2+3k^2{v_{th,e}}^2
 \end{aligned}
 $$
 
@@ -673,7 +778,7 @@ $$
 \frac{\epsilon}{\epsilon_0}&=1-\frac{{\omega_{pe}}^2}{k^2}\int_{-\infty}^{\infty}dv\frac{\partial g/\partial v}{v-\omega/k}=
 1-\frac{{\omega_{pe}}^2}{k^2}\int_{-\infty}^{\infty}\frac{1}{v-\cancel{\omega/k}}\frac{1}{\sqrt{2\pi}}\frac{1}{v_{th,e}}\Big(\frac{-v}{{v_{th,e}}^2} \Big) e^{-v^2/2{v_{th,e}}^2}dv  \\
 &=1+\frac{{\omega_{pe}}^2}{k^2}\int_{-\infty}^{\infty}\frac{1}{v_{th,e}^2}\frac{1}{\sqrt{2\pi}} e^{-v^2/2{v_{th,e}}^2}dv \\
-&=1+\frac{{\omega_{pe}}^2}{k^2{v_{th,e}}^2}.
+&=1+\frac{{\omega_{pe}}^2}{k^2{v_{th,e}}^2}
 \end{aligned}
 $$
 
@@ -803,24 +908,24 @@ we can confirm that this is indeed an electrostatic perturbation since $\mathbf{
 _Case 1_: $\mathbf{k}=k_z\widehat{z}\parallel \mathbf{B}_0$, i.e. parallel propagation. Then $\mathbf{E}_1=\widehat{z}E_{1z}e^{-i\omega t+ik_z z}$. This is the same as if there is no magnetic field, so the dielectric function is
 
 $$
-\frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2}.
+\frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2}
 $$
 
 _Case 2_: $\mathbf{k}\perp \mathbf{B}_0$, i.e. perpendicular propagation. Without loss of generality, let $\mathbf{k}=k_x\widehat{x}$. Then
 
 $$
-\mathbf{E}_1=\widehat{x}\tilde{E}_{1x}e^{-i\omega t+ik_x x}.
+\mathbf{E}_1=\widehat{x}\tilde{E}_{1x}e^{-i\omega t+ik_x x}
 $$
 
-The equations of motion in x,y direction are (cold plasma)
+The equations of motion (cold plasma) in the $x$ and $y$ direction are
 
 $$
 \begin{aligned}
-\ddot{x}_1 &= -\frac{e}{m_e}[E_{1x}+\dot{y}_1B_0], \\
-\ddot{y}_1 &= -\frac{e}{m_e}[-\dot{x}_1B_0], \\
+\ddot{x}_1 &= -\frac{e}{m_e}[E_{1x}+\dot{y}_1B_0] \\
+\ddot{y}_1 &= -\frac{e}{m_e}[-\dot{x}_1B_0] \\
 \Rightarrow \dot{y}_1&=\frac{eB_0}{m_e}x_1=|\Omega_e| x_1  \\
 \ddot{x}_1&=-\frac{e}{m_e}[E_{1x}+|\Omega_e|\cdot{y_1}B_0]=-\frac{e}{m_e}E_{1x}-{\Omega_e}^2 x_1,  \\
-\Rightarrow x_1&=\frac{-\frac{e}{m_e}E_{1x}}{-\omega^2+{\Omega_e}^2}.
+\Rightarrow x_1&=\frac{-\frac{e}{m_e}E_{1x}}{-\omega^2+{\Omega_e}^2}
 \end{aligned}
 $$
 
@@ -849,7 +954,7 @@ which is called the \emph{upper hybrid} frequency. This is the highest character
 What if ions are included? Similar to previous derivations and notice that we are still within the range of linear theory, we have
 
 $$
-\frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2-{\Omega_e}^2}-\frac{{\omega_{pi}}^2}{\omega^2-{\Omega_i}^2}.
+\frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2-{\Omega_e}^2}-\frac{{\omega_{pi}}^2}{\omega^2-{\Omega_i}^2}
 $$
 
 For $\Omega_i\ll \omega\ll \Omega_e$ with quasi-neutrality condition $n_{1e}\approx n_{1i}$, we can have a simplified dispersion relation by letting $\epsilon=0$:
