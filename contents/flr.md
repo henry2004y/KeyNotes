@@ -4,8 +4,11 @@ The resonant mode coupling is one of major physical processes in the space plasm
 
 ## Historial Review
 
-* Ground observations have shown discrete frequencies for EM wave power.
-* In the 1950s people realized that MHD waves of poloidal and toroidal modes can be coupled, and if we thought the modes as standing waves, we might explain the discrete frequencies.
+Before 1950s, no people thought about the idea of standing waves in space simply because a vacuum had been assumed. Right after the space age began, Dungey proposed that standing Alfvén waves could be excited on geomagnetic field lines.
+
+* Ground observations have shown discrete frequencies for EM wave power. In the magnetosphere the Alfvén speed is typically $\sim 1000\,\text{km/s}$, while typical periods of geomagnetic pulsations are 10-600 s. Thus typical wavelengths are $10^4-10^6\,\text{km}$, or $1-100\,\text{R}_E$, comparable with the size of the magnetosphere itself. So uniform plasma theory is clearly inadequate.
+* In the 1950s people realized that MHD waves of poloidal and toroidal modes can be coupled, and if we thought the modes as standing waves, we might explain the discrete frequencies. However, good agreements were not found because there were poor estimates of the magnetospheric plasma density.
+* In the 1960s, [Sugiura 1961] showed that waves are observed simultaneously at both ends of the same field line, which indicated that the waves were guided. [Nagata+ 1963] showed pulsations at conjugate points could be matched cycle for cycle. The phase comparison could indicate the possible harmonics of standing waves. [Patel 1965] reported discovery of both transverse and compressional waves in space from Explorer 12 magnetometer data that are correlated with ground measurements, confirming that they were the same. [Cummings+ 1969] showed long-lived and frequent waves with nice numerical comparison of their periods from the poloidal and toroidal mode equations.
 * In the 1970s a simpler box model was proposed to explain field line resonance, and the discrete frequencies are treated as sources that reflect the properties of the magnetopause thickness with a preferred KHI growth rate.
 * In the 1980s the cavity model was proposed to link the discrete frequencies to the eigenmodes if we treated the magnetosphere as a cavity.
 * In the 1990s the waveguide model was proposed based on the cavity idea to loose the constrain in the azimuthal direction.
@@ -55,13 +58,13 @@ Under this symmetry, the variables can be separated into two independent sets re
 
 * Toroidal variables
 
-$u_\phi, B_{1\phi}, E_r, E_\theta, j_r, j_\theta;\, \nabla\cdot\mathbf{v} = \frac{1}{r\sin\theta}\frac{\partial u_\phi}{\partial \phi}\equiv 0$ (incompressible)
+$B_{1\phi}, E_r, E_\theta, u_\phi, j_r, j_\theta;\, \nabla\cdot\mathbf{v} = \frac{1}{r\sin\theta}\frac{\partial u_\phi}{\partial \phi}\equiv 0$ (incompressible)
 
 * Poloidal variables
 
-$u_r, u_\theta, B_{1r}, B_{1\theta}, E_\phi, j_\phi ;\, \nabla\cdot\mathbf{E} = \frac{1}{r\sin\theta}\frac{\partial E_\phi}{\partial \phi}\equiv 0$
+$B_{1r}, B_{1\theta}, E_\phi, u_r, u_\theta, j_\phi ;\, \nabla\cdot\mathbf{E} = \frac{1}{r\sin\theta}\frac{\partial E_\phi}{\partial \phi}\equiv 0$
 
-One insight into these two sets of variables can be gained from the Poynting vector $\mathbf{S}$. The simplest MHD Ohm's law constrains the electric field $\mathbf{E}$ to be perpendicular to the background magnetic field $\mathbf{B}_0$. For the toroidal mode, $\mathbf{E}$ lies in a meridional plane and $B_{1\phi}$ is out of plane, so $\mathbf{S}$ is directed along the field lines. For the poloidal mode, $\mathbf{S}$ is in a meridional plane and parallel to the wave vector $\mathbf{k}$, because
+The name of the set were originally based on the magnetic field perturbation directions. One insight into these two sets of variables can be gained from the Poynting vector $\mathbf{S}$. The simplest MHD Ohm's law constrains the electric field $\mathbf{E}$ to be perpendicular to the background magnetic field $\mathbf{B}_0$. For the toroidal mode, $\mathbf{E}$ lies in a meridional plane and $B_{1\phi}$ is out of plane, so $\mathbf{S}$ is directed along the field lines. For the poloidal mode, $\mathbf{S}$ is in a meridional plane and parallel to the wave vector $\mathbf{k}$, because
 
 $$\mathbf{B}_1 = -i\mathbf{k}\times\mathbf{E}\Rightarrow \mathbf{S}\parallel\mathbf{E}\times\mathbf{B}_1 \parallel \mathbf{E}\times(\mathbf{k}\times\mathbf{E})=E^2\mathbf{k} - \cancel{(\mathbf{E}\cdot\mathbf{k})}\mathbf{E} \parallel \mathbf{k}
 $$
