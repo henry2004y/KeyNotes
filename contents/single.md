@@ -561,6 +561,42 @@ The polarization effect in a plasma is similar to that in a solid dielectric, wh
 
 It is obvious that in this case the $\mathbf{E}\times\mathbf{B}$ drift speed depends on time and the guiding center coordinate system is non-inertial. The polarization drift arises from the fictuous (inertial) force $-m d\mathbf{v}_E/dt$. It means that the guiding center locations will not change due to the polarization drift!
 
+Let us demonstrate this in a single configuration. Assume $\mathbf{B}=B\hat{z}$, $\mathbf{E}=Et\hat{y}$. Let $\theta$ be the angle in the perpendicular plane:
+
+$$
+\mathbf{v}_\perp = v_\perp\hat{e}_\perp = v_\perp(\cos\theta\hat{x}+\sin\theta\hat{y})
+$$
+
+The guiding center is defined as
+
+$$
+\mathbf{X} = \mathbf{x} - \mathbf{r}_L = \mathbf{x} - \mathbf{v}_\perp / \omega_c = \mathbf{x} - \frac{v_\perp}{\omega_c}\hat{\theta}
+$$
+
+where $\hat{\theta} = \mathbf{b}\times\hat{e}_\perp$. The equation of motion
+
+$$
+\begin{aligned}
+m\frac{d\mathbf{v}}{dt} &= q(\mathbf{E} +\mathbf{v}\times\mathbf{B}) \\
+\frac{d\mathbf{x}}{dt} &= \mathbf{v}
+\end{aligned}
+$$
+
+in the guiding center coordinates the two selected scalar equations can be written as
+
+$$
+\begin{aligned}
+m\frac{dv_x}{dt} &= qE_x + qv_yB \\
+\frac{dX_y}{dt} &= v_y - \frac{1}{\omega_c}\frac{dv_x}{dt}
+\end{aligned}
+$$
+
+such that
+
+$$
+\frac{dX_y}{dt} = 0
+$$
+
 ## Time-Varying B Field
 
 Finally, we allow the magnetic field to vary in time. Since the Lorentz force is always perpendicular to $\mathbf{v}$, a magnetic field itself cannot impart energy to a charged particle. However, associated with $\mathbf{B}$ is an electric field given by

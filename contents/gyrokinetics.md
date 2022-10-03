@@ -12,6 +12,31 @@ The word "gyrokinetics" appeared in the literature in the late 1960s, first prop
 
 ## The Gyrokinetic Ordering
 
+### Coordinate Transformation
+
+* Obtain Vlasov equation in the guiding center coordinates.
+* Obtain Maxwell's equations in the guiding center coordinates.
+
+Why do we need extra steps to use Maxwell's equations? It is because in Maxwell's equations the particle information ($\rho, \mathbf{j}$) are described not in the guiding center coordinates. The distribution we obtain from Vlasov equation must be transformed back to ordinary coordinates and then we can do the moment integral.
+
+In the guiding center coordinates, density and current density can be expressed as
+
+$$
+n = \bar{N}_0 + \bar{\nabla}\cdot\Big( \frac{c\bar{N}_0}{B\Omega}\bar{\nabla}_\perp \delta\phi \Big) + \frac{\bar{N}_0\delta B_\parallel}{B} + \int \bar{F}_1d\mathbf{p}
+$$ {#eq:gk_density}
+
+$$
+\begin{aligned}
+\mathbf{j} &= -\frac{\bar{N}_0 q^2}{cm}\delta A_\parallel\hat{b} + \int\frac{q \bar{\mathbf{P}}_\parallel}{m}\hat{b}d\bar{\mathbf{P}} + \frac{cq\bar{N}_0}{B}\hat{b}\times\bar{\nabla}\delta\phi + \frac{3c^2\bar{N}_0\bar{T}}{2B^2\Omega}\hat{b}\times\bar{\nabla}\bar{\nabla}_\perp^2\delta\phi \\
+&+ \frac{2c\bar{N}_0 \bar{T}}{B^2}\hat{b}\times\bar{\nabla}\delta B_\parallel + \frac{\hat{b}}{B}\times\bar{\nabla}(c\bar{N}_0\bar{T}) + \hat{b}\times\bar{\nabla}\int c\bar{\mu}\bar{F}_1 d\bar{\mathbf{P}}
+\end{aligned}
+$$ {#eq:gk_current_density}
+
+Note that
+
+* In Vlasov equation in the guiding center coordinates, the $\mathbf{E}\times\mathbf{B}$ drift, gradient drift and curvature drift all appears but the polarization drift is missing.
+* In @eq:gk_density, only the polarization term correction appears. From Hamilton's mechanics, all term that has a explicit time dependency will not contribute here since it will break the energy conservation of the system.
+
 ### From Kinetics to Gyrokinetics
 
 ![Charged particle orbit in a magnetic field pointing into the plane with electrostatic potential fluctuations.](images/kinetics2gyrokinetics.png){#fig:kinetics2gk}
@@ -121,7 +146,7 @@ where $J_0$ is the zeroth order Bessel function.
 
 ### Nonlinear Gyrokinetic Equations
 
-The idea of deriving the gyrokinetic equations is very similar to the derivation of 5/10-moment equations. For species $\alpha$,
+The idea of deriving the gyrokinetic equations is very similar to the derivation of 5/10-moment equations. Extra care is needed because of the coordinate transformation to the guiding center coordinates. For species $\alpha$,
 
 $$
 \frac{\partial f_\alpha}{\partial t} + \mathbf{v}\cdot\frac{\partial f_\alpha}{\partial\mathbf{x}} + \frac{q_\alpha}{m_\alpha}\Big( \mathbf{E}+\frac{\mathbf{v}\times\mathbf{B}}{c} \Big)\cdot\frac{\partial f_\alpha}{\partial \mathbf{v}} = \sum_{\alpha^\prime} C_{\alpha\alpha^\prime}(f_\alpha, f_\alpha^\prime)
@@ -267,7 +292,7 @@ $$
 The equation for the gyrocenter distribution function $h$ is then
 
 $$
-\frac{\partial h}{\partial t} + v_\parallel\hat{b}_0\cdot\frac{\partial h}{\partial\mathbf{X}} + \frac{c}{B_0}\Big( \hat{b}_0\times\frac{\partial<\chi>_\mathbf{X}}{\partial \mathbf{X}} \Big)\cdot\frac{\partial h}{\partial\mathbf{X}} = \left< C(h) \right>_\mathbf{X} + \frac{q}{T}f_0\frac{\partial <\chi>_\mathbf{X}}{\partial t}
+\frac{\partial h}{\partial t} + v_\parallel\hat{b}_0\cdot\frac{\partial h}{\partial\mathbf{X}} + \frac{c}{B_0}\Big( \hat{b}_0\times\frac{\partial\left<\chi\right>_\mathbf{X}}{\partial \mathbf{X}} \Big)\cdot\frac{\partial h}{\partial\mathbf{X}} = \left< C(h) \right>_\mathbf{X} + \frac{q}{T}f_0\frac{\partial <\chi>_\mathbf{X}}{\partial t}
 $$
 
 The quasi-neutrality $\sum_\alpha q_\alpha\delta n_\alpha = 0$ now becomes
