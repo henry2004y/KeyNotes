@@ -538,7 +538,7 @@ $$
 
 This shows that the resonance frequencies depend on angle $\theta$.
 
-* If $\theta=0^o$, the possible solutions are $P = 0$ and $S = \infty$. The former is the plasma resonance $\omega=\omega_p$, while the latter occurs when either $R = \infty$ (electron cyclotron resonance) or $L =\infty$ (ion cyclotron resonance).
+* If $\theta=0^o$, the possible solutions are $P = 0$ and $S = \infty$. The former is the plasma resonance $\omega=\omega_p$, while the latter occurs when either $R = \infty$ (i.e. $\omega=\omega_{ce}$, electron cyclotron resonance) or $L =\infty$ (i.e. $\omega=\omega_{ci}$, ion cyclotron resonance).
 * If $θ = 90^o$, the possible solutions are $P =\infty$ or $S = 0$. The former cannot occur for finite $\omega_p$ and $\omega$, and the latter yields the upper and lower hybrid frequencies, as well as the two-ion hybrid frequency when there is more than one ion species.
 
 ### Cutoffs
@@ -551,37 +551,48 @@ $$
 
 * The conditions $R = 0$ and $L = 0$ yield the $\omega_R$ and $\omega_L$ cutoff frequencies, with the addition of ion corrections.
 
-For R-waves, the cutoff frequency can be approximated by (???)
+For R-waves, since $\omega_{pi}^2\ll\omega_{pe}^2,\omega_{ci}\ll\omega_{ce}$, the cutoff frequency can be approximated by
+
+$$
+\begin{aligned}
+1-\frac{\omega_{pe}^2}{\omega(\omega-\omega_{ce})} - \frac{\omega_{pi}^2}{\omega(\omega+\omega_{ci})} = 0 \\
+1 = \frac{\omega_{pe}^2\Big[ \omega\Big(1+\cancel{\frac{\omega_{pi}^2}{\omega_{pe}^2}}\Big)+\omega_{ci}-\cancel{\frac{\omega_{pi}^2}{\omega_{pe}^2}}\omega_{ce}\Big]}{\omega_{ce}\omega(\omega-\omega_{ce})\Big( \frac{\omega}{\omega_{ce}}+\cancel{\frac{\omega_{ci}}{\omega_{ce}}}\Big)} \\
+1 = \frac{\omega_{pe}^2(\omega+\omega_{ci})}{\omega^2(\omega-\omega_{ce})} \\
+\omega^3 - \omega_{ce}\omega^2 - \omega_{pe}^2\omega - \omega_{pe}^2\omega_{ci} = 0
+\end{aligned}
+$$
+
+Here somehow we can ignore $\omega_{pe}^2\omega_{ci}$ (I DON'T KNOW WHY???) and obtain the positive solution
 
 $$
 \omega_{R=0} \approx \frac{\omega_{ce}}{2}\Big[ 1 + \sqrt{1+4\omega_{pe}^2/\omega_{ce}^2}\Big]
 $$
 
-In the low density limit, $\omega_p\ll\omega_c$, (???)
+In the low density limit, $\omega_p\ll\omega_c$, $(1+x)^{1/2}\approx 1+x/2$ when $x\rightarrow 0$,
 
 $$
 \omega_{R=0} \approx \omega_{ce}(1+\omega_{pe}^2/\omega_{ce}^2)
 $$
 
-In the high density limit, $\omega_p\gg\omega_c$, (???)
+In the high density limit, $\omega_p\gg\omega_c$,
 
 $$
 \omega_{R=0} \approx \omega_{pe} + \omega_{ce}/2
 $$
 
-For L-waves, the cutoff frequency can be approximated by (???)
+Similarly for L-waves, the cutoff frequency can be approximated by
 
 $$
 \omega_{L=0} \approx \frac{\omega_{ce}}{2}\Big[ -1 + \sqrt{1+4\omega_{pe}^2/\omega_{ce}^2}\Big]
 $$
 
-In the low density limit, $\omega_p\ll\omega_c$, (???)
+In the low density limit, $\omega_p\ll\omega_c$,
 
 $$
 \omega_{L=0} \approx \omega_{pe}^2/\omega_{ce}
 $$
 
-In the high density limit, $\omega_p\gg\omega_c$, (???)
+In the high density limit, $\omega_p\gg\omega_c$,
 
 $$
 \omega_{L=0} \approx \omega_{pe} - \omega_{ce}/2
