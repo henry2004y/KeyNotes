@@ -131,6 +131,132 @@ Thus if $B=0.32$ T and $n=10^{18}\,\text{m}^{-3}$, the cyclotron frequency is ap
 
 This analogy is not quite accurate, because plasma oscillations have motions in the direction of $\mathbf{k}$ rather than transverse to $\mathbf{k}$. However, as long as electrons do not collide with ions or with each other, they can still be pictured as independent oscillators moving horizontally (in @fig:independent_springs). But what about the electric field? Won't that extend past the region of initial disturbance and set neighboring layers of plasma into oscillation? In our simple example, it will not, because the electric field due to equal numbers of positive and negative infinite plane charge sheets is zero. In any finite system, however, plasma oscillations will propagate. In Fig. 4.4 ADD IT!, the positive and negative (shaded) regions of a plane plasma oscillation are confined in a cylindrical tube. The fringing electric field causes a coupling of the disturbance to adjacent layers, and the oscillation does not stay localized.
 
+## MHD Waves
+
+$$
+\begin{aligned}
+\frac{\partial\rho}{\partial t}+\nabla\cdot(\rho\mathbf{v})=0 \\
+\rho\frac{d\mathbf{v}}{dt}=-\nabla p+\mathbf{j}\times\mathbf{B} \\
+\mathbf{j}=\frac{1}{\mu_0}\nabla\times\mathbf{B} \\
+\frac{d}{dt}\Big( p\rho^{-\gamma} \Big)=0 \\
+\frac{\partial\mathbf{B}}{\partial t}=-\nabla\times\mathbf{E} \\
+\mathbf{E}=-\mathbf{v}\times\mathbf{B}
+\end{aligned}
+$$
+
+$\dot{\mathbf{E}}$ is ignored because we only consider low frequency waves. We assume no background flow, $\mathbf{u}_0=0$, so the current is purely caused by perturbed velocity $\mathbf{u}_1$. Performing linearization and plane wave decomposition:
+
+$$
+\begin{aligned}
+-i\omega\rho_1+i\rho_0\mathbf{k}\cdot\mathbf{v}=0 \\
+-i\omega\rho_0\mathbf{v}=-i\mathbf{k}p_1+\mathbf{j}\times\mathbf{B}_0 \\
+\mathbf{j}=\frac{1}{\mu_0}i\mathbf{k}\times\mathbf{B}_1 \\
+p_1/p_0 -\gamma\rho_1/\rho_0 = 0 \\
+-i\omega\mathbf{B}_1=i\mathbf{k}\times(\mathbf{v}\times\mathbf{B}_0)
+\end{aligned}
+$$
+
+Let $\mathbf{B}_0 = B_0\hat{z}$. The linearized equations can be further simplified:
+
+$$
+\begin{aligned}
+-i\omega\rho_0\mathbf{v}=-i\mathbf{k}\big( \gamma p_0\frac{\mathbf{k}\cdot\mathbf{v}}{\omega} \big) +\Big[ \frac{1}{\mu_0}i\mathbf{k}\times\big( -\frac{\mathbf{k}\times(\mathbf{v}\times\mathbf{B}_0)}{\omega} \big) \Big]\times\mathbf{B}_0 \\
+\omega^2 \mathbf{v}-{V_s}^2 \mathbf{k}(\mathbf{k}\cdot\mathbf{v})-{V_A}^2\big[ \mathbf{k}\times\big( \mathbf{k}\times(\mathbf{v}\times\hat{z})\big) \big]\times\hat{z}=0
+\end{aligned}
+$$
+
+where $V_s=\sqrt{\frac{\gamma p_0}{\rho_0}}$ is the sound speed, and $V_A=\sqrt{\frac{{B_0}^2}{\mu_0\rho_0}}$ is the Alfvén speed. If we write $\mathbf{V}_A = \mathbf{B}_0 / \sqrt{\mu_0 \rho_0}$, this can also be written as
+
+$$
+\omega^2 \mathbf{v} - {V_s}^2 \mathbf{k}(\mathbf{k}\cdot\mathbf{v}) - \mathbf{k}\times \mathbf{k}\times (\mathbf{v}\times\mathbf{V}_A) \times\mathbf{V}_A = 0
+$$
+
+Due to the symmetry in the perpendicular x-y plane, for simplicity, we assume the wave vector $\mathbf{k}$ lies in the x-z plane with an angle w.r.t. the $z$ axis $\theta$:
+
+$$
+\mathbf{k} = k_x\hat{x} + k_z\hat{z} = k\sin\theta\hat{x} + k\cos\theta\hat{z}
+$$
+
+Now it can be written as
+
+$$
+\begin{pmatrix}
+-\omega^2/k^2 + v_A^2 + v_s^2\sin^2\theta & 0 & v_s^2\sin\theta\cos\theta \\
+0 & -\omega^2/k^2+v_A^2\cos^2\theta & 0 \\
+v_s^2\sin\theta\cos\theta & 0 & -\omega^2/k^2+v_s^2\cos^2\theta
+\end{pmatrix}
+\begin{pmatrix}
+v_x \\ v_y \\ v_z
+\end{pmatrix} = 0
+$$ {#eq:mhd_v_perturbation}
+
+### Alfvén Wave
+
+For any nonzero $v_y$, the $y$-component of @eq:mhd_v_perturbation gives
+
+$$
+\omega^2 = k^2v_A^2\cos^2\theta = k_\parallel^2 v_A^2 
+$$
+
+which results in a linearly polarized wave mode with phase speed
+
+$$
+v_p = v_A\cos\theta
+$$
+
+The group velocity and hence energy propagation is always parallel to $\mathbf{B}$ regardless of the direction of $\mathbf{k}$, and for this reason this mode is also know as the _guided_ mode.
+
+Given the velocity perturbation $\mathbf{v}_1 = (0, v_y, 0)$, the other perturbations are given as
+
+$$
+\begin{aligned}
+-i\omega\rho_1 + \rho_0 \mathbf{k}\cdot\mathbf{v} = 0 \Rightarrow \rho_1 &= 0 \\
+\mathbf{j} &= m n_0\mathbf{v} = mn_0 v_y \hat{y} \\
+p_1 &= 0 \\
+\mathbf{E} &= -B_0 v_y\hat{x} \\
+\omega\mathbf{B}_1 + \mathbf{k}\times(\mathbf{v}\times\mathbf{B}_0) = 0 \Rightarrow \mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = -\frac{k_zB_0v_y}{\omega}\hat{y}
+\end{aligned}
+$$
+
+Alfvén wave has very high saturation level, meaning that it takes a long time for the wave to reach the nonlinear phase. (???)
+
+### Fast and Slow Wave
+
+The $x$-$z$ components of @eq:mhd_v_perturbation give
+
+$$
+\begin{aligned}
+(\omega^2-k^2{v_A}^2-{k_x}^2{v_s}^2)v_x -k_x k_z{v_x}^2v_z = 0 \\
+(\omega^2-{k_z}^2{v_s}^2)v_z -k_x k_z{v_s}^2v_x=0
+\end{aligned}
+$$
+
+The dispersion relation is given by the determinant being 0,
+
+$$
+\begin{aligned}
+\omega^4-k^2({v_A}^2+{v_s}^2)\omega^2+{k_z}^2{v_s}^2k^2{v_A}^2=0 \\
+\frac{\omega^2}{k^2}=\frac{1}{2}({v_A}^2+{v_s}^2)\pm\frac{1}{2}\sqrt{({v_A}^2+{v_s}^2)^2-4{v_s}^2{v_A}^2\cos^2\theta}
+\end{aligned}
+$$ {#eq:mhd_fast_slow}
+
+"+" corresponds to the fast mode, or magnetosonic mode, and "-" corresponds to the slow mode.
+The Friedrich graph is very useful in interpreting @eq:mhd_fast_slow.
+
+Given the velocity perturbation $\mathbf{v}_1 = (v_x, 0, v_z)$, the other perturbations are given as
+
+$$
+\begin{aligned}
+\rho_1 &= \frac{\rho_0}{i\omega}\mathbf{k}\cdot\mathbf{v} \\
+\mathbf{j} &= m n_0\mathbf{v} \\
+p_1 &= \rho_1 k_B T/m \\
+\mathbf{E} &= -B_0 v_x\hat{y} \\
+\mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = -\frac{B_0v_xk_z}{\omega}\hat{x} - \frac{B_0v_xk_x}{\omega}\hat{z}
+\end{aligned}
+$$
+
+In the case $v_A\gg v_s$ (e.g. cold, strong B), the phase speed of the fast mode becomes $v_p \approx v_A$. This is often called the _compressional Alfvén wave_. It is also clear that in the cold plasma limit the slow mode ceases to exit.
+
 ## Dielectric Function
 
 Usually when the permittivity of a material is function of space or frequency, it is call dielectric function.
