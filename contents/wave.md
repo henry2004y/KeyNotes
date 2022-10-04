@@ -133,6 +133,55 @@ This analogy is not quite accurate, because plasma oscillations have motions in 
 
 ## MHD Waves
 
+### Cold MHD
+
+Recall that the slow mode vanishes in cold MHD, and the fast mode moves at Alfvén speed. By ignoring pressure, gravity, viscosity and rotation, we have
+
+$$
+\begin{aligned}
+\rho \frac{\partial \mathbf{u}}{\partial t} = \mathbf{j}\times\mathbf{B}_0 \\
+\mathbf{E} = -\mathbf{u}\times\mathbf{B}_0 \\
+\nabla\times\mathbf{E} = -\frac{\partial \mathbf{B}_1}{\partial t} \\
+\nabla\cdot\mathbf{B}_1 = 0 \\
+\nabla\times\mathbf{B}_1 = \mu_0\mathbf{j}
+\end{aligned}
+$$ {#eq:mhd_cold}
+
+As usual in wave analysis, $\mathbf{u},\mathbf{j},\mathbf{E}$ are treated as perturbations. The MHD wave equation for the electric field can then be obtained,
+
+$$
+\begin{aligned}
+\dot{\mathbf{E}} &= -\dot{\mathbf{u}}\times\mathbf{B}_0 = -\frac{1}{\rho}(\mathbf{j}\times\mathbf{B})\times\mathbf{B}_0 = -\frac{1}{\mu_0\rho}[(\nabla\times\mathbf{B}_1)\times\mathbf{B}_0]\times\mathbf{B}_0 \\
+\ddot{\mathbf{E}} &= [(\nabla\times(\nabla\times\mathbf{E}))\times\mathbf{V}_A]\times\mathbf{V}_A
+\end{aligned}
+$$
+
+where $\mathbf{V}_A = \mathbf{B}_0 /\sqrt{\mu_0 \rho}$ is the Alfvén velocity, or if we mutate the triad cross terms,
+
+$$
+\ddot{\mathbf{E}} = \mathbf{V}_A \times [\mathbf{V}_A\times\nabla\times(\nabla\times\mathbf{E})]
+$$ {#eq:mhd_cold_e_wave}
+
+Alternatively, we can also get the MHD wave equation for the magnetic field:
+
+$$
+\begin{aligned}
+\left\{ \begin{aligned}
+\dot{\mathbf{B}_1} = \nabla\times(\mathbf{u}\times\mathbf{B}_0) \\
+(\nabla\times\mathbf{B}_1)\times\mathbf{B}_0 = \mu_0\mathbf{j}\times\mathbf{B}_0 = \mu_0\rho\dot{\mathbf{u}}
+\end{aligned} \right. \\
+\Rightarrow \ddot{\mathbf{B}_1} = \nabla\times \Big[ \big( \frac{1}{\mu_0\rho}(\nabla\times\mathbf{B}_1)\times\mathbf{B}_0 \big)\times\mathbf{B}_0 \Big]
+\end{aligned}
+$$
+
+or
+
+$$
+\ddot{\mathbf{B}_1} = \nabla\times \Big[ \big( (\nabla\times\mathbf{B}_1)\times\mathbf{V}_A \big)\times\mathbf{V}_A \Big]
+$$ {#eq:mhd_cold_b_wave}
+
+### Hot MHD
+
 $$
 \begin{aligned}
 \frac{\partial\rho}{\partial t}+\nabla\cdot(\rho\mathbf{v})=0 \\
@@ -198,13 +247,13 @@ $$
 \omega^2 = k^2v_A^2\cos^2\theta = k_\parallel^2 v_A^2 
 $$
 
-which results in a linearly polarized wave mode with phase speed
+which results in a linearly polarized wave mode, the _Alfvén wave_, in a uniform plasma immersed in a uniform background magnetic field with phase speed
 
 $$
 v_p = v_A\cos\theta
 $$
 
-The group velocity and hence energy propagation is always parallel to $\mathbf{B}$ regardless of the direction of $\mathbf{k}$, and for this reason this mode is also know as the _guided_ mode.
+The group velocity and hence energy propagation is always parallel to $\mathbf{B}$ regardless of the direction of $\mathbf{k}$, and for this reason this mode is also know as the _guided_ mode. This property, of course, has the direct bearing on the feature of Alfvén wave resonant absorption.
 
 Given the velocity perturbation $\mathbf{v}_1 = (0, v_y, 0)$, the other perturbations are given as
 
@@ -217,6 +266,44 @@ p_1 &= 0 \\
 \omega\mathbf{B}_1 + \mathbf{k}\times(\mathbf{v}\times\mathbf{B}_0) = 0 \Rightarrow \mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = -\frac{k_zB_0v_y}{\omega}\hat{y}
 \end{aligned}
 $$
+
+The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the _shear Alfvén wave_ (SAW).
+
+In a non-uniform plasma, SAW attains the interesting property of a continuous specturm. To illustrate this feature, let us consider the simplified slab model of a cold plasma with a non-uniform density, $\rho=\rho(x)$, and a uniform $\mathbf{B}_0 = B_0\hat{z}$. Assuming at $t=0$ a localized initial perturbation $\mathbf{B}_{1y}(x,t=0) = \exp(-x^2/\Delta x^2)$, $|k_y\Delta_x|\ll1$, and $\partial\mathbf{B}_{1y}/\partial t=0$, the perturbation then evolves according to the following wave equation (@eq:mhd_cold_b_wave, $B_{1z}=0$ so no coupling between the fast mode between Alfvén mode):
+
+$$
+[\partial_t^2 + \omega_A^2(x)]B_{1y}(x,t) = 0
+$$
+
+Here $\omega_A^2(x) = k_z^2v_A^2(x)$ and the solution is
+
+$$
+B_{1y}(x,t) = \hat{B}_{1y}(x,0)\cos[\omega_A(x)t]
+$$ {#eq:mhd_alfven_slab_by}
+
+@eq:mhd_alfven_slab_by shows that every point in $x$ oscillates at a different frequency, $\omega_A(x)$. With a continuously varying $\omega_A(x)$; the wave frequency, thus, constitutes a continuous spectrum. While the above result is based on a model with a 1D non-uniformity in x, this general feature of SAW continuous spectrum also holds in magnetized plasmas with 2D or 3D non-uniformities. A good example is geomagnetic pulsations in the Earth's magnetosphere observed by Engebretson shown in Figure 1 of [@chen2021physics].
+
+@eq:mhd_alfven_slab_by also indicates an unique and important property of SAW continuous spectrum: the spatial structure evolves with time. Specifically, the wave number in the non-uniformity direction is, time asymptotically, given by:
+
+$$
+|k_x| = \bigg\lvert\frac{\partial \ln B_{1y}}{\partial x}\bigg\rvert \simeq \bigg\lvert\frac{d \omega_A(x)}{d x}\bigg\rvert t
+$$
+
+That $|k_x|$ increases with $t$ is significant, since it implies that any initially long-scale perturbations will evolve into short scales. This point is illustrated in Figure ??? (CAN I PERFORM THE SIMULATION?); showing the evolution of a smooth $B_{1y}$ at $t=0$ to a spatially fast varying $B_{1y}$ at a later $t$.
+
+Another consequence of $|k_x|$ increasing with $t$ is the temporal decay of $B_{1x}$. From $\nabla\cdot\mathbf{B}_1 \simeq \nabla_\perp\cdot\mathbf{B}_{1\perp}=0$, we can readily derive that, for $|\omega_A^\prime t|\gg |k_y|$:
+
+$$
+B_{1x}(x, t)\simeq \frac{k_y}{\omega_A^\prime(x)t}\hat{B}_{1y}(x,0)e^{-i\omega_A(x)t}\Big[ 1+\mathcal{O}\Big( \frac{k_y}{|\omega_A^\prime t|+ ...} \Big) \Big]
+$$
+
+That is, $B_{1x}$ decays temporally due to the phase mixing of increasingly more rapidly varying neighboring perturbations.
+
+Noting that, as $t\rightarrow\infty$, $|k_x|\rightarrow\infty$, it thus suggests that the perturbation will develop singular structures toward the steady state. As we will see in the field line resonance @sec:flr, the singularity is reached at the Alfvén resonant point $x_r$, where $\omega^2=\omega_A^2(x_r)$ along with a finite resonant wave-energy absorption rate. Note that at the isolated extrema of the SAW continuum, $|\omega_A^\prime|=0$, phase mixing vanishes; consequently, perturbation remains regular and experiences no damping via resonant absorption. This feature has important implications to Alfvén instabilities in laboratory plasmas.
+
+That the solution exhibits singularities naturally suggests that the microscopic length-scale physics neglected in the ideal MHD fluid description should be included in the long-time-scale dynamics of SAWs. For low-frequency SAWs, one can readily recognize the relevant perpendicular (to $\mathbf{B}_0$) microscopic scales are either the ion Larmor radius, $r_{iL}=v_{ti}/\omega_{ci}$ with $v_{ti}$ and $\omega_{ci}$ being, respectively, the ion thermal speed and ion cyclotron frequency, and/or $r_L=v_{te}/\omega_{ce}$ with $v_{te}$ being the electron thermal speed. Including the effects of finite $r_{iL}$ and/or $r_{eL}$ in the SAW dynamics then led to the discovery of the so-called _kinetic Alfvén wave_ (KAW) [Hasegawa and Chen]. 
+
+Almost half a century later, [@chen2021physics] demonstrated that the proper treatment of KAW requires gyrokinetics (@sec:gyrokinetics).
 
 Alfvén wave has very high saturation level, meaning that it takes a long time for the wave to reach the nonlinear phase. (???)
 

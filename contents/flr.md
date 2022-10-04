@@ -15,34 +15,9 @@ Before 1950s, no people thought about the idea of standing waves in space simply
 
 Now, the big question is: where do the quantized numbers of the observed ULF waves come from [Kivelson & Southwood, 1986]?Researchers borrowed ideas from ionospheric radio propagation, laser fusion and plasma physics and came up with the names _cavity_ and _waveguide_. For the box model that we will discuss in the next section, if the $z$ boundaries are perfectly reflecting, wave fields must have standing structure in the $z$ direction, and allowed parallel wave numbers are quantized ($k_z = m\pi/c$, as in @eq:flr_xz_quantized). If the boundaries are weakly absorptive, the parallel wave numbers are complex, but the real parts are still quantized as above. If we impose periodic boundary conditions in $y$, the wavenumber in $y$ $k_y$ needs to be quantized as well.
 
-## MHD Theory
+## Theory
 
-The theory starts from linearized cold MHD equations. Recall that the slow mode vanishes in cold MHD, and the fast mode moves at Alfvén speed. By ignoring pressure, gravity, viscosity and rotation, we have
-
-$$
-\begin{aligned}
-\rho \frac{\partial \mathbf{u}}{\partial t} = \mathbf{j}\times\mathbf{B}_0 \\
-\mathbf{E} = -\mathbf{u}\times\mathbf{B}_0 \\
-\nabla\times\mathbf{E} = -\frac{\partial \mathbf{B}_1}{\partial t} \\
-\nabla\cdot\mathbf{B}_1 = 0 \\
-\nabla\times\mathbf{B}_1 = \mu_0\mathbf{j}
-\end{aligned}
-$$ {#eq:flr_mhd}
-
-As usual in wave analysis, $\mathbf{u},\mathbf{j},\mathbf{E}$ are treated as perturbations. The MHD wave equation for the electric field can then be obtained,
-
-$$
-\begin{aligned}
-\dot{\mathbf{E}} &= -\dot{\mathbf{u}}\times\mathbf{B}_0 = -\frac{1}{\rho}(\mathbf{j}\times\mathbf{B})\times\mathbf{B}_0 = -\frac{1}{\mu_0\rho}[(\nabla\times\mathbf{B}_1)\times\mathbf{B}_0]\times\mathbf{B}_0 \\
-\ddot{\mathbf{E}} &= [(\nabla\times(\nabla\times\mathbf{E}))\times\mathbf{V}_A]\times\mathbf{V}_A
-\end{aligned}
-$$
-
-where $\mathbf{V}_A = \mathbf{B}_0 /\sqrt{\mu_0 \rho}$ is the Alfvén velocity, or if we mutate the triad cross terms,
-
-$$
-\ddot{\mathbf{E}} = \mathbf{V}_A \times [\mathbf{V}_A\times\nabla\times(\nabla\times\mathbf{E})]
-$$ {#eq:flr_e_wave}
+The theory starts from linearized cold MHD @eq:mhd_cold_e_wave and @eq:mhd_cold_b_wave.
 
 ### Axisymmetric Spherical Coordinates
 
@@ -73,7 +48,7 @@ for a transverse EM wave ($\mathbf{E}\perp\mathbf{k}$). Thus the toroidal mode i
 
 To clarify my early misunderstanding: _a toroidal mode is not propagating in the toroidal direction_! Similarly, _a poloidal mode does not propagate in the poloidal direction_. In fact, it is more common to have a fast poloidal mode propagating in the azimuthal direction, then coupling to the Alfvén toroidal mode along the ambient magnetic field direction, then being observed on the ground.
 
-For the axisymmetric poloidal electric field $E_\phi \sim e^{i\omega t}$, @eq:flr_e_wave becomes (I HAVEN‘T DERIVED THIS!)
+For the axisymmetric poloidal electric field $E_\phi \sim e^{i\omega t}$, @eq:flr_cold_e_wave becomes (I HAVEN‘T DERIVED THIS!)
 
 $$
 B_0^2[\nabla^2 - (r^2 \sin^2\theta)^{-1}] E_\phi = -\mu_0 \rho \omega^2 E_\phi
