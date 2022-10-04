@@ -48,7 +48,7 @@ for a transverse EM wave ($\mathbf{E}\perp\mathbf{k}$). Thus the toroidal mode i
 
 To clarify my early misunderstanding: _a toroidal mode is not propagating in the toroidal direction_! Similarly, _a poloidal mode does not propagate in the poloidal direction_. In fact, it is more common to have a fast poloidal mode propagating in the azimuthal direction, then coupling to the Alfvén toroidal mode along the ambient magnetic field direction, then being observed on the ground.
 
-For the axisymmetric poloidal electric field $E_\phi \sim e^{i\omega t}$, @eq:flr_cold_e_wave becomes (I HAVEN‘T DERIVED THIS!)
+For the axisymmetric poloidal electric field $E_\phi \sim e^{i\omega t}$, @eq:mhd_cold_e_wave becomes (I HAVEN‘T DERIVED THIS!)
 
 $$
 B_0^2[\nabla^2 - (r^2 \sin^2\theta)^{-1}] E_\phi = -\mu_0 \rho \omega^2 E_\phi
@@ -135,11 +135,11 @@ $$
 \mathbf{B}_1 &= (B_{1x}, B_{1y}, B_{1z}) e^{i(k_y y + k_z z - \omega t)} \\
 \mathbf{B}_0 &= B_z \hat{z} = B\hat{z} \\
 \rho &= \rho(x) \\
-\mathbf{u}_0 &= 0    
+\mathbf{u}_0 &= 0
 \end{aligned}
 $$
 
-and assuming cold plasma, the linearized MHD momentum equation gives
+and assuming cold plasma, the linearized MHD momentum eq:mhd_cold gives
 
 $$
 \begin{aligned}

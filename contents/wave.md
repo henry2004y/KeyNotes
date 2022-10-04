@@ -135,7 +135,7 @@ This analogy is not quite accurate, because plasma oscillations have motions in 
 
 ### Cold MHD
 
-Recall that the slow mode vanishes in cold MHD, and the fast mode moves at Alfvén speed. By ignoring pressure, gravity, viscosity and rotation, we have
+By ignoring pressure, gravity, viscosity and rotation, we have
 
 $$
 \begin{aligned}
@@ -179,6 +179,8 @@ or
 $$
 \ddot{\mathbf{B}_1} = \nabla\times \Big[ \big( (\nabla\times\mathbf{B}_1)\times\mathbf{V}_A \big)\times\mathbf{V}_A \Big]
 $$ {#eq:mhd_cold_b_wave}
+
+We will see soon that in cold MHD the slow mode ceases to exist, and the fast mode moves at Alfvén speed, such that along the magnetic field line, we only have a single wave mode.
 
 ### Hot MHD
 
