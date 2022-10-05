@@ -10,14 +10,28 @@ Once again we start from the Vlasov-Maxwell equation. Removing the fast gyromoti
 
 The word "gyrokinetics" appeared in the literature in the late 1960s, first proposed by Rutherford, Frieman, Taylor and Hastie. The goal is to provide an adequate formalism for the linear kinetic drift waves study in general magnetic configurations, including finite Larmor radius effects. The first nonlinear set of equations for the perturbed distribution function $\delta f$ was given by Friemann and Liu Chen in 1982, who also introduced the gyrokinetic ordering. Gyrokinetic theory is based on Hamiltonian methods, which means that from a Lagrangian description, we remove the gyro-angle dependency by the change of coordinate systems to describe the equation of motion.
 
-## The Gyrokinetic Ordering
+## Coordinate Transformation
 
-### Coordinate Transformation
+We perform the following coordinate transformation from the charged particle's phase space ($\mathbf{x},\mathbf{v}$) to the corresponding guiding-center phase space ($\mathbf{X},\mathbf{V}$), where:
+
+$$
+\begin{aligned}
+\mathbf{X} = \mathbf{X}_\perp + X_\parallel \mathbf{b}_0,\quad \mathbf{X}_\perp = \mathbf{x}_\perp + \mathbf{r}_L,\quad \mathbf{r}_L = \mathbf{v}\times\mathbf{b}_0 / \Omega_c
+\end{aligned}
+$$
+
+$$
+\mathbf{V} = [\epsilon=v^2/2, \mu=v_\perp^2/2B_0, \sigma=\text{sgn}(v_\parallel)]
+$$
+
+Here, $\mathbf{b}_0 = \mathbf{B}_0/B_0$, $\mathbf{r}_L$ is the gyroradius vector, $v_\parallel=\mathbf{v}\cdot\mathbf{b}_0$, $\mu$ is the magnetic moment adiabatic invariant and, assuming there is no equilibrium electrostatic potential, $\epsilon$ is an equilibrium constant of motion.
+
+In the guiding-center phase space, charged particle dynamics is naturally separated into the fast cyclotron motion and the slow guiding-center motion. One can then apply the gyrokinetic orderings and systematically average out the fast cyclotron motion (i.e., the gyrophase averaging) and obtain the asymptotically dominant (in terms of the smallness parameter $\epsilon$) perturbed distribution function response. This perturbed distribution function in the guiding-center phase space can then be _inversely transformed_ back to the charged particle phase space and applied toward the field equations (i.e., Maxwell’s equations) for a self-consistent kinetic description.
 
 * Obtain Vlasov equation in the guiding center coordinates.
 * Obtain Maxwell's equations in the guiding center coordinates.
 
-Why do we need extra steps to use Maxwell's equations? It is because in Maxwell's equations the particle information ($\rho, \mathbf{j}$) are described not in the guiding center coordinates. The distribution we obtain from Vlasov equation must be transformed back to ordinary coordinates and then we can do the moment integral.
+Why do we need extra steps before using Maxwell's equations? It is because in Maxwell's equations the particle information ($\rho, \mathbf{j}$) are described not in the guiding center coordinates. The distribution we obtain from Vlasov equation must be transformed back to ordinary coordinates and then we can do the moment integral.
 
 In the guiding center coordinates, density and current density can be expressed as
 
@@ -36,6 +50,8 @@ Note that
 
 * In Vlasov equation in the guiding center coordinates, the $\mathbf{E}\times\mathbf{B}$ drift, gradient drift and curvature drift all appears but the polarization drift is missing.
 * In @eq:gk_density, only the polarization term correction appears. From Hamilton's mechanics, all term that has a explicit time dependency will not contribute here since it will break the energy conservation of the system.
+
+## The Gyrokinetic Ordering
 
 ### From Kinetics to Gyrokinetics
 
@@ -69,15 +85,25 @@ $$
 e\phi/k_BT_e \ll 1
 $$
 
-Let $\epsilon\ll 1$ denote a small value that we are going to use in the ordering.
+There exists a natural smallness parameter, $\epsilon=r_L/L$, which we are going to use in the ordering. In magnetically confined plasmas, typically we have $\epsilon\lesssim\mathcal{O}(10^{-2})\ll 1$.
 
 $$
 \frac{\omega}{\Omega}\sim\frac{r_L}{L}\sim\frac{k_\parallel}{k_\perp}\sim\frac{\delta F}{F_0}\sim\frac{\delta T}{T_0}\sim\frac{\delta n}{n_0}\sim\frac{|\delta \mathbf{B}|}{|\mathbf{B}_0|}\sim\frac{q\delta\phi}{T}\sim\epsilon
 $$
 
+Usually low-frequency ($|\omega/\Omega_i|\sim\epsilon$) but short-wavelength ($k_\perp r_L \sim 1$) fluctuations are of interest in gyrokinetics. To include Landau resonance (???),
+
 $$
-k_\perp r_L \sim 1
+k_\parallel v_\parallel\sim \omega,\quad\text{or}\quad |k_\perp r_i|\sim 1
 $$
+
+Noting, furthermore, for $|k_\perp r_i|\sim 1$ and the ratio of plasma ion pressure to the background magnetic field energy density $\beta_i \lesssim 1$:
+
+$$
+\bigg\lvert| \frac{\omega}{k_\perp v_A} \bigg\rvert| \sim \bigg\lvert| \frac{\omega}{\Omega_i} \bigg\rvert| \bigg\lvert| \frac{1}{k_\perp r_{iL}} \bigg\rvert| \beta_i^{1/2} \lesssim \epsilon
+$$
+
+i.e. fast waves are systematically suppressed (???) in the gyrokinetic orderings.
 
 ## A Lagriangian Approach
 
@@ -144,7 +170,35 @@ $$
 
 where $J_0$ is the zeroth order Bessel function.
 
-### Nonlinear Gyrokinetic Equations
+### Linear Gyrokinetics
+
+We shall limit our considerations to that of a simple uniform plasma with an isotropic Maxwellian equilibrium distribution function. Assuming, furthermore, $\beta$ (ratio between the plasma and magnetic pressures) $\ll 1$, such that there is negligible magnetic compression, the particle velocity distribution is then given by:
+
+$$
+f(\mathbf{x},\mathbf{v},t) = f_M(\epsilon) + \delta f(\mathbf{x},\mathbf{v},t)
+$$
+
+where $f_M(\epsilon)=n_0/(\pi^{3/2}v_t^3)\exp(-\epsilon/v_t^2)$ is the Maxwellian distribution function, $v_t$ is the thermal speed (HOW TO UNDERSTAND THIS???):
+
+$$
+\delta f = \frac{q}{T}f_M(\epsilon)\delta\phi + e^{-\mathbf{r}_L\cdot\nabla}\delta g
+$$
+
+$T=mv_t^2/2$, $\delta g$ satisfies the following linear gyrokinetic equation:
+
+$$
+\begin{aligned}
+\Big( \frac{\partial}{\partial t}+v_\parallel\mathbf{b}_0\cdot\nabla \Big)\delta g = \frac{q}{T}f_M(\epsilon)\frac{\partial} {\partial t}\left< \delta L_g \right>_\alpha \\
+\delta L_g = e^{-\mathbf{r}_L\cdot\nabla}\delta L \\
+\delta L = \delta \phi - v_\parallel \delta A_\parallel/c
+\end{aligned}
+$$ {#eq:gk_linear}
+
+and $<...>_\alpha$ denotes averaging over the gyrophase angle, $\alpha$. Here, the field variables are the scalar and vector potentials, $\delta\phi$ and $\delta\mathbf{A}$, with $\delta A_\parallel=\delta\mathbf{A}\cdot\mathbf{b}_0$ and the $\nabla\cdot\delta\mathbf{A}=0$ Coulomb gauge. The operator $e^{\mathbf{r}_L\cdot\nabla}$, meanwhile, represents the transformation between the particle and guiding center positions.
+
+The corresponding field equations are the Poisson's equation and the parallel Ampère's law, $\nabla^2 \delta A_\parallel = -4\pi\delta J_\parallel/c$. In the low-frequency and $|k\lambda_D|^2\ll 1$ limit with $\lambda_D$ being the Debye length, Poisson's equation can be approximated as the quasi-neutrality condition; $\sum_j n_{0j}q_j<\delta f_j>_v\simeq 0$. Here, $<...>_v = \int d\mathbf{v} (...)$ is the velocity-space integral, and subscript $j$ runs over the particle species. Meanwhile, substituting the parallel Ampère’s law into the $\nabla\cdot\delta\mathbf{J}\simeq 0$ quasi-neutrality condition as derived by @eq:gk_linear yields a generalized linear gyrokinetic vorticity equation, which is often convenient to use in studying shear/kinetic Alfvén wave dynamics.
+
+### Nonlinear Gyrokinetics
 
 The idea of deriving the gyrokinetic equations is very similar to the derivation of 5/10-moment equations. Extra care is needed because of the coordinate transformation to the guiding center coordinates. For species $\alpha$,
 
