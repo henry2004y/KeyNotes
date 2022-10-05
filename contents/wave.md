@@ -4,6 +4,8 @@
 
 If the electrons in a plasma are displaced from a uniform background of ions, electric fields will be built up in such a direction as to restore the neutrality of the plasma by pulling the electrons back to their original positions. Because of their inertia, the electrons will overshoot and oscillate around their equilibrium positions with a characteristic frequency known as the _plasma frequency_. This oscillation is so fast that the massive ions do not have time to respond to the oscillating field and may be considered as fixed. In Fig. 4.2 (ADD IT!), the open rectangles represent typical elements of the ion fluid, and the darkened rectangles the alternately displaced elements of the electron fluid. The resulting charge bunching causes a spatially periodic $\mathbf{E}$ field, which tends to restore the electrons to their neutral positions.
 
+![Plasma oscillation, also known as Langmuir wave.](https://s8.gifyu.com/images/plasma.gif){#fig:langmuir_wave}
+
 We shall derive an expression for the plasma frequency $\omega_p$ in the simplest case, making the following assumptions:
 
 1. There is no magnetic field;
@@ -269,7 +271,9 @@ p_1 &= 0 \\
 \end{aligned}
 $$
 
-The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the _shear Alfvén wave_ (SAW).
+The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the _shear Alfvén wave_ (SAW). An animation of SAW is shown in @fig:alfven_wave.
+
+![Alfvén wave.](https://s8.gifyu.com/images/alfven.gif){#fig:alfven_wave}
 
 In a non-uniform plasma, SAW attains the interesting property of a continuous specturm. To illustrate this feature, let us consider the simplified slab model of a cold plasma with a non-uniform density, $\rho=\rho(x)$, and a uniform $\mathbf{B}_0 = B_0\hat{z}$. Assuming at $t=0$ a localized initial perturbation $\mathbf{B}_{1y}(x,t=0) = \exp(-x^2/\Delta x^2)$, $|k_y\Delta_x|\ll1$, and $\partial\mathbf{B}_{1y}/\partial t=0$, the perturbation then evolves according to the following wave equation (@eq:mhd_cold_b_wave, $B_{1z}=0$ so no coupling between the fast mode between Alfvén mode):
 
@@ -345,6 +349,8 @@ p_1 &= \rho_1 k_B T/m \\
 $$
 
 In the case $v_A\gg v_s$ (e.g. cold, strong B), the phase speed of the fast mode becomes $v_p \approx v_A$. This is often called the _compressional Alfvén wave_. It is also clear that in the cold plasma limit the slow mode ceases to exit.
+
+![Fast wave.](https://s8.gifyu.com/images/fast.gif){#fig:fast_wave}
 
 ## Dielectric Function
 
@@ -756,6 +762,30 @@ This shows that the resonance frequencies depend on angle $\theta$.
 * If $\theta=0^o$, the possible solutions are $P = 0$ and $S = \infty$. The former is the plasma resonance $\omega=\omega_p$, while the latter occurs when either $R = \infty$ (i.e. $\omega=\omega_{ce}$, electron cyclotron resonance) or $L =\infty$ (i.e. $\omega=\omega_{ci}$, ion cyclotron resonance).
 * If $θ = 90^o$, the possible solutions are $P =\infty$ or $S = 0$. The former cannot occur for finite $\omega_p$ and $\omega$, and the latter yields the upper and lower hybrid frequencies, as well as the two-ion hybrid frequency when there is more than one ion species.
 
+One step further, let us look at the problem of electron cyclotron resonance heating. The resonance condition is $R=\infty$; the governing equation has the form
+
+$$
+\frac{d^2 E}{dz^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(z)}^2}{\omega(\omega-\omega_{ce}(z))} \Big]E = 0
+$$
+
+![Plasma frequency and wave number as functions of $z$ in a non-uniform plasma for the electron cyclotron resonance mode.](images/ECRH.png){#fig:ECRH}
+
+We use $z$ here to remind ourselves of the fact that the wave property changes along the field line. Imagine a wave $\sim e^{i(kz -\omega t)}$ incident into a plasma with fixed density $n_0$ and varying magnetic field $B_0(z)$ as shown in @fig:ECRH(a). At $z=z_R$, $\omega_{ce}(z) = \omega_{ce}(z_R) = \omega$. Then we can draw $k^2(z)$ as a function of $z$ as in @fig:ECRH(b). There is a pole at $z=z_R$, which indicates resonance since $k^2\rightarrow\infty$. There is also a zero on the right of $z_R$.
+
+Close to $z=z_R$, we have $k^2(z)\sim \frac{const.}{z-z_R}$. If we write
+
+$$
+\Omega_e(z)=-A^\prime (z-z_R)+\omega,\quad \zeta = z-z_R
+$$
+
+then (ignore the constants)
+
+$$
+\frac{d^2 E}{dz^2} - \frac{\text{const.}}{z-z_R}E = 0 \Rightarrow \frac{d^2 E}{d\zeta^2} - \frac{1}{\zeta}E = 0
+$$
+
+Now let's stare at @fig:ECRH(b) for a few seconds. If there is a wave from left to right, there will be a resonance at $z=z_R$; but if there is a wave from right to left, then the wave will be attenuated before it reaches $z=z_R$ because there is a zero ahead. This means that waves from different origin will have different behaviors!
+
 ### Cutoffs
 
 The cutoffs can be found by setting $n = 0$ in @eq:cold_plasma_dispersion. Again using $S^2-D^2 = RL$, we find that the condition for cutoff is independent of $\theta$:
@@ -815,6 +845,25 @@ $$
 
 * The condition $P = 0$ is seen to correspond to cutoff as well as to resonance. This degeneracy is due to our neglect of thermal motions. Actually, $P = 0$ (or $\omega = \omega_p$) is a resonance for longitudinal waves and a cutoff for transverse waves.
 
+What is more interesting happens in the case of nonuniform plasma. Consider EM waves in non-magnetized plasma of ordinary O-mode:
+
+$$
+k^2(x) = \frac{\omega^2}{c^2}n^2 = \frac{\omega^2}{c^2}\Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2}\Big] \quad \text{if } n \text{ is non-uniform}
+$$
+
+![Plasma frequency and wave number as functions of $x$ in a non-uniform plasma for O mode.](images/Omode.png){#fig:Omode}
+
+Note that there is no energy dissipation, because it is collisionless. Imagine a wave $\sim e^{i(kx-\omega t)}$ incident into a plasma with density $n_0(x)$ shown in @fig:Omode. We encounter a cutoff at $x=x_t$, $\omega_{pe}(x_t) = \omega$. Therefore we can draw $k^2(x)$ as a function of x as in @fig:Omode. Then the properties of the wave can be categorized into two regimes:
+
+$$
+\begin{aligned}
+k^2 < 0 \Rightarrow\ E\sim e^{\pm ikx}\ \text{propagating}\\
+k^2 > 0 \Rightarrow\ E\sim e^{\pm|k| x}\ \text{attenuating}
+\end{aligned}
+$$
+
+A natural question comes up from this picture: _how does the propagating wave transform into attentuating wave_? Stokes solved this during his honey moon.
+
 ### Polarizations
 
 The information contained in @eq:cold_plasma_dispersion is summarized in the Clemmow–Mullaly–Allis (CMA) diagram. One further result, not in the diagram, can be obtained easily from this formulation. The middle line of @eq:dielectric reads
@@ -851,7 +900,40 @@ $$
 k^2c^2 = \omega^2\Big(1+\frac{\omega_{pe}^2}{\omega\omega_{ce}} \Big)
 $$
 
-This is the whistler wave. For $\omega\ll\omega_{ci}$, Alfvén wave is recovered.
+This is the whistler wave, with group velocity $v_g=\partial\omega/\partial k\propto\sqrt{\omega}$. It means that high frequency waves transpose energy faster than low frequency waves. In other words, one will hear high frequency components earlier than low frequency components, creating a "whistler effect". This was discovered during the first world war, and the theoretical explanation came out in the 1950s. Also note that since whistler wave travels along the field line, in near-Earth space we have signals traveling from the south hemisphere to the north hemisphere within this frequency regime. [Here](https://en.wikipedia.org/wiki/Whistler_(radio)) is an observation example from Palmer station, Antarctica. For $\omega\ll\omega_{ci}$, Alfvén wave is recovered.
+
+![Whistler wave.](https://s8.gifyu.com/images/whistler.gif){#fig:whistler_wave}
+
+Another way to derive the whistler mode dispersion relation, which is probably easier, is to include the Hall term from the generalized Ohm's law:
+
+$$
+\mathbf{E} = -\mathbf{U}\times\mathbf{B} + \frac{1}{ne}\mathbf{J}\times\mathbf{B}
+$$
+
+Using Ampère’s law and retaining only the Hall term leads to the equation
+
+$$
+\dot{\mathbf{B}} = -\frac{1}{\mu_0 ne}\nabla\times[(\nabla\times\mathbf{B})\times\mathbf{B}]
+$$
+
+Performing linearization and assuming that the magnetic field is parallel to the z axis and its perturbation is only in x and y, the last equation becomes
+
+$$
+\begin{aligned}
+\omega B_{1x} &= -i\frac{k_z^2 B_0}{\mu_0 ne} B_{1y} \\
+\omega B_{1y} &=  i\frac{k_z^2 B_0}{\mu_0 ne} B_{1x}
+\end{aligned}
+$$
+
+which easily yields
+
+$$
+\omega = \frac{B_0}{\mu_0 ne} k_z^2
+$$
+
+Whistler mode is excited by the electron temperature anisotropy (???).
+
+The dispersion property of whistler waves makes it a problem for hybrid simulations (@sec:finite_e_mass).
 
 The L-wave corresponds to ion. When $\omega<\omega_{ci}$,
 
@@ -1241,14 +1323,13 @@ $$
 \frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2-{\Omega_{e}}^2-{k_x}^2{v_{th,e}}^2}
 $$
 
-## Summary of Basic MHD Waves
-
-![Plasma oscillation, also known as Langmuir wave.](https://s8.gifyu.com/images/plasma.gif){#fig:langmuir_wave}
+## Animation of Waves
 
 ![Lower hybrid wave.](https://s8.gifyu.com/images/lowerhybrid.gif){#fig:lowerhybrid_wave}
 
-![Alfvén wave.](https://s8.gifyu.com/images/alfven.gif){#fig:alfven_wave}
+## CMA Diagram
 
-![Whistler wave.](https://s8.gifyu.com/images/whistler.gif){#fig:whistler_wave}
+The Clemmow-Mullaly-Allis (CMA) diagram classifies all EM + ES waves (including ions) in a cold magnetized plasma. However it is no longer useful in hot plasma waves.
 
-![Fast wave.](https://s8.gifyu.com/images/fast.gif){#fig:fast_wave}
+* Resonances and cutoffs
+* Mode conversions

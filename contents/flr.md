@@ -231,9 +231,9 @@ Eliminating $E_x$ from the above two equations gives
 
 $$
 \frac{\partial^2}{\partial x^2}E_y - k_y^2 \frac{\partial}{\partial x}R^2(x)\frac{1}{(R^2 - k_z^2)(R^2 - k_z^2 - k_y^2)}\frac{\partial E_y}{\partial x} + (R^2 - k_z^2 - k_y^2)E_y = 0
-$$ {#eq:flr_Ey}
+$$ {#eq:flr_wave_ey}
 
-@eq:flr_Ey can also be written as a second order differential equation of $B_{1z}$, the compressional component of the magnetic field (see @eq:perturb_b), as [@kivelson1985resonant] did in proposing the idea of cavity modes:
+@eq:flr_wave_ey can also be written as a second order differential equation of $B_{1z}$, the compressional component of the magnetic field (see @eq:perturb_b), as [@kivelson1985resonant] did in proposing the idea of cavity modes:
 
 $$
 \frac{\partial^2 B_{1z}}{\partial x^2} - \frac{ \frac{\partial R^2}{\partial x}}{R^2 - k_z^2}\frac{\partial B_{1z}}{\partial x} + ( R^2 - k_y^2 - k_z^2 ) B_{1z} = 0
@@ -245,7 +245,7 @@ $$
 \frac{\partial^2 B_{1z}}{\partial x^2} - \frac{\omega^2 \partial V_A^{-2}/\partial x}{\omega^2/V_A^2 - k_z^2}\frac{\partial B_{1z}}{\partial x} + \Big( \frac{\omega^2}{V_A^2} - k_y^2 - k_z^2 \Big) B_{1z} = 0
 $$ {#eq:flr_wave_bz}
 
-Let us first get some intuitions about @eq:flr_Ey (following [@glassmeier1999magnetospheric], but note that there are sign errors and wrong equations in the original paper!). This equation exhibits strong singularities found in the denominator of its second term, much as first described by Tamao (1965). The following solutions are possible. If $R^2 - k_z^2 - k_y^2 > 0$, from which $R^2 - k_z^2 > 0$ follows, no singularities appear. Assuming $k_y \approx 0$, the above equation reduces to
+Let us first get some intuitions about @eq:flr_wave_ey (following [@glassmeier1999magnetospheric], but note that there are sign errors and wrong equations in the original paper!). This equation exhibits strong singularities found in the denominator of its second term, much as first described by Tamao (1965). The following solutions are possible. If $R^2 - k_z^2 - k_y^2 > 0$, from which $R^2 - k_z^2 > 0$ follows, no singularities appear. Assuming $k_y \approx 0$, the above equation reduces to
 
 $$
 \frac{\partial^2}{\partial x^2}E_y + (R^2 - k_z^2)E_y = 0
@@ -280,7 +280,7 @@ Next if $R^2 - k_z^2 - k_y^2 < 0$, $R^2 - k_z^2 = 0$ may occur. Assuming again a
 
 $$
 \frac{\partial^2 E_y}{\partial s^2} - \frac{1}{s}\frac{s_t}{s-s_t}\frac{\partial E_y}{\partial s} + \alpha^2(s-s_t) E_y = 0
-$$ {#eq:flr_ey_perturbation}
+$$ {#eq:flr_wave_ey_perturbation}
 
 where $s_t = k_y^2/\alpha^2$.
 
