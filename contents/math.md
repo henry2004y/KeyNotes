@@ -342,7 +342,7 @@ $$ {#eq:perturb_k_bhat}
 
 These seemingly trivial relations have profound implications in physics. @eq:perturb_b tells us that the perturbation of magnetic field magnitude has only contribution from the parallel component, which is why in satellite observations people only look at parallel perturbations for compressional wave modes. @eq:perturb_bhat tells us that the perturbation in the unit vector is only related to the perpendicular fluctuations.
 
-## Wave Equations
+## Wave Equations {#sec:WKB}
 
 The waves in plasma physics is governed by second order ODEs. Here we list some second order ODEs that has been studied mostly in plasma physics.
 
@@ -972,7 +972,7 @@ $$
 
 All three Stokes constants are $i$. For the Airy equation, the amount of exponentially decaying solution you can have going from one Stokes line to another is restricted to $i$ in counter-clockwise direction.
 
-### Application of Stokes Lines
+### Application of Stokes Lines {#sec:stokes_application}
 
 ## Normalization
 

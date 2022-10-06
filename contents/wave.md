@@ -227,7 +227,7 @@ $$
 Due to the symmetry in the perpendicular x-y plane, for simplicity, we assume the wave vector $\mathbf{k}$ lies in the x-z plane with an angle w.r.t. the $z$ axis $\theta$:
 
 $$
-\mathbf{k} = k_x\hat{x} + k_z\hat{z} = k\sin\theta\hat{x} + k\cos\theta\hat{z}
+\mathbf{k} = k_x\hat{x} + k_z\hat{z} = k_x\hat{x} + k_\parallel\hat{z} = k\sin\theta\hat{x} + k\cos\theta\hat{z}
 $$
 
 Now it can be written as
@@ -251,7 +251,7 @@ $$
 \omega^2 = k^2v_A^2\cos^2\theta = k_\parallel^2 v_A^2 
 $$
 
-which results in a linearly polarized wave mode, the _Alfvén wave_, in a uniform plasma immersed in a uniform background magnetic field with phase speed
+which is known as the _Alfvén wave_, in a uniform plasma immersed in a uniform background magnetic field with phase speed
 
 $$
 v_p = v_A\cos\theta
@@ -259,19 +259,19 @@ $$
 
 The group velocity and hence energy propagation is always parallel to $\mathbf{B}$ regardless of the direction of $\mathbf{k}$, and for this reason this mode is also know as the _guided_ mode. This property, of course, has the direct bearing on the feature of Alfvén wave resonant absorption.
 
-Given the velocity perturbation $\mathbf{v}_1 = (0, v_y, 0)$, the other perturbations are given as
+Given the velocity perturbation $\mathbf{v}_1 = (0, v_y, 0)$, $-i\omega\rho_1 + \rho_0 \mathbf{k}\cdot\mathbf{v} = 0$, $\omega\mathbf{B}_1 + \mathbf{k}\times(\mathbf{v}\times\mathbf{B}_0) = 0$, the other perturbations are given as
 
 $$
 \begin{aligned}
--i\omega\rho_1 + \rho_0 \mathbf{k}\cdot\mathbf{v} = 0 \Rightarrow \rho_1 &= 0 \\
+\rho_1 &= 0 \\
 \mathbf{j} &= m n_0\mathbf{v} = mn_0 v_y \hat{y} \\
 p_1 &= 0 \\
 \mathbf{E} &= -B_0 v_y\hat{x} \\
-\omega\mathbf{B}_1 + \mathbf{k}\times(\mathbf{v}\times\mathbf{B}_0) = 0 \Rightarrow \mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = -\frac{k_zB_0v_y}{\omega}\hat{y}
+\mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = -\frac{k_zB_0v_y}{\omega}\hat{y} = -\frac{\mathbf{v}}{\omega/k_\parallel}B_0
 \end{aligned}
 $$
 
-The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the _shear Alfvén wave_ (SAW). An animation of SAW is shown in @fig:alfven_wave.
+$\mathbf{E}$ (or $\mathbf{B}_1$) shows that the Alfvén wave in a uniform plasma is a linearly polarized wave mode. The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the _shear Alfvén wave_ (SAW). An animation of SAW is shown in @fig:alfven_wave. It is useful to remember that the magnetic perturbation is always parallel to the velocity perturbation.
 
 ![Alfvén wave.](https://s8.gifyu.com/images/alfven.gif){#fig:alfven_wave}
 
@@ -343,10 +343,18 @@ $$
 \rho_1 &= \frac{\rho_0}{i\omega}\mathbf{k}\cdot\mathbf{v} \\
 \mathbf{j} &= m n_0\mathbf{v} \\
 p_1 &= \rho_1 k_B T/m \\
-\mathbf{E} &= -B_0 v_x\hat{y} \\
-\mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = -\frac{B_0v_xk_z}{\omega}\hat{x} - \frac{B_0v_xk_x}{\omega}\hat{z}
+\mathbf{E} &= B_0 v_x\hat{y} \\
+\mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = -\frac{B_0v_xk_z}{\omega}\hat{x} - \frac{B_0v_zk_x}{\omega}\hat{z}
 \end{aligned}
 $$
+
+$\mathbf{E}$ shows that the fast/slow modes in a uniform plasma are also linearly polarized. When we $\theta=90^o$ (@fig:fast_wave), the magnetic perturbation can be simplified to
+
+$$
+\mathbf{B}_1 = \frac{v}{\omega/k_\perp}\mathbf{B}_0
+$$
+
+which means that the perturbed magnetic field is always aligned with the background magnetic field.
 
 In the case $v_A\gg v_s$ (e.g. cold, strong B), the phase speed of the fast mode becomes $v_p \approx v_A$. This is often called the _compressional Alfvén wave_. It is also clear that in the cold plasma limit the slow mode ceases to exit.
 
