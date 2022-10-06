@@ -121,13 +121,54 @@ This is just a consequence of the vanishing of the volume in phase space for $v=
 ADD EXAMPLE DISTRIBUTIONS!
 
 * isotropic
-* anisotropic
+* anisotropic (pancake)
+
+$$
+f(v_\perp, v_\parallel) = \frac{n}{T_\perp T_\parallel^{1/2}}\Big( \frac{m}{2\pi k_B} \Big)^{3/2} \exp\Big( -\frac{mv_\perp^2}{2k_B T_\perp} - \frac{m(v_\parallel - v_{0\parallel})^2}{2k_B T_\parallel} \Big)
+$$
+
 * beam
 * crescent shape
+
+It is often convenient to present the distribution function as a function of energy instead of velocity. If all energy is kinetic, the energy is simply obtained from $W=mv^2/2$. In the case the particles are in the external electric potential field $U=-q\varphi$ the total energy of particles is $W=mv^2/2+U$ and the Maxwellian distribution is
+
+$$
+f(v) = n\Big(\frac{m}{2\pi k_B T}\Big)^{3/2}\exp\Big(-\frac{W}{k_B T}\Big)
+$$
+
+This can be written as the energy distribution (???):
+
+$$
+g(W) = 4\pi\Big[ \frac{2(W-U)}{m^3} \Big]^{1/2} f(v)
+$$
+
+The normalization factor is determined by requiring that the integration of the energy distribution over all energies gives the density.
+
+Velocity and energy distribution functions cannot be measured directly. Instead, the observed quantity is _the particle flux to the detector_. Particle flux is defined as the number density of particles multiplied by the velocity component normal to the surface. We define the _differential flux_ of particles traversing a unit area per unit time, unit solid angle (in spherical coordinates the differential solid angle is $d\Omega = \sin\theta d\theta d\phi$) and unit energy as $J(W,\Omega, \alpha, \mathbf{r},t)$. ($\alpha$ is species?) The units of $J$ are normally given as $(\text{m}^2\text{sr}\text{s}\text{eV})^{-1}$. Note that in literature $\text{cm}$ is often used instead of $\text{m}$ and, depending on the actual energy range considered, electron volts are often replaced by keV, MeV, or GeV.
+
+Let us next define how differential particle flux and distribution function are related to each other. We can write the number density in a differential velocity element (in spherical coordinates $d^3v=v^2dvd\Omega$) as ($dn=f(\alpha,\mathbf{r},t)v^2dvd\Omega$). By multiplying this with $v$ we obtain another expression for the differential flux $f(\alpha,\mathbf{r},t)v^3dvd\Omega$. Comparing with our eailier definition of the differential flux we obtain
+
+$$
+J(W,\Omega, \alpha, \mathbf{r},t)dWd\Omega = f(\alpha,\mathbf{r},t)v^3dvd\Omega
+$$
+
+Since $dW=mvdv$ we can write the relationship between the differential flux and the distribution function as
+
+$$
+J(W,\Omega, \alpha, \mathbf{r},t) = \frac{v^2}{m}f
+$$ {#eq:diff_flux_dist}
 
 ### Kappa Distribution
 
 The Maxwellian distribution is probably the most studied one theoretically, but may not be the most commonly observed distribution in a collisionless space plasma system. In recent years, another distribution named [Kappa distribution](https://link.springer.com/article/10.1007/s11214-013-9982-9) has gained more attention.
+
+Distribution functions are often nearly Maxwellian at low energies, but they decrease more slowly at high energies. At higher energies the distribution is described better by a power law than by an exponential decay of the Maxwell distribution. Such a behavior is not surprising if we remember that the Coulomb collision frequency decreases with increasing temperature as $T^{-3/2}$ (@eq:coulomb_resistivity_maxwellian_correction). Hence, it takes longer time for fast particles to reach Maxwellian distirbution than for slow particles. The kappa distribution has the form
+
+$$
+f_\kappa(W) = n\Big( \frac{m}{2\pi\kappa W_0} \Big)^{3/2}\frac{\Gamma(\kappa + 1)}{\Gamma(\kappa-1/2)}\Big( 1+\frac{W}{\kappa W_0} \Big)^{-(\kappa+1)}
+$$
+
+Here $W_0$ is the energy at the peak of the particle flux and $\Gamma$ is the gamma function. When $\kappa\gg 1$ the kappa distribution approaches the Maxwellian distribution. When $\kappa$ is smaller but $>1$ the distribution has a high-energy tail. A thorough review is given by [@livadiotis2013understanding].
 
 ## Equations of Kinetic Theory
 

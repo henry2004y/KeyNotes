@@ -539,7 +539,7 @@ $$
 @eq:electric_displacement_field becomes
 
 $$
-\mathbf{D} = \epsilon\Big( \mathbf{I} + \frac{i}{\epsilon_0\omega} \Big)\cdot\mathbf{E} = \pmb{\epsilon}\cdot\mathbf{E}
+\mathbf{D} = \epsilon\Big( \mathbf{I} + \frac{i}{\epsilon_0\omega}\pmb{\sigma} \Big)\cdot\mathbf{E} = \pmb{\epsilon}\cdot\mathbf{E}
 $$ {#eq:d_e_relation}
 
 Thus the effective dielectric constant of the plasma is the tensor
@@ -559,7 +559,7 @@ $$ {#eq:motion_linear}
 Defining the cyclotron and plasma frequencies for each species as
 
 $$
-\omega_{cs}\equiv\bigg\lvert\frac{q_s B_0}{m_s}\bigg\rvert \quad \omega_{ps}^2\equiv\bigg\lvert\frac{n_0 q_s^2}{\epsilon_0m_s}\bigg\rvert,
+\omega_{cs}\equiv\bigg\lvert\frac{q_s B_0}{m_s}\bigg\rvert, \quad \omega_{ps}^2\equiv\bigg\lvert\frac{n_0 q_s^2}{\epsilon_0m_s}\bigg\rvert
 $$
 
 we can separate @eq:motion_linear into x, y, and z components and solve for $\mathbf{v}_s$, obtaining
@@ -721,13 +721,13 @@ $$
 Dividing the last two equations, we obtain
 
 $$
-\tan^2\theta = \frac{P(n^4-2Sn^2+RL)}{Sn^4-(PS+RL)n^2+PRL}
+\tan^2\theta = \frac{-P(n^4-2Sn^2+RL)}{Sn^4-(PS+RL)n^2+PRL}
 $$
 
 Since $2S = R + L$, the numerator and denominator can be factored to give the cold-plasma dispersion relation
 
 $$
-\tan^2\theta = \frac{P(n^2-R)(n^2-L)}{(Sn^2-RL)(n^2-P)}
+\tan^2\theta = \frac{-P(n^2-R)(n^2-L)}{(Sn^2-RL)(n^2-P)}
 $$ {#eq:cold_plasma_dispersion}
 
 ### Wave Modes
@@ -953,6 +953,36 @@ k^2c^2 &= \omega^2\Big[1+\frac{\omega_{pi}^2}{\omega_{ci}(\omega_{ci}-\omega)} \
 $$
 
 For $\omega\lesssim\omega_{ci}$, we get the ion-cyclotron wave; for $\omega\ll\omega_{ci}$, Alfvén wave is recovered.
+
+### Faraday Rotation
+
+A linearly polarized plane wave can be expressed as a sum of left- and right-hand circularly polarized waves (R- and L-modes having equal amplitudes, $E_0$). If we assume that at $z=0$, the wave is linearly polarized along the x axis, and that the wave vector $\mathbf{k}$ and the background magnetic field $\mathbf{B}_0$ are along the $z$-axis, we can write
+
+$$
+\mathbf{E} = E_0 [(e^{ik_Rz}+e^{ik_Lz})\hat{x} + (e^{ik_Rz}-e^{ik_Lz})\hat{y}] e^{-i\omega t}
+$$
+
+The ratio of the $E_x$ and $E_y$ components is
+
+$$
+\frac{E_x}{E_y} = \cot\Big( \frac{k_L-k_R}{2}z\Big)
+$$
+
+Hence, due to different phase speeds of R- and L-modes the linrealy polarized wave that is travelling along a magnetic field will experience the rotation of its plane of polarization. This is called _Faraday rotation_. The magnitude of the rotation depends on the density and magnetic field of the plasma. Considering frequencies above the plasma frequency one can show that the rate of change in the rotation angle $\phi$ with the distance travelled (assumed here to be in the $z$-direction) is
+
+$$
+\frac{d\phi}{dz} = \frac{-e^3}{2m_e^2\epsilon_0 c\omega^2}n_e B_0
+$$
+
+and the total rotation from the source to the observer is
+
+$$
+\phi=\frac{-e^3}{2m_e^2\epsilon_0 c\omega^2}\int_0^d n_e\mathbf{B}\cdot d\mathbf{s}
+$$
+
+where $d\mathbf{s}$ is along the wave propagation path. The total rotation thus depends on both the dnesity and magnetic field of the medium.
+
+Faraday rotation is an important diagnostic tool both in laboratories and in astronomy. It can be used to obtain information of the magnetic field of the cosmic plasma. Note that density has to be known using other methods. On the other hand, if the magnetic field is known, Faraday rotation can give information of the density.
 
 ## Particle Motions
 
