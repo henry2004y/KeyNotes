@@ -497,8 +497,8 @@ $$ {#eq:stokes}
 which is equivalent to the case where $k^2(\zeta)=-\zeta$ that shows the linear approximation. @eq:stokes, known as the _Airy equation_ or _Stokes equation_, is the simplest second-order linear differential equation with a turning point (a point where the character of the solutions changes from oscillatory to exponential). From the WKBJ theory, we get the solution
 
 $$
-E_{\text{WKBJ}} \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x)dx}
-= \left\{  
+E_{\text{WKBJ}} \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x^\prime)dx^\prime}
+= \left\{
 \begin{array}{rl}
 \zeta^{-1/4}e^{\mp\frac{2}{3}\zeta^{3/2}} & \text{if } \zeta > 0 \\
 (-\zeta)^{-1/4}e^{\pm i \frac{2}{3}(-\zeta)^{3/2}} & \text{if } \zeta < 0
@@ -637,7 +637,7 @@ As an interesting experiment, we can check if $Ai(x)$ is recovered from solving 
 
 Here we start from the right boundary and move towards the left.
 
-Now, to find approximations for Airy functions, we use the method of _steepest descent_. This approximation is based on the assumption that major contribution to the integral is from near the saddle point. As an example of saddle point, consider $e^{-z^2}$, where $z=x+i y$.
+Now, to find approximations for Airy functions, we use the method of _steepest descent_. This approximation is based on the assumption that major contribution to the integral is from near the [saddle point](https://en.wikipedia.org/wiki/Saddle_point). As an example of saddle point, consider a complex function $\exp{f(z)}=e^{-z^2}$, where $z=x+i y$.
 
 * If $z=\text{real} = x$, $e^{-z^2}=e^{-x^2}$;
 * If $z=\text{imag}=iy$, $e^{-z^2}=e^{y^2}$.
@@ -663,7 +663,7 @@ f^{\prime\prime}(t_s)& = -2t_s
 \end{aligned}
 $$
 
-Consider $\zeta>0$ (sol. is either exponentially decay or growing.) Then
+Consider $\zeta>0$ (where the solution is either exponentially decaying or growing.) Then
 
 $$
 \begin{aligned}
@@ -681,7 +681,7 @@ Ai(\zeta) &= \frac{1}{2\pi i} \int_{C_1} dt\ e^{-\frac{2}{3}\zeta^{3/2}+\zeta^{1
 \end{aligned}
 $$
 
-Let $e^{-\rho^2}=e^{\sqrt{\zeta}(t-t_s)^2}$. $\rho=\text{real}$ is the direction of steepest descent, and $\rho=\text{imag}$ is the direction of steepest ascent.
+Let $e^{\sqrt{\zeta}(t-t_s)^2}=e^{-\rho^2}$, where $\rho=\text{real}$ is the direction of steepest descent, and $\rho=\text{imag}$ is the direction of steepest ascent.
 
 $$
 \begin{aligned}
@@ -697,9 +697,9 @@ $$
 Ai(\zeta) &= \frac{1}{2\pi i}e^{-\frac{2}{3}\zeta^{3/2}}\int_{-\infty}^{\infty}\frac{id\rho}{\zeta^{1/4}}e^{-\rho^2} \nonumber \\
 &=\frac{1}{2\sqrt{\pi}\zeta^{1/4}}e^{-\frac{2}{3}\zeta^{3/2}} \text{ as}\ \zeta\rightarrow \infty
 \end{aligned}
-$$
+$$ {#eq:airy_approxi_positive}
 
-The ratio of accuracy is shown in the following table (LABEL???). In practice, it is already a very good approximation when $\zeta>3$. (think of $kL\gg 3$ for WKBJ solution!)
+The ratio of accuracy is shown in the following table (LABEL???). In practice, it is already a very good approximation when $\zeta>3$. (think of $kL\gg 3$ for WKBJ solution! ???)
 
 |$\zeta$ | 1 | 2 | 3 | 6 | $\infty$ |
 |--------|---|---|---|---|---|
@@ -709,11 +709,14 @@ Now, consider $\zeta<0$. When $\zeta\rightarrow-\infty$, we anticipate oscillati
 
 $$
 \begin{aligned}
+&\left\{  
+\begin{array}{rl}
 f(t) &= \zeta t-\frac{1}{3}t^3 = -t|\zeta| - \frac{1}{3}t^3 \\
-f^\prime(t) &= -|\zeta| - t^2 \\
-f^{\prime\prime} &= -2t \\
-\Rightarrow f(t_{s1}) &= i\frac{2}{3}|\zeta|^{3/2} \\
-f^{\prime\prime}(t_{s1}) &= 2i\sqrt{|\zeta|}
+f^\prime(t) &= -|\zeta| - t^2 = 0 \\
+f^{\prime\prime}(t) &= -2t
+\end{array} \right. \\
+\Rightarrow &f(t_{s1}) = i\frac{2}{3}|\zeta|^{3/2} \\
+&f^{\prime\prime}(t_{s1}) = 2i\sqrt{|\zeta|}
 \end{aligned}
 $$
 
@@ -736,9 +739,9 @@ $$
 Ai(\zeta) &\approx \frac{1}{2\pi i} \Big[ e^{i\frac{2}{3}|\zeta|^{3/2}}\int_{-\infty}^{\infty}\frac{e^{i\pi/4}}{|\zeta|^{1/4}}d\rho e^{-\rho^2} - e^{-i\frac{2}{3}|\zeta|^{3/2}}\int_{-\infty}^{\infty}\frac{e^{-i\pi/4}}{|\zeta|^{1/4}}d\rho e^{-\rho^2} \Big] \\
 &= \frac{1}{2\pi i} \Big[ \frac{e^{i\frac{2}{3}|\zeta|^{3/2}+i\pi/4}}{{|\zeta|^{1/4}}} \sqrt{\pi} - \frac{e^{-i\frac{2}{3}|\zeta|^{3/2}-i\pi/4}}{{|\zeta|^{1/4}}} \sqrt{\pi} \Big]
 \end{aligned}
-$$ {#eq:airy_zeta_ls_0}
+$$ {#eq:airy_approxi_negative}
 
-Mathematically, we can proof that
+An interesting application of the gradient descent method is to find [Stirling's approximation](https://en.wikipedia.org/wiki/Stirling%27s_approximation). Mathematically, we can proof that
 
 $$
 n! =\int_0^\infty dt\ e^{-t}t^n = \int_0^\infty dt\ e^{-t+n\ln{t}} \equiv \int_0^\infty dt\ e^{f(t)}
@@ -788,7 +791,7 @@ $$
 -\frac{2}{3}\zeta^{3/2} = i \int_0^x k(x^\prime)dx^\prime
 $$
 
-Note that this yields $\zeta=\zeta(x)$, a known function of x. The branch for $\zeta(x)$ is to be chosen so that for $x>0$, $\zeta$ is real and positive.
+Note that this yields $\zeta=\zeta(x)$, _a known function of x_ (I confuse myself later about $\zeta$ and $x$...). The branch for $\zeta(x)$ is to be chosen so that for $x>0$, $\zeta$ is real and positive.
 
 We next verify that the uniformly valid solution to the standard equation is simply
 
@@ -796,10 +799,13 @@ $$
 E(x) = \frac{1}{\sqrt{\zeta^\prime(x)}}Ai(\zeta)
 $$ {#eq:WKBJ_uniform_valid_sol}
 
-where the prime denotes a derivative. For large values of $\zeta$, we can use the asymptotic formula of $Ai(\zeta)\approx \text{const.}\frac{1}{\zeta^{1/4}}e^{-\frac{2}{3}\zeta^{3/2}}$, and notice that
+where the prime denotes a derivative. For large values of $\zeta$, we can use the asymptotic formula of $Ai$ @eq:airy_approxi_positive, and notice that
 
 $$
-\zeta^\prime(x) = \text{const.}\frac{k(x)}{\zeta^{1/2}}
+\begin{aligned}
+-\zeta^{1/2}\zeta^\prime = ik(x) \\
+\zeta^\prime(x) = -i \frac{k(x)}{\zeta^{1/2}}
+\end{aligned}
 $$
 
 we can see that @eq:WKBJ_uniform_valid_sol reduces to the standard WKBJ solutions for large values of $\zeta$
@@ -810,13 +816,13 @@ $$
 
 We can also show that @eq:WKBJ_uniform_valid_sol is valid for small values of $\zeta$, i.e. near the turning point at $x=0$. (Hint: Near $x=0$, $k^2(x)$ may be approximated by a linear function of $x$. This linear approximation then yields $\zeta(x)$ as a linear function of $x$ according to @eq:WKBJ_uniform_valid_sol.)
 
-_Ex_ Choose a smooth plasma density profile which monotonically increases with $x$ s.t.
+_Ex_. Choose a smooth plasma density profile which monotonically increases with $x$ s.t.
 
 $$
 \frac{\omega_{pe}^2(x)}{\omega^2} = 1 + \tanh{x}
 $$
 
-and launch a wave of frequency $\omega$ from $x=-\infty$, the vacuum region, toward the positive x-direction with $\frac{\omega^2}{c^2} = 10 m^{-2}$. (This is like launching a wave from low $B$ region into high $B$ region.) Numerically integrate the wave equation @eq:ODE_Omode,
+and launch a wave of frequency $\omega$ from $x=-\infty$, the vacuum region, toward the positive $x$-direction with $\frac{\omega^2}{c^2} = 10 \text{m}^{-2}$. (This is like launching a wave from low $B$ region into high $B$ region.) Numerically integrate the wave equation @eq:ODE_Omode,
 
 $$
 \frac{d^2 E}{dx^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2} \Big]E = 0
@@ -824,12 +830,12 @@ $$
 
 from some large positive values of $x$, we get the results in @fig:Omode_sol.
 
-![Comparison between the WKBJ solution, uniformly valid solution and numerical integral solution.](images/WKBJ_sol_Omode.png){#fig:Omode_sol}
+![Comparison between the WKBJ solution, uniformly valid solution and numerical integral solution for the O-mode with monotonically increasing density with $x$.](images/WKBJ_sol_Omode.png){#fig:Omode_sol}
 
-We know that away from $x_t$, WKBJ solution works. To the left of $x_t$ (with $\zeta<-3$), @eq:airy_zeta_ls_0 gives
+We know that away from $x_t$, WKBJ solution works. To the left of $x_t$ (with $\zeta<-3$), @eq:airy_approxi_negative gives
 
 $$
-Ai(\zeta) = \frac{1}{\sqrt{\pi}|\zeta|^{1/4}}\frac{1}{2i}\Big[ e^{i \frac{2}{3}|\zeta|^{3/2}+i\frac{\pi}{4}} - e^{-\frac{2}{3}|\zeta|^{3/2}-i\frac{\pi}{4}} \Big]
+Ai(\zeta) = \frac{1}{2i\sqrt{\pi}|\zeta|^{1/4}}\Big[ e^{i \frac{2}{3}|\zeta|^{3/2}+i\frac{\pi}{4}} - e^{-\frac{2}{3}|\zeta|^{3/2}-i\frac{\pi}{4}} \Big]
 $$
 
 Choose the branch s.t. $\zeta{x}>0$ if $x>x_t$; $\zeta(x)<0$ if $x<x_t$.
@@ -861,32 +867,52 @@ is the reflection coefficient at $x=a$.
 
 ### Stokes Phenomenon
 
-_Ex_
+In complex analysis the [Stokes phenomenon](https://en.wikipedia.org/wiki/Stokes_phenomenon) is that the asymptotic behavior of functions can differ in different regions of the complex plane, and that these differences can be described in a quantitative way.
+
+_Ex_. For the simple wave equation
+
+$$
+\frac{d^2 E}{dz^2} - E = 0
+$$
+
+the solution can be given in various forms
 
 $$
 \begin{aligned}
-\frac{d^2 E}{dz^2} - E = 0,\ E=e^z,e^{-z},\cosh{z},\sinh{z} \\
-E = \cosh{z}=\frac{1}{2}(e^z+e^{-z});\ E\sim\frac{1}{2}e^z, z\rightarrow\infty, E\sim\frac{1}{2}e^{-z},z\rightarrow -\infty \\
-E = \sinh{z}=\frac{1}{2}(e^z-e^{-z});\ E\sim\frac{1}{2}e^z, z\rightarrow\infty, E\sim\frac{-1}{2}e^{-z},z\rightarrow -\infty \\
-E = \frac{1}{2}e^z;\ E\sim\frac{1}{2}e^z, z\rightarrow\infty, E\sim\frac{1}{2}e^{z},z\rightarrow -\infty
+E=e^z,e^{-z},\cosh{z},\sinh{z} \\
+E = \cosh{z}=\frac{1}{2}(e^z+e^{-z}) \Rightarrow
+\left\{
+\begin{array}{rl}
+&E\sim\frac{1}{2}e^z\, z\rightarrow\infty \\
+&E\sim\frac{1}{2}e^{-z}\, z\rightarrow-\infty
+\end{array} \right. \\
+E = \sinh{z}=\frac{1}{2}(e^z-e^{-z}) \Rightarrow
+\left\{
+\begin{array}{rl}
+&E\sim\frac{1}{2}e^z\, z\rightarrow\infty \\
+&E\sim\frac{-1}{2}e^{-z}\, z\rightarrow-\infty
+\end{array} \right.
 \end{aligned}
 $$
 
-Note that if a solution is exponentially growing in one direction, its asymptotic solution can contain an arbitrary amount of the exponentially decaying solution. That is, specifying an asymptotic growing solution in one direction cannot completely specify the solution in the entire complex plane.
+Note that if a solution is exponentially growing in one direction, its asymptotic solution can contain an arbitrary amount of the exponentially decaying solution; that is, specifying an asymptotic growing solution in one direction cannot completely specify the solution in the entire complex plane.
 
-The approximate solution to Airy @eq:stokes is the Airy function approximation from WKBJ method:
+The two linearly independent approximate solutions to Airy @eq:stokes are the Airy function approximations from WKBJ method:
 
 $$
 \begin{aligned}
 &\frac{d^2 E}{d\zeta^2} - \zeta E = 0 \\
-\Rightarrow E(\zeta) = &Ai(\zeta) \sim \frac{1}{2\sqrt{\pi}\zeta^{1/4}}e^{-\frac{2}{3}\zeta^{3/2}},\quad \zeta>0 \notag\\
+\Rightarrow &E(\zeta) = \left\{
+\begin{array}{rl}
+&Ai(\zeta)\sim \frac{1}{2\sqrt{\pi}\zeta^{1/4}}e^{-\frac{2}{3}\zeta^{3/2}},\quad \zeta>0 \\
 &Bi(\zeta)\sim \frac{1}{2\sqrt{\pi}\zeta^{1/4}}e^{\frac{2}{3}\zeta^{3/2}},\quad \zeta>0
+\end{array} \right. \\
 \end{aligned}
 $$
 
 which is very accurate for $\zeta>3$ (see previous section).
 
-Stokes found that you can add an arbitrary amount of $Ai(\zeta)$ to $Bi(\zeta)$ without changing the behaviour of solution. ($Ai(\zeta)<O(\frac{1}{\zeta})$)
+Stokes found that you can add an arbitrary amount of $Ai(\zeta)$ to $Bi(\zeta)$ without changing the behaviour of solution. ($Ai(\zeta)<O(\zeta^{-1})$???)
 
 We want to find $\zeta$ s.t. $E_{\text{WKBJ}}$ is purely growing/decaying exponentially:
 
@@ -896,13 +922,13 @@ $$
 \end{aligned}
 $$
 
-The lines in complex plane on which WKBJ solution is purely growing/decaying exponentially is called _Stokes line_ (@fig:stokes_line). It is accompanied with _anti-Stokes line_ (in the opposite direction to Stokes line), on which WKBJ solution is purely oscillatory. The exponentially growing solution on Stokes line is called the _dominant solution_; the decaying solution on Stokes line is called the _sub-dominant/recessive solution_. The sub-dominant solution will always becomes dominant in neighboring Stokes line. However, the inverse is not true. (It may contain an amount of sub-dominant solution.) Each term changes from dominant to subdominant, or the reverse, when $\zeta$ crosses an anti-Stokes line???
+The lines in the complex plane on which WKBJ solution is purely growing/decaying exponentially are called _Stokes lines_ (@fig:stokes_line). It is accompanied with _anti-Stokes lines_ (in the opposite direction to Stokes lines), on which WKBJ solution is purely oscillatory. The exponentially growing solution on Stokes lines is called the _dominant solution_; the decaying solution on Stokes lines is called the _sub-dominant/recessive solution_. The sub-dominant solution will always becomes dominant in a neighboring Stokes line. However, the inverse is not true. (It may contain an amount of sub-dominant solution.) Each term changes from dominant to subdominant, or the reverse, when $\zeta$ crosses an anti-Stokes line???
 
 ![Stokes lines and anti-Stokes lines for WKBJ solution of Airy Equation.](images/StokesLine.png){#fig:stokes_line}
 
 Even though we say "arbitrary", the analytic solution in the whole complex plane possess a limit on that amount. The next question would be: how much exponentially decaying solution can you add to the exponentially growing solution? (Note that the asympotic series is also a divergent series: more terms don't lead to high resolution accuracy! I have questions on this part???)
 
-For the asymptotic approximation solution of Airy Equation @eq:stokes, we need to define $\arg(\zeta)$ properly to make it single value. Let us choose the branch cut $-\pi\le\arg{\zeta}<\pi$. The complex plane is demonstrated in @fig:stokes_line_Zplane.
+For the asymptotic approximation solution of Airy @eq:stokes, we need to define $\arg(\zeta)$ properly to make it single value. Let us choose the branch cut $-\pi\le\arg{\zeta}<\pi$. The complex plane is demonstrated in @fig:stokes_line_Zplane.
 
 ![Marked Stokes lines and regions for Airy solution.](images/StokesLine_Zplane.png){#fig:stokes_line_Zplane}
 
@@ -973,6 +999,491 @@ $$
 All three Stokes constants are $i$. For the Airy equation, the amount of exponentially decaying solution you can have going from one Stokes line to another is restricted to $i$ in counter-clockwise direction.
 
 ### Application of Stokes Lines {#sec:stokes_application}
+
+_Ex_.1 Reflection Coefficient from Stokes Constant ???
+
+_Ex_.2 O-mode
+
+For EM O-mode wave in a non-magnetized plasma, the governing @eq:ODE_Omode is rewritten here
+
+$$
+\frac{d^2 E}{dz^2} +k^2 E = 0,\quad k^2 = \frac{\omega^2}{c^2}\Big[ 1-\frac{{\omega_p}^2(z)}{\omega^2} \Big]
+$$
+
+Let the turning point be $z=z_t$. Near $z_t$, let $k^2(z)=-p^2(z)(z-z_t)$ (@fig:Omode_sol), where $p(z)$ is real and positive for all real $z$. Then
+
+$$
+k=\pm i p(z)(z-z_t)^{1/2}
+$$
+
+In the following we need to choose sign s.t. $k$ is real and positive on the anti-Stokes line $AS_1$. (The figure of complex z plane is the same as @fig:stokes_line_Zplane except that the center point is $z=z_t$. $AS_1$ is the dashed line.)
+
+To make $z$ single value, define $-\pi\le\arg{(z-z_t)}<\pi$. On $AS_1$,
+
+$$
+\begin{aligned}
+k &= \pm ip(z)|z-z_t|^{1/2} e^{i\frac{\pi}{2}} \\
+&=\mp|p(z)(z-z_t)|^{1/2} \\
+&=\mp |k|
+\end{aligned}
+$$
+
+We choose the second sign for right propagating wave, which has
+
+$$
+k=-ip(z)(z-z_t)^{1/2}
+$$
+
+The sign is important here because it determines the propagation direction.
+
+For $z$ on $S_1$, $\arg{(z-z_t)} = 0$.
+
+$$
+k=-ip(z)|z-z_t|^{1/2}e^{i\frac{1}{2}0}=-i|k|
+$$
+
+In region I (between $S_1$ and $S_2$)
+
+$$
+E_I \sim \frac{1}{\sqrt{k}}e^{-i\omega t\pm i\int_{z_t}^{z}kdz^\prime}\sim \frac{1}{\sqrt{k}}e^{-i\omega t\pm \int_{z_t}^z |k|dz^\prime}
+$$
+
+For a decaying (subdominant) solution we must use minus (lower) sign, so
+
+$$
+E_I \sim E_{S_1} \sim \frac{1}{\sqrt{k}}e^{-i\omega t- \int_{z_t}^z kdz^\prime}
+$$
+
+Crossing $S_2$ into region $II_{up}$,
+
+$$
+E_{S_2} \sim\frac{1}{\sqrt{k}}e^{-i\omega t}\Big[ \underbrace{e^{-i\int_{z_t}^z k dz^\prime}}_{\text{dominant on } S_2} + \underbrace{i e^{i\int_{z_t}^z kdz^\prime}}_{\text{sub-dominant on }S_2} \Big] = E_{AS_1}
+$$
+
+where the first term represents the reflected wave, and the second term represents the incident wave. Since the magnitude of the incident and reflected wave is the same, the reflection coefficient should be 1, and the absorption coefficient should be 0. (In fact, there is a transmitted wave that is exponentially decay. WKBJ method cannot resolve this exponentially small value.)
+
+_Ex_.3 Bohr-Sommerfield Quantization Rule
+
+This is the classical potential well problem, where the two boundaries are $z=z_1$ and $z=z_2$.
+
+![Potential well.](images/Potential_well.png){#fig:potential_well}
+
+Schrödinger equation reads
+
+$$
+\frac{d^2\Psi}{dz^2} - \frac{2m}{{\hbar}^2}\big[ E-V(z)\big]\Psi = 0
+$$
+
+Imagine there is an potential well between $z_1$ and $z_2$ shown in @fig:potential_well: what are the allowable energy state?
+
+In this case, $k^2 = -\frac{2m}{{\hbar}^2}\big[ E-V(z)\big]$. Wave travelling to the right has positive $k(z)$, while wave travelling to the left has negative $k(z)$. Following the discussion of reflection coefficient,
+
+$$
+\begin{aligned}
+R =  i e^{-2i \int_{0}^{z_2}k(z^\prime)dz^\prime} \\
+R^\prime =  i e^{+2i \int_{0}^{z_1}k(z^\prime)dz^\prime}
+\end{aligned}
+$$
+
+For waves bouncing back and forth inside the well, we must have
+
+$$
+\begin{aligned}
+RR^\prime = 1 \\
+\Rightarrow (-1)e^{-2i \int_{z_1}^{z_2}kdz^\prime} = 1 \\
+\Rightarrow \int_{z_1}^{z_2}k(z^\prime)dz^\prime = \pi (n+\frac{1}{2}),\ n=0,1,2,3,...
+\end{aligned}
+$$
+
+which is called the _Bohr-Sommerfield quantization rule_.
+
+Another way to do this problem is by recognizing the Stokes and anti-Stokes lines in the complex z plane and match the solution in the whole domain. Figure needed!!! As the opposite in HW8.1%k2 .vs. z , Stokes line
+
+$$
+k^2 = -\frac{2m}{{\hbar}^2}\big[ E-V(z)\big] \equiv -p^2(z)(z-z_1)(z-z_2)
+$$
+
+where for large z, we must choose a minus sign in front of $p(z)$ for $p(z)$ to be real and positive. So
+
+$$
+k = \pm i p(z)(z-z_1)^{1/2}(z-z_2)^{1/2}
+$$
+
+Then for a single-value solution, pick
+
+$$
+\begin{aligned}
+-\pi\le\arg{(z-z_1)}<\pi \\
+-\frac{\pi}{2}\le\arg{(z-z_2)}<\frac{3\pi}{2}
+\end{aligned}
+$$
+
+For $z$ on $AS_1$,
+
+$$
+k(z) = \pm ip(z)|z-z_1|^{1/2} e^{i\frac{1}{2}\cdot0}\cdot |z-z_2|^{1/2}e^{i\frac{1}{2}\cdot \pi} = \pm i |k|e^{i\frac{1}{2}\pi} = \mp |k|
+$$
+
+For a real and positive $k$ (right-traveling wave), we must choose the lower sign $+$, so
+
+$$
+k =- i p(z)(z-z_1)^{1/2}(z-z_2)^{1/2}
+$$
+
+For $z$ on $S_1$,
+$$
+k =- i p(z)|z-z_1|^{1/2}|z-z_2|^{1/2}= -i |k|
+$$
+
+For $z$ on $S_4$,
+
+$$
+k =- i p(z)|z-z_1|^{1/2}e^{i\frac{1}{2}\pi}|z-z_2|^{1/2}e^{i\frac{1}{2}\pi}= i |k|
+$$
+
+So
+
+$$
+k(z) = 
+\begin{cases}
+-i|k| & z>z_2 \\
+|k| & z_1<z<z_2 \\
+i|k| & z<z_1
+\end{cases}
+$$ {#eq:well_k}
+
+On $S_1$,
+
+$$
+\Psi_{E_{S_1}} \sim \frac{1}{\sqrt{k}}e^{\pm i \int_{z_2}^{z} kdz^\prime} = \frac{1}{\sqrt{k}}e^{-i\int_{z_2}^{z}kdz^\prime}
+$$
+
+such that this is sub-dominant on $S_1$ ($k=-i|k|$). 
+
+Crossing $S_2$ into region I, we have
+
+$$
+\Psi_I \sim \frac{1}{\sqrt{k}}\Big\{ \underbrace{e^{-i\int_{z_2}^z kdz^\prime}}_{\text{dominant on }S_2} + i\underbrace{e^{+i\int_{z_2}^z kdz^\prime}}_{\text{subdominant on }S_2} \Big\}
+$$ {#eq:psi_I_1}
+
+On $S_4$,
+
+$$
+\Psi_{S_4}\sim \frac{1}{\sqrt{k}}e^{\pm i \int_{z_1}^z kdz^\prime} \sim \frac{1}{\sqrt{k}}e^{-i\int_{z_1}^z kdz^\prime},
+$$
+
+where minus sign is chosen s.t. it is subdominant on $S_4$.
+
+Crossing $S_3$ into region I in the clockwise direction, we have
+
+$$
+\begin{aligned}
+\Psi_I &\sim \Big\{ \underbrace{e^{-i\int_{z_1}^z kdz^\prime}}_{\text{dominant on }S_3} - i\underbrace{e^{+i\int_{z_1}^z kdz^\prime}}_{\text{subdominant on }S_3} \Big\} \\
+&= \frac{1}{\sqrt{k}}\Big\{ e^{-i\int_{z_2}^z kdz^\prime}\cdot e^{-i\int_{z_1}^{z_2}kdz^\prime} - ie^{i\int_{z_2}^z kdz^\prime}\cdot e^{i\int_{z_1}^{z_2}kdz^\prime} \Big\}
+\end{aligned}
+$$ {#eq:psi_I_2}
+
+Because the solution is analytic, @eq:psi_I_1 and @eq:psi_I_2 should be equal, therefore
+
+$$
+\begin{aligned}
+&\frac{1}{e^{-i\int_{z_1}^{z_2}kdz^\prime}} = \frac{i}{-ie^{i\int_{z_1}^{z_2}kdz^\prime}} \\
+\Rightarrow& e^{2i\int_{z_1}^{z_2}kdz^\prime} = -1 = e^{i(\pi+2n\pi)},\quad n=0,1,2,3,... \\
+\Rightarrow& \int_{z_1}^{z_2}kdz^\prime = (\frac{1}{2}+n)\pi,\quad n=0,1,2,3,...
+\end{aligned}
+$$
+
+_Ex_.4 Tunneling Problem
+
+Instead of a potential well, now we consider another classical tunneling problem, where $E>V$ if $z_1<z<z_2$.
+
+$$
+k^2(z) = \pm p^2(z)(z-z_1)(z-z_2) = p^2(z)(z-z_1)(z-z_2)
+$$
+
+where the plus sign is chosen s.t. $p(z)$ is real and positive for all real z, and then
+
+$$
+k = p(z)(z-z_1)^{1/2}(z-z_2)^{1/2}
+$$
+
+Define arguments as follows
+
+$$
+0\le \arg{z-z_2} < 2\pi,\quad -\pi<\arg{z-z_1} \le \pi
+$$
+
+to remove the ambiguity in the branch in the expression of $k$.
+
+Since $z=z_1$, $z=z_2$ are simple turning points (with different slope in linear approximation), the Stokes and anti-Stokes lines are shown in Figure needed!!!
+
+The branch cut defined as above give the following values of $k$ on the real $z$ axis:
+
+$$
+k(z) = 
+\begin{cases}
+|k| & z>z_2 \\
+i|k| & z_1<z<z_2 \\
+-|k| & z<z_1
+\end{cases}
+$$ {#eq:tunnel_k}
+
+On $AS_1$, the solution
+
+$$
+E\sim \frac{1}{\sqrt{k}}e^{-i\omega t+i \int_{z_2}^z kdz^\prime}
+$$ {#eq:tunnel_AS1}
+
+represents the outgoing wave propagating to $z=\infty$.
+
+On $S_2$, solution @eq:tunnel_AS1 behaves like $E\sim e^{\int_b^z |k|dz^\prime}$ which is dominant on $S_2$
+with respect to $z=z_2$. Thus, on $S_1$, it is subdominant.
+
+On crossing $S_1$ from $AS_1$, solution @eq:tunnel_AS1 remains valid. In fact, it is valid in the region bounded by $S_1$, $S_2$ and $S_3$. Note that it is subdominant on $S_2$ with respect to $z=z_1$ (because we just showed that it is dominant on $S_2$ with respect to $z=z_2$). Thus, we rewrite the solution as
+
+$$
+E\sim \frac{1}{\sqrt{k}}e^{-i\omega t + i\int_{z_2}^{z_1} kdz^\prime}\cdot \underbrace{e^{i\int_{z_1}^z kdz^\prime}}_{\text{subdominant on }\ S_2 w.r.t\ z=a}
+$$
+
+which becomes dominant on $S_3$. Upon crossing $S_3$, this solution becomes
+
+$$
+E\sim \frac{1}{\sqrt{k}}e^{-i\omega t + i\int_{z_2}^{z_1} kdz^\prime} \big[ \underbrace{e^{i\int_{z_1}^z kdz^\prime}}_{\text{dominant on }S_3} + \underbrace{ie^{-i\int_{z_1}^z kdz^\prime}}_{\text{subdominant on }S_3}  \big]
+$$
+
+where we pick up the Stokes constant $i$ and the subdominant solution, represented by the last term of the solution.
+
+Now, this is the solution on $AS_4$ ($z<z_1$). Referring to @eq:tunnel_k, we see that the first term of the solution represents the reflected wave, and the second term the incident wave from $z=-\infty$. Since the incident wave and reflected wave have equal amplitude, we have
+
+$$
+|R|^2 = 1
+$$
+
+The transmitted wave has unit amplitude (see Eq.(\ref{eq:tunnel_AS1})). The incident wave has amplitude $e^{i\int_a^b kdz^\prime}(i)$. Thus,
+
+$$
+|T|^2 = \frac{1}{\big| e^{i\int_{z_1}^{z_2} kdz^\prime}(i) \big|^2} = \frac{1}{\big| e^{i\int_{z_1}^{z_2} i|k|dz^\prime}(i) \big|^2}  = e^{-2\int_{z_1}^{z_2} |k|dz}
+$$
+
+where $z_1,z_2$ are far apart, i.e. $|T|^2$ is exponentially small.
+
+Note: $|R|$ and $|T|$ above are not valid if $z_1,z_2$ are close to each other. The correct transmission coefficient, for general valies of $z_1,z_2$ is
+
+$$
+|T|^2 = \frac{e^{-2\int_{z_1}^{z_2} |k|dz}}{1+e^{-2\int_{z_1}^{z_2} |k|dz}}
+$$
+
+and the reflection coefficient is
+
+$$
+|R|^2 = 1- |T|^2
+$$
+
+_Ex_.5 Two waves: one is launched from $z=+\infty$, incident onto a resonant layer at $z=a (a>0)$, and the other launched from $z=-\infty$, incident onto a absorption layer at $z=0$, with the model equation
+
+$$
+\frac{d^2 E(z)}{dz} + {k_0}^2 \Big( \frac{z}{z-a}\Big) E(z) = 0
+$$
+
+This looks like a similar case for ECRH.
+
+$$
+k^2(z) =  {k_0}^2 \Big( \frac{z}{z-a}\Big) \Rightarrow k(z) = k_0 z^{1/2}(z-a)^{-1/2}
+$$
+
+where $k_0$ is real and positive.
+
+Define arguments as follows
+
+$$
+-\frac{3\pi}{2}\le \arg{z} < \frac{\pi}{2},\quad -\frac{3\pi}{2}<\arg{z-a} \le \frac{\pi}{2}
+$$
+
+to remove the ambiguity in the branch in the expression of $k$.
+
+For $z$ on $AS_1$,
+
+$$
+k = k_0 |z|^{1/2}e^{-\frac{1}{2}0}|z-a|^{-1/2}e^{i\frac{1}{2}0} = |k|
+$$
+
+For $z$ on $S_1$,
+
+$$
+k = k_0 |z|^{1/2}e^{-\frac{1}{2}0}|z-a|^{-1/2}e^{i\frac{1}{2}\pi} = i|k|
+$$
+
+For $z$ on $AS_2$,
+
+$$
+k = k_0 |z|^{1/2}e^{i\frac{1}{2}(-\pi)}|z-a|^{-1/2}e^{i\frac{-1}{2}(-\pi)} = |k|
+$$
+
+Then the branch cut defined as above give the following values of $k$ on the real $z$ axis:
+
+$$
+k(z) = 
+\begin{cases}
+|k| & z>a \\
+i|k| & 0<z<a \\
+|k| & z<0
+\end{cases}
+$$ {#eq:tunnel_k2}
+
+For wave launched from large magnetic field side $z=+\infty$ going to $z=-\infty$ on $AS_3$, the solution on $AS_3$ is (Note that even though $z$ is negative, it is the upper limit of the integral and k is positive. It took me a long time to get the right sign here for a left propagating wave.)
+
+$$
+E\sim \frac{1}{\sqrt{k}}e^{-i\omega t- i \int_0^z kdz^\prime}
+$$
+This solution behaves like
+
+$$
+E\sim  \frac{1}{\sqrt{k}} e^{-i\omega t- i \int_0^z i|k|dz^\prime} \sim \frac{1}{\sqrt{k}} e^{-i\omega t + \int_0^z |k|dz^\prime}
+$$ {#eq:wave_AS3}
+
+on $S_1$. Thus, it is dominant on $S_1$ with respect to $z=0$; it is subdominant on the neighboring Stokes line $S_2$. Thus solution @eq:wave_AS3 remains valid upon crosing Stokes line $S_2$. It is the solution in region I, bounded by $S_1$ and $S_2$. Since it is dominant on $S_1$ with respect to $z=0$, it is subdominant on $S_1$ with respect to $z=a$. So we can write it as
+
+$$
+E \sim \frac{1}{\sqrt{k}}e^{-i\omega t - i\int_0^a kdz^\prime}\cdot \underbrace{e^{-i\int_a^z kdz^\prime}}_{\text{subdominant on }\ S_1\ w.r.t.\ z=a}
+$$
+
+which is also the incident wave from $z=0$. This is the solution in region I as well as on $AS_1$ ($k=|k|$). So it is the incident wave solution from $z=\infty$. The reflection coefficient must be 0!
+
+The transmisson coefficient is then
+
+$$
+\begin{aligned}
+|T|^2 &= \Big| \frac{E(z=-\infty)}{E(z=\infty)} \Big|^2 = \frac{1}{|e^{-i\int_0^a kdz}|^2} \notag \\
+&= e^{-2\int_0^a |k| dz} = e^{-2\int_0^a k_0 \sqrt{\frac{z}{a-z}}dz}
+\end{aligned}
+$$
+
+Let $z=a\sin^2\theta$, we can finally have
+
+$$
+|T|^2 = e^{-k_0 a\pi}
+$$
+
+The fraction of power absorbed by resonance is
+
+$$
+1-|R|^2 - |T|^2 = 1-e^{-k_0 a \pi}
+$$
+
+Note: these expressions of $|T|^2, \ |R|^2$ are valid even if $a$ is small.
+
+For wave launched from low magnetic field side $z=-\infty$,
+
+$$
+E_{AS_1} \sim\frac{1}{\sqrt{k}}e^{-i\omega t + i \int_a^z kdz^\prime}
+$$
+
+On $S_1$, a subdominant (decaying) solution with respect to $z=0$ is
+
+$$
+E_{S_1}\sim \frac{1}{\sqrt{k}}e^{-i\omega t+i\int_0^z i|k|dz^\prime}
+$$
+
+In regions I bounded by $S_1,\ S_2$ and $AS_1$,
+
+$$
+E_I \sim E_{S_1}\frac{1}{\sqrt{k}}e^{i\int_a^0 kdz^\prime}\cdot e^{i\int_0^z kdz^\prime}
+$$
+
+$E_{S_1}$ is dominant on $S_1$ with respect to $z=a$, but is subdominant on $S_1$ with respect to $z=0$.
+
+Crossing $S_2$ into $AS_2$,
+
+$$
+E_{AS_2}\sim \frac{1}{\sqrt{k}}e^{-i\omega t}\cdot e^{i\int_a^0 kdz^\prime}\Big[ \underbrace{e^{i\int_0^z kdz^\prime}}_{\text{dominant on }S_3} - i \underbrace{e^{-i\int_0^z kdz^\prime}}_{\text{subdominant on }S_3} \Big],
+$$
+
+where the first term represents the reflected wave, and the second term represents the incident wave.
+
+The transmission coefficient is 
+
+$$
+\begin{aligned}
+T &= \Big| \frac{E(z=\infty)}{E(z=-\infty)} \Big| \\
+&=\Big|\frac{\sqrt{k(-\infty)}}{\sqrt{k(\infty)}} \Big| \Big| \frac{e^{i\int_a^\infty kdz}}{e^{i\int_a^0 kdz}\cdot e^{i\int_0^{-\infty} kdz}} \Big| \\
+&=\frac{1}{\big| e^{i\int_a^0 i|k|dz} \big|} = e^{-\int_0^a |k|dz}
+\end{aligned}
+$$
+
+Then the transmission coefficient in power is
+
+$$
+T^2 = e^{-2\int_0^a k \sqrt{|\frac{z}{z-a}|}dz^\prime } = e^{-k_0 a \pi}
+$$
+
+where the last equivalence requires some transformation tricks. If $a\sim\lambda, k_0 = 2\pi/\lambda$, the transmitted power fraction is on the order of $e^{-20}\sim 10^{-9}$.
+
+The reflection coefficient is zero and that the transmission coefficient (in power) is $T=e^{-k_0 a\pi}$. Thus, the fraction $1-T$ of the incident power is absorbed by that resonant layer.
+
+### "Exact" WKBJ Solution
+
+* Shielding or tunneling
+
+If you have a high density region between $x_1$ and $x_2$,
+
+$$
+k^2(x) = \frac{\omega^2}{c^2}\big[ 1-\frac{{\omega_p}^2(x)}{\omega^2}\big]
+$$
+
+The transmission coefficient in power is
+
+$$
+|T|^2 = \frac{e^{-2\int_{x_1}^{x_2}|k|dx}}{1+e^{-2\int_{x_1}^{x_2}|k|dx}}
+$$
+
+and the reflection coefficient in power is
+
+$$
+|R|^2 = \frac{1}{1+e^{-2\int_{x_1}^{x_2}|k|dx}}
+$$
+
+Note:
+
+  * $|R|^2+|T|^2 = 1$
+  * When $x_1=x_2$, i.e. $\omega^2 = {\omega_p}^2(\text{peak})$, $|R|^2=|T|^2=\frac{1}{2}$.
+
+* ECRH
+
+$$
+\frac{d^2E}{dz^2} + {k_0}^2\Big( \frac{z}{z-a}\Big)E = 0
+$$
+
+where
+
+$$
+k^2(z) = {k_0}^2\Big( \frac{z}{z-a}\Big)
+$$
+
+(I) Incident wave from $z=-\infty$ (from low $B_0$ side)
+
+$$
+\begin{aligned}
+|R| &= 1 - e^{-\pi k_0 a} \\
+|T| &= e^{-\frac{1}{2}\pi k_0 a} \\
+|R|^2 + |T|^2 &= 1-e^{-\pi k_0 a} + e^{-2\pi k_0 a} <1
+\end{aligned}
+$$
+
+(II) Incident wave from $z=\infty$
+
+$$
+\begin{aligned}
+|R| &= 0 \\
+|T| &= e^{-\pi k_0 a/2} \\
+|R|^2 + |T|^2 &= e^{-\pi k_0 a} < 1
+\end{aligned}
+$$
+
+which means almost perfect absorption at $z=a$.
+
+Note: These formulas are valid even if $a\rightarrow0$, in which limit $|R|\rightarrow 0,\ |T|\rightarrow 1$, for both (I) and (II), as expected from the model equation.
+
+Singularity in refractive index $n$ can lead to absorption, even without collision.
 
 ## Normalization
 
