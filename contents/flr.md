@@ -9,7 +9,7 @@ Before 1950s, no people thought about the idea of standing waves in space simply
 * Ground observations have shown discrete frequencies for EM wave power. In the magnetosphere the Alfvén speed is typically $\sim 1000\,\text{km/s}$, while typical periods of geomagnetic pulsations are 10-600 s. Thus typical wavelengths are $10^4-10^6\,\text{km}$, or $1-100\,\text{R}_E$, comparable with the size of the magnetosphere itself. So uniform plasma theory is clearly inadequate.
 * In the 1950s people realized that MHD waves of poloidal and toroidal modes can be coupled, and if we thought the modes as standing waves, we might explain the discrete frequencies. However, good agreements were not found because there were poor estimates of the magnetospheric plasma density.
 * In the 1960s, [Sugiura 1961] showed that waves are observed simultaneously at both ends of the same field line, which indicated that the waves were guided. [Nagata+ 1963] showed pulsations at conjugate points could be matched cycle for cycle. The phase comparison could indicate the possible harmonics of standing waves. [Patel 1965] reported discovery of both transverse and compressional waves in space from Explorer 12 magnetometer data that are correlated with ground measurements, confirming that they were the same. [Cummings+ 1969] showed long-lived and frequent waves with nice numerical comparison of their periods from the poloidal and toroidal mode equations.
-* In the 1970s a simpler box model was proposed to explain field line resonance, and the discrete frequencies are treated as sources that reflect the properties of the magnetopause thickness with a preferred KHI growth rate.
+* In the 1970s a simpler box model was proposed to explain field line resonance. The idea of standing waves could not explain why only some field lines are preferentially excited (with the foot point of the field line near magnetic latitude $70^o$). In the box model, discrete frequencies are treated as sources that reflect the properties of the magnetopause thickness with a preferred KHI growth rate.
 * In the 1980s the cavity model was proposed to link the discrete frequencies to the eigenmodes if we treated the magnetosphere as a cavity.
 * In the 1990s the waveguide model was proposed based on the cavity idea to loose the constrain in the azimuthal direction.
 
@@ -200,14 +200,14 @@ B_{1x} &= \frac{1}{\omega}(- k_z E_y) \\
 B_{1y} &= \frac{1}{\omega}(k_z E_x) \\
 B_{1z} &= \frac{1}{\omega}\Big(-i\frac{\partial E_y}{\partial x} - k_y E_x\Big)
 \end{aligned}
-$$
+$$ {#eq:flr_faraday_linear}
 
-Substituting into @eq:flr_momentum gives
+Substituting @eq:flr_faraday_linear into @eq:flr_momentum gives
 
 $$
 \begin{aligned}
 -i \omega \rho \mu_0 \frac{E_y}{B} = -\frac{\partial}{\partial x}\Big[ B  \frac{1}{\omega}\Big(-i\frac{\partial E_y}{\partial x} - k_y E_x\Big) \Big] + i k_z B \frac{-k_z}{\omega} E_y \\
--i \big( \omega^2 \rho \mu_0 / B^2 - k_z^2 \big)E_y = k_y \frac{\partial E_x}{\partial x} - i \frac{\partial E_y}{\partial x^2}
+-i \big( \omega^2 \rho \mu_0 / B^2 - k_z^2 \big)E_y = k_y \frac{\partial E_x}{\partial x} - i \frac{\partial^2 E_y}{\partial x^2}
 \end{aligned}
 $$
 
@@ -222,7 +222,7 @@ Let $R^2 = \mu_0 \rho(x) \omega^2 / B^2 = \omega^2/V_A(x)^2$, we have
 
 $$
 \begin{aligned}
--i (R^2 - k_z^2)E_y = k_y \frac{\partial E_x}{\partial x} - i \frac{\partial E_y}{\partial x^2} \\
+-i (R^2 - k_z^2)E_y = k_y \frac{\partial E_x}{\partial x} - i \frac{\partial^2 E_y}{\partial x^2} \\
 (R^2 - k_y^2 -k_z^2)E_x + i k_y\frac{\partial E_y}{\partial x} = 0
 \end{aligned}
 $$ {#eq:flr_ex_ey}
@@ -303,7 +303,7 @@ R^2 - k_z^2 - k_y^2 &= \alpha^2(x-x_t)
 \end{aligned}
 $$
 
-where $x_r = k_z^2/\alpha^2$, $x_t = x_r + k_y^2/alpha^2$, we have
+where $x_r = k_z^2/\alpha^2$, $x_t = x_r + k_y^2/\alpha^2$, we have
 
 $$
 \frac{\partial^2 B_{1z}}{\partial x^2} - \frac{1}{x-x_r}\frac{\partial B_{1z}}{\partial x} + \alpha^2(x-x_t)B_{1z} = 0
@@ -529,3 +529,5 @@ and the characteristics of the magnetopause were maintained.
 ![From Wright 1992.](images/FLR_waveguides_Wright.png){#fig:flr_wright}
 
 ![From [@samson1992field].](images/FLR_waveguides_Samson.png){#fig:flr_samson}
+
+## 3D FLR
