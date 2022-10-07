@@ -33,7 +33,7 @@ Under this symmetry, the variables can be separated into two independent sets re
 
 * Toroidal variables
 
-$B_{1\phi}, E_r, E_\theta, u_\phi, j_r, j_\theta;\, \nabla\cdot\mathbf{v} = \frac{1}{r\sin\theta}\frac{\partial u_\phi}{\partial \phi}\equiv 0$ (incompressible)
+$B_{1\phi}, E_r, E_\theta, u_\phi, j_r, j_\theta;\, \nabla\cdot\mathbf{u} = \frac{1}{r\sin\theta}\frac{\partial u_\phi}{\partial \phi}\equiv 0$ (incompressible)
 
 * Poloidal variables
 
