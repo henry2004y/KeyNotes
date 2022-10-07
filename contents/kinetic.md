@@ -56,6 +56,8 @@ $$
 
 one easily verifies that the integral of $\hat{f}_m$ over $dv_x dv_y dv_z$ is unity.
 
+A common question to ask is: why do we see Maxwellian/Gaussian/normal distribution ubiquitously in nature? Well, this is related to the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem): in many situations, when independent random variables are summed up, their properly normalized sum tends toward a normal distribution even if the original variables themselves are not normally distributed (e.g. a biased coin which give 95% head and 5% tail). 
+
 There are several average velocities of a Maxwellian distribution that are commonly used. The root-mean-square velocity is given by
 
 $$
@@ -89,7 +91,7 @@ $$
 |\bar{v}_x| = \int |v_x|\hat{f}_m(\mathbf{v})d^3 v = \pi^{-1/2}v_{th} = (2k_B T/\pi m)^{1/2}
 $$
 
-To summarize: For a Maxwellian,
+To summarize: for a Maxwellian,
 
 $$
 \begin{aligned}
