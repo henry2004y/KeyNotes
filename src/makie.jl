@@ -260,7 +260,59 @@ function plot_b1z_ode()
    axislegend(ax; position=(0.25,1.0), framevisible=false)
    vlines!(ax, [1.0,2.0], color = :black)
 
-   caption = "Numerical solution of field line resonance perturbation equation for \$\\alpha=1,x_r=1,x_t=2\$. The singular behavior at \$x_r=1\$ for \$S(x)\$ is not so obvious and the boundary conditions on the right side are hard-coded."
+   caption = "Numerical solution of field line resonance perturbation equation for " *
+      "\$\\alpha=1,x_r=1,x_t=2\$. The singular behavior at \$x_r=1\$ for \$S(x)\$ is not " *
+      "so obvious and the boundary conditions on the right side are hard-coded."
    label = "b1z_ode"
+   Options(f; caption, label)
+end
+
+function plot_dispersion_parallel()
+   # normalized parameters
+   c, q, B, n, mi, me, ϵ₀, δ = 1.0, 1.0, 1e-1, 1.0, 1.0, 0.1, 1.0, 1e-3
+   ωce = q*B/me
+   ωpe = √(n*q^2/(ϵ₀*me))
+   ωci = q*B/mi
+   ωpi = √(n*q^2/(ϵ₀*mi))
+   ωL = ωce/2*(-1+√(1+4ωpe^2/ωce^2))
+   ωR = ωce/2*(1+√(1+4ωpe^2/ωce^2))
+   ω∞L, ω∞R = 5.0, 5.0
+
+   ω1 = range(0+δ, ωci-δ, length=51)
+   ω2 = range(ωL+300δ, ω∞L, length=51)
+   ω3 = range(0+δ, ωce-10δ, length=51)
+   ω4 = range(ωR+120δ, ω∞R, length=51)
+   ω5 = range(0+δ, ω∞R, length=101)
+
+   k1 = @. √(ω1^2 - ω1*ωpi^2/(ω1 - ωci) - ω1*ωpe^2/(ω1 + ωce))/c
+   k2 = @. √(ω2^2 - ω2*ωpi^2/(ω2 - ωci) - ω2*ωpe^2/(ω2 + ωce))/c
+
+   k3 = @. √(ω3^2 - ω3*ωpi^2/(ω3 + ωci) - ω3*ωpe^2/(ω3 - ωce))/c
+   k4 = @. √(ω4^2 - ω4*ωpi^2/(ω4 + ωci) - ω4*ωpe^2/(ω4 - ωce))/c
+
+   k5 = @. ω5/c
+
+   f = Figure(fontsize=25, resolution=(900, 450))
+   ax = Axis(f[1, 1],
+      xlabel="k",
+      ylabel="ω",
+      xscale=log10,
+      yscale=log10,
+   )
+
+   p1 = lines!(ax, k1, ω1, linewidth=3, label="ion cyclotron mode")
+   p2 = lines!(ax, k2, ω2, linewidth=3, label="ion free-space mode")
+   p3 = lines!(ax, k3, ω3, linewidth=3, label="electron cyclotron mode")
+   p4 = lines!(ax, k4, ω4, linewidth=3, label="electron free-space mode")
+   p5 = lines!(ax, k5, ω5, linewidth=3, label="light")
+   text!(1.0, 1.0; text="electron cyclotron resonance")
+   text!(1.0, 0.1; text="ion cyclotron resonance")
+   axislegend(ax; position=:lt, framevisible=false)
+   hlines!(ax, [ωci, ωce], color=:black, linestyle=:dot)
+
+   caption = "Wave modes propagating parallel to the magnetic field. Some arbitrary " *
+      "constants are used. Note that log scale is used since we can easily cross multiple "*
+      "scales so ion scales can be almost invisible if we include electron scales."
+   label = "dispersion_parallel"
    Options(f; caption, label)
 end

@@ -954,6 +954,12 @@ $$
 
 For $\omega\lesssim\omega_{ci}$, we get the ion-cyclotron wave; for $\omega\ll\omega_{ci}$, Alfvén wave is recovered.
 
+@fig:dispersion_parallel shows the dispersion relation in a rough scale. Above the cut-off frequencies ($\omega_{R=0}$ and $\omega_{L=0}$) the solution to the wave dispersion equation is called the _free-space mode_. Below electron and ion cyclotron frequencies the waves are called the _cyclotron modes_. At low frequencies ($\omega\rightarrow 0$) L- and R-modes merge and the dispersion becomes that of the shear Alfvén wave $n^2\rightarrow c^2/v_A^2$.
+
+```jl
+KeyNotes.plot_dispersion_parallel()
+```
+
 ### Faraday Rotation
 
 A linearly polarized plane wave can be expressed as a sum of left- and right-hand circularly polarized waves (R- and L-modes having equal amplitudes, $E_0$). If we assume that at $z=0$, the wave is linearly polarized along the x axis, and that the wave vector $\mathbf{k}$ and the background magnetic field $\mathbf{B}_0$ are along the $z$-axis, we can write
