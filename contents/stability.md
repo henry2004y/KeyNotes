@@ -829,6 +829,62 @@ $$
 
 Therefore we don't need to worry too much about this instability.
 
+## MHD Stability
+
+$$
+\mathbf{J}\times\mathbf{B} = \nabla p
+$$
+
+$$
+\mathbf{J}_\perp = \frac{\mathbf{B}\times\nabla p}{B^2}
+$$
+
+The current is often called the _diamagnetic current_. It arises from the plasma pressure gradient.
+
+Using Ampère's law we can write the magnetic force in the form
+
+$$
+\mathbf{J}\times\mathbf{B} = -\nabla\Big( \frac{B^2}{2\mu_0}\Big) + \frac{1}{\mu_0}(\mathbf{B}\cdot\nabla)\mathbf{B}
+$$ {#eq:mhd_force}
+
+which separates into the magnetic pressure term and the magnetic tension term.
+
+### Harris Current Sheet
+
+An example of a MHD equilibrium configuration is the Harris current sheet, in which the variations in the magnetic field and plasma pressure over the current sheet balance each other In a 1D Harris current sheet the magnetic field (assumed here to be in the $z$-direction) is given by
+
+$$
+\mathbf{B} = B_0 \tanh\Big( \frac{z}{\lambda} \Big) \hat{y}
+$$
+
+The pressure is given by
+
+$$
+p = p_0 \cosh^{-2}\frac{z}{\lambda}
+$$
+
+where $p_0 = B_0^2/(2\mu_0)$. The current density is then
+
+$$
+J_y(z) = \frac{B_0}{\mu_0 \lambda}\text{sech}^2\Big(\frac{z}{\lambda}\Big)
+$$
+
+Harris current sheet can be taken as the first approximation of the Earth's magnetotail that can stay stable for long time periods.
+
+### θ-Pinch and Z-Pinch
+
+θ-pinch and Z-Pinch are both 1D equilibrium configurations expressed in cylindrical coordinates. In a θ-pinch cylindrical coils drive an elecric current and the magnetic field is axial, while in a Z-pinch the electric current is axial and the magnetic field is toroidal.
+
+### Force-Free Field
+
+If $\beta\ll 1$ in MHD equilibrium, the pressure gradient is negligible and thus
+
+$$
+\mathbf{J}\times\mathbf{B} = 0
+$$ {#eq:mhd_force_free}
+
+Such configurations are called _force-free fields_ because the magnetic force on the plasma is zero. According to @eq:mhd_force in a force-free field the magnetic pressure gradient $\nabla(B^2/2\mu_0)$ is balanced by the magnetic tension force $\mu_0^{-1}(\mathbf{B}\cdot\nabla)\mathbf{B}$. In reality the force-free equilibrium is often a very good approximation of the momentum equation. It is also evident from @eq:mhd_force_free that in a force-free field the electric current flows alon gthe magnetic field. Such currents are commonly called _field-aligned currents_ (FAC).
+
 ## MHD Modes
 
 A simple but representative dispersion relation writes
@@ -1413,7 +1469,7 @@ See more in @sec:firehose.
 
 ### Mirror Instability
 
-[Southwood & Kivelson](https://www-thphys.physics.ox.ac.uk/people/AlexanderSchekochihin/notes/LESHOUCHES15/SouthwoodKivelson93_Mirror.pdf) had a nice paper explaining the physics of mirror instability.
+[Southwood & Kivelson](https://www-thphys.physics.ox.ac.uk/people/AlexanderSchekochihin/notes/LESHOUCHES15/SouthwoodKivelson93_Mirror.pdf) had a nice paper explaining the physics of mirror instability. See also @sec:mirror for a more thorough mathematical description of the instability.
 
 The mirror instability is prevalent in planetary and cometary magnetosheaths and other high $\beta$ environment. It is recognized as one of the two magnetohydrodynamic instabilities that occur in the presence of extreme velocity space (pitch angle) anisotropy in a uniform plasma, the other instability being the firehose. The mirror mode has gained increasing interest following its identification in spacecraft data from the magnetosheath and solar wind.
 Although the instability was originally derived from magnetohydrodynamic fluid theory, later work showed that there were significant differences between the fluid theory and a more rigorous kinetic approach, as we will see in @sec:mirror.
