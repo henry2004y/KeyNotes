@@ -501,7 +501,7 @@ $$
 \end{cases}
 $$
 
-## Waves in a Cold Uniform Plasma {#sec:CPDR}
+## Cold Uniform Plasma {#sec:CPDR}
 
 As long as $T_e = T_i = 0$, the linear plasma waves can easily be generalized to an arbitrary number of charged particle species and an arbitrary angle of propagation $\theta$ relative to the magnetic field. Waves that depend on finite $T$, such as ion acoustic waves, are not included in this treatment. The derivations go back to late 1920s when Appleton and Wilhelm Altar first calculated the cold plasma dispersion relation (CPDR).
 
@@ -770,30 +770,6 @@ This shows that the resonance frequencies depend on angle $\theta$.
 * If $\theta=0^o$, the possible solutions are $P = 0$ and $S = \infty$. The former is the plasma resonance $\omega=\omega_p$, while the latter occurs when either $R = \infty$ (i.e. $\omega=\omega_{ce}$, electron cyclotron resonance) or $L =\infty$ (i.e. $\omega=\omega_{ci}$, ion cyclotron resonance).
 * If $θ = 90^o$, the possible solutions are $P =\infty$ or $S = 0$. The former cannot occur for finite $\omega_p$ and $\omega$, and the latter yields the upper and lower hybrid frequencies, as well as the two-ion hybrid frequency when there is more than one ion species.
 
-One step further, let us look at the problem of electron cyclotron resonance heating. The resonance condition is $R=\infty$; the governing equation has the form
-
-$$
-\frac{d^2 E}{dz^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(z)}^2}{\omega(\omega-\omega_{ce}(z))} \Big]E = 0
-$$
-
-![Plasma frequency and wave number as functions of $z$ in a non-uniform plasma for the electron cyclotron resonance mode.](images/ECRH.png){#fig:ECRH}
-
-We use $z$ here to remind ourselves of the fact that the wave property changes along the field line. Imagine a wave $\sim e^{i(kz -\omega t)}$ incident into a plasma with fixed density $n_0$ and varying magnetic field $B_0(z)$ as shown in @fig:ECRH(a). At $z=z_R$, $\omega_{ce}(z) = \omega_{ce}(z_R) = \omega$. Then we can draw $k^2(z)$ as a function of $z$ as in @fig:ECRH(b). There is a pole at $z=z_R$, which indicates resonance since $k^2\rightarrow\infty$. There is also a zero on the right of $z_R$.
-
-Close to $z=z_R$, we have $k^2(z)\sim \frac{const.}{z-z_R}$. If we write
-
-$$
-\Omega_e(z)=-A^\prime (z-z_R)+\omega,\quad \zeta = z-z_R
-$$
-
-then (ignore the constants)
-
-$$
-\frac{d^2 E}{dz^2} - \frac{\text{const.}}{z-z_R}E = 0 \Rightarrow \frac{d^2 E}{d\zeta^2} - \frac{1}{\zeta}E = 0
-$$
-
-Now let's stare at @fig:ECRH(b) for a few seconds. If there is a wave from left to right, there will be a resonance at $z=z_R$; but if there is a wave from right to left, then the wave will be attenuated before it reaches $z=z_R$ because there is a zero ahead. This means that waves from different origin will have different behaviors!
-
 ### Cutoffs
 
 The cutoffs can be found by setting $n = 0$ in @eq:cold_plasma_dispersion. Again using $S^2-D^2 = RL$, we find that the condition for cutoff is independent of $\theta$:
@@ -852,25 +828,6 @@ $$
 $$
 
 * The condition $P = 0$ is seen to correspond to cutoff as well as to resonance. This degeneracy is due to our neglect of thermal motions. Actually, $P = 0$ (or $\omega = \omega_p$) is a resonance for longitudinal waves and a cutoff for transverse waves.
-
-What is more interesting happens in the case of nonuniform plasma. Consider EM waves in non-magnetized plasma of ordinary O-mode:
-
-$$
-k^2(x) = \frac{\omega^2}{c^2}n^2 = \frac{\omega^2}{c^2}\Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2}\Big] \quad \text{if } n \text{ is non-uniform}
-$$
-
-![Plasma frequency and wave number as functions of $x$ in a non-uniform plasma for O mode.](images/Omode.png){#fig:Omode}
-
-Note that there is no energy dissipation, because it is collisionless. Imagine a wave $\sim e^{i(kx-\omega t)}$ incident into a plasma with density $n_0(x)$ shown in @fig:Omode. We encounter a cutoff at $x=x_t$, $\omega_{pe}(x_t) = \omega$. Therefore we can draw $k^2(x)$ as a function of x as in @fig:Omode. Then the properties of the wave can be categorized into two regimes:
-
-$$
-\begin{aligned}
-k^2 < 0 \Rightarrow\ E\sim e^{\pm ikx}\ \text{propagating}\\
-k^2 > 0 \Rightarrow\ E\sim e^{\pm|k| x}\ \text{attenuating}
-\end{aligned}
-$$
-
-A natural question comes up from this picture: _how does the propagating wave transform into attentuating wave_? Stokes solved this during his honey moon.
 
 ### Polarizations
 
@@ -1005,7 +962,54 @@ so that in general, the trajectory is elliptical. For $\omega\ll \omega_{cs}$, w
 
 When $\omega\simeq\omega_{cs}$, then the linear solutions exhibit resonance effects with large amplitudes, and at resonance, the radius increases uniformly in time and no steady-state solution exists. In this vicinity, we expect the cold plasma approximation to fail and either thermal, inhomogeneous, or nonlinear effects to dominate the dynamics.
 
-## Warm Plasma
+## Cold Nonuniform Plasma
+
+Waves and dispersion relations in a uniform plasma is generally nice and easy. However, more interesting and realistic waves shall be found in nonuniform plasmas.
+
+Let us look at the problem of electron cyclotron resonance heating. The resonance condition is $R=\infty$; the governing equation has the form
+
+$$
+\frac{d^2 E}{dz^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(z)}^2}{\omega(\omega-\omega_{ce}(z))} \Big]E = 0
+$$
+
+![Plasma frequency and wave number as functions of $z$ in a non-uniform plasma for the electron cyclotron resonance mode.](images/ECRH.png){#fig:ECRH}
+
+We use $z$ here to remind ourselves of the fact that the wave property changes along the field line. Imagine a wave $\sim e^{i(kz -\omega t)}$ incident into a plasma with fixed density $n_0$ and varying magnetic field $B_0(z)$ as shown in @fig:ECRH(a). At $z=z_R$, $\omega_{ce}(z) = \omega_{ce}(z_R) = \omega$. Then we can draw $k^2(z)$ as a function of $z$ as in @fig:ECRH(b). There is a pole at $z=z_R$, which indicates resonance since $k^2\rightarrow\infty$. There is also a zero on the right of $z_R$.
+
+Close to $z=z_R$, we have $k^2(z)\sim \frac{const.}{z-z_R}$. If we write
+
+$$
+\Omega_e(z)=-A^\prime (z-z_R)+\omega,\quad \zeta = z-z_R
+$$
+
+then (ignore the constants)
+
+$$
+\frac{d^2 E}{dz^2} - \frac{\text{const.}}{z-z_R}E = 0 \Rightarrow \frac{d^2 E}{d\zeta^2} - \frac{1}{\zeta}E = 0
+$$
+
+Now let's stare at @fig:ECRH(b) for a few seconds. If there is a wave from left to right, there will be a resonance at $z=z_R$; but if there is a wave from right to left, then the wave will be attenuated before it reaches $z=z_R$ because there is a zero ahead. This means that waves from different origin will have different behaviors!
+
+Next consider EM waves in non-magnetized plasma of ordinary O-mode:
+
+$$
+k^2(x) = \frac{\omega^2}{c^2}n^2 = \frac{\omega^2}{c^2}\Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2}\Big] \quad \text{if } n \text{ is non-uniform}
+$$
+
+![Plasma frequency and wave number as functions of $x$ in a non-uniform plasma for O mode.](images/Omode.png){#fig:Omode}
+
+Note that there is no energy dissipation, because it is collisionless. Imagine a wave $\sim e^{i(kx-\omega t)}$ incident into a plasma with density $n_0(x)$ shown in @fig:Omode. We encounter a cutoff at $x=x_t$, $\omega_{pe}(x_t) = \omega$. Therefore we can draw $k^2(x)$ as a function of x as in @fig:Omode. Then the properties of the wave can be categorized into two regimes:
+
+$$
+\begin{aligned}
+k^2 < 0 \Rightarrow\ E\sim e^{\pm ikx}\ \text{propagating}\\
+k^2 > 0 \Rightarrow\ E\sim e^{\pm|k| x}\ \text{attenuating}
+\end{aligned}
+$$
+
+A natural question comes up from this picture: _how does the propagating wave transform into attentuating wave_? Stokes solved this during his honey moon, which is now known as the Stokes phenomenon (@sec:stokes_phenomenon).
+
+## Warm Uniform Plasma
 
 Taking one step forward, we can no longer neglect the kinetic effects, i.e. the cold assumption is no longer valid. For the sake of simplicity, we only consider the 1D case. The approach is very similar to cold plasma situation, except that we have _pressure_ included in the equation, and we also need to specify the relation of pressure and temperature through the equation of state.
 
@@ -1196,7 +1200,6 @@ n_{1e}= \frac{n_0eE_1}{-ikm_e{v_{th,e}}^2}
 $$
 
 Then again we get the dielectric function through Poisson's equation.
-
 
 ## Electrostatic Wave in a Magnetized Plasma {#sec:es_wave_magnetized}
 

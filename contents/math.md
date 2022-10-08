@@ -865,7 +865,7 @@ $$
 
 is the reflection coefficient at $x=a$.
 
-### Stokes Phenomenon
+### Stokes Phenomenon {#sec:stokes_phenomenon}
 
 In complex analysis the [Stokes phenomenon](https://en.wikipedia.org/wiki/Stokes_phenomenon) is that the asymptotic behavior of functions can differ in different regions of the complex plane, and that these differences can be described in a quantitative way.
 
