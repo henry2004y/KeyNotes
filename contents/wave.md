@@ -529,7 +529,7 @@ $$
 \mathbf{D} = \epsilon_0 \mathbf{E} + \frac{i}{\omega}\mathbf{j}
 $$ {#eq:electric_displacement_field}
 
-is the __electric displacement field__ or __electric induction__.  It accounts for the effects of _free and bound charge within materials_ (i.e. plasma).
+is the __electric displacement field__ or __electric induction__.  It accounts for the effects of _bound charge within materials_ (i.e. plasma).
 Here we have assumed an $\exp(-i\omega t)$ dependence for all plasma motions. Let the current $\mathbf{j}$ be proportional to $\mathbf{E}$ but not necessarily in the same direction (because of the magnetic field $B_0\hat{\mathbf{z}}$); we may then define a conductivity tensor $\pmb{\sigma}$ by the relation
 
 $$
