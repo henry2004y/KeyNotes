@@ -1,5 +1,53 @@
 # Math {#sec:math}
 
+## Vector Identities
+
+Some useful vector identities are listed below:
+
+$$
+\begin{aligned}
+\mathbf{A}\times(\mathbf{B}\times\mathbf{C}) &= \mathbf{B}(\mathbf{A}\cdot\mathbf{C}) + \mathbf{C}(\mathbf{A}\cdot\mathbf{B}) \\
+(\mathbf{A}\times\mathbf{B})\times\mathbf{C} &= \mathbf{B}(\mathbf{A}\cdot\mathbf{C}) + \mathbf{A}(\mathbf{B}\cdot\mathbf{C}) \\
+\nabla\times\nabla f &= 0 \\
+\nabla\cdot(\nabla\times\mathbf{A}) &= 0 \\
+\nabla\cdot(f\mathbf{A}) &= (\nabla f)\cdot\mathbf{A} + f\nabla\cdot\mathbf{A} \\
+\nabla\times(f\mathbf{A}) &= (\nabla f)\times\mathbf{A} + f\nabla\times\mathbf{A} \\
+\nabla\cdot(\mathbf{A}\times\mathbf{B}) &= \mathbf{B}\cdot(\nabla\times\mathbf{A}) - \mathbf{A}\cdot(\nabla\times\mathbf{B}) \\
+\nabla\cdot(\mathbf{A}\cdot\mathbf{B}) &= (\mathbf{B}\cdot\nabla)\mathbf{A} + (\mathbf{A}\cdot\nabla)\mathbf{B} + \mathbf\times(\nabla\times\mathbf{A}) + \mathbf{A}\times(\nabla\times\mathbf{B}) \\
+\nabla\cdot(\mathbf{A}\mathbf{B}) &= (\mathbf{A}\cdot\nabla)\mathbf{B} + \mathbf{B}(\nabla\cdot\mathbf{A}) \\
+\nabla\times(\mathbf{A}\times\mathbf{B}) &= (\mathbf{B}\cdot\nabla)\mathbf{A} - (\mathbf{A}\cdot\nabla)\mathbf{B} - \mathbf{B}(\nabla\cdot\mathbf{A}) + \mathbf{A}(\nabla\cdot\mathbf{B}) \\
+\nabla\times(\nabla\times\mathbf{A}) &= \nabla(\nabla\cdot\mathbf{A}) - \nabla^2\mathbf{A}
+\end{aligned}
+$$
+
+In most cases Einsten notation shall be used to derive all the identities:
+
+$$
+y = \sum_{i=1}^3 c_i x^i = c_1 x^1 + c_2 x^2 + c_3 x^3
+$$
+
+is simplified by the convention to
+
+$$
+y = c_i x^i
+$$
+
+The upper indices are not exponents but are indices of coordinates, coefficients or basis vectors. That is, in this context $x^2$ should be understood as the second component of $x$ rather than the square of $x$ (this can occasionally lead to ambiguity). The upper index position in $x^i$ is because, typically, an index occurs once in an upper (superscript) and once in a lower (subscript) position in a term.
+
+A basis gives such a form (via the dual basis), hence when working on $\mathbf{R}^n$ with a Euclidean metric and a fixed orthonormal basis, one has the option to work with only subscripts. However, if one changes coordinates, the way that coefficients change depends on the variance of the object, and one cannot ignore the distinction. (See this [wiki link](https://en.wikipedia.org/wiki/Einstein_notation#Superscripts_and_subscripts_versus_only_subscripts).)
+
+Commonly used identities:
+
+$$
+\begin{aligned}
+\mathbf{A}\cdot\mathbf{B} &= A_i B_i \\
+\mathbf{A}\times\mathbf{B} &= \epsilon_{ijk}A_j B_k \\
+\nabla\cdot\mathbf{A} &= \partial_i A_i \\
+\nabla\times\mathbf{A} &= \epsilon_{ijk}\partial_j A_k \\
+\epsilon_{ijk}\epsilon_{imn} &= \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km}
+\end{aligned}
+$$
+
 ## Complex Analysis
 
 In complex analysis, the following statements are equivalent:
