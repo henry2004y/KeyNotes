@@ -414,7 +414,7 @@ $$ {#eq:coulomb_collision_frequency}
 
 The constant $\eta$ is the _specific resistivity_ of the plasma; that this jibes with the usual meaning of resistivity will become clear shortly.
 
-### Mechanics of Coulomb Collisions
+### Mechanics of Coulomb Collisions {#sec:coulomb_collision_mechanics}
 
 When an electron collides with a neutral atom, no force is felt until the electron is close to the atom on the scale of atomic dimensions; the collisions are like billiard-ball collisions. When an electron collides with an ion, the electron is gradually deflected by the long-range Coulomb field of the ion. Nonetheless, one can derive an effective cross section for this kind of collision. It will suffice for our purposes to give an order-of-magnitude estimate of the cross section. In Fig. 5.18 ADD IT!, an electron of velocity $\mathbf{v}$ approaches a fixed ion of charge $e$. In the absence of Coulomb forces, the
 electron would have a distance of closest approach $r_0$, called the impact parameter. In the presence of a Coulomb attraction, the electron will be deflected by an angle $\chi$, which is related to $r_0$. The Coulomb force is
@@ -657,6 +657,269 @@ Mass loading contributes to the electrodynamics of the plasma interaction in way
 The Pedersen current (aligned with the electric field) exerts forces that slow the flow in the ionosphere. The Hall current flows perpendicular to the electric and magnetic field, thereby breaking the symmetry of the interaction. The Hall current results in a rotation of the flow away from the corotation direction and produces ionospheric asymmetries.
 
 ## Diffusion of Fully Ionized Plasmas
+
+The magnetic induction equation can be derived from Faraday's law and Ohm's law. If magnetic diffusivity $\eta$ is constant, we can write it in the form
+
+$$
+\frac{\partial\mathbf{B}}{\partial t}=\nabla\times(\mathbf{u}\times\mathbf{B})+\eta\nabla^2\mathbf{B}
+$$
+
+We define _magnetic Reynold number_ $R_m$ as the ratio of the convection term and the diffusion term:
+
+$$
+R_m\equiv \frac{\nabla\times(\mathbf{u}\times\mathbf{B})}{\eta\nabla^2\mathbf{B}}\sim \frac{uBL_0^2}{\eta L_0 B}=\frac{u L_0}{\eta}
+$$
+
+There are two extreme cases of $R_m$. One thing that you should keep in mind is that this is no longer ideal MHD because $\mathbf{E}+\mathbf{u}\times\mathbf{B}\neq0$.
+
+### Small $R_m$ condition
+
+If $R_m\ll1$, the convection part can be ignored, (e.g. $\mathbf{u}\approx 0$)
+
+$$
+\frac{\partial\mathbf{B}}{\partial t}=\eta\nabla^2\mathbf{B}
+$$
+
+This is a diffusion equation, meaning that unlike in ideal MHD, plasma no longer ties to the magnetic field. The diffusion time scale $\tau_0$ can be derived as follows:
+
+$$
+\begin{aligned}
+\frac{B}{\tau_0}=\eta\frac{B}{{L_0}^2}\Rightarrow \tau_0=\frac{{L_0}^2}{\eta}=\mu\sigma {L_0}^2
+\end{aligned}
+$$
+
+$\sigma$ is the electrical conductivity, which is a derived parameter from Ohm's law. For fully ionized plasma, $\sigma=\frac{n_i e^2 \tau_{ei}}{m_e}$.
+
+The magnetic diffusivity can be written as
+
+$$
+\eta=\frac{1}{\mu\sigma}=\frac{m_e}{\mu n_i e^2\tau_{ei}}=\frac{m_e n_e \ln\Lambda}{\mu n_i e^2 \cdot 5.45\times10^{5}T^{3/2}} =5.2\times10^7 \frac{\ln\Lambda}{T^{3/2}}
+$$
+
+where $\ln\Lambda$ is the Coulomb logarithm (generally $10\sim20$ which is insensitive to $n$ and $T$, @sec:coulomb_collision_mechanics). 
+
+_Examples_:
+
+1. Evolution of solar coronal magnetic field and the energy release of solar flares in solar corona.
+
+$T=10^{7}K$, $n=10^{14}m^{-3}$, $\Rightarrow \eta=1\ m^2s^{-1}$
+
+For supergranules, $L_0=10^7m=10Mm$, ($R_s=700Mm$), the diffusion time scale $\tau_d=10^{14}s\approx3\times10^6\text{yr}$, which is very very long.
+
+For flare, the observed diffusion time scale is $\tau_d=1s\Rightarrow L_0=1m$. The magnetic reconnection (in solar corona) diffusion time scale is about $\tau_d=100s\Rightarrow L_0=10m$. The viewing angle at $1AU$ to the sun is about $2000\ \text{arcsec}$, where $1\ \text{arcsecond}$ corresponds to $700\text{km}$ on the sun. Right now the best resolution we have is about $0.2\sim0.5\ \text{arcsecond}$, which is about $100\text{km}$. This means that we are three orders of magnitude beyond the resolution we need to observe electron diffusion region on the sun!
+
+2. Requirement of dynamo
+
+If there is no such thing as a magnetic dynamo, the geomagnetic field will have been already gone. In the core of Earth, $\eta\approx 1m^2s^{-1}$, radius of Earth $L_0=6\times10^6m\Rightarrow \tau_d\approx 4\times10^{12}s\approx10^6\text{yr}$. However, the age of our Earth is about $10^9\text{yr}\gg 10^6\text{yr}$. This indicates that somthing is generating magnetic field inside the core.
+
+3. Current sheet
+
+Consider an ideal configuration of magnetic field,
+
+$$
+\mathbf{B}=B(x,t)\widehat{y},
+$$
+
+where
+
+$$
+B(x,0)=\left\{
+\begin{array}{lr}
++B_0 & x>0 \\ -B_0 & x<0
+\end{array}
+\right.
+$$
+
+Then the magnetic diffusion equation can be written as
+
+$$
+\frac{\partial B}{\partial t}=\eta \frac{\partial^2 B}{\partial x^2}
+$$
+
+There is an analytic solution
+
+$$
+B(x,t)=B_0\ \text{erf}(\xi)
+$$
+
+where
+
+$$
+\xi=\frac{x}{\sqrt{4\eta t}}
+$$
+
+and
+
+$$
+\text{erf}(\xi)=\frac{2}{\sqrt{\pi}}\int_0^\xi e^{-z^2}dz
+$$
+
+is the _error function_. It has some basic properties as follows:
+
+$$
+\text{erf}(\xi)\Rightarrow\left\{
+\begin{array}{lr}
+1 & ,\xi\rightarrow +\infty \\ -1 & ,\xi\rightarrow -\infty
+\end{array}
+\right.
+$$
+
+$$
+\text{erf}(\xi)=\frac{2}{\sqrt{\pi}}\Big( \xi-\frac{\xi^3}{3}+\frac{\xi^5}{10}-\frac{\xi^7}{42}+... \Big)\approx \frac{2\xi}{\sqrt{\pi}},\ |\xi|\ll 1
+$$
+
+The shape is shown in @fig:erf.
+
+![Error function.](images/erf_plot.png){#fig:erf}
+
+$$
+|B(x,t)|\approx\left\{
+\begin{array}{lr}
+\frac{x}{\sqrt{\pi\eta t}}B_0 & ,|\xi|\ll1\ \text{or}\ |x|\ll\sqrt{\pi\eta t} \\
+B_0 & ,|\xi|\gg1\ \text{or}\ |x|\gg\sqrt{\pi\eta t} \\
+0.995B_0 & ,|\xi|=2\ \text{or}\ |x|=2\sqrt{\pi\eta t} \\
+\end{array}
+\right.
+$$
+
+If you want to draw this time-variant magnetic field at two different times $t_1$ and $t_2$ ($t_1<t_2$), you should have less dense lines at $t_2$ than $t_1$. An example plot is present in @fig:mag_diff_1d.
+
+![Magnetic field at $t=0.1,1,10$, respectively.](images/mag_diff_1d.png){#fig:mag_diff_1d}
+
+Conclusion:
+
+1. In a certain amount of time, B decreases in the near region and stays the same in the far region.
+2.
+
+$$
+\begin{aligned}
+j_z = \frac{1}{\mu}\frac{dB}{dx}, \\
+\delta=2\sqrt{4\eta t},\ (\text{characteristic breadth}) \\
+\frac{d\delta}{dt}=2\sqrt{\frac{\eta}{t}}, (\text{characteristic speed})
+\end{aligned}
+$$
+
+3.
+
+$$
+J=\int_{-\infty}^{\infty}j_z dx=\frac{1}{\mu}\int_{-\infty}^{\infty}dB=\frac{2B_0}{\mu}=\text{const.}
+$$
+
+The current sheet gets thickened with time, but the total current in $z$ remains the same.
+
+4. Dissipation of magnetic energy, $W_B=\frac{B^2}{2\mu}$ ???
+
+$$
+\frac{\partial}{\partial t}\int_{-\infty}^{\infty}(W_0-W_B)dx=-\frac{\partial}{\partial t}\int_{-\infty}^{\infty}\frac{B(x)^2}{2\mu}dx
+$$
+
+### Large $R_m$ condition
+
+If $R_m\ll1$, the diffusion part can be ignored,
+
+$$
+\frac{\partial\mathbf{B}}{\partial t}=\nabla\times(\mathbf{u}\times\mathbf{B})
+$$
+
+When the conductivity is large, the diffusion coefficient becomes very small, and frozen-in flux phenomenon happens.
+
+1. Frozen-flux theorem
+
+The magnetic field lines are frozen in the plasma flow. The magnetic flux through a surface moving with the plasma is conserved,
+$$
+\frac{d\Phi}{dt}=0,
+$$
+where 
+$$
+\Phi=\int\mathbf{B}\cdot d\mathbf{A}.
+$$
+
+ADD FIGURES!!!
+
+_Proof_.
+
+Consider a surface $S$ with boundary $\Gamma$. the magnetic flux through $S$ is
+
+$$
+\Phi = \iint_s \mathbf{B}\cdot \mathrm{d}\mathbf{A}
+$$
+
+Then the time derivative of flux can be written as
+
+$$
+\begin{aligned}
+\dot{\Phi}&=\iint_s \dot{\mathbf{B}}\cdot \mathrm{d}\mathbf{A} + \iint_s \mathbf{B}\cdot \mathrm{d}\dot{\mathbf{A}} \\
+&=\iint_s (-\nabla\times\mathbf{E})\cdot\mathrm{d}\mathbf{A} + \iint_s \mathbf{B}\cdot \mathrm{d}\dot{\mathbf{A}} \\
+&=\iint_s \nabla\times(\mathbf{u}\times\mathbf{B})\cdot\mathrm{d}\mathbf{l} + \iint_s \mathbf{B}\cdot \mathrm{d}\dot{\mathbf{A}} \\
+&=\oint_\Gamma \mathbf{u}\times\mathbf{B}\cdot\mathrm{d}\mathbf{l} + \iint_s \mathbf{B}\cdot \mathrm{d}\dot{\mathbf{A}} \\
+\end{aligned}
+$$
+
+The change of area can be expressed as
+
+$$
+\begin{aligned}
+\Delta \mathbf{A}&=(\mathbf{u}\Delta t)\times\mathrm{d}\mathbf{l}, \\
+\mathrm{d}\dot{\mathbf{A}}&=\mathbf{u}\times\mathrm{d}\mathbf{l}.
+\end{aligned}
+$$
+
+Substituting into the above equation, we have
+
+$$
+\begin{aligned}
+\dot{\Phi}&=\oint_\Gamma \mathbf{u}\times\mathbf{B}\cdot\mathrm{d}\mathbf{l} + \oint_\Gamma \mathbf{B}\cdot(\mathbf{u}\times\mathrm{d}\mathbf{l})=0
+\end{aligned}
+$$
+
+Keep in mind we are still under MHD approximation
+
+$$
+\frac{\partial |\mathbf{B}|}{\partial t} \ll \Omega_i |\mathbf{B}|
+$$
+
+This looks like the conservation of magnetic moment.
+
+□
+
+2. Stretching of magnetic field lines
+
+$$
+\frac{d\mathbf{B}}{dt}=\frac{\partial\mathbf{B}}{\partial t}+(\mathbf{u}\cdot\nabla)\mathbf{B}=\nabla\times(\mathbf{u}\times\mathbf{B})+(\mathbf{u}\cdot\nabla)\mathbf{B}
+=(\mathbf{B}\cdot\nabla)\mathbf{u}-\mathbf{B}(\nabla\cdot\mathbf{u})
+$$
+
+where the first term on the right is the shear motion and the second term is the expansion related change.
+
+Combined with the continuity equation,
+
+$$
+\frac{d\rho}{dt}+\rho\nabla\cdot\mathbf{u}=0
+$$
+
+we can get
+
+$$
+\frac{d}{dt}\Big( \frac{\mathbf{B}}{\rho} \Big)=\Big( \frac{\mathbf{B}}{\rho}\cdot\nabla \Big)\mathbf{u}
+$$ {#eq:B_Rho_diff}
+
+_Proof_.
+
+$$
+\begin{aligned}
+\frac{d\mathbf{B}}{dt}=(\mathbf{B}\cdot\nabla)\mathbf{u} +\frac{\mathbf{B}}{\rho}\frac{d\rho}{dt} \\
+\frac{1}{\rho}\frac{d\mathbf{B}}{dt}-\frac{\mathbf{B}}{\rho^2}\frac{d\rho}{dt}=\Big( \frac{\mathbf{B}}{\rho} \cdot\nabla\Big)\mathbf{u}
+\end{aligned}
+$$
+□
+
+Compare @eq:B_Rho_diff and @eq:line_diff, we have
+
+$$
+\frac{\mathbf{B}}{\rho}\propto \mathbf{l}
+$$
+
+i.e. $\mathbf{B}/\rho$ and $\mathbf{l}$ has the same form of variation. If density does not change much, the magnetic field strength will be proportional to $l$.
 
 ## Solutions of the Diffusion Equation
 

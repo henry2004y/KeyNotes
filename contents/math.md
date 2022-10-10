@@ -48,6 +48,42 @@ $$
 \end{aligned}
 $$
 
+## Differential of Line Segments
+
+The differential of line segments in a fluid is:
+
+$$
+\frac{d\mathbf{l}}{dt} = \mathbf{l}\cdot\nabla\mathbf{u}
+$$ {#eq:line_diff}
+
+_Proof_. Let the two line segments $\mathbf{l}_1$ and $\mathbf{l}_2$ be expressed as starting point vectors and end point vectors:
+
+$$
+\begin{aligned}
+\mathbf{l}_1&=\mathbf{r}_2 -\mathbf{r}_1 \\
+\mathbf{l}_2&=\mathbf{r}_2^\prime -\mathbf{r}_1^\prime
+\end{aligned}
+$$
+
+after time $\Delta t$, $\mathbf{l}_1\rightarrow \mathbf{l}_2$,
+
+$$
+\mathbf{l}_2=\mathbf{r}_2^\prime -\mathbf{r}_1^\prime=(\mathbf{r}_2 +\mathbf{v}(r_2)\Delta t)-(\mathbf{r}_1+\mathbf{v}(\mathbf{r}_1)\Delta t)=\mathbf{l}_1+(\mathbf{v}(\mathbf{r}_2)-\mathbf{v}(\mathbf{r}_1))\Delta t
+$$
+
+The velocity difference can be written as
+
+$$
+\mathbf{v}(x_2,y_2,z_2)-\mathbf{v}(x_1,y_1,z_1) = \frac{\partial\mathbf{v}}{\partial x}(x_2-x_1) +\frac{\partial\mathbf{v}}{\partial y}(y_2-y_1) +\frac{\partial\mathbf{v}}{\partial z}(z_2-z_1) =(\mathbf{l}\cdot\nabla)\mathbf{v}
+$$
+
+So
+
+$$
+\mathbf{l}_2=\mathbf{l}_1+\mathbf{l}\cdot\nabla\mathbf{v}\cdot\Delta t\Rightarrow \frac{\mathbf{l}_2-\mathbf{l}_1}{\Delta t}=\mathbf{l}\cdot\nabla\mathbf{v}
+$$
+□
+
 ## Complex Analysis
 
 In complex analysis, the following statements are equivalent:
