@@ -11,7 +11,7 @@ Before 1950s, no people thought about the idea of standing waves in space simply
 * In the 1960s, [Sugiura 1961] showed that waves are observed simultaneously at both ends of the same field line, which indicated that the waves were guided. [Nagata+ 1963] showed pulsations at conjugate points could be matched cycle for cycle. The phase comparison could indicate the possible harmonics of standing waves. [Patel 1965] reported discovery of both transverse and compressional waves in space from Explorer 12 magnetometer data that are correlated with ground measurements, confirming that they were the same. [Cummings+ 1969] showed long-lived and frequent waves with nice numerical comparison of their periods from the poloidal and toroidal mode equations.
 * In the 1970s a simpler box model was proposed to explain field line resonance. The idea of standing waves could not explain why only some field lines are preferentially excited (with the foot point of the field line near magnetic latitude $70^o$). In the box model, discrete frequencies are treated as sources that reflect the properties of the magnetopause thickness with a preferred KHI growth rate.
 * In the 1980s the cavity model was proposed to link the discrete frequencies to the eigenmodes if we treated the magnetosphere as a cavity.
-* In the 1990s the waveguide model was proposed based on the cavity idea to loose the constrain in the azimuthal direction.
+* In the 1985s the waveguide model was proposed based on the cavity idea to loose the constrain in the azimuthal direction. This could explain many ground observation of discrete frequency, large amplitude Pc5 waves but satellite measurements often saw small amplitude Pc3/4 waves. Unlike field line resonances, which are described by a single eigennumber, cavity modes have three eigennumbers, corresponding to the number of wavelengths along a field line, azimuthally around the Earth, and radially between the magnetopause (or bow shock) and the inner reflection point. It is argued in the 1990s that if the lowest order mode has a frequency of, say, 2 mHz, then above perhaps 10 mHz the higher order modes will be so numerous and close in frequency that they could probably not be resolved in the data given their inherent width and the frequency resolution of a typical spectrum. Rather they would appear as a continuum. As a continuum, they can not be responsible for exciting discrete frequencies in this higher frequency band (corresponding to Pc3/4).
 
 Now, the big question is: where do the quantized numbers of the observed ULF waves come from [Kivelson & Southwood, 1986]?Researchers borrowed ideas from ionospheric radio propagation, laser fusion and plasma physics and came up with the names _cavity_ and _waveguide_. For the box model that we will discuss in the next section, if the $z$ boundaries are perfectly reflecting, wave fields must have standing structure in the $z$ direction, and allowed parallel wave numbers are quantized ($k_z = m\pi/c$, as in @eq:flr_xz_quantized). If the boundaries are weakly absorptive, the parallel wave numbers are complex, but the real parts are still quantized as above. If we impose periodic boundary conditions in $y$, the wavenumber in $y$ $k_y$ needs to be quantized as well.
 
@@ -93,6 +93,8 @@ From @eq:poloidal_spherical_sol, we know that radial amplitudes of opposite pari
 We assume perfect reflection at the boundaries so that the transverse components of $E$, i.e. $E_\theta$ and $E_\phi$, are zeros. The walls are assumed to be rigid so that $u_r = 0$. The normal component of $\mathbf{B}_1$ also vanishes from the governing equations.
 
 The toroidal wave equation seems to be too complicated for me following Radoski's derivations...
+
+![Cartoons showing the oscillation of a field line in the two lowest frequency toroidal modes (left) and poloidal modes (right). On the left the field line is drawn stretched out from north to south, and we look towards the Earth as the field line is displaced east and west. On the right, the dipolar field line is displaced within its meridian plane so all magnetic perturbations are radial. Note that for the toroidal mode, the magnetic perturbations (AD) have the opposite sense north and south in the fundamental and the same sense in the second harmonic. The opposite is true of the AH perturbation in the poloidal mode.](images/FLR_toroidal_poloidal_harmonics.png){#fig:flr_harmonics}
 
 ### Cylindrical Coordinates
 
@@ -237,9 +239,12 @@ There is a very important observation about polarization from @eq:flr_ex_ey [@so
 
 $$
 \frac{E_x}{E_y} = -\frac{ik_y}{R^2-k_y^2-k_z^2}\frac{\partial E_y}{\partial x}\frac{1}{E_y}
-$$
+$$ {#eq:flr_polarization}
 
-Our familiar fast MHD wave is _no longer linearly polarized in a nonuniform plasma_! A key thing on the RHS is the dependence on the sign of $k_y$: for fast waves propagating in opposite directions (i.e. eastward and westward in the azimuthal direction), the sense of polarization (RH, LH) will change. Right at the resonance point where $R^2 - k_z^2 - k_y^2 = 0$, we get linearly polarized Alfvén wave.
+Our familiar fast MHD wave is _no longer linearly polarized in a nonuniform plasma_! A key thing on the RHS is the dependence on the sign of $k_y$ as well as $\partial E_y/\partial x$. For fast waves propagating in opposite directions (i.e. eastward and westward in the azimuthal direction), the sense of polarization (RH, LH) will change as $k_y$ changes sign across local noon. Right at the resonance point where $R^2 - k_z^2 - k_y^2 = 0$, we get linearly polarized Alfvén wave. $\partial E_y/\partial x$ changes sign across the resonance point, thus we also have another change in polarization detected on the ground for different L-shells (or magnetic latitudes).
+
+![The variation of amplitude and the sense of polarization of Pc5's seen at high latitudes with latitude and magnetic local
+time. (After [Samson +, 1974].)](images/FLR_ground_Pc5_1974.png){#fig:flr_polarization}
 
 @eq:flr_wave_ey can also be written as a second order differential equation of $B_{1z}$, the compressional component of the magnetic field (see @eq:perturb_b), as [@kivelson1985resonant] did in proposing the idea of cavity modes:
 
@@ -335,51 +340,7 @@ The following physical interpretation is tempting. The MHD wave propagating into
 
 ![Schematic view of the field line resonance, driven by unstable surface wave.](images/FLR_schematic.png){#fig:flr_schematic}
 
-The energy that is carried into the magnetosphere across the background field by the non-guided fast mode is accumulated in the plane of resonant mode coupling (i.e. the y–z plane through $x_r$ in @fig:box_config) in the form of the guided Alfvén wave. It is this localized accumulation of energy due to resonant mode coupling between a non-guided mode and a guided mode that constitutes a field line resonance. This wave energy accumulation can be described by
-
-$$
-\frac{\partial w}{\partial t} + \nabla\cdot\mathbf{S} = -h
-$$
-
-where $w$ is the wave energy density, $\mathbf{S}$ is the Poynting flux, and $h$ a dissipation term, describing energy loss due to e.g. ionospheric Joule heating. As the background parameters only vary in the radial direction, this equation reduces to
-
-$$
-\frac{\partial w}{\partial t} = -\frac{d}{dr}S_x - h
-$$
-
-Integration across the width of the coupling region in a radial direction leads to the following rate equation:
-
-$$
-\frac{\partial W}{\partial t} = c_e S_{ng} - S_h^{\text{off}} - H
-$$
-
-where $W$ is the energy per area that is being accumulated in the coupling, $c_e$ is a coupling efficiency, $S_{ng}$ the incoming Poynting flux of the non-guided mode, and $S_g^{\text{off}}$ the "off-angle" component of the Poynting flux of that mode to which the non-guided mode couples. Including this term $S_g^{\text{off}}$ allows us to consider energy losses due to coupling to not strictly guided modes. A finite off-angle component of the coupled wave mode would render the energy accumulation less efficient or may even inhibit the build-up of a resonance. Off-angle components may arise if the transverse scale of the coupled wave become small enough for finite ion gyroradius or finite electron inertia becoming important. In this case the coupled mode is a _kinetic Alfvén mode_. The parameter $c_e$ denotes the coupling efficiency, that is the fraction of energy of the non-guided mode that is converted into the guided mode. Finally, $H$ gives the dissipative losses, integrated in the $x$ direction.
-
-It is now instructive to evaluate the rate Equation for the ideal MHD regime. As the Alfvén mode is a strictly guided mode its Poynting flux is directed exactly parallel to the background magnetic field. In other words, $S_h^{\text{off}}=0$, and Equation reads
-
-$$
-\frac{\partial W}{\partial t} = c_e S_{\text{fast}}
-$$
-
-where $S_{\text{fast}} = S_{ng}$ is the Poynting flux of the non-guided MHD mode. Thus, the energy density in the coupling region is continuously increasing as there is no outward transport of energy to balance the incoming Poynting flux of the fast mode. However, ionospheric Joule heating provides a significant dissipation mechanism with H limiting the energy density.
-
-Note that resonant mode coupling is only a _necessary_ condition for field line resonances to occur. A _sufficient_ condition is critical coupling to a strictly guided mode and absence of dissipation to a degree that there is enough energy for resonance.
-
-At the resonance a phase shift of $180^o$ between the toroidal field components ($E_x$ in the box model, $B_{\phi 1}$ in the  coordinate) on both sides of the resonance is apparent. This phase shift can be understood using Maxwell's equations with the polarization current $\mathbf{j}_\perp = \rho_0/B_0^2\cdot d\mathbf{E}/dt$, and deriving
-
-$$
-(R^2 - k_z^2)E_x = ik_y \Big( \frac{\partial E_y}{\partial x} - ik_y E_x \Big) = k_y \omega B_{1z}
-$$
-
-At the resonance $R^2 = k_z^2$, thus $B_{1z}=0$, and for the electric field polarization we have
-
-$$
-\frac{E_x}{E_y} = -\frac{i}{k_y E_y}\frac{\partial E_y}{\partial x}
-$$
-
-The polarization therefore depends on $k_y$ as well as $\partial E_y/\partial x$. As $k_y$ changes sign across local noon for, e.g., K-H instability generated fast mode waves at the magnetopause and $\partial E_y/\partial x$ changes sign across the resonance point.
-
-Note that @eq:flr_wave_bz has a long history that appeared first in the context of a radio wave obliquely incident on a region of increasing electron density, all the way back to 1951, as mentioned in [@kivelson1986coupling]. It also appears in calculating the absorption of laser energy by a plasma and heating a plasma by radio wave injection to excite internal Alfvén waves. Energy is absorbed at the location in the plasma corresponding to the singular point of the governing differential @eq:flr_wave_bz or its equivalent. Without the introduction of additional effects such as dissipation or dispersion near
+@eq:flr_wave_bz has a long history that appeared first in the context of a radio wave obliquely incident on a region of increasing electron density, all the way back to 1951, as mentioned in [@kivelson1986coupling]. It also appears in calculating the absorption of laser energy by a plasma and heating a plasma by radio wave injection to excite internal Alfvén waves. Energy is absorbed at the location in the plasma corresponding to the singular point of the governing differential @eq:flr_wave_bz or its equivalent. Without the introduction of additional effects such as dissipation or dispersion near
 resonance, the singularity in the differential equation implies that the amplitude of the Alfvén wave grows secularly.
 
 Later studies prefer to use plasma displacement and perturbed magnetic field component $B_{1z}$ to describe the model. We have the governing equations
@@ -440,23 +401,19 @@ $$ {#eq:flr_xz_quantized}
 
 where $a$ is the box length in x and $c$ is the box length in z (i.e. length of field lines). See [@wright1994dispersion] for illustrating the dispersion of waveguide propagation in this case.
 
-If we believe that the boundary at $x = a$ is not a reflector but is driven, it would be appropriate to impose a wavenumber $k_y$ along the outer boundary and solve for $k_x$ given $k_z$. This is the case when the magnetopause is driven by the Kelvin-Helmholtz instability, which was proposed in the 1970s to be the driver of field line resonances. However, the biggest problem for this hypothesis to be valid is that the mapped phase speeds to the magnetopause were too high compared to in-situ measurements. In addition, in spite of numerous magnetopause crossings by ISEE 1 and 2, regular oscillations of the magnetopause corresponding to the Kelvin-Helmholtz waves were not seen. These two facts indicated that we should seek for a new explanation for the driver.
-
 __Nonuniform density and magnetic field__
 
 The simplest assumptions in this case would be $\rho = \rho(x)$, $B_0 = B_0(x)$ (Maybe even $B_0 = \text{const.}$, but that would be too unrealistic.), and that the Alfvén speed $V_A$ is monotonically decreasing with $x$, $\partial V_A / \partial x < 0$. Then again we get @eq:flr_wave_bz. Solving this equation for given boundary conditions in $x$ yields a set of orthogonal eigenfunctions $B_{1z}(x)$ and eigenfrequencies.
 
-The main features of the solution are:
-
-1. A singularity/resonance occurs at position $x_r$ where
+First of all, we shall notice that a singularity/resonance occurs at position $x_r$ where
 
 $$
 \omega^2 = k_z^2 V_A^2(x_r)
 $$
 
-Across $x_r$ there will be a $180^o$ phase shift for the perturbed terms. (A successful explanation of phase changes at those discrete frequencies from different latitudes on the ground is a strong proof of the validity of the model.) Energy is been absorbed at the resonance point from fast mode to Alfvén mode. Dissipation is required, otherwise the amplitude of the Alfvén wave grows secularly. Ionospheric dissipation near the resonant field line is likely to be one important process limiting the growth of the resonance amplitude.
+Across $x_r$ there will be a $180^o$ phase shift for the perturbed terms (@eq:flr_polarization). Energy is been absorbed at the resonance point from fast mode to Alfvén mode. Dissipation is required, otherwise the amplitude of the Alfvén wave grows secularly. Ionospheric dissipation near the resonant field line is likely to be one important process limiting the growth of the resonance amplitude.
 
-2. The first order term in @eq:flr_wave_bz dominate near $x=x_r$, but is small in the propagating interval. In the WKB limit (@sec:WKB), we consider waves of short wavelength in $x$; i.e. second order derivatives of $B_{1z}$ are much larger than first order derivatives. In the lowest order WKB analysis we may neglect the first order derivatives and solve
+Secondly, the first order term in @eq:flr_wave_bz dominate near $x=x_r$, but is small in the propagating interval. In the WKB limit (@sec:WKB), we consider waves of short wavelength in $x$; i.e. second order derivatives of $B_{1z}$ are much larger than first order derivatives. In the lowest order WKB analysis we may neglect the first order derivatives and solve
 
 $$
 \frac{\partial^2 B_{1z}}{\partial x^2} + \Big( \frac{\omega^2}{V_A^2} - k_y^2 - k_z^2 \Big) B_{1z} = 0
@@ -488,9 +445,18 @@ where $x_m = a$ is the location of the outer boundary in x and the phase factor 
 
 Based on this condition, you can probably tell that in the $x$ direction we expect quasi-standing wave solution between $x_t$ and $x_m$. @eq:cavity_eigen_wkb is an integral relation for the eigenfrequencies of the fast mode: we specify $k_y$, $k_z$, and $n$ (the mode number in x), then find the n-th eigenfrequency $\omega_n$ as that frequency for which the criterion is met. Once we compute $\omega_n$, we can then compute $x_r = x_r(\omega_n)$. These are the most observable signatures of the discrete modes.
 
-The analogy of a magnetosphere to a cavity came before the analogy to a waveguide. In a cavity model the azimuthal direction $\phi$ or the $y$ direction in the box geometry is finite, and the wavenumber $k_y$ is determined by the given scale size $b$. In the axisymmetric cylindrical coordinates $(r,\phi,z)$, where $\phi$ is the azimuthal angle and $z$ is the coordinate along the field lines, the field has the form $\sim e^{im\phi},\, m=0,1,2$.\footnote{$E(\phi=0)=E(\phi=2\pi)$} This is a weak point of the theory because the magnetosphere is far from axisymmetric and there are no other obvious boundaries to define the cavity. If the system is similar to a waveguide, then $k_y$ can have a continuum of values, and the waveguide allows propagation over a wide band of frequencies.
+![From Wright 1992.](images/FLR_waveguides_Wright.png){#fig:flr_wright}
 
-The discrete frequency spectrum of the fast cavity modes is suitable for driving a series of Alfvén resonance; however, it is not obvious that the continuous frequency spectrum of the fast waveguide modes will be able to drive resonances at discrete frequencies. A key observation to make waveguide mode valid is that _the frequency that contributes the most to @eq:cavity_eigen_wkb is very insensitive to the waveguide wavenumber $k_y$_. [@walker1992spatial] and [Wright 1992] dedicated at arguing this point. If $k_y$ is not fixed (but $k_z$ is fixed), then @eq:cavity_eigen_wkb is the dispersion relation for the waveguide expressing $\omega$ as a function of $k_y$. The Alfvén speed is a strong function of the L shell, typically $\sim L^{-3}$. Thus, if the turning point $x_t$ is reasonably deep within the magnetosphere, the range over which $\omega^2/V_A^2 \gg k_y^2 + k_z^2$ contributes most significantly to the integral. The result is that over a wide range of wavelengths the frequency is very insensitive to $k_y$. Only when $k_y$ is quite large this is not true, and then the turning point is near the magnetopause, and the wave does not penetrate very deeply into the magnetosphere. Each waveguide mode has a phase velocity $\omega/k_y$ and a group velocity $d\omega/dk_y$. Since @eq:cavity_eigen_wkb defines $\omega$ as a function of $k_y$, we can substitute @eq:flr_kx_effective into @eq:cavity_eigen_wkb and differentiate with respect to $k_y$ (assuming $\alpha$ is a constant):
+![From [@samson1992field].](images/FLR_waveguides_Samson.png){#fig:flr_samson}
+
+__Driven FLR vs Cavity Modes vs Waveguide Modes__
+
+If we believe that the boundary at $x = a$ is not a reflector but is driven, it would be appropriate to impose a wavenumber $k_y$ along the outer boundary and solve for $k_x$ given $k_z$. This is the case when the magnetopause is driven by the Kelvin-Helmholtz instability (i.e. $k_y$ given by the surface waves), which was proposed in the 1970s to be the driver of field line resonances. However, the biggest problem for this hypothesis to be valid is that the mapped phase speeds to the magnetopause were too high compared to in-situ measurements. In addition, in spite of numerous magnetopause crossings by ISEE 1 and 2, regular oscillations of the magnetopause corresponding to the Kelvin-Helmholtz waves were not seen. These two facts indicated that we should seek for a new explanation for the driver.
+
+In the 1980s, cavity modes and waveguide modes were proposed to remove the constraint on driven FLR. The analogy of a magnetosphere to a cavity came before the analogy to a waveguide. In a cavity model the azimuthal direction $\phi$ or the $y$ direction in the box geometry is finite, and the wavenumber $k_y$ is determined by the given scale size $b$. In the axisymmetric cylindrical coordinates $(r,\phi,z)$, where $\phi$ is the azimuthal angle and $z$ is the coordinate along the field lines, the field has the form $\sim e^{im\phi},\, m=0,1,2$.\footnote{$E(\phi=0)=E(\phi=2\pi)$} This is a weak point of the theory because the magnetosphere is far from axisymmetric and there are no other obvious boundaries to define the cavity. If the system is similar to a waveguide, then $k_y$ can have a continuum of values, and the waveguide allows propagation over a wide band of frequencies.
+
+If instead we use a waveguide model, the azimuthal direction (or $y$-direction) will have no imposed boundary condition.
+Theoretically a continuum of wave modes $k_y$ can excite FLR, and the discrete resonance frequencies are determined by the Bohr-Sommerfeld condition eq:cavity_eigen_wkb where harmonics of toroidal and poloidal are given by $k_z$. The discrete frequency spectrum of the fast waveguide modes is suitable for driving a series of Alfvén resonance; however, it is not obvious that the continuous frequency spectrum of the modes will be able to drive resonances at discrete frequencies. A key observation to make waveguide mode more valid is that _only small $k_y$ contributes to the resonance_. [@walker1992spatial] and [Wright 1992] dedicated at arguing this point. If $k_y$ is not fixed (but $k_z$ is fixed), then @eq:cavity_eigen_wkb is the dispersion relation for the waveguide expressing $\omega$ as a function of $k_y$. The Alfvén speed is a strong function of the L shell, typically $\sim L^{-3}$. Thus, if the turning point $x_t$ is reasonably deep within the magnetosphere, the range over which $\omega^2/V_A^2 \gg k_y^2 + k_z^2$ contributes most significantly to the integral @eq:cavity_eigen_wkb. The result is that over a wide range of wavelengths the frequency is very insensitive to $k_y$. Only when $k_y$ is quite large this is not true, and then the turning point is near the magnetopause, and the wave does not penetrate very deeply into the magnetosphere. Each waveguide mode has a phase velocity $\omega/k_y$ and a group velocity $d\omega/dk_y$. Since @eq:cavity_eigen_wkb defines $\omega$ as a function of $k_y$, we can substitute @eq:flr_kx_effective into @eq:cavity_eigen_wkb and differentiate with respect to $k_y$ (assuming $\alpha$ is a constant):
 
 $$
 \begin{aligned}
@@ -526,8 +492,38 @@ would expect the waveguide response to be a ringing at the natural frequencies o
 required to establish the mode and decay on the time scale for leakage to the resonance and loss in the ionosphere or elsewhere. Alternatively the waveguide modes could be excited by the Kelvin-Helmholtz instability. In this case it could be expected that the waveguide modes would all be excited continuously and would be driven so long as the solar wind velocity
 and the characteristics of the magnetopause were maintained.
 
-![From Wright 1992.](images/FLR_waveguides_Wright.png){#fig:flr_wright}
+## Energy Consideration
 
-![From [@samson1992field].](images/FLR_waveguides_Samson.png){#fig:flr_samson}
+???
+
+The energy that is carried into the magnetosphere across the background field by the non-guided fast mode is accumulated in the plane of resonant mode coupling (i.e. the y–z plane through $x_r$ in @fig:box_config) in the form of the guided Alfvén wave. It is this localized accumulation of energy due to resonant mode coupling between a non-guided mode and a guided mode that constitutes a field line resonance. This wave energy accumulation can be described by
+
+$$
+\frac{\partial w}{\partial t} + \nabla\cdot\mathbf{S} = -h
+$$
+
+where $w$ is the wave energy density, $\mathbf{S}$ is the Poynting flux, and $h$ a dissipation term, describing energy loss due to e.g. ionospheric Joule heating. As the background parameters only vary in the radial direction, this equation reduces to
+
+$$
+\frac{\partial w}{\partial t} = -\frac{d}{dr}S_x - h
+$$
+
+Integration across the width of the coupling region in a radial direction leads to the following rate equation:
+
+$$
+\frac{\partial W}{\partial t} = c_e S_{ng} - S_h^{\text{off}} - H
+$$
+
+where $W$ is the energy per area that is being accumulated in the coupling, $c_e$ is a coupling efficiency, $S_{ng}$ the incoming Poynting flux of the non-guided mode, and $S_g^{\text{off}}$ the "off-angle" component of the Poynting flux of that mode to which the non-guided mode couples. Including this term $S_g^{\text{off}}$ allows us to consider energy losses due to coupling to not strictly guided modes. A finite off-angle component of the coupled wave mode would render the energy accumulation less efficient or may even inhibit the build-up of a resonance. Off-angle components may arise if the transverse scale of the coupled wave become small enough for finite ion gyroradius or finite electron inertia becoming important. In this case the coupled mode is a _kinetic Alfvén mode_. The parameter $c_e$ denotes the coupling efficiency, that is the fraction of energy of the non-guided mode that is converted into the guided mode. Finally, $H$ gives the dissipative losses, integrated in the $x$ direction.
+
+It is now instructive to evaluate the rate Equation for the ideal MHD regime. As the Alfvén mode is a strictly guided mode its Poynting flux is directed exactly parallel to the background magnetic field. In other words, $S_h^{\text{off}}=0$, and Equation reads
+
+$$
+\frac{\partial W}{\partial t} = c_e S_{\text{fast}}
+$$
+
+where $S_{\text{fast}} = S_{ng}$ is the Poynting flux of the non-guided MHD mode. Thus, the energy density in the coupling region is continuously increasing as there is no outward transport of energy to balance the incoming Poynting flux of the fast mode. However, ionospheric Joule heating provides a significant dissipation mechanism with H limiting the energy density.
+
+Resonant mode coupling is only a _necessary_ condition for field line resonances to occur. A _sufficient_ condition is critical coupling to a strictly guided mode and absence of dissipation to a degree that there is enough energy for resonance.
 
 ## 3D FLR
