@@ -96,6 +96,18 @@ The toroidal wave equation seems to be too complicated for me following Radoski'
 
 ![Cartoons showing the oscillation of a field line in the two lowest frequency toroidal modes (left) and poloidal modes (right). On the left the field line is drawn stretched out from north to south, and we look towards the Earth as the field line is displaced east and west. On the right, the dipolar field line is displaced within its meridian plane so all magnetic perturbations are radial. Note that for the toroidal mode, the magnetic perturbations (AD) have the opposite sense north and south in the fundamental and the same sense in the second harmonic. The opposite is true of the AH perturbation in the poloidal mode.](images/FLR_toroidal_poloidal_harmonics.png){#fig:flr_harmonics}
 
+From the boundary condition, the length $l$ of the field line between two reflection point must be a multiple of half the wavelength $\lambda$, implying
+
+$$
+n\lambda = 2l,\quad n = 1,2,3,...
+$$
+
+From the dispersion relation, with the average Alfvén speed $<V_A>$, one finds:
+
+$$
+\omega_n = <V_A> k = <V_A>\frac{2\pi}{\lambda} = \frac{n\pi<V_A>}{l}
+$$
+
 ### Cylindrical Coordinates
 
 In cylindrical coordinates $(r,\phi,z)$, assuming perturbations of the form $e^{i(m\phi - \omega t)}$, we can separate the linearized equations ([@hughes1994magnetospheric] I HAVEN'T DERIVED THIS!),
@@ -118,17 +130,13 @@ If $m = 0$ the RHS of @eq:cylindrical_mhd_toroidal vanishes. The LHS then descri
 
 ### Cartesian Box Model
 
-Earliest theories made derivations in the spherical or cylindrical coordinates. Here we show an easier version in the Cartesian coordinates. We simplify the actual dayside magnetosphere, which like a compressed dipole, to something we can solve analytically. Imagine a field line with both footpoints connecting to the conducting ionosphere, we can map this curved field line into a straight line extending along z. In the x direction, the outer boundary is the magnetopause, and the inner boundary is the reflection point (some studies refer to the plasmapause). The y direction represents the azimuthal direction, therefore at the front of the magnetosphere it is more aligned with the y direction in GSE/GSM and at the flanks/sides it is more aligned with the x direction. If the length in y is finite ($b < \infty$), we call it a _cavity_; if the length in y is infinite ($b\rightarrow \infty$), we call it a _waveguide_. The names cavity and waveguide are inherited from electrodynamics. This is shown in the schematic @fig:box_mapping and @fig:box_config.
+Earliest theories had cold ideal MHD equations @eq:mhd_cold_e_wave or @eq:mhd_cold_b_wave expressed in the spherical or cylindrical coordinates, which are not easy to solve. As we will see, the essence of FLR can be obtained in the Cartesian coordinates. We simplify the actual dayside magnetosphere, which like a compressed dipole, to something we can solve analytically. Imagine a field line with both footpoints connecting to the conducting ionosphere, we can map this curved field line into a straight line extending along $z$. In the $x$-direction, the outer boundary is the magnetopause, and the inner boundary is the reflection point (plasmapause or ionosphere). The $y$-direction represents the azimuthal direction, therefore at the front of the magnetosphere it is more aligned with the $y$-direction in GSE/GSM and at the flanks/sides it is more aligned with the $x$-direction. If the length in $y$ is finite ($b < \infty$), we call it a _cavity_; if the length in $y$ is infinite ($b\rightarrow \infty$), we call it a _waveguide_. The names cavity and waveguide are inherited from electrodynamics. This is shown in the schematic @fig:box_mapping and @fig:box_config.
 
 ![From one of Southwood & Kivelson's paper.](images/box_model_mapping.png){#fig:box_mapping}
 
 ![From one of Southwood & Kivelson's paper.](images/box_model_config.png){#fig:box_config}
 
-Sometimes it is better to use the plasma displacement $\pmb{\xi}$ instead of $\mathbf{u}$, where $\mathbf{u} = \dot{\pmb{\xi}}$. 
-
-Along the $z$ direction, the wavenumber $k_z$ will have discrete values determined by field line length. In the y direction, we impose periodic boundary conditions. This does not mean that the solution do not have y direction variations; it means that it is like a cavity with given boundaries along y, so that a quantized wavenumber $k_y$ is required to fulfill the boundary condition. In the x direction, the boundaries are provided by the large $V_A$ gradients at both the magnetopause $x_m$ and the plasmapause $x_t$. Waves incident on either of these two boundaries are totally internally reflected, and that wave energy is contained within the box, so we impose $\xi_x = 0 | x = x_t, x_m$. Note that in the model we do not introduce wavenumber $k_x$. Because of the ideal MHD assumption, the electric field along the field lines $E_z = 0$.
-
-With the ansatz
+Along the $z$-direction, we impose the ionospheric boundary for closed field lines $u_x = u_y = B_{1z} = 0$. Because of the ideal MHD assumption, the electric field along the field lines $E_z = 0$. In the $y$-direction, we impose either a periodic boundary condition for the cavity model that leads to a quantized wavenumber $k_y$, or a infinite boundary. In the $x$ direction, the boundaries are provided by large $V_A$ gradients at both the outer boundary $x_m$ (magnetopause) and the inner boundary $x_t$ (plasmapause). We impose a reflective boundary $u_x = 0$ at $x = x_t, x_m$. _The inhomogeity in $x$ means that we can only consider Fourier components in the $y$ and $z$ directions_. Therefore, we seek wave modes of the form $\propto \exp[i(k_y y + k_z z - \omega t)]$ with the ansatz
 
 $$
 \begin{aligned}
@@ -137,11 +145,11 @@ $$
 \mathbf{B}_1 &= (B_{1x}, B_{1y}, B_{1z}) e^{i(k_y y + k_z z - \omega t)} \\
 \mathbf{B}_0 &= B_z \hat{z} = B\hat{z} \\
 \rho &= \rho(x) \\
-\mathbf{u}_0 &= 0
+\mathbf{u} &= \mathbf{u}_0 + \mathbf{u}_1 = \mathbf{u}_1
 \end{aligned}
 $$
 
-and assuming cold plasma, the linearized MHD momentum eq:mhd_cold gives
+The linearized momentum @eq:mhd_cold gives
 
 $$
 \begin{aligned}
@@ -343,7 +351,7 @@ The following physical interpretation is tempting. The MHD wave propagating into
 @eq:flr_wave_bz has a long history that appeared first in the context of a radio wave obliquely incident on a region of increasing electron density, all the way back to 1951, as mentioned in [@kivelson1986coupling]. It also appears in calculating the absorption of laser energy by a plasma and heating a plasma by radio wave injection to excite internal Alfvén waves. Energy is absorbed at the location in the plasma corresponding to the singular point of the governing differential @eq:flr_wave_bz or its equivalent. Without the introduction of additional effects such as dissipation or dispersion near
 resonance, the singularity in the differential equation implies that the amplitude of the Alfvén wave grows secularly.
 
-Later studies prefer to use plasma displacement and perturbed magnetic field component $B_{1z}$ to describe the model. We have the governing equations
+Some studies (e.g. [@kivelson1986coupling], [@wright1994dispersion]) prefer to use plasma displacement $\pmb{\xi}$ instead of $\mathbf{u}$, where $\mathbf{u} = \dot{\pmb{\xi}}$, and perturbed magnetic field component $B_{1z}$ to describe the model:
 
 $$
 \begin{aligned}
@@ -353,7 +361,7 @@ B_{1z} &= - B_0 \Big( \frac{\partial \xi_x}{\partial x} + \frac{\partial \xi_y}{
 \end{aligned}
 $$ {#eq:flr_box_displacement_b1z}
 
-The first two equations are the $x$ and $y$ component of the momentum equation, and the last equation is the magnetic field advection equation (Faraday's law + Ohm's law). Recall that $B_{1z}$ is the compressional perturbation to the ambient magnetic field. Then on the RHS of the second equation, it is the azimuthal gradient in the fast compressional mode $\partial B_{1z}/\partial y$ that drives the response in the azimuthal place displacement $\xi_y$. It is like the LHS is a simple harmonic oscillator and the RHS is the forcing term. Recall that we are seeking for solutions of the form $e^{i(k_y y + k_z z - \omega t)}$. From here we can see that
+This equation set is equivalent to @eq:mhd_cold_b_wave. The first two equations are the $x$ and $y$ component of the momentum equation, and the last equation is the magnetic field advection equation (Faraday's law + Ohm's law). Recall that $B_{1z}$ is the compressional perturbation to the ambient magnetic field. Then on the RHS of the second equation, it is the azimuthal gradient in the fast mode $\partial B_{1z}/\partial y$ that drives the response in the azimuthal place displacement $\xi_y$. It is like the LHS is a simple harmonic oscillator and the RHS is the forcing term. Recall that we are seeking for solutions of the form $e^{i(k_y y + k_z z - \omega t)}$. From here we can see that:
 
 * if $k_y=0$ for the fast mode, then there are no azimuthal gradients to drive FLRs and hence you get no wave coupling;
 * if $k_y \rightarrow \infty$, then $\xi_y \rightarrow 0$ and $\xi_x$ describes a decoupled poloidal Alfvén wave.
@@ -399,51 +407,61 @@ k_z &= \pm m \pi / c,\, &m = 1,2,3...
 \end{aligned}
 $$ {#eq:flr_xz_quantized} 
 
-where $a$ is the box length in x and $c$ is the box length in z (i.e. length of field lines). See [@wright1994dispersion] for illustrating the dispersion of waveguide propagation in this case.
+where $a$ is the box length in x and $c$ is the box length in z (i.e. length of the field lines).
+
+Given values of $k_x$ and $k_z$, we may use @eq:flr_uniform_fast to find $k_y$ as a function of $\omega$,
+
+$$
+k_y^2 = \frac{\omega^2}{V^2} - k_x^2 - k_y^2
+$$
+
+If $k_y$ is real then the mode may propagate along the guide. However, if we believe that the boundary at $x = x_m = a$ is not a reflector but is driven, it would be appropriate to impose a wavenumber $k_y$ along the outer boundary and solve for $k_x$ given $k_z$. This is the case when the magnetopause is driven by the Kelvin-Helmholtz instability (i.e. $k_y$ given by the surface waves), which was proposed in the 1970s to be the driver of field line resonances. In this situation $k_x$ is found to be imaginary, and the mode is evanescent (exponentially decaying) in $x$.
 
 __Nonuniform density and magnetic field__
 
-The simplest assumptions in this case would be $\rho = \rho(x)$, $B_0 = B_0(x)$ (Maybe even $B_0 = \text{const.}$, but that would be too unrealistic.), and that the Alfvén speed $V_A$ is monotonically decreasing with $x$, $\partial V_A / \partial x < 0$. Then again we get @eq:flr_wave_bz. Solving this equation for given boundary conditions in $x$ yields a set of orthogonal eigenfunctions $B_{1z}(x)$ and eigenfrequencies.
+The simplest assumptions in this case would be $\rho = \rho(x)$, $\mathbf{B}_0 = B_0\hat{z}$, and that the Alfvén speed $V_A$ is monotonically decreasing with $x$, $\partial V_A / \partial x < 0$. Then again we get @eq:flr_wave_bz. Solving this equation for given boundary conditions in $x$ yields a set of orthogonal eigenfunctions $B_{1z}(x)$ and eigenfrequencies.
 
-First of all, we shall notice that a singularity/resonance occurs at position $x_r$ where
+First of all, we shall notice that a singularity/resonance occurs at $x_r$ where
 
 $$
 \omega^2 = k_z^2 V_A^2(x_r)
-$$
+$$ {#eq:flr_resonance_dispersion}
 
 Across $x_r$ there will be a $180^o$ phase shift for the perturbed terms (@eq:flr_polarization). Energy is been absorbed at the resonance point from fast mode to Alfvén mode. Dissipation is required, otherwise the amplitude of the Alfvén wave grows secularly. Ionospheric dissipation near the resonant field line is likely to be one important process limiting the growth of the resonance amplitude.
 
-Secondly, the first order term in @eq:flr_wave_bz dominate near $x=x_r$, but is small in the propagating interval. In the WKB limit (@sec:WKB), we consider waves of short wavelength in $x$; i.e. second order derivatives of $B_{1z}$ are much larger than first order derivatives. In the lowest order WKB analysis we may neglect the first order derivatives and solve
+Secondly, there is a turning point at $x_t$ defined via $k_x^2 = 0$ (fixed $k_y, k_z, \omega$):
+
+$$
+\omega^2 = (k_y^2 + k_z^2)V_A^2(x_t)
+$$ {#eq:flr_turning_dispersion}
+
+On the right of $x_t$, the positive exponent represents a wave propagating in the positive $x$ direction towards the magnetopause, and the negative exponent represents one propagating away from the magnetopause. This is like an imperfect standing wave solution. Across $x_t$ on the left, the oscillating solutions convert to a decaying solution and an exponentially growing solution (@sec:airy).
+
+If the Alfvén speed $V_A$ is monotonically decreasing with $x$, from @eq:flr_resonance_dispersion and @eq:flr_turning_dispersion we always have $0 < x_r < x_t < x_m$. In the low Alfvén speed region $[x_t, x_m]$ the fast mode may propagate, while in the high Alfvén speed region $[0, x_t]$ the fast mode is evanescent. Thus the resonant singularity $x_r$ is in the evanescent tail of the fast mode.
+
+The first-order derivative term in @eq:flr_wave_bz dominate near $x=x_r$, but is small in the propagating interval $[x_t, x_m]$. This is particularly true in the WKB limit (@sec:WKB), where we consider waves of short wavelength in $x$; i.e. second-order derivative term is much larger than the first-order derivative term. In the lowest order WKB analysis we may neglect the first-order derivatives and solve
 
 $$
 \frac{\partial^2 B_{1z}}{\partial x^2} + \Big( \frac{\omega^2}{V_A^2} - k_y^2 - k_z^2 \Big) B_{1z} = 0
 $$ {#eq:flr_wave_bz_wkb}
 
-and the solution can be written in the form
+and the WKB solution is given in the form
 
 $$
 B_{1z}(x) = A k_x^{-1/2} e^{i\int k_x dx} + B k_x^{-1/2}e^{-i\int k_x dx}
 $$
 
-where $A$ and $B$ are constants, and $k_x$ is the "effective" wavenumber defined in @eq:flr_kx_effective. The solution for $B_{1z}$ has a turning point at $x_t$ defined via $k_x^2 = 0$, which gives
+where $A$ and $B$ are constants, and $k_x$ is the "effective" wavenumber defined in @eq:flr_kx_effective, an explicit function of $x$.
 
-$$
-\omega^2 = (k_y^2 + k_z^2)V_A^2(x_t)
-$$
-
-On the right of $x_t$, the positive exponent represents a wave propagating in the positive $x$ direction towards the magnetopause, and the negative exponent represents one propagating away from the magnetopause. This is like an imperfect standing wave solution. Across $x_t$ on the left, the oscillating solutions convert to a decaying solution and an exponentially growing solution (@sec:airy).
-
-In the low Alfvén speed region $[x_t, x_m]$ the fast mode may propagate, while in the high Alfvén speed region $[0, x_t]$ the mode is evanescent. Note that $0 < x_r < x_t < x_m$ for a given $\omega$ and $k_z$. Thus the resonant singularity $x_r$ is in the evanescent tail of the fast mode. (ADD FIRURE?)
-
-The Bohr-Sommerfeld (or phase integral, @sec:stokes_application) condition which the wave must satisfy is
+The Bohr-Sommerfeld (or phase integral, @sec:stokes_application) condition which the quasi-standing wave must satisfy between $x_t$ and $x_m$ is
 
 $$
 \int_{x_t}^{x_m} k_x(x,\omega_n) dx = (n+\alpha)\pi\qquad n = 1,2,3...
 $$ {#eq:cavity_eigen_wkb}
 
-where $x_m = a$ is the location of the outer boundary in x and the phase factor $\alpha$ is determined by the boundary conditions in x. For a perfect reflector at $a$ ($\xi_x=0$) and evanescent decay at small x, we find $\alpha = -1/4$. 
+where $x_m = a$ is the location of the outer boundary in $x$ and the phase factor $\alpha$ is determined by the boundary conditions in $x$. For a perfect reflector at $a$ ($\xi_x=0$) and evanescent decay at small x, we find $\alpha = -1/4$. If there is a resonance in the waveguide, it will modify $\alpha$; however, since the resonance is in the evanescent tail there will be no leading order change in $\alpha$.
 
-Based on this condition, you can probably tell that in the $x$ direction we expect quasi-standing wave solution between $x_t$ and $x_m$. @eq:cavity_eigen_wkb is an integral relation for the eigenfrequencies of the fast mode: we specify $k_y$, $k_z$, and $n$ (the mode number in x), then find the n-th eigenfrequency $\omega_n$ as that frequency for which the criterion is met. Once we compute $\omega_n$, we can then compute $x_r = x_r(\omega_n)$. These are the most observable signatures of the discrete modes.
+@eq:cavity_eigen_wkb is an integral relation for the eigenfrequencies of the fast mode: we specify $k_y$, $k_z$, and $n$ (the mode number in x), then find the n-th eigenfrequency $\omega_n$ as that frequency for which the criterion is met. Once we compute $\omega_n$, we can then compute the locations of the excited field line $x_r$ from @eq:flr_resonance_dispersion. These are the most observable discrete modes.
 
 ![From Wright 1992.](images/FLR_waveguides_Wright.png){#fig:flr_wright}
 
@@ -451,12 +469,12 @@ Based on this condition, you can probably tell that in the $x$ direction we expe
 
 __Driven FLR vs Cavity Modes vs Waveguide Modes__
 
-If we believe that the boundary at $x = a$ is not a reflector but is driven, it would be appropriate to impose a wavenumber $k_y$ along the outer boundary and solve for $k_x$ given $k_z$. This is the case when the magnetopause is driven by the Kelvin-Helmholtz instability (i.e. $k_y$ given by the surface waves), which was proposed in the 1970s to be the driver of field line resonances. However, the biggest problem for this hypothesis to be valid is that the mapped phase speeds to the magnetopause were too high compared to in-situ measurements. In addition, in spite of numerous magnetopause crossings by ISEE 1 and 2, regular oscillations of the magnetopause corresponding to the Kelvin-Helmholtz waves were not seen. These two facts indicated that we should seek for a new explanation for the driver.
+The surface wave driven FLR seems reasonable. However, the biggest problem for this hypothesis to be valid is that the mapped phase speeds to the magnetopause were too high compared to in-situ measurements. In addition, in spite of numerous magnetopause crossings by ISEE 1 and 2, regular oscillations of the magnetopause corresponding to the Kelvin-Helmholtz waves were not seen. These two facts indicated that we should seek for a new explanation for the driver.
 
 In the 1980s, cavity modes and waveguide modes were proposed to remove the constraint on driven FLR. The analogy of a magnetosphere to a cavity came before the analogy to a waveguide. In a cavity model the azimuthal direction $\phi$ or the $y$ direction in the box geometry is finite, and the wavenumber $k_y$ is determined by the given scale size $b$. In the axisymmetric cylindrical coordinates $(r,\phi,z)$, where $\phi$ is the azimuthal angle and $z$ is the coordinate along the field lines, the field has the form $\sim e^{im\phi},\, m=0,1,2$.\footnote{$E(\phi=0)=E(\phi=2\pi)$} This is a weak point of the theory because the magnetosphere is far from axisymmetric and there are no other obvious boundaries to define the cavity. If the system is similar to a waveguide, then $k_y$ can have a continuum of values, and the waveguide allows propagation over a wide band of frequencies.
 
 If instead we use a waveguide model, the azimuthal direction (or $y$-direction) will have no imposed boundary condition.
-Theoretically a continuum of wave modes $k_y$ can excite FLR, and the discrete resonance frequencies are determined by the Bohr-Sommerfeld condition eq:cavity_eigen_wkb where harmonics of toroidal and poloidal are given by $k_z$. The discrete frequency spectrum of the fast waveguide modes is suitable for driving a series of Alfvén resonance; however, it is not obvious that the continuous frequency spectrum of the modes will be able to drive resonances at discrete frequencies. A key observation to make waveguide mode more valid is that _only small $k_y$ contributes to the resonance_. [@walker1992spatial] and [Wright 1992] dedicated at arguing this point. If $k_y$ is not fixed (but $k_z$ is fixed), then @eq:cavity_eigen_wkb is the dispersion relation for the waveguide expressing $\omega$ as a function of $k_y$. The Alfvén speed is a strong function of the L shell, typically $\sim L^{-3}$. Thus, if the turning point $x_t$ is reasonably deep within the magnetosphere, the range over which $\omega^2/V_A^2 \gg k_y^2 + k_z^2$ contributes most significantly to the integral @eq:cavity_eigen_wkb. The result is that over a wide range of wavelengths the frequency is very insensitive to $k_y$. Only when $k_y$ is quite large this is not true, and then the turning point is near the magnetopause, and the wave does not penetrate very deeply into the magnetosphere. Each waveguide mode has a phase velocity $\omega/k_y$ and a group velocity $d\omega/dk_y$. Since @eq:cavity_eigen_wkb defines $\omega$ as a function of $k_y$, we can substitute @eq:flr_kx_effective into @eq:cavity_eigen_wkb and differentiate with respect to $k_y$ (assuming $\alpha$ is a constant):
+Theoretically a continuum of wave modes $k_y$ can excite FLR, and the discrete resonance frequencies are determined by the Bohr-Sommerfeld condition eq:cavity_eigen_wkb where harmonics of toroidal and poloidal are given by $k_z$. The discrete frequency spectrum of the fast waveguide modes is suitable for driving a series of Alfvén resonance; however, it is not obvious that the continuous frequency spectrum of the modes will be able to drive resonances at discrete frequencies. A key observation to make waveguide mode more valid is that _only small $k_y$ contributes to the resonance_. ([@walker1992spatial],[Wright 1992], [@wright1994dispersion]). If $k_y$ is not fixed (but $k_z$ is fixed), then @eq:cavity_eigen_wkb is the dispersion relation for the waveguide expressing $\omega$ as a function of $k_y$. The Alfvén speed is a strong function of the L shell, typically $\sim L^{-3}$. Thus, if the turning point $x_t$ is reasonably deep within the magnetosphere, the range over which $\omega^2/V_A^2 \gg k_y^2 + k_z^2$ contributes most significantly to the integral @eq:cavity_eigen_wkb. The result is that over a wide range of wavelengths the frequency is very insensitive to $k_y$. Only when $k_y$ is quite large this is not true, and then the turning point is near the magnetopause, and the wave does not penetrate very deeply into the magnetosphere. Each waveguide mode has a phase velocity $\omega/k_y$ and a group velocity $d\omega/dk_y$. Since @eq:cavity_eigen_wkb defines $\omega$ as a function of $k_y$, we can substitute @eq:flr_kx_effective into @eq:cavity_eigen_wkb and differentiate with respect to $k_y$ (assuming $\alpha$ is a constant):
 
 $$
 \begin{aligned}
