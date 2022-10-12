@@ -966,6 +966,120 @@ When $\omega\simeq\omega_{cs}$, then the linear solutions exhibit resonance effe
 
 Waves and dispersion relations in a uniform plasma is generally nice and easy. However, more interesting and realistic waves shall be found in nonuniform plasmas.
 
+### Simple EM Wave
+
+Let us start off by examining a very simple case. Consider a plane electromagnetic wave, of frequency $\omega$, propagating along the $z$-axis in an unmagnetized plasma whose refractive index, $n$, is a function of $z$. We assume that the wave normal is initially aligned along the $z$-axis, and, furthermore, that the wave starts off polarized in the $y$-direction. It is easily demonstrated that the wave normal subsequently remains aligned along the $z$-axis, and also that the polarization state of the wave does not change. Thus, the wave is fully described by
+
+$$
+E_y(z,t) \equiv E_y(z)\,\exp(-i\omega t)
+$$
+
+and
+
+$$
+B_x(z,t) \equiv B_x(z)\,\exp(-i\omega t)
+$$
+
+It can easily be shown (???) that $E_y(z)$ and $B_x(z)$ satisfy the differential equations
+
+$$
+\frac{d^2 E_y}{dz^2} + k_0^{~2}\,n^2\,E_y = 0
+$$ {#eq:wave_nonuniform_e}
+
+and
+
+$$
+\frac{d\,cB_x}{dz} = -{\rm i}\,k_0\,n^2\,E_y
+$$ {#eq:wave_nonuniform_b}
+
+respectively. Here, $k_0=\omega/c$ is the wave-number in free space. Of course, the actual wave-number is $k=k_0\,n$. 
+
+The solution to @eq:wave_nonuniform_e for the case of a homogeneous plasma, for which $n$ is constant, is straightforward:
+
+$$
+E_y = A\,{\rm e}^{\,{\rm i}\,\phi(z)}
+$$ {#eq:wave_uniform_sol}
+
+where $A$ is a constant, and
+
+$$
+\phi = \pm k_0\,n\,z
+$$ {#eq:wave_uniform_phase}
+
+The solution @eq:wave_uniform_sol represents a wave of constant amplitude, $A$, and phase, $\phi(z)$. According to @eq:wave_uniform_phase, there are, in fact, two independent waves which can propagate through the plasma. The upper sign corresponds to a wave which propagates in the $+z$-direction, whereas the lower sign corresponds to a wave which propagates in the $-z$-direction. Both waves propagate with the constant phase velocity $c/n$. 
+
+In general, if $n=n(z)$ then the solution of @eq:wave_nonuniform_e does not remotely resemble the wave-like solution @eq:wave_uniform_sol. However, in the limit in which $n(z)$ is a "slowly varying" function of $z$ (exactly how slowly varying is something which will be established later on), we expect to recover wave-like solutions. Let us suppose that $n(z)$ is indeed a "slowly varying" function, and let us try substituting the wave solution @eq:wave_uniform_sol into @eq:wave_nonuniform_e. We obtain
+
+$$
+\left(\frac{d\phi}{dz}\right)^2 = k_0^{~2} n^2 +i\,\frac{d^2\phi} {dz^2}
+$$ {#eq:wave_nonuniform_phase}
+
+This is a non-linear differential equation which, in general, is very difficult to solve. However, we note that if $n$ is a constant then $d^2\phi/dz^2=0$. It is, therefore, reasonable to suppose that if $n(z)$ is a "slowly varying" function then the last term on the right-hand side of the above equation can be regarded as being small. Thus, to a first approximation @eq:wave_nonuniform_phase yields
+
+$$
+\frac{d\phi}{dz} \simeq \pm k_0\,n
+$$
+
+and
+
+$$
+\frac{d^2 \phi}{dz^2} \simeq \pm k_0\frac{dn}{dz}
+$$ {#eq:wave_nonuniform_phase_approxi}
+
+It is clear from a comparison of @eq:wave_nonuniform_phase and @eq:wave_nonuniform_phase_approxi that $n(z)$ can be regarded as a "slowly varying" function of $z$ as long as its variation length-scale is far longer than the wavelength of the wave. In other words, provided that $(dn/dz)/(k_0\,n^2)\ll 1$.
+
+The second approximation to the solution is obtained by substituting @eq:wave_nonuniform_phase_approxi into the right-hand side of @eq:wave_nonuniform_phase: 
+
+$$
+\frac{d\phi}{dz} \simeq \pm \Big(k_0^{~2} n^2 \pm i\,k_0 \frac{dn}{dz}\Big)^{1/2}
+$$
+
+This gives
+
+$$
+\frac{d\phi}{dz} \simeq \pm k_0\,n\Big(1\pm \frac{i}{k_0 n}\Big)^{1/2}\simeq \pm k_0\,n + \frac{i}{2n}\frac{dn}{dz}
+$$
+
+where a binomial expansion has been used. The above expression can be integrated to give 
+
+$$
+\phi \sim \pm k_0\! \int^z \!n\,dz +i\,\log(n^{1/2})
+$$ {#eq:wave_phase_approxi}
+
+Substitution of @eq:wave_phase_approxi into @eq:wave_uniform_sol yields the final result
+
+$$
+E_y \simeq A\,n^{-1/2}\,\exp (\pm i\, k_0\! \int^z \!n\,dz )
+$$ {#eq:wave_nonuniform_sol_e}
+
+It follows from @eq:wave_nonuniform_b that
+
+$$
+cB_x\simeq \mp A\, n^{1/2}\exp\Big(\pm i\,k_0 \int^z n dz\Big) - \frac{iA}{2k_0 n^{3/2}}\frac{dn}{dz}\exp\Big(\pm i\,k_0 \int^z n dz\Big)
+$$ {#eq:wave_nonuniform_sol_b}
+
+Note that the second term is small compared to the first, and can usually be neglected.
+
+Let us test to what extent @eq:wave_nonuniform_sol_e is a good solution of @eq:wave_nonuniform_e by substituting this expression into the left-hand side of the equation. The result is
+
+$$
+\frac{A}{n^{1/2}}\Big[ \frac{3}{4}\Big(\frac{1}{n}\frac{dn}{dz}\Big)^2 - \frac{1}{2n}\frac{d^2n}{dz^2} \Big]\exp\Big( \pm i\,k_0\int^z n\,dz\Big)
+$$
+
+This must be small compared with either term on the left-hand side of @eq:wave_nonuniform_e. Hence, the condition for @eq:wave_nonuniform_sol_e to be a good solution of @eq:wave_nonuniform_e becomes
+
+$$
+\frac{1}{k_0^2}\bigg\lvert \frac{3}{4}\Big(\frac{1}{n^2} \frac{dn}{dz}\Big)^2 -\frac{1}{2n^3}\frac{d^2 n}{dz^2}\bigg\rvert \ll 1
+$$ {#eq:wave_wkb_condition}
+
+The solutions @eq:wave_nonuniform_sol_e and @eq:wave_nonuniform_sol_b (without the second term) are most commonly referred to as the _WKB_ solutions, in honour of G. Wentzel, H.A. Kramers, and L. Brillouin, who are credited with independently discovering these solutions (in a quantum mechanical context) in 1926. Actually, H. Jeffries wrote a paper on the WKB solutions (in a wave propagation context) in 1923. Hence, some people call them the WKBJ solutions (or even the JWKB solutions). To be strictly accurate, the WKB solutions were first discussed by Liouville and Green in 1837, and again by Rayleigh in 1912. The advance in science discovery is always a collective achievement.
+
+Recall, that when a propagating wave is normally incident on an interface, where the refractive index suddenly changes (for instance, when a light wave propagating through air is normally incident on a glass slab), there is generally significant reflection of the wave. However, according to the WKB solutions, when a propagating wave is normally incident on a medium in which the refractive index changes slowly along the direction of propagation of the wave then the wave is not reflected at all. This is true even if the refractive index varies very substantially along the path of propagation of the wave, as long as it varies slowly. The WKB solutions imply that as the wave propagates through the medium its wave-length gradually changes. In fact, the wave-length at position $z$ is approximately $\lambda(z)= 2\pi/ k_0\,n(z)$. The WKB solutions also imply that the amplitude of the wave gradually changes as it propagates. The amplitude of the electric field component is inversely proportional to $n^{1/2}$, whereas the amplitude of the magnetic field component is directly proportional to $n^{1/2}$. Note, however, that the energy flux in the $z$-direction, given by the the Poynting vector $-(E_y B_x^\ast +E_y^\ast B_x)/(4\mu_0)$, remains constant (assuming that $n$ is predominately real). 
+
+Of course, the WKB solutions are only approximations. In reality, a wave propagating into a medium in which the refractive index is a slowly varying function of position is subject to a small amount of reflection. However, it is easily demonstrated that the ratio of the reflected amplitude to the incident amplitude is of order $(dn/dz)/(k_0\,n^2)$. Thus, as long as the refractive index varies on a much longer length-scale than the wavelength of the radiation, the reflected wave is negligibly small. This conclusion remains valid as long as the inequality @eq:wave_wkb_condition is satisfied. This inequality obviously breaks down in the vicinity of a point where $n^2=0$. We would, therefore, expect strong reflection of the incident wave from such a point. Furthermore, the WKB solutions also break down at a point where $n^2\rightarrow\infty$, since the amplitude of $B_x$ becomes infinite. 
+
+### Electron Cyclotron Resonance Heating
+
 Let us look at the problem of electron cyclotron resonance heating. The resonance condition is $R=\infty$; the governing equation has the form
 
 $$
@@ -976,7 +1090,7 @@ $$
 
 We use $z$ here to remind ourselves of the fact that the wave property changes along the field line. Imagine a wave $\sim e^{i(kz -\omega t)}$ incident into a plasma with fixed density $n_0$ and varying magnetic field $B_0(z)$ as shown in @fig:ECRH(a). At $z=z_R$, $\omega_{ce}(z) = \omega_{ce}(z_R) = \omega$. Then we can draw $k^2(z)$ as a function of $z$ as in @fig:ECRH(b). There is a pole at $z=z_R$, which indicates resonance since $k^2\rightarrow\infty$. There is also a zero on the right of $z_R$.
 
-Close to $z=z_R$, we have $k^2(z)\sim \frac{const.}{z-z_R}$. If we write
+Close to $z=z_R$, we have $k^2(z)\sim \frac{\text{const}.}{z-z_R}$. If we write
 
 $$
 \Omega_e(z)=-A^\prime (z-z_R)+\omega,\quad \zeta = z-z_R
@@ -989,6 +1103,8 @@ $$
 $$
 
 Now let's stare at @fig:ECRH(b) for a few seconds. If there is a wave from left to right, there will be a resonance at $z=z_R$; but if there is a wave from right to left, then the wave will be attenuated before it reaches $z=z_R$ because there is a zero ahead. This means that waves from different origin will have different behaviors!
+
+### O-mode
 
 Next consider EM waves in non-magnetized plasma of ordinary O-mode:
 
