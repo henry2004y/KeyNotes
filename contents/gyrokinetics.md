@@ -334,7 +334,7 @@ $$
 $$ {#eq:gk_linear_KAW_governing}
 
 @eq:gk_linear_KAW_governing can be readily derived from @eq:gk_linear_KAW_kperp_large by letting $\omega_\mathbf{k}=i\partial/\partial t$ and $k_\perp=-i\partial/\partial x$. The spatial profile of $\omega_A^2(x)/\omega^2 = 1/(1+x^2/L^2)$ is shown in 
-@fig:gk_SAW_evolution(a), with $L$ indicating the profile length-scale, so that the KAW wave-packet frequency is assumed to be consistent with the SAW frequency at $x=0$. @fig:gk_SAW_evolution(b) shows the propagation of the KAW wave-packet in the direction of radial non-uniformity, consistent with @eq:gk_linear_KAW_group.
+@fig:gk_KAW_evolution(a), with $L$ indicating the profile length-scale, so that the KAW wave-packet frequency is assumed to be consistent with the SAW frequency at $x=0$. @fig:gk_KAW_evolution(b) shows the propagation of the KAW wave-packet in the direction of radial non-uniformity, consistent with @eq:gk_linear_KAW_group.
 
 ![(a) Spatial dependence of $\omega_A^2$. (b) Propagation of the KAW wave-packet in the non-uniformity direction.](images/gk_kaw_propagation.png){#fig:gk_KAW_evolution}
 
