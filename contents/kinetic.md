@@ -160,6 +160,8 @@ $$
 J(W,\Omega, \alpha, \mathbf{r},t) = \frac{v^2}{m}f
 $$ {#eq:diff_flux_dist}
 
+One application of the differential flux is the _particle precipitation flux_. With the idea of loss lone, we have a cone of particles that moves along the field lines and can propagate down to the ionosphere, and each shell from $v$ to $v+dv$ corresponds to a specific energy range. This is something we can measure close to the ground and use to infer the plasma properties in the magnetosphere.
+
 ### Kappa Distribution
 
 The Maxwellian distribution is probably the most studied one theoretically, but may not be the most commonly observed distribution in a collisionless space plasma system. In recent years, another distribution named [Kappa distribution](https://link.springer.com/article/10.1007/s11214-013-9982-9) has gained more attention.
@@ -745,7 +747,7 @@ We now define the _plasma dispersion function_ $Z(\zeta)$:
 
 $$
 Z(\zeta) = \frac{1}{\pi^{1/2}}\int_{-\infty}^{\infty}\frac{e^{-s^2}}{s -\zeta}ds\quad \Im(\zeta)>0
-$$
+$$ {#eq:plasma_dispersion_function}
 
 (Why positive imaginary part???)This is a contour integral, as explained in previous sections, and analytic continuation to the lower half plane must be used if $\Im(\zeta)<0$. $Z(\zeta)$ is a complex function of a complex argument (since $\omega$ or $k$ usually has an imaginary part). In cases where $Z(\zeta)$ cannot be approximated by an asymptotic formula, one can do it numerically.
 
