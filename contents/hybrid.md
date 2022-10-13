@@ -235,7 +235,7 @@ $$
 L_0 = d_i = \frac{v_A}{\Omega_{ci}}
 $$
 
-A common trick we can use is to artificially increase the ion mass such that the length scale is increased $\propto \sqrt{m_0}$.
+A common trick we can use to speed up the simulation is to artificially increase the ion mass such that the length scale is increased $\propto \sqrt{m_0}$. For example, in many global hybrid Earth magnetosphere models, $d_i$ in the upstream solar wind is artificially increased to $0.1\,\text{R}_E$ (by increasing the ion mass), which is 6.8 times the realistic $d_i=0.015\,\text{R}_E$ for $n_{sw}=6\,\text{amu/cc}$. If our grid resolution is $0.05\,\text{R}_E\approx 300\,\text{km}$ (which is common as of 2020s), we will be barely on the edge of resolving the ion-scale kinetics.
 
 ## Numerical Stability
 
