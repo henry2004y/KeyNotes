@@ -100,10 +100,14 @@ $$
 Noting, furthermore, for $|k_\perp r_i|\sim 1$ and the ratio of plasma ion pressure to the background magnetic field energy density $\beta_i \lesssim 1$:
 
 $$
+\beta = \frac{P_{0i}}{P_{0B}} = \frac{m_i n_i v_{\perp i}^2/2}{B_0^2/2\mu_0} = \frac{v_{\perp i}^2}{v_A^2}
+$$
+
+$$
 \bigg\lvert| \frac{\omega}{k_\perp v_A} \bigg\rvert| \sim \bigg\lvert| \frac{\omega}{\Omega_i} \bigg\rvert| \bigg\lvert| \frac{1}{k_\perp r_{iL}} \bigg\rvert| \beta_i^{1/2} \lesssim \epsilon
 $$
 
-i.e. fast waves are systematically suppressed (???) in the gyrokinetic orderings.
+i.e. fast waves are systematically suppressed in the gyrokinetic orderings.
 
 ## A Lagriangian Approach
 
@@ -194,9 +198,176 @@ $$
 \end{aligned}
 $$ {#eq:gk_linear}
 
-and $<...>_\alpha$ denotes averaging over the gyrophase angle, $\alpha$. Here, the field variables are the scalar and vector potentials, $\delta\phi$ and $\delta\mathbf{A}$, with $\delta A_\parallel=\delta\mathbf{A}\cdot\mathbf{b}_0$ and the $\nabla\cdot\delta\mathbf{A}=0$ Coulomb gauge. The operator $e^{\mathbf{r}_L\cdot\nabla}$, meanwhile, represents the transformation between the particle and guiding center positions.
+and $<...>_\alpha$ denotes averaging over the gyrophase angle, $\alpha$. Here, the field variables are the scalar and vector potentials, $\delta\phi$ and $\delta\mathbf{A}$, with $\delta A_\parallel=\delta\mathbf{A}\cdot\mathbf{b}_0$ and the $\nabla\cdot\delta\mathbf{A}=0$ Coulomb gauge. The operator $e^{-\mathbf{r}_L\cdot\nabla}$, meanwhile, represents the transformation between the particle and guiding center positions.
 
 The corresponding field equations are the Poisson's equation and the parallel Ampère's law, $\nabla^2 \delta A_\parallel = -4\pi\delta J_\parallel/c$. In the low-frequency and $|k\lambda_D|^2\ll 1$ limit with $\lambda_D$ being the Debye length, Poisson's equation can be approximated as the quasi-neutrality condition; $\sum_j n_{0j}q_j<\delta f_j>_v\simeq 0$. Here, $<...>_v = \int d\mathbf{v} (...)$ is the velocity-space integral, and subscript $j$ runs over the particle species. Meanwhile, substituting the parallel Ampère’s law into the $\nabla\cdot\delta\mathbf{J}\simeq 0$ quasi-neutrality condition as derived by @eq:gk_linear yields a generalized linear gyrokinetic vorticity equation, which is often convenient to use in studying shear/kinetic Alfvén wave dynamics.
+
+__Linear kinetic Alfvén wave properties__
+
+(WARNING: SUPER HARD TO FOLLOW!)
+For plane wave $\omega,\mathbf{k}$ perturbations, @eq:gk_linear gives:
+
+$$
+\delta g_\mathbf{k} = -\frac{q}{T}f_M J_0(k_\perp \mathbf{r}_L) \frac{\omega}{k_\parallel v_\parallel - \omega}\Big( \delta\phi - \frac{v_\parallel}{c}\delta A_\parallel \Big)_\mathbf{k}
+$$
+
+$J_0$ is the Bessel function and $J_0(k_\perp \mathbf{r}_L)$ corresponds to the gyro-averaging of the coordinate transformation, that is:
+
+$$
+<\exp(-\mathbf{r}_L\cdot\nabla)>_\alpha = J_0(k_\perp r_L)
+$$
+
+In SAW/KAW analyses, it is sometimes convenient to introduce an _effective induced parallel potential_ defined by $\mathbf{b}_0\cdot\nabla\delta\Psi = -\partial_t \delta A_\parallel/c$ or:
+
+$$
+\delta\Psi_\mathbf{k} = \omega\delta A_{\parallel\mathbf{k}} / (ck_\parallel)
+$$
+
+$\delta\Psi$, thus, gives rise to the induced parallel electric field; that is, the net parallel electric field is given by:
+
+$$
+\begin{aligned}
+\delta E_\parallel &= -\mathbf{b}_0\cdot\nabla(\delta\phi-\delta\Psi)\quad\text{or} \\
+\delta E_{\parallel\mathbf{k}} &= -ik_\parallel(\delta\phi-\delta\Psi)_\mathbf{k}
+\end{aligned}
+$$
+
+The quasi-neutrality condition then straightforwardly yields: (Chen and Hasegawa 1991)
+
+$$
+\sum_j\Big( \frac{n_0 q^2}{T_0} \Big)_j \{ \delta\phi_\mathbf{k} + \Gamma_{0kj}[\xi_{kj}Z_{kj}\delta\phi_\mathbf{k} - (1+\xi_{kj}Z_{kj}\delta\Psi_\mathbf{k})] \} = 0
+$$ {#eq:gk_linear_quasi_neutrality_derive}
+
+Here, $\xi_{kj}=\omega/|k_\parallel|v_{tj},Z_{kj}=Z(\xi_{kj})$ with $Z$ being the well-known plasma dispersion function (@eq:plasma_dispersion_function), and $\Gamma_{0kj} = I_0(b_{kj})\exp(-b_{kj})$ with $I_0$ the modified Bessel function and $b_{kj}=k_\perp^2 r_{Lj}/2 = k_\perp^2(T_j/m_j)/\Omega_j^2$. The linear gyrokinetic vorticity equation, meanwhile, is given by: (Chen and Hasegawa 1991)
+
+$$
+i\frac{c^2}{4\pi\omega}k_\parallel^2 k_\perp^2 \delta\Psi_\mathbf{k} - i \sum_j\Big( \frac{n_0q^2}{T_0} \Big)_j (1-\Gamma_{0kj})\omega\delta\phi_\mathbf{k} = 0
+$$ {#eq:gk_linear_vorticity}
+
+Nothing that, for KAW, $|k_\perp r_{Li}| \sim\mathcal{O}(1)$ and $|k_\perp r_{Le}|\ll 1$ and, thus, $\Gamma_{0ke}\simeq 1$, @eq:gk_linear_quasi_neutrality_derive and @eq:gk_linear_vorticity then become
+
+$$
+\begin{aligned}
+\epsilon_{s\mathbf{k}} \delta\phi_\mathbf{k} &= [1+\xi_{ke}Z_{ke}+\tau(1+\Gamma_k \xi_{ki}Z_ki)]\delta\phi_\mathbf{k} \\
+&= [1+\xi_{ke}Z_{ke}+\tau\Gamma_k(1+\xi_{ki}Z_{ki})]\delta\Psi_\mathbf{k}
+\end{aligned}
+$$ {#eq:gk_linear_par_potential}
+
+and
+
+$$
+\omega^2 \delta\phi_\mathbf{k} = k_\parallel^2 v_A^2 \frac{b_k}{1-\Gamma_k}\delta\Psi_\mathbf{k}
+$$ {#eq:gk_linear_vorticity_approxi}
+
+Here, $\tau=T_{0e}/T_{0i}, b_k=b_{ki}, \Gamma_k=\Gamma_{0ki}$, and $\epsilon_{s\mathbf{k}}$ is the dielectric constant for the slow-sound (ion-acoustic) wave (SSW). 
+
+It is also instructive, as done in some literatures, to define the effective parallel potential, $\delta\phi_{\parallel\mathbf{k}}=\delta\phi_\mathbf{k} - \delta\Psi_\mathbf{k}$, and rewrite @eq:gk_linear_par_potential and @eq:gk_linear_vorticity_approxi as
+
+$$
+\epsilon_{s\mathbf{k}} \delta\phi_{\parallel\mathbf{k}} = -\tau(1-\Gamma_k)\delta\Psi_\mathbf{k}
+$$ {#eq:gk_linear_par_potential2}
+
+and
+
+$$
+\Big[ \omega^2 - k_\parallel^2v_A^2\frac{b_k}{1-\Gamma_k} \Big] \delta\Psi_\mathbf{k} = -\omega^2\delta\phi_{\parallel\mathbf{k}}
+$$ {#eq:gk_linear_vorticity_approxi2}
+
+@eq:gk_linear_par_potential2 and @eq:gk_linear_vorticity_approxi2 demonstrate the coupling between SAW and SSW via the finite $|k_\perp r_{Ls}|$ term. In the $|k_\perp r_{Li}|\sim\mathcal{O}(1)$ short-wavelength limit, SAW evolves into KAW due to both the finite $|k_\perp r_{Li}|$ and $|k_\perp r_{Ls}|$ effects. (???) More specifically, the coupled KAW-SSW dispersion relation becomes
+
+$$
+\omega_\mathbf{k}^2\Big[ 1-\frac{\tau(1-\Gamma_k)}{\epsilon_{s\mathbf{k}}} \Big] = k_\parallel^2 v_A^2 \frac{b_k}{1-\Gamma_k} 
+$$ {#eq:gk_linear_SAW_SSW}
+
+Let us concentrate on the KAW branch and, to further simplify the analysis, assume $1\gg \beta_i\sim\beta_e\gg m_e/m_i$. With $|\omega|\sim|k_\parallel v_A|$, we then have $|\xi_{ki}|=|\omega/k_\parallel v_{ti}|\sim\beta_i^{-1/2}\gg 1 \gg |\xi_{ke}|\sim(m_e/m_i\beta_e)^{1/2}$, and, keeping only the lowest order $\mathbf{O}(1)$ terms:
+
+$$
+\epsilon_{s\mathbf{k}} \simeq 1+\tau(1-\Gamma_k) \equiv \sigma_k
+$$
+
+From @eq:gk_linear_SAW_SSW, we then have
+
+$$
+\omega_{\mathbf{k}}^2 \simeq k_\parallel^2 v_A^2\frac{\sigma_k b_k}{1-\Gamma_k}
+$$ {#eq:gk_linear_SAW_SSW_approxi}
+
+As to wave polarizations, which are useful for wave identification in observations, we can readily derive:
+
+$$
+\bigg\lvert \frac{c\delta\mathbf{E}_\perp}{\delta\mathbf{B}_\perp} \bigg\rvert = v_A \Big[ \frac{b_k}{\sigma_k(1-\Gamma_k)}\Big]^{1/2}
+$$ {#eq:gk_linear_polarization_perp}
+
+and
+
+$$
+\bigg\lvert \frac{c\delta E_\parallel}{\delta\mathbf{B}_\perp} \bigg\rvert = v_A \bigg\lvert \frac{k_\parallel}{k_\perp}\tau \bigg\rvert\Big[ \frac{b_k(1-\Gamma_k)}{\sigma_k} \Big]^{1/2}
+$$ {#eq:gk_linear_polarization_par}
+
+ADD PLOTS for @eq:gk_linear_SAW_SSW_approxi, @eq:gk_linear_polarization_perp, and @eq:gk_linear_polarization_par!!!
+
+@eq:gk_linear_polarization_par show that, for a fixed $|k_\parallel/k_\perp|, |\delta E_\parallel/\delta\mathbf{B}_\perp|$ increases with $b_k$. Since wave-particel energy and momentum exchanges are proportional to $|\delta E_\parallel|$, short-wavelength KAW are, thus, expected to play crucial roles in the heating, acceleration, and transport of charged particles.
+
+In addition to having a significant $\delta E_\parallel$, another important property of KAW, in contrast to SAW, is that KAW has a finite perpendicular (to $\mathbf{B}_0$) group velocity, $\mathbf{v}_{g\perp}$. Assuming $|k_\perp r_{Li}|^2\ll 1$, we have, letting $\omega_A^2\equiv k_\parallel^2 v_A^2$:
+
+$$
+\omega_\mathbf{k}^2 \simeq \omega_A^2(1+k_\perp^2 \hat{r}^2)
+$$ {#eq:gk_linear_KAW_kperp_large}
+
+where
+
+$$
+\hat{r}^2 = (3/4 + \tau)r_{Li}^2
+$$ {#eq:gk_linear_KAW_scale}
+
+Thus
+
+$$
+\mathbf{v}_{g\perp}=\frac{\partial \omega_\mathbf{k}}{\partial \mathbf{k}_\perp}\simeq \frac{\omega_A^2}{\omega_\mathbf{k}}\hat{r}^2\mathbf{k}_\perp
+$$ {#eq:gk_linear_KAW_group}
+
+__Linear mode conversion of KAW__
+
+@eq:gk_linear_KAW_kperp_large has a significant implication in non-uniform plasmas. Consider, again, a slab plasma with a non-uniform $\omega_A^2(x)$ and $k_\perp^2 = k_x^2(x)$ being the WKB wavenumber in the non-uniformity $x$-direction. @eq:gk_linear_KAW_kperp_large then indicates that KAW is propagating ($k_x^2>0$) in the $\omega_\mathbf{k}^2>\omega_A^2(x)$ region, and it is cutoff ($k_x^2<0$) in the $\omega_\mathbf{k}^2<\omega_A^2(x)$ region. That $\mathbf{v}_{g\perp}$ is finite also suggests that, in constrast to SAW, an initial smooth perturbation will not only evolve into short wavelengths, but also propagate toward the lower $\omega_A^2(x)$ region. These features are illustrated in @fig:gk_KAW_evolution(b); where the spatial-temporal evolution of KAW is solved explicitly according to the following wave equation: (DO IT MYSELF!!!)
+
+$$
+\Big[ \hat{r}^2\frac{\partial^2}{\partial x^2} - 1 - \frac{1}{\omega_A^2(x)}\frac{\partial^2}{\partial t^2} \Big] \delta B_y(x,t) = 0
+$$ {#eq:gk_linear_KAW_governing}
+
+@eq:gk_linear_KAW_governing can be readily derived from @eq:gk_linear_KAW_kperp_large by letting $\omega_\mathbf{k}=i\partial/\partial t$ and $k_\perp=-i\partial/\partial x$. The spatial profile of $\omega_A^2(x)/\omega^2 = 1/(1+x^2/L^2)$ is shown in 
+@fig:gk_SAW_evolution(a), with $L$ indicating the profile length-scale, so that the KAW wave-packet frequency is assumed to be consistent with the SAW frequency at $x=0$. @fig:gk_SAW_evolution(b) shows the propagation of the KAW wave-packet in the direction of radial non-uniformity, consistent with @eq:gk_linear_KAW_group.
+
+![(a) Spatial dependence of $\omega_A^2$. (b) Propagation of the KAW wave-packet in the non-uniformity direction.](images/gk_kaw_propagation.png){#fig:gk_KAW_evolution}
+
+That there exists a finite perpendicular group velocity also implies, in the steady state, the removal of "singular" resonance and linear mode conversion process (Hasegawa and Chen 1976, see also @sec:flr). More specifically, the corresponding wave equation is given by:
+
+$$
+\Big[\hat{r}^2\frac{\partial^2}{\partial x^2} + \Big( \frac{\omega_0^2}{\omega_A^2(x)} - 1 \Big) \Big]\delta\hat{B}_y(x) = \delta\hat{B}_{y0}
+$$ {#eq:gk_linear_KAW_governing2}
+
+Here, $\omega_0$ is the external driving frequency. In the ideal SAW ($\hat{r}\rightarrow 0$) limit, there is the resonance singularity at $x_0$, where $\omega_0^2 = \omega_A^2(x_0)$. Noting that, near $x=x_0$, $\omega_A^2(x)\simeq \omega_0^2 + (\omega_A^2)^\prime(x_0)(x-x_0)\equiv \omega_0^2 - (\omega_0^2/L_A)(x-x_0)$, @eq:gk_linear_KAW_governing2 can be approximated as an inhomogeneous Airy equation and solved analytically. @eq:gk_linear_KAW_governing2 can then be solved, with appropriate boundary conditions, by connecting the solutions valid away from the $x=x_0$ resonance layer via the analytic solution of the inhomogeneous Airy equation valid near $x=x_0$ (Hasegawa and Chen 1975, 1976). The solutions away from the singular layer are given by:
+
+$$
+\delta\hat{B}_y(x) = \left\{
+\begin{array}{lr}
+\frac{\delta\hat{B}_{y0}}{\epsilon_A(x)} & \text{for }\omega_0^2 < \omega_A^2(x) \\
+\frac{\delta\hat{B}_{y0}}{\epsilon_A(x)} - \frac{\sqrt{\pi}\delta\hat{B}_{y0}}{(\hat{r}/L_A)^{1/2}}\Big( \frac{\hat{r}^2}{\epsilon_A(x)} \Big)^{1/4}\exp\Big[ i\int_{x_0}^x \Big( \frac{\epsilon_A(x^\prime)}{\hat{r}^2} \Big)^{1/2} dx^\prime +i\frac{\pi}{4} \Big] & \text{for }\omega_0^2 > \omega_A^2(x)
+\end{array}
+\right.
+$$ {#eq:inhomogeneous_by_sol}
+
+where
+
+$$
+\epsilon_A(x) = \frac{\omega_0^2}{\omega_A^2(x)} - 1
+$$
+
+The corresponding numerical solutions are plotted in @fig:gk_KAW_MHD. (I DON'T UNDERSTAND!!!)
+
+![Illustration of ideal MHD (dashed blue line) and KAW (red line) solutions, which asymptotically match @eq:inhomogeneous_by_sol for $|x-x_0|/\Delta_0\gg 1$. The Airy swelling factor is evident from the normalization of the ordinate.](images/gk_kaw_propagation.png){#fig:gk_KAW_MHD}
+
+Both the analytical results and mode conversion process exhibit two important features. One is, instead of being singular, the amplitude at $x=x_0$ (where $\omega_A(x_0) = \omega_0$) is amplified by the Airy swelling factor $(L_A/\hat{r})^{2/3}$. Here, we recall $L_A$ is the scale length of $\omega_A$ and $\hat{r}$, from @eq:gk_linear_KAW_scale, is of $\mathcal{O}(r_{Li})$, and, hence, $|L_A/\hat{r}|\gg 1$. The other is the singularity at $x=x_0$ is being replaced by the Airy scale length $\Delta_0=(\hat{r}^2L_A)^{1/3}$. Recalling, from @eq:mhd_alfven_wavenumber_nonuniform, $|k_x|\simeq |\omega_A^\prime| t\simeq (\omega/L_A)t$, there then exists a KAW formation time scale given by $(\omega_0/L_A)t_0\simeq 1/\Delta_0$; i.e., $\omega_0 t_0\simeq (L_A/\hat{r})^{2/3}$. Taking, for an example, a typical laboratory plasma, $L_A/\hat{r}\simeq\mathcal{O}(10^3)$, we have $\omega_0 t_0\simeq\mathcal{O}(10^2)$, suggesting that it is reasonable to anticipate, in the presence of SAW continuous spectrum, the appearance of KAW in such plasmas.
+
+The main mode identification method for KAWs is based on the measurement of the wave polarization, $|c\delta\mathbf{E}_\perp/v_A\delta\mathbf{B}_\perp|$. Observations can be found from _Van Allen Probes_ in the Earth's inner magnetosphere and the _Cluster_ satellites in the solar wind.
 
 ### Nonlinear Gyrokinetics
 
