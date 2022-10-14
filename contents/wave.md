@@ -984,6 +984,12 @@ $$
 
 It has been shown that KAWs can be generated via magnetic reconnection, mode conversion, and phase mixing.
 
+It would be very intuitive to compare animations between [MHD Alfvén waves](https://youtu.be/7RB_kD9aSqo) and [kinetic Alfvén waves](https://youtu.be/aRLXQRvwCas). In a typical MHD Alfvén wave, the particles (yellow) move freely along the magnetic field lines (blue). In a kinetic Alfvén wave, some particles become trapped in the weak spots of the wave's magnetic field and ride along with the wave as it moves through space.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aRLXQRvwCas" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7RB_kD9aSqo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Particle Motions
 
 In Fourier transform space, integrating the velocity equations to obtain the coordinates is done by simply dividing by $-i\omega$. For a simple case where $E_y = E_z = 0$ so that E has only an x-component, we find from @eq:v
