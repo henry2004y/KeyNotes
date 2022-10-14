@@ -544,4 +544,18 @@ where $S_{\text{fast}} = S_{ng}$ is the Poynting flux of the non-guided MHD mode
 
 Resonant mode coupling is only a _necessary_ condition for field line resonances to occur. A _sufficient_ condition is critical coupling to a strictly guided mode and absence of dissipation to a degree that there is enough energy for resonance.
 
+## Non-MHD Effects
+
+In higher frequency cases, the Alfvén resonance condition @eq:flr_resonance_dispersion is modified as
+
+$$
+\omega^2 = k_\parallel^2 V_A^2(1-\omega^2/\omega_{ci}^2)^2
+$$
+
+because of the finite ion Larmor radius effects [Stix, 1992].
+
+The Alfvén resonance singularity can be removed by including non‐MHD effects such as electron inertia or ion Larmor radius corrections. (I don't quite follow it, but check the papers by Lin, Hasegawa, Chen, Johnson, and Cheng.) There are very few studies considering the electron inertia correction, because it is related to $r_{Ls}/\lambda_e$, where $\lambda_e = c/\omega_{pe}$ is the plasma skin depth or electron inertial length, and $r_{Ls}=\sqrt{T_e/m_i}/\omega_{ci}$. It is typically not important except at locations where $k_\parallel\rightarrow 0$ such as in a reconnection geometry.
+
+Thus what's usually been considered to remove the singularity is the ion kinetic effects, where we end up coupling fast waves with kinetic Alfvén waves of the dispersion relation @eq:kaw_dispersion_ion_approxi.
+
 ## 3D FLR

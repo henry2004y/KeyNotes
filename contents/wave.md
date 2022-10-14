@@ -958,15 +958,15 @@ While SAW satisfy $\omega=k_\parallel v_A$, the dispersion relation of KAW can b
 
 $$
 \omega^2 = k_\parallel^2 v_A^2 \Big[ \frac{1}{1-I_0(k_\perp^2 r_{iL}^2)e^{-k_\perp^2 r_{iL}^2}} + \frac{T_e}{T_i} \Big]k_\perp^2 r_{iL}^2
-$$
+$$ {#eq:kaw_dispersion}
 
-where $I_0$ is the modified Bessel function. Using a Padé approximation $I_0(x)e^{-x}\approx 1/(1+x)$ when $x=k_\perp^2r_{iL}^2\mathcal{O}(1)$, the relation can be simplified to
+where $I_0$ is the modified Bessel function. Using a Padé approximation $I_0(x)e^{-x}\approx 1/(1+x)$ when $x=k_\perp^2r_{iL}^2\sim\mathcal{O}(1)$, the relation can be simplified to
 
 $$
-\omega^2 = k_\parallel^2 v_A^2\Big[1+\Big(1+\frac{T_e}{T_i}k_\perp^2r_{iL}^2) \Big] =  k_\parallel^2 v_A^2 [1+k_\perp^2(r_{iL}^2+r_{sL}^2)]
-$$
+\omega^2 = k_\parallel^2 v_A^2\Big[1+\Big(1+\frac{T_e}{T_i}k_\perp^2r_{iL}^2\Big) \Big] =  k_\parallel^2 v_A^2 [1+k_\perp^2(r_{iL}^2+r_{sL}^2)]
+$$ {#eq:kaw_dispersion_ion_approxi}
 
-where $r_{sL}=\sqrt{T_e/m_i}/\omega_{ci}$.
+where $r_{sL}=\sqrt{T_e/m_i}/\omega_{ci}$. This term is kind of strange, because it looks like a Larmor radius for ion with electron temperature. We can see from @eq:kaw_dispersion_ion_approxi that the phase speed for KAW is larger than $v_A$.
 
 While SAWs do not have ion density perturbations, KAWs do (???).
 
