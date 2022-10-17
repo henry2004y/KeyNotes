@@ -943,7 +943,7 @@ In the case $v_A\gg v_s$ (e.g. cold, strong B), the phase speed of the fast mode
 
 ![Fast wave.](https://s8.gifyu.com/images/fast.gif){#fig:fast_wave}
 
-## Kinetic Alfvén Wave
+## Kinetic Alfvén Wave {#sec:kaw}
 
 The solution of @eq:mhd_alfven_wavenumber_nonuniform exhibits singularities as $t\rightarrow\infty$ naturally suggests that the microscopic length-scale physics neglected in the ideal MHD fluid description should be included in the long-time-scale dynamics of SAWs. For low-frequency SAWs, one can readily recognize the relevant perpendicular (to $\mathbf{B}_0$) microscopic scales are either the ion Larmor radius, $r_{iL}=v_{ti}/\omega_{ci}$ with $v_{ti}$ and $\omega_{ci}$ being, respectively, the ion thermal speed and ion cyclotron frequency, and/or $r_{eL}=v_{te}/\omega_{ce}$ with $v_{te}$ being the electron thermal speed. Including the effects of finite $r_{iL}$ and/or $r_{eL}$ in the SAW dynamics then led to the discovery of the so-called _kinetic Alfvén wave_ (KAW) [Hasegawa and Chen].
 
@@ -983,6 +983,10 @@ $$
 $$
 
 It has been shown that KAWs can be generated via magnetic reconnection, mode conversion, and phase mixing.
+
+[@gurram2021shear] used a 2D VPIC simulation to show a transition from KAWs to SAWs from the immediate vicinity of the reconnection region to the exhaust. They checked two important quantities we have seen above:
+* the transition in wave speeds from super Alfvénic near the X-point to order of the Alfvén speed deeper into the exhaust ($\sim 60 d_i$ from the X-point);
+* the transition of $k_\perp d_i$ from larger than unity to smaller than unity.
 
 It would be very intuitive to compare animations between [MHD Alfvén waves](https://youtu.be/7RB_kD9aSqo) and [kinetic Alfvén waves](https://youtu.be/aRLXQRvwCas). In a typical MHD Alfvén wave, the particles (yellow) move freely along the magnetic field lines (blue). In a kinetic Alfvén wave, some particles become trapped in the weak spots of the wave's magnetic field and ride along with the wave as it moves through space.
 
