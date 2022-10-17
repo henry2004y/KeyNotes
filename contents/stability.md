@@ -849,7 +849,7 @@ $$ {#eq:mhd_force}
 
 which separates into the magnetic pressure term and the magnetic tension term.
 
-### Harris Current Sheet
+### Harris Current Sheet {#sec:harris_cs}
 
 An example of a MHD equilibrium configuration is the Harris current sheet, in which the variations in the magnetic field and plasma pressure over the current sheet balance each other In a 1D Harris current sheet the magnetic field (assumed here to be in the $z$-direction) is given by
 
@@ -1499,6 +1499,252 @@ KeyNotes.plot_balloon()
 ```jl
 KeyNotes.plot_tearing()
 ```
+
+Tearing mode is closely related to magnetic reconnection. The reconnection process is very important because it is one of the main way of burst energy transformation. See [@bellan2008fundamentals] P413 for more.
+
+__Linear Tearing Mode__
+
+Consider the interface between two plasmas containing magnetic fields of different orientations. The simplest imaginable field configuration is that illustrated in @fig:tearing_config_simple. Here, the field varies only in the $x$-direction, and points only in the $y$-direction. The field is directed in the $-y$-direction for $x<0$, and in the $+y-$direction for $x>0$. The interface is situated at $x=0$. The sudden reversal of the field direction across the interface gives rise to a $z$-directional current sheet at $x=0$.
+
+![A reconnection magnetic field configuration.](https://farside.ph.utexas.edu/teaching/plasma/Plasmahtml/img1924.png){#fig:tearing_config_simple}
+
+With the neglect of plasma resistivity, the field configuration shown in @fig:tearing_config_simple represents a stable equilibrium state, assuming, of course, that we have normal pressure balance across the interface. But, does the field configuration remain stable when we take resistivity into account? If not, we expect an instability to develop which relaxes the configuration to one possessing lower magnetic energy. As we shall see, this type of relaxation process inevitably entails the breaking and reconnection of magnetic field lines, and is, therefore, termed _magnetic reconnection_. The magnetic energy releases during the reconnection process eventually appears as plasma thermal energy. Thus, magnetic reconnection also involves plasma heating.
+
+In the following, we shall outline the standard method for determining the linear stability of the type of magnetic field configuration shown in @fig:tearing_config_simple, taking into account the effect of plasma resistivity. We are particularly interested in plasma instabilities which are stable in the absence of resistivity, and only grow when the resistivity is non-zero. Such instabilities are conventionally termed _tearing modes_. Since magnetic reconnection is, in fact, a nonlinear process, we shall then proceed to investigate the nonlinear development of tearing modes.
+
+The equilibrium magnetic field is written
+
+$$
+\mathbf{B}_0=B_{0y}(x)\hat{y}
+$$
+
+where $B_{0y}(-x)=-B_{0y}(x)$. There is assumed to be non-equilibrium plasma flow. The linearized equations of resistive-MHD, assuming incompressible flow, take the form
+
+$$
+\frac{\partial \mathbf{B}}{\partial t}=\nabla\times(\mathbf{v}\times\mathbf{B}_0)+\frac{\eta}{\mu_0}\nabla^2\mathbf{B}
+$$ {#eq:linear_induction_B}
+
+$$
+\rho_0\frac{\partial\mathbf{v}}{\partial t}=-\nabla p +\frac{(\nabla\times\mathbf{B})\times\mathbf{B}_0}{\mu_0}+\frac{(\nabla\times\mathbf{B}_0)\times\mathbf{B}}{\mu_0}
+$$ {#eq:linear_moment}
+
+$$
+\nabla\cdot\mathbf{B}=0
+$$ {#eq:linear_divB}
+
+$$
+\nabla\cdot\mathbf{v}=0
+$$ {#eq:linear_divV}
+
+Here, $\rho_0$ is the equilibrium plasma density, $\mathbf{B}$ is the perturbed magnetic field, $\mathbf{v}$ the perturbed plasma velocity, and $p$ the perturbed plasma pressure. The assumption of incompressible plasma flow is valid provided that the plasma velocity associated with the instability remains significantly smaller than both the Alfvén velocity and the sonic velocity.
+
+Suppose that all perturbed quantities vary like
+
+$$
+A(x,y,z,t)=A(x)e^{iky+\gamma t}
+$$ {#eq:linear_tearing_pert}
+
+where $\gamma$ is the instability growth-rate. The $x$-component of @eq:linear_induction_B and the $z$-component of the curl of @eq:linear_moment reduce to ???
+
+$$
+\gamma B_x = ikB_{0y}v_x + \frac{\eta}{\mu_0}\Big( \frac{d^2}{dx^2}-k^2\Big)B_x
+$$ {#eq:pert_induction_B}
+
+$$
+\gamma \rho_0 \Big( \frac{d^2}{dx^2}-k^2 \Big)v_x=\frac{ikB_{0y}}{\mu_0}\Big( \frac{d^2}{dx^2}-k^2-\frac{B_{0y}^{\prime\prime}}{B_{0y}}\Big)B_x
+$$ {#eq:pert_momentum}
+
+respectively, where use has been made of @eq:linear_divB and @eq:linear_divV. Here, $\prime$ denotes $d/dx$.
+
+It is convenient to normalize @eq:pert_induction_B and @eq:pert_momentum using a typical magnetic field-strength, $B_0$, and a typical scale-length, $a$. Let us define the _Alfvén time-scale_
+
+$$
+\tau_A=\frac{a}{V_A}
+$$
+
+where $V_A=B_0/\sqrt{\mu_0 \rho_0}$ is the Alfvén velocity, and the resistive diffusion time-scale
+
+$$
+\tau_R=\frac{\mu_0 a^2}{\eta}
+$$
+
+The ratio of these two time-scale is the Lundquist number:
+
+$$
+S=\frac{\tau_R}{\tau_A}
+$$
+
+Next see [farside notes](https://farside.ph.utexas.edu/teaching/plasma/Plasmahtml/node76.html). I will finish this part once I have time.
+
+It is well known that during magnetic reconnection a quadrupolar out-of-plane or Hall magnetic field is formed by the field aligned currents that flow in the vicinity of the magnetic separatrices when ion and electrons decouple on the length scales less than the ion inertial length (Sonnerup, 1979). These Hall fields are continuously produced and their associated kinetic and magnetic energies propagate away from the reconnection layers carried by Alfvén waves. Numerical simulations suggest that it is primarily kinetic Alfvén waves (@sec:kaw) which are excited in the vicinity of reconnection regions (Rogers+, 2001; Shay+, 2011).
+
+(The following part is from [Kinetic signatures of the region surrounding the X-line in asymmetric (magnetopause) reconnection] and [Fluid and kinetics signatures of reconnection at the dawn tail magnetopause-Wind observations].)
+
+_Electron diffusion region_ (EDR) is defined to be the electron-scale region surrounding the X-line in which magnetic connectivity is ultimately broken. Note that this definition is fundamentally non-local in nature.
+
+__Kinetic signatures of diffusion region__
+
+1. enhanced dissipation [e.g., Zenitani+, 2012]
+2. non-gyrotropic particle behavior [e.g., Scudder+, 2008; Aunai+, 2013; Swisdak 2016]
+3. electron distribution functions [e.g., Chen+, 2008, Ng+, 2011]
+4. In the two inflow regions, we expect a reduction in total pressure, magnetic field $B_L$ and the plasma density $n_i$ relative to ambient upstream conditions.
+
+Some signatures also exist downstream of the diffusion region and along the separatrices. In practice people use a complementary approach for the identification.
+
+Specifically for EDR, it should exhibit a number of properties:
+
+1. the violation of the electron frozen-in condition
+2. non-gyrotropic electron distributions [e.g., Scudder+, 2008; Aunai+, 2013; Swisdak 2016]
+3. enhanced dissipation [Zenitani+, 2011]
+
+A simple and practical indicator of EDR is the presence of a sunward pointing $E_N$ at the midplane (called the “shoulder”) as this signature coincides with the region of enhanced dissipation, non-gyrotropic electrons at midplane, and counterstreaming electron beams due to electron meandering orbits around the X-line. This EN signature is straightforward to measure experimentally because it is the largest component of the electric field at the magnetopause.
+
+The crescent shape distribution is not as localized as the $E_N$ shoulder especially for ion.
+
+![Ion crescent shape distribution at Earth's magnetopause revealed by ISEE satellite at 1981.](images/ion_distribution_crescent_1981.png){#fig:ion_crescent}
+
+At the dayside magnetopause, reconnection between magnetosheath and geomagnetic field lines is expected to produce
+
+1. a finite magnetic field component normal to the magnetopause, $B_N$;
+2. Alfvénic plasma flow acceleration associated with a rotational discontinuity at the magnetopause;
+3. ion distributions on reconnected field lines consisting of a mixture of magnetosheath and magnetosphere populations where the transmitted magnetosheath population has a "D-shaped" distribution, with a low-energy cutoff at the deHoffmann-Teller velocity [Cowley, 1982];
+4. reflected ions in the layers adjacent to the magnetopause;
+5. opposite streaming along reconnected field lines of outgoing magnetospheric electrons and incoming magnetosheath electrons, resulting in large parallel electron heat flux;
+6. an offset between the ion and electron edges at the inner boundary of the low-latitude boundary layer (LLBL) due to a time-of-flight effect resulting from the fact that entering magnetosheath electrons have much higher parallel speeds than ions while their transverse motions are the same.
+
+__D-shape distribution__
+
+The kinetic description of reconnection can also be quantitatively verified. An important kinetic signature is the "D-shaped" ion distribution. Magnetosheath particles can either be reflected at or cross the magnetopause. In the deHoffmann-Teller frame of reference in which the electric field vanishes, only ions traveling toward the magnetopause will cross the magnetopause. Thus, when viewed in the spacecraft frame, only magnetosheath ions with parallel velocity greater than the deHoffmann-Teller velocity can be seen earthward of the magnetopause, resulting in a "D-shaped" distribution. [Cowley, 1982]
+
+The existence of a finite BN at the MP requires field lines on both sides of the MP to move together. In this scenario
+there must be a reference frame (the HT frame) which slides along the MP with the field-line velocity. In this frame, the
+convective electric field vanishes ($\mathbf{E}_c= -\mathbf{v}\times\mathbf{B}= 0$), i.e. the flows are field aligned on the two sides of the MP.
+
+In practice, the HT frame for a set of plasma and field measurements across the MP can be found as the reference frame
+in which the mean square of the convective electric field, $D=\left<|(\mathbf{v}-\mathbf{V}_{HT})\times\mathbf{B}|^2\right>$, is as small as possible. The angle bracket $<...>$ denotes an average of an enclosed quantity over a set of measurements. The velocity $\mathbf{v}$ for which $D(\mathbf{v})$ is a minimum is the deHoffmann-Teller velocity, $\mathbf{V}_{HT}$. The ratio $D/D_0$, where $D_0=\left<|(\mathbf{v}\times\mathbf{B}^|2\right>$, is used as a measure of the quality of the HT frame. For a good HT frame $D/D_0$ should be small ($\ll 1$).
+
+In another paper [Characteristics of the flank magnetopause: Cluster observations], $\mathbf{V}_{HT}$ is defined by minimizing $\mathbf{E}^\prime = \mathbf{E} + \mathbf{V}_{HT}\times\mathbf{B}$, and the correlation between $\mathbf{E}_c=-\mathbf{v}\times\mathbf{B}$ and $\mathbf{E}_{HT}=-\mathbf{V}_{HT}\times\mathbf{B}$ describes how well the frame is determined.
+
+__Classification of Discontinuity Types__
+
+In a fluid description, the magnetopause can be described either as a tangential discontinuity (TD) or as a rotational discontinuity (RD). A TD implies a complete separation of two plasma regimes (in this case the magnetosheath on one side and the magnetosphere on the other side). The boundary as a whole may move, but there is no transport of plasma across the discontinuity, and there is no magnetic field along the boundary normal. An RD-like magnetopause, on the other hand, implies transport across the boundary and a normal magnetic field, and indicates the presence of reconnection. In the vicinity of the X-line, the plasma flow is Alfvénic, i.e., the Walén relation is satisfied:
+
+$$
+\mathbf{v} - \mathbf{V}_{HT} = \pm\mathbf{V}_A
+$$
+
+where $\mathbf{v}$ is the plasma velocity, $\mathbf{V}_{HT}$ is the deHoffmann-Teller frame velocity, and $\mathbf{V}_A$ is the local Alfvén velocity.
+
+In some other literature, a more complete form is written as
+
+$$
+\mathbf{v} - \mathbf{V}_{HT} = \pm(1-\alpha)^{1/2}\mathbf{V}_A
+$$
+
+which takes the pressure anisotropy factor $\alpha=(p_\parallel - p_\perp)\mu_0 / B^2$ into account.
+
+This is often used to classify the discontinuity type of the magnetopause. For an RD, the flow across the boundary is proportional to the normal magnetic field, i.e., $v_n \propto B_n$.  A positive (negative) slope of the regression means that normal magnetic field and flow have the same (opposite) signs. 
+At the magnetopause, we can assume that the flow is inward, i.e., from the magnetosheath into the magnetosphere.
+
+__Reconnection Efficiency__
+
+This is very confusing. From [Kivelson+ 1997]:
+
+> There is an interesting link between flow speeds over the polar cap and reconnection efficiency at the nose of
+its magnetopause. This follows from the fact that the voltage drop across the magnetosphere is a fraction of the voltage drop across the same distance in the corotating flow upstream. Thus, the convection electric field within the magnetosphere is a fraction of the corotation electric field determined by the efficiency of reconnection. The model allows us to estimate the convective flow speeds of plasma over the polar cap if the reconnection efficiency is known, and conversely allows us to estimate the reconnection efficiency if the flow speed over the polar cap is known.
+
+Let me think in this way: the convective electric field in the upstream, $\mathbf{E}=-\mathbf{v}\times\mathbf{B}$, describes how many magnetic field lines are moving into the reconnection site at a given point. The integral of electric field along the X-line describes how many magnetic field lines are getting reconnected into the magnetosphere. This is not the same as electric potential drop, where in the simplest cases requires a static EM field. Because of the difficulty of finding the separatrices, we use an indirect approach assuming equi-potential field lines to calculate the electric field along the magnetosphere boundary curve away from the reconnection site.
+
+Be careful for the word "cross polar cap potential" here. This may be a misleading term, since how can one define an electric potential in a EM field?
+
+__Lower Hybrid Drift Instability__
+
+Perhaps the most import problem associated with reconnection is the understanding of the mechanisms by which the magnetic field can dissipate its energy, and subsequently produce particle heating and acceleration [Huba 1979]. Since many field reversed plasmas are essentially collisionless, instabilities are likely to play an important role in the dissipation process.
+
+A macro-instability (MHD type), like the tearing mode can dissipate magnetic energy even in a collisionless plasma via electron inertia, electron or ion Landau damping. However, the collisionless tearing mode saturates at a very small amplitude. Micro-instabilities can also dissipate magnetic energy by producing an anomalous resistivity which can either dissipate the magnetic energy directly or enhance the growth of the tearing mode.
+
+The _lower-hybrid-drift instability_ (LHDI) is a microinstability which has thought to be an anomalous transport mechanism in both laboratory and space plasmas. The local linear theory of this instability is well understood. The mode is driven by the diamagnetic current produced by pressure inhomogeneities and is characterized at maximum growth by
+
+$$
+\begin{aligned}
+\omega\sim kV_d \lesssim \omega_{lh} \\
+\gamma\lesssim \omega \\
+k \sim \omega_{lh}/v_i \\
+\mathbf{k}\cdot\mathbf{B}=0
+\end{aligned}
+$$
+
+where $V_d$ is the diamagnetic drift velocity, $\omega_{lh}$ is the lower hybrid frequency, and $v_i$ is the ion thermal velocity.
+
+$$
+\omega_{lh} = [(\Omega_i \Omega_e)^{-1} + \omega_{pi}^{-2}]^{-1/2}
+$$
+
+where $\Omega_i$ is the ion cyclotron frequency, $\Omega_e$ is the electron cyclotron frequency, and $\omega_{pi}$ is the ion plasma frequency. It is so called "hybrid" because it is a mixture of two frequencies. It is unusual in that the ion and electron masses play an equally important role.
+
+The drift velocity is
+
+$$
+V_d = \frac{\nabla p\times \mathbf{B}}{neB^2}
+$$
+
+Physically, the instability is reactive (fluid-like) in the strong drift velocity regime ($V_d > v_i$) and dissipative (kinetic) in the weak drift velocity regime ($V_d < v_i$).
+
+__Sweet-Parker Solution__
+
+From Yi-Hsin Liu's presentation of space weather.
+
+mass conservation:
+
+$$
+\nabla\cdot(n\mathbf{V})=0 \Rightarrow\ V_{in}L \simeq V_{out}\delta
+$$
+
+momentum conservation:
+
+$$
+\frac{\mathbf{B}\cdot\nabla\mathbf{B}}{4\pi} = nm_i \mathbf{V}\cdot\nabla\mathbf{V} \Rightarrow V_{out}\simeq \frac{B}{\sqrt{4\pi nm_i}} = V_A
+$$
+
+normalized reconnection rate
+
+$$
+R\equiv\frac{V_{in}}{V_A}\sim\frac{\delta}{L}
+$$
+
+However, this model has a small $\delta/L$, the rate is too small to explain the time-scales in solar flare. To explain the flares, it requires $R\sim 0.1$.
+
+__Petschek Solution__
+
+Reconnection in this model is much larger because $R\sim \delta/L$ goes up. However, this is not a self-consistent solution.
+
+In PIC simulations, the diffusion region is localized like the Petschek solution. The reason we use PIC instead of MHD is that PIC captures the key physics that breaks the frozen-in condition in nature. In the GEM challenge study, PIC, hybrid, Hall-MHD, MHD with a localized resistivity all give similar $R\sim 0.1$ fast reconnection rate in disparate systems.
+
+One possible explanation for this $0.1$ rate comes from geometrical consideration. In the small $\delta/L$ limit, $R\sim\delta/L\sim0$. In the large $\delta/L$ limit, $\delta/L\rightarrow 1$, $R\rightarrow0$. It turns out that there should be an optimized $R_{\text{max}}$ in between. In the large $\delta/L$ limit, 
+
+$$
+\frac{\mathbf{B}\cdot\nabla\mathbf{B}}{4\pi}\simeq \frac{\nabla(B^2)}{8\pi} + nm_i\mathbf{V}\cdot\nabla\mathbf{V}
+$$
+
+At the inflow region, the large angle decrease the reconecting magnetic field. At the outlfow region, it decrease the outflow speed. Both of them cause $R$ to decrease. Constraints imposed at the inflow and outflow region (upper) bound the rate! In [Liu+, PRL 2017], an analytical expression of $R$ is given by
+
+$$
+R\equiv\frac{V_{in}}{V_A}\simeq \frac{\delta}{L}\cdot \underbrace{\Big[ \frac{1-(\delta/L)^2}{1+(\delta/L)^2} \Big]}_{\text{reduction of reconnection B}}\cdot \underbrace{\sqrt{1-\Big( \frac{\delta}{L} \Big)^2}}_{\text{reduction of }V_{out}}
+$$
+
+Reconnection tends to proceed near the most efficient state with $R\sim\mathcal{O}(0.1)$. Nicely, the rate is insensitive to $\delta/L$ near this state (BECAUSE THE SLOPE IS SMALL???).
+
+__3D Nature of Reconnection__
+
+How about the freedom coming from the extra dimension? 
+
+Distinct 3D features, including
+
+* flux ropes
+* kink instability
+* turbulence
+
+3D diffusion region can be fundamentally different. For example, you may find bifurcation of electron diffusion region in 3D reconnection simulations. Clue: bifurcated layer is located in between these intertwined flux ropes, and tearing modes give rise to these flux ropes! 2D only allows the parallel tearing mode, i.e., no bifurcation. 3D allows a spectrum of oblique tearing modes, unlike 2D.
 
 ## Kinetic Mode
 
