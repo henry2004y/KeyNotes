@@ -985,6 +985,7 @@ $$
 It has been shown that KAWs can be generated via magnetic reconnection, mode conversion, and phase mixing.
 
 [@gurram2021shear] used a 2D VPIC simulation to show a transition from KAWs to SAWs from the immediate vicinity of the reconnection region to the exhaust. They checked two important quantities we have seen above:
+
 * the transition in wave speeds from super Alfvénic near the X-point to order of the Alfvén speed deeper into the exhaust ($\sim 60 d_i$ from the X-point);
 * the transition of $k_\perp d_i$ from larger than unity to smaller than unity.
 
