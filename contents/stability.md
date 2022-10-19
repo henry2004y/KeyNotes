@@ -1879,13 +1879,19 @@ $$
 \delta P_i / \delta P_B < 0
 $$
 
-* Stationary in plasma rest frame:
+* Linear magnetic field polarization
+
+* Stationary in plasma rest frame (i.e. zero phase speed):
 
 $$
 \Big(\delta \mathbf{v}^2 / \mathbf{v}_0^2 \Big) / \Big( \delta \mathbf{B}^2 / \mathbf{B}_0^2 \Big) \approx 0
 $$
 
 The last criterion is referred to as the Doppler ratio and is used to distinguish between slow mode waves (value $\ge 1$) and mirror modes (value near zero). 
+
+Note that mirror mode is not really a MHD mode, but from observation in the Earth's magnetosheath we often see mirror modes on large MHD scales. However, in the solar wind, mirror mode structures seem to be much smaller than those observed in the magnetosheath. From @eq:kmhd_mirror_dispersion, electron physics may be involved on the electron scales.
+
+It is still an unknown mystery from MMS observation that downstream of an interplanetary shock, very few mirror modes were observed. This is surprising, because usually the shock is a source of pressure anisotropy. Another explained fact is that typically mirror modes are not observed during fast solar wind (as of 2022).
 
 ## Cyclotron Instability
 
