@@ -1666,3 +1666,7 @@ $$
 $$
 
 You may also find the application in deriving the gyrokinetic equations.
+
+## Wavelet Analysis
+
+Wavelet is a predecessor of Fourier tranform, which provides better results when dealing with changing background. It is the de-facto method for modern wave analysis. Check the [notes from my blog](https://henry2004y.github.io/blog/wavelet/) and the references therein.
