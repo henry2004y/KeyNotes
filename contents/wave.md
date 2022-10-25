@@ -862,7 +862,7 @@ $\mathbf{E}$ (or $\mathbf{B}_1$) shows that the Alfvén wave in a uniform plasma
 
 ![Alfvén wave.](https://s8.gifyu.com/images/alfven.gif){#fig:alfven_wave}
 
-In a non-uniform plasma, SAW attains the interesting property of a continuous specturm. To illustrate this feature, let us consider the simplified slab model of a cold plasma with a non-uniform density, $\rho=\rho(x)$, and a uniform $\mathbf{B}_0 = B_0\hat{z}$. Assuming at $t=0$ a localized initial perturbation $\mathbf{B}_{1y}(x,t=0) = \exp(-x^2/\Delta x^2)$, $|k_y\Delta_x|\ll1$, and $\partial\mathbf{B}_{1y}/\partial t=0$, the perturbation then evolves according to the following wave equation (@eq:mhd_cold_b_wave, $B_{1z}=0$ so no coupling between the fast mode between Alfvén mode):
+In a non-uniform plasma, SAW attains the interesting property of a continuous specturm. To illustrate this feature, let us consider the simplified slab model of a cold plasma with a non-uniform density, $\rho=\rho(x)$, and a uniform $\mathbf{B}_0 = B_0\hat{z}$. Assuming at $t=0$ a localized initial perturbation $\mathbf{B}_{1y}(x,t=0) = \exp(-x^2/\Delta x^2)$, $|k_y\Delta_x|\ll1$, and $\partial\mathbf{B}_{1y}/\partial t=0$, the perturbation then evolves according to the following wave equation (@eq:mhd_cold_b_wave, $B_{1z}=0$ so no coupling between the fast mode and Alfvén mode):
 
 $$
 [\partial_t^2 + \omega_A^2(x)]B_{1y}(x,t) = 0
@@ -893,8 +893,112 @@ $$
 That is, $B_{1x}$ decays temporally due to the phase mixing of increasingly more rapidly varying neighboring perturbations.
 
 Noting that, as $t\rightarrow\infty$, $|k_x|\rightarrow\infty$, it thus suggests that the perturbation will develop singular structures toward the steady state. As we will see in the field line resonance @sec:flr, the singularity is reached at the Alfvén resonant point $x_r$, where $\omega^2=\omega_A^2(x_r)$ along with a finite resonant wave-energy absorption rate. Note that at the isolated extrema of the SAW continuum, $|\omega_A^\prime|=0$, phase mixing vanishes; consequently, perturbation remains regular and experiences no damping via resonant absorption. This feature has important implications to Alfvén instabilities in laboratory plasmas.
- 
+
+Space plasmas support a variety of waves, but for heating the plasma and accelerating the electrons and ions, Alfvén waves are a predominant source. Near the Sun, Alfvén waves are excited and propagate outward. They exchange their energy with particles to accelerate them in the form of solar wind and heat the electrons. When parallel wavelength of the wave becomes comparable to the ion gyro-radius or inertial length in the case of kinetic Alfvén waves (KAWs, @sec:kaw) or inertial Alfvén waves (IAWs), respectively, then the wave in both the limits has a nonzero parallel electric field component which is responsible for the acceleration of the particles via the Landau mechanism. KAWs and IAWs have significance not only in space plasmas but also in laboratory plasma such as in fusion reactors.
+
+In the generalized Ohm's law, KAW relates to $\frac{\nabla P}{ne}$ term, while IAW relates to $\frac{\partial \mathbf{j}}{\partial t}$ term. The key interest is in $E_\parallel$.
+
 Alfvén wave has very high saturation level, meaning that it takes a long time for the wave to reach the nonlinear phase. (???)
+
+__SAW in a Slab__
+
+We now look deeper into the properties of Alfvén waves in a nonuniform magnetized plasma slab that carries a current flowing along an externally imposed magnetic field $B_{0z}\hat{z}$, where $B_{0z}$ is assumed to be a constant. First, we formulate the governing equation for the slab geometry, under the ideal MHD condition. Then we show that Alfvén waves are always neutrally stable, with important indication at the end.
+
+The presence of an equilibrium current density $\mathbf{J}_0 = \widehat{z}J_0(x)$ produces a local magnetic field of the form
+
+$$
+\mathbf{B}_0 = \hat{z}B_{0z} + \hat{y}B_{0y}(x)
+$$
+
+The Ampère's law gives
+
+$$
+\nabla\times\mathbf{B}_0 = \mu_0 \mathbf{J}_0 \Rightarrow \frac{\partial B_{0y}}{\partial x}-\frac{\partial B_{0x}}{\partial y} = \frac{\partial B_{0y}}{\partial x} = \mu_0 J_0(x)
+$$ {#eq:ampere_slab}
+
+From the force balance equation,
+
+$$
+\mathbf{J}_0\times\mathbf{B}_0 = \nabla P_0
+$$ {#eq:force_balance_slab}
+
+Substituting @eq:ampere_slab into @eq:force_balance_slab, we get
+
+$$
+\frac{{B_{0y}(x)}^2}{2\mu_0} + P_0(x) = \text{const.}
+$$
+
+Designate all perturbation quantities with a subscript 1, and assume $e^{-i\omega t+ik_y y+ i k_z z}$ dependence for all perturbations (nonuniform in the $x$-direction, thus no sinuisoidal wave assumption). From linearized Faraday's law and Ohm's law in ideal MHD,
+
+$$
+\begin{aligned}
+-\nabla\times\mathbf{E}_1 = \nabla\times(\mathbf{v}_1\times\mathbf{B}_0) = \frac{\partial\mathbf{B}_1}{\partial t} \\
+-i\omega\mathbf{B}_1 = \mathbf{v}_1\cancel{(\nabla\cdot\mathbf{B}_0)}-\mathbf{B}_0\cancel{(\nabla\cdot\mathbf{v}_1)}+(\mathbf{B}_0\cdot\nabla)
+\mathbf{v}_1 - (\mathbf{v}_1\cdot\nabla)\mathbf{B}_0
+\end{aligned}
+$$
+
+where we have assumed the plasma is incompressible. Replace $\nabla$ with $i\mathbf{k}$, $\mathbf{v}_1=i\omega \pmb{\xi}_1$ and take the $x$-component, we get
+
+$$
+B_{1x} = i(\mathbf{k}\cdot\mathbf{B}_0)\xi_{1x}
+$$ {#eq:mhd_slab_b1x}
+
+where $\mathbf{k}=\hat{y}k_y+\hat{z}k_z$.
+
+The MHD force law can be linearized to
+
+$$
+\rho_0 \frac{\partial \mathbf{v}_1}{\partial t} = -\nabla\Big( p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\Big) + \frac{1}{\mu_0}\big[ (\mathbf{B}_0\cdot\nabla)\mathbf{B}_1 + (\mathbf{B}_1\cdot\nabla)\mathbf{B}_0\big]
+$$ {#eq:mhd_momentum_linearized_slab}
+
+Since the plasma is incompressible, $\nabla\cdot\pmb{v}_1=0,\ \dot{\pmb{\xi}}=\mathbf{v}_1\Rightarrow \nabla\cdot\pmb{\xi}=0$. In addition, $\nabla\cdot\mathbf{B}_1=0$. We then have
+
+$$
+\begin{aligned}
+\mathbf{k}\cdot\pmb{\xi}_{1yz}&=i\frac{\partial \xi_{1x}}{\partial x} \\
+\mathbf{k}\cdot\pmb{B}_{1yz}&=i\frac{\partial B_{1x}}{\partial x}
+\end{aligned}
+$$
+
+where $\pmb{\xi}_{1yz} = (0,\xi_{1y},\xi_{1z})$, $\mathbf{B}_{1yz}=(0,B_{1y},B_{1z})$. The $x$-component of @eq:mhd_momentum_linearized_slab gives
+
+$$
+-\rho_0\omega^2 \xi_{1x} = -\frac{\partial}{\partial x}\Big( p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\Big) +\frac{1}{\mu_0} \big[ (\mathbf{B}_0\cdot\nabla)B_{1x} \big]
+$$ {#eq:mhd_momentum_linearized_slab_x}
+
+The dot product of @eq:mhd_momentum_linearized_slab with $\mathbf{k}$ gives
+
+$$
+\begin{aligned}
+-\rho_0 \omega^2 \mathbf{k}\cdot\pmb{\xi}_{1yz} &= ik^2 \Big( p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\Big) + \frac{1}{\mu_0}\big[ i(\mathbf{k}\cdot\mathbf{B}_0)(\mathbf{k}\cdot\mathbf{B}_{1yz}) + B_{1x}\frac{\partial }{\partial x}(\mathbf{k}\cdot\mathbf{B}_0)\big]\\
+-\rho_0 \omega^2 i\frac{\partial \xi_{1x}}{\partial x} &= ik^2 \Big( p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\Big) + \frac{1}{\mu_0}\big[ i(\mathbf{k}\cdot\mathbf{B}_0)(i\frac{\partial B_{1x}}{\partial x}) + B_{1x}\frac{\partial }{\partial x}(\mathbf{k}\cdot\mathbf{B}_0)\big]
+\end{aligned}
+$$ {#eq:mhd_momentum_linearized_slab_k}
+
+Finally, canceling $p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}$ from @eq:mhd_momentum_linearized_slab_x and @eq:mhd_momentum_linearized_slab_k and substituting $B_{1x}$ from @eq:mhd_slab_b1x, we obtain the governing equation
+
+$$
+\frac{\partial}{\partial x}\Big\{ \rho_0 \big[ \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2\big]\frac{\partial \xi_{1x}}{\partial x}\Big\} -k^2\rho_0 \big[ \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2\big]\xi_{1x}=0
+$$ {#eq:mhd_slab_governing}
+
+where $k^2={k_y}^2+ {k_z}^2$, $\mathbf{v}_A = v_A \mathbf{B}_0/B_0$, and $v_A=B_0/\sqrt{\mu_0 \rho_0}$ is the local Alfvén speed. This is the governing equation of shear Alfvén waves in a slab geometry derived by Hasegawa and Liu Chen in the 1970s, which is readily compared with Eq.(10.33) in [@bellan2008fundamentals].
+
+It is easy to show that this governing equation always yields _neutrally stable_ solutions of SAWs, i.e. $\omega_i=\Im(\omega)=0$. Multiply it by $\xi_{1x}^\ast$, and integrate the resultant equation to get
+
+$$
+\int_{-\infty}^{\infty}dx \rho_0 \big[ \omega^2-(\mathbf{k}\cdot\mathbf{v}_A)^2\big] \Big[ \bigg\lvert \frac{d\xi_{1x}}{dx}\bigg\rvert^2 + k^2\lvert\xi_{1x}\rvert^2 \Big] = 0
+$$
+
+where we have assumed that $\xi_{1x}$ vanishes on the boundary. This gives
+
+$$
+\omega^2 = \frac{\int_{-\infty}^{\infty}dx \rho_0 (\mathbf{k}\cdot\mathbf{v}_A)^2\Big[ \bigg\lvert \frac{d\xi_{1x}}{dx}\bigg\rvert^2 + k^2\lvert \xi_{1x}\rvert^2 \Big]}{\int_{-\infty}^{\infty}\rho_0[ \lvert \frac{d\xi_{1x}}{dx}\rvert^2 + k^2\lvert \xi_{1x}\rvert^2]dx} \ge 0
+$$
+
+SAWs are the dominant low frequency waves in a current carrying plasma. The neutrally stable modes studies above can be destabilized by unfavorable curvature, and such modes are called _ballooning modes_ (@sec:ballooning). They may also be destabilized by a finite electrical resistivity, and these are _tearing modes_ (@sec:tearing). Their interaction with fusion-generated alpha particles are a major issue in all magnetic fusion schemes. Finally, since the governing equation exhibits a singularity when $\omega=\mathbf{k}\cdot\mathbf{v}_A$, this singularity represents resonance absorption, which forms the basis of _Alfvén wave heating_ (i.e. field line resonance, @sec:flr). This singularity also give rise to the so called "Alfvén continuum spectrum" mentioned above.
+
+Note that the governing equation is valid even if $B_{0z}$ is an arbitrary function of $x$. If in addition, an external gravity $\mathbf{g}=\hat{x}g$ in the x-direction is present, the governing equation is modified simply by inserting the term $-(g/\rho_0)d\rho_0/dx$ in the second square bracket, and the equation is identical to Eq.(10.33) of Bellan. This is the most general equation which describes the _magneto-Rayleigh-Taylor instability_ (MRT) in Cartesian geometry using the incompressible, ideal MHD model.
 
 ### Fast and Slow Wave
 
@@ -931,7 +1035,7 @@ p_1 &= \rho_1 k_B T/m \\
 \end{aligned}
 $$
 
-$\mathbf{E}$ shows that the fast/slow modes in a uniform plasma are also linearly polarized. When we $\theta=90^o$ (@fig:fast_wave), the magnetic perturbation can be simplified to
+$\mathbf{E}$ shows that the fast/slow modes in a uniform plasma are also linearly polarized. When we have $\theta=90^o$ (@fig:fast_wave), the magnetic perturbation can be simplified to
 
 $$
 \mathbf{B}_1 = \frac{v}{\omega/k_\perp}\mathbf{B}_0
