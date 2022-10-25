@@ -1,6 +1,6 @@
 # Geometry {#sec:geometry}
 
-This chapter introduces the topology-related concepts in plasma physics, including ropes, knots, boundaries, and null points.
+This chapter introduces the topology-related concepts in plasma physics, including ropes, knots, boundaries, and null points. Usually, observers and modelers have different views of topology because of the tools at hand: observers have probes which give measurements as a function of both time and space, while modelers have full spatial-temporal information under the given resolution. It always amazed me how observers can deduce the general picture of plasma structures with such limited data. Incorporating observation experience into physics as well as diagnosing numerical simulations with physics are our main goals in studing geometry.
 
 ## Helicity
 
@@ -98,7 +98,7 @@ There are discretized forms of cross helicity from the observation point of view
 
 ## Flux Rope Identification
 
-Using turbulence parameters to find flux ropes [Zhao+ 2020] (Lulu!):
+Using turbulence parameters to find flux ropes [@zhao2020identification]:
 
 $$
 \begin{aligned}
@@ -108,7 +108,13 @@ $$
 \end{aligned}
 $$
 
-where $\sigma_m$ is the normalized magnetic helicity, which is a measure of $\mathbf{B}$ rotation.
+where $\sigma_m$ is the _normalized reduced magnetic helicity_, which is a measure of $\mathbf{B}$ rotation. Strictly speaking, the magnetic helicity depends on the spatial properties of the magnetic field topology, and thus cannot be directly evaluated from single spacecraft measurements. However, Matthaeus+ (1982) described a reduced form of magnetic helicity that can be estimated with measurements from a single spacecraft based on the magnetic power spectrum. The normalized reduced magnetic helicity can be estimated by
+
+$$
+\sigma_m(\nu, t) = \frac{2\Im[W_T^\ast(\nu, t)\cdot W_N(\nu, t)]}{|W_R(\nu, t)|^2 + |W_T(\nu, t)|^2 + |W_N(\nu, t)|^2}
+$$ {#eq:reduced_magnetic_helicity}
+
+where $\nu$ is the frequency associated with the Wavelet function and the sampling period of the measured magnetic field in the radial tangential normal (RTN) coordinate system. The spectra $W_R(\nu, t)$, $W_T(\nu, t)$, and $W_N(\nu, t)$ are the wavelet transforms of time series of $\mathbf{B}_{1R}$, $\mathbf{B}_{1T}$, and $\mathbf{B}_{1N}$, respectively; and $W_T^\ast(\nu,t)$ is the conjugate of $W_T(\nu,t)$. From the resulting spectrogram of the magnetic helicity, $\sigma_m$, one can determine both the magnitude and the handedness (chirality) of underlying fluctuations at a specific scale. A positive value of $\sigma_m$ corresponds to right-handed chirality and a negative value to left-handed chirality.
 
 ## Reconnection Identification
 

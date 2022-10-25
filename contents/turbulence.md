@@ -8,7 +8,7 @@ MAKE THE PLOT!!!
 
 Nunov highly recommended a review [@schekochihin_2022].
 
-Elsasser variables are used to extract the Alfvénic component from MHD. They are defined as
+Elsässer variables are used to extract the Alfvénic component from MHD. They are defined as
 
 $$
 \begin{aligned}
@@ -76,7 +76,7 @@ $$ {#eq:residual_energy_normalized}
 
 $\sigma_r$ is zero for an Alfvén wave but is generally negative ($|\delta\mathbf{b}|^2 > |\delta\mathbf{v}|^2$) at MHD scales for solar wind observations, meaning that they are mostly likely turbulence but not waves.
 
-### Cross Helicity {#sec:turbulence_cross_helicity}
+### Normalized Cross Helicity {#sec:turbulence_cross_helicity}
 
 Cross helicity is the difference in energy between $z^+$ and $z^-$ fluctuations (@sec:cross_helicity). The normalized cross helicity is
 
