@@ -100,8 +100,6 @@ The observed distribution is shown in @fig:turbulence_residual_energy_cross_heli
 
 ## Solar Wind Turbulence
 
-[Chen 2016]
-
 ### Taylor's Hypothesis
 
 Solar wind is a supersonic flow ($v_A/v_{\text{SW}}\ll 1$), with advection timescale much shorter than any dynamical timescales in the plasma. This means that for spacecraft observations, the time series represents an instantaneous spatial cut through the solar wind plasma. We can thus relate spacecraft frequency, $f_{\text{sc}}$, to wavenumber in the plasma frame, $k$, in a simple way via
@@ -120,7 +118,7 @@ The wavenumber $k$ determined from Taylor's hypothesis is really the flow-aligne
 
 ![Solar wind power spectrum from Kiyoni+, 2015.](images/solarwind_power_spectrum.png){#fig:solarwind_power_spectrum}
 
-When we plot the solar wind power spectrum ($\delta|\mathbf{B}|$), it is usually representative of $k_\perp$. There are three distinct power-law ranges in the spectrum:
+When we plot the solar wind power spectrum ($\delta|\mathbf{B}|$), it is usually representative of $k_\perp$. There are three distinct power-law ranges in the spectrum from spacecraft solar wind observations (@fig:solarwind_power_spectrum):
 
 * Injection range:
   * Large amplitude, low frequency Alfvén waves originating from the Sun.
@@ -135,7 +133,6 @@ When we plot the solar wind power spectrum ($\delta|\mathbf{B}|$), it is usually
   * Scales at which particles are heated
   * Typically $f^{-2.8}$ spectrum
   * Possibly KAW (@sec:kaw) or whistler mode (@sec:CPDR) turbulence
-
 
 When we move to smaller scales, anisotropy increases. This is demonstrated in @fig:turbulence_scale as a result of $k_\perp \gg k_\parallel$, which is also why gyrokinetics is the theory for turbulence.
 
