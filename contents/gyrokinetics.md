@@ -104,7 +104,7 @@ $$
 $$
 
 $$
-\bigg\lvert| \frac{\omega}{k_\perp v_A} \bigg\rvert| \sim \bigg\lvert| \frac{\omega}{\Omega_i} \bigg\rvert| \bigg\lvert| \frac{1}{k_\perp r_{iL}} \bigg\rvert| \beta_i^{1/2} \lesssim \epsilon
+\bigg\lvert \frac{\omega}{k_\perp v_A} \bigg\rvert \sim \bigg\lvert \frac{\omega}{\Omega_i} \bigg\rvert \bigg\lvert \frac{1}{k_\perp r_{iL}} \bigg\rvert \beta_i^{1/2} \lesssim \epsilon
 $$
 
 i.e. fast waves are systematically suppressed in the gyrokinetic orderings.

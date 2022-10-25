@@ -1482,7 +1482,7 @@ $$
 
 The perturbation Lorentz force $\mathbf{j}_1\times\mathbf{B}_0$ is zero. (???)
 
-### Ballooning Mode
+### Ballooning Mode {#sec:ballooning}
 
 The ballooning instability is a type of internal pressure-driven plasma instability usually seen in tokamak fusion power reactors or in space plasmas [@hameiri1991ballooning]. It is important in fusion research as it determines a set of criteria for the maximum achievable plasma beta. The name refers to the shape and action of the instability, which acts like the elongations formed in a long balloon when it is squeezed. In literature, the structure of these elongations are commonly referred to as "fingers".
 

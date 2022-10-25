@@ -230,7 +230,7 @@ This means that the electric fields due to the particles in the plasma greatly a
 
 ## The Single-Fluid MHD Equations
 
-In Chen's book, this is introduced in the diffusion chapter 5.7, which is a bit weird.
+In [@chen2016introduction], this is introduced in the diffusion chapter 5.7, which is a bit weird.
 
 There are three basic assumptions in MHD:
 
@@ -437,6 +437,10 @@ $$ {#eq:fluid_set}
 
 There are 16 scalar unknowns: $n_i, n_e, p_i, p_e, \mathbf{u}_i, \mathbf{u}_e, \mathbf{E}$, and $\mathbf{B}$. There are apparently 18 scalar equations if we count each vector equation as three scalar equations. However, two of Maxwell’s equations are superfluous, since the two of the equations can be recovered from the divergences of the other two. The
 simultaneous solution of this set of 16 equations in 16 unknowns gives a self-consistent set of fields and motions in the fluid approximation.
+
+## Generalized Ohm's Law
+
+To be added...
 
 ## Fluid Drifts Perpendicular to B
 
