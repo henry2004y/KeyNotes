@@ -76,9 +76,9 @@ $$ {#eq:residual_energy_normalized}
 
 $\sigma_r$ is zero for an Alfvén wave but is generally negative ($|\delta\mathbf{b}|^2 > |\delta\mathbf{v}|^2$) at MHD scales for solar wind observations, meaning that they are mostly likely turbulence but not waves.
 
-### Cross Helicity
+### Cross Helicity {#sec:turbulence_cross_helicity}
 
-Cross helicity is the difference in energy between $z^+$ and $z^-$ fluctuations. The normalized cross helicity is
+Cross helicity is the difference in energy between $z^+$ and $z^-$ fluctuations (@sec:cross_helicity). The normalized cross helicity is
 
 $$
 \sigma_c = \frac{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2}{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2} = \frac{2\delta\mathbf{v}\cdot\delta\mathbf{b}}{|\delta\mathbf{v}|^2 + |\delta\mathbf{b}|^2}

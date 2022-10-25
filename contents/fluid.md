@@ -440,7 +440,15 @@ simultaneous solution of this set of 16 equations in 16 unknowns gives a self-co
 
 ## Generalized Ohm's Law
 
-To be added...
+DERIVATIONS TO BE ADDED...
+
+$$
+\mathbf{E} = -\mathbf{u}\times\mathbf{B} + \eta\mathbf{j} + \frac{1}{en}\mathbf{j}\times\mathbf{B}-\frac{1}{en}\nabla\cdot\overleftrightarrow{P}_e +\frac{m_e}{ne^2}\Big[ \frac{\partial \mathbf{j}}{\partial t}+\nabla\cdot(\mathbf{j}\mathbf{u}+\mathbf{u}\mathbf{j}) \Big]
+$$ {#eq:genearlized_ohm_law}
+
+where the third term on the right-hand side is called the "Hall term", the fourth term is the electron pressure term, and the fifth term is called the "electron inertia term", since it is proportional to the mass of electrons.
+
+Note that both $\mathbf{u}$ and $\mathbf{j}$ are the first-order moments, with $\mathbf{u}$ being the (weighted) sum of the first-order moment of electrons and ions while $\mathbf{j}$ being the difference between them. The generalized Ohm's law is actually the difference between the electrons' and ions' first-order moment equations. _The generalized Ohm's law is an equation that governs the time evolution of $\mathbf{j}$_. Also note that Ampere's law, with the displacement current retained, is an equation governing the time evolution of $\mathbf{E}$. However, in the approximation of the resistive MHD, the time derivative terms $\partial \mathbf{E}/\partial t$ and $\partial \mathbf{j} /\partial t$ are ignored in Ampere's law and Ohm's law, respectively. In this approximation, Ohm's law is directly solved to determine $\mathbf{E}$ and Ampere's law is directly solved to determine $\mathbf{j}$. [Introduction to plasma physics: with space and laboratory applications, D. A. Gurnett and A. Bhattacharjee.]
 
 ## Fluid Drifts Perpendicular to B
 
