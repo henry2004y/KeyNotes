@@ -33,7 +33,7 @@ $\mathbf{z}^\pm$ corresponds to anti-parallel/parallel propagating modes:
 * Parallel wave: $\delta\mathbf{v}=-\delta\mathbf{b}\Rightarrow \delta\mathbf{z}^+=0, \delta\mathbf{z}^-=2\delta\mathbf{v}$
 * Anti-parallel wave: $\delta\mathbf{v}=\delta\mathbf{b}\Rightarrow \delta\mathbf{z}^+=2\delta\mathbf{v}, \delta\mathbf{z}^-=0$
 
-The incompressible MHD wave equation in fluctuating Elsasser form is:
+The incompressible MHD wave equation in fluctuating Elsässer form is:
 
 $$
 \frac{\partial\delta\mathbf{z}^\pm}{\partial t} \mp v_A\nabla_\parallel\delta\mathbf{z}^\pm + \delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm = -\nabla p
@@ -78,14 +78,14 @@ $\sigma_r$ is zero for an Alfvén wave but is generally negative ($|\delta\mathb
 
 ### Normalized Cross Helicity {#sec:turbulence_cross_helicity}
 
-Cross helicity is the difference in energy between $z^+$ and $z^-$ fluctuations (@sec:cross_helicity). The normalized cross helicity is
+Cross helicity is the difference in energy between $\mathbf{z}^+$ and $\mathbf{z}^-$ fluctuations (@sec:cross_helicity). The normalized cross helicity is
 
 $$
 \sigma_c = \frac{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2}{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2} = \frac{2\delta\mathbf{v}\cdot\delta\mathbf{b}}{|\delta\mathbf{v}|^2 + |\delta\mathbf{b}|^2}
 $$ {#eq:cross_helicity_normalized}
 
-* $|\sigma_c|=1$: unidirectional Alfvén waves (no turbulence!)
-* $|\sigma_c|\simeq 1$: imbalanced turbulence
+* $|\sigma_c|=1$: unidirectional Alfvén waves (no turbulence)
+* $|\sigma_c|\lesssim 1$: imbalanced turbulence
 * $|\sigma_c|=0$: balanced turbulence (or non-Alfvénic fluctuations)
 
 The solar wind is typically imbalanced towards the anti-sunward direction. From @eq:residual_energy_normalized and @eq:cross_helicity_normalized we can easily see that
@@ -94,7 +94,7 @@ $$
 \sqrt{\sigma_r^2 + \sigma_c^2} \le 1
 $$
 
-The observed distribution is shown in @fig:turbulence_residual_energy_cross_helicity.
+The observed distribution is shown in @fig:turbulence_residual_energy_cross_helicity. Note, however, $\sigma_r$ depends on how you evaluate $\delta{b}$. In the MHD case $\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}$ is used, but in the kinetic case there will be an extra coefficient. The results look pretty different!
 
 ![Solar wind normalized residual energy and cross helicity statistics from Chen+ 2013.](images/solarwind_residual_energy_cross_helicity.png){#fig:turbulence_residual_energy_cross_helicity}
 
@@ -112,7 +112,7 @@ This is often not appropriate in the magnetosheath, and modified Taylor’s hypo
 
 ![Wave scale from typical L1 satellite solar wind observation.](images/turbulence_par_perp_L1.png){#fig:turbulence_v_b}
 
-The wavenumber $k$ determined from Taylor's hypothesis is really the flow-aligned component of $\mathbf{k}$. In the solar wind, $P(k_\perp) \gg P(k_\parallel)$, where $P$ is the power of perturbation. For a Parker spiral-like magnetic field at 1 AU, the angle between $\mathbf{B}_0$ and $\mathbf{v}_\text{sw}$ is rarely small ($\sim 45^o$), the power spectra are typically dominated by the contribution from the $k_\perp$ fluctuations (@fig:turbulence_v_b). (ASK SIMON ABOUT WHERE THE POWER ARGUMENT CAME FROM.)
+The wavenumber $k$ determined from Taylor's hypothesis is really the flow-aligned component of $\mathbf{k}$. For a given angle $\theta_{vb}$, one cannot distinguish $k_\perp$ and $k_\parallel$; these can be possibly measured for small ($\sim 0^o$ for $k_\parallel$) and large ($\sim 90^o$ for $k_\perp$) at different times. In the solar wind, $P(k_\perp) \gg P(k_\parallel)$, where $P$ is the power of perturbation. For a Parker spiral-like magnetic field at 1 AU, the angle between $\mathbf{B}_0$ and $\mathbf{v}_\text{sw}$ is rarely small ($\sim 45^o$), the power spectra are typically dominated by the contribution from the $k_\perp$ fluctuations (@fig:turbulence_v_b).
 
 ### Solar Wind Power Spectrum
 
@@ -138,4 +138,4 @@ When we move to smaller scales, anisotropy increases. This is demonstrated in @f
 
 ![Demonstration of parallel and perpendicular length scales of turbulence.](images/turbulence_par_perp_scale.png){#fig:turbulence_scale}
 
-Fluctuation modes in the inertial range consists of 90% incompressible (Alfvén) modes and 10% compressible slow/mirror modes. Alfvénic turbulence is thought to be passive to the compressive modes: compressive modes scatter off Alfvén modes without affecting them significantly. (ASK SIMON!) However, one mystery about the compressive modes is that they would be expected to damp $\sim k_\parallel v_A$ but are even more anisotropic ($k_\perp \gg k_\parallel$) than the Alfvénic turbulence. (???)
+Fluctuation modes in the inertial range consists of 90% incompressible (Alfvén) modes and 10% compressible slow/mirror modes. Alfvénic turbulence is thought to be passive to the compressive modes: compressive modes scatter off Alfvén modes without affecting them significantly (i.e. being decoupled from each other). The compressive modes are expected to damp $\sim k_\parallel v_A$. Since $k_\perp \gg k_\parallel$, the damp is not significant for compressive modes, so they tend to be more anisotropic than the Alfvénic turbulence.
