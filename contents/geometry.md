@@ -2,6 +2,8 @@
 
 This chapter introduces the topology-related concepts in plasma physics, including ropes, knots, boundaries, and null points. Usually, observers and modelers have different views of topology because of the tools at hand: observers have probes which give measurements as a function of both time and space, while modelers have full spatial-temporal information under the given resolution. It always amazes me how observers can deduce the general picture of plasma structures with such limited data. Incorporating observation experience into physics as well as diagnosing numerical simulations with physics are our main goals in studing geometry.
 
+Generally speaking, there are two ways of tackling the geometry problems: physics-based methods and statistical methods (classical and machine learning). We may find harmony when combining these two families and reach optimal results.
+
 ## Helicity
 
 In fluid dynamics, helicity is, under appropriate conditions, an invariant of the Euler equations of fluid flow, having a topological interpretation as a measure of _linkage_ and _knottedness_ of vortex lines in the flow (Moffatt 1969).
@@ -86,7 +88,7 @@ $$
 H_C = \int_V \mathbf{v}\cdot\mathbf{B} dV
 $$ {#eq:cross_helicity}
 
-In ideal MHD, the rate of change of $H_C$ is 
+In ideal MHD, the rate of change of $H_C$ is
 
 $$
 \frac{dH_C}{dt} = -\oint_S d\mathbf{S}\cdot \Big[ \Big(\frac{1}{2}v^2 + \frac{\gamma}{\gamma-1} \frac{p}{\rho}\Big)\mathbf{B} - \mathbf{v}\times(\mathbf{v}\times\mathbf{B}) \Big]
@@ -118,8 +120,28 @@ where $\nu$ is the frequency associated with the Wavelet function and the sampli
 
 ## Reconnection Identification
 
-Classical methods
+Here we present analytical fields for an X-point configuration and an O-point configuration, respectively.
 
-Machine learning
+![Example of (a) O-point and (b) X-point.](images/x_o_point.png){#fig:x_o_points}
+
+### 2D
+
+Identification of 2D reconnection sites is easy. Usually we start with a Harris current sheet topology. We can define a flux function, and the null points are simple saddle points and extremas of the flux function.
+
+### 3D
+
+Identification of 3D reconnection sites is not easy.
+
+Implement Lapenta's method.
+
+The four-field junction (FFJ) method is proposed by Finnish researchers (???).
+
+BBF
 
 ## Magnetospause Identification
+
+From pressure balance argument, let $\beta^\ast = (p_\text{th}+p_\text{dyn})/p_B$, we can have a simple criterion:
+
+$$
+\beta^\ast\simeq 1
+$$
