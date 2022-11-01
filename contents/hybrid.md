@@ -1,5 +1,9 @@
 # Hybrid Methods {#sec:hybrid}
 
+The hybrid model is valid for low-frequency physics with $\omega\sim\Omega_i$ and $kr_{Li}\sim 1$ (wavelength $\lambda\sim 6r_{Li}$), where $\omega$ is the wave frequency, $k$ is the wave number, $\Omega_i$ is the ion gyrofrequency, and $r_{Li}$ is the ion Larmor radius. For this range of wave frequency and wavelength, the ion kinetic physics in the near-Earth instabilities are resolved with grid sizes $\sim r_{Li}$ or ion inertial length $d_i$. The finite ion gyroradius effects are resolved with particle time steps $\Delta t$ much smaller than the gyroperiod.
+
+A typical time step in a global hybrid magnetosphere model is $0.05\,\Omega_0^{-1}$, where $\Omega_0$ is the upstream (solar wind) ion gyrofrequency. For IMF $B_0\sim10\,\text{nT}$, $\Omega_0 \sim 1\,\text{rad/s}$, which corresponds to $f_0\sim 1/2\pi\,\text{s}^{-1}$. Based on in-situ observations, the typical ion inertial length in the tail is $\sim 0.2\,\text{R}_\text{E}$, but smaller near the dayside magnetopause. Therefore usually discrete grid size $\Delta x = 0.1\,d_i$ is barely enough to resolve tail ion kinetic dynamics but not dayside kinetic structures.
+
 ## Classical Hybrid Model
 
 Define the electric charge density $\rho$ and current density $\mathbf{J}$ as
@@ -235,7 +239,23 @@ $$
 L_0 = d_i = \frac{v_A}{\Omega_{ci}}
 $$
 
-A common trick we can use to speed up the simulation is to artificially increase the ion mass such that the length scale is increased $\propto \sqrt{m_0}$. For example, in many global hybrid Earth magnetosphere models, $d_i$ in the upstream solar wind is artificially increased to $0.1\,\text{R}_E$ (by increasing the ion mass), which is 6.8 times the realistic $d_i=0.015\,\text{R}_E$ for $n_{sw}=6\,\text{amu/cc}$. If our grid resolution is $0.05\,\text{R}_E\approx 300\,\text{km}$ (which is common as of 2020s), we will be barely on the edge of resolving the ion-scale kinetics.
+A common trick we can use to speed up the simulation is to artificially increase the ion mass such that the length scale is increased $\propto \sqrt{m_0}$. For example, in many global hybrid Earth magnetosphere models, $d_i$ in the upstream solar wind is artificially increased to $0.1\,\text{R}_E$ (by increasing the ion mass), which is 6.8 times the realistic $d_i=0.015\,\text{R}_E$ for $n_{sw}=6\,\text{amu/cc}$. If our grid resolution is $0.05\,\text{R}_E\approx 300\,\text{km}$ (which is common as of 2020s), we will have about 10 points per ion-scale wave, which is enough to resolve the ion-scale kinetics.
+
+However, a consequence of this scaling due to computational limitation must be emphasized. The reference Alfvén speed
+
+$$
+V_{A0} = d_{i0}\Omega_{i0}
+$$
+
+will also be larger than reality since we artificialy increase $d_{i0}$ but not $\Omega_{i0}$.
+
+Note the difference between gyrofrequency and frequency, which differs by a factor of $2\pi$:
+
+$$
+\omega = 2\pi f
+$$
+
+I once made a mistake in dealing with a code that uses SI units. You may wonder how come the ion inertial length is defined by speed of light divided by the plasma ion frequency in the unit of $[\text{rad}/\text{s}]$, and time scale in the unit of $\Omega_i^{-1}$ which is $[\text{s}/\text{rad}]$. In practice, we do not include $2\pi$ in neither of them!
 
 ## Numerical Stability
 
@@ -263,6 +283,18 @@ $$
 
 Imagine a scenario where cold ion beams move through uniform spatial mesh. It was shown by [@rambo1995finite] that non-conservative (explicit) schemes are unstable for Ti /Te << 1 regardless of spatial resolution. The precise threshold in $T_i /T_e$ and beam velocity depends on shape-function for macroparticles. This instability causes unstable (exponential) heating of ions until some saturation value and also violates momentum conservation. Implict momentum and energy conserving
 schemes are stable w.r.t. these instabilities.
+
+## Magnetosphere Inner Boundary Conditions
+
+Inner boundary condition is often the most tricky part in magnetopshere modeling. In Angeo3D [Lin+ 2014], the inner magnetosphere ($r<6\,\text{R}_\text{E}$) is assumed to be dominated by a cold, incompressible ion fluid, which coexists with particle ions. The number density of the cold ion fluid is assumed to be
+
+$$
+n_f = \frac{n_\text{eq}}{r^3}[1-\tanh(r-6.5)]
+$$
+
+where $r$ is in the unit of $\text{R}_\text{E}$, and $n_\text{eq}=1000\,\text{cm}^{-3}$.
+
+The inclusion of the cold ion fluid in the inner magnetosphere simplifies the conditions for the fluid-dominant low-altitude, inner boundary. Ion particles are set to be reflected at the magnetospheric inner boundary (e.g. $r=3.5\,\text{R}_\text{E}$). This simple reflection of the ion parallel velocity $\mathbf{v}_{i\parallel}$ means that loss cone effects are omitted. For a particle distribution with an isotropic pitch angle distribution in a dipole field, the particles in a full loss cone are only 0.3% of the total, which is reasonably neglected. $\mathbf{B}$ is assumed to maintain the dipole field values at the inner boundary. The ionospheric conditions (1000 km altitude) are incorporated into the hybrid code, as in global MHD models [@raeder1995]. See @sec:MI_coupling.
 
 ## Tests
 
