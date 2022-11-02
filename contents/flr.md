@@ -21,7 +21,7 @@ The theory starts from linearized cold MHD @eq:mhd_cold_e_wave and @eq:mhd_cold_
 
 ### Axisymmetric Spherical Coordinates
 
-First, let's treat the problem in spherical coordinates $(r,\theta,\phi)$, as done by [@radoski1966axisymmetric].
+First, let's treat the problem in spherical coordinates $(r,\theta,\phi)$, as done by [@radoski1966].
 
 The background density is taken to be only a function of the radial distance, $\rho = \rho(r)$. In the analysis below the perturbed variables, $\mathbf{B}_1$, $\mathbf{E}$, $\mathbf{j}$ and $\mathbf{u}$ are treated as axisymmetric, i.e. in spherical coordinates any perturbed function has the form
 
@@ -110,7 +110,7 @@ $$
 
 ### Cylindrical Coordinates
 
-In cylindrical coordinates $(r,\phi,z)$, assuming perturbations of the form $e^{i(m\phi - \omega t)}$, we can separate the linearized equations ([@hughes1994magnetospheric] I HAVEN'T DERIVED THIS!),
+In cylindrical coordinates $(r,\phi,z)$, assuming perturbations of the form $e^{i(m\phi - \omega t)}$, we can separate the linearized equations ([@hughes1994] I HAVEN'T DERIVED THIS!),
 
 $$
 \Big[ \omega^2 \mu_0 \rho - \frac{1}{r}(\mathbf{B}_0\cdot\nabla)r^2(\mathbf{B}_0\cdot\nabla) \Big]\frac{u_\phi}{r} = \omega m \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{r}
@@ -266,7 +266,7 @@ $$
 \frac{\partial^2 B_{1z}}{\partial x^2} - \frac{\omega^2 \partial V_A^{-2}/\partial x}{\omega^2/V_A^2 - k_z^2}\frac{\partial B_{1z}}{\partial x} + \Big( \frac{\omega^2}{V_A^2} - k_y^2 - k_z^2 \Big) B_{1z} = 0
 $$ {#eq:flr_wave_bz}
 
-Let us first get some intuitions about @eq:flr_wave_ey (following [@glassmeier1999magnetospheric], but note that there are sign errors and wrong equations in the original paper!). This equation exhibits strong singularities found in the denominator of its second term, much as first described by Tamao (1965). The following solutions are possible. If $R^2 - k_z^2 - k_y^2 > 0$, from which $R^2 - k_z^2 > 0$ follows, no singularities appear. Assuming $k_y \approx 0$, the above equation reduces to
+Let us first get some intuitions about @eq:flr_wave_ey (following [@glassmeier1999], but note that there are sign errors and wrong equations in the original paper!). This equation exhibits strong singularities found in the denominator of its second term, much as first described by Tamao (1965). The following solutions are possible. If $R^2 - k_z^2 - k_y^2 > 0$, from which $R^2 - k_z^2 > 0$ follows, no singularities appear. Assuming $k_y \approx 0$, the above equation reduces to
 
 $$
 \frac{\partial^2}{\partial x^2}E_y + (R^2 - k_z^2)E_y = 0
@@ -351,7 +351,7 @@ The following physical interpretation is tempting. The MHD wave propagating into
 @eq:flr_wave_bz has a long history that appeared first in the context of a radio wave obliquely incident on a region of increasing electron density, all the way back to 1951, as mentioned in [@kivelson1986coupling]. It also appears in calculating the absorption of laser energy by a plasma and heating a plasma by radio wave injection to excite internal Alfvén waves. Energy is absorbed at the location in the plasma corresponding to the singular point of the governing differential @eq:flr_wave_bz or its equivalent. Without the introduction of additional effects such as dissipation or dispersion near
 resonance, the singularity in the differential equation implies that the amplitude of the Alfvén wave grows secularly.
 
-Some studies (e.g. [@kivelson1986coupling], [@wright1994dispersion]) prefer to use plasma displacement $\pmb{\xi}$ instead of $\mathbf{u}$, where $\mathbf{u} = \dot{\pmb{\xi}}$, and perturbed magnetic field component $B_{1z}$ to describe the model:
+Some studies (e.g. [@kivelson1986coupling], [@wright1994]) prefer to use plasma displacement $\pmb{\xi}$ instead of $\mathbf{u}$, where $\mathbf{u} = \dot{\pmb{\xi}}$, and perturbed magnetic field component $B_{1z}$ to describe the model:
 
 $$
 \begin{aligned}
@@ -474,7 +474,7 @@ The surface wave driven FLR seems reasonable. However, the biggest problem for t
 In the 1980s, cavity modes and waveguide modes were proposed to remove the constraint on driven FLR. The analogy of a magnetosphere to a cavity came before the analogy to a waveguide. In a cavity model the azimuthal direction $\phi$ or the $y$ direction in the box geometry is finite, and the wavenumber $k_y$ is determined by the given scale size $b$. In the axisymmetric cylindrical coordinates $(r,\phi,z)$, where $\phi$ is the azimuthal angle and $z$ is the coordinate along the field lines, the field has the form $\sim e^{im\phi},\, m=0,1,2$.\footnote{$E(\phi=0)=E(\phi=2\pi)$} This is a weak point of the theory because the magnetosphere is far from axisymmetric and there are no other obvious boundaries to define the cavity. If the system is similar to a waveguide, then $k_y$ can have a continuum of values, and the waveguide allows propagation over a wide band of frequencies.
 
 If instead we use a waveguide model, the azimuthal direction (or $y$-direction) will have no imposed boundary condition.
-Theoretically a continuum of wave modes $k_y$ can excite FLR, and the discrete resonance frequencies are determined by the Bohr-Sommerfeld condition eq:cavity_eigen_wkb where harmonics of toroidal and poloidal are given by $k_z$. The discrete frequency spectrum of the fast waveguide modes is suitable for driving a series of Alfvén resonance; however, it is not obvious that the continuous frequency spectrum of the modes will be able to drive resonances at discrete frequencies. A key observation to make waveguide mode more valid is that _only small $k_y$ contributes to the resonance_. ([@walker1992spatial],[Wright 1992], [@wright1994dispersion]). If $k_y$ is not fixed (but $k_z$ is fixed), then @eq:cavity_eigen_wkb is the dispersion relation for the waveguide expressing $\omega$ as a function of $k_y$. The Alfvén speed is a strong function of the L shell, typically $\sim L^{-3}$. Thus, if the turning point $x_t$ is reasonably deep within the magnetosphere, the range over which $\omega^2/V_A^2 \gg k_y^2 + k_z^2$ contributes most significantly to the integral @eq:cavity_eigen_wkb. The result is that over a wide range of wavelengths the frequency is very insensitive to $k_y$. Only when $k_y$ is quite large this is not true, and then the turning point is near the magnetopause, and the wave does not penetrate very deeply into the magnetosphere. Each waveguide mode has a phase velocity $\omega/k_y$ and a group velocity $d\omega/dk_y$. Since @eq:cavity_eigen_wkb defines $\omega$ as a function of $k_y$, we can substitute @eq:flr_kx_effective into @eq:cavity_eigen_wkb and differentiate with respect to $k_y$ (assuming $\alpha$ is a constant):
+Theoretically a continuum of wave modes $k_y$ can excite FLR, and the discrete resonance frequencies are determined by the Bohr-Sommerfeld condition eq:cavity_eigen_wkb where harmonics of toroidal and poloidal are given by $k_z$. The discrete frequency spectrum of the fast waveguide modes is suitable for driving a series of Alfvén resonance; however, it is not obvious that the continuous frequency spectrum of the modes will be able to drive resonances at discrete frequencies. A key observation to make waveguide mode more valid is that _only small $k_y$ contributes to the resonance_. ([@walker1992spatial],[Wright 1992], [@wright1994]). If $k_y$ is not fixed (but $k_z$ is fixed), then @eq:cavity_eigen_wkb is the dispersion relation for the waveguide expressing $\omega$ as a function of $k_y$. The Alfvén speed is a strong function of the L shell, typically $\sim L^{-3}$. Thus, if the turning point $x_t$ is reasonably deep within the magnetosphere, the range over which $\omega^2/V_A^2 \gg k_y^2 + k_z^2$ contributes most significantly to the integral @eq:cavity_eigen_wkb. The result is that over a wide range of wavelengths the frequency is very insensitive to $k_y$. Only when $k_y$ is quite large this is not true, and then the turning point is near the magnetopause, and the wave does not penetrate very deeply into the magnetosphere. Each waveguide mode has a phase velocity $\omega/k_y$ and a group velocity $d\omega/dk_y$. Since @eq:cavity_eigen_wkb defines $\omega$ as a function of $k_y$, we can substitute @eq:flr_kx_effective into @eq:cavity_eigen_wkb and differentiate with respect to $k_y$ (assuming $\alpha$ is a constant):
 
 $$
 \begin{aligned}

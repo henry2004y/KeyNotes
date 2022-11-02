@@ -136,7 +136,7 @@ Rayleigh-Taylor-like instabilities driven by actual field curvature are the most
 
 Here we use a 2-fluid model and a so-called "diffuse boundary" model [@chen2016introduction] to describe it mathematically. Recall the structure of magnetic mirror: we have curved magnetic field lines and high density plasma at the center. From the discussion in @sec:single_particle_instability, we know that the central part of magnetic mirror is unstable for Rayleigh-Taylor instability because of centrifugal force. Let us simplify the scenario and study the problem in Cartesian coordinates. The centrifugal force is irrelevant to particle charge and proportional to particle mass, so both ions and electrons have the same acceleration due to it. Let us replace the centrifugal force with gravity $\mathbf{g}$. In @fig:RT_instability, there are high density plasma on top and low density plasma on the bottom, with a distribution $\partial n_o/\partial x<0$.
 
-![Simultaion of Rayleigh-Taylor instability [@rahman2019relaxation].](images/Rayleigh_Taylor_Instability.png){#fig:RT_instability}
+![Simultaion of Rayleigh-Taylor instability [@rahman2019].](images/Rayleigh_Taylor_Instability.png){#fig:RT_instability}
 
 ### 2-Fluid Diffuse Boundary Model
 

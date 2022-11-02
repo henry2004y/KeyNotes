@@ -172,7 +172,7 @@ $$
 f_\kappa(W) = n\Big( \frac{m}{2\pi\kappa W_0} \Big)^{3/2}\frac{\Gamma(\kappa + 1)}{\Gamma(\kappa-1/2)}\Big( 1+\frac{W}{\kappa W_0} \Big)^{-(\kappa+1)}
 $$
 
-Here $W_0$ is the energy at the peak of the particle flux and $\Gamma$ is the gamma function. When $\kappa\gg 1$ the kappa distribution approaches the Maxwellian distribution. When $\kappa$ is smaller but $>1$ the distribution has a high-energy tail. A thorough review is given by [@livadiotis2013understanding].
+Here $W_0$ is the energy at the peak of the particle flux and $\Gamma$ is the gamma function. When $\kappa\gg 1$ the kappa distribution approaches the Maxwellian distribution. When $\kappa$ is smaller but $>1$ the distribution has a high-energy tail. A thorough review is given by [@livadiotis2013].
 
 ## Equations of Kinetic Theory
 
