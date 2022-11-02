@@ -1,9 +1,10 @@
 # Ionosphere {#sec:iono}
 
+Ionosphere is like a transition region from neutral gas to plasma. Therefore, collisions as well as kinetic effects may become important. @sec:collision_ionized presents some basic physics related to the collisional effect in the ionosphere.
+
 ## M-I Coupling {#sec:MI_coupling}
 
-For magnetosphere simulations, the simplest inner boundary is treated as a conducting sphere. However, this is often not realistic enough to reveal the nature. The next level extension is to employ a magnetospheric-ionospheric electrostatic
-coupling model. The inner boundary, where the MHD quantities are connected to the ionosphere, is taken to be a shell of radius $r_\text{in}$ (e.g. $r_\text{in}\sim 3\,\text{R}_\text{E}$). The ionosphere locates at $r_\text{ion}\sim 1000\,\text{km}\sim 0.15\,\text{R}_\text{E}$. Ideally $r_\text{in}$ shall be as close to $r_\text{ion}$ as possible, but typically it is restricted by computational limitations, such as extraneously high Alfvén speeds and very large $\mathbf{B}$ field gradients closer to the Earth. Inside this shell we do not solve the governing equations (MHD/PIC/Vlasov), but assume a static dipole field. The important physical processes within the shell are the flow of _field-aligned currents_ (FACs) and the closure of these currents in the ionosphere. At each time step,
+For magnetosphere simulations, the simplest inner boundary is treated as a conducting sphere ($\mathbf{B}_\text{normal}=0$, $\mathbf{E}=\mathbf{v}=0$). However, this is often not realistic enough to reveal the nature. The next level extension is to employ a magnetospheric-ionospheric electrostatic coupling model. This means that we seek nonzero $\mathbf{E}$ and $\mathbf{v}$ at the inner boundary. The inner boundary, where the MHD quantities are connected to the ionosphere, is taken to be a shell of radius $r_\text{in}$ (e.g. $r_\text{in}\sim 3\,\text{R}_\text{E}$). The ionosphere locates at $r_\text{ion}\sim 1000\,\text{km}\sim 0.15\,\text{R}_\text{E}$. Ideally $r_\text{in}$ shall be as close to $r_\text{ion}$ as possible, but typically it is restricted by computational limitations, such as extraneously high Alfvén speeds and very large $\mathbf{B}$ field gradients closer to the Earth. Inside this shell we do not solve the governing equations (MHD/PIC/Vlasov), but assume a static dipole field. The important physical processes within the shell are the flow of _field-aligned currents_ (FACs) and the closure of these currents in the ionosphere. At each time step,
 
 1. The magnetospheric FACs are mapped along the field lines from the inner boundary to the ionosphere, which are the input to the ionospheric potential equation [@raeder1995]
 
@@ -11,13 +12,23 @@ $$
 \nabla\cdot(\pmb{\Sigma}\cdot\nabla\Phi) = -j_\parallel\sin I
 $$ {#eq:ionosphere_potential}
 
-where $\pmb{\Sigma}$ is the conductance tensor, $\Phi$ is the electric potential, $j_\parallel$ is the mapped FAC density with the downward considered positive and corrected for flux tube convergence, and $I$ is the inclination of the dipole field at the ionosphere. (???)
+where $\pmb{\Sigma}$ is the conductance tensor, $\Phi$ is the electric potential, $j_\parallel$ is the mapped FAC density with the downward considered positive and corrected for flux tube convergence, and $I$ is the inclination of the dipole field at the ionosphere, $\sin I=\cos(\frac{\pi}{2}-I)=\hat{b}\cdot\hat{r}$.
 
-2. @eq:ionosphere_potential is solved on the surface of a sphere $r=r_\text{ion}$. The boundary condition $\Phi=0$ is applied at the equator. From here, one can either choose a static analytic model of Hall and Pederson conductance that accounts for multiple physics (e.g. EUV and diffuse auroral contributions), or simply adopt a uniform Pederson conductance, or the height-integrated conductivity, $\Sigma_p = 5\,\text{Siemens}$, while the Hall conductance $\Sigma_H$ is assumed to be zero. The latter one is simplified to solve
+2. @eq:ionosphere_potential is solved on the surface of a sphere $r=r_\text{ion}$. The boundary condition $\Phi=0$ is applied at the equator. From here, one can either choose a static analytic model of Hall and Pederson conductance that accounts for multiple physics, or simply adopt a uniform Pederson conductance, or the height-integrated conductivity, $\Sigma_p = 5\,\text{Siemens}$, while the Hall conductance $\Sigma_H$ is assumed to be zero. The latter one is simplified to solve
 
 $$
 \nabla^2\Phi = -j_\parallel\sin I/\Sigma_p
 $$
+
+A more realistic conductance requires considering EUV and diffuse auroral contributions as well. The solar EUV contribution to $\pmb{\Sigma}$ is considered constant in time, but naturally it varies with the solar zenith angle. For example, the empirical formulas by [Moen and Brekke 1993] can be used. The solar EUV radiation is approximated by the 10.7 cm radio flux (commonly known as _F10.7_), a widely used proxy solar UV activity, whose standard values is taken to be $100\times 10^{-22}\,\text{W}/\text{m}^2$.
+
+The total conductance can be then expressed as
+
+$$
+\Sigma_{P,H} = \sqrt{(\Sigma_{P,H}^{e-})^2 + (\Sigma_{P,H}^{\text{UV}})^2}
+$$
+
+This is because $\sigma_{P,H}\propto n_e$, which in a stationary state is proportional to the square root of the production rate, and it is the production rates that can be summed linearly. (???)
 
 3. Once the potential equation is solved the ionospheric potential is mapped back to the $r_\text{in}$ shell and used as a boundary condition for the magnetospheric flow by taking $\mathbf{v}=(-\nabla\Phi)\times\mathbf{B}/B^2$.
 

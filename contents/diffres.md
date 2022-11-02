@@ -363,7 +363,7 @@ $$
 
 The equation resulting from setting $\nabla\cdot\mathbf{\Gamma}_i = \nabla\cdot\mathbf{\Gamma}_e$ cannot easily be separated into one-dimensional equations. Furthermore, the answer depends sensitively on the boundary conditions at the ends of the field lines. Unless the plasma is so long that parallel diffusion can be neglected altogether, there is no simple answer to the problem of ambipolar diffusion across a magnetic field.
 
-## Collisions in Fully Ionized Plasmas
+## Collisions in Fully Ionized Plasmas {#sec:collision_ionized}
 
 When the plasma is composed of ions and electrons alone, all collisions are Coulomb collisions between charged particles. However, there is a distinct difference between 
 
@@ -585,13 +585,13 @@ $$
 Since the electron current is defined as
 
 $$
-\mathbf{J} = -en_e\mathbf{u}_e
+\mathbf{j} = -en_e\mathbf{u}_e
 $$
 
 we have from the last two equations
 
 $$
-\mathbf{J} = \frac{n_e e^2}{m_e\nu_c}\mathbf{E} \equiv \sigma\mathbf{E}
+\mathbf{j} = \frac{n_e e^2}{m_e\nu_c}\mathbf{E} \equiv \sigma\mathbf{E}
 $$ {#eq:classical_conductivity}
 
 where $\sigma$ is the classical conductivity.
@@ -608,9 +608,9 @@ In order to avoid confusion, let $\sigma_0$ denote the classical conductivity fr
 
 $$
 \begin{aligned}
-J_x &= \sigma_0 E_x - \frac{\Omega_e}{\nu_c}J_y \\
-J_y &= \sigma_0 E_y - \frac{\Omega_e}{\nu_c}J_x \\
-J_z &= \sigma_0 E_z
+j_x &= \sigma_0 E_x - \frac{\Omega_e}{\nu_c}j_y \\
+j_y &= \sigma_0 E_y - \frac{\Omega_e}{\nu_c}j_x \\
+j_z &= \sigma_0 E_z
 \end{aligned}
 $$
 
@@ -618,16 +618,16 @@ the solution of which gives
 
 $$
 \begin{aligned}
-J_x &= \frac{\nu_c^2}{\nu_c^2 + \Omega_e^2}\sigma_0 E_x - \frac{\Omega_e \nu_c}{\nu_c^2 + \Omega_e^2}E_y \\
-J_y &= \frac{\nu_c^2}{\nu_c^2 + \Omega_e^2}\sigma_0 E_y - \frac{\Omega_e \nu_c}{\nu_c^2 + \Omega_e^2}E_x \\
-J_z &= \sigma_0 E_z
+j_x &= \frac{\nu_c^2}{\nu_c^2 + \Omega_e^2}\sigma_0 E_x - \frac{\Omega_e \nu_c}{\nu_c^2 + \Omega_e^2}E_y \\
+j_y &= \frac{\nu_c^2}{\nu_c^2 + \Omega_e^2}\sigma_0 E_y - \frac{\Omega_e \nu_c}{\nu_c^2 + \Omega_e^2}E_x \\
+j_z &= \sigma_0 E_z
 \end{aligned}
 $$
 
 or in matrix form,
 
 $$
-\begin{pmatrix} J_x \\ J_y \\ J_z \end{pmatrix} = 
+\begin{pmatrix} j_x \\ j_y \\ j_z \end{pmatrix} = 
 \begin{pmatrix} \sigma_P & -\sigma_H & 0 \\ \sigma_H & \sigma_P & 0 \\ 0 & 0 & \sigma_\parallel \end{pmatrix}
 \begin{pmatrix} E_x \\ E_y \\ E_z \end{pmatrix}
 $$
@@ -642,15 +642,36 @@ $$
 \end{aligned}
 $$
 
-Currents that have a component parallel to the magnetic field are very important in plasma physics. From @fig:conductivity, we see that $\Omega_e \simeq \nu_c$ is the most complicated regime where the three conductivities are comparable, and $\Omega_e \gg \nu_c$ is the most anisotropic regime as particles are tightly bound in the perpendicular direction but free to move along $\mathbf{B}$.
+Magnetic field-aligned currents (FACs) are very important in plasma physics. From @fig:conductivity, we see that $\Omega_e \simeq \nu_c$ is the most complicated regime where the three conductivities are comparable, and $\Omega_e \gg \nu_c$ is the most anisotropic regime as particles are tightly bound in the perpendicular direction but free to move along $\mathbf{B}$.
 
 ```jl
 KeyNotes.plot_conductivity()
 ```
 
-The study of conductivity is most relevant in the Earth's ionosphere, where $\Omega_e \simeq \nu_c$ happens at about 100 km above from the ground, and $\sigma_0$ is on the order of 100 S/m. Ionosphere forms within the atmosphere through the mechanisms of electron impact ionization and photoionization and in turn contribute in a crucial way to the plasma interactions. The ionosphere is electrically conductive and thus carry part of a current system that is continued outside the ionosphere by plasma currents to be discussed below. The properties of the ionospheric currents are usually described in terms of the electrical conductivity of the ionosphere. Because a strong background magnetic field threads the ionospheres, the conductivities are strongly anisotropic. In the direction of the magnetic field, the conductivity is referred to as the parallel or Birkeland conductivity. The Birkeland conductivity is so high that it short-circuits the field-aligned component of the ionospheric electric field, and normally electrical equipotentials align with the ionospheric magnetic field lines. Perpendicular to the magnetic field direction, the conductivity has components parallel to the electric field $\sigma_P$ and perpendicular to the electric field $\sigma_H$.
+The study of conductivity is most relevant in the Earth's ionosphere, where $\Omega_e \simeq \nu_c$ happens at about 100 km above from the ground, and $\sigma_0$ is on the order of 100 S/m. Ionosphere forms within the atmosphere through the mechanisms of electron impact ionization and photoionization and in turn contribute in a crucial way to the plasma interactions. The ionosphere is electrically conductive and thus carry part of a current system that is continued outside the ionosphere by plasma currents. The properties of the ionospheric currents are usually described in terms of the _electrical conductivity_ of the ionosphere. Because a strong background magnetic field threads the ionosphere, the conductivities are strongly anisotropic. In the direction of the magnetic field, the conductivity is referred to as the _parallel_ or _Birkeland_ conductivity. The Birkeland conductivity $\sigma_\parallel$ is so high that it short-circuits the field-aligned component of the ionospheric electric field, and normally electrical equipotentials align with the ionospheric magnetic field lines for quasi-static large-scale electrodynamic conditions. Perpendicular to the magnetic field direction, the conductivity has components parallel to the electric field $\sigma_P$ and perpendicular to the electric field $\sigma_H$.
 
-Because the electric field vanishes in the field-aligned direction through the ionosphere, it is meaningful to integrate the transverse $\sigma_P$ and $\sigma_H$ along the magnetic field direction to evaluate the Pedersen and Hall conductances $\Sigma_P$ and $\Sigma_H$, respectively. The forces that act on a flux tube in the ionosphere can be expressed in terms of these conductances and the force balance expressions can consequently be used to derive other properties of the ionospheric flow such as its velocity.
+Because the electric field vanishes in the field-aligned direction through the ionosphere ($\mathbf{E}_\parallel = 0$), it is meaningful to integrate the transverse $\sigma_P$ and $\sigma_H$ along the magnetic field direction to evaluate the Pedersen and Hall conductances $\Sigma_P$ and $\Sigma_H$, respectively. For any $\mathbf{E}$,
+
+$$
+\pmb{\Sigma}\cdot\mathbf{E} = \Sigma_P\mathbf{E} + \Sigma_H\hat{b}\times\mathbf{E}
+$$
+
+The continuity of currents gives
+
+$$
+\begin{aligned}
+\nabla\cdot\mathbf{j} + \frac{\partial \rho^\ast}{\partial t} = 0 \\
+\nabla\cdot(\pmb{\sigma}\cdot\mathbf{E}) = -\frac{\partial \rho^\ast}{\partial t} \\
+\int \nabla\cdot(\pmb{\sigma}\cdot\mathbf{E}) dz = -\int \frac{\partial \rho^\ast}{\partial t} dz \\
+\nabla\cdot(\int\pmb{\sigma}dz\cdot\mathbf{E}) = -\rho^\ast v_\parallel \\
+\nabla\cdot(\pmb{\Sigma}\cdot\mathbf{E}) = - j_\parallel \\
+\nabla\cdot(\pmb{\Sigma}\cdot\nabla\Phi) = j_\parallel
+\end{aligned}
+$$ {#eq:ionosphere_potential_derivation}
+
+$\mathbf{E}=-\nabla\Phi$, and $j_\parallel$ is defined such that upward ($+z$) is considered positive. Here we assume that $\mathbf{B}$ is aligned with $\hat{z}$; a more realistic geometry requires the consideration of inclination angle. See @eq:ionosphere_potential and note the sign difference between the definitions of $j_\parallel$.
+
+The forces that act on a flux tube in the ionosphere can be expressed in terms of these conductances and the force balance expressions can consequently be used to derive other properties of the ionospheric flow such as its velocity. (???)
 
 Mass loading contributes to the electrodynamics of the plasma interaction in ways that are analogous to the contributions of the ionospheric conductivities. Pickup ionization conserves momentum. An increase of the ion density results in a reduction of the flow velocity and its associated electric field. Thus in developing the theory of the interaction, pickup effects can be directly incorporated into the above conductances and the interaction region extends well above the atmospheric exobase.
 
@@ -802,7 +823,7 @@ $$
 3.
 
 $$
-J=\int_{-\infty}^{\infty}j_z dx=\frac{1}{\mu}\int_{-\infty}^{\infty}dB=\frac{2B_0}{\mu}=\text{const.}
+j=\int_{-\infty}^{\infty}j_z dx=\frac{1}{\mu}\int_{-\infty}^{\infty}dB=\frac{2B_0}{\mu}=\text{const.}
 $$
 
 The current sheet gets thickened with time, but the total current in $z$ remains the same.
