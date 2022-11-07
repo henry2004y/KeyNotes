@@ -998,7 +998,7 @@ SAWs are the dominant low frequency waves in a current carrying plasma. The neut
 
 Note that the governing equation is valid even if $B_{0z}$ is an arbitrary function of $x$. If in addition, an external gravity $\mathbf{g}=\hat{x}g$ in the x-direction is present, the governing equation is modified simply by inserting the term $-(g/\rho_0)d\rho_0/dx$ in the second square bracket, and the equation is identical to Eq.(10.33) of Bellan. This is the most general equation which describes the _magneto-Rayleigh-Taylor instability_ (MRT) in Cartesian geometry using the incompressible, ideal MHD model.
 
-### Fast and Slow Wave
+### Fast and Slow Wave {#sec:fast_slow}
 
 The $x$-$z$ components of @eq:mhd_v_perturbation give
 
