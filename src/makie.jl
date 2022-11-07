@@ -382,7 +382,7 @@ function plot_IMF_3D()
    r = r_range' .* ones(nθ)
    θ = ones(nr)' .* θ_range
 
-   f = Figure(fontsize=25)
+   f = Figure(fontsize=25, resolution=(600, 400))
    ax = Axis3(f[1, 1],
       xlabel="x [AU]",
       ylabel="y [AU]",
