@@ -209,4 +209,4 @@ The _interplanetary magnetic field_ (IMF), also called _Parker spiral_, is the c
 KeyNotes.plot_IMF_3D()
 ```
 
-![The heliospheric current sheet is a three-dimensional form of a Parker spiral that results from the influence of the Sun's rotating magnetic field on the plasma in the interplanetary medium.](https://upload.wikimedia.org/wikipedia/commons/b/b6/Heliospheric-current-sheet.gif){#fig:helio_current_sheet}
+![The heliospheric current sheet is a three-dimensional form of a Parker spiral that results from the influence of the Sun's rotating magnetic field on the plasma in the interplanetary medium.](images/Heliospheric-current-sheet.png){#fig:helio_current_sheet}
