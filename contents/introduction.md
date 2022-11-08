@@ -1,20 +1,16 @@
 # Introduction {#sec:intro}
 
-* What does MHD study?
-
-solid, liquid, gas, __plasma__
-
 * What is plasma?
 
-Quasi-neutral ionized gases. 
+Quasi-neutral ionized gases. The fourth state of matter: solid, liquid, gas, __plasma__.
 
 * Where is plasma?
-  * Astrophysics \& geophysics
+  * Astrophysics & geophysics
     * Dynamo
     * Shock
     * Reconnection
     * Particle acceleration
-  * Engineering \& application
+  * Engineering & application
     * Controlled fusion
     * Power conversion
     * Reentry of intercontinental ballistic missiles and spacecrafts
@@ -50,18 +46,18 @@ Definition: Plasma = _ionized gas_
 In plasma physics we usually use energy units "eV" instead of temperature. Given Boltzmann constant $k_B=1.38\times10^{-23}J/K$,
 
 $$
-1eV=(11600\text{K})\times k_B=1.602\times 10^{-19}\text{J} ([V]=[J]/[C])
+1\text{eV}=(11600\text{K})\times k_B=1.602\times 10^{-19}\text{J} ([V]=[J]/[C])
 $$
 
 There are generally two kinds of plasma:
 
-1. High temperature($>1keV$): fusion plasma
-2. Low temperature($\sim 1eV-100eV$): plasma processing, space propulsion
+1. High temperature($>1\text{keV}$): fusion plasma
+2. Low temperature($\sim 1\text{eV}-100\text{eV}$): plasma processing, space propulsion
 
 At the beginning, it is important to get the idea of size. Starting from two basic length scales:
 
 * $a_0\equiv \text{atomic scale }$($\sim 10^{-10}\text{m}$)
-* n = number density ($\sim 1/cm^3$ to $10^{20}/\text{cm}^3$)
+* n = number density ($\sim 1/\text{cm}^3$ to $10^{20}/\text{cm}^3$)
 
 Physically, $n$ represents the number of particles in a unit volume, from which we know $n^{-1/3}$ has unit of length. It means a typical length for a single particle.
 Ionized state implies that $k_B T\gg E_i=$ ionization potential energy$\sim \frac{e^2}{4\pi\epsilon_0 a_0}\approx 14eV$). 
@@ -78,7 +74,7 @@ $$
 $n^{2/3}$ has unit of $\text{length}^{-2}$, indicating that the other term should be in the unit of $\text{length}^{2}$. This is derived using dimensional analysis, which gives
 
 $$
-\lambda_{D}=\sqrt{\frac{\epsilon_0 k_B T}{e^2 n}}\equiv \textrm{ Debye length}=740(\text{cm})\sqrt{\frac{T(\text{eV})}{n(\text{cm}^{-3})}}
+\lambda_{D}=\sqrt{\frac{\epsilon_0 k_B T}{e^2 n}}\equiv \textrm{Debye length}=740(\text{cm})\sqrt{\frac{T(\text{eV})}{n(\text{cm}^{-3})}}
 $$
 
 $$

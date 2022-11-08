@@ -1,0 +1,59 @@
+# Boundary Conditions {#sec:BC}
+
+Boundary condition is an important topic both in theory and simulation. This chapter aims at providing an overview of the boundary conditions we apply for electromagnetism and plasma simulations.
+
+## Conducting Boundary
+
+The general boundary conditions on the EM field at an interface between medium 1 and medium 2 are
+
+$$
+\begin{aligned}
+\hat{n}\cdot (\mathbf{D}_1 - \mathbf{D}_2)= \tau \\
+\hat{n}\times (\mathbf{E}_1-\mathbf{E}_2) =\mathbf{0} \\
+\hat{n}\cdot(\mathbf{B}_1 - \mathbf{B}_2) =0 \\
+\hat{n}\times (\mathbf{H}_1-\mathbf{H}_2) =\mathbf{ K}
+\end{aligned}
+$$ {#eq:EM_BC_general}
+
+where $\tau$ is used for the interfacial surface change density (to avoid confusion with the conductivity), and $\mathbf{K}$ is the surface current density. Here, $\hat{n}$ is a unit vector normal to the interface, directed from medium 2 to medium 1. 
+We have learned from EM that at normal incidence, the amplitude of an electromagnetic wave falls off very rapidly with distance inside the surface of a good conductor. In the limit of perfect conductivity (i.e., $\sigma\rightarrow\infty$), the wave does not penetrate into the conductor at all, in which case the internal tangential electric and magnetic fields vanish. This implies, from @eq:EM_BC_general, that the tangential component of $\mathbf{E}$ vanishes just outside the surface of a good conductor, whereas the tangential component of $\mathbf{H}$ may remain finite. Let us examine the behavior of the normal field components. 
+
+Let medium 1 be a conductor, of conductivity $\sigma$ and dielectric constant $\epsilon_1$, for which $\sigma /\epsilon_1\,\epsilon_0\,\omega \gg 1$ , and let medium 2 be a perfect insulator of dielectric constant $\epsilon_2$. The change density that forms at the interface between the two media is related to the currents flowing inside the conductor. In fact, the conservation of charge requires that
+
+$$
+\hat{n}\cdot\mathbf{j} = \frac{\partial\tau}{\partial t} = -i\, \omega\,\tau
+$$
+
+However, $\hat{n}\cdot\mathbf{j} = \hat{n}\cdot\sigma \,\mathbf{E}_1$, so it follows from @eq:EM_BC_general that
+
+$$
+\begin{aligned}
+\hat{n}\cdot(\epsilon_0\epsilon_1\mathbf{E}_1 - \epsilon_0\epsilon_1\mathbf{E}_2) = \frac{i\sigma}{\omega}\hat{n}\cdot\mathbf{E}_1 \\
+\left(1+ \frac{i\,\omega\,\epsilon_0\,\epsilon_1}{\sigma}\right)\hat{n}\cdot\mathbf{E}_1 = \frac{i\,\omega\, \epsilon_0\,\epsilon_2}{\sigma}\,\hat{n}\cdot\mathbf{E}_2
+\end{aligned}
+$$
+
+Thus, it is clear that the normal component of $\mathbf{E}$ within the conductor also becomes vanishingly small as the conductivity approaches infinity.
+
+If $\mathbf{E}$ vanishes inside a perfect conductor then the curl of $\mathbf{E}$ also vanishes, and the time rate of change of $\mathbf{B}$ is correspondingly zero. This implies that there are no oscillatory fields whatever inside such a conductor, and that the fields just outside satisfy
+
+$$
+\begin{aligned}
+\hat{n}\cdot\mathbf{D}= -\tau \\
+\hat{n}\times\mathbf{E}=\mathbf{0} \\
+\hat{n}\cdot\mathbf{B}=0 \\
+\hat{n}\times\mathbf{H}= -\mathbf{K}
+\end{aligned}
+$$
+
+Here, $\hat{n}$ is a unit normal at the surface of the conductor pointing into the conductor. Thus, the electric field is normal, and the magnetic field tangential, at the surface of a perfect conductor. For good conductors, these boundary conditions yield excellent representations of the geometrical configurations of the external fields, but they lead to the neglect of some important features of real fields, such as _losses in cavities_ and _signal attenuation in waveguides_. [Here](https://farside.ph.utexas.edu/teaching/jk1/Electromagnetism/node112.html) is an estimation related to the skin depth.
+
+## Perfectly Matched Layer
+
+In EM field solvers, often we need boundless free-space simulation to prohibit reflecting waves. Back in 1993, a techinque called _perfectly matched layer_ (PML) for the _absorption_ of EM waves was proposed to handle this problem, so that we don't necessarily need to set boundaries sufficiently far enough from the scatterer when solving interaction problems. With the new medium the theoretical reflection factor of a plane wave striking a vacuum-layer interface is null at any frequency and at any incidence angle, contrary to the previously designed medium with which such a factor is null at normal incidence only. So, the layer surrounding the computational domain can theoretically absorb without reflection any kind of wave travelling towards boundaries, and it can be regarded as a perfectly matched layer. The new medium as the PML medium and the new technique of free-space simulation as the PML technique.
+
+### Derivation
+
+The theoretical derivation starts in discussing the transverse electric wave propagation. One key concept that confused me was the magnetic conductivity denoted as $\sigma^\ast$. Maybe this is just a jargon: permeability is a magnetic analogy to conductivity in electric circuits. Reluctance in a magnetic circuit is inversely proportional to permeability just as electric resistance is inversely proportional to conductivity. The relationships between length and cross-sectional area are also the same. Consequently calling permeability "magnetic conductivity" is a fine way to reinforce the analogy and understand magnetic circuits using an electronic analogy.
+
+I guess I need to review my EM courses to fully understand the derivations.
