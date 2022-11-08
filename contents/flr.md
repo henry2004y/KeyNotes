@@ -15,6 +15,8 @@ Before 1950s, no people thought about the idea of standing waves in space simply
 
 Now, the big question is: where do the quantized numbers of the observed ULF waves come from [Kivelson & Southwood, 1986]?Researchers borrowed ideas from ionospheric radio propagation, laser fusion and plasma physics and came up with the names _cavity_ and _waveguide_. For the box model that we will discuss in the next section, if the $z$ boundaries are perfectly reflecting, wave fields must have standing structure in the $z$ direction, and allowed parallel wave numbers are quantized ($k_z = m\pi/c$, as in @eq:flr_xz_quantized). If the boundaries are weakly absorptive, the parallel wave numbers are complex, but the real parts are still quantized as above. If we impose periodic boundary conditions in $y$, the wavenumber in $y$ $k_y$ needs to be quantized as well.
 
+Another question: if these discretized frequencies correspond to standing waves propagating along the field lines, at the footprints (i.e. ground measurements) the amplitudes shall be the smallest? Why are we still able to observe that on the ground?
+
 ## Theory
 
 The theory starts from linearized cold MHD @eq:mhd_cold_e_wave and @eq:mhd_cold_b_wave.
