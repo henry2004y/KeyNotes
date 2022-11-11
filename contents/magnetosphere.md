@@ -10,20 +10,18 @@ The big picture when considering the interaction of the solar wind and the magne
 
 Ultra-low frequency (ULF) waves refer to waves within frequency range [0.001, 10] Hz. The name does not tell us anything about their physical origin, but simply observational fact. At Earth's magnetosphere, this frequency range overlaps largely with the MHD waves. This is the reason why early pioneers in space physics relied on MHD theory for large spatial and temporal scales to explain the physics behind these waves, albeit some deviations and deficiencies which require more refined models such as the Vlasov description. ULF waves permeate the near-Earth plasma environment and play an important role in its dynamics, for example in transferring energy from the solar wind to the magnetosphere or accelerating electrons in the Earth’s radiation belts.
 
-ULF waves were originally called micropulsations or magnetic pulsations since they were first observed by ground magnetometers. ULF pulsations are classified into two types: *pulsations continuous (Pc)* and *pulsations irregular (Pi)* with several subclasses (Pc1–5 and Pi1–2) according to their frequencies and durations.[^mariner]
+ULF waves were originally called micropulsations or magnetic pulsations since they were first observed by ground magnetometers. ULF pulsations are classified into two types: *pulsations continuous (Pc)* and *pulsations irregular (Pi)* with several subclasses (Pc1–5 and Pi1–2) according to their frequencies and durations. The division is based on their physical and morphological properties, and the boundaries are not strict.
 
-| Notation | Period Range [s] |
-|----------|------------------|
-| Pc1      | 0.2 - 5          |
-| Pc2      | 5 - 10           |
-| Pc3      | 10 - 45          |
-| Pc4      | 45 - 150         |
-| Pc5      | 150 - 600        |
-|          |                  |
-| Pi1      | 1 - 40           |
-| Pi2      | 40 - 150         |
-
-[^mariner]: The Pc5 range originates from the Mariner 5 (1967) detection limitation to a Nyquist frequency of 1.67mHz, which corresponds to 600s. It roughly maps to $60^o\sim 70^o$ latitude on Earth's surface.
+| Notation | Period Range [s] | Property    |
+|----------|------------------|-------------|
+| Pc1      | 0.2 - 5          | EMIC        |
+| Pc2      | 5 - 10           | EMIC, Mirror|
+| Pc3      | 10 - 45          | Foreshock, FLR, Mirror |
+| Pc4      | 45 - 150         | FLR         |
+| Pc5      | 150 - 600        | SW, FLR     |
+|          |                  |          |
+| Pi1      | 1 - 40           |          |
+| Pi2      | 40 - 150         |          |
 
 With respect to polarization, field line resonant ULF waves can be categorized into three modes: *compressional* ($\Delta B_\parallel,\, \Delta E_\phi$), *poloidal* ($\Delta B_r,\, \Delta E_\phi$), and *toroidal* ($\Delta B_\phi,\, \Delta E_r$). Here, $B_r$ ($E_r$), $B_\parallel$, and $B_\phi$ ($E_\phi$) are the radial, parallel (or compressional), and azimuthal components in the local magnetic field system, respectively. Referring to the basic MHD theory, the compressional modes are fast modes, whereas the poloidal and toriodal modes are Alfvén modes. The perturbed EM fields are related by $\mathbf{B}_1 = \frac{\mathbf{k}}{\omega} \times \mathbf{E}_1$. Think of a closed field line near the equatorial plane inside the magnetosphere: if the wave vector $\mathbf{k}$ is along the field line, i.e. $\mathbf{k} = (0,0,k_z)$, then there will be two cases for the EM field: poloidal where $\mathbf{E}_1$ in $\hat{\phi}$, $\mathbf{B}_1$ in $\hat{r}$ and toroidal where $\mathbf{E}_1$ in $\hat{r}$, $\mathbf{B}_1$ in $\hat{\phi}$. If the wave vector $\mathbf{k}$ is perpendicular to the field line, i.e. $\mathbf{k} = (k_x, 0, 0)$, since there is no $E_\parallel$ in MHD, we only have one option $\mathbf{E}_1$ in $\hat{\phi}$ and $\mathbf{B}_1$ in $\hat{z}$. A phase shift is allowed, and actually in real observations (e.g. THEMIS) it is rare that you can find B and E changing in-phase.
 
@@ -57,15 +55,22 @@ The ion cyclotron instability responsible for the generation of AIC waves often 
 
 People tried to find an answer to this puzzle. A bunch of studies in late 1980s and early 1990s (e.g. [Gary+]) argued that the presence of $\text{He}^{++}$ tends to increase the EMIC threshold while the mirror mode growth is less affected by the presence of $\text{He}^{++}$ ions. Yoshiharu Omura and his student Shoji presented another possibility in 2009 with hybrid PIC simulations that even though EMIC modes have higher linear growth rate, they saturates an an earlier stage than the mirror modes, especially in higher dimensions (by comparing 2D and 3D results), so that mirror mode waves can gain more free energy from temperature anisotropy.
 
-### Pc3
+### Pc3 & Pc4
+
+As already noted above, in the beginning when people proposed the ULF wave Pc divisions, many underlying physics are still unclear. The boundaries are chosen based on the observation data back then and does not necessarily contain any physical meaning.
 
 ULF waves in the Pc3 range, with periods between 10-45 s, are a common feature of the dayside magnetosphere, where they are frequently observed both by spacecraft and ground-based observatories. They are thought to originate from the ion foreshock, extending upstream of the Earth’s quasi-parallel bow shock (the angle between IMF and shock normal $\theta_{Bn}\le 45^o$). There, ULF waves in the Pc3 frequency range are produced by _ion beam instabilities_, due to the interaction of shock-reflected suprathermal ions with the incoming solar wind.
 
-For the foreshock-related Pc3 waves, we have the following picture. After foreshock waves are generated, they propagate through the magnetosheath (with very few observations) and reach the magnetopause. They enter the dayside magnetopause and travel antisunward into the magnetosphere as compressional Pc3 fluctuations, transporting the wave energy towards the nightside. In the inner magnetosphere, they may couple to Alfvénic field line resonances, where their frequency matches the eigenmodes of the Earth’s magnetic field lines. The amplitude of the compressional mode decays when moving further into the magnetosphere, yet they can sometimes be observed all the way to the midnight sector. Compressional Pc3 wave power associated with transmitted foreshock waves is confined near the equator. Statistical study also shows that equatorial Pc3 wave power is stronger in the prenoon or noon sector (under various geomagnetic activity levels), consistent with the foreshock extending upstream of the dawn flank bow shock for a Parker-spiral IMF orientation. However, contrary to Pc5 pulsations (150-600 s), Pc3 wave activity does _not_ show a clear correlation with the level of geomagnetic disturbances.
+For the foreshock-related Pc3/4 waves, we have the following picture. After foreshock waves are generated, they propagate through the magnetosheath (with very few observations) and reach the magnetopause. They enter the dayside magnetopause and travel antisunward into the magnetosphere as compressional Pc3 fluctuations, transporting the wave energy towards the nightside. In the inner magnetosphere, they may couple to Alfvénic field line resonances (FLRs), where their frequency matches the eigenmodes of the Earth’s magnetic field lines. Pc3 FLRs was observed at low latitudes and Pc4 at midlatitudes [Yumoto+, 1985]. The amplitude of the compressional mode decays when moving further into the magnetosphere, yet they can sometimes be observed all the way to the midnight sector. Compressional Pc3 wave power associated with transmitted foreshock waves is confined near the equator. Statistical study also shows that equatorial Pc3 wave power is stronger in the prenoon or noon sector (under various geomagnetic activity levels), consistent with the foreshock extending upstream of the dawn flank bow shock for a Parker-spiral IMF orientation. However, contrary to Pc5 pulsations (150-600 s), Pc3 wave activity does _not_ show a clear correlation with the level of geomagnetic disturbances.
 
 Also, note that not all Pc3 waves are related to foreshock waves, thus we may have different survey results about the distribution of Pc3 waves. This hints the fact that we are far from understanding the whole physical mechanism of wave generation.
 
-### Pc4
+There are several mechanisms by which Pc3-4 ULF waves may propagate to high latitudes:
+
+* Harmonics of fundamental mode Pc5 resonances. Such harmonics would be expected to exhibit the same form of amplitude and phase properties that characterize FLRs and should occur at the same time as the fundamental.
+* Cavity modes (@sec:flr).
+* Fast mode waves propagate without mode conversion through the magnetosphere directly to the ionosphere. Such waves are subject to refraction and diffraction on their passage through the magnetosphere and may be directed to high latitudes via Fermat's Principle (???).
+* Transistor model that invokes beams of precipitating _electrons_ [Engebretson+ 1991] (???). The transistor model requires no wave mode coupling or wave propagation across field lines, rather the modulated precipitation of electrons in response to pressure fluctuations in the magnetosheath. The latter are attributed to the upstream ion-cyclotron resonance mechanism. The modulated electron beams convey wave information from the outer magnetosphere region containing the parent population of trapped electrons, to the near-cusp ionosphere. The resultant periodic precipitation would modulate the ionospheric conductivity and hence ionospheric currents equatorward of the cusp. Overhead field lines could then be excited by these modulated currents equatorward of the cusp, with the same frequency as the modulated electrons. Engebretson likened this behavior to that of a [transistor](https://www.youtube.com/watch?v=7ukDKVHnac4), where a small base current modulates a larger flow from collector to emitter. These ULF waves are characterized by noise-like appearance and low coherence lengths.
 
 ### Pc5
 
