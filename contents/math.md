@@ -1669,4 +1669,11 @@ You may also find the application in deriving the gyrokinetic equations.
 
 ## Wavelet Analysis
 
-Wavelet is a predecessor of Fourier tranform, which provides better results when dealing with changing background. It is the de-facto method for modern wave analysis. Check the [notes from my blog](https://henry2004y.github.io/blog/wavelet/) and the references therein.
+Wavelet Transform (WT) decomposes a function into a set of wavelets. A Wavelet is a wave-like oscillation that is localized in time. Two basic properties of a wavelet are _scale_ and _location_.
+
+Wavelet is a predecessor of Fourier Tranform (FT), which provides better results when dealing with changing background. It is the de-facto method for modern wave analysis. The key advantages of WT compared with FT are:
+
+* Fewer "hard" parameters to tune in WT. For example, if you want to make a spectrogram with FT, you need to specify the size of local DFTs. In WT you do not need to worry about this; instead the validity of the result can be shown by the cone of influence. In a sense, FT makes immediate conversion from time to frequency domain, while WT let you choose the intermediate steps you wish for.
+* Flexible forms of wavelets to choose from. In practice, if you have any prior knowledge to the signal you want to identify, you can find for an appropriate wavelet that is close to that shape, which gives better fitting compared to the sinuisoidal functions in FT.
+
+Check the [notes from my blog](https://henry2004y.github.io/blog/wavelet/) and the references therein.
