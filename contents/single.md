@@ -228,8 +228,7 @@ This has all the dependences we expected from the physical picture; only the fac
 
 ### Curved B: Curvature Drift
 
-Here we assume the magnetic field lines to be curved with a constant radius of curvature $R_c$, and we take $|B|$ to be constant. Such a field does not obey Maxwell’s equations in a vacuum, so in practice the grad-B drift will always be added to the
-effect derived here. A guiding center drift arises from the centrifugal force felt by the particles as they move along the field lines in their thermal motion. If $v_\parallel^2$ denotes the average square of the component of random velocity along $\mathbf{B}$, the average centrifugal force is
+Here we assume the magnetic field lines to be curved with a constant radius of curvature $R_c$, and we take $|B|$ to be constant. Such a field does not obey Maxwell’s equations in a vacuum, so in practice the grad-B drift will always be added to the effect derived here. A guiding center drift arises from the centrifugal force felt by the particles as they move along the field lines in their thermal motion. If $v_\parallel^2$ denotes the average square of the component of random velocity along $\mathbf{B}$, and $\mathbf{R}_c$ denotes the radius of curvature vector from the center to the curve, the average centrifugal force is
 
 $$
 \mathbf{F}_{cf} = \frac{mv_\parallel^2}{R_c}\widehat{r} = mv_\parallel^2\frac{\mathbf{R}_c}{R_c^2}
@@ -804,7 +803,7 @@ $$
 Thus $v_\parallel$ can be written
 
 $$
-v_\parallel = \big[ \frac{2}{m}(W - \mu B) \big]^{1/2}
+v_\parallel = \left[ \frac{2}{m}(W - \mu B) \right]^{1/2}
 $$
 
 Here W and μ are constant, and only B varies. Therefore,
