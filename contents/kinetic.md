@@ -202,7 +202,7 @@ $$
 \Big( \frac{\partial f}{\partial t} \Big)_c = \frac{f_n - f}{\tau}
 $$
 
-where $f_n$ is the distribution function of the neutral atoms, and $\tau$ is a constant collision time. This is called a _Krook collision term_. It is the kinetic generalization of the collision term in Eq. (5.5) in F. F. Chen's book. When there are Coulomb collisions, @eq:boltzmann can be approximated by
+where $f_n$ is the distribution function of the neutral atoms, and $\tau$ is a constant collision time. This is called the _Krook collision term_. It is the kinetic generalization of the collision term in Eq. (5.5) in F. F. Chen's book. When there are Coulomb collisions, @eq:boltzmann can be approximated by
 
 $$
 \frac{df}{dt} = -\frac{\partial}{\partial\mathbf{v}}\cdot(f\left<\Delta\mathbf{v}\right>)\frac{1}{2}\frac{\partial^2}{\partial\mathbf{v}\partial\mathbf{v}}:(f\left<\Delta\mathbf{v}\Delta\mathbf{v}\right>)
@@ -945,7 +945,7 @@ $$
 
 This shows that the motion has frequency components differing from the driving frequency by multiples of $\omega_c$, and that the amplitudes of these components are proportional to $J_n(kr_L)/[\omega_c^2 - (\omega - n\omega_c)^2]$. When the denominator vanishes, the amplitude becomes large. This happens when $\omega-n\omega_c = \pm \omega_c$, or $\omega=(n\pm 1)\omega_c,\ n=0,\pm 1, \pm 2, ...$; that is, when the field $\mathbf{E}(x,t)$ resonates with any harmonic of $\omega_c$. In the fluid limit $kr_L\rightarrow 0$, $J_n(kr_L)$ can be approximated by $(kr_L/2)^n/n!$, which approaches 0 for all $n$ except $n=0$. For $n=0$, the coefficient becomes $(\omega_c^2-\omega^2)^{-1}$, which is the fluid result containing only the fundamental cyclotron frequency.
 
-### The Hot Plasma Dielectric Tensor
+### The Hot Plasma Dielectric Tensor {#sec:HPDR}
 
 After Fourier analysis of $f_1(\mathbf{r},\mathbf{v},t)$ in space and time, the linearized Vlasov equation can be solved for a Maxwellian distribution $f_0(\mathbf{v})$, and the resulting expression $f_1(\mathbf{k},\mathbf{v},\omega)$ can be used to calculate the density and current of each species. The result is usually expressed in the form of an equivalent dielectric tensor $\overleftrightarrow{\epsilon}$, such that the dispersion vector $\mathbf{D}=\overleftrightarrow{\epsilon}\cdot\mathbf{E}$ can be used in the Maxwell's equations to calculate dispersion relations for various waves. The algebra is horrendous and therefore omitted. We quote only a restricted result valid for nonrelativistic plasmas with isotropic pressure $T_\perp = T_\parallel$ and no zero-order drifts $\mathbf{v}_{0j}$; these restrictions are easily removed, but he general formulas are too cluttered for our purposes. We further assume $\mathbf{k} = k_x\hat{\mathbf{x}} + k_z\hat{\mathbf{z}}$, with $\hat{\mathbf{z}}$ being the direction of $\mathbf{B}_0$; no generality is lost by setting $k_y$ equal to zero, since the plasma is isotropic in the plane perpendicular to $\mathbf{B}_0$. The elements of $\overleftrightarrow{\epsilon}_R = \overleftrightarrow{\epsilon}/\epsilon_0$ are then
 
