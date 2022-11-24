@@ -341,16 +341,18 @@ _Ex 1._ Planet dipole field
 Let the radius of the planet be $R$ (the same as the coefficient). Then the Gauss potential for the dipole reads
 
 $$
-V = \frac{R^3}{r^2}\big[ G_{10}\cos\theta + G_{11}\cos\phi\sin\theta + H_{11}\sin\phi\sin\theta \big].
+V = \frac{R^3}{r^2}\big[ G_{10}\cos\theta + G_{11}\cos\phi\sin\theta + H_{11}\sin\phi\sin\theta \big]
 $$
 
 Let dipole moment be $\mathbf{m} = (G_{11},H_{11},G_{10})$ in Cartesian coordinates, we have
 
 $$
-\mathbf{B} = -\nabla V = -\nabla \Big[ \frac{R^3\mathbf{m}\cdot\mathbf{r}}{r^3} \Big].
+\mathbf{B} = -\nabla V = -\nabla \Big[ \frac{R^3\mathbf{m}\cdot\mathbf{r}}{r^3} \Big]
 $$
 
-This is why in literature we often see dipole moments in the unit of $[nT]$. One step further, we have
+This is why in literature we often see dipole moments in the unit of $[\text{nT}]$: it is equivalent to the equatorial field strength $B_{\text{eq}}$ at the planet's surface. If we specify the dipole moment $M$ in $[\text{T}\text{m}^3]$, then $B_{\text{eq}}=M/R_\text{E}^3$.
+
+When we expand the gradient operator, we have
 
 $$
 \mathbf{B} = \frac{\mu_0}{4\pi}\frac{3(\mathbf{m}\cdot\widehat{r})\widehat{r}-\mathbf{m}}{r^3}

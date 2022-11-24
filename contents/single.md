@@ -859,10 +859,10 @@ Here are some time scales to remember for a 1 MeV proton in the Earth's radiatio
 In radiation belt studies, it is typical to consider a quantity that is inversely proportional to the magnetic flux:
 
 $$
-L^\ast = \frac{2\pi M}{|\phi|R_E}
-$$
+L^\ast = \frac{2\pi M}{|\phi|R_E} = \frac{2\pi B_{eq}R_E^2}{|\phi|}
+$$ {#eq:Lstar}
 
-where $M$ is the magnetic moment of the Earth's dipole field and $R_E$ is the radius of the Earth. This presentation of the third invariant is termed $L^\ast$, or Roederer's $L$ parameter, which is the radial distance to the equatorial point where the particle would be found if all nondipolar perturbations in the geomagnetic field were adiabatically turned off leaving only the dipole field (Roederer, 1970). It should be noted that in a nondipolar field $L^\ast$ does _not_ represent a spatial coordinate, instead $L^\ast$ is a property of a stably trapped particle (Roederer and Lejosne, 2018). That is, in absence of acceleration or loss processes, $L^\ast$ defines a surface with constant phase space density. If a particle encounter a boundary of the radiation belt system (i.e. the magnetopause or atmosphere) during its drift leading to its loss from the system, the particle does not have an $L^\ast$ value. The particle is said to be in the drift loss cone.
+where $M$ is the magnetic moment of the Earth's dipole field, $R_E$ is the radius of the Earth, and $B_{eq}$ is the magnetic field strength at the equatorial surface. This presentation of the third invariant is termed $L^\ast$, or Roederer's $L$ parameter, which is the radial distance to the equatorial point where the particle would be found if all nondipolar perturbations in the geomagnetic field were adiabatically turned off leaving only the dipole field (Roederer, 1970). It should be noted that in a nondipolar field $L^\ast$ does _not_ represent a spatial coordinate, instead $L^\ast$ is a property of a stably trapped particle (Roederer and Lejosne, 2018). That is, in absence of acceleration or loss processes, $L^\ast$ defines a surface with constant phase space density. If a particle encounter a boundary of the radiation belt system (i.e. the magnetopause or atmosphere) during its drift leading to its loss from the system, the particle does not have an $L^\ast$ value. The particle is said to be in the drift loss cone.
 
 Therefore, the $L$ and $L^\ast$ parameters coincide in a dipole field, but in a nondipolar field, these parameters are different. Typically, $L$ is used with particle fluxes whereas $L^\ast$ is better suited for phase space density.
 
