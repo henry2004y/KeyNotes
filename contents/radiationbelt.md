@@ -1,15 +1,26 @@
 # Radiation Belt {#sec:radiation_belt}
 
+A [Van Allen radiation belt](https://en.wikipedia.org/wiki/Van_Allen_radiation_belt) is a zone of energetic charged particles, most of which originate from the solar wind, that are captured by and held around a planet by that planet's magnetosphere. Earth possesses an inner belt and an outer belt.
+
+1. the inner belt
+  * MeV protons, 100 keV electrons
+  * 0.2 - 2 $R_\text{E}$ (L 1 - 3)
+
+2. the outer belt
+  * 0.1 - 10 MeV electrons
+  * 3 - 10 $R_\text{E}$ (outer boundary is the magnetopause)
+
 Our understanding of the physics mechanisms until 1990s:
 
 1. Low energy electrons get injected into the magnetosphere from the solar wind.
 2. Electrons transport towards the planet by reconnections, substorms and associated electric fields.
 3. Electrons drift around the planet.
-4. Magnetic fluctuations cause inward diffusions.
+4. Magnetic fluctuations cause inward/outward diffusions.
 5. Energy is gained by conservation of the 1st adiabatic invariant.
-6. Wave-particle interaction and diffusion contributes as well.
+6. Loss by collisions with the atmosphere, reaching the magnetoapuse, and outward radial diffusion.
 
-However, the classical theory cannot explain the electron variation (intermittent injection, rapid loss) timescales!
+During magnetic storms the magnetopause is compressed, so more electrons are lost to the magnetopause. If the mirror point is deep inside the atmosphere, charged particles will precipitate into the atmosphere and lost due to collisions.
+There are still many mysteries both due to lack of observations and theories. For example, the classical theory cannot explain the electron variation (intermittent injection, rapid loss) timescales!
 
 In 1998, two new theories came out:
 
@@ -50,14 +61,14 @@ The theory of wave-particle interaction starts with hot plasma kinetic theory (@
 
 resonance can generate current --> this current can generate higher frequency radiations?
 
-Whistler waves can be explained by the linear theory. However, chorus and hiss waves are highly nonlinear and thus cannot be explained by neither a linear theory nor a quasi-linear theory. We conjecture that they are caused by natural plasma instabilities, but we still have little idea what exactly these instabilities are.
+Whistler waves can be explained by the linear theory. However, chorus and hiss waves are highly nonlinear and thus cannot be explained by a linear theory. We conjecture that they are caused by natural plasma instabilities, but we still have little idea what exactly these instabilities are.
 
 As a rough physical picture, during the cyclotron resonance:
 
 1. Waves diffuse source electrons into loss cone --> electron loss and wave growth.
 2. Waves diffuse trapped electrons --> energy diffusion leads to electron acceleration.
 
-## Modelling
+## Modeling
 
 3D Fokker-Planck diffusion model (e.g. [@glauert2014three]) has been built to model the radiation belt electrons. In the Earth's radiation belts, the evolution of the phase-averaged phase-space density $f(p,r,t)$ can be described by a diffusion equation (see also @eq:fokker_planck):
 
@@ -65,9 +76,9 @@ $$
 \frac{\partial f}{\partial t} = \sum_{i,j}\frac{\partial}{\partial J_i}\left[ D_{ij}\frac{\partial f}{\partial J_j} \right]
 $$ {#eq:fokker_planck_general}
 
-Here $D_{ij}$ are diffusion coefficients and $J_i$ are the action integrals, $J_1 = 2\pi m_e \mu/|q|$, $J_2 = J$, and $J_3 = q\phi$, where $\mu,J$, and $\phi$ are the adiabatic invariants of charged particle motion, $m_e$ is the electron mass, and $q$ the charge. The adiabatic invariants are awkward variables to visualize and relate to data so many authors transform to other coordinates. One choice is to use pitch angle, energy, and $L^\ast=2\pi M/(\phi \text{R}_\text{E})$, where $M=8.22\times 10^{22}\, \text{A}\,\text{m}^2$ is the magnetic moment of the Earth's dipole field and $\text{R}_\text{E}$ is the Earth's radius, as the three independent variables.
+Here $D_{ij}$ are diffusion coefficients and $J_i$ are the action integrals, $J_1 = 2\pi m_e \mu/|q|$, $J_2 = J$, and $J_3 = q|\phi|$, where $\mu,J$, and $\phi$ are the adiabatic invariants of charged particle motion, $m_e$ is the electron mass, and $q$ the charge. The adiabatic invariants are awkward variables to visualize and relate to data so many authors transform to other coordinates. One choice is to use pitch angle, energy, and $L^\ast=2\pi M/(|\phi| R_\text{E})$ (@eq:Lstar), where $M=8.22\times 10^{22}\, \text{A}\,\text{m}^2$ is the magnetic moment of the Earth's dipole field and $R_\text{E}$ is the Earth's radius, as the three independent variables.
 
-Assuming a dipole field, changing coordinates to equatorial pitch angle ($\alpha$), kinetic energy ($E$), and $L^\ast$, and neglecting some cross derivatives, @eq:fokker_planck can be written as
+Assuming a dipole field, changing coordinates to equatorial pitch angle $\alpha$, kinetic energy $E$, and $L^\ast$, and neglecting some cross derivatives, @eq:fokker_planck can be written as
 
 $$
 \begin{aligned}
