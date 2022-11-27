@@ -128,7 +128,50 @@ $$
 \end{aligned}
 $$ {#eq:fokker_planck_nocrossterm}
 
-The first three terms on the right-hand side represent pitch angle, energy, and radial diffusion, respectively. The final term accounts for losses to the atmosphere. Pitch angle diffusion has contributions from wave-particle interactions and Coulomb collisions with the atmosphere, though the latter are only significant inside the loss cone. Energy diffusion is due to wave-particle interactions and radial diffusion to interactions with large-scale fluctuations in the Earth's magnetic and electric fields. The diffusion coefficients are based on statistical wave models derived from data.
+The first three terms on the right-hand side represent pitch angle, energy, and radial diffusion, respectively. The final term accounts for losses to the atmosphere. Pitch angle diffusion has contributions from wave-particle interactions and Coulomb collisions with the atmosphere, though the latter are only significant inside the loss cone. Energy diffusion is due to wave-particle interactions and radial diffusion to interactions with large-scale fluctuations in the Earth's magnetic and electric fields. The diffusion coefficients are based on statistical wave models derived from data. Depending on the choice of the diffusion coefficients, the Fokker-Planck equation can be linear, quasi-linear, or nonlinear.
+
+Let us make our lives even simpler by considering only the radial diffusion and loss term.
+The quasi-linear assumptions are:
+
+* Broadband wave spectrum (with random phase), typically assumed as a Gaussian centered around a single dominant mode
+* Low amplitude fluctuations (no nonlinear interactions)
+* "Resonance limit" (linear growth rate of instabilities goes to 0)
+* ULF wave-particle interactions lumped into the diffusion coefficient
+
+Even when quasi-linear theory works fine, there are multiple sources of uncertainties in the radial diffusion coefficient:
+
+* Background magnetic field model
+* Bounce + drift average eliminates MLT dependence
+* Azimuthal wave structure (i.e. power distribution over mode numbers)
+
+Given the limited observation data, we want to estimate the unknown parameters $D_{LL}, \tau_L$. This is called an _inverse problem_. In 2000, Brautigam and Albert proposed a dependence of the radial diffusion coefficent on $K_p$ and L:
+
+$$
+D_{LL} \approx 10^{-0.506 K_p(t) - 9.325}L^10
+$$
+
+The standard statistical approach is to apply a Bayesian parameter estimation, where we are looking for a distribution of parameters and correcting results based on new observations. However, it is difficult to apply in high dimensions, which typically requires the Markov-chain Monte Carlo (MCMC) approach. For example, our assumption is that the parameters can be written in the following forms:
+
+$$
+\begin{aligned}
+D_{LL}(L, t) &= 10^(a K_p(t) + b)L^c \\
+\tau_L(L, t) &= \left\{
+\begin{array}{lr}
+(a_0 + a_1 L + a_2 L^2) / K_p(t) & \text{for } L\le L_{pp} \\ a_3 / K_p(t) & \text{for } L > L_{pp}
+\end{array}
+\right.
+\end{aligned}
+$$
+
+where $L_{pp}$ is the plasmapause location, which can be estimated with some approximations. We introduce a bunch of random variables, and the posterior distributions of these variables after MCMC give us the best fits.
+
+A new trend is to [use physics-informed machine learning to learn the coefficients](https://youtu.be/5C913ApaxUY). First we may need to constrain the forms of the coefficients to avoid an ill-posed inverse problem. Let the physical loss term be described by a drift coefficient $C$:
+
+$$
+\frac{\partial f}{\partial t} = L^2 \frac{\partial}{\partial L}\bigg\rvert_{\mu,J}\left( \frac{D_{LL}}{L^2}\frac{\partial f}{\partial L}\bigg\rvert_{\mu,J} \right) - \frac{\partial Cf}{\partial L}
+$$
+
+The job of _Physical-Informed Neural Network_ (PINN) is to deduce the optimal $D_{LL}$ and $C$ based on statistics by embedding the expected form of the equation into the loss term in the neural network. As this is statistics, we can build and test any kind of relations between variables without physical interpretation, which has been critizised a lot. For example, one may ask how you can let the phase space distribution $f$ depend only on $t$ and $L$? The information is incomplete from a physics point of view, but datawise it may just "work", in the sense that neural network is essentially a _universal high-dimensional function approximator_.
 
 ### Coupling physical processes at different time scales
 
