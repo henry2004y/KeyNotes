@@ -62,7 +62,7 @@ $$
 Poisson's equation is then
 
 $$
-\epsilon_0\frac{d^2\phi}{dx^2} = e(n_e - n_i) = en_0\Big[ \exp\Big( \frac{e\phi}{k_B T_e} \Big) - \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{1/2} \Big]
+\epsilon_0\frac{\mathrm{d}^2\phi}{\mathrm{d}x^2} = e(n_e - n_i) = en_0\Big[ \exp\Big( \frac{e\phi}{k_B T_e} \Big) - \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{1/2} \Big]
 $$ {#eq:sheath1}
 
 The structure of this equation can be seen more clearly if we simplify it with the following changes in notation:
@@ -77,14 +77,14 @@ $$
 \chi^{\prime\prime} = \Big( 1+\frac{2\chi}{\mu^2} \Big)^{-1/2} - e^{-\chi}
 $$ {#eq:sheath2}
 
-where the prime denotes $d/d\xi$. This is the nonlinear equation of a plane sheath, and it has an acceptable solution only if $\mu$ is large enough. The reason for the symbol $\mu$ will become apparent in the following section on shock waves.
+where the prime denotes $\mathrm{d}/\mathrm{d}\xi$. This is the nonlinear equation of a plane sheath, and it has an acceptable solution only if $\mu$ is large enough. The reason for the symbol $\mu$ will become apparent in the following section on shock waves.
 
 ### The Bohm Sheath Criterion
 
 @eq:sheath2 can be integrated once by multiplying both sides by $\chi^\prime$:
 
 $$
-\int_0^\xi \chi^\prime \chi^{\prime\prime}d\xi_1 = \int_0^\xi \Big( 1+\frac{2\chi}{\mu^2} \Big)^{-1/2} \chi^\prime d\xi_1 - \int_0^\xi e^{-\chi} \chi^\prime d\xi_1
+\int_0^\xi \chi^\prime \chi^{\prime\prime}\mathrm{d}\xi_1 = \int_0^\xi \Big( 1+\frac{2\chi}{\mu^2} \Big)^{-1/2} \chi^\prime \mathrm{d}\xi_1 - \int_0^\xi e^{-\chi} \chi^\prime \mathrm{d}\xi_1
 $$
 
 where $\xi_1$ is a dummy variable. Since $\chi=0$ at $\xi=0$, the integration easily yield
@@ -129,31 +129,31 @@ $$
 \begin{aligned}
 {\chi^\prime}^2 &= 2^{3/2}\mu\chi^{1/2} \\
 \chi^\prime &= 2^{3/4}\mu^{1/2}\chi^{1/4} \\
-d\chi/\chi^{1/4} &= 2^{3/4}\mu^{1/2} d\xi
+\mathrm{d}\chi/\chi^{1/4} &= 2^{3/4}\mu^{1/2} \mathrm{d}\xi
 \end{aligned}
 $$
 
-Integrating from $\xi=\xi_s$ to $\xi=\xi_s+d/\lambda_D = \xi_{\text{wall}}$, we have
+Integrating from $\xi=\xi_s$ to $\xi=\xi_s+\mathrm{d}/\lambda_D = \xi_{\text{wall}}$, we have
 
 $$
-\frac{4}{3}\chi_w^{3/4} = 2^{3/4}\mu^{1/2}d/\lambda_D
+\frac{4}{3}\chi_w^{3/4} = 2^{3/4}\mu^{1/2}\mathrm{d}/\lambda_D
 $$
 
 or
 
 $$
-\mu = \frac{4\sqrt{2}}{9}\frac{\chi_w^{3/2}}{d^2}\lambda_D^2
+\mu = \frac{4\sqrt{2}}{9}\frac{\chi_w^{3/2}}{\mathrm{d}^2}\lambda_D^2
 $$
 
 Changing back to the variables $u_0$ and $\phi$, and noting that the ion current into the wall is $J=en_0u_0$, we then find
 
 $$
-J = \frac{4}{9}\Big( \frac{2e}{m_i} \Big)^{1/2} \frac{\epsilon_0|\phi_w|^{3/2}}{d^2}
+J = \frac{4}{9}\Big( \frac{2e}{m_i} \Big)^{1/2} \frac{\epsilon_0|\phi_w|^{3/2}}{\mathrm{d}^2}
 $$ {#eq:child_langmuir}
 
 This is just the well-known Child-Langmuir law of space-charge-limited current in a plane diode.
 
-The potential variation in a plasma-wall system can be divided into three parts. Nearest the wall is an electron-free region whose thickness $d$ given by @eq:child_langmuir. Here $J$ is determined by the ion production rate, and $\phi_w$ is determined by the equility of electron and ion fluxes. Next comes a region in which $n_e$ is appreciable; as shown in the linear theory from which the scale of Debye length is derived. Finally, there is a region with much larger scale length, the "presheath", in which the ions are accelerated to the required velocity $u_0$ by a potential drop $|\phi|\ge \frac{1}{2}k_B T_E/e$. Depending on the experiment, the scale of the presheath may be set by the plasma radius, the collisional mean free path, or the ionization mechanism. The potential distribution, of course, varies smoothly; the division into three regions is made only for convenience and is made possible by the disparity in scale lengths. In the early days of gas discharges, sheaths could be observed as dark layers where no electrons were present to excite atoms to emission. Subsequently, the potential variation has been measured by the electrostatic deflection of a thin electron beam shot parallel to a wall.
+The potential variation in a plasma-wall system can be divided into three parts. Nearest the wall is an electron-free region whose thickness $\mathrm{d}$ given by @eq:child_langmuir. Here $J$ is determined by the ion production rate, and $\phi_w$ is determined by the equility of electron and ion fluxes. Next comes a region in which $n_e$ is appreciable; as shown in the linear theory from which the scale of Debye length is derived. Finally, there is a region with much larger scale length, the "presheath", in which the ions are accelerated to the required velocity $u_0$ by a potential drop $|\phi|\ge \frac{1}{2}k_B T_E/e$. Depending on the experiment, the scale of the presheath may be set by the plasma radius, the collisional mean free path, or the ionization mechanism. The potential distribution, of course, varies smoothly; the division into three regions is made only for convenience and is made possible by the disparity in scale lengths. In the early days of gas discharges, sheaths could be observed as dark layers where no electrons were present to excite atoms to emission. Subsequently, the potential variation has been measured by the electrostatic deflection of a thin electron beam shot parallel to a wall.
 
 ### Electrostatic Probes
 
@@ -212,7 +212,7 @@ $$
 The electron density is given by the Boltzmann relation. Poisson's equation then gives
 
 $$
-\epsilon_0\frac{d^2\phi}{dx^2} = e(n_e - n_i) = en_0\Big[ \exp\Big( \frac{e\phi}{k_B T_e} \Big) - \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{1/2} \Big]
+\epsilon_0\frac{\mathrm{d}^2\phi}{\mathrm{d}x^2} = e(n_e - n_i) = en_0\Big[ \exp\Big( \frac{e\phi}{k_B T_e} \Big) - \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{1/2} \Big]
 $$
 
 This is, of course, the same @eq:sheath1 as we had for a sheath. A shock wave is no more than a sheath moving through a plasma. We now introduce the dimensionless variables
@@ -224,18 +224,18 @@ $$
 Note that we have changed the sign in the definition of $\chi$ so as to keep $\chi$ positive in this problem. The quantity $\mu$ is called the _Mach number_ of the shock. Poisson's equation can now be written
 
 $$
-\chi^{\prime\prime} = e^{\chi} - \Big( 1 - \frac{2\chi}{\mu^2} \Big)^{-1/2} = -\frac{dV(\chi)}{d\chi}
+\chi^{\prime\prime} = e^{\chi} - \Big( 1 - \frac{2\chi}{\mu^2} \Big)^{-1/2} = -\frac{dV(\chi)}{\mathrm{d}\chi}
 $$ {#eq:sheath3}
 
 which differs from the sheath @eq:sheath2 only because of the change in sign of $\chi$.
 
-The behavior of the solution of @eq:sheath3 was made clear by R. Z. Sagdeev, who used an analogy to an oscillator in a potential well. The displacement $x$ of an oscillator subjected to a force $-mdV(x)/dx$ is given by
+The behavior of the solution of @eq:sheath3 was made clear by R. Z. Sagdeev, who used an analogy to an oscillator in a potential well. The displacement $x$ of an oscillator subjected to a force $-mdV(x)/\mathrm{d}x$ is given by
 
 $$
-\ddot{x} = -dV/dx
+\ddot{x} = -dV/\mathrm{d}x
 $$
 
-If the right-hand side of @eq:sheath3 is defined as $-dV/dx$, the equation is the same as that of an oscillator, with the potential $\chi$ playing the role of $\chi$, and $d/d\xi$ replacing $d/dt$. The quasipotential $V(\chi)$ is sometimes called the Sagdeev potential. The function $V(x)$ can be found from @eq:sheath3 by integration with the boundary condition $V(\chi)=0$ at $\chi=0$:
+If the right-hand side of @eq:sheath3 is defined as $-dV/\mathrm{d}x$, the equation is the same as that of an oscillator, with the potential $\chi$ playing the role of $\chi$, and $\mathrm{d}/\mathrm{d}\xi$ replacing $\mathrm{d}/\mathrm{d}t$. The quasipotential $V(\chi)$ is sometimes called the Sagdeev potential. The function $V(x)$ can be found from @eq:sheath3 by integration with the boundary condition $V(\chi)=0$ at $\chi=0$:
 
 $$
 V(\chi) = 1-e^\chi + \mu^2 \Big[ 1 - \Big( 1-\frac{2\chi}{\mu^2} \Big)^{1/2} \Big]
@@ -250,10 +250,10 @@ For $\mu$ lying in a certain range, this function has the shape shown in @fig:sh
 Now, if a particle suffers a loss of energy while in the well, it will never return to $x=0$ but will oscillate (in time) about some positive value of $x$. Similarly, a little dissipation will make the potential of a shock wave oscillate (in space) about some positive value of $\phi$. This is exactly the behavoir depicted in @fig:shock_potential. Actually, dissipation is not needed for this: reflection of ions from the shock front has the same effect. To understand this, imagine that the ions have a small thermal spread in energy and that the height $e\phi$ of the wave front is just large enough to reflect some of the ions back to the left, while the rest go over the potential hill to the right. The reflected ions cause an increase in ion density in the upstream region to the left of the shock front (@fig:shock_potential). This means that the quantity
 
 $$
-\chi^\prime = \frac{1}{n_0}\int_0^\xi (n_e - n_i)d\xi_1
+\chi^\prime = \frac{1}{n_0}\int_0^\xi (n_e - n_i)\mathrm{d}\xi_1
 $$
 
-is decreased. Since $\chi^\prime$ is the analog of $dx/dt$ in the oscillator problem, our virtual oscillator has lost velocity and is trapped in the potential well of @fig:shock_quasipotential.
+is decreased. Since $\chi^\prime$ is the analog of $\mathrm{d}x/\mathrm{d}t$ in the oscillator problem, our virtual oscillator has lost velocity and is trapped in the potential well of @fig:shock_quasipotential.
 
 ### The Critical Mach Numbers
 
@@ -351,7 +351,7 @@ $$
 Inserting the expressions of $\mathbf{v}_1,\delta\mathbf{r}_1$ and $\mathbf{B}_1$ into the above and averaging over time, we have
 
 $$
-m\left< \frac{d\mathbf{v}_2}{dt}\right> = -\frac{e^2}{m\omega^2}\frac{1}{2}[(\mathbf{E}_s\cdot\nabla)\mathbf{E}_s + \mathbf{E}_s\times(\nabla\times\mathbf{E}_s)] = \mathbf{f}_{NL}
+m\left< \frac{\mathrm{d}\mathbf{v}_2}{\mathrm{d}t}\right> = -\frac{e^2}{m\omega^2}\frac{1}{2}[(\mathbf{E}_s\cdot\nabla)\mathbf{E}_s + \mathbf{E}_s\times(\nabla\times\mathbf{E}_s)] = \mathbf{f}_{NL}
 $$ {#eq:motion_e_2nd}
 
 Here we have used $\left<\sin^2\omega t\right> = \left<\cos^2\omega t\right>=\frac{1}{2}$. The double cross product can be written as the sum of two terms, one of which cancels the $(\mathbf{E}_s\cdot\nabla)\mathbf{E}_s$ term.
@@ -514,7 +514,7 @@ $$
 \ddot{x_1} + \omega_1^2 x_1 + 2\Gamma_1 \dot{x_1} = 0
 $$
 
-For instance, if $x_1$ is the displacement of a spring damped by friction, the last term represents a force proportional to the velocity. If $x_1$ is the electron density in a plasma wave damped by electron–neutral collisions, $\Gamma_1$ is $v_c/2$ (???) Examination of @eq:oscillator_x1, @eq:oscillator_x2, and @eq:oscillator_dispersion will show that it is all right to use exponential notation and let $d/dt \rightarrow i\omega$ for $x_1$ and $x_2$, as long as we keep $E_0$ real and allow $\bar{x}_1$ and $\bar{x}_2$ to be complex. @eq:oscillator_x1 and @eq:oscillator_x2 become
+For instance, if $x_1$ is the displacement of a spring damped by friction, the last term represents a force proportional to the velocity. If $x_1$ is the electron density in a plasma wave damped by electron–neutral collisions, $\Gamma_1$ is $v_c/2$ (???) Examination of @eq:oscillator_x1, @eq:oscillator_x2, and @eq:oscillator_dispersion will show that it is all right to use exponential notation and let $\mathrm{d}/\mathrm{d}t \rightarrow i\omega$ for $x_1$ and $x_2$, as long as we keep $E_0$ real and allow $\bar{x}_1$ and $\bar{x}_2$ to be complex. @eq:oscillator_x1 and @eq:oscillator_x2 become
 
 $$
 \begin{aligned}

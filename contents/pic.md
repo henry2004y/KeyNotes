@@ -51,13 +51,13 @@ comparable to the Alfvén speed which causes higher wave decay through Landau da
 Consider the growth rate of a single unstable wave in a 1D-1V Vlasov-Poisson system of plasma. The energy conservation leads to
 
 $$
-\frac{d}{dt}\Big(\frac{\epsilon_0}{2}E(x)^2\Big) + \int q v E(x)f(x,v)dv = 0
+\frac{\mathrm{d}}{dt}\Big(\frac{\epsilon_0}{2}E(x)^2\Big) + \int q v E(x)f(x,v)dv = 0
 $$
 
 For a single mode $E(x,t) = A(t)\sin(kx-\omega t)$, the growth rate is
 
 $$
-\gamma = \frac{1}{A}\frac{dA}{dt} = -\int qvEfdv = -\sum_j q_j w_j E(x_j)
+\gamma = \frac{1}{A}\frac{\mathrm{d}A}{\mathrm{d}t} = -\int qvEfdv = -\sum_j q_j w_j E(x_j)
 $$
 
 where $w_j$ is the particle weight. All kinetic information lies in the marker particle position distribution.

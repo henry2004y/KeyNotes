@@ -19,11 +19,11 @@ $$
 where $q_s, n_s, \mathbf{V}_s$ are the charge, number density and bulk velocity of ion species s calculated by taking moments of the distribution function
 
 $$
-n_s = \int d^3 v f_s(\mathbf{r}_s,\mathbf{v}_s,t)
+n_s = \int \mathrm{d}^3 v f_s(\mathbf{r}_s,\mathbf{v}_s,t)
 $$
 
 $$
-\mathbf{u}_s = \frac{1}{n_s}\int d^3 v \mathbf{v}_s f_s(\mathbf{r}_s,\mathbf{v}_s,t)
+\mathbf{u}_s = \frac{1}{n_s}\int \mathrm{d}^3 v \mathbf{v}_s f_s(\mathbf{r}_s,\mathbf{v}_s,t)
 $$
 
 or in the corresponding discrete forms where the distribution function is represented as a group of macro-particles with a specific shape function. In this way it behaves more like a particle cloud.
@@ -49,11 +49,11 @@ $$ {#eq:hybrid_Je}
 The basic equations used in the conventional PIC hybrid model first has a particle pusher for individual ions 
 
 $$
-\frac{d\mathbf{x}_j}{dt} = \mathbf{v}_j
+\frac{\mathrm{d}\mathbf{x}_j}{\mathrm{d}t} = \mathbf{v}_j
 $$
 
 $$
-\frac{d\mathbf{v}_j}{dt} = \frac{q_j}{m_j}\big( \mathbf{E} + \mathbf{v}_j \times \mathbf{B} \big)
+\frac{\mathrm{d}\mathbf{v}_j}{\mathrm{d}t} = \frac{q_j}{m_j}\big( \mathbf{E} + \mathbf{v}_j \times \mathbf{B} \big)
 $$
 
 where the subscript $j$ and $e$ indicate the indices for individual ions and the electron fluid and other notations are standard. The lowercase velocities are velocities for each macro-particle.
@@ -206,7 +206,7 @@ $$
 For hybrid models,
 
 $$
-\overleftrightarrow{P} = p_e\mathbf{I} + \int m_i f_i \mathbf{w}\mathbf{w}d\mathbf{w}
+\overleftrightarrow{P} = p_e\mathbf{I} + \int m_i f_i \mathbf{w}\mathbf{w}\mathrm{d}\mathbf{w}
 $$
 
 Thus Hall-MHD is a "cold-ion" model in the sense that it does not include ion finite Larmor radius (FLR) or other kinetic effects from warm distribution functions.
@@ -323,7 +323,7 @@ The fundamental electrostatic mode in the hybrid-PIC model is the ion acoustic w
 The dispersion relation is
 
 $$
-\frac{dZ(\zeta)}{d\zeta} = 2\frac{T_i}{T_e},\quad \zeta\equiv \frac{\omega-i\gamma}{kv_{\text{th},i}}
+\frac{dZ(\zeta)}{\mathrm{d}\zeta} = 2\frac{T_i}{T_e},\quad \zeta\equiv \frac{\omega-i\gamma}{kv_{\text{th},i}}
 $$
 
 ![Growth rate from a VPIC hybrid simulation.](images/Ion_acoustic_wave_hybrid_vpic.png){#fig:vpic_ldiaw}

@@ -257,13 +257,13 @@ where the plasma varies on frequency scales $\omega$ small compared to the gyrof
 The integral form of mass conservation for each species is
 
 $$
-\frac{d}{dt}\int_V \rho_s dx^3=0
+\frac{\mathrm{d}}{\mathrm{d}t}\int_V \rho_s dx^3=0
 $$
 
 The conservation of matter requires that the total number of particles $N_s$ in a volume V can change only if there is a net flux of particles across the surface S bounding that volume. Since the particle flux density is $n_s\mathbf{u}_s$, we have, by the divergence theorem,
 
 $$
-\frac{\partial N_s}{\partial t} = \int_V\frac{\partial n_s}{\partial t}dV = -\oint n\mathbf{u}_s\cdot d\mathbf{S} = - \int_V \nabla\cdot(n_s\mathbf{u}_s)dV
+\frac{\partial N_s}{\partial t} = \int_V\frac{\partial n_s}{\partial t}dV = -\oint n\mathbf{u}_s\cdot \mathrm{d}\mathbf{S} = - \int_V \nabla\cdot(n_s\mathbf{u}_s)dV
 $$
 
 Since this must hold for any volume V, the integrands must be equal:
@@ -281,13 +281,13 @@ Maxwell’s equations tell us what $\mathbf{E}$ and $\mathbf{B}$ are for a given
 The equation of motion for a single particle is
 
 $$
-m\frac{d\mathbf{v}}{dt} = q(\mathbf{E}+\mathbf{v}\times\mathbf{B})
+m\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = q(\mathbf{E}+\mathbf{v}\times\mathbf{B})
 $$ {#eq:single_motion}
 
 Assume first that there are no collisions and no thermal motions. Then all the particles in a fluid element move together, and the average velocity $\mathbf{u}$ of the particles in the element is the same as the individual particle velocity $\mathbf{v}$. The fluid equation is obtained simply by multiplying @eq:single_motion by the density $n$:
 
 $$
-mn\frac{d\mathbf{u}}{dt} = qn(\mathbf{E}+\mathbf{u}\times\mathbf{B})
+mn\frac{\mathrm{d}\mathbf{u}}{\mathrm{d}t} = qn(\mathbf{E}+\mathbf{u}\times\mathbf{B})
 $$ {#eq:single_fluid1}
 
 This is, however, not a convenient form to use. In @eq:single_motion, the time derivative is to be taken _at the position of the particles_. On the other hand, we wish to have an equation for fluid elements _fixed in space_, because it would be impractical to do otherwise. Consider a drop of cream in a cup of coffee as a fluid element. As the coffee is stirred, the drop distorts into a filament and finally disperses all over the cup, losing its identity. A fluid element at a fixed spot in the cup, however, retains its identity although particles continually go in and out of it.
@@ -295,13 +295,13 @@ This is, however, not a convenient form to use. In @eq:single_motion, the time d
 To make the transformation to variables in a fixed frame, consider $\mathbf{G}(x,t)$ to be any property of a fluid in one-dimensional x space. The change of $\mathbf{G}$ with time _in a frame moving with the fluid_ is the sum of two terms:
 
 $$
-\frac{d\mathbf{G}(x,t)}{dt} = \frac{\partial \mathbf{G}}{\partial t} + \frac{\partial \mathbf{G}}{\partial x}\frac{\partial x}{\partial t} = \frac{\partial \mathbf{G}}{\partial t} + u_x\frac{\partial \mathbf{G}}{\partial x}
+\frac{\mathrm{d}\mathbf{G}(x,t)}{\mathrm{d}t} = \frac{\partial \mathbf{G}}{\partial t} + \frac{\partial \mathbf{G}}{\partial x}\frac{\partial x}{\partial t} = \frac{\partial \mathbf{G}}{\partial t} + u_x\frac{\partial \mathbf{G}}{\partial x}
 $$
 
 The first term on the right represents the change of $\mathbf{G}$ at a fixed point in space, and the second term represents the change of G as the observer moves with the fluid into a region in which $\mathbf{G}$ is different. In three dimensions, this generalizes to
 
 $$
-\frac{d\mathbf{G}}{dt} = \frac{\partial \mathbf{G}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{G}
+\frac{\mathrm{d}\mathbf{G}}{\mathrm{d}t} = \frac{\partial \mathbf{G}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{G}
 $$
 
 This is called the _convective derivative_ and is sometimes written $\frac{D\mathbf{G}}{Dt}$. Note that $(\mathbf{u}\cdot\nabla)$ is a _scalar_ differential operator.
@@ -351,7 +351,7 @@ $$ {#eq:momentum_single}
 This can also be written as (including the pressure term and other forces)
 
 $$
-\rho\frac{d\mathbf{u}}{dt}=(\rho^\ast \mathbf{E}+\mathbf{j}\times\mathbf{B})-\nabla\cdot\overleftrightarrow{P}+\mathbf{f}_n
+\rho\frac{\mathrm{d}\mathbf{u}}{\mathrm{d}t}=(\rho^\ast \mathbf{E}+\mathbf{j}\times\mathbf{B})-\nabla\cdot\overleftrightarrow{P}+\mathbf{f}_n
 $$
 
 or, in an equivalent conservative form,
@@ -625,7 +625,7 @@ If $g(v)$ is a continuous distribution in general, $g(v)=\sum_j g_j(v)$, then
 
 $$
 \begin{aligned}
-\frac{\epsilon}{\epsilon_0}&=1-\int_{-\infty}^{\infty}\sum_j \frac{{\omega_{p,j}}^2 g_j(v)dv}{(\omega-kv)^2} \\ &=1-\frac{{\omega_{pe}}^2}{k^2}\int_{-\infty}^{\infty}\frac{g(v)dv}{(v-\omega/k)^2}.
+\frac{\epsilon}{\epsilon_0}&=1-\int_{-\infty}^{\infty}\sum_j \frac{{\omega_{p,j}}^2 g_j(v)\mathrm{d}v}{(\omega-kv)^2} \\ &=1-\frac{{\omega_{pe}}^2}{k^2}\int_{-\infty}^{\infty}\frac{g(v)\mathrm{d}v}{(v-\omega/k)^2}.
 \end{aligned}
 $$
 
@@ -636,7 +636,7 @@ Then what happens if ion motion is included? We still have "cold" ions at rest i
 $$
 \begin{aligned}
 \nabla\cdot(\epsilon_0 \mathbf{E}_1)&=\sum_{j=i,e} q_j n_{1j} \\
-\Rightarrow \frac{\epsilon}{\epsilon_0}&=1-\frac{{\omega_{pe}}^2}{k^2}\int_{-\infty}^{\infty}dv \frac{\partial g_e(v)/\partial v}{v-\omega/k}-\frac{{\omega_{pi}}^2}{k^2}\int_{-\infty}^{\infty}dv \frac{\partial g_i(v)/\partial v}{v-\omega/k}
+\Rightarrow \frac{\epsilon}{\epsilon_0}&=1-\frac{{\omega_{pe}}^2}{k^2}\int_{-\infty}^{\infty}\mathrm{d}v \frac{\partial g_e(v)/\partial v}{v-\omega/k}-\frac{{\omega_{pi}}^2}{k^2}\int_{-\infty}^{\infty}\mathrm{d}v \frac{\partial g_i(v)/\partial v}{v-\omega/k}
 \end{aligned}
 $$
 

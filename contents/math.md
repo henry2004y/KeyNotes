@@ -53,7 +53,7 @@ $$
 The differential of line segments in a fluid is:
 
 $$
-\frac{d\mathbf{l}}{dt} = \mathbf{l}\cdot\nabla\mathbf{u}
+\frac{\mathrm{d}\mathbf{l}}{\mathrm{d}t} = \mathbf{l}\cdot\nabla\mathbf{u}
 $$ {#eq:line_diff}
 
 _Proof_. Let the two line segments $\mathbf{l}_1$ and $\mathbf{l}_2$ be expressed as starting point vectors and end point vectors:
@@ -92,7 +92,7 @@ In complex analysis, the following statements are equivalent:
 2. $\oint_C f(z)dz=0$ for every closed contour $C$ that lies in that neighbourhood of $z_0$.
 3. $df(z)/dz$ exists at $z=z_0$.
 4. $f(z)$ has a convergent Taylor expansion about $z=z_0$.
-5. The $n^{th}$ derivative $d^nf(z)/dz^n$ exists at $z=z_0$ for all $n$.
+5. The $n^{th}$ derivative $\mathrm{d}^nf(z)/dz^n$ exists at $z=z_0$ for all $n$.
 6. The _Cauchy-Riemann condition_ is satisfied at $z=z_0$. Take $u$ and $v$ to be the real and imaginary parts respectively of a complex-valued function of a single complex variable $z = x + iy$, $f(x + iy) = u(x,y) + iv(x,y)$.
 
 $$
@@ -123,7 +123,7 @@ Such a function $g(z)$, which coincides with a given analytic $f(z)$ over that r
 _Ex.2_ Laplace transform
 
 $$
-\mathcal{L}[1]= \int_0^\infty dt 1\cdot e^{i\omega t}=-\frac{1}{i\omega},\, \textrm{if } \Im(\omega)>0
+\mathcal{L}[1]= \int_0^\infty \mathrm{d}t 1\cdot e^{i\omega t}=-\frac{1}{i\omega},\, \textrm{if } \Im(\omega)>0
 $$
 
 If you have a pure real frequency $\omega$, then when you integrate $v$ over the real axis, at $v=\omega/k$ you will encounter a singular point. Actually, this integration is convergent if and only if $\Im(\omega)>0$. $-\frac{1}{i\omega}$ is the _analytic continuation_ of $f(\omega)$ for all complex $\omega$ except $\omega=0$.
@@ -140,10 +140,10 @@ $$
 $$ 
 
 _Proof:_
-On $C_\epsilon$, $z=\alpha+\epsilon e^{i\theta}$, $dz=i\epsilon e^{i\theta}d\theta$.
+On $C_\epsilon$, $z=\alpha+\epsilon e^{i\theta}$, $dz=i\epsilon e^{i\theta}\mathrm{d}\theta$.
 
 $$
-LHS=\lim_{\epsilon\rightarrow0}\int_{C_\epsilon}\frac{f(\alpha+\epsilon e^{i\theta})i\epsilon e^{i\theta}d\theta}{\epsilon e^{i\theta}}=i\theta_0 f(\alpha).
+LHS=\lim_{\epsilon\rightarrow0}\int_{C_\epsilon}\frac{f(\alpha+\epsilon e^{i\theta})i\epsilon e^{i\theta}\mathrm{d}\theta}{\epsilon e^{i\theta}}=i\theta_0 f(\alpha).
 $$
 □
 
@@ -392,10 +392,10 @@ $$
 
 where $\delta(x)$ is the $\delta$-function.
 
-The integral $\int_0^{\infty}\frac{\sin x}{x}dx$ is called the Dirichlet integral. It is a very famous and important generalized improper integral. Here at least you can see that 
+The integral $\int_0^{\infty}\frac{\sin x}{x}\mathrm{d}x$ is called the Dirichlet integral. It is a very famous and important generalized improper integral. Here at least you can see that 
 
 $$
-\int_{-\infty}^{\infty}G(x,0)=\frac{1}{\pi}\int_0^\infty \frac{\sin kx}{x}dx=1\quad \textrm{and}\quad G(0,0)=\infty
+\int_{-\infty}^{\infty}G(x,0)=\frac{1}{\pi}\int_0^\infty \frac{\sin kx}{x}\mathrm{d}x=1\quad \textrm{and}\quad G(0,0)=\infty
 $$
 
 ## Linearization
@@ -435,7 +435,7 @@ The waves in plasma physics is governed by second order ODEs. Here we list some 
 * Schrödinger Equation:
 
 $$
-\frac{d^2\varphi}{dx^2} + \frac{2m}{\hbar^2}\big[ E-U(x)\big]\varphi= 0
+\frac{\mathrm{d}^2\varphi}{\mathrm{d}x^2} + \frac{2m}{\hbar^2}\big[ E-U(x)\big]\varphi= 0
 $$
 
 Schrödinger Equation appears in the nonlinear wave studies (@sec:nonlinear).
@@ -443,7 +443,7 @@ Schrödinger Equation appears in the nonlinear wave studies (@sec:nonlinear).
 * Shear Alfvén wave:
 
 $$
-\frac{d}{dx}\Big\{ \rho_0 \big[ \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A(x))^2 \big]\frac{dE}{dx} \Big\} - k^2\rho_0 \big[ \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2 - g\frac{1}{\rho_0}\frac{d\rho_0}{dx} \big]E = 0
+\frac{\mathrm{d}}{\mathrm{d}x}\Big\{ \rho_0 \big[ \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A(x))^2 \big]\frac{dE}{\mathrm{d}x} \Big\} - k^2\rho_0 \big[ \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2 - g\frac{1}{\rho_0}\frac{\mathrm{d}\rho_0}{\mathrm{d}x} \big]E = 0
 $$
 
 The Shear Alfvén wave equation appears in nonuniform ideal MHD (@eq:mhd_cold_e_wave, @eq:flr_wave_ey).
@@ -451,37 +451,37 @@ The Shear Alfvén wave equation appears in nonuniform ideal MHD (@eq:mhd_cold_e_
 * EM waves in non-magnetized plasma, O mode:
 
 $$
-\frac{d^2 E}{dx^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2} \Big]E = 0  
+\frac{\mathrm{d}^2 E}{\mathrm{d}x^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2} \Big]E = 0  
 $$ {#eq:ODE_Omode}
 
 * Electron cyclotron resonance heating (ECRH):
 
 $$
-\frac{d^2 E}{dx^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega(\omega-\Omega_e(x))} \Big]E = 0
+\frac{\mathrm{d}^2 E}{\mathrm{d}x^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega(\omega-\Omega_e(x))} \Big]E = 0
 $$
 
 In general, a second order ODE
 
 $$
-\frac{d^2 u(x)}{dx^2} + a_1(x)\frac{du(x)}{dx} + a_2(x)u(x) = 0
+\frac{\mathrm{d}^2 u(x)}{\mathrm{d}x^2} + a_1(x)\frac{du(x)}{\mathrm{d}x} + a_2(x)u(x) = 0
 $$
 
 can be rewritten to get rid of the first derivative. Let
 
 $$
-u(x) = E(x) e^{-\frac{1}{2}\int^x a_1(x)dx}
+u(x) = E(x) e^{-\frac{1}{2}\int^x a_1(x)\mathrm{d}x}
 $$
 
 we have
 
 $$
-\frac{d^2 E(x)}{dx^2} + k^2(x) E(x) = 0
+\frac{\mathrm{d}^2 E(x)}{\mathrm{d}x^2} + k^2(x) E(x) = 0
 $$ {#eq:2nd_ODE}
 
 where
 
 $$
-k^2(x) = a_2(x) - \frac{{a_1}^2}{4} -\frac{1}{2}\frac{d a_1(x)}{dx}
+k^2(x) = a_2(x) - \frac{{a_1}^2}{4} -\frac{1}{2}\frac{\mathrm{d} a_1(x)}{\mathrm{d}x}
 $$
 
 Note that the lower bound of the integral is left on purpose to account for a constant. We will concentrate at special points, i.e. zeros (cutoff) and poles (resonance) of $k^2(x)\equiv \frac{\omega^2}{c^2}n^2(x)$. 
@@ -489,7 +489,7 @@ Note that the lower bound of the integral is left on purpose to account for a co
 First, we will introduce _Wentzel–Kramers–Brillouin-Jeffreys_ ([WKBJ](https://en.wikipedia.org/wiki/WKB_approximation)) solution to @eq:2nd_ODE:
 
 $$
-E(x) \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x^\prime)dx^\prime}.
+E(x) \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x^\prime)\mathrm{d}x^\prime}.
 $$
 
 _Proof_.
@@ -497,7 +497,7 @@ _Proof_.
 For simplicity, here we use a simple harmonic oscillation analogy. Consider
 
 $$
-\frac{d^2 x(t)}{dt^2} + \Omega^2(t)x(t) = 0
+\frac{\mathrm{d}^2 x(t)}{\mathrm{d}t^2} + \Omega^2(t)x(t) = 0
 $$
 
 Assume $\Omega \gg 1$, and $T$ is the time scale over which $\Omega$ changes appreciably. We would anticipate solutions like
@@ -507,7 +507,7 @@ $$
 &x(t)\sim e^{\pm i \Phi(t)} \\
 &\dot{x}(t) \sim \pm i \dot{\Phi}(t) x(t) \\
 &\ddot{x}(t) \sim - \dot{\Phi}^2(t) x(t) \cancel{\pm i \ddot{\Phi}(t)x(t)} \\
-\Rightarrow &\dot{\Phi}(t) = \Omega(t),\ \text{or } \Phi(t) = \int^t \Omega(t^\prime) dt^\prime + \text{const.}
+\Rightarrow &\dot{\Phi}(t) = \Omega(t),\ \text{or } \Phi(t) = \int^t \Omega(t^\prime) \mathrm{d}t^\prime + \text{const.}
 \end{aligned}
 $$
 
@@ -515,15 +515,15 @@ Write $x(t) = A(t)\sin{[\Phi(t)]}$, where $A(t)$ is slowly varying in time, $\do
 
 $$
 \begin{aligned}
-\oint mv_x d x \simeq \text{const.} \\
-\oint m\dot{x}\dot{x}dt \simeq \text{const.}
+\oint mv_x \mathrm{d} x \simeq \text{const.} \\
+\oint m\dot{x}\dot{x}\mathrm{d}t \simeq \text{const.}
 \end{aligned}
 $$
 
 Then in a period $2\pi/\Omega$,
 
 $$
-\frac{2\pi}{\Omega}\oint m\dot{x}^2dt =\frac{2\pi}{\Omega}\oint mA^2 \Omega^2\cos^2\Phi dt \simeq \text{const.}
+\frac{2\pi}{\Omega}\oint m\dot{x}^2dt =\frac{2\pi}{\Omega}\oint mA^2 \Omega^2\cos^2\Phi \mathrm{d}t \simeq \text{const.}
 $$
 
 which leads to
@@ -535,7 +535,7 @@ $$
 Thus the general form of solution can be written as
 
 $$
-x(t)\sim\frac{1}{\sqrt{\Omega}}e^{\pm i \Phi(t)} \sim\frac{1}{\sqrt{\Omega}} e^{\pm i \int^t \Omega(t^\prime)dt^\prime+\text{const.}}
+x(t)\sim\frac{1}{\sqrt{\Omega}}e^{\pm i \Phi(t)} \sim\frac{1}{\sqrt{\Omega}} e^{\pm i \int^t \Omega(t^\prime)\mathrm{d}t^\prime+\text{const.}}
 $$
 
 □
@@ -550,7 +550,7 @@ Note:
 We want to develop a general method for cut-off and resonance. Away from the turning point $x_t$,
 
 $$
-E_{\text{WKBJ}}(x) \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x)dx}
+E_{\text{WKBJ}}(x) \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x)\mathrm{d}x}
 $$
 
 Near $x=x_t$, we can use a linear approximation for $k^2(x)$ (first term in the Taylor expansion),
@@ -563,27 +563,27 @@ Then
 
 $$
 \begin{aligned}
-\frac{d^2 E}{dx^2} + k^2(x)E &= 0 \\
-\frac{d^2 E}{dx^2} - {k_0}^2 a (x-x_t) E &= 0
+\frac{\mathrm{d}^2 E}{\mathrm{d}x^2} + k^2(x)E &= 0 \\
+\frac{\mathrm{d}^2 E}{\mathrm{d}x^2} - {k_0}^2 a (x-x_t) E &= 0
 \end{aligned}
 $$
 
 Let $\frac{x-x_t}{l}=\zeta$, we have
 
 $$
-\frac{d^2 E}{d\zeta^2} - l^2 {k_0}^2 a l \zeta E(\zeta) = 0
+\frac{\mathrm{d}^2 E}{\mathrm{d}\zeta^2} - l^2 {k_0}^2 a l \zeta E(\zeta) = 0
 $$
 
 If we choose $l$ s.t. $l^3 {k_0}^2 a =1$ (non-dimensional treatment), we obtain
 
 $$
-\frac{d^2 E}{d\zeta^2} - \zeta E(\zeta) = 0
+\frac{\mathrm{d}^2 E}{\mathrm{d}\zeta^2} - \zeta E(\zeta) = 0
 $$ {#eq:stokes}
 
 which is equivalent to the case where $k^2(\zeta)=-\zeta$ that shows the linear approximation. @eq:stokes, known as the _Airy equation_ or _Stokes equation_, is the simplest second-order linear differential equation with a turning point (a point where the character of the solutions changes from oscillatory to exponential). From the WKBJ theory, we get the solution
 
 $$
-E_{\text{WKBJ}} \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x^\prime)dx^\prime}
+E_{\text{WKBJ}} \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x^\prime)\mathrm{d}x^\prime}
 = \left\{
 \begin{array}{rl}
 \zeta^{-1/4}e^{\mp\frac{2}{3}\zeta^{3/2}} & \text{if } \zeta > 0 \\
@@ -607,15 +607,15 @@ This form is usually not easy to interpret in physical sense. Besides this, we c
 Write
 
 $$
-E(\zeta) = \int_a^b dt e^{t\zeta} f(t)
+E(\zeta) = \int_a^b \mathrm{d}t e^{t\zeta} f(t)
 $$
 
 where the integral represents a path in the complex t plane from $a$ to $b$. Then
 
 $$
 \begin{aligned}
-\frac{d^2 E}{d\zeta^2} &= \int_a^b dt\ t^2 e^{t\zeta} f(t) \\
-\zeta E(\zeta) &= \int_a^b dt \zeta e^{t\zeta} f(t) = \int_a^b dt \frac{d}{dt}(e^{t\zeta}) f(t) \\
+\frac{\mathrm{d}^2 E}{\mathrm{d}\zeta^2} &= \int_a^b \mathrm{d}t\ t^2 e^{t\zeta} f(t) \\
+\zeta E(\zeta) &= \int_a^b \mathrm{d}t \zeta e^{t\zeta} f(t) = \int_a^b \mathrm{d}t \frac{\mathrm{d}}{\mathrm{d}t}(e^{t\zeta}) f(t) \\
 &=e^{t\zeta} f(t) \Big|_a^b -\int_a^b dte^{t\zeta} f^\prime(t)
 \end{aligned}
 $$
@@ -626,14 +626,14 @@ $$
 \left\{
 \begin{array}{l}
 e^{t\zeta} f(t) \Big|_a^b  = 0\\
-t^2 f(t) = -\frac{d f(t)}{dt} \Rightarrow f(t) = Ae^{-\frac{1}{3}t^3}
+t^2 f(t) = -\frac{\mathrm{d} f(t)}{\mathrm{d}t} \Rightarrow f(t) = Ae^{-\frac{1}{3}t^3}
 \end{array} \right.
 $$
 
 where $A$ is a constant. The solution is now written as
 
 $$
-E(\zeta) = \int_a^b dt Ae^{t\zeta-\frac{1}{3}t^3}
+E(\zeta) = \int_a^b \mathrm{d}t Ae^{t\zeta-\frac{1}{3}t^3}
 $$
 
 The limits $a$ and $b$ must therefore be chosen so that $e^{t\zeta-\frac{1}{3}t^3}$ is zero for both. (Note that $\zeta$ is a constant.) This is only possible if $t=\infty$ and the real part of $t^3$ is positive:
@@ -648,7 +648,7 @@ $$
 where $n$ is an integer. @fig:stokes_sol is a diagram of the complex t-plane, and $a$ and $b$ must each be at $\infty$ in one of the shaded sectors. They cannot both be in the same sector, for then the integral would be zero. Hence the contour may be chosen in three ways, as shown by the three curves $C_1,C_2,C_3$, and the solution would be
 
 $$
-E(\zeta) = \int_{C_1,C_2,C_3} dt\ e^{t\zeta-\frac{1}{3}t^3}
+E(\zeta) = \int_{C_1,C_2,C_3} \mathrm{d}t\ e^{t\zeta-\frac{1}{3}t^3}
 $$
 
 This might appear at first to give three independent solutions, but the contour $C_1$ and be distorted so as to coincide with the two contours $C_2+C_3$, so that 
@@ -689,8 +689,8 @@ Jeffreys (1956) defines two special [Airy functions](https://en.wikipedia.org/wi
 
 $$
 \begin{aligned}
-Ai(\zeta) &= \frac{1}{2\pi i}\int_{C_1} dt e^{-\frac{1}{3}t^3 + \zeta t} \\
-Bi(\zeta) &= \frac{1}{2\pi} \Big[\int_{C_2}+\int_{C_3}\Big]dt e^{-\frac{1}{3}t^3 + \zeta t}
+Ai(\zeta) &= \frac{1}{2\pi i}\int_{C_1} \mathrm{d}t e^{-\frac{1}{3}t^3 + \zeta t} \\
+Bi(\zeta) &= \frac{1}{2\pi} \Big[\int_{C_2}+\int_{C_3}\Big]\mathrm{d}t e^{-\frac{1}{3}t^3 + \zeta t}
 \end{aligned}
 $$ {#eq:airy_func}
 
@@ -734,7 +734,7 @@ The procedure goes as follows:
 2. Obtain major contribution by integrating the Gaussian function.
 
 $$
-I=\int_C dt e^{f(t)},\quad f(t) = f(t_s) + (t-t_s)f^\prime(t_s) + \frac{1}{2}(t-t_s)^2 f^{\prime\prime}(t_s) + ...
+I=\int_C \mathrm{d}t e^{f(t)},\quad f(t) = f(t_s) + (t-t_s)f^\prime(t_s) + \frac{1}{2}(t-t_s)^2 f^{\prime\prime}(t_s) + ...
 $$
 
 where $f^\prime(t_s)=0$ at the saddle point $t=t_s$ simplifies $I$ to the integral of a Gaussian function.
@@ -762,8 +762,8 @@ So
 
 $$
 \begin{aligned}
-Ai(\zeta) &= \frac{1}{2\pi i} \int_{C_1} dt\ e^{-\frac{2}{3}\zeta^{3/2}+\zeta^{1/2}(t-t_s)^2}+... \\
-&\approx\frac{1}{2\pi i} e^{-\frac{2}{3}\zeta^{3/2}}\int_{C_1}dt\ e^{\sqrt{\zeta}(t-t_s)^2}
+Ai(\zeta) &= \frac{1}{2\pi i} \int_{C_1} \mathrm{d}t\ e^{-\frac{2}{3}\zeta^{3/2}+\zeta^{1/2}(t-t_s)^2}+... \\
+&\approx\frac{1}{2\pi i} e^{-\frac{2}{3}\zeta^{3/2}}\int_{C_1}\mathrm{d}t\ e^{\sqrt{\zeta}(t-t_s)^2}
 \end{aligned}
 $$
 
@@ -772,7 +772,7 @@ Let $e^{\sqrt{\zeta}(t-t_s)^2}=e^{-\rho^2}$, where $\rho=\text{real}$ is the dir
 $$
 \begin{aligned}
 i\rho &= \pm \zeta^{1/4} (t-t_s) \\
-dt&=\frac{i d\rho}{\zeta^{1/4}} \Rightarrow\ dt \text{ is purely imaginary along steepest descent.}
+\mathrm{d}t&=\frac{i \mathrm{d}\rho}{\zeta^{1/4}} \Rightarrow\ \mathrm{d}t \text{ is purely imaginary along steepest descent.}
 \end{aligned}
 $$
 
@@ -815,14 +815,14 @@ $$
 Let $-\rho^2=i\sqrt{|\zeta|}(t-t_{s1})^2$, differentiate on both sides to get
 
 $$
-dt = \pm\frac{e^{i\pi/4}}{|\zeta|^{1/4}}d\rho
+\mathrm{d}t = \pm\frac{e^{i\pi/4}}{|\zeta|^{1/4}}\mathrm{d}\rho
 $$
 
 Again, $\rho=\text{real}$ is the direction of steepest descent at $t=t_{s1}$. Do the same to $t_{s2}$, then by summing them up we have for $\zeta<0$,
 
 $$
 \begin{aligned}
-Ai(\zeta) &\approx \frac{1}{2\pi i} \Big[ e^{i\frac{2}{3}|\zeta|^{3/2}}\int_{-\infty}^{\infty}\frac{e^{i\pi/4}}{|\zeta|^{1/4}}d\rho e^{-\rho^2} - e^{-i\frac{2}{3}|\zeta|^{3/2}}\int_{-\infty}^{\infty}\frac{e^{-i\pi/4}}{|\zeta|^{1/4}}d\rho e^{-\rho^2} \Big] \\
+Ai(\zeta) &\approx \frac{1}{2\pi i} \Big[ e^{i\frac{2}{3}|\zeta|^{3/2}}\int_{-\infty}^{\infty}\frac{e^{i\pi/4}}{|\zeta|^{1/4}}\mathrm{d}\rho e^{-\rho^2} - e^{-i\frac{2}{3}|\zeta|^{3/2}}\int_{-\infty}^{\infty}\frac{e^{-i\pi/4}}{|\zeta|^{1/4}}\mathrm{d}\rho e^{-\rho^2} \Big] \\
 &= \frac{1}{2\pi i} \Big[ \frac{e^{i\frac{2}{3}|\zeta|^{3/2}+i\pi/4}}{{|\zeta|^{1/4}}} \sqrt{\pi} - \frac{e^{-i\frac{2}{3}|\zeta|^{3/2}-i\pi/4}}{{|\zeta|^{1/4}}} \sqrt{\pi} \Big]
 \end{aligned}
 $$ {#eq:airy_approxi_negative}
@@ -830,7 +830,7 @@ $$ {#eq:airy_approxi_negative}
 An interesting application of the gradient descent method is to find [Stirling's approximation](https://en.wikipedia.org/wiki/Stirling%27s_approximation). Mathematically, we can proof that
 
 $$
-n! =\int_0^\infty dt\ e^{-t}t^n = \int_0^\infty dt\ e^{-t+n\ln{t}} \equiv \int_0^\infty dt\ e^{f(t)}
+n! =\int_0^\infty \mathrm{d}t\ e^{-t}t^n = \int_0^\infty \mathrm{d}t\ e^{-t+n\ln{t}} \equiv \int_0^\infty \mathrm{d}t\ e^{f(t)}
 $$
 
 and by following the steepest descent method,
@@ -847,8 +847,8 @@ we can find the approximation Stirling formula
 
 $$
 \begin{aligned}
-n! &\approx \int_0^\infty dt\ e^{-n+n\ln{n}-\frac{1}{2n}(t-t_s)^2} \\
-&=e^{-n}n^n \int_0^\infty dt\ e^{-\frac{1}{2n}(t-t_s)^2} \\
+n! &\approx \int_0^\infty \mathrm{d}t\ e^{-n+n\ln{n}-\frac{1}{2n}(t-t_s)^2} \\
+&=e^{-n}n^n \int_0^\infty \mathrm{d}t\ e^{-\frac{1}{2n}(t-t_s)^2} \\
 &=\sqrt{2n\pi}e^{-n}n^n
 \end{aligned}
 $$
@@ -868,13 +868,13 @@ In this section, we present the WKBJ solution that is uniformly valid everywhere
 Consider the standard equation,
 
 $$
-\frac{d^2E(x)}{dx^2}+k^2(x)E(x) = 0
+\frac{\mathrm{d}^2E(x)}{\mathrm{d}x^2}+k^2(x)E(x) = 0
 $$
 
 Let $x=0$ be the turning point, i.e. we assume that $k^2(x)$ is a monotonically decreasing function of $x$ with $k(0)=0$. For the region $x>0$, we first identify the exponentially decaying factor of the Airy function, $Ai(\zeta)$, to be the phase integral in the WKBJ solution:
 
 $$
--\frac{2}{3}\zeta^{3/2} = i \int_0^x k(x^\prime)dx^\prime
+-\frac{2}{3}\zeta^{3/2} = i \int_0^x k(x^\prime)\mathrm{d}x^\prime
 $$
 
 Note that this yields $\zeta=\zeta(x)$, _a known function of x_ (I confuse myself later about $\zeta$ and $x$...). The branch for $\zeta(x)$ is to be chosen so that for $x>0$, $\zeta$ is real and positive.
@@ -897,7 +897,7 @@ $$
 we can see that @eq:WKBJ_uniform_valid_sol reduces to the standard WKBJ solutions for large values of $\zeta$
 
 $$
-E(x)= \frac{1}{\sqrt{\zeta^\prime(x)}}Ai(\zeta) \sim \frac{1}{\sqrt{k(x)}} e^{-\frac{2}{3}\zeta^{3/2}} = \frac{1}{\sqrt{k(x)}}e^{ i \int_0^x k(x^\prime)dx^\prime}
+E(x)= \frac{1}{\sqrt{\zeta^\prime(x)}}Ai(\zeta) \sim \frac{1}{\sqrt{k(x)}} e^{-\frac{2}{3}\zeta^{3/2}} = \frac{1}{\sqrt{k(x)}}e^{ i \int_0^x k(x^\prime)\mathrm{d}x^\prime}
 $$
 
 We can also show that @eq:WKBJ_uniform_valid_sol is valid for small values of $\zeta$, i.e. near the turning point at $x=0$. (Hint: Near $x=0$, $k^2(x)$ may be approximated by a linear function of $x$. This linear approximation then yields $\zeta(x)$ as a linear function of $x$ according to @eq:WKBJ_uniform_valid_sol.)
@@ -911,7 +911,7 @@ $$
 and launch a wave of frequency $\omega$ from $x=-\infty$, the vacuum region, toward the positive $x$-direction with $\frac{\omega^2}{c^2} = 10 \text{m}^{-2}$. (This is like launching a wave from low $B$ region into high $B$ region.) Numerically integrate the wave equation @eq:ODE_Omode,
 
 $$
-\frac{d^2 E}{dx^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2} \Big]E = 0
+\frac{\mathrm{d}^2 E}{\mathrm{d}x^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2} \Big]E = 0
 $$
 
 from some large positive values of $x$, we get the results in @fig:Omode_sol.
@@ -930,23 +930,23 @@ $$
 \begin{aligned}
 E(x) &= \frac{1}{\sqrt{\zeta^\prime(x)}}Ai(\zeta) \\
 &= \frac{C_3}{\sqrt{k(x)/|\zeta|^{1/2}}}\frac{1}{|\zeta|^{1/4}}\Big\{ e^{i \frac{2}{3}|\zeta|^{3/2}+i\frac{\pi}{4}} - c.c \Big\} \\
-&= \frac{C_3}{\sqrt{k(x)}}\Big\{ e^{i(-\int_{x_t}^x k(x^\prime)dx^\prime)+i\frac{\pi}{4}} - c.c \Big\} \\
-&=\frac{C_3}{\sqrt{k(x)}}\Big\{ e^{-i\int_{x_t}^a k(x^\prime)dx^\prime - i\int_a^x k(x^\prime)dx^\prime+i\frac{\pi}{4}} -c.c \Big\} \\
-&=\frac{C_4}{\sqrt{k(x)}}\Big\{ e^{-i \int_a^x k(x^\prime)dx^\prime}-e^{i\int_{x_t}^a k(x^\prime)dx^\prime } e^{2i\int_{x_t}^a k(x^\prime)dx^\prime -i\frac{\pi}{2}} \Big\} \\
-&=\frac{C_4}{\sqrt{k(x)}}\Big\{ e^{-i\int_a^x k dx^\prime} + R\cdot e^{i\int_a^x k dx^\prime}  \Big\},
+&= \frac{C_3}{\sqrt{k(x)}}\Big\{ e^{i(-\int_{x_t}^x k(x^\prime)\mathrm{d}x^\prime)+i\frac{\pi}{4}} - c.c \Big\} \\
+&=\frac{C_3}{\sqrt{k(x)}}\Big\{ e^{-i\int_{x_t}^a k(x^\prime)\mathrm{d}x^\prime - i\int_a^x k(x^\prime)\mathrm{d}x^\prime+i\frac{\pi}{4}} -c.c \Big\} \\
+&=\frac{C_4}{\sqrt{k(x)}}\Big\{ e^{-i \int_a^x k(x^\prime)\mathrm{d}x^\prime}-e^{i\int_{x_t}^a k(x^\prime)\mathrm{d}x^\prime } e^{2i\int_{x_t}^a k(x^\prime)\mathrm{d}x^\prime -i\frac{\pi}{2}} \Big\} \\
+&=\frac{C_4}{\sqrt{k(x)}}\Big\{ e^{-i\int_a^x k \mathrm{d}x^\prime} + R\cdot e^{i\int_a^x k \mathrm{d}x^\prime}  \Big\},
 \end{aligned}
 $$
 
 where
 
 $$
-C_4 = C_3 \cdot e^{-i \int_{x_t}^a k dx^\prime + i\frac{\pi}{4}}
+C_4 = C_3 \cdot e^{-i \int_{x_t}^a k \mathrm{d}x^\prime + i\frac{\pi}{4}}
 $$
 
 and
 
 $$
-R = -e^{2i\int_{x_t}^a k dx^\prime - i\frac{\pi}{2}} = i e^{2i\int_{x_t}^a k dx^\prime} = i e^{-2i \int_{a}^{x_t}kdx^\prime}
+R = -e^{2i\int_{x_t}^a k \mathrm{d}x^\prime - i\frac{\pi}{2}} = i e^{2i\int_{x_t}^a k \mathrm{d}x^\prime} = i e^{-2i \int_{a}^{x_t}kdx^\prime}
 $$
 
 is the reflection coefficient at $x=a$.
@@ -958,7 +958,7 @@ In complex analysis the [Stokes phenomenon](https://en.wikipedia.org/wiki/Stokes
 _Ex_. For the simple wave equation
 
 $$
-\frac{d^2 E}{dz^2} - E = 0
+\frac{\mathrm{d}^2 E}{dz^2} - E = 0
 $$
 
 the solution can be given in various forms
@@ -987,7 +987,7 @@ The two linearly independent approximate solutions to Airy @eq:stokes are the Ai
 
 $$
 \begin{aligned}
-&\frac{d^2 E}{d\zeta^2} - \zeta E = 0 \\
+&\frac{\mathrm{d}^2 E}{\mathrm{d}\zeta^2} - \zeta E = 0 \\
 \Rightarrow &E(\zeta) = \left\{
 \begin{array}{rl}
 &Ai(\zeta)\sim \frac{1}{2\sqrt{\pi}\zeta^{1/4}}e^{-\frac{2}{3}\zeta^{3/2}},\quad \zeta>0 \\
@@ -1093,7 +1093,7 @@ _Ex_.2 O-mode
 For EM O-mode wave in a non-magnetized plasma, the governing @eq:ODE_Omode is rewritten here
 
 $$
-\frac{d^2 E}{dz^2} +k^2 E = 0,\quad k^2 = \frac{\omega^2}{c^2}\Big[ 1-\frac{{\omega_p}^2(z)}{\omega^2} \Big]
+\frac{\mathrm{d}^2 E}{dz^2} +k^2 E = 0,\quad k^2 = \frac{\omega^2}{c^2}\Big[ 1-\frac{{\omega_p}^2(z)}{\omega^2} \Big]
 $$
 
 Let the turning point be $z=z_t$. Near $z_t$, let $k^2(z)=-p^2(z)(z-z_t)$ (@fig:Omode_sol), where $p(z)$ is real and positive for all real $z$. Then
@@ -1157,7 +1157,7 @@ This is the classical potential well problem, where the two boundaries are $z=z_
 Schrödinger equation reads
 
 $$
-\frac{d^2\Psi}{dz^2} - \frac{2m}{{\hbar}^2}\big[ E-V(z)\big]\Psi = 0
+\frac{\mathrm{d}^2\Psi}{dz^2} - \frac{2m}{{\hbar}^2}\big[ E-V(z)\big]\Psi = 0
 $$
 
 Imagine there is an potential well between $z_1$ and $z_2$ shown in @fig:potential_well: what are the allowable energy state?
@@ -1368,7 +1368,7 @@ $$
 _Ex_.5 Two waves: one is launched from $z=+\infty$, incident onto a resonant layer at $z=a (a>0)$, and the other launched from $z=-\infty$, incident onto a absorption layer at $z=0$, with the model equation
 
 $$
-\frac{d^2 E(z)}{dz} + {k_0}^2 \Big( \frac{z}{z-a}\Big) E(z) = 0
+\frac{\mathrm{d}^2 E(z)}{dz} + {k_0}^2 \Big( \frac{z}{z-a}\Big) E(z) = 0
 $$
 
 This looks like a similar case for ECRH.
@@ -1519,13 +1519,13 @@ $$
 The transmission coefficient in power is
 
 $$
-|T|^2 = \frac{e^{-2\int_{x_1}^{x_2}|k|dx}}{1+e^{-2\int_{x_1}^{x_2}|k|dx}}
+|T|^2 = \frac{e^{-2\int_{x_1}^{x_2}|k|\mathrm{d}x}}{1+e^{-2\int_{x_1}^{x_2}|k|\mathrm{d}x}}
 $$
 
 and the reflection coefficient in power is
 
 $$
-|R|^2 = \frac{1}{1+e^{-2\int_{x_1}^{x_2}|k|dx}}
+|R|^2 = \frac{1}{1+e^{-2\int_{x_1}^{x_2}|k|\mathrm{d}x}}
 $$
 
 Note:
@@ -1536,7 +1536,7 @@ Note:
 * ECRH
 
 $$
-\frac{d^2E}{dz^2} + {k_0}^2\Big( \frac{z}{z-a}\Big)E = 0
+\frac{\mathrm{d}^2E}{dz^2} + {k_0}^2\Big( \frac{z}{z-a}\Big)E = 0
 $$
 
 where
@@ -1588,7 +1588,7 @@ In Newtonian mechanics, one customarily uses all three Cartesian coordinates, or
 This principle is the analogy of Newton's second law in theoretical mechanics. It states that infinitesimal virtual work done by a force across reversible displacements is zero, which is the work done by a force consistent with ideal constraints of the system. The idea of a constraint is useful --- since this limits what the system can do, and can provide steps to solving for the motion of the system. The equation for D'Alembert's principle is: 
 
 $$
-\delta W = \mathbf{Q}\cdot d\mathbf{q} = 0
+\delta W = \mathbf{Q}\cdot \mathrm{d}\mathbf{q} = 0
 $$
 
 where
@@ -1600,7 +1600,7 @@ $$
 are the generalized forces (script Q instead of ordinary Q is used here to prevent conflict with canonical transformations below) and $\mathbf{q}$ are the generalized coordinates. This leads to the generalized form of Newton's laws in the language of theoretical mechanics:
 
 $$
-\mathbf{Q} = \frac{d}{dt}\Big( \frac{\partial T}{\partial\dot{\mathbf{q}}} \Big) - \frac{\partial T}{\partial\mathbf{q}}
+\mathbf{Q} = \frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{\partial T}{\partial\dot{\mathbf{q}}} \Big) - \frac{\partial T}{\partial\mathbf{q}}
 $$
 
 where T is the total kinetic energy of the system, and the notation
@@ -1622,7 +1622,7 @@ $$
 where $T$ is the total kinetic energy and $V$ is the total potential energy of the entire system, then either following the calculus of variations or using the above formula --- lead to the Euler-Lagrange equations; 
 
 $$
-\frac{d}{dt}\Big( \frac{\partial L}{\partial\dot{\mathbf{q}}} \Big) = \frac{\partial L}{\partial\mathbf{q}}
+\frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{\partial L}{\partial\dot{\mathbf{q}}} \Big) = \frac{\partial L}{\partial\mathbf{q}}
 $$
 
 which are a set of N second-order ordinary differential equations, one for each $q_i(t)$. This formulation identifies the actual path followed by the motion as a selection of the path over which the time integral of kinetic energy is least, assuming the total energy to be fixed, and imposing no conditions on the time of transit.
@@ -1652,7 +1652,7 @@ $$
 which are now a set of 2N first-order ordinary differential equations, one for each $q_i(t)$ and $p_i(t)$. Another result from the Legendre transformation relates the time derivatives of the Lagrangian and Hamiltonian: 
 
 $$
-\frac{dH}{dt} = -\frac{\partial L}{\partial t}
+\frac{dH}{\mathrm{d}t} = -\frac{\partial L}{\partial t}
 $$
 
 which is often considered one of Hamilton's equations of motion additionally to the others. The generalized momenta can be written in terms of the generalized forces in the same way as Newton's second law:
@@ -1664,7 +1664,7 @@ $$
 One interesting application of the Hamilton's equation in plasma physics is the prove of Vlasov equation (See Giulia's notes)
 
 $$
-\frac{df(\mathbf{q},\mathbf{p},t)}{dt} = 0
+\frac{df(\mathbf{q},\mathbf{p},t)}{\mathrm{d}t} = 0
 $$
 
 You may also find the application in deriving the gyrokinetic equations.

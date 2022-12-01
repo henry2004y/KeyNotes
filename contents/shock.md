@@ -52,12 +52,12 @@ The basic RH relations are listed in [MHD shocks](https://en.wikipedia.org/wiki/
 
 $$
 \begin{aligned}
-\frac{dB_{x}}{dx}=0 \\
-\frac{d}{dx}(V_x\,B_y-V_y\,B_x)=0 \\
-\frac{d (\rho\, V_x)}{dx}=0 \\
-\frac{d T_{xx}}{dx}=0 \\
-\frac{d T_{xy}}{dx}=0 \\
-\frac{d u_x}{dx}=0
+\frac{\mathrm{d}B_{x}}{\mathrm{d}x}=0 \\
+\frac{\mathrm{d}}{\mathrm{d}x}(V_x\,B_y-V_y\,B_x)=0 \\
+\frac{\mathrm{d} (\rho\, V_x)}{\mathrm{d}x}=0 \\
+\frac{\mathrm{d} T_{xx}}{\mathrm{d}x}=0 \\
+\frac{\mathrm{d} T_{xy}}{\mathrm{d}x}=0 \\
+\frac{\mathrm{d} u_x}{\mathrm{d}x}=0
 \end{aligned}
 $$
 
@@ -173,10 +173,10 @@ $$
 Now, using @eq:eq:parallel_shock_coef,
 
 $$
-r\frac{d\lfloor S \rceil}{dr} = \frac{r}{R}\frac{dR}{dr} - \gamma = \frac{\gamma(\gamma^2-1)(r-1)^2}{[(\gamma+1)r - (\gamma-1)][(\gamma+1)-(\gamma-1)r]}
+r\frac{\mathrm{d}\lfloor S \rceil}{dr} = \frac{r}{R}\frac{dR}{dr} - \gamma = \frac{\gamma(\gamma^2-1)(r-1)^2}{[(\gamma+1)r - (\gamma-1)][(\gamma+1)-(\gamma-1)r]}
 $$
 
-Furthermore, it is easily seen from @eq:parallel_shock_coef_range that $d\lfloor S \rceil/dr\ge 0$ in all situations of physical interest. However, $\lfloor S \rceil = 0$ when $r=1$, since, in this case, there is no discontinuity in plasma parameters across the shock front. We conclude that $\lfloor S \rceil<0$ for $r<1$, and $\lfloor S \rceil>0$ for $r>1$. It follows that the second law of thermodynamics requires hydrodynamic shocks to be _compressive_: i.e., $r\equiv\rho_2 / \rho_1>1$. In other words, the plasma density must always _increase_ when a shock front is crossed in the direction of the relative plasma flow. It turns out that this is a general rule which applies to all three types of MHD shock. In the shock rest frame, the shock is associated with an irreversible (since the entropy suddenly increases) transition from supersonic to subsonic flow.
+Furthermore, it is easily seen from @eq:parallel_shock_coef_range that $\mathrm{d}\lfloor S \rceil/dr\ge 0$ in all situations of physical interest. However, $\lfloor S \rceil = 0$ when $r=1$, since, in this case, there is no discontinuity in plasma parameters across the shock front. We conclude that $\lfloor S \rceil<0$ for $r<1$, and $\lfloor S \rceil>0$ for $r>1$. It follows that the second law of thermodynamics requires hydrodynamic shocks to be _compressive_: i.e., $r\equiv\rho_2 / \rho_1>1$. In other words, the plasma density must always _increase_ when a shock front is crossed in the direction of the relative plasma flow. It turns out that this is a general rule which applies to all three types of MHD shock. In the shock rest frame, the shock is associated with an irreversible (since the entropy suddenly increases) transition from supersonic to subsonic flow.
 
 The upstream Mach number, $M_1$, is a good measure of shock strength: i.e., if $M_1=1$ then there is no shock, if $M_1-1 \ll 1$ then the shock is weak, and if $M_1\gg 1$ then the shock is strong. We can define an analogous downstream Mach number, $M_2=V_2/(\gamma\,p_2/\rho_2)^{1/2}$. It is easily demonstrated from the jump conditions that if $M_1>1$ then $M_2 < 1$. In other words, in the shock rest frame, the shock is associated with an irreversible (since the entropy suddenly increases) transition from supersonic to subsonic flow. Note that $r\equiv \rho_2/\rho_1\rightarrow (\gamma+1)/(\gamma-1)$, whereas $R\equiv p_2/p_1\rightarrow\infty$, in the limit $M_1\rightarrow \infty$. In other words, as the shock strength increases, the compression ratio, $r$, asymptotes to a finite value, whereas the pressure ratio, $P$, increases without limit. For a conventional plasma with $\gamma=5/3$, the limiting value of the compression ratio is 4: i.e., the downstream density can never be more than four times the upstream density. We conclude that, in the strong shock limit, $M_1\gg 1$, the large jump in the plasma pressure across the shock front must be predominately a consequence of a large jump in the plasma _temperature_, rather than the plasma _density_. In fact, the definitions of $r$ and $R$ imply that
 
@@ -373,8 +373,8 @@ For the strong magnetic field approximation, the two pressures are related to th
 
 $$
 \begin{aligned}
-\frac{d}{dt}\Big( \frac{p_\parallel B^2}{\rho^3} \Big) &= 0 \\
-\frac{d}{dt}\Big( \frac{p_\perp}{\rho B} \Big) &= 0
+\frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{p_\parallel B^2}{\rho^3} \Big) &= 0 \\
+\frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{p_\perp}{\rho B} \Big) &= 0
 \end{aligned}
 $$
 
@@ -512,7 +512,7 @@ $$
 The conservation of the total thermal energy
 
 $$
-W = \int d^3v \frac{mv^2}{2}f(v)
+W = \int \mathrm{d}^3v \frac{mv^2}{2}f(v)
 $$
 
 yields

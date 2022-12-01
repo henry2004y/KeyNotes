@@ -13,7 +13,7 @@ The solar wind originates from the solar corona. The solar corona is a hot, tenu
 Let us start, following Chapman, by attempting to construct a model for a static solar corona. The equation of hydrostatic equilibrium for the corona takes the form 
 
 $$
-\frac{dp}{dr} = - \rho\,\frac{G\,M_\odot}{r^2}
+\frac{\mathrm{d}p}{\mathrm{d}r} = - \rho\,\frac{G\,M_\odot}{r^2}
 $$ {#eq:corona_static}
 
 where $G= 6.67\times 10^{-11}\,{\rm m}^{3}\,{\rm s}^{-2}\,{\rm kg}^{-1}$ is the gravitational constant, and $M_\odot=2\times 10^{30}\,{\rm kg}$ is the solar mass. The plasma density is written
@@ -49,7 +49,7 @@ $$
 Assuming spherical symmetry, this expression reduces to
 
 $$
-\frac{1}{r^2}\frac{d}{dr}\left(r^2\kappa_0\, k_B T^{5/2}\,\frac{dT}{dr}\right) =0
+\frac{1}{r^2}\frac{\mathrm{d}}{\mathrm{d}r}\left(r^2\kappa_0\, k_B T^{5/2}\,\frac{dT}{\mathrm{d}r}\right) =0
 $$
 
 Adopting the sensible boundary condition that the coronal temperature must tend to zero at large distances from the Sun, we obtain
@@ -81,13 +81,13 @@ Since we have just demonstrated that a static model of the solar corona is unsat
 By symmetry, we expect a purely radial coronal outflow. The radial momentum conservation equation for the corona takes the form
 
 $$
-\rho\,u\,\frac{du}{dr} = -\frac{dp}{dr} - \rho\,\frac{G\,M_\odot}{r^2}
+\rho\,u\,\frac{du}{\mathrm{d}r} = -\frac{\mathrm{d}p}{\mathrm{d}r} - \rho\,\frac{G\,M_\odot}{r^2}
 $$ {#eq:corona_dynamic_mass_cons}
 
 where $u$ is the radial expansion speed. The continuity equation reduces to
 
 $$
-\frac{1}{r^2}\frac{d(r^2\,\rho\,u)}{dr} = 0
+\frac{1}{r^2}\frac{\mathrm{d}(r^2\,\rho\,u)}{\mathrm{d}r} = 0
 $$ {#eq:corona_dynamic_continuity_reduced}
 
 In order to obtain a closed set of equations, we now need to adopt an equation of state for the corona, relating the pressure, $p$, and the density, $\rho$. For the sake of simplicity, we adopt the simplest conceivable equation of state, which corresponds to an _isothermal_ corona. Thus, we have
@@ -107,7 +107,7 @@ $$ {#eq:corona_dynamic_continuity_integrated}
 where $I$ is a constant. The above expression simply states that the mass flux per unit solid angle, which takes the value $I$, is independent of the radius, $r$. @eq:corona_dynamic_mass_cons, @eq:corona_dynamic_isothermal, and @eq:corona_dynamic_continuity_integrated can be combined together to give
 
 $$
-\frac{1}{u} \,\frac{du}{dr}\left(u^2 - \frac{2k_B T}{m_p}\right) = \frac{4k_B T}{m_p\,r} - \frac{G\,M_\odot}{r^2}
+\frac{1}{u} \,\frac{du}{\mathrm{d}r}\left(u^2 - \frac{2k_B T}{m_p}\right) = \frac{4k_B T}{m_p\,r} - \frac{G\,M_\odot}{r^2}
 $$ {#eq:corona_dynamic_governing}
 
 Let us restrict our attention to coronal temperatures which satisfy
@@ -131,12 +131,12 @@ $$ {#eq:corona_dynamic_critical1}
 or
 
 $$
-\frac{du(r_c)}{dr} = 0
+\frac{du(r_c)}{\mathrm{d}r} = 0
 $$ {#eq:corona_dynamic_critical2}
 
 Note that $u_c$ is the coronal sound speed.
 
-As is easily demonstrated, if @eq:corona_dynamic_critical1 is satisfied then $du/dr$ has the same sign for all $r$, and $u(r)$ is either a monotonically increasing, or a monotonically decreasing, function of $r$. On the other hand, if @eq:corona_dynamic_critical2 is satisfied then $u^2-u_c^2$ has the same sign for all $r$, and $u(r)$ has an extremum close to $r=r_c$. The flow is either super-sonic for all $r$, or sub-sonic for all $r$. These possibilities lead to the existence of four classes of solutions to @eq:corona_dynamic_governing, with the following properties: 
+As is easily demonstrated, if @eq:corona_dynamic_critical1 is satisfied then $du/\mathrm{d}r$ has the same sign for all $r$, and $u(r)$ is either a monotonically increasing, or a monotonically decreasing, function of $r$. On the other hand, if @eq:corona_dynamic_critical2 is satisfied then $u^2-u_c^2$ has the same sign for all $r$, and $u(r)$ has an extremum close to $r=r_c$. The flow is either super-sonic for all $r$, or sub-sonic for all $r$. These possibilities lead to the existence of four classes of solutions to @eq:corona_dynamic_governing, with the following properties: 
 
 1. $u(r)$ is sub-sonic throughout the domain $a<r<\infty$. $u(r)$ increases with $r$, attains a maximum value around $r=r_c$, and then decreases with $r$.
 2. a unique solution for which $u(r)$ increases monotonically with $r$, and $u(r_c) = u_c$.
@@ -152,7 +152,7 @@ Each of the classes of solutions described above fits a different set of boundar
 @eq:corona_dynamic_governing can be rearranged to give
 
 $$
-\frac{du^2}{dr}\left(1-\frac{u_c^{~2}}{u^2}\right) = \frac{4\,u_c^{~2}}{r} \left(1-\frac{r_c}{r}\right)
+\frac{du^2}{\mathrm{d}r}\left(1-\frac{u_c^{~2}}{u^2}\right) = \frac{4\,u_c^{~2}}{r} \left(1-\frac{r_c}{r}\right)
 $$
 
 where @eq:corona_T_r and the definition of $T_c$ have been used. The above expression can be integrated to give

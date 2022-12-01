@@ -33,7 +33,7 @@ If magnetic field lines follow the strands of a twisted rope, this configuration
 Formally,
 
 $$
-H=\int\mathbf{A}\cdot\mathbf{B}d\mathbf{r}^3
+H=\int\mathbf{A}\cdot\mathbf{B}\mathrm{d}\mathbf{r}^3
 $$ {#eq:magnetic_helicity}
 
 where
@@ -75,10 +75,10 @@ In toroidal laboratory experiments, it is natural to consider the volume contain
 The time evolution of magnetic helicity is given by
 
 $$
-\frac{dH}{dt} = -2c\int_V \mathbf{E}\cdot\mathbf{B}dV + 2c\int_S \mathbf{A}_p\times\mathbf{E}\cdot d\mathbf{S}
+\frac{\mathrm{d}H}{\mathrm{d}t} = -2c\int_V \mathbf{E}\cdot\mathbf{B}dV + 2c\int_S \mathbf{A}_p\times\mathbf{E}\cdot \mathrm{d}\mathbf{S}
 $$
 
-where we choose $\nabla\times\mathbf{A}_p=0$ and $\mathbf{A}_p\cdot d\mathbf{S}=0$ on $S$. The first term represents helicity dissipation when $E_\parallel\neq 0$, which is always zero in ideal MHD. The second term represents helicity fluxes in and out of the system, for example, flux emergence from the solar photosphere corresponds to helicity injection in the corona.
+where we choose $\nabla\times\mathbf{A}_p=0$ and $\mathbf{A}_p\cdot \mathrm{d}\mathbf{S}=0$ on $S$. The first term represents helicity dissipation when $E_\parallel\neq 0$, which is always zero in ideal MHD. The second term represents helicity fluxes in and out of the system, for example, flux emergence from the solar photosphere corresponds to helicity injection in the corona.
 
 ## Cross Helicity {#sec:cross_helicity}
 
@@ -91,10 +91,10 @@ $$ {#eq:cross_helicity}
 In ideal MHD, the rate of change of $H_C$ is
 
 $$
-\frac{dH_C}{dt} = -\oint_S d\mathbf{S}\cdot \Big[ \Big(\frac{1}{2}v^2 + \frac{\gamma}{\gamma-1} \frac{p}{\rho}\Big)\mathbf{B} - \mathbf{v}\times(\mathbf{v}\times\mathbf{B}) \Big]
+\frac{\mathrm{d}H_C}{\mathrm{d}t} = -\oint_S \mathrm{d}\mathbf{S}\cdot \Big[ \Big(\frac{1}{2}v^2 + \frac{\gamma}{\gamma-1} \frac{p}{\rho}\Big)\mathbf{B} - \mathbf{v}\times(\mathbf{v}\times\mathbf{B}) \Big]
 $$
 
-This vanishes when $d\mathbf{S}\cdot\mathbf{B} = d\mathbf{S}\cdot\mathbf{V}=0$ along the boundary $S$ or when the boundary conditions are periodic. Cross helicity is an ideal MHD invariant when this integral vanishes.
+This vanishes when $\mathrm{d}\mathbf{S}\cdot\mathbf{B} = d\mathbf{S}\cdot\mathbf{V}=0$ along the boundary $S$ or when the boundary conditions are periodic. Cross helicity is an ideal MHD invariant when this integral vanishes.
 
 There are discretized forms of cross helicity from the observation point of view. Check it out if you want to know more.
 

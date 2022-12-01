@@ -11,7 +11,7 @@ The picture, then, is of a nonuniform distribution of ions and electrons in a de
 
 When an electron, say, collides with a neutral atom, it may lose any fraction of its initial momentum, depending on the angle at which it rebounds. In a head-on collision with a heavy atom, the electron can lose twice its initial momentum, since its velocity reverses sign after the collision. The probability of momentum loss can be expressed in terms of the equivalent cross section $\sigma$ that the atoms would have if they were perfect absorbers of momentum.
 
-In Fig. 5.2, electrons are incident upon a slab of area $A$ and thickness $dx$ containing $n_n$ neutral atoms per $\text{m}^3$. The atoms are imagined to be opaque spheres of cross-sectional area $\sigma$; that is, every time an electron comes within the area blocked by the atom, the electron loses all of its momentum. The number of atoms in the slab is $n_n A dx$. The fraction of the slab blocked by atoms is $n_n A\sigma dx / A = n_n \sigma dx$. If a flux $\Gamma$ of electrons is incident on the slab, the flux emerging on the other side is $\Gamma^\prime = \Gamma(1-n_n \sigma dx)$. Thus the change of $\Gamma$ with distance is $d\Gamma/dx = -n_n \sigma\Gamma$, or
+In Fig. 5.2, electrons are incident upon a slab of area $A$ and thickness $\mathrm{d}x$ containing $n_n$ neutral atoms per $\text{m}^3$. The atoms are imagined to be opaque spheres of cross-sectional area $\sigma$; that is, every time an electron comes within the area blocked by the atom, the electron loses all of its momentum. The number of atoms in the slab is $n_n A \mathrm{d}x$. The fraction of the slab blocked by atoms is $n_n A\sigma \mathrm{d}x / A = n_n \sigma \mathrm{d}x$. If a flux $\Gamma$ of electrons is incident on the slab, the flux emerging on the other side is $\Gamma^\prime = \Gamma(1-n_n \sigma \mathrm{d}x)$. Thus the change of $\Gamma$ with distance is $\mathrm{d}\Gamma/\mathrm{d}x = -n_n \sigma\Gamma$, or
 
 $$
 \Gamma = \Gamma_0 e^{-n_n\sigma x} \equiv \Gamma_0 e^{-x/\lambda_m}
@@ -46,11 +46,11 @@ $$ {#eq:collision_freq}
 The fluid equation of motion including collisions is, for any species $s$,
 
 $$
-mn\frac{d\mathbf{v}}{dt} = mn \Big[ \frac{\partial\mathbf{v}}{\partial t} + (\mathbf{v}\cdot\nabla)\mathbf{v} \Big] = q_sn\mathbf{E} - \nabla p - mn\nu\mathbf{v}
+mn\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = mn \Big[ \frac{\partial\mathbf{v}}{\partial t} + (\mathbf{v}\cdot\nabla)\mathbf{v} \Big] = q_sn\mathbf{E} - \nabla p - mn\nu\mathbf{v}
 $$
 
 The averaging process used to compute $\nu$ is such as to make the last equation correct; we need not be concerned with the
-details of this computation. The quantity $\nu$ must, however, be assumed to be a constant in order for the equation to be useful. We shall consider a steady state in which $\partial\mathbf{v}/\partial t$ = 0. If $\mathbf{v}$ is sufficiently small (or $\nu$ sufficiently large), a fluid element will not move into regions of different $\mathbf{E}$ and $\nabla p$ in a collision time, and the convective derivative $d\mathbf{v}/dt$ will also vanish. Setting the left-hand side to zero, we have, for an isothermal plasma,
+details of this computation. The quantity $\nu$ must, however, be assumed to be a constant in order for the equation to be useful. We shall consider a steady state in which $\partial\mathbf{v}/\partial t$ = 0. If $\mathbf{v}$ is sufficiently small (or $\nu$ sufficiently large), a fluid element will not move into regions of different $\mathbf{E}$ and $\nabla p$ in a collision time, and the convective derivative $\mathrm{d}\mathbf{v}/\mathrm{d}t$ will also vanish. Setting the left-hand side to zero, we have, for an isothermal plasma,
 
 $$
 \mathbf{v} = \frac{1}{mn\nu}(q_sn\mathbf{E} - k_B T \nabla n) = \frac{q_s}{m\nu}\mathbf{E} - \frac{k_B T}{mv}\frac{\nabla n}{n}
@@ -156,15 +156,15 @@ whereupon @eq:ambipolar_diffusion, with the subscript on $D_a$ understood, becom
 
 $$
 \begin{aligned}
-S\frac{dT}{dt} &= DT\nabla^2 S \\
-\frac{1}{T}\frac{dT}{dt} &= \frac{D}{S}\nabla^2 S 
+S\frac{\mathrm{d}T}{\mathrm{d}t} &= DT\nabla^2 S \\
+\frac{1}{T}\frac{\mathrm{d}T}{\mathrm{d}t} &= \frac{D}{S}\nabla^2 S 
 \end{aligned}
 $$
 
 Since the left side is a function of time alone and the right side a function of space alone, they must both be equal to the same constant, which we shall call $-1/\tau$. The function $T$ then obeys the equation
 
 $$
-\frac{dT}{dt} = -\frac{T}{\tau}
+\frac{\mathrm{d}T}{\mathrm{d}t} = -\frac{T}{\tau}
 $$ {#eq:diffusion_temporal}
 
 with the solution
@@ -182,7 +182,7 @@ $$ {#eq:diffusion_spatial}
 In slab geometry, this becomes
 
 $$
-\frac{d^2 S}{dx^2} = -\frac{1}{D\tau}S
+\frac{\mathrm{d}^2 S}{\mathrm{d}x^2} = -\frac{1}{D\tau}S
 $$ {#eq:diffusion_spatial_slab}
 
 with the solution
@@ -244,10 +244,10 @@ I WANT TO DO A SIMULATION ON THIS! TRY METHODOFLINES.JL?
 The spatial part of the diffusion equation, eq:diffusion_spatial, reads, in cylindrical geometry,
 
 $$
-\frac{d^2 S}{dr^2} + \frac{1}{r}\frac{dS}{dr} + \frac{1}{D\tau}S = 0
+\frac{\mathrm{d}^2 S}{dr^2} + \frac{1}{r}\frac{dS}{dr} + \frac{1}{D\tau}S = 0
 $$ {#eq:diffusion_spatial_cylinder}
 
-This differs from @eq:diffusion_spatial_slab by the addition of the middle term, which merely accouts for the change in coordinates. The need for the extra term is illustrated simply in Fig. 5.5 ADD IT. If a slice of plasma in (a) is moved toward larger x without being allowed to expand, the density would remain constant. On the other hand, if a shell of plasma in (b) is moved toward larger $r$ with the shell thickness kept constant, the density would necessarily decrease as $1/r$. Consequently, one would expect the solution to @eq:diffusion_spatial_cylinder to be like a damped cosine (Fig. 5.6 ADD IT). This function is called a _Bessel function of order zero_, and eq:diffusion_spatial_cylinder is called Bessel's equation (of order zero). Instead of the symbol cos, it is given the symbol $J_0$. The function $J0(r/[D\tau]^{1/2})$ is a solution to eq:diffusion_spatial_cylinder, just as $\cos[x/(d\tau)^{1/2}]$ is a solution to eq:diffusion_spatial. Both $\cos kx$ and $J_0(kr)$ are expressible in terms of infinite series.
+This differs from @eq:diffusion_spatial_slab by the addition of the middle term, which merely accouts for the change in coordinates. The need for the extra term is illustrated simply in Fig. 5.5 ADD IT. If a slice of plasma in (a) is moved toward larger x without being allowed to expand, the density would remain constant. On the other hand, if a shell of plasma in (b) is moved toward larger $r$ with the shell thickness kept constant, the density would necessarily decrease as $1/r$. Consequently, one would expect the solution to @eq:diffusion_spatial_cylinder to be like a damped cosine (Fig. 5.6 ADD IT). This function is called a _Bessel function of order zero_, and eq:diffusion_spatial_cylinder is called Bessel's equation (of order zero). Instead of the symbol cos, it is given the symbol $J_0$. The function $J0(r/[D\tau]^{1/2})$ is a solution to eq:diffusion_spatial_cylinder, just as $\cos[x/(\mathrm{d}\tau)^{1/2}]$ is a solution to eq:diffusion_spatial. Both $\cos kx$ and $J_0(kr)$ are expressible in terms of infinite series.
 
 ![Motion of a plasma slab in rectilinear and cylindrical geometry, illustrating the difference between a cosine and a Bessel function.](images/motion_slab_cylindrical.png){#fig:motion_slab_cylindrical}
 
@@ -280,7 +280,7 @@ is a cosine or Bessel function, as in the case of a decaying plasma, only in thi
 We next consider what profile would be obtained in slab geometry if there is a localized source on the plane $x=0$. Such a source might be, for instance, a slit-collimated beam of ultraviolet light strong enough to ionize the neutral gas. The steady state diffusion equation is then
 
 $$
-\frac{d^n}{dx^2} = -\frac{Q}{D}\delta(0)
+\frac{\mathrm{d}^n}{\mathrm{d}x^2} = -\frac{Q}{D}\delta(0)
 $$
 
 Except at $x=0$, the density must satisfy $\partial^2 n/\partial x^2=0$. This obviously has the solution (Fig. 5.7 ADD IT)
@@ -381,8 +381,8 @@ The fluid equations of motion including the effects of charged-particle collisio
 
 $$
 \begin{aligned}
-m_i n\frac{d\mathbf{v}_i}{dt} &= en(\mathbf{E}+\mathbf{v}_i\times\mathbf{B}) - \nabla p_i -\nabla\cdot\pmb{\pi}_i + \mathbf{P}_{ie} \\
-m_e n\frac{d\mathbf{v}_e}{dt} &= -en(\mathbf{E}+\mathbf{v}_e\times\mathbf{B}) - \nabla p_e -\nabla\cdot\pmb{\pi}_e + \mathbf{P}_{ei}
+m_i n\frac{\mathrm{d}\mathbf{v}_i}{\mathrm{d}t} &= en(\mathbf{E}+\mathbf{v}_i\times\mathbf{B}) - \nabla p_i -\nabla\cdot\pmb{\pi}_i + \mathbf{P}_{ie} \\
+m_e n\frac{\mathrm{d}\mathbf{v}_e}{\mathrm{d}t} &= -en(\mathbf{E}+\mathbf{v}_e\times\mathbf{B}) - \nabla p_e -\nabla\cdot\pmb{\pi}_e + \mathbf{P}_{ei}
 \end{aligned}
 $$ {#eq:resistivity_fluid_momentum}
 
@@ -569,7 +569,7 @@ Y.Y talked about this during his lecture that the collision rate among ions or e
 Resistivity is the inverse of conductivity. Consider the effect of collisions as friction in the equation of motion:
 
 $$
-m\frac{d\mathbf{u}_e}{dt} = q(\mathbf{E}+\mathbf{u}_e\times\mathbf{B}) - m\nu_c(\mathbf{u}_e - \mathbf{u}^\prime)
+m\frac{\mathrm{d}\mathbf{u}_e}{\mathrm{d}t} = q(\mathbf{E}+\mathbf{u}_e\times\mathbf{B}) - m\nu_c(\mathbf{u}_e - \mathbf{u}^\prime)
 $$
 
 where $\mathbf{u}^\prime$ is the velocity of the collision targets.
@@ -814,16 +814,16 @@ Conclusion:
 
 $$
 \begin{aligned}
-j_z = \frac{1}{\mu}\frac{dB}{dx}, \\
+j_z = \frac{1}{\mu}\frac{\mathrm{d}B}{\mathrm{d}x}, \\
 \delta=2\sqrt{4\eta t},\ (\text{characteristic breadth}) \\
-\frac{d\delta}{dt}=2\sqrt{\frac{\eta}{t}}, (\text{characteristic speed})
+\frac{\mathrm{d}\delta}{\mathrm{d}t}=2\sqrt{\frac{\eta}{t}}, (\text{characteristic speed})
 \end{aligned}
 $$
 
 3.
 
 $$
-j=\int_{-\infty}^{\infty}j_z dx=\frac{1}{\mu}\int_{-\infty}^{\infty}dB=\frac{2B_0}{\mu}=\text{const.}
+j=\int_{-\infty}^{\infty}j_z \mathrm{d}x=\frac{1}{\mu}\int_{-\infty}^{\infty}\mathrm{d}B=\frac{2B_0}{\mu}=\text{const.}
 $$
 
 The current sheet gets thickened with time, but the total current in $z$ remains the same.
@@ -831,7 +831,7 @@ The current sheet gets thickened with time, but the total current in $z$ remains
 4. Dissipation of magnetic energy, $W_B=\frac{B^2}{2\mu}$ ???
 
 $$
-\frac{\partial}{\partial t}\int_{-\infty}^{\infty}(W_0-W_B)dx=-\frac{\partial}{\partial t}\int_{-\infty}^{\infty}\frac{B(x)^2}{2\mu}dx
+\frac{\partial}{\partial t}\int_{-\infty}^{\infty}(W_0-W_B)\mathrm{d}x=-\frac{\partial}{\partial t}\int_{-\infty}^{\infty}\frac{B(x)^2}{2\mu}\mathrm{d}x
 $$
 
 ### Large $R_m$ condition
@@ -848,11 +848,11 @@ When the conductivity is large, the diffusion coefficient becomes very small, an
 
 The magnetic field lines are frozen in the plasma flow. The magnetic flux through a surface moving with the plasma is conserved,
 $$
-\frac{d\Phi}{dt}=0,
+\frac{\mathrm{d}\Phi}{\mathrm{d}t}=0,
 $$
 where 
 $$
-\Phi=\int\mathbf{B}\cdot d\mathbf{A}.
+\Phi=\int\mathbf{B}\cdot \mathrm{d}\mathbf{A}.
 $$
 
 ADD FIGURES!!!
@@ -906,7 +906,7 @@ This looks like the conservation of magnetic moment.
 2. Stretching of magnetic field lines
 
 $$
-\frac{d\mathbf{B}}{dt}=\frac{\partial\mathbf{B}}{\partial t}+(\mathbf{u}\cdot\nabla)\mathbf{B}=\nabla\times(\mathbf{u}\times\mathbf{B})+(\mathbf{u}\cdot\nabla)\mathbf{B}
+\frac{d\mathbf{B}}{\mathrm{d}t}=\frac{\partial\mathbf{B}}{\partial t}+(\mathbf{u}\cdot\nabla)\mathbf{B}=\nabla\times(\mathbf{u}\times\mathbf{B})+(\mathbf{u}\cdot\nabla)\mathbf{B}
 =(\mathbf{B}\cdot\nabla)\mathbf{u}-\mathbf{B}(\nabla\cdot\mathbf{u})
 $$
 
@@ -915,21 +915,21 @@ where the first term on the right is the shear motion and the second term is the
 Combined with the continuity equation,
 
 $$
-\frac{d\rho}{dt}+\rho\nabla\cdot\mathbf{u}=0
+\frac{\mathrm{d}\rho}{\mathrm{d}t}+\rho\nabla\cdot\mathbf{u}=0
 $$
 
 we can get
 
 $$
-\frac{d}{dt}\Big( \frac{\mathbf{B}}{\rho} \Big)=\Big( \frac{\mathbf{B}}{\rho}\cdot\nabla \Big)\mathbf{u}
+\frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{\mathbf{B}}{\rho} \Big)=\Big( \frac{\mathbf{B}}{\rho}\cdot\nabla \Big)\mathbf{u}
 $$ {#eq:B_Rho_diff}
 
 _Proof_.
 
 $$
 \begin{aligned}
-\frac{d\mathbf{B}}{dt}=(\mathbf{B}\cdot\nabla)\mathbf{u} +\frac{\mathbf{B}}{\rho}\frac{d\rho}{dt} \\
-\frac{1}{\rho}\frac{d\mathbf{B}}{dt}-\frac{\mathbf{B}}{\rho^2}\frac{d\rho}{dt}=\Big( \frac{\mathbf{B}}{\rho} \cdot\nabla\Big)\mathbf{u}
+\frac{\mathrm{d}\mathbf{B}}{\mathrm{d}t}=(\mathbf{B}\cdot\nabla)\mathbf{u} +\frac{\mathbf{B}}{\rho}\frac{\mathrm{d}\rho}{\mathrm{d}t} \\
+\frac{1}{\rho}\frac{\mathrm{d}\mathbf{B}}{\mathrm{d}t}-\frac{\mathbf{B}}{\rho^2}\frac{\mathrm{d}\rho}{\mathrm{d}t}=\Big( \frac{\mathbf{B}}{\rho} \cdot\nabla\Big)\mathbf{u}
 \end{aligned}
 $$
 □

@@ -41,8 +41,8 @@ $$ {#eq:gk_density}
 
 $$
 \begin{aligned}
-\mathbf{j} &= -\frac{\bar{N}_0 q^2}{cm}\delta A_\parallel\hat{b} + \int\frac{q \bar{\mathbf{P}}_\parallel}{m}\hat{b}d\bar{\mathbf{P}} + \frac{cq\bar{N}_0}{B}\hat{b}\times\bar{\nabla}\delta\phi + \frac{3c^2\bar{N}_0\bar{T}}{2B^2\Omega}\hat{b}\times\bar{\nabla}\bar{\nabla}_\perp^2\delta\phi \\
-&+ \frac{2c\bar{N}_0 \bar{T}}{B^2}\hat{b}\times\bar{\nabla}\delta B_\parallel + \frac{\hat{b}}{B}\times\bar{\nabla}(c\bar{N}_0\bar{T}) + \hat{b}\times\bar{\nabla}\int c\bar{\mu}\bar{F}_1 d\bar{\mathbf{P}}
+\mathbf{j} &= -\frac{\bar{N}_0 q^2}{cm}\delta A_\parallel\hat{b} + \int\frac{q \bar{\mathbf{P}}_\parallel}{m}\hat{b}\mathrm{d}\bar{\mathbf{P}} + \frac{cq\bar{N}_0}{B}\hat{b}\times\bar{\nabla}\delta\phi + \frac{3c^2\bar{N}_0\bar{T}}{2B^2\Omega}\hat{b}\times\bar{\nabla}\bar{\nabla}_\perp^2\delta\phi \\
+&+ \frac{2c\bar{N}_0 \bar{T}}{B^2}\hat{b}\times\bar{\nabla}\delta B_\parallel + \frac{\hat{b}}{B}\times\bar{\nabla}(c\bar{N}_0\bar{T}) + \hat{b}\times\bar{\nabla}\int c\bar{\mu}\bar{F}_1 \mathrm{d}\bar{\mathbf{P}}
 \end{aligned}
 $$ {#eq:gk_current_density}
 
@@ -123,13 +123,13 @@ $$
 with $\mathbf{B} = \nabla\times\mathbf{A}$ and $\mathbf{E} = -\nabla\phi - \partial_t \mathbf{A}/c$. The equation of motion are given by the Lagrange equations (I almost forget everything from theoretical mechanics...): 
 
 $$
-\frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} - \frac{\partial L}{\partial q_i} = 0,\quad i=1,...,6
+\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{q}_i} - \frac{\partial L}{\partial q_i} = 0,\quad i=1,...,6
 $$
 
 For charged particles, 
 
 $$
-\frac{d}{dt}\frac{\partial L}{\partial\dot{\mathbf{v}}} - \frac{\partial L}{\partial\mathbf{v}} = 0 ?
+\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial\dot{\mathbf{v}}} - \frac{\partial L}{\partial\mathbf{v}} = 0 ?
 $$
 
 $$
@@ -148,7 +148,7 @@ $$
 We need a transition from particle coordinates $(\mathbf{x},\mathbf{v})$ to guiding center coordinates $(\mathbf{R},v_\parallel, \mu, \varphi)$. The easy way is to construct a new Lagrangian using Lie transforms (???)
 
 $$
-\Gamma = \Big( mv_\parallel\hat{b}_0 + \frac{e}{c}\bar{\mathbf{A}}_{1\parallel}\hat{b}_0 + \frac{e}{c}\mathbf{A}_0 \Big)\cdot d\mathbf{X} + \frac{mc}{e}\mu d\theta - \Big( \frac{m}{2}v_\parallel^2 + \mu B_0 + \mu \bar{B}_{1\parallel} + e\bar{\phi}_1 \Big)dt
+\Gamma = \Big( mv_\parallel\hat{b}_0 + \frac{e}{c}\bar{\mathbf{A}}_{1\parallel}\hat{b}_0 + \frac{e}{c}\mathbf{A}_0 \Big)\cdot \mathrm{d}\mathbf{X} + \frac{mc}{e}\mu \mathrm{d}\theta - \Big( \frac{m}{2}v_\parallel^2 + \mu B_0 + \mu \bar{B}_{1\parallel} + e\bar{\phi}_1 \Big)\mathrm{d}t
 $$
 
 where $\mu$ is the magnetic moment, $\theta$ is the gyroangle, and the overbar denotes a gyroaveraging operation. This gives the Euler-Lagrange equations
@@ -167,8 +167,8 @@ Applying the gyrokinetic approximation, the effective gyroaveraged potential ove
 
 $$
 \begin{aligned}
-\phi^{\text{eff}}(\mathbf{x},r_L) &= \frac{1}{2\pi} \int_0^{2\pi}d\theta \phi(\mathbf{x}+\mathbf{r}_L) \\
-&= \frac{1}{(2\pi)^2}\int_{-\infty}^{\infty}d\mathbf{k}e^{i\mathbf{k}\cdot\mathbf{x}}\phi(\mathbf{k})J_0(kr_L)
+\phi^{\text{eff}}(\mathbf{x},r_L) &= \frac{1}{2\pi} \int_0^{2\pi}\mathrm{d}\theta \phi(\mathbf{x}+\mathbf{r}_L) \\
+&= \frac{1}{(2\pi)^2}\int_{-\infty}^{\infty}\mathrm{d}\mathbf{k}e^{i\mathbf{k}\cdot\mathbf{x}}\phi(\mathbf{k})J_0(kr_L)
 \end{aligned}
 $$
 
@@ -200,7 +200,7 @@ $$ {#eq:gk_linear}
 
 and $<...>_\alpha$ denotes averaging over the gyrophase angle, $\alpha$. Here, the field variables are the scalar and vector potentials, $\delta\phi$ and $\delta\mathbf{A}$, with $\delta A_\parallel=\delta\mathbf{A}\cdot\mathbf{b}_0$ and the $\nabla\cdot\delta\mathbf{A}=0$ Coulomb gauge. The operator $e^{-\mathbf{r}_L\cdot\nabla}$, meanwhile, represents the transformation between the particle and guiding center positions.
 
-The corresponding field equations are the Poisson's equation and the parallel Ampère's law, $\nabla^2 \delta A_\parallel = -4\pi\delta J_\parallel/c$. In the low-frequency and $|k\lambda_D|^2\ll 1$ limit with $\lambda_D$ being the Debye length, Poisson's equation can be approximated as the quasi-neutrality condition; $\sum_j n_{0j}q_j<\delta f_j>_v\simeq 0$. Here, $<...>_v = \int d\mathbf{v} (...)$ is the velocity-space integral, and subscript $j$ runs over the particle species. Meanwhile, substituting the parallel Ampère’s law into the $\nabla\cdot\delta\mathbf{J}\simeq 0$ quasi-neutrality condition as derived by @eq:gk_linear yields a generalized linear gyrokinetic vorticity equation, which is often convenient to use in studying shear/kinetic Alfvén wave dynamics.
+The corresponding field equations are the Poisson's equation and the parallel Ampère's law, $\nabla^2 \delta A_\parallel = -4\pi\delta J_\parallel/c$. In the low-frequency and $|k\lambda_D|^2\ll 1$ limit with $\lambda_D$ being the Debye length, Poisson's equation can be approximated as the quasi-neutrality condition; $\sum_j n_{0j}q_j<\delta f_j>_v\simeq 0$. Here, $<...>_v = \int \mathrm{d}\mathbf{v} (...)$ is the velocity-space integral, and subscript $j$ runs over the particle species. Meanwhile, substituting the parallel Ampère’s law into the $\nabla\cdot\delta\mathbf{J}\simeq 0$ quasi-neutrality condition as derived by @eq:gk_linear yields a generalized linear gyrokinetic vorticity equation, which is often convenient to use in studying shear/kinetic Alfvén wave dynamics.
 
 __Linear kinetic Alfvén wave properties__
 
@@ -350,7 +350,7 @@ $$
 \delta\hat{B}_y(x) = \left\{
 \begin{array}{lr}
 \frac{\delta\hat{B}_{y0}}{\epsilon_A(x)} & \text{for }\omega_0^2 < \omega_A^2(x) \\
-\frac{\delta\hat{B}_{y0}}{\epsilon_A(x)} - \frac{\sqrt{\pi}\delta\hat{B}_{y0}}{(\hat{r}/L_A)^{1/2}}\Big( \frac{\hat{r}^2}{\epsilon_A(x)} \Big)^{1/4}\exp\Big[ i\int_{x_0}^x \Big( \frac{\epsilon_A(x^\prime)}{\hat{r}^2} \Big)^{1/2} dx^\prime +i\frac{\pi}{4} \Big] & \text{for }\omega_0^2 > \omega_A^2(x)
+\frac{\delta\hat{B}_{y0}}{\epsilon_A(x)} - \frac{\sqrt{\pi}\delta\hat{B}_{y0}}{(\hat{r}/L_A)^{1/2}}\Big( \frac{\hat{r}^2}{\epsilon_A(x)} \Big)^{1/4}\exp\Big[ i\int_{x_0}^x \Big( \frac{\epsilon_A(x^\prime)}{\hat{r}^2} \Big)^{1/2} \mathrm{d}x^\prime +i\frac{\pi}{4} \Big] & \text{for }\omega_0^2 > \omega_A^2(x)
 \end{array}
 \right.
 $$ {#eq:inhomogeneous_by_sol}
@@ -440,7 +440,7 @@ $$
 Muliplying with $(1+\ln f_0)$ and integrating over phase space, we get
 
 $$
-\int \ln(f_0)C(f_0, f_0)d\mathbf{x}d\mathbf{v} = 0
+\int \ln(f_0)C(f_0, f_0)\mathrm{d}\mathbf{x}\mathrm{d}\mathbf{v} = 0
 $$
 
 From the proof of Boltzmann's H-theorem, we conclude:
@@ -492,7 +492,7 @@ From particle coordinates to guiding center coordinates
 
 $$
 \begin{aligned}
-\frac{\partial h}{\partial t} + \frac{d\mathbf{X}}{dt}\cdot\frac{\partial h}{\partial\mathbf{X}} + \frac{q}{m}\Big( -\nabla_\perp\delta\phi + \frac{\mathbf{v}\times\delta\mathbf{B}}{c} \Big)\cdot\frac{\partial h}{\partial\mathbf{v}} = \\
+\frac{\partial h}{\partial t} + \frac{\mathrm{d}\mathbf{X}}{\mathrm{d}t}\cdot\frac{\partial h}{\partial\mathbf{X}} + \frac{q}{m}\Big( -\nabla_\perp\delta\phi + \frac{\mathbf{v}\times\delta\mathbf{B}}{c} \Big)\cdot\frac{\partial h}{\partial\mathbf{v}} = \\
 C(h,f_0) + C(f_0, h) + \frac{q}{T}f_0\frac{\partial \chi}{\partial t} + \Omega\frac{\partial\delta f_2}{\partial\theta}\bigg\rvert_\mathbf{X}
 \end{aligned}
 $$
@@ -502,7 +502,7 @@ where $\xi\equiv\delta\phi - \mathbf{v}\cdot\delta\mathbf{A}/c$.
 For any quantity $Q$, the gyrophase averaging at fixed guiding center position is
 
 $$
-\left< Q(\mathbf{x},\mathbf{v},t) \right>_\mathbf{X} \equiv \frac{1}{2\pi}\int_0^{2\pi}Q\Big( \mathbf{X}-\frac{\mathbf{v}\times\hat{b}_0}{\Omega},\mathbf{v},t \Big)d\theta
+\left< Q(\mathbf{x},\mathbf{v},t) \right>_\mathbf{X} \equiv \frac{1}{2\pi}\int_0^{2\pi}Q\Big( \mathbf{X}-\frac{\mathbf{v}\times\hat{b}_0}{\Omega},\mathbf{v},t \Big)\mathrm{d}\theta
 $$
 
 We have
@@ -524,8 +524,8 @@ The quasi-neutrality $\sum_\alpha q_\alpha\delta n_\alpha = 0$ now becomes
 
 $$
 \begin{aligned}
-\sum_\alpha\Big[ -\frac{q_\alpha^2 n_{0\alpha}}{T_{0\alpha}}\delta\phi(\mathbf{x},t) + q_\alpha\int h_\alpha\Big( \mathbf{x}+\frac{\mathbf{v}\times\hat{b}_0}{\Omega_\alpha},\mathbf{v},t \Big)d\mathbf{v} \Big] = 0 \\
-\sum_\alpha\Big( -\frac{q_\alpha^2 n_{0\alpha}}{T_{0\alpha}}\delta\phi(\mathbf{x},t) + q_\alpha \int <h_\alpha>d\mathbf{v}\Big) = 0
+\sum_\alpha\Big[ -\frac{q_\alpha^2 n_{0\alpha}}{T_{0\alpha}}\delta\phi(\mathbf{x},t) + q_\alpha\int h_\alpha\Big( \mathbf{x}+\frac{\mathbf{v}\times\hat{b}_0}{\Omega_\alpha},\mathbf{v},t \Big)\mathrm{d}\mathbf{v} \Big] = 0 \\
+\sum_\alpha\Big( -\frac{q_\alpha^2 n_{0\alpha}}{T_{0\alpha}}\delta\phi(\mathbf{x},t) + q_\alpha \int <h_\alpha>\mathrm{d}\mathbf{v}\Big) = 0
 \end{aligned}
 $$
 

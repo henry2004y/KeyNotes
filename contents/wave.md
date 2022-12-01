@@ -127,7 +127,7 @@ $$
 
 Thus if $B=0.32$ T and $n=10^{18}\,\text{m}^{-3}$, the cyclotron frequency is approximately equal to the plasma frequency for electrons.
 
-@eq:plasma_frequency tells us that if a plasma oscillation is to occur at all, it must have a frequency depending only on $n$. In particular, $\omega$ does not depend on $k$, so the group velocity $d\omega/dk$ is zero. The disturbance does not propagate. How this can happen can be made clear with a mechanical analogy (Fig. 4.3 @fig:independent_springs). Imagine a number of heavy balls suspended by springs equally spaced in a line. If all the springs are identical, each ball will oscillate vertically with the same frequency. If the balls are started in the proper phases relative to one another, they can be made to form a wave propagating in either direction. The frequency will be fixed by the springs, but the wavelength can be chosen arbitrarily. The two undisturbed balls at the ends will not be affected, and the initial disturbance does not propagate. Either traveling waves or standing waves can be created, as in the case of a stretched rope. Waves on a rope, however, must propagate because each segment is connected to neighboring segments.
+@eq:plasma_frequency tells us that if a plasma oscillation is to occur at all, it must have a frequency depending only on $n$. In particular, $\omega$ does not depend on $k$, so the group velocity $\mathrm{d}\omega/dk$ is zero. The disturbance does not propagate. How this can happen can be made clear with a mechanical analogy (Fig. 4.3 @fig:independent_springs). Imagine a number of heavy balls suspended by springs equally spaced in a line. If all the springs are identical, each ball will oscillate vertically with the same frequency. If the balls are started in the proper phases relative to one another, they can be made to form a wave propagating in either direction. The frequency will be fixed by the springs, but the wavelength can be chosen arbitrarily. The two undisturbed balls at the ends will not be affected, and the initial disturbance does not propagate. Either traveling waves or standing waves can be created, as in the case of a stretched rope. Waves on a rope, however, must propagate because each segment is connected to neighboring segments.
 
 ![Synthesis of a wave from an assembly of independent oscillators.](images/independent_springs.png){#fig:independent_springs}
 
@@ -707,16 +707,16 @@ $$
 Hence, due to different phase speeds of R- and L-modes the linrealy polarized wave that is travelling along a magnetic field will experience the rotation of its plane of polarization. This is called _Faraday rotation_. The magnitude of the rotation depends on the density and magnetic field of the plasma. Considering frequencies above the plasma frequency one can show that the rate of change in the rotation angle $\phi$ with the distance travelled (assumed here to be in the $z$-direction) is
 
 $$
-\frac{d\phi}{dz} = \frac{-e^3}{2m_e^2\epsilon_0 c\omega^2}n_e B_0
+\frac{\mathrm{d}\phi}{\mathrm{d}z} = \frac{-e^3}{2m_e^2\epsilon_0 c\omega^2}n_e B_0
 $$
 
 and the total rotation from the source to the observer is
 
 $$
-\phi=\frac{-e^3}{2m_e^2\epsilon_0 c\omega^2}\int_0^d n_e\mathbf{B}\cdot d\mathbf{s}
+\phi=\frac{-e^3}{2m_e^2\epsilon_0 c\omega^2}\int_0^d n_e\mathbf{B}\cdot \mathrm{d}\mathbf{s}
 $$
 
-where $d\mathbf{s}$ is along the wave propagation path. The total rotation thus depends on both the dnesity and magnetic field of the medium.
+where $\mathrm{d}\mathbf{s}$ is along the wave propagation path. The total rotation thus depends on both the dnesity and magnetic field of the medium.
 
 Faraday rotation is an important diagnostic tool both in laboratories and in astronomy. It can be used to obtain information of the magnetic field of the cosmic plasma. Note that density has to be known using other methods. On the other hand, if the magnetic field is known, Faraday rotation can give information of the density.
 
@@ -776,9 +776,9 @@ We will see soon that in cold MHD the slow mode ceases to exist, and the fast mo
 $$
 \begin{aligned}
 \frac{\partial\rho}{\partial t}+\nabla\cdot(\rho\mathbf{v})=0 \\
-\rho\frac{d\mathbf{v}}{dt}=-\nabla p+\mathbf{j}\times\mathbf{B} \\
+\rho\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t}=-\nabla p+\mathbf{j}\times\mathbf{B} \\
 \mathbf{j}=\frac{1}{\mu_0}\nabla\times\mathbf{B} \\
-\frac{d}{dt}\Big( p\rho^{-\gamma} \Big)=0 \\
+\frac{\mathrm{d}}{\mathrm{d}t}\Big( p\rho^{-\gamma} \Big)=0 \\
 \frac{\partial\mathbf{B}}{\partial t}=-\nabla\times\mathbf{E} \\
 \mathbf{E}=-\mathbf{v}\times\mathbf{B}
 \end{aligned}
@@ -879,7 +879,7 @@ $$ {#eq:mhd_alfven_slab_by}
 @eq:mhd_alfven_slab_by also indicates an unique and important property of SAW continuous spectrum: the spatial structure evolves with time. Specifically, the wave number in the non-uniformity direction is, time asymptotically, given by:
 
 $$
-|k_x| = \bigg\lvert\frac{\partial \ln B_{1y}}{\partial x}\bigg\rvert \simeq \bigg\lvert\frac{d \omega_A(x)}{d x}\bigg\rvert t
+|k_x| = \bigg\lvert\frac{\partial \ln B_{1y}}{\partial x}\bigg\rvert \simeq \bigg\lvert\frac{\mathrm{d} \omega_A(x)}{\mathrm{d} x}\bigg\rvert t
 $$ {#eq:mhd_alfven_wavenumber_nonuniform}
 
 That $|k_x|$ increases with $t$ is significant, since it implies that any initially long-scale perturbations will evolve into short scales. This point is illustrated in Figure ??? (CAN I PERFORM THE SIMULATION?); showing the evolution of a smooth $B_{1y}$ at $t=0$ to a spatially fast varying $B_{1y}$ at a later $t$.
@@ -985,18 +985,18 @@ where $k^2={k_y}^2+ {k_z}^2$, $\mathbf{v}_A = v_A \mathbf{B}_0/B_0$, and $v_A=B_
 It is easy to show that this governing equation always yields _neutrally stable_ solutions of SAWs, i.e. $\omega_i=\Im(\omega)=0$. Multiply it by $\xi_{1x}^\ast$, and integrate the resultant equation to get
 
 $$
-\int_{-\infty}^{\infty}dx \rho_0 \big[ \omega^2-(\mathbf{k}\cdot\mathbf{v}_A)^2\big] \Big[ \bigg\lvert \frac{d\xi_{1x}}{dx}\bigg\rvert^2 + k^2\lvert\xi_{1x}\rvert^2 \Big] = 0
+\int_{-\infty}^{\infty}\mathrm{d}x \rho_0 \big[ \omega^2-(\mathbf{k}\cdot\mathbf{v}_A)^2\big] \Big[ \bigg\lvert \frac{\mathrm{d}\xi_{1x}}{\mathrm{d}x}\bigg\rvert^2 + k^2\lvert\xi_{1x}\rvert^2 \Big] = 0
 $$
 
 where we have assumed that $\xi_{1x}$ vanishes on the boundary. This gives
 
 $$
-\omega^2 = \frac{\int_{-\infty}^{\infty}dx \rho_0 (\mathbf{k}\cdot\mathbf{v}_A)^2\Big[ \bigg\lvert \frac{d\xi_{1x}}{dx}\bigg\rvert^2 + k^2\lvert \xi_{1x}\rvert^2 \Big]}{\int_{-\infty}^{\infty}\rho_0[ \lvert \frac{d\xi_{1x}}{dx}\rvert^2 + k^2\lvert \xi_{1x}\rvert^2]dx} \ge 0
+\omega^2 = \frac{\int_{-\infty}^{\infty}\mathrm{d}x \rho_0 (\mathbf{k}\cdot\mathbf{v}_A)^2\Big[ \bigg\lvert \frac{\mathrm{d}\xi_{1x}}{\mathrm{d}x}\bigg\rvert^2 + k^2\lvert \xi_{1x}\rvert^2 \Big]}{\int_{-\infty}^{\infty}\rho_0[ \lvert \frac{\mathrm{d}\xi_{1x}}{\mathrm{d}x}\rvert^2 + k^2\lvert \xi_{1x}\rvert^2]\mathrm{d}x} \ge 0
 $$
 
 SAWs are the dominant low frequency waves in a current carrying plasma. The neutrally stable modes studies above can be destabilized by unfavorable curvature, and such modes are called _ballooning modes_ (@sec:ballooning). They may also be destabilized by a finite electrical resistivity, and these are _tearing modes_ (@sec:tearing). Their interaction with fusion-generated alpha particles are a major issue in all magnetic fusion schemes. Finally, since the governing equation exhibits a singularity when $\omega=\mathbf{k}\cdot\mathbf{v}_A$, this singularity represents resonance absorption, which forms the basis of _Alfvén wave heating_ (i.e. field line resonance, @sec:flr). This singularity also give rise to the so called "Alfvén continuum spectrum" mentioned above.
 
-Note that the governing equation is valid even if $B_{0z}$ is an arbitrary function of $x$. If in addition, an external gravity $\mathbf{g}=\hat{x}g$ in the x-direction is present, the governing equation is modified simply by inserting the term $-(g/\rho_0)d\rho_0/dx$ in the second square bracket, and the equation is identical to Eq.(10.33) of Bellan. This is the most general equation which describes the _magneto-Rayleigh-Taylor instability_ (MRT) in Cartesian geometry using the incompressible, ideal MHD model.
+Note that the governing equation is valid even if $B_{0z}$ is an arbitrary function of $x$. If in addition, an external gravity $\mathbf{g}=\hat{x}g$ in the x-direction is present, the governing equation is modified simply by inserting the term $-(g/\rho_0)\mathrm{d}\rho_0/\mathrm{d}x$ in the second square bracket, and the equation is identical to Eq.(10.33) of Bellan. This is the most general equation which describes the _magneto-Rayleigh-Taylor instability_ (MRT) in Cartesian geometry using the incompressible, ideal MHD model.
 
 ### Fast and Slow Wave {#sec:fast_slow}
 
@@ -1133,13 +1133,13 @@ $$
 It can easily be shown (???) that $E_y(z)$ and $B_x(z)$ satisfy the differential equations
 
 $$
-\frac{d^2 E_y}{dz^2} + k_0^{~2}\,n^2\,E_y = 0
+\frac{\mathrm{d}^2 E_y}{\mathrm{d}z^2} + k_0^{~2}\,n^2\,E_y = 0
 $$ {#eq:wave_nonuniform_e}
 
 and
 
 $$
-\frac{d\,cB_x}{dz} = -{\rm i}\,k_0\,n^2\,E_y
+\frac{\mathrm{d}\,cB_x}{\mathrm{d}z} = -{\rm i}\,k_0\,n^2\,E_y
 $$ {#eq:wave_nonuniform_b}
 
 respectively. Here, $k_0=\omega/c$ is the wave-number in free space. Of course, the actual wave-number is $k=k_0\,n$. 
@@ -1161,51 +1161,51 @@ The solution @eq:wave_uniform_sol represents a wave of constant amplitude, $A$, 
 In general, if $n=n(z)$ then the solution of @eq:wave_nonuniform_e does not remotely resemble the wave-like solution @eq:wave_uniform_sol. However, in the limit in which $n(z)$ is a "slowly varying" function of $z$ (exactly how slowly varying is something which will be established later on), we expect to recover wave-like solutions. Let us suppose that $n(z)$ is indeed a "slowly varying" function, and let us try substituting the wave solution @eq:wave_uniform_sol into @eq:wave_nonuniform_e. We obtain
 
 $$
-\left(\frac{d\phi}{dz}\right)^2 = k_0^{~2} n^2 +i\,\frac{d^2\phi} {dz^2}
+\left(\frac{\mathrm{d}\phi}{\mathrm{d}z}\right)^2 = k_0^{~2} n^2 +i\,\frac{\mathrm{d}^2\phi} {\mathrm{d}z^2}
 $$ {#eq:wave_nonuniform_phase}
 
-This is a non-linear differential equation which, in general, is very difficult to solve. However, we note that if $n$ is a constant then $d^2\phi/dz^2=0$. It is, therefore, reasonable to suppose that if $n(z)$ is a "slowly varying" function then the last term on the right-hand side of the above equation can be regarded as being small. Thus, to a first approximation @eq:wave_nonuniform_phase yields
+This is a non-linear differential equation which, in general, is very difficult to solve. However, we note that if $n$ is a constant then $\mathrm{d}^2\phi/\mathrm{d}z^2=0$. It is, therefore, reasonable to suppose that if $n(z)$ is a "slowly varying" function then the last term on the right-hand side of the above equation can be regarded as being small. Thus, to a first approximation @eq:wave_nonuniform_phase yields
 
 $$
-\frac{d\phi}{dz} \simeq \pm k_0\,n
+\frac{\mathrm{d}\phi}{\mathrm{d}z} \simeq \pm k_0\,n
 $$
 
 and
 
 $$
-\frac{d^2 \phi}{dz^2} \simeq \pm k_0\frac{dn}{dz}
+\frac{\mathrm{d}^2 \phi}{\mathrm{d}z^2} \simeq \pm k_0\frac{dn}{\mathrm{d}z}
 $$ {#eq:wave_nonuniform_phase_approxi}
 
-It is clear from a comparison of @eq:wave_nonuniform_phase and @eq:wave_nonuniform_phase_approxi that $n(z)$ can be regarded as a "slowly varying" function of $z$ as long as its variation length-scale is far longer than the wavelength of the wave. In other words, provided that $(dn/dz)/(k_0\,n^2)\ll 1$.
+It is clear from a comparison of @eq:wave_nonuniform_phase and @eq:wave_nonuniform_phase_approxi that $n(z)$ can be regarded as a "slowly varying" function of $z$ as long as its variation length-scale is far longer than the wavelength of the wave. In other words, provided that $(dn/\mathrm{d}z)/(k_0\,n^2)\ll 1$.
 
 The second approximation to the solution is obtained by substituting @eq:wave_nonuniform_phase_approxi into the right-hand side of @eq:wave_nonuniform_phase: 
 
 $$
-\frac{d\phi}{dz} \simeq \pm \Big(k_0^{~2} n^2 \pm i\,k_0 \frac{dn}{dz}\Big)^{1/2}
+\frac{\mathrm{d}\phi}{\mathrm{d}z} \simeq \pm \Big(k_0^{~2} n^2 \pm i\,k_0 \frac{dn}{\mathrm{d}z}\Big)^{1/2}
 $$
 
 This gives
 
 $$
-\frac{d\phi}{dz} \simeq \pm k_0\,n\Big(1\pm \frac{i}{k_0 n}\Big)^{1/2}\simeq \pm k_0\,n + \frac{i}{2n}\frac{dn}{dz}
+\frac{\mathrm{d}\phi}{\mathrm{d}z} \simeq \pm k_0\,n\Big(1\pm \frac{i}{k_0 n}\Big)^{1/2}\simeq \pm k_0\,n + \frac{i}{2n}\frac{dn}{\mathrm{d}z}
 $$
 
 where a binomial expansion has been used. The above expression can be integrated to give 
 
 $$
-\phi \sim \pm k_0\! \int^z \!n\,dz +i\,\log(n^{1/2})
+\phi \sim \pm k_0\! \int^z \!n\,\mathrm{d}z +i\,\log(n^{1/2})
 $$ {#eq:wave_phase_approxi}
 
 Substitution of @eq:wave_phase_approxi into @eq:wave_uniform_sol yields the final result
 
 $$
-E_y \simeq A\,n^{-1/2}\,\exp (\pm i\, k_0\! \int^z \!n\,dz )
+E_y \simeq A\,n^{-1/2}\,\exp (\pm i\, k_0\! \int^z \!n\,\mathrm{d}z )
 $$ {#eq:wave_nonuniform_sol_e}
 
 It follows from @eq:wave_nonuniform_b that
 
 $$
-cB_x\simeq \mp A\, n^{1/2}\exp\Big(\pm i\,k_0 \int^z n dz\Big) - \frac{iA}{2k_0 n^{3/2}}\frac{dn}{dz}\exp\Big(\pm i\,k_0 \int^z n dz\Big)
+cB_x\simeq \mp A\, n^{1/2}\exp\Big(\pm i\,k_0 \int^z n \mathrm{d}z\Big) - \frac{iA}{2k_0 n^{3/2}}\frac{dn}{\mathrm{d}z}\exp\Big(\pm i\,k_0 \int^z n \mathrm{d}z\Big)
 $$ {#eq:wave_nonuniform_sol_b}
 
 Note that the second term is small compared to the first, and can usually be neglected.
@@ -1213,27 +1213,27 @@ Note that the second term is small compared to the first, and can usually be neg
 Let us test to what extent @eq:wave_nonuniform_sol_e is a good solution of @eq:wave_nonuniform_e by substituting this expression into the left-hand side of the equation. The result is
 
 $$
-\frac{A}{n^{1/2}}\Big[ \frac{3}{4}\Big(\frac{1}{n}\frac{dn}{dz}\Big)^2 - \frac{1}{2n}\frac{d^2n}{dz^2} \Big]\exp\Big( \pm i\,k_0\int^z n\,dz\Big)
+\frac{A}{n^{1/2}}\Big[ \frac{3}{4}\Big(\frac{1}{n}\frac{dn}{\mathrm{d}z}\Big)^2 - \frac{1}{2n}\frac{\mathrm{d}^2n}{\mathrm{d}z^2} \Big]\exp\Big( \pm i\,k_0\int^z n\,\mathrm{d}z\Big)
 $$
 
 This must be small compared with either term on the left-hand side of @eq:wave_nonuniform_e. Hence, the condition for @eq:wave_nonuniform_sol_e to be a good solution of @eq:wave_nonuniform_e becomes
 
 $$
-\frac{1}{k_0^2}\bigg\lvert \frac{3}{4}\Big(\frac{1}{n^2} \frac{dn}{dz}\Big)^2 -\frac{1}{2n^3}\frac{d^2 n}{dz^2}\bigg\rvert \ll 1
+\frac{1}{k_0^2}\bigg\lvert \frac{3}{4}\Big(\frac{1}{n^2} \frac{dn}{\mathrm{d}z}\Big)^2 -\frac{1}{2n^3}\frac{\mathrm{d}^2 n}{\mathrm{d}z^2}\bigg\rvert \ll 1
 $$ {#eq:wave_wkb_condition}
 
 The solutions @eq:wave_nonuniform_sol_e and @eq:wave_nonuniform_sol_b (without the second term) are most commonly referred to as the _WKB_ solutions, in honour of G. Wentzel, H.A. Kramers, and L. Brillouin, who are credited with independently discovering these solutions (in a quantum mechanical context) in 1926. Actually, H. Jeffries wrote a paper on the WKB solutions (in a wave propagation context) in 1923. Hence, some people call them the WKBJ solutions (or even the JWKB solutions). To be strictly accurate, the WKB solutions were first discussed by Liouville and Green in 1837, and again by Rayleigh in 1912. The advance in science discovery is always a collective achievement.
 
 Recall, that when a propagating wave is normally incident on an interface, where the refractive index suddenly changes (for instance, when a light wave propagating through air is normally incident on a glass slab), there is generally significant reflection of the wave. However, according to the WKB solutions, when a propagating wave is normally incident on a medium in which the refractive index changes slowly along the direction of propagation of the wave then the wave is not reflected at all. This is true even if the refractive index varies very substantially along the path of propagation of the wave, as long as it varies slowly. The WKB solutions imply that as the wave propagates through the medium its wave-length gradually changes. In fact, the wave-length at position $z$ is approximately $\lambda(z)= 2\pi/ k_0\,n(z)$. The WKB solutions also imply that the amplitude of the wave gradually changes as it propagates. The amplitude of the electric field component is inversely proportional to $n^{1/2}$, whereas the amplitude of the magnetic field component is directly proportional to $n^{1/2}$. Note, however, that the energy flux in the $z$-direction, given by the the Poynting vector $-(E_y B_x^\ast +E_y^\ast B_x)/(4\mu_0)$, remains constant (assuming that $n$ is predominately real). 
 
-Of course, the WKB solutions are only approximations. In reality, a wave propagating into a medium in which the refractive index is a slowly varying function of position is subject to a small amount of reflection. However, it is easily demonstrated that the ratio of the reflected amplitude to the incident amplitude is of order $(dn/dz)/(k_0\,n^2)$. Thus, as long as the refractive index varies on a much longer length-scale than the wavelength of the radiation, the reflected wave is negligibly small. This conclusion remains valid as long as the inequality @eq:wave_wkb_condition is satisfied. This inequality obviously breaks down in the vicinity of a point where $n^2=0$. We would, therefore, expect strong reflection of the incident wave from such a point. Furthermore, the WKB solutions also break down at a point where $n^2\rightarrow\infty$, since the amplitude of $B_x$ becomes infinite. 
+Of course, the WKB solutions are only approximations. In reality, a wave propagating into a medium in which the refractive index is a slowly varying function of position is subject to a small amount of reflection. However, it is easily demonstrated that the ratio of the reflected amplitude to the incident amplitude is of order $(dn/\mathrm{d}z)/(k_0\,n^2)$. Thus, as long as the refractive index varies on a much longer length-scale than the wavelength of the radiation, the reflected wave is negligibly small. This conclusion remains valid as long as the inequality @eq:wave_wkb_condition is satisfied. This inequality obviously breaks down in the vicinity of a point where $n^2=0$. We would, therefore, expect strong reflection of the incident wave from such a point. Furthermore, the WKB solutions also break down at a point where $n^2\rightarrow\infty$, since the amplitude of $B_x$ becomes infinite. 
 
 ### Electron Cyclotron Resonance Heating
 
 Let us look at the problem of electron cyclotron resonance heating. The resonance condition is $R=\infty$; the governing equation has the form
 
 $$
-\frac{d^2 E}{dz^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(z)}^2}{\omega(\omega-\omega_{ce}(z))} \Big]E = 0
+\frac{\mathrm{d}^2 E}{\mathrm{d}z^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(z)}^2}{\omega(\omega-\omega_{ce}(z))} \Big]E = 0
 $$
 
 ![Plasma frequency and wave number as functions of $z$ in a non-uniform plasma for the electron cyclotron resonance mode.](images/ECRH.png){#fig:ECRH}
@@ -1249,7 +1249,7 @@ $$
 then (ignore the constants)
 
 $$
-\frac{d^2 E}{dz^2} - \frac{\text{const.}}{z-z_R}E = 0 \Rightarrow \frac{d^2 E}{d\zeta^2} - \frac{1}{\zeta}E = 0
+\frac{\mathrm{d}^2 E}{\mathrm{d}z^2} - \frac{\text{const.}}{z-z_R}E = 0 \Rightarrow \frac{\mathrm{d}^2 E}{d\zeta^2} - \frac{1}{\zeta}E = 0
 $$
 
 Now let's stare at @fig:ECRH(b) for a few seconds. If there is a wave from left to right, there will be a resonance at $z=z_R$; but if there is a wave from right to left, then the wave will be attenuated before it reaches $z=z_R$ because there is a zero ahead. This means that waves from different origin will have different behaviors!
@@ -1490,12 +1490,12 @@ n(x_0,t)=n_0(x_0)+n_1(x_0,t)=\text{total density}
 \end{aligned}
 $$
 
-At time $t$, $[x_0,x_0+dx]\rightarrow[x_0+x_1(x_0,t),x_0+dx+x_1(x_0+dx,t)]$. Due to mass conservation, we have (This looks like the derivation of deformation in fluid dynamics.)
+At time $t$, $[x_0,x_0+\mathrm{d}x]\rightarrow[x_0+x_1(x_0,t),x_0+\mathrm{d}x+x_1(x_0+\mathrm{d}x,t)]$. Due to mass conservation, we have (This looks like the derivation of deformation in fluid dynamics.)
 
 $$
 \begin{aligned}
-n_0(x_0)dx&=[n_0(x_0+x_1)+n_1(x_0+x_1,t)]\cdot[x_0+dx+x_1(x_0+dx,t)-(x_0+x_1(x_0,t))] \\
-&\approx \Big[n_0(x_0)+x_1\frac{\partial n_0(x_0)}{\partial x_0}+n_1(x_0,t)\Big]dx\Big[1+\frac{\partial x_1(x_0,t)}{\partial x_0}\Big] 
+n_0(x_0)\mathrm{d}x&=[n_0(x_0+x_1)+n_1(x_0+x_1,t)]\cdot[x_0+\mathrm{d}x+x_1(x_0+\mathrm{d}x,t)-(x_0+x_1(x_0,t))] \\
+&\approx \Big[n_0(x_0)+x_1\frac{\partial n_0(x_0)}{\partial x_0}+n_1(x_0,t)\Big]\mathrm{d}x\Big[1+\frac{\partial x_1(x_0,t)}{\partial x_0}\Big] 
 \end{aligned}
 $$
 
@@ -1646,3 +1646,37 @@ The Clemmow-Mullaly-Allis (CMA) diagram classifies all EM + ES waves (including 
 
 * Resonances and cutoffs
 * Mode conversions
+
+## Wave-Particle Interactions
+
+Charged particles can exchange the energy with the wave electric field both parallel and perpendicular to the mean magnetic field (_Landau resonance_). @fig:wave_particle left and middle panels show these resonance types and the associated parts of the distribution function schematically. The resonance parameters for the Landau and cyclotron resonances are
+
+$$
+\xi_\text{L} = \frac{\omega}{k_\parallel v_{\text{th},s}}
+$$ {#eq:landau_resonance}
+
+$$
+\xi_\text{C} = \frac{\omega-\Omega_s}{k_\parallel v_(\text{th},s)}
+$$ {#eq:cyclotron_resonance}
+
+Here the frequency $\omega$ is measured in the plasma rest frame. $\Omega_s$ denotes the cyclotron frequency of particle species $s$ (ion species and electrons), $k_\parallel$ the parallel component of the wavevector, and $v_{\text{th},s}$ the particle thermal speed of species $s$. In general, the resonance parameter can be defined for arbitrary harmonics of the cyclotron frequency $m=0,\pm 1,\pm 2,...$:
+
+$$
+\xi^{(m)} = \frac{\omega - m\Omega_s}{k_\parallel v_{\text{th},s}}
+$$ {#eq:harmonic_resonance}
+
+![Wave-particle interactions and the associated part of the velocity distribution functions. Courtesy of Yasuhito Narita.](images/wave_particle_interactions.png){#fig:wave_particle}
+
+Note that the resonance parameters above are defined for a Maxwellian plasma. A correction is needed when treating a non-Maxwellian plasma to find the suitable velocity-space gradient for the resonance. The resonance is efficient when the parameter $\xi_\text{L}$ or $\xi_\text{C}$ is on the order of unity. Strictly speaking, the wave damping (or particle acceleration) is most efficient, typically for $1<\xi<5$. The upper limit is not exact, but the resonance becomes gradually inefficient at larger values of $\xi$. For $\xi<1$ the particle motion is slower than the wave propagation and the particles do not have a sufficient time for exchanging energy with the wave electric field. For $\xi>5$ there are increasingly fewer particles with higher velocities for the resonance (higher than the thermal speed).
+
+### Pitch Angle Scattering
+
+Charged particles can be scattered by the wave electric and magnetic fields incoherently, and the scattering deforms the
+velocity distribution function along the co-centric contours centered at the wave phase speed (@fig:wave_particle, right panel). The reason for the deformation is that the particle kinetic energy $K_{wv}$ (per unit mass) does not change in the co-moving frame with the apparent wave phase speed in the parallel direction to the mean magnetic field:
+
+$$
+K_{wv} = \frac{1}{2}\left[ v_\perp^2 + \left( v_\parallel - \frac{\omega}{k_\parallel} \right)^2 \right] = \text{const}.
+$$
+
+The co-centric deformation of the distribution function achieves a quasi-linear equilibrium in that the velocity–space
+gradient becomes zero (plateau formation) in the pitch angle directions. For example, in the solar wind ions are found to be resonating with obliquely propagating Alfvén/ion cyclotron waves. Note that the relevant phase speed is $\omega/k_\parallel$, and is different from the true phase speed $\omega/k$. The perpendicular component of the wavevector $k_\perp$ does not play a role in pitch angle scattering.

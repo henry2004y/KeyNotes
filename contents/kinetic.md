@@ -70,11 +70,11 @@ $$
 \bar{v} = \int_{-\infty}^{\infty}v\hat{f}(\mathbf{v})d^3v
 $$
 
-Since $\hat{f}_m$ is isotropic, the integral is most easily done in spherical coordinates in v space. Since the volume element of each spherical shell is $4\pi v^2 dv$, we have
+Since $\hat{f}_m$ is isotropic, the integral is most easily done in spherical coordinates in v space. Since the volume element of each spherical shell is $4\pi v^2 \mathrm{d}v$, we have
 
 $$
 \begin{aligned}
-\bar{v} &= (m/2\pi k_B T)^{3/2}\int_0^\infty v[\exp(-v^2/v_{th}^2)]4\pi v^2 dv \\
+\bar{v} &= (m/2\pi k_B T)^{3/2}\int_0^\infty v[\exp(-v^2/v_{th}^2)]4\pi v^2 \mathrm{d}v \\
 &= (\pi v_{th}^2)^{-3/2} 4\pi v_{th}^4 \int_0^\infty [\exp(-y^2)]y^3 dy 
 \end{aligned}
 $$
@@ -88,7 +88,7 @@ $$
 The velocity component in a _single direction_, say $v_x$, has a different average. Of course, $\bar{v}_x$ vanishes for an isotropic distribution; but $|\bar{v}_x|$ does not:
 
 $$
-|\bar{v}_x| = \int |v_x|\hat{f}_m(\mathbf{v})d^3 v = \pi^{-1/2}v_{th} = (2k_B T/\pi m)^{1/2}
+|\bar{v}_x| = \int |v_x|\hat{f}_m(\mathbf{v})\mathrm{d}^3 v = \pi^{-1/2}v_{th} = (2k_B T/\pi m)^{1/2}
 $$
 
 To summarize: for a Maxwellian,
@@ -105,7 +105,7 @@ $$
 For an isotropic distribution like a Maxwellian, we can define another function $g(v)$ which is a function of the scalar magnitude of $\mathbf{v}$ such that
 
 $$
-\int_0^\infty g(v) dv = \int_{-\infty}^{\infty} f(\mathbf{v})d^v
+\int_0^\infty g(v) \mathrm{d}v = \int_{-\infty}^{\infty} f(\mathbf{v})\mathrm{d}v
 $$
 
 For a Maxwellian, we see that
@@ -154,13 +154,13 @@ $$
 J(W,\Omega, \alpha, \mathbf{r},t)dWd\Omega = f(\alpha,\mathbf{r},t)v^3dvd\Omega
 $$
 
-Since $dW=mvdv$ we can write the relationship between the differential flux and the distribution function as
+Since $\mathrm{d}W=mvdv$ we can write the relationship between the differential flux and the distribution function as
 
 $$
 J(W,\Omega, \alpha, \mathbf{r},t) = \frac{v^2}{m}f
 $$ {#eq:diff_flux_dist}
 
-One application of the differential flux is the _particle precipitation flux_. With the idea of loss lone, we have a cone of particles that moves along the field lines and can propagate down to the ionosphere, and each shell from $v$ to $v+dv$ corresponds to a specific energy range. This is something we can measure close to the ground and use to infer the plasma properties in the magnetosphere.
+One application of the differential flux is the _particle precipitation flux_. With the idea of loss lone, we have a cone of particles that moves along the field lines and can propagate down to the ionosphere, and each shell from $v$ to $v+\mathrm{d}v$ corresponds to a specific energy range. This is something we can measure close to the ground and use to infer the plasma properties in the magnetosphere.
 
 ### Kappa Distribution
 
@@ -205,13 +205,13 @@ $$
 where $f_n$ is the distribution function of the neutral atoms, and $\tau$ is a constant collision time. This is called the _Krook collision term_. It is the kinetic generalization of the collision term in Eq. (5.5) in F. F. Chen's book. When there are Coulomb collisions, @eq:boltzmann can be approximated by
 
 $$
-\frac{df}{dt} = -\frac{\partial}{\partial\mathbf{v}}\cdot(f\left<\Delta\mathbf{v}\right>)\frac{1}{2}\frac{\partial^2}{\partial\mathbf{v}\partial\mathbf{v}}:(f\left<\Delta\mathbf{v}\Delta\mathbf{v}\right>)
+\frac{\mathrm{d}f}{\mathrm{d}t} = -\frac{\partial}{\partial\mathbf{v}}\cdot(f\left<\Delta\mathbf{v}\right>)\frac{1}{2}\frac{\partial^2}{\partial\mathbf{v}\partial\mathbf{v}}:(f\left<\Delta\mathbf{v}\Delta\mathbf{v}\right>)
 $$ {#eq:fokker_planck}
 
 This is called the _Fokker-Planck equation_; it takes into account binary Coulomb collisions only. Here, $\Delta\mathbf{v}$ is the change of velocity in a collision, and @eq:fokker_planck is a shorthand way of writing a rather complicated expression.
 The colon operator $\mathbf{a}\mathbf{b}:\mathbf{c}\mathbf{d} = a_ib_jc_id_j$.
 
-The fact that $df/dt$ is constant in the absence of collisions means that particles follow the contours of constant $f$ as they move around in phase space. As an example of how these contours can be used, consider the beam-plasma instability
+The fact that $\mathrm{d}f/\mathrm{d}t$ is constant in the absence of collisions means that particles follow the contours of constant $f$ as they move around in phase space. As an example of how these contours can be used, consider the beam-plasma instability
 of Section ???. In the unperturbed plasma, the electrons all have velocity $v_0$, and the contour of constant $f$ is a straight line. The function $f(x, v_x)$ is a wall rising out of the plane of the paper at $v_x=v_0$. The electrons move along the trajectory shown. When a wave develops, the electric field $\mathbf{E}_1$ causes electrons to suffer changes in $v_x$ as they stream along. The trajectory then develops a sinusoidal ripple (@fig:beam_e_dist_1d B). This ripple travels at the phase velocity, not the particle velocity. Particles stay on the curve as they move relative to the wave. If $\mathbf{E}_1$ becomes very large as the wave grows, and if there are a few collisions, some electrons will be trapped in the electrostatic potential of the wave. In coordinate space, the wave potential appears as in @fig:wave_potential. In phase space, $f(x, v_x)$ will have peaks wherever there is a potential trough (@fig:contour_dist). Since the contours of $f$ are also electron trajectories, one sees that some electrons move in closed orbits in phase space; these are just the trapped electrons.
 
 ![(A) Representation in one-dimensional phase space of a beam of electrons all with the same velocity $v_0$. The distribution function $f(x, v_x)$ is infinite along the line and zero elsewhere. The line is also the trajectory of individual electrons, which move in the direction of the arrow. (B) when a plasma wave exists in the electron beam. The entire pattern moves to the right with the phase velocity of the wave. If the observer goes to the frame of the wave, the pattern would stand still, and electrons would be seen to trace the curve with the velocity $v_0-v_\phi$.](images/beam_e_dist_1d.png){#fig:beam_e_dist_1d}
@@ -286,7 +286,7 @@ $$
 Since we are dealing with a one-dimensional problem we may drop the subscript x, begin careful not to confuse $v$ (which is really $v_x$) with the total velocity $v$ used earlier:
 
 $$
-1 = \frac{\omega_p^2}{k^2}\int_{-\infty}^{\infty}\frac{\partial \hat{f}_0/\partial v}{v - \omega/k}dv
+1 = \frac{\omega_p^2}{k^2}\int_{-\infty}^{\infty}\frac{\partial \hat{f}_0/\partial v}{v - \omega/k}\mathrm{d}v
 $$ {#eq:dispersion_0th}
 
 Here, $\hat{f}_0$ is understood to be a one-dimensional distribution function, the integrations over $v_y$ and $v_z$ having been made. This equation holds for any equilibrium distribution $\hat{f}_0(v)$.
@@ -296,7 +296,7 @@ The integral in this equation is not straightforward to evaluate because of the 
 Consider an initial value problem in which the plasma is given a sinusoidal perturbation, and therefore $k$ is real. If the perturbation grows or decays, $\omega$ will be complex. This integral must be treated as a contour integral in the complex $v$ plane. Possible contours are shown for (a) an unstable wave, with $\Im(\omega) > 0$, and (b) a dampled wave, with $\Im(\omega) < 0$. Normally, one would evaluate the line integral along the real $v$ axis by the residue theorem:
 
 $$
-\int_{C_1} G dv + \int_{C_2} G dv = 2\pi i R(\omega/k)
+\int_{C_1} G \mathrm{d}v + \int_{C_2} G \mathrm{d}v = 2\pi i R(\omega/k)
 $$
 
 where $G$ is the integrand, $C_1$ is the path along the real axis, $C_2$ is the semicircle at infinity, and $R(\omega/k)$ is the residue at $\omega/k$. This works if the integral over $C_2$ vanishes. Unfortunately, this does not happen for a Maxwellian distribution, which contains the factor
@@ -310,13 +310,13 @@ This factor becomes large for $v\rightarrow \pm i \infty$, and the contribution 
 Although an exact analysis of this problem is complicated, we can obtain an approximate dispersion relation for the case of large phase velocity and weak damping. In this case, the pole at $\omega/k$ lies near the real $v$ axis. The contour prescribed by Landau is then a straight line along the $\Re(v)$ axis with a small semicircle around the pole. In going around the pole, one obtains $2\pi i$ time half the residue there. Then @eq:dispersion_0th becomes
 
 $$
-1 = \frac{\omega_p^2}{k^2} \Big[ P\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0/\partial v}{v - (\omega/k)}dv + i\pi \frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=\omega/k} \Big]
+1 = \frac{\omega_p^2}{k^2} \Big[ P\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0/\partial v}{v - (\omega/k)}\mathrm{d}v + i\pi \frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=\omega/k} \Big]
 $$ {#eq:landau_residue}
 
 where $P$ stands for the Cauchy principal value. To evaluate this, we integrate along the real $v$ axis but stop just before encountering the pole. If the phase velocity $v_\phi = \omega/k$ is sufficiently large, as we assume, there will not be much contribution from the neglected part of the contour, since both $\hat{f}_0$ and $\partial\hat{f}_0/\partial v$ are very small there. The integral above can be evaluated by integration by parts:
 
 $$
-\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0}{\partial v}\frac{dv}{v - v_\phi} = \Big[ \frac{\hat{f}_0}{v-v_\phi} \Big]_{-\infty}^{\infty} - \int_{-\infty}^{\infty}\frac{-\hat{f}_0 dv}{(v-v_\phi)^2} = \int_{-\infty}^{\infty}\frac{\hat{f}_0 dv}{(v-v_\phi)^2}
+\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0}{\partial v}\frac{\mathrm{d}v}{v - v_\phi} = \Big[ \frac{\hat{f}_0}{v-v_\phi} \Big]_{-\infty}^{\infty} - \int_{-\infty}^{\infty}\frac{-\hat{f}_0 \mathrm{d}v}{(v-v_\phi)^2} = \int_{-\infty}^{\infty}\frac{\hat{f}_0 \mathrm{d}v}{(v-v_\phi)^2}
 $$
 
 Since this is just an average of $(v-v_\phi)^{-2}$ over the distribution, the real part of the dispersion relation can be written
@@ -431,7 +431,7 @@ We may divide the electron distribution $f_0(v)$ into a large number of monoener
 
 $$
 \begin{aligned}
-E &= E_0\sin(kx-\omega t) = -d\phi/dt \\
+E &= E_0\sin(kx-\omega t) = -d\phi/\mathrm{d}t \\
 \phi &= (E_0/k)\cos(kx-\omega t)
 \end{aligned}
 $$
@@ -558,7 +558,7 @@ $$
 and therefore its energy changes at the rate
 
 $$
-\frac{dW}{dt} = F_u(u+v_1) = -eE_1\sin(kx-\omega t)(\underbrace{n_u u}_{1} +\underbrace{n_uv_1}_{2} + \underbrace{n_1 u}_{3} + \underbrace{n_1 v_1}_{4})
+\frac{\mathrm{d}W}{\mathrm{d}t} = F_u(u+v_1) = -eE_1\sin(kx-\omega t)(\underbrace{n_u u}_{1} +\underbrace{n_uv_1}_{2} + \underbrace{n_1 u}_{3} + \underbrace{n_1 v_1}_{4})
 $$
 
 We now take the spatial average over a wavelength. The first term vanishes because $n_u u$ is a constant. The fourth term can be neglected because it is second order, but in any case it can be shown to have zero average. The second and third terms can be evaluated with the help of identities
@@ -574,7 +574,7 @@ The result is then
 
 $$
 \begin{aligned}
-\left< \frac{dW}{dt}\right>_u = \frac{e^2E_1^2}{2m}n_u\Big[ &\frac{\sin(\omega t - kut)}{\omega - ku} \\
+\left< \frac{\mathrm{d}W}{\mathrm{d}t}\right>_u = \frac{e^2E_1^2}{2m}n_u\Big[ &\frac{\sin(\omega t - kut)}{\omega - ku} \\
 & + ku\frac{\sin(\omega t-kut) - (\omega-ku)t\cos(\omega t-kut)}{(\omega-ku)^2} \Big]
 \end{aligned}
 $$
@@ -582,14 +582,14 @@ $$
 The total work done on the particles is found by summing over all the beams:
 
 $$
-\sum_u \left< \frac{dW}{dt}\right>_u = \int \frac{f_0(u)}{n_u}\left< \frac{dW}{dt}\right>_u dy = n_0\int\frac{\hat{f}_0(u)}{n_u}\left< \frac{dW}{dt}\right>_u du
+\sum_u \left< \frac{\mathrm{d}W}{\mathrm{d}t}\right>_u = \int \frac{f_0(u)}{n_u}\left< \frac{\mathrm{d}W}{\mathrm{d}t}\right>_u dy = n_0\int\frac{\hat{f}_0(u)}{n_u}\left< \frac{\mathrm{d}W}{\mathrm{d}t}\right>_u du
 $$
 
-Inserting the expression of $\left< \frac{dW}{dt}\right>_u$ and using the definition of $\omega_p$, we then find for the rate of change of kinetic energy
+Inserting the expression of $\left< \frac{\mathrm{d}W}{\mathrm{d}t}\right>_u$ and using the definition of $\omega_p$, we then find for the rate of change of kinetic energy
 
 $$
 \begin{aligned}
-\left< \frac{dW_k}{dt}\right> =& \frac{\epsilon_0 E_1^2}{2}\omega_p^2 \Big[ \int\hat{f}_0(u)\frac{\sin(\omega t - kut)}{\omega - ku} du \\
+\left< \frac{dW_k}{\mathrm{d}t}\right> =& \frac{\epsilon_0 E_1^2}{2}\omega_p^2 \Big[ \int\hat{f}_0(u)\frac{\sin(\omega t - kut)}{\omega - ku} du \\
 & + \int\hat{f}_0(u) \frac{\sin(\omega t-kut) - (\omega-ku)t\cos(\omega t-kut)}{(\omega-ku)^2}ku du \Big] \\
 =& \frac{1}{2}\epsilon_0 E_1^2 \omega_p^2 \int_{-\infty}^{\infty}\hat{f}_0(u) du \Big\{ \frac{\sin(\omega t - kut)}{\omega - ku} + u\frac{d}{du}\Big[\frac{\sin(\omega t - kut)}{\omega - ku} \Big] \Big\} \\
 =& \frac{1}{2}\epsilon_0 E_1^2 \omega_p^2 \int_{-\infty}^{\infty}\hat{f}_0(u) du \frac{d}{du}\Big[u\frac{\sin(\omega t - kut)}{\omega - ku} \Big]
@@ -638,17 +638,17 @@ $$
 W_w = \frac{\epsilon E_1^2}{2}
 $$
 
-The rate of change of wave energy density $W_w$ is given by $-\left< \frac{dW_k}{dt} \right>$:
+The rate of change of wave energy density $W_w$ is given by $-\left< \frac{dW_k}{\mathrm{d}t} \right>$:
 
 $$
-\frac{dW_w}{dt} = -W_w \omega_p^2 \int_{-\infty}^{\infty}\hat{f}_0(u) du \frac{d}{du}\Big[u\frac{\sin(\omega t - kut)}{\omega - ku} \Big]
+\frac{dW_w}{\mathrm{d}t} = -W_w \omega_p^2 \int_{-\infty}^{\infty}\hat{f}_0(u) du \frac{d}{du}\Big[u\frac{\sin(\omega t - kut)}{\omega - ku} \Big]
 $$
 
 Integration by parts gives
 
 $$
 \begin{aligned}
-\frac{dW_w}{dt} =& W_w \omega_p^2 \Big\{ \Big[ u\hat{f}_0(u)\frac{\sin(\omega-ku)t}{\omega - ku} \Big]_{-\infty}^{\infty} \\
+\frac{dW_w}{\mathrm{d}t} =& W_w \omega_p^2 \Big\{ \Big[ u\hat{f}_0(u)\frac{\sin(\omega-ku)t}{\omega - ku} \Big]_{-\infty}^{\infty} \\
 &- \int_{-\infty}^{\infty} u\frac{d\hat{f}_0}{du}\frac{\sin(\omega-ku)t}{\omega-ku} du \Big\}
 \end{aligned}
 $$
@@ -656,7 +656,7 @@ $$
 The integrated part vanishes for well-behaved functions $\hat{f}_0(u)$, and we have
 
 $$
-\frac{dW_w}{dt} = W_w\frac{\omega}{k}\omega_p^2 \int_{-\infty}^{\infty} \frac{d\hat{f}_0}{du}\Big[\frac{\sin(\omega-ku)t}{\omega-ku}\Big] du
+\frac{dW_w}{\mathrm{d}t} = W_w\frac{\omega}{k}\omega_p^2 \int_{-\infty}^{\infty} \frac{d\hat{f}_0}{du}\Big[\frac{\sin(\omega-ku)t}{\omega-ku}\Big] du
 $$
 
 where $u$ has been set equal to $\omega/k$ (a constant), since only velociies very close to this will contirbute to the integral. In fact, for sufficiently large $t$, the square bracket can be approximated by a $\delta$-function:
@@ -670,13 +670,13 @@ $$
 Thus
 
 $$
-\frac{dW_w}{dt} = W_w\frac{\omega}{k}\omega_p^2 \frac{\pi}{k}\frac{\omega}{k}\hat{f}_0\Big(\frac{\omega}{k}\Big) = W_w \pi \omega\frac{\omega_p^2}{k^2}\hat{f}_0^\prime\Big(\frac{\omega}{k}\Big)
+\frac{dW_w}{\mathrm{d}t} = W_w\frac{\omega}{k}\omega_p^2 \frac{\pi}{k}\frac{\omega}{k}\hat{f}_0\Big(\frac{\omega}{k}\Big) = W_w \pi \omega\frac{\omega_p^2}{k^2}\hat{f}_0^\prime\Big(\frac{\omega}{k}\Big)
 $$
 
 Since $\Im(\omega)$ is the growth rate of $E_1$, and $W_w$ is proportional to $E_1^2$, we must have
 
 $$
-\frac{dW_w}{dt} = 2\Im(\omega)W_w
+\frac{dW_w}{\mathrm{d}t} = 2\Im(\omega)W_w
 $$
 
 Hence

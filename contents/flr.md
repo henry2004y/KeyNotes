@@ -476,7 +476,7 @@ The surface wave driven FLR seems reasonable. However, the biggest problem for t
 In the 1980s, cavity modes and waveguide modes were proposed to remove the constraint on driven FLR. The analogy of a magnetosphere to a cavity came before the analogy to a waveguide. In a cavity model the azimuthal direction $\phi$ or the $y$ direction in the box geometry is finite, and the wavenumber $k_y$ is determined by the given scale size $b$. In the axisymmetric cylindrical coordinates $(r,\phi,z)$, where $\phi$ is the azimuthal angle and $z$ is the coordinate along the field lines, the field has the form $\sim e^{im\phi},\, m=0,1,2$.\footnote{$E(\phi=0)=E(\phi=2\pi)$} This is a weak point of the theory because the magnetosphere is far from axisymmetric and there are no other obvious boundaries to define the cavity. If the system is similar to a waveguide, then $k_y$ can have a continuum of values, and the waveguide allows propagation over a wide band of frequencies.
 
 If instead we use a waveguide model, the azimuthal direction (or $y$-direction) will have no imposed boundary condition.
-Theoretically a continuum of wave modes $k_y$ can excite FLR, and the discrete resonance frequencies are determined by the Bohr-Sommerfeld condition eq:cavity_eigen_wkb where harmonics of toroidal and poloidal are given by $k_z$. The discrete frequency spectrum of the fast waveguide modes is suitable for driving a series of Alfvén resonance; however, it is not obvious that the continuous frequency spectrum of the modes will be able to drive resonances at discrete frequencies. A key observation to make waveguide mode more valid is that _only small $k_y$ contributes to the resonance_. ([@walker1992spatial],[Wright 1992], [@wright1994]). If $k_y$ is not fixed (but $k_z$ is fixed), then @eq:cavity_eigen_wkb is the dispersion relation for the waveguide expressing $\omega$ as a function of $k_y$. The Alfvén speed is a strong function of the L shell, typically $\sim L^{-3}$. Thus, if the turning point $x_t$ is reasonably deep within the magnetosphere, the range over which $\omega^2/V_A^2 \gg k_y^2 + k_z^2$ contributes most significantly to the integral @eq:cavity_eigen_wkb. The result is that over a wide range of wavelengths the frequency is very insensitive to $k_y$. Only when $k_y$ is quite large this is not true, and then the turning point is near the magnetopause, and the wave does not penetrate very deeply into the magnetosphere. Each waveguide mode has a phase velocity $\omega/k_y$ and a group velocity $d\omega/dk_y$. Since @eq:cavity_eigen_wkb defines $\omega$ as a function of $k_y$, we can substitute @eq:flr_kx_effective into @eq:cavity_eigen_wkb and differentiate with respect to $k_y$ (assuming $\alpha$ is a constant):
+Theoretically a continuum of wave modes $k_y$ can excite FLR, and the discrete resonance frequencies are determined by the Bohr-Sommerfeld condition eq:cavity_eigen_wkb where harmonics of toroidal and poloidal are given by $k_z$. The discrete frequency spectrum of the fast waveguide modes is suitable for driving a series of Alfvén resonance; however, it is not obvious that the continuous frequency spectrum of the modes will be able to drive resonances at discrete frequencies. A key observation to make waveguide mode more valid is that _only small $k_y$ contributes to the resonance_. ([@walker1992spatial],[Wright 1992], [@wright1994]). If $k_y$ is not fixed (but $k_z$ is fixed), then @eq:cavity_eigen_wkb is the dispersion relation for the waveguide expressing $\omega$ as a function of $k_y$. The Alfvén speed is a strong function of the L shell, typically $\sim L^{-3}$. Thus, if the turning point $x_t$ is reasonably deep within the magnetosphere, the range over which $\omega^2/V_A^2 \gg k_y^2 + k_z^2$ contributes most significantly to the integral @eq:cavity_eigen_wkb. The result is that over a wide range of wavelengths the frequency is very insensitive to $k_y$. Only when $k_y$ is quite large this is not true, and then the turning point is near the magnetopause, and the wave does not penetrate very deeply into the magnetosphere. Each waveguide mode has a phase velocity $\omega/k_y$ and a group velocity $\mathrm{d}\omega/dk_y$. Since @eq:cavity_eigen_wkb defines $\omega$ as a function of $k_y$, we can substitute @eq:flr_kx_effective into @eq:cavity_eigen_wkb and differentiate with respect to $k_y$ (assuming $\alpha$ is a constant):
 
 $$
 \begin{aligned}
@@ -487,7 +487,7 @@ $$
 $$
 
 $$
-v_p v_g \equiv \frac{\omega}{k_y}\frac{d\omega}{dk_y} = \frac{\int_{x_t}^{x_m}k_x^{-1}dx}{\int_{x_t}^{x_m}V_A^{-2}k_x^{-1}dx}
+v_p v_g \equiv \frac{\omega}{k_y}\frac{\mathrm{d}\omega}{dk_y} = \frac{\int_{x_t}^{x_m}k_x^{-1}dx}{\int_{x_t}^{x_m}V_A^{-2}k_x^{-1}dx}
 $$
 
 The RHS is the reciprocal of the weighted mean of $V_A^{-2}$ with weighting function $k_x^{-1}$. Thus we can write
@@ -525,7 +525,7 @@ $$
 where $w$ is the wave energy density, $\mathbf{S}$ is the Poynting flux, and $h$ a dissipation term, describing energy loss due to e.g. ionospheric Joule heating. As the background parameters only vary in the radial direction, this equation reduces to
 
 $$
-\frac{\partial w}{\partial t} = -\frac{d}{dr}S_x - h
+\frac{\partial w}{\partial t} = -\frac{\mathrm{d}}{\mathrm{d}r}S_x - h
 $$
 
 Integration across the width of the coupling region in a radial direction leads to the following rate equation:

@@ -13,7 +13,7 @@ $$ {#eq:kmhd_boltzmann}
 The Maxwell's equation can be simplified based on our assumptions.
 
 $$
-\nabla\cdot\mathbf{E} = \epsilon_0 \sum_s q_s n_s,\, n_s=\int d\mathbf{v}f_s
+\nabla\cdot\mathbf{E} = \epsilon_0 \sum_s q_s n_s,\, n_s=\int \mathrm{d}\mathbf{v}f_s
 $$
 
 $\nabla\cdot\mathbf{E}$ is small when $k^2\lambda_{De}\ll 1$, and this simply gives the quasineutrality condition.
@@ -27,7 +27,7 @@ $$
 $$
 
 $$
-\nabla\times\mathbf{B} = \mu_0\mathbf{j} + \cancel{\epsilon_0\mu_0 \frac{\partial\mathbf{E}}{\partial t}},\, \mathbf{j} = \sum_s n_s q_s \mathbf{u}_s, \mathbf{u}_s = \frac{1}{n_s}\int d\mathbf{v}\mathbf{v} f_s
+\nabla\times\mathbf{B} = \mu_0\mathbf{j} + \cancel{\epsilon_0\mu_0 \frac{\partial\mathbf{E}}{\partial t}},\, \mathbf{j} = \sum_s n_s q_s \mathbf{u}_s, \mathbf{u}_s = \frac{1}{n_s}\int \mathrm{d}\mathbf{v}\mathbf{v} f_s
 $$
 
 The displacement current can be neglected since $\omega\ll kc$ for low frequency waves and non-relativistic motions. 
@@ -90,21 +90,21 @@ $$ {#eq:boltzmann_change_of_var}
 where 
 
 $$
-\mathbf{a}_s = \frac{q_s}{m_s}\Big(\mathbf{E} + \mathbf{u}_s\times\mathbf{B} \Big) - \frac{d\mathbf{u}_s}{dt}
+\mathbf{a}_s = \frac{q_s}{m_s}\Big(\mathbf{E} + \mathbf{u}_s\times\mathbf{B} \Big) - \frac{\mathrm{d}\mathbf{u}_s}{\mathrm{d}t}
 $$
 
-and now we always have $\int d\mathbf{w}\mathbf{w}f_s = 0$ by definition. The strategy now is to take moments of @eq:boltzmann_change_of_var. The zeroth-order moment ($\int d\mathbf{w}$) gives
+and now we always have $\int \mathrm{d}\mathbf{w}\mathbf{w}f_s = 0$ by definition. The strategy now is to take moments of @eq:boltzmann_change_of_var. The zeroth-order moment ($\int \mathrm{d}\mathbf{w}$) gives
 
 $$
 \begin{aligned}
-\int \frac{df_s}{dt} d\mathbf{w} + \int (\mathbf{w}\cdot\nabla)f_s d\mathbf{w} + \int \Big[... \Big]\cdot\frac{\partial f_s}{\partial\mathbf{w}} d\mathbf{w} = 0 \\
-\frac{d}{dt}\int f_s d\mathbf{w} + \cancel{\nabla\cdot\int \mathbf{w}f_s d\mathbf{w}} - \int (\mathbf{w}\cdot\nabla\mathbf{u}_s)\cdot\frac{\partial f_s}{\partial\mathbf{w}} d\mathbf{w} = 0 \\
-\frac{dn_s}{dt} + \int f_s \frac{\partial}{\partial\mathbf{w}}\big(\mathbf{w}\cdot\nabla\mathbf{u}_s \big)d\mathbf{w} = 0 \\
-\frac{dn_s}{dt} + \int f_s \frac{\partial}{\partial w_j}\big(w_i \frac{\partial}{\partial x_i}u_{sj} \big)dw_j = 0 \\
-\frac{dn_s}{dt} + \int f_s \delta_{ij}\frac{\partial}{\partial x_i}u_{sj}dw_j + \int f_s  w_i \cancel{\frac{\partial^2 u_{sj}}{\partial x_i \partial w_j}}dw_j = 0 \\
-\frac{dn_s}{dt} + \int f_s \frac{\partial}{\partial x_i}u_{si}dw_i = 0 \\
-\frac{dn_s}{dt} + \nabla\cdot\mathbf{u}_s\int f_s d\mathbf{w} = 0 \\
-\frac{dn_s}{dt} + (\nabla\cdot\mathbf{u}_s)n_s = 0
+\int \frac{df_s}{\mathrm{d}t} \mathrm{d}\mathbf{w} + \int (\mathbf{w}\cdot\nabla)f_s \mathrm{d}\mathbf{w} + \int \Big[... \Big]\cdot\frac{\partial f_s}{\partial\mathbf{w}} \mathrm{d}\mathbf{w} = 0 \\
+\frac{\mathrm{d}}{\mathrm{d}t}\int f_s \mathrm{d}\mathbf{w} + \cancel{\nabla\cdot\int \mathbf{w}f_s \mathrm{d}\mathbf{w}} - \int (\mathbf{w}\cdot\nabla\mathbf{u}_s)\cdot\frac{\partial f_s}{\partial\mathbf{w}} \mathrm{d}\mathbf{w} = 0 \\
+\frac{dn_s}{\mathrm{d}t} + \int f_s \frac{\partial}{\partial\mathbf{w}}\big(\mathbf{w}\cdot\nabla\mathbf{u}_s \big)\mathrm{d}\mathbf{w} = 0 \\
+\frac{dn_s}{\mathrm{d}t} + \int f_s \frac{\partial}{\partial w_j}\big(w_i \frac{\partial}{\partial x_i}u_{sj} \big)dw_j = 0 \\
+\frac{dn_s}{\mathrm{d}t} + \int f_s \delta_{ij}\frac{\partial}{\partial x_i}u_{sj}dw_j + \int f_s  w_i \cancel{\frac{\partial^2 u_{sj}}{\partial x_i \partial w_j}}dw_j = 0 \\
+\frac{dn_s}{\mathrm{d}t} + \int f_s \frac{\partial}{\partial x_i}u_{si}dw_i = 0 \\
+\frac{dn_s}{\mathrm{d}t} + \nabla\cdot\mathbf{u}_s\int f_s \mathrm{d}\mathbf{w} = 0 \\
+\frac{dn_s}{\mathrm{d}t} + (\nabla\cdot\mathbf{u}_s)n_s = 0
 \end{aligned}
 $$
 
@@ -114,30 +114,30 @@ $$
 \frac{\partial n_s}{\partial t} + \nabla\cdot(n_s\mathbf{u}_s) = 0
 $$ {#eq:kmhd_continuity}
 
-The first-order moment ($\int d\mathbf{w}m_s\mathbf{w}$) gives
+The first-order moment ($\int \mathrm{d}\mathbf{w}m_s\mathbf{w}$) gives
 
 $$
-\nabla\cdot\int d\mathbf{w}m_s\mathbf{w} \mathbf{w}f_s - m_sn_s\mathbf{a}_s = \int d\mathbf{w}m_s\mathbf{w}C(f_s) \equiv \mathbf{R}_s
+\nabla\cdot\int \mathrm{d}\mathbf{w}m_s\mathbf{w} \mathbf{w}f_s - m_sn_s\mathbf{a}_s = \int \mathrm{d}\mathbf{w}m_s\mathbf{w}C(f_s) \equiv \mathbf{R}_s
 $$
 
-where $\int d\mathbf{w}m_s\mathbf{w} \mathbf{w}f_s = \mathbf{P}_s$ is the pressure tensor and  $\mathbf{R}_s$ is the collisional friction. Unpacking $\mathbf{a}_s$, we have the momentum equation for each species $s$
+where $\int \mathrm{d}\mathbf{w}m_s\mathbf{w} \mathbf{w}f_s = \mathbf{P}_s$ is the pressure tensor and  $\mathbf{R}_s$ is the collisional friction. Unpacking $\mathbf{a}_s$, we have the momentum equation for each species $s$
 
 $$
-m_sn_s\frac{d\mathbf{u}_s}{dt} = -\nabla\cdot\mathbf{P}_s + q_s n_s(\mathbf{E} +\mathbf{u}_s\times\mathbf{B}) + \mathbf{R}_s
+m_sn_s\frac{\mathrm{d}\mathbf{u}_s}{\mathrm{d}t} = -\nabla\cdot\mathbf{P}_s + q_s n_s(\mathbf{E} +\mathbf{u}_s\times\mathbf{B}) + \mathbf{R}_s
 $$ {#eq:kmhd_momentum_species}
 
 Summing over all the species,
 
 $$
 \begin{aligned}
-\sum_s m_sn_s\frac{d\mathbf{u}_s}{dt} = -\nabla\cdot\sum_s\mathbf{P}_s + \cancel{\sum_s q_s n_s\mathbf{E}} + \sum_s q_s n_s\mathbf{u}_s\times\mathbf{B} + \cancel{\sum_s\mathbf{R}_s} \\
-\rho\frac{d\mathbf{u}}{dt} = -\nabla\cdot\mathbf{P} + \mathbf{j}\times\mathbf{B} \\
-\rho\frac{d\mathbf{u}}{dt} = -\nabla\cdot\mathbf{P} + \mu_0^{-1}(\nabla\times\mathbf{B})\times\mathbf{B} \\
-\rho\frac{d\mathbf{u}}{dt} = -\nabla\cdot\Big[\mathbf{P} + \frac{B^2}{2\mu_0}\mathbf{I} - \mathbf{B}\mathbf{B}\Big]
+\sum_s m_sn_s\frac{\mathrm{d}\mathbf{u}_s}{\mathrm{d}t} = -\nabla\cdot\sum_s\mathbf{P}_s + \cancel{\sum_s q_s n_s\mathbf{E}} + \sum_s q_s n_s\mathbf{u}_s\times\mathbf{B} + \cancel{\sum_s\mathbf{R}_s} \\
+\rho\frac{\mathrm{d}\mathbf{u}}{\mathrm{d}t} = -\nabla\cdot\mathbf{P} + \mathbf{j}\times\mathbf{B} \\
+\rho\frac{\mathrm{d}\mathbf{u}}{\mathrm{d}t} = -\nabla\cdot\mathbf{P} + \mu_0^{-1}(\nabla\times\mathbf{B})\times\mathbf{B} \\
+\rho\frac{\mathrm{d}\mathbf{u}}{\mathrm{d}t} = -\nabla\cdot\Big[\mathbf{P} + \frac{B^2}{2\mu_0}\mathbf{I} - \mathbf{B}\mathbf{B}\Big]
 \end{aligned}
 $$
 
-It is useful to emphasize that $d/dt = \partial/\partial t + \mathbf{u}\cdot\nabla$. Later we will see the notation of $D/Dt$, which is used to remind us of the fact that $\mathbf{w}$ is involved.
+It is useful to emphasize that $\mathrm{d}/\mathrm{d}t = \partial/\partial t + \mathbf{u}\cdot\nabla$. Later we will see the notation of $D/Dt$, which is used to remind us of the fact that $\mathbf{w}$ is involved.
 
 We also need an equation for the magnetic field. It is Faraday's law:
 
@@ -148,14 +148,14 @@ $$
 From @eq:kmhd_momentum_species,
 
 $$
-\mathbf{E} = -\mathbf{u}_s\times\mathbf{B} + \frac{\nabla\cdot\mathbf{P}_s}{q_sn_s} - \frac{\mathbf{R}_s}{q_sn_s} + \frac{m_s}{q_s}\frac{d\mathbf{u}_s}{dt}
+\mathbf{E} = -\mathbf{u}_s\times\mathbf{B} + \frac{\nabla\cdot\mathbf{P}_s}{q_sn_s} - \frac{\mathbf{R}_s}{q_sn_s} + \frac{m_s}{q_s}\frac{\mathrm{d}\mathbf{u}_s}{\mathrm{d}t}
 $$
 
 Based on the following arguments:
 
 * $\nabla\cdot\mathbf{P}_s/(q_sn_s)$ is small since $kr_s/M_A \ll 1$(long wave + incompressible plasma???),
 * $\mathbf{R}_s/(q_sn_s)$ is small since $\nu_s/\Omega_s\ll 1$,
-* $(m_s/q_s) d\mathbf{u}_s/dt$ is small since $\omega/\Omega_s\ll 1$
+* $(m_s/q_s) \mathrm{d}\mathbf{u}_s/\mathrm{d}t$ is small since $\omega/\Omega_s\ll 1$
 
 we have the simplest Ohm's law and in turn $\mathbf{u}_s = \mathbf{E}\times\mathbf{B}/B^2 = \mathbf{u}_\perp$, the perpendicular component of the velocity is the same for all species. Then we get the induction equation from Faraday's law:
 
@@ -166,7 +166,7 @@ $$ {#eq:kmhd_induction}
 or
 
 $$
-\frac{d\mathbf{B}}{dt} = \mathbf{B}\cdot\nabla\mathbf{u} - \mathbf{B}\nabla\cdot\mathbf{u}
+\frac{\mathrm{d}\mathbf{B}}{\mathrm{d}t} = \mathbf{B}\cdot\nabla\mathbf{u} - \mathbf{B}\nabla\cdot\mathbf{u}
 $$ {#eq:kmhd_induction2}
 
 The three equations we have so far are very similar to MHD, except for the pressure tensor. Obviously, all the kinetic magic is hidden in $\mathbf{P}$.
@@ -200,22 +200,22 @@ This is why we say the third term in @eq:kmhd_boltzmann represents a rotation in
 From @eq:boltzmann_change_of_var, if we apply the lowest order of approximation,
 
 $$
-\Omega_s\Big( \frac{\partial f_s}{\partial\mathbf{\theta}}\Big)_{w_\perp,w_\parallel} = \underbrace{\frac{d f_s}{dt}}_{\substack{\omega/\Omega_s\ll 1 \\ kr_su_s/v_{th,s}\ll 1}} + \underbrace{\mathbf{w}\cdot\nabla f_s}_{kr_s\ll 1} + (\underbrace{\mathbf{a}_s}_{kr_s\ll 1} - \underbrace{\mathbf{w}\cdot\nabla\mathbf{u}_s}_{kr_sM_A\ll 1})\cdot\frac{\partial f_s}{\partial \mathbf{w}} - \underbrace{C(f_s)}_{\nu_s\ll\Omega_s} = 0
+\Omega_s\Big( \frac{\partial f_s}{\partial\mathbf{\theta}}\Big)_{w_\perp,w_\parallel} = \underbrace{\frac{\mathrm{d} f_s}{\mathrm{d}t}}_{\substack{\omega/\Omega_s\ll 1 \\ kr_su_s/v_{th,s}\ll 1}} + \underbrace{\mathbf{w}\cdot\nabla f_s}_{kr_s\ll 1} + (\underbrace{\mathbf{a}_s}_{kr_s\ll 1} - \underbrace{\mathbf{w}\cdot\nabla\mathbf{u}_s}_{kr_sM_A\ll 1})\cdot\frac{\partial f_s}{\partial \mathbf{w}} - \underbrace{C(f_s)}_{\nu_s\ll\Omega_s} = 0
 $$ {#eq:kmhd_kinetic}
 
 which essentially tells us that $f_s=f_s(w_\perp,w_\parallel,\theta) = f_s(w_\perp,w_\parallel)$ is gyrotropic. Let us use $<>$ to denote averaging over a gyroperiod:
 
 $$
-\left< A \right> = \int_0^{2\pi} A d\theta
+\left< A \right> = \int_0^{2\pi} A \mathrm{d}\theta
 $$
 
 We can use gyrotropy to simplify the pressure tensor:
 
 $$
 \begin{aligned}
-\mathbf{P}_s &= \int d\mathbf{w}m_s\left< \mathbf{w}\mathbf{w} \right>f_s(\mathbf{r},w_\perp,w_\parallel,t) \\
-&= \int d\mathbf{w}m_s \big[\frac{w_\perp^2}{2}(\mathbf{I} - \hat{b}\hat{b}) + w_\parallel^2\hat{b}\hat{b} \big] f_s(\mathbf{r},w_\perp,w_\parallel,t) \\
-&= (\mathbf{I} - \hat{b}\hat{b})\int d\mathbf{w}\frac{m_sw_\perp^2}{2}f_s + \hat{b}\hat{b}\int d\mathbf{w}m_sw_\parallel^2 f_s \\
+\mathbf{P}_s &= \int \mathrm{d}\mathbf{w}m_s\left< \mathbf{w}\mathbf{w} \right>f_s(\mathbf{r},w_\perp,w_\parallel,t) \\
+&= \int \mathrm{d}\mathbf{w}m_s \big[\frac{w_\perp^2}{2}(\mathbf{I} - \hat{b}\hat{b}) + w_\parallel^2\hat{b}\hat{b} \big] f_s(\mathbf{r},w_\perp,w_\parallel,t) \\
+&= (\mathbf{I} - \hat{b}\hat{b})\int \mathrm{d}\mathbf{w}\frac{m_sw_\perp^2}{2}f_s + \hat{b}\hat{b}\int \mathrm{d}\mathbf{w}m_sw_\parallel^2 f_s \\
 &= \begin{pmatrix} p_{\perp s} & 0 & 0 \\ 0 & p_{\perp s} & 0 \\ 0 & 0 & p_{\parallel s} \end{pmatrix}
 \end{aligned}
 $$
@@ -224,15 +224,15 @@ where
 
 $$
 \begin{aligned}
-p_\perp &= \int d\mathbf{w}\frac{m_sw_\perp^2}{2}f_s \\
-p_\parallel &= \int d\mathbf{w}m_sw_\parallel^2 f_s
+p_\perp &= \int \mathrm{d}\mathbf{w}\frac{m_sw_\perp^2}{2}f_s \\
+p_\parallel &= \int \mathrm{d}\mathbf{w}m_sw_\parallel^2 f_s
 \end{aligned}
 $$
 
 @eq:kmhd_momentum_species becomes
 
 $$
-\rho\frac{d\mathbf{u}}{dt} = -\nabla\Big( \underbrace{p_\perp + \frac{B^2}{2\mu_0}}_{\text{total scalar pressure}} \Big) + \nabla\cdot\Big[ \hat{b}\hat{b}\big( \underbrace{p_\perp - p_\parallel}_{\text{pressure anisotropy stress}} + \underbrace{\frac{B^2}{\mu_0}}_{\text{Maxwell stress}} \big) \Big]
+\rho\frac{\mathrm{d}\mathbf{u}}{\mathrm{d}t} = -\nabla\Big( \underbrace{p_\perp + \frac{B^2}{2\mu_0}}_{\text{total scalar pressure}} \Big) + \nabla\cdot\Big[ \hat{b}\hat{b}\big( \underbrace{p_\perp - p_\parallel}_{\text{pressure anisotropy stress}} + \underbrace{\frac{B^2}{\mu_0}}_{\text{Maxwell stress}} \big) \Big]
 $$ {#eq:kmhd_momentum_species_gyrotropic}
 
 The pressure anisotropy stress is the key new feature compared to usual MHD. It should be important provided $p_\perp - p_\parallel \gtrsim B^2/\mu_0$, or $(p_\perp - p_\parallel)/p \gtrsim 2/\beta$. Therefore this is more likely to matter in high-$\beta$ plasmas.
@@ -241,9 +241,9 @@ To summarize what we have gotten so far: to work out motions and magnetic fields
 
 $$
 \begin{aligned}
-\rho &= \sum_s m_s \int d\mathbf{w}f_s \\
-p_\perp &= \sum_s \int d\mathbf{w}\frac{m_sw_\perp^2}{2}f_s \\
-p_\parallel &= \sum_s \int d\mathbf{w}m_sw_\parallel^2 f_s
+\rho &= \sum_s m_s \int \mathrm{d}\mathbf{w}f_s \\
+p_\perp &= \sum_s \int \mathrm{d}\mathbf{w}\frac{m_sw_\perp^2}{2}f_s \\
+p_\parallel &= \sum_s \int \mathrm{d}\mathbf{w}m_sw_\parallel^2 f_s
 \end{aligned}
 $$
 
@@ -252,13 +252,13 @@ We still need the kinetic equation to calculate $f_s$ --- this kinetic equation 
 To the first order,
 
 $$
-\Omega_s\Big( \frac{\partial f_s^1}{\partial\theta} \Big)_{w_\perp, w_\parallel} = \frac{d f_s^0}{dt} + \mathbf{w}\cdot\nabla f_s^0 + ( \mathbf{a}_s -\mathbf{w}\cdot\nabla\mathbf{u}_s )\cdot\frac{\partial f_s^0}{\partial\mathbf{w}} - C(f_s^0)
+\Omega_s\Big( \frac{\partial f_s^1}{\partial\theta} \Big)_{w_\perp, w_\parallel} = \frac{\mathrm{d} f_s^0}{\mathrm{d}t} + \mathbf{w}\cdot\nabla f_s^0 + ( \mathbf{a}_s -\mathbf{w}\cdot\nabla\mathbf{u}_s )\cdot\frac{\partial f_s^0}{\partial\mathbf{w}} - C(f_s^0)
 $$
 
 The left-hand side can be eliminated by integrating over $\theta$, so we have
 
 $$
-\left< \frac{d f_s}{dt} + \mathbf{w}\cdot\nabla f_s + (\mathbf{a}_s - \mathbf{w}\cdot\nabla\mathbf{u}_s)\cdot\frac{\partial f_s}{\partial\mathbf{w}} - C(f_s) \right> = 0
+\left< \frac{\mathrm{d} f_s}{\mathrm{d}t} + \mathbf{w}\cdot\nabla f_s + (\mathbf{a}_s - \mathbf{w}\cdot\nabla\mathbf{u}_s)\cdot\frac{\partial f_s}{\partial\mathbf{w}} - C(f_s) \right> = 0
 $$
 
 where $f_s = f_s(w_\perp,w_\parallel)$. To do this averaging, we tranform variables from $(t,\mathbf{r},\mathbf{w}) \rightarrow(t,\mathbf{r},w_\perp,w_\parallel,\theta)$. With
@@ -279,7 +279,7 @@ $$ {#eq:kmhd_boltzmann_1storder}
 where
 
 $$
-D/Dt = d/dt + w_\parallel \hat{b}\cdot\nabla = \partial/\partial t + \mathbf{u}_s\cdot\nabla + w_\parallel \hat{b}\cdot\nabla
+D/Dt = \mathrm{d}/\mathrm{d}t + w_\parallel \hat{b}\cdot\nabla = \partial/\partial t + \mathbf{u}_s\cdot\nabla + w_\parallel \hat{b}\cdot\nabla
 $$
 
 This is not terribly transparent and it is perhaps better to write this equation in different, "more physical" variables. Let
@@ -291,7 +291,7 @@ $$
 where $\mu = m_sw_\perp^2/2B$ is the magnetic moment of a gyrating particle and $\epsilon=m_sw^2/2 = m_s(w_\perp^2+w_\parallel^2)/2$. Since $\mu$ is conserved when $\omega\ll\Omega_s$, $F_s$ satisfies (???)
 
 $$
-\frac{D F_s}{Dt} + \Big[ m_sw_\parallel\Big( \frac{q_s}{m_s}E_\parallel - \frac{D\mathbf{u}_s}{Dt}\cdot\hat{b} \Big) +\mu\frac{dB}{dt} \Big]\frac{\partial F_s}{\partial\epsilon} = C(F_s)
+\frac{D F_s}{Dt} + \Big[ m_sw_\parallel\Big( \frac{q_s}{m_s}E_\parallel - \frac{D\mathbf{u}_s}{Dt}\cdot\hat{b} \Big) +\mu\frac{\mathrm{d}B}{\mathrm{d}t} \Big]\frac{\partial F_s}{\partial\epsilon} = C(F_s)
 $$ {#eq:kmhd_kinetic_1storder}
 
 * The first term is the convective derivative in the guiding center coordinates.
@@ -396,7 +396,7 @@ $$ {#eq:kmhd_momentum_perturb_perp}
 Note the $p_\perp$ term here: we need kinetic theory to calculate this! Fortunately we have @eq:kmhd_kinetic_1storder ready for calculating
 
 $$
-\delta p_\perp = \int d\mathbf{w}\frac{m_sw_\perp^2}{2}\delta f_s(w_\perp, w_\parallel)
+\delta p_\perp = \int \mathrm{d}\mathbf{w}\frac{m_sw_\perp^2}{2}\delta f_s(w_\perp, w_\parallel)
 $$
 
 $\delta f_s(w_\perp, w_\parallel)$ can be obtained by calculating $F_s(\mu,\epsilon)$ and transforming back to $w_\perp,w_\parallel$.
@@ -441,14 +441,14 @@ We can eliminate the partial derivatives via integration by parts:
 
 $$
 \begin{aligned}
-\int d\mathbf{w}\frac{\partial f_{0s}}{\partial w_\parallel^2} &= \int_0^{2\pi}d\theta \int dw_\perp\int \frac{1}{2w_\parallel}\frac{\partial f_{0s}}{\partial w_\parallel}dw_\parallel \\
-&= \int_0^{2\pi}d\theta \int dw_\perp\int\frac{1}{2w_\parallel}d f_{0s} \\
-&= \int_0^{2\pi}d\theta \int dw_\perp\Big[\cancel{\frac{f_{0s}}{2w_\parallel}\bigg\rvert_{-\infty}^{\infty}} - \int f_{0s}d\frac{1}{2w_\parallel}\Big] \\
-&= \int_0^{2\pi}d\theta \int dw_\perp\int\frac{1}{2w_\parallel^2}f_{0s}dw_\parallel \\
-&= \int d\mathbf{w} \frac{1}{2w_\parallel^2}f_{0s} \\
-\int d\mathbf{w}w_\perp w_\perp^4\frac{\partial f_{0s}}{\partial w_\perp^2} &= 2\pi\int dw_\parallel \Big[ \cancel{\frac{1}{2}w_\perp^4f_{0s}\bigg\rvert_{-\infty}^{+\infty}} - \frac{1}{2}\int f_{0s}dw_\perp^4 \Big] \\
+\int \mathrm{d}\mathbf{w}\frac{\partial f_{0s}}{\partial w_\parallel^2} &= \int_0^{2\pi}\mathrm{d}\theta \int dw_\perp\int \frac{1}{2w_\parallel}\frac{\partial f_{0s}}{\partial w_\parallel}dw_\parallel \\
+&= \int_0^{2\pi}\mathrm{d}\theta \int dw_\perp\int\frac{1}{2w_\parallel}\mathrm{d} f_{0s} \\
+&= \int_0^{2\pi}\mathrm{d}\theta \int dw_\perp\Big[\cancel{\frac{f_{0s}}{2w_\parallel}\bigg\rvert_{-\infty}^{\infty}} - \int f_{0s}\mathrm{d}\frac{1}{2w_\parallel}\Big] \\
+&= \int_0^{2\pi}\mathrm{d}\theta \int dw_\perp\int\frac{1}{2w_\parallel^2}f_{0s}dw_\parallel \\
+&= \int \mathrm{d}\mathbf{w} \frac{1}{2w_\parallel^2}f_{0s} \\
+\int \mathrm{d}\mathbf{w}w_\perp w_\perp^4\frac{\partial f_{0s}}{\partial w_\perp^2} &= 2\pi\int dw_\parallel \Big[ \cancel{\frac{1}{2}w_\perp^4f_{0s}\bigg\rvert_{-\infty}^{+\infty}} - \frac{1}{2}\int f_{0s}dw_\perp^4 \Big] \\
 &= -2\pi\int dw_\parallel 2w_\perp^2 f_{0s}w_\perp dw_\perp \\
-&= -2 \int d\mathbf{w} w_\perp^2 f_{0s}
+&= -2 \int \mathrm{d}\mathbf{w} w_\perp^2 f_{0s}
 \end{aligned}
 $$
 
@@ -456,11 +456,11 @@ This then gives us
 
 $$
 \begin{aligned}
-\delta p_{\perp s} &= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta f_s \\
-&= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s - \int d\mathbf{w}\frac{m_s w_\perp^4}{2}\Big(\frac{\partial f_{0s}}{\partial w_\perp^2}-\frac{\partial f_{0s}}{\partial w_\parallel^2} \Big)\frac{\delta B}{B} \\
-&= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s - \int_0^{2\pi}d\theta \int dw_\perp w_\perp \int d w_\parallel \frac{m_s w_\perp^4}{2}\Big(\frac{\partial f_{0s}}{\partial w_\perp^2}-\frac{\partial f_{0s}}{\partial w_\parallel^2} \Big)\frac{\delta B}{B} \\
-&= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s + 2\int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta f_{0s}\frac{\delta B}{B} + \int d\mathbf{w}\frac{2(\frac{1}{2}m_sw_\perp^2)^2}{m_sw_\parallel^2}f_{0s}\frac{\delta B}{B} \\
-&= \int d\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s + \frac{\delta B}{B}\Big( 2p_{\perp s} - \frac{2 p_{\perp s}^2}{p_{\parallel s}} \alpha_s )
+\delta p_{\perp s} &= \int \mathrm{d}\mathbf{w}\frac{m_s w_\perp^2}{2}\delta f_s \\
+&= \int \mathrm{d}\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s - \int \mathrm{d}\mathbf{w}\frac{m_s w_\perp^4}{2}\Big(\frac{\partial f_{0s}}{\partial w_\perp^2}-\frac{\partial f_{0s}}{\partial w_\parallel^2} \Big)\frac{\delta B}{B} \\
+&= \int \mathrm{d}\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s - \int_0^{2\pi}\mathrm{d}\theta \int dw_\perp w_\perp \int \mathrm{d} w_\parallel \frac{m_s w_\perp^4}{2}\Big(\frac{\partial f_{0s}}{\partial w_\perp^2}-\frac{\partial f_{0s}}{\partial w_\parallel^2} \Big)\frac{\delta B}{B} \\
+&= \int \mathrm{d}\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s + 2\int \mathrm{d}\mathbf{w}\frac{m_s w_\perp^2}{2}\delta f_{0s}\frac{\delta B}{B} + \int \mathrm{d}\mathbf{w}\frac{2(\frac{1}{2}m_sw_\perp^2)^2}{m_sw_\parallel^2}f_{0s}\frac{\delta B}{B} \\
+&= \int \mathrm{d}\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s + \frac{\delta B}{B}\Big( 2p_{\perp s} - \frac{2 p_{\perp s}^2}{p_{\parallel s}} \alpha_s )
 \end{aligned}
 $$ {#eq:kmhd_pperp_perturb}
 
@@ -501,7 +501,7 @@ $$
 and its contribution to $\delta p_{\perp s}$ is
 
 $$
-\int d\mathbf{w}\frac{m_sw_\perp^2}{2}\delta F_s = \frac{\delta B}{B}\frac{\omega}{|k_\parallel|}\int\frac{dw_\parallel}{w_\parallel - \frac{\omega}{|k_\parallel|}} \Big[ \frac{\partial}{\partial w_\parallel^2}\int d\mathbf{w}_\perp \frac{m_s^2w_\perp^4}{2} f_{0s} \Big]
+\int \mathrm{d}\mathbf{w}\frac{m_sw_\perp^2}{2}\delta F_s = \frac{\delta B}{B}\frac{\omega}{|k_\parallel|}\int\frac{dw_\parallel}{w_\parallel - \frac{\omega}{|k_\parallel|}} \Big[ \frac{\partial}{\partial w_\parallel^2}\int \mathrm{d}\mathbf{w}_\perp \frac{m_s^2w_\perp^4}{2} f_{0s} \Big]
 $$
 
 Here we have $|k_\parallel|$ because if $k_\parallel <0$, we can change the variable $w_\parallel \rightarrow -w_\parallel$. This involves the Landau integral, which can be evaluated with the residual theorem @eq:residual_thm when integrate in the complex plane mostly along the real axis and the large semicircle in the upper half plane except for a small semicircle just below the pole (ADD FIGURE!):
@@ -514,7 +514,7 @@ so
 
 $$
 \begin{aligned}
-\int d\mathbf{w}\frac{m_sw_\perp^2}{2}\delta F_s &= \frac{\delta B}{B}\Big[ \cancel{\frac{\omega}{|k_\parallel|}P\int\frac{dw_\parallel}{w_\parallel - \frac{\omega}{|k_\parallel|}} \big[ ... \big]} + i\pi\frac{\omega}{|k_\parallel|}\big[ ... \big]_{w_\parallel}=\omega/|k_\parallel| \Big] 
+\int \mathrm{d}\mathbf{w}\frac{m_sw_\perp^2}{2}\delta F_s &= \frac{\delta B}{B}\Big[ \cancel{\frac{\omega}{|k_\parallel|}P\int\frac{dw_\parallel}{w_\parallel - \frac{\omega}{|k_\parallel|}} \big[ ... \big]} + i\pi\frac{\omega}{|k_\parallel|}\big[ ... \big]_{w_\parallel}=\omega/|k_\parallel| \Big] 
 \end{aligned}
 $$
 
@@ -523,7 +523,7 @@ The first term is small when we assume $\omega\ll k_\parallel v_{\text{th}s\para
 For a bi-Maxwellian,
 
 $$
-\Big[ \frac{\partial}{\partial w_\parallel^2}\int d\mathbf{w}_\perp\frac{m_s^2w_\perp^4}{2}f_{0s} \Big]_{w_\parallel=\omega/|k_\parallel|} = -\frac{2p_{\perp s}^2}{p_{\parallel s}}\frac{e^{-\frac{\omega^2}{k_\parallel^2 v_{\text{th}\parallel s}^2}}}{\sqrt{\pi}v_{\text{th}\parallel s}}
+\Big[ \frac{\partial}{\partial w_\parallel^2}\int \mathrm{d}\mathbf{w}_\perp\frac{m_s^2w_\perp^4}{2}f_{0s} \Big]_{w_\parallel=\omega/|k_\parallel|} = -\frac{2p_{\perp s}^2}{p_{\parallel s}}\frac{e^{-\frac{\omega^2}{k_\parallel^2 v_{\text{th}\parallel s}^2}}}{\sqrt{\pi}v_{\text{th}\parallel s}}
 $$
 
 The exponential term is nearly 1. If it is not a bi-Maxwellian, then we need to multiply by a coefficient $\alpha_s \sim 1$.
@@ -558,7 +558,7 @@ $$
 \delta p_\perp + \frac{B\delta B}{\mu_0} = \frac{B\delta B}{\mu_0}\Big[ \underbrace{1}_{\text{B pressure}} - \underbrace{\sum_s\Big( \frac{p_{\perp s}}{p_{\parallel s}}\alpha_s - 1 \Big)\beta_{\perp s}}_{\substack{\text{non-resonant} \\ \text{particle pressure}}} + \underbrace{...}_{\substack{\text{resonant particle} \\ \text{pressure}}} \Big]
 $$
 
-Thus, fundamentally, pressure anisotropy makes it easier to compress or rarefy magnetic field --- and things become unstable when the sign of the pressure flips and it becomes energetically profitable to create compressions and rarefications. (ADD FIGURE!) The dispersion relation @eq:kmhd_mirror_dispersion is basically a statement of pressure balance between the magnetic pressure, the non-resonant particle pressure $\delta p_\perp$ and the resonant particle pressure $\propto\gamma$, which came from the _betatron acceleration_ $\mu dB/dt$ in @eq:kmhd_kinetic_1storder.
+Thus, fundamentally, pressure anisotropy makes it easier to compress or rarefy magnetic field --- and things become unstable when the sign of the pressure flips and it becomes energetically profitable to create compressions and rarefications. (ADD FIGURE!) The dispersion relation @eq:kmhd_mirror_dispersion is basically a statement of pressure balance between the magnetic pressure, the non-resonant particle pressure $\delta p_\perp$ and the resonant particle pressure $\propto\gamma$, which came from the _betatron acceleration_ $\mu \mathrm{d}B/\mathrm{d}t$ in @eq:kmhd_kinetic_1storder.
 
 The betatron acceleration term refers to what happens in the stable case. When magnetic pressure opposes formation of $\delta B$ perturbations (say, troughs), to compensate it, we must have $\gamma<0$ and energy goes from $\delta B$ to resonant particles, which are accelerated by the mirror force. The corresponding decaying of $\delta B$ is the well-known _Barnes damping_ (landau damping of "mirror field", Barnes 1966, also known as transit-time damping from Stix's book. See more discussion on the physics in Southwood & Kivelson 1993.) 
 
@@ -616,23 +616,23 @@ So far we have seen that the bottom line is that any macroscopic, high-$\beta$ K
 The answer is, _very worried_! A key property of low-frequency, weakly collisional dynamics is that the magnetic moment $\mu=m_sw_\perp^2/2B$ is conserved by particles. The mean $\mu$ of particles of species $s$ is
 
 $$
-<\mu>_w = \frac{1}{n_s}\int d\mathbf{w}\mu f_s = \frac{p_{\perp s}}{n_s B} = \text{const.}
+<\mu>_w = \frac{1}{n_s}\int \mathrm{d}\mathbf{w}\mu f_s = \frac{p_{\perp s}}{n_s B} = \text{const.}
 $$
 
 For the purpose of a qualitative discussion, let us pretend for a moment that $n_s=\text{const}$ (incompressible plasmas, $\beta\gg 1$). Then the above conservation relation says that, locally in a fluid element ($\mathbf{w}$ is peculari velocity), every time you change $\mathbf{B}$, you must change $p_{\perp s}$ proportionally (but not $p_{\parallel s}$). Thus we expect (?)
 
 $$
-\frac{1}{p_{\perp s}}\frac{d p_{\perp s}}{dt}\sim\underbrace{\frac{1}{B}\frac{dB}{dt}}_{\mu\text{ conservation}} - \underbrace{\nu_s\frac{p_{\perp s}-p_{\parallel s}}{p_{\perp s}}}_{\substack{\text{relaxation of pressure} \\ \text{anisotropy by collisions}}}
+\frac{1}{p_{\perp s}}\frac{\mathrm{d} p_{\perp s}}{\mathrm{d}t}\sim\underbrace{\frac{1}{B}\frac{\mathrm{d}B}{\mathrm{d}t}}_{\mu\text{ conservation}} - \underbrace{\nu_s\frac{p_{\perp s}-p_{\parallel s}}{p_{\perp s}}}_{\substack{\text{relaxation of pressure} \\ \text{anisotropy by collisions}}}
 $$ {#eq:kmhd_pressure_change}
 
-It is useful to remind ourselves that $d/dt$ is in the $\mathbf{u}_s$ frame.
+It is useful to remind ourselves that $\mathrm{d}/\mathrm{d}t$ is in the $\mathbf{u}_s$ frame.
 Balancing the two effects on the right-hand side,
 
 $$
-\Delta_s = \frac{p_{\perp s} - p_{\parallel s}}{p_{\perp s}} \sim\frac{1}{\nu_s}\frac{1}{B}\frac{dB}{dt}
+\Delta_s = \frac{p_{\perp s} - p_{\parallel s}}{p_{\perp s}} \sim\frac{1}{\nu_s}\frac{1}{B}\frac{\mathrm{d}B}{\mathrm{d}t}
 $$ {#eq:kmhd_pressure_balance}
 
-This expression is valid only if $\Delta_s\ll 1$, i.e. $\nu_s\gg \frac{1}{B}\frac{dB}{dt}$, otherwise $\Delta_s$ will grow with time as B is changed. Thus
+This expression is valid only if $\Delta_s\ll 1$, i.e. $\nu_s\gg \frac{1}{B}\frac{\mathrm{d}B}{\mathrm{d}t}$, otherwise $\Delta_s$ will grow with time as B is changed. Thus
 
 * B increases locally $\rightarrow \Delta_s >0 \rightarrow$ mirror
 * B decreases locally $\rightarrow \Delta_s <0 \rightarrow$ firehose 
@@ -661,8 +661,8 @@ If we assume incompressibility, the magnetic induction @eq:kmhd_induction2 becom
 
 $$
 \begin{aligned}
-\frac{d\mathbf{B}}{dt} = \mathbf{B}\cdot\nabla\mathbf{u} \\
-\frac{1}{B}\frac{dB}{dt} = \hat{b}\hat{b}:\nabla\mathbf{u}
+\frac{\mathrm{d}\mathbf{B}}{\mathrm{d}t} = \mathbf{B}\cdot\nabla\mathbf{u} \\
+\frac{1}{B}\frac{\mathrm{d}B}{\mathrm{d}t} = \hat{b}\hat{b}:\nabla\mathbf{u}
 \end{aligned}
 $$
 
@@ -676,24 +676,24 @@ where $p_s/\nu_c$ is the parallel dynamical viscosity. Putting this back into @e
 
 ### Remark II
 
-More rigorously, @eq:kmhd_pressure_change can be obtained via "CGL equations", i.e. the evolution equations of $p_{\perp s}$ and $p_{\parallel s}$. Namely $\int d\mathbf{w}\frac{m_sw_\perp^2}{2}$ @eq:kmhd_boltzmann_1storder:
+More rigorously, @eq:kmhd_pressure_change can be obtained via "CGL equations", i.e. the evolution equations of $p_{\perp s}$ and $p_{\parallel s}$. Namely $\int \mathrm{d}\mathbf{w}\frac{m_sw_\perp^2}{2}$ @eq:kmhd_boltzmann_1storder:
 
 $$
-p_{\perp s}\frac{d}{dt}\ln\frac{p_{\perp s}}{n_s B} = -\nabla\cdot(q_{\perp s}\hat{b}) - q_{\perp s}\nabla\cdot\hat{b} - \nu_s(p_{\perp s} - p_{\parallel s})
+p_{\perp s}\frac{\mathrm{d}}{\mathrm{d}t}\ln\frac{p_{\perp s}}{n_s B} = -\nabla\cdot(q_{\perp s}\hat{b}) - q_{\perp s}\nabla\cdot\hat{b} - \nu_s(p_{\perp s} - p_{\parallel s})
 $$ {#eq:kmhd_cgl_perp}
 
-$\int d\mathbf{w}m_sw_\parallel^2$ @eq:kmhd_boltzmann_1storder:
+$\int \mathrm{d}\mathbf{w}m_sw_\parallel^2$ @eq:kmhd_boltzmann_1storder:
 
 $$
-p_{\parallel s}\frac{d}{dt}\ln\frac{p_{\parallel s}B^2}{n_s^3} = -\nabla\cdot(q_{\parallel s}\hat{b}) + 2q_{\perp s}\nabla\cdot\hat{b} - 2\nu_s (p_{\parallel s} - p_{\perp s})
+p_{\parallel s}\frac{\mathrm{d}}{\mathrm{d}t}\ln\frac{p_{\parallel s}B^2}{n_s^3} = -\nabla\cdot(q_{\parallel s}\hat{b}) + 2q_{\perp s}\nabla\cdot\hat{b} - 2\nu_s (p_{\parallel s} - p_{\perp s})
 $$ {#eq:kmhd_cgl_par}
 
 The left-hand side is the conservation of $J=\oint dl w_\parallel$, i.e. "bounce invariant". The new feature here is heat fluxes:
 
 $$
 \begin{aligned}
-q_{\perp s} = \int d\mathbf{w}\frac{m_sw_\perp^2}{2}w_\parallel f_s \\
-q_{\parallel s} = \int d\mathbf{w}m_sw_\parallel^3 f_s
+q_{\perp s} = \int \mathrm{d}\mathbf{w}\frac{m_sw_\perp^2}{2}w_\parallel f_s \\
+q_{\parallel s} = \int \mathrm{d}\mathbf{w}m_sw_\parallel^3 f_s
 \end{aligned}
 $$
 
@@ -703,7 +703,7 @@ Finally, from @eq:kmhd_cgl_perp and @eq:kmhd_cgl_par,
 
 $$
 \begin{aligned}
-\frac{d}{dt}(p_{\perp s} - p_{\parallel s}) &= (p_{\perp s} + 2p_{\parallel s})\frac{1}{B}\frac{dB}{dt} + (p_{\perp s} - 3p_{\parallel s})\frac{1}{n_s}\frac{dn_s}{dt} \\
+\frac{\mathrm{d}}{\mathrm{d}t}(p_{\perp s} - p_{\parallel s}) &= (p_{\perp s} + 2p_{\parallel s})\frac{1}{B}\frac{\mathrm{d}B}{\mathrm{d}t} + (p_{\perp s} - 3p_{\parallel s})\frac{1}{n_s}\frac{dn_s}{\mathrm{d}t} \\
 &-\nabla\cdot[(q_{\perp s}-q_{\parallel s})\hat{b}] - 3q_{\perp s}\nabla\cdot\hat{b} - 3\nu_s(p_{\perp s} - p_{\parallel s})
 \end{aligned}
 $$
@@ -713,7 +713,7 @@ $$
 $$
 \begin{aligned}
 \Delta_s &= \frac{p_{\perp s}-p_{\parallel s}}{p_s} \\
-&\approx \frac{1}{\nu_s}\Big\{ \frac{1}{B}\frac{dB}{dt} - \frac{2}{3}\frac{1}{n_s}\frac{dn_s}{dt} - \frac{\nabla\cdot[((q_{\perp s} - q_{\parallel s})\hat{b})] + 3q_{\perp s}\nabla\cdot\hat{b}}{3p_s} \Big\}
+&\approx \frac{1}{\nu_s}\Big\{ \frac{1}{B}\frac{\mathrm{d}B}{\mathrm{d}t} - \frac{2}{3}\frac{1}{n_s}\frac{dn_s}{\mathrm{d}t} - \frac{\nabla\cdot[((q_{\perp s} - q_{\parallel s})\hat{b})] + 3q_{\perp s}\nabla\cdot\hat{b}}{3p_s} \Big\}
 \end{aligned}
 $$
 

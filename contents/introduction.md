@@ -28,8 +28,8 @@ Quasi-neutral ionized gases. The fourth state of matter: solid, liquid, gas, __p
 
 $$
 \begin{aligned}
-&nf(\mathbf{x}+d\mathbf{x},\mathbf{p}+d\mathbf{p},t+dt)d\mathbf{x}d\mathbf{p}-nf(\mathbf{x},\mathbf{p},t)d\mathbf{x}d\mathbf{p} \\
-=&\frac{\partial (nf(\mathbf{x},\mathbf{p},t))}{\partial t}\Big|_{\text{collision}}d\mathbf{x}d\mathbf{p}dt \nonumber \\
+&nf(\mathbf{x}+\mathrm{d}\mathbf{x},\mathbf{p}+\mathrm{d}\mathbf{p},t+\mathrm{d}t)\mathrm{d}\mathbf{x}\mathrm{d}\mathbf{p}-nf(\mathbf{x},\mathbf{p},t)\mathrm{d}\mathbf{x}\mathrm{d}\mathbf{p} \\
+=&\frac{\partial (nf(\mathbf{x},\mathbf{p},t))}{\partial t}\Big|_{\text{collision}}\mathrm{d}\mathbf{x}\mathrm{d}\mathbf{p}\mathrm{d}t \nonumber \\
 =&\frac{\partial (nf)}{\partial t}+\frac{\partial nf}{\partial \mathbf{x}}\cdot\frac{\mathbf{p}}{m}+\frac{nf}{\partial \mathbf{p}}\cdot\mathbf{F}
 \end{aligned}
 $$
@@ -192,7 +192,7 @@ Note that the concept of temperature is valid in LTE. From the Boltzmann equatio
 
 $$
 \begin{aligned}
-\frac{df}{dt}=\frac{\partial f}{\partial t}+\nabla_x\cdot(f\mathbf{v})+\nabla_v\cdot(f\mathbf{a})=0 \\
+\frac{\mathrm{d}f}{\mathrm{d}t}=\frac{\partial f}{\partial t}+\nabla_x\cdot(f\mathbf{v})+\nabla_v\cdot(f\mathbf{a})=0 \\
 \Rightarrow \frac{\partial f}{\partial t}+\mathbf{v}\cdot\nabla_x f+\frac{\mathbf{F}}{m}\cdot\nabla_v f=0
 \end{aligned}
 $$
@@ -255,7 +255,7 @@ Let $\phi(r)=\frac{F(r)}{r}$, we have
 
 $$
 \begin{aligned}
-\frac{d^2F}{dr^2}-\frac{F}{{\lambda_D}^2}&=0 \\
+\frac{\mathrm{d}^2F}{\mathrm{d}r^2}-\frac{F}{{\lambda_D}^2}&=0 \\
 \Rightarrow F&=Ae^{-r/\lambda_D}+\cancel{Be^{r/\lambda_D}} (r>0) \nonumber \\
 &=Ae^{-r/\lambda_D}
 \end{aligned}
@@ -272,7 +272,7 @@ $$
 The electric potential drops very quickly (@fig:electric_potential). In other words, if you insert a charge into a neutral plasma, its potential will only effect within a small range. Recall the Gauss`s law,
 
 $$
-\oint\mathbf{E}\cdot d\mathbf{A}=\frac{Q_T}{\epsilon_0}\rightarrow\textrm{ as }R\rightarrow \infty, \textrm{ E goes to zero.}
+\oint\mathbf{E}\cdot \mathrm{d}\mathbf{A}=\frac{Q_T}{\epsilon_0}\rightarrow\textrm{ as }R\rightarrow \infty, \textrm{ E goes to zero.}
 $$
 
 The following are useful forms of @eq:debye_length:
@@ -315,7 +315,7 @@ is the most fundamental time-scale in plasma physics. Clearly, there is a differ
 $\omega_p$ corresponds to the typical electrostatic oscillation frequency of a given species in response to a small charge separation. For instance, consider a one-dimensional situation in which a slab consisting entirely of one charge species is displaced from its quasi-neutral position by an infinitesimal distance $\delta x$. The resulting charge density which develops on the leading face of the slab is $\sigma=e\,n\,\delta x$. An equal and opposite charge density develops on the opposite face. The $x$-directed electric field generated inside the slab is of magnitude $E_x= -\sigma/\epsilon_0 =- e\,n\,\delta x/\epsilon_0$. Thus, Newton's law applied to an individual particle inside the slab yields
 
 $$
-m\,\frac{d^2 \delta x}{dt^2} = e\,E_x = -m\,\omega_p^{~2}\,\delta x
+m\,\frac{\mathrm{d}^2 \delta x}{\mathrm{d}t^2} = e\,E_x = -m\,\omega_p^{~2}\,\delta x
 $$
 
 giving $\delta x = \delta x_0\,\cos\omega_p t$.

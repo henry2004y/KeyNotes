@@ -224,7 +224,7 @@ Getting rid of the equilibrium and high-order terms, we have (Notice that $\math
 $$
 \begin{aligned}
 i(k_yv_{0y}-\omega)n_1=-n_0 ik_y v_{1y} - v_{1x}\frac{\partial n_0}{\partial x} \\
-\frac{d}{dt}\mathbf{v}_1=i(k_yv_{0y}-\omega)\mathbf{v}_1=\frac{q}{m}\big( \mathbf{E}_1+\mathbf{v}_1\times\mathbf{B}_0 \big)
+\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{v}_1=i(k_yv_{0y}-\omega)\mathbf{v}_1=\frac{q}{m}\big( \mathbf{E}_1+\mathbf{v}_1\times\mathbf{B}_0 \big)
 \end{aligned}
 $$
 
@@ -233,7 +233,7 @@ Now, from the linearized momentum equation, we can get the x and y components of
 $$
 \begin{aligned}
 &v_{1,ix}=\frac{E_{1y}}{B_0},\ v_{1,ex}=\frac{E_{1y}}{B_0}\\
-&v_{1,iy}=\frac{1}{\Omega_i}\frac{d}{dt}\Big(\frac{E_{1y}}{B_0} \Big)=\frac{i(k_yv_{0i}-\omega)}{\Omega_i}\Big( \frac{E_{1y}}{B_0}\Big),\ v_{1,ey}=\frac{1}{\Omega_e}\frac{d}{dt}\Big(\frac{E_{1y}}{B_0} \Big)\approx0
+&v_{1,iy}=\frac{1}{\Omega_i}\frac{\mathrm{d}}{\mathrm{d}t}\Big(\frac{E_{1y}}{B_0} \Big)=\frac{i(k_yv_{0i}-\omega)}{\Omega_i}\Big( \frac{E_{1y}}{B_0}\Big),\ v_{1,ey}=\frac{1}{\Omega_e}\frac{\mathrm{d}}{\mathrm{d}t}\Big(\frac{E_{1y}}{B_0} \Big)\approx0
 \end{aligned}
 $$
 
@@ -486,20 +486,20 @@ $$ {#eq:RT_vel_boundary}
 From @eq:RT_displacement_z and @eq:RT_vel_boundary, we obtain the equation of motion for the amplitude $a$:
 
 $$
-\frac{\mathrm{d}a}{dt}=-\frac{\sigma_0}{\mu_0 B}
+\frac{\mathrm{d}a}{\mathrm{d}t}=-\frac{\sigma_0}{\mu_0 B}
 $$
 
 @eq:RT_time_rate_surface_charge and @eq:RT_surface_bc yield
 
 $$
-\frac{d\sigma_0}{dt}=-\frac{NMg}{\mu_0B}ak
+\frac{\mathrm{d}\sigma_0}{\mathrm{d}t}=-\frac{NMg}{\mu_0B}ak
 $$
 
 From the above two equations, we obtain
 
 $$
 \begin{aligned}
-\frac{d^2 a}{dt^2} &= \frac{1}{\mu_0\epsilon B}\frac{NMg}{B}ka \\
+\frac{\mathrm{d}^2 a}{\mathrm{d}t^2} &= \frac{1}{\mu_0\epsilon B}\frac{NMg}{B}ka \\
 &\approx gka, \quad(\text{for } \epsilon \gg 1)
 \end{aligned}
 $$
@@ -631,7 +631,7 @@ $$
 except at $x=0$ and $x=\tau$. @eq:KH_governing can be simplified to
 
 $$
-\frac{d^2 v_{1x}}{dx^2}-k^2 v_{1x} = 0
+\frac{\mathrm{d}^2 v_{1x}}{\mathrm{d}x^2}-k^2 v_{1x} = 0
 $$
 
 In region I ($x<0$),
@@ -1361,14 +1361,14 @@ In 572 HW3.1, we have shown that a Cartesian liner is always stable for kink and
 Here we show the derivation of dispersion relation in a 3-region problem in Cartesian liner. This method can be found in Chandrasekhar`s book on instability, P429. Consider Fig.1 shown in Prof.Lau's paper "Anisotropy and feedthrough in magneto-Rayleigh-Taylor instability". The interface of the regions are $x=\alpha,\ x=\beta$. The governing equation including gravity is
 
 $$
-\frac{d}{dx}\Big\{ \rho_0\big[ \omega^2-(\mathbf{k}\cdot\mathbf{v}_A)^2\big] \frac{\partial \xi_{1x}}{\partial x} \Big\} 
+\frac{\mathrm{d}}{\mathrm{d}x}\Big\{ \rho_0\big[ \omega^2-(\mathbf{k}\cdot\mathbf{v}_A)^2\big] \frac{\partial \xi_{1x}}{\partial x} \Big\} 
 - k^2 \big[ \rho_0\big( \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2\big)+g\frac{\partial \rho_0}{\partial x}\big] \xi_{1x} = 0
 $$
 
 If $\rho_0=\text{const.}\Rightarrow g\frac{\partial \rho_0}{\partial x}=0$. Within region I, II, and III, the governing equation can be simplified to
 
 $$
-\frac{d^2 \xi_{1x}}{dx^2} - k^2\xi_{1x} = 0
+\frac{\mathrm{d}^2 \xi_{1x}}{\mathrm{d}x^2} - k^2\xi_{1x} = 0
 $$
 
 the general solution of which reads
@@ -1391,10 +1391,10 @@ Note that there's a jump for $\rho_0(x)$ at $x=\alpha,\beta$. Now we can integra
 
 $$
 \begin{aligned}
-\int_{x=\alpha^-}^{x=\alpha^+} dx \Big[ \frac{d}{dx}\Big\{ \rho_0\big[ \omega^2-(\mathbf{k}\cdot\mathbf{v}_A)^2\big] \frac{\partial \xi_{1x}}{\partial x} \Big\} 
+\int_{x=\alpha^-}^{x=\alpha^+} \mathrm{d}x \Big[ \frac{\mathrm{d}}{\mathrm{d}x}\Big\{ \rho_0\big[ \omega^2-(\mathbf{k}\cdot\mathbf{v}_A)^2\big] \frac{\partial \xi_{1x}}{\partial x} \Big\} 
 - k^2 \big[ \rho_0\big( \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2\big)+g\frac{\partial \rho_0}{\partial x}\big] \xi_{1x}  \Big]= 0 \\ 
 \Rightarrow F_1(\xi_\alpha,\xi_\beta) = 0 \\
-\int_{x=\beta^-}^{x=\beta^+} dx \Big[ \frac{d}{dx}\Big\{ \rho_0\big[ \omega^2-(\mathbf{k}\cdot\mathbf{v}_A)^2\big] \frac{\partial \xi_{1x}}{\partial x} \Big\} 
+\int_{x=\beta^-}^{x=\beta^+} \mathrm{d}x \Big[ \frac{\mathrm{d}}{\mathrm{d}x}\Big\{ \rho_0\big[ \omega^2-(\mathbf{k}\cdot\mathbf{v}_A)^2\big] \frac{\partial \xi_{1x}}{\partial x} \Big\} 
 - k^2 \big[ \rho_0\big( \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2\big)+g\frac{\partial \rho_0}{\partial x}\big] \xi_{1x}  \Big]= 0 \\
 \Rightarrow F_2(\xi_\alpha,\xi_\beta) = 0
 \end{aligned}
@@ -1547,14 +1547,14 @@ $$ {#eq:linear_tearing_pert}
 where $\gamma$ is the instability growth-rate. The $x$-component of @eq:linear_induction_B and the $z$-component of the curl of @eq:linear_moment reduce to ???
 
 $$
-\gamma B_x = ikB_{0y}v_x + \frac{\eta}{\mu_0}\Big( \frac{d^2}{dx^2}-k^2\Big)B_x
+\gamma B_x = ikB_{0y}v_x + \frac{\eta}{\mu_0}\Big( \frac{\mathrm{d}^2}{\mathrm{d}x^2}-k^2\Big)B_x
 $$ {#eq:pert_induction_B}
 
 $$
-\gamma \rho_0 \Big( \frac{d^2}{dx^2}-k^2 \Big)v_x=\frac{ikB_{0y}}{\mu_0}\Big( \frac{d^2}{dx^2}-k^2-\frac{B_{0y}^{\prime\prime}}{B_{0y}}\Big)B_x
+\gamma \rho_0 \Big( \frac{\mathrm{d}^2}{\mathrm{d}x^2}-k^2 \Big)v_x=\frac{ikB_{0y}}{\mu_0}\Big( \frac{\mathrm{d}^2}{\mathrm{d}x^2}-k^2-\frac{B_{0y}^{\prime\prime}}{B_{0y}}\Big)B_x
 $$ {#eq:pert_momentum}
 
-respectively, where use has been made of @eq:linear_divB and @eq:linear_divV. Here, $\prime$ denotes $d/dx$.
+respectively, where use has been made of @eq:linear_divB and @eq:linear_divV. Here, $\prime$ denotes $\mathrm{d}/\mathrm{d}x$.
 
 It is convenient to normalize @eq:pert_induction_B and @eq:pert_momentum using a typical magnetic field-strength, $B_0$, and a typical scale-length, $a$. Let us define the _Alfvén time-scale_
 
@@ -1574,14 +1574,14 @@ $$
 S=\frac{\tau_R}{\tau_A}
 $$
 
-Let $\psi= B_x/B_0$, $\phi = i\,k\,V_y/\gamma$, $\bar{x}=x/a$, $F=B_{0y}/B_0$, $F'\equiv dF/d\bar{x}$, $\bar{\gamma} = \gamma\,\tau_A$, and $\bar{k} = k\,a$. It follows that
+Let $\psi= B_x/B_0$, $\phi = i\,k\,V_y/\gamma$, $\bar{x}=x/a$, $F=B_{0y}/B_0$, $F'\equiv dF/\mathrm{d}\bar{x}$, $\bar{\gamma} = \gamma\,\tau_A$, and $\bar{k} = k\,a$. It follows that
 
 $$
-\bar{\gamma}\,(\psi-F\,\phi) = S^{-1}\left(\frac{d^2}{d\bar{x}^2}-\bar{k}^2\right) \psi
+\bar{\gamma}\,(\psi-F\,\phi) = S^{-1}\left(\frac{\mathrm{d}^2}{\mathrm{d}\bar{x}^2}-\bar{k}^2\right) \psi
 $$ {#eq:tearing_normalized_induction_B}
 
 $$
-\bar{\gamma}^2\left(\frac{d^2}{d\bar{x}^2} -\bar{k}^2\right)\phi = -\bar{k}^2\, F \left( \frac{d^2}{d\bar{x}^2} -\bar{k}^2 - \frac{F''}{F}\right) \psi
+\bar{\gamma}^2\left(\frac{\mathrm{d}^2}{\mathrm{d}\bar{x}^2} -\bar{k}^2\right)\phi = -\bar{k}^2\, F \left( \frac{\mathrm{d}^2}{\mathrm{d}\bar{x}^2} -\bar{k}^2 - \frac{F''}{F}\right) \psi
 $$ {#eq:tearing_normalized_momentum}
 
 The term on the right-hand side of @eq:tearing_normalized_induction_B represents plasma resistivty, whilst the term on the left-hand side of @eq:tearing_normalized_momentum represents plasma inertia.
@@ -1603,19 +1603,19 @@ $$
 $$ {#eq:tearing_normalized_induction_ideal}
 
 $$
-\frac{d^2\psi}{d\bar{x}^2} - \bar{k}^2\psi - \frac{F''}{F}\psi = 0
+\frac{\mathrm{d}^2\psi}{\mathrm{d}\bar{x}^2} - \bar{k}^2\psi - \frac{F''}{F}\psi = 0
 $$ {#eq:tearing_normalized_momentum_ideal}
 
 @eq:tearing_normalized_induction_ideal is simply the flux freezing constraint, which requires the plasma to move with the magnetic field. @eq:tearing_normalized_momentum_ideal is the linearized, static force balance criterion $\nabla\times(\mathbf{j}\times\mathbf{B})=0$. These two equations are known collectively as the equations of ideal-MHD, and are valid throughout virtually the whole plasma. However, it is clear that these equations _break down_ in the immediate vicinity of the interface, where $F=0$ (i.e. where the magnetic field reverses direction). Witness, for instance, the fact that the normalized "radial" velocity, $\phi$, becomes infinite as $F\rightarrow 0$, according to @eq:tearing_normalized_induction_ideal. 
 
-The ideal-MHD equations break down close to the interface because the neglect of plasma resistivity and inertia becomes untenable as $F\rightarrow 0$. Thus, there is a thin layer, in the immediate vicinity of the interface, $\bar{x}=0$, where  the behaviour of the plasma is governed by the full MHD equations, @eq:tearing_normalized_induction_B and @eq:tearing_normalized_momentum. We can simplify these equations, making use of the fact that $\bar{x}\ll 1$ and $d/d\bar{x} \gg 1$ in a thin layer, to obtain the following layer equations:
+The ideal-MHD equations break down close to the interface because the neglect of plasma resistivity and inertia becomes untenable as $F\rightarrow 0$. Thus, there is a thin layer, in the immediate vicinity of the interface, $\bar{x}=0$, where  the behaviour of the plasma is governed by the full MHD equations, @eq:tearing_normalized_induction_B and @eq:tearing_normalized_momentum. We can simplify these equations, making use of the fact that $\bar{x}\ll 1$ and $\mathrm{d}/\mathrm{d}\bar{x} \gg 1$ in a thin layer, to obtain the following layer equations:
 
 $$
-\bar{\gamma}\,(\psi - \bar{x}\,\phi) = S^{-1}\frac{d^2\psi}{d\bar{x}^2}
+\bar{\gamma}\,(\psi - \bar{x}\,\phi) = S^{-1}\frac{\mathrm{d}^2\psi}{\mathrm{d}\bar{x}^2}
 $$ {#eq:tearing_layer_induction}
 
 $$
-\bar{\gamma}^2\,\frac{d^2\phi}{d\bar{x}^2} = - \bar{x}\,\frac{d^2\psi}{d\bar{x}^2}
+\bar{\gamma}^2\,\frac{\mathrm{d}^2\phi}{\mathrm{d}\bar{x}^2} = - \bar{x}\,\frac{\mathrm{d}^2\psi}{\mathrm{d}\bar{x}^2}
 $$ {#eq:tearing_layer_momentum}
 
 Note that we have redefined the variables $\phi$, $\bar{\gamma}$, and $S$, such that $\phi\rightarrow F'(0)\,\phi$, $\bar{\gamma}\rightarrow \gamma\,\tau_H$, and $S\rightarrow \tau_R/\tau_H$. Here, 
@@ -1835,8 +1835,8 @@ where $p_\perp$ and $p_\parallel$ are the pressures perpendicular and parallel w
 
 $$
 \begin{aligned}
-\frac{d}{dt}\Big( \frac{p_\parallel B^2}{\rho^3} \Big) &= 0 \\
-\frac{d}{dt}\Big( \frac{p_\perp}{\rho B} \Big) &= 0
+\frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{p_\parallel B^2}{\rho^3} \Big) &= 0 \\
+\frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{p_\perp}{\rho B} \Big) &= 0
 \end{aligned}
 $$
 
