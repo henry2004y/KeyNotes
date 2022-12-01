@@ -479,60 +479,6 @@ However, even in neutral fluid theory, the determination of shock location as we
 
 On top of that, the introduction of EM field complicates the story. Especially in the case of a parallel shock, the plasmas get "shocked" both upstream and downstream, and the stand-off distance of the shock may not be a single point theoretically. In some sense, normal magnetic field to the boundary "thickens" the shock front.
 
-## Anisotropy in the Solar Wind
-
-Observationally, Pioneer 6 showed that the ion temperature anisotropy in the solar wind at 1AU generally has $T_\parallel > T_\perp$, together with other two interesting discoveries:
-
-1. high fluctuations of flow velocity outside the solar ecliptic plane;
-2. anisotropic ion thermal distribution ($T_\parallel / T_\perp \sim [2,5]$);
-3. presence of a 3rd species, helium, from charge-to-mass ratio analysis of the angular and energy distributions.
-
-It may possibly be explained by the conservation of the 1st adiabatic invariant [@scarf1967plasma](I love this old paper. The pioneers in our field did real physics!).
-
-The magnetic moment $\mu = m v_\perp^2/2B$ is conserved as the collisionless solar wind flows outward from the sun. Near the solar equator the mean field magnitude declines with
-
-$$
-B_r(r) \simeq B_r(r_0)\Big( \frac{r_0}{r} \Big)^2
-$$
-
-and
-
-$$
-B_\phi(r) \simeq \frac{\Omega_r}{u(r)}B_r(r)
-$$
-
-from the Parker spiral solar wind model and $\Omega_r = 2.94\times 10^{-6}$ rad/s being the angular frequency of the rotation of the sun.
-
-The adiabatic equation in the perpendicular direction indicates that the perpendicular thermal energy $\langle m v_\perp^2/2\rangle = k_B T_\perp$ declines with B. Assuming in the rest frame the distribution function is a bi-Maxwellian of the form
-
-$$
-f(v) = \Big( \frac{m}{2\pi}  \Big)^{3/2}\frac{1}{k_B T_\perp (k_B T_\parallel)^{1/2}} \exp\Big( -\frac{mv_\perp^2}{2k_B T_\perp} -\frac{mv_\parallel^2}{2k_B T_\parallel} \Big)
-$$
-
-The conservation of the total thermal energy
-
-$$
-W = \int \mathrm{d}^3v \frac{mv^2}{2}f(v)
-$$
-
-yields
-
-$$
-W = k_B T_\perp + k_B T_\parallel/2 = const.   
-$$
-
-These allows us to evaluate the variations in $T_\perp$ and $T_\parallel$ originating from isotropic distribution on the surface of the sun. Starting from $T_\perp(0.3 AU) = T_\parallel(0.3 AU)\simeq 1.3\times 10^{5}\textrm{K}$, the predicted anisotropy at Earth can go beyond 20! Therefore in fact, the reasonable question to ask is why the actual solar wind anisotropy factor is so small. In simulations, we always apply isotropic distribution in the upstream solar wind condition, which I guess is primarily due to the fact that we are mostly using MHD for global magnetosphere-solar wind interactions. Should we now use more realistic distributions with the kinetic models?
-
-Well, we know now when pressure anisotropy develops, two kinds of plasma instabilities can be triggered: firehose when $T_\perp < T_\parallel$ and mirror when $T_\perp > T_\parallel$. Further studies require kinetic theory to describe their behaviors.
-
-On the other hand, the opposite case, $T_\perp > T_\parallel$, is also observed and believed to be related to local ion heating by macroscale compressions (e.g. high/low speed streams interaction) or plasma instabilities [@bame1975evidence].
-
-Here I list the mirror instability criterion as an additional relation to determine the pressure anisotropy downstream of the shock from the book Plasma instabilities and nonlinear effects by Hasegawa 1975,
-
-$$
-1 + \sum_{\textrm{species}} \beta_\perp \big( 1 - \frac{\beta_\perp}{\beta_\parallel} \big) < 0
-$$
-
 ## Earth Bow Shock
 
 Using data from the AMPTE/IRM spacecraft, [@hill1995plasma] have shown that the double adiabatic equations do not hold in the magnetosheath. Moreover, the thermal behaviour of the magnetosheath is studied by [@phan1996subsolar]
