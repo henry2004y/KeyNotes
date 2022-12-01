@@ -866,6 +866,59 @@ where $M$ is the magnetic moment of the Earth's dipole field, $R_E$ is the radiu
 
 Therefore, the $L$ and $L^\ast$ parameters coincide in a dipole field, but in a nondipolar field, these parameters are different. Typically, $L$ is used with particle fluxes whereas $L^\ast$ is better suited for phase space density.
 
+## Ring Current
+
+One typical application of the single particle motion is the study of ring current. Beyond the lowest order of motion (i.e. gyration combined with parallel drift) of charged particles in the magnetosphere, let us examine the higher order corrections. For the case of non-time-varying fields, and a weak electric field, these corrections consist of a combination of $\mathbf{E}\times\mathbf{B}$ drift, grad-$B$ drift, and curvature drift:
+
+$$
+\mathbf{v}_{1\perp} = \frac{\mathbf{E}\times\mathbf{B}}{B^2} + \frac{\mu}{m\Omega}\hat{b}\times\nabla B + \frac{v_\parallel^2}{\Omega}\hat{b}\times(\hat{b}\cdot\nabla)\hat{b}
+$$
+
+Let us neglect $\mathbf{E}\times\mathbf{B}$ drift, since this motion merely gives rise to the convection of plasma within the magnetosphere, without generating a current. By contrast, there is a net current associated with grad-$B$ drift and curvature drift. In the limit in which this current does not strongly modify the ambient magnetic field (i.e., $\nabla\times\mathbf{B} \simeq {\bf0}$), which is certainly the situation in the Earth's magnetosphere, we can write 
+
+$$
+({\bf b}\cdot\nabla)\,{\bf b} =-{\bf b}\times(\nabla\times {\bf b})\simeq \frac{\nabla_\perp B}{B}
+$$
+
+It follows that the higher order drifts can be combined to give
+
+$$
+{\bf v}_{1\perp} = \frac{(v_\perp^{~2}/2+v_\parallel^{~2})}{{\Omega}\,B}\, {\bf b}\times\nabla B
+$$
+
+For the dipole field @eq:dipole_spherical, the above expression yields
+
+$$
+{\bf v}_{1\perp} \simeq -{\rm sgn}({\Omega})\,\frac{6\,{\cal E} L^2}{eB_E R_E}(1-B/2B_m)\frac{\cos^5\vartheta(1+\sin^2\vartheta)}{(1+3\sin^2\vartheta)^2}\,\hat{\varphi}
+$$ {#eq:high_order_drifts}
+
+where ${\cal E}$ is the energy of the particle, $B_E$ is the equatorial magnetic field-strength on the Earth's surface, and $B_m$ is the magnetic field-strength at the mirror points.
+Note that the drift is in the azimuthal direction. A positive drift velocity corresponds to eastward motion, whereas a negative velocity corresponds to westward motion. It is clear that, in addition to their gyromotion and periodic bouncing motion along field lines, charged particles trapped in the magnetosphere also slowly precess around the Earth. The ions drift westwards and the electrons drift eastwards, giving rise to a net westward current circulating around the Earth. This current is known as the _ring current_.
+
+Although the perturbations to the Earth's magnetic field induced by the ring current are small, they are still detectable. In fact, the ring current causes a slight reduction in the Earth's magnetic field in equatorial regions. The size of this reduction is a good measure of the number of charged particles contained in the Van Allen belts (@sec:radiation_belt). During the development of so-called geomagnetic storms, charged particles are injected into the Van Allen belts from the outer magnetosphere, giving rise to a sharp increase in the ring current, and a corresponding decrease in the Earth's equatorial magnetic field. These particles eventually precipitate out of the magnetosphere into the upper atmosphere at high latitudes, giving rise to intense auroral activity, serious interference in electromagnetic communications, and, in extreme cases, disruption of electric power grids. The ring current induced reduction in the Earth's magnetic field is measured by the so-called _Dst_ index, which is based on hourly averages of the northward horizontal component of the terrestrial magnetic field recorded at four low-latitude observatories; Honolulu (Hawaii), San Juan (Puerto Rico), Hermanus (South Africa), and Kakioka (Japan). A reduction in the Dst index by 600 nT corresponds to a $2\%$ reduction in the terrestrial magnetic field at the equator.
+
+According to @eq:high_order_drifts, the precessional drift velocity of charged particles in the magnetosphere is a rapidly decreasing function of increasing latitude (i.e., most of the ring current is concentrated in the equatorial plane). Since particles typically complete many bounce orbits during a full rotation around the Earth, it is convenient to average @eq:high_order_drifts over a bounce period to obtain the _average_ drift velocity. This averaging can only be performed numerically. The final answer is well approximated by
+
+$$
+\langle v_d\rangle \simeq \frac{6\,{\cal E}\,L^2}{e\,B_E\,R_E} \,(0.35 + 0.15\,\sin\alpha_{\rm eq})
+$$ {#eq:drift_ring_current}
+
+The average drift period (i.e., the time required to perform a complete rotation around the Earth) is simply
+
+$$
+\langle \tau_d\rangle = \frac{2\pi\,L\,R_E}{\langle v_d\rangle}\simeq\frac{\pi e B_E R_E^2}{3\,{\cal E}\,L}\,(0.35 + 0.15\,\sin\alpha_{\rm eq})^{-1}
+$$
+
+Thus, the drift period for protons and electrons is
+
+$$
+\langle \tau_d\rangle_p=\langle \tau_d\rangle_e \simeq \frac{1.05}{{\cal E}(\text{MeV})L}\,(1+0.43\,\sin\alpha_{\rm eq})^{-1}\,\,\,{\rm hours}
+$$
+
+Note that MeV energy electrons and ions precess around the Earth with about the same velocity, only in opposite directions, because there is no explicit mass dependence in @eq:drift_ring_current. It typically takes $\sim 20$ mins to perform a full rotation. The drift period only depends weakly on the equatorial pitch angle $\alpha_{\rm eq}$, as is the case for the bounce period. Somewhat paradoxically, the drift period is shorter on more distant $L$-shells. Note, of course, that particles only get a chance to complete a full rotation around the Earth if the inner magnetosphere remains quiescent on time-scales of order an hour, which is, by no means, always the case.
+
+Note, finally, that, since the rest mass of an electron is $0.51$ MeV, most of the above formulae require relativistic correction when applied to MeV energy electrons. Fortunately, however, there is no such problem for protons, whose rest mass energy is $0.94$ GeV. 
+
 ## Test Particle Model
 
 The test particle method is not self-consistent, because we only describe the effect of the fields onto particles, but not vice versa. This reduces the PDEs to ODEs which is much simpler to solve. Despite of this, we use the trajectories of test particles to infer approximate kinetic properties of the system. You will see many examples of understanding more complicated scenario using the drifts derived from test particle motions, especially in terms of stability analysis.
