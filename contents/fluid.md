@@ -487,10 +487,10 @@ $$
 $$
 
 $$
-\mathbf{u}_D\equiv-\frac{\nabla\times\mathbf{B}}{qnB^2}\quad\text{Diagmanetic drift}
+\mathbf{u}_D\equiv-\frac{\nabla p\times\mathbf{B}}{qnB^2}\quad\text{Diamagnetic drift}
 $$
 
-The drift $\mathbf{u}_E$ is the same as for guiding centers, but there is now a new drift $\mathbf{u}_D$, called the diamagnetic drift. Since $\mathbf{u}_D$ is perpendicular to the direction of the gradient, our neglect of $(\mathbf{u}\cdot\nabla)\mathbf{u}$ is justified if $\mathbf{E}=0$. If $\mathbf{E}=-\nabla\phi\neq 0$, $(\mathbf{u}\cdot\nabla)\mathbf{u}$ is still zero if $\nabla\phi$ and $\nabla p$ are in the same direction; otherwise, there could be a more complicated solution involving $(\mathbf{u}\cdot\nabla)\mathbf{u}$.
+The drift $\mathbf{u}_E$ is the same as for guiding centers, but there is now a new drift $\mathbf{u}_D$, called the diamagnetic drift. Since $\mathbf{u}_D$ is perpendicular to the direction of the gradient, our neglect of $(\mathbf{u}\cdot\nabla)\mathbf{u}$ is justified if $\mathbf{E}=0$. If $\mathbf{E}=-\nabla\phi\neq 0$ (i.e. a potential field), $(\mathbf{u}\cdot\nabla)\mathbf{u}$ is still zero if $\nabla\phi$ and $\nabla p$ are in the same direction; otherwise, there could be a more complicated solution involving $(\mathbf{u}\cdot\nabla)\mathbf{u}$.
 
 With the help of @eq:eos_nabla_p, we can write the diamagnetic drift as
 
@@ -507,7 +507,9 @@ $$
 \end{aligned}
 $$
 
-The physical reason for this drift can be seen from Fig. 3.5 (ADD IT!). Here we have drawn the orbits of ions gyrating in a magnetic field. There is a density gradient toward the left, as indicated by the density of orbits. Through any fixed volume element there are more ions moving downward than upward, since the downward-moving ions come from a region of higher density. There is, therefore, a fluid drift perpendicular to $\nabla n$ and $\mathbf{B}$, _even though the guiding centers are stationary_. The diamagnetic drift reverses sign with $q$ because the direction of gyration reverses. The magnitude of $\mathbf{u}_D$ does not depend on mass because the $m^{-1/2}$ dependence of the velocity is cancelled by the $m^{1/2}$ dependence of the Larmor radius---less of the density gradient is sampled during a gyration if the mass is small.
+The physical reason for this drift can be seen from @fig:diamagnetic_drift. Here we have drawn the orbits of ions gyrating in a magnetic field. There is a density gradient toward the left, as indicated by the density of orbits. Through any fixed volume element there are more ions moving downward than upward, since the downward-moving ions come from a region of higher density. There is, therefore, a fluid drift perpendicular to $\nabla n$ and $\mathbf{B}$, _even though the guiding centers are stationary_. The diamagnetic drift reverses sign with $q$ because the direction of gyration reverses. The magnitude of $\mathbf{u}_D$ does not depend on mass because the $m^{-1/2}$ dependence of the velocity is cancelled by the $m^{1/2}$ dependence of the Larmor radius---less of the density gradient is sampled during a gyration if the mass is small.
+
+![Origin of the diamagnetic drift.](images/origin_diamagnetic_drift.jpeg){#fig:diamagnetic_drift}
 
 Since ions and electrons drift in opposite directions, there is a diamagnetic current. For $\gamma=Z=1$, this is given by
 
@@ -522,11 +524,53 @@ The reader may not be satisfied with this explanation because it was necessary t
 with larger Larmor radius---would collected than the other. Then the guiding centers would drift, and the simplicity of the model would be lost. Alternatively, one could imagine trying to measure the diamagnetic current with a current probe
 (Fig. 3.7 ADD IT!). This is just a transformer with a core of magnetic material. The primary winding is the plasma current threading the core, and the secondary is a multiturn winding all around the core. Let the whole thing be infinitesimally thin, so it does not intercept any particles. It is clear from Fig. 3.7 that a net upward current would be measured, there being higher density on the left than on the right, so that the diamagnetic current is a real current. From this example, one can see that it can be quite tricky to work with the single-particle picture. The fluid theory usually gives the right results when applied straightforwardly, even though it contains "fictitious" drifts like the diamagnetic drift.
 
+What about the grad-B and curvature drifts which appeared in the single-particle picture? The curvature drift also exists in the fluid picture, since the centrifugal force is felt by all the particles in a fluid element as they move around a bend in the magnetic field. A term $\bar{F}_{cf} = \overline{nmv_\parallel^2}/R_c = nk_B T_\parallel / R_c$ has to be added to the right-hand side of the fluid equation of motion. This is equivalent to a gravitational force $mng$, with $g = k_BT_\parallel/m R_c$, and leads to a drift $\mathbf{u}_g=(m/q)(\mathbf{g}\times\mathbf{B})/B^2$, as in the particle picture (@eq:gravity_drift).
+
+The grad-B drift, however, does not exist for fluids. It can be shown on thermodynamic grounds that a magnetic field does not affect a Maxwellian distribution. This is because the Lorentz force is perpendicular to $\mathbf{v}$ and cannot change the energy of any particle. The most probable distribution $f(\mathbf{v})$ in the absence of $\mathbf{B}$ is also the most probable distribution in the presence of $\mathbf{B}$. If $f(\mathbf{v})$ remains Maxwellian in a nonuniform $\mathbf{B}$ field, and there is no density gradient, then the net momentum carried into any fixed fluid element is zero. There is no fluid drift even though the individual guiding centers have drifts; the particle drift in any fixed fluid element cancel out. To see this pictorially, consider the orbits of two particles moving through a fluid element in a nonuniform $\mathbf{B}$ field. Since there is no $\mathbf{E}$ field, the Larmor radius changes only because of the gradient in B; there is no acceleration, and the particle energy remains constant during the motion. If the two particles have the same energy, they will have the same velocity and Larmor radius while inside the fluid element. There is thus a perfect cancellation between particle pairs when their velocities are added to give the fluid velocity.
+
+When there is a nonuniform $\mathbf{E}$ field, it is not easy to reconcile the fluid and particle pictures. Then the finite-Larmor-radius effect of @sec:nonuniform_E causes both a guiding center drift and a fluid drift, but these are not the same; in fact, they have opposite signs! The particle drift was calculated in @sec:single, and the fluid drift can be calculated from the off-diagonal elements of $\mathbf{P}$. It is extremely difficult to explain how the finite-Larmor-radius effects differ. A simple picture like Fig. 3.6 will not work because one has to take into account subtle points like the following: in the absence of a density gradient, the density of guiding centers is not the same as the density of particles! (???)
+
 (I need to think carefully about these pictures.)
 
-What about the grad-B and curvature drifts which appeared in the single-particle picture? The curvature drift also exists in the fluid picture, since the centrifugal force is felt by all the particles in a fluid element as they move around a bend in the magnetic field. A term $\bar{F}_{cf} = \overline{nmv_\parallel^2}/R_c = nk_B T_\parallel / R_c$ has to be added to the right-hand side of the fluid equation of motion. This is equivalent to a gravitational force $mng$, with $g = k_BT_\parallel/m R_c$, and leads to a drift $\mathbf{u}_g=(m/q)(\mathbf{g}\times\mathbf{B})/B^2$, as in the particle picture (@eq:gravity_drift). 
-
 ## Fluid Drifts Parallel to B
+
+The $z$ component of the fluid equation of motions is
+
+$$
+mn\left[ \frac{\partial u_z}{\partial t} + (\mathbf{u}\cdot\nabla)u_z\right] = qn E_z - \frac{\partial\phi}{\partial z}
+$$ {#eq:fluid_momentum_parallel}
+
+The convective term can often be neglected because it is much smaller than the $\partial u_z/\partial t$ term. We shall avoid complicated arguments here and simply consider cases in which $u_z$ is spatially uniform. Using @eq:fluid_momentum_parallel, we have
+
+$$
+\frac{\partial u_z}{\partial t} = \frac{q}{m}E_z - \frac{\gamma k_B T}{mn}\frac{\partial n}{\partial z}
+$$ {#eq:fluid_momentum_parallel_simple}
+
+This shows that the fluid is accelerated along $\mathbf{B}$ under the combined electrostatic and pressure gradient forces. A particularly important result is obtained by applying @eq:fluid_momentum_parallel_simple to massless electrons. Taking the limit $m\rightarrow 0$ and specifying $q=-e$ and $\mathbf{E}=-\nabla\phi$, we have
+
+$$
+qE_z = e\frac{\partial\phi}{\partial z} = \frac{\gamma k_B T_e}{n}\frac{\partial n}{\partial z}
+$$
+
+Electrons are so mobile that their heat conductivity is almost infinite. We may then assume isothermal electrons and take $\gamma = 1$. Integrating, we have
+
+$$
+e\phi = k_B T_e \ln n + C
+$$
+
+or
+
+$$
+n = n_0 \exp(e\phi/k_B T_e)
+$$ {#eq:boltzmann_relation}
+
+This is just the _Boltzmann relation_ for electrons.
+
+What this means physically is that electrons, being light, are very mobile and would be accelerated to high energies very quickly if there were a net force on them. Since electrons cannot leave a region en masse without leaving behind a large ion charge, the electrostatic and pressure gradient forces on the electrons must be closely in balance. This condition leads to the Boltzmann relation. Note that @eq:boltzmann_relation _applies to each magnetic field lines separately_. Different field lines may be charged to different potentials arbitrarily unless a mechanism is provided for the electrons to move across $\mathbf{B}$. The conductors on which field lines terminate can provide such a mechanism, and the experimentalist has to take these end effects into account carefully.
+
+![Physical reason for the Boltzmann relation between density and potential.](images/boltzmann_relation.png){#fig:boltzmann_relation}
+
+@fig:boltzmann_relation shows graphically what occurs when there is a local density clump in the plasma. Let the density gradient be toward the center of the diagram, and suppose $k_B T$ is constant. There is then a pressure gradient toward the center. Since the plasma is quasineutral, the gradient exists for both the electron and ion fluids. Consider the pressure gradient force $\mathbf{F}_p$ on the electron fluid. It drives the mobile electrons away from the center, leaving the ions behind. The resulting positive charge generates a field $\mathbf{E}$ whose force $\mathbf{F}_E$ on the electrons opposes $\mathbf{F}_p$. Only when $\mathbf{F}_E = -\mathbf{F}_p$ is a steady state achieved. If $\mathbf{B}$ is a constant, $\mathbf{E}$ is an electrostatic field $\mathbf{E}=-\nabla\phi$, and $\phi$ must be large at the center, where $n$ is large. This is just what @eq:boltzmann_relation tells us. The deviation from stric neutrality adjusts itself so that there is just enough charge to set up the $\mathbf{E}$ field required to balance the forces on the electrons.
 
 ## The Plasma Approximation {#sec:plasma_approximation}
 

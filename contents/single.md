@@ -402,7 +402,7 @@ where $R_m$ is the *mirror ratio*. It defines the boundary of a region in veloci
 
 The magnetic mirror was first proposed by Enrico Fermi as a mechanism for the acceleration of cosmic rays. Protons bouncing between magnetic mirrors approaching each other at high velocity could gain energy at each bounce. How such mirrors could arise is another story. A further example of the mirror effect is the confinement of particles in the Van Allen belts. The magnetic field of the earth, being strong at the poles and weak at the equator, forms a natural mirror with rather large $R_m$.
 
-## Nonuniform E Field
+## Nonuniform E Field {#sec:nonuniform_E}
 
 Now we let the magnetic field be uniform and the electric field be nonuniform. For simplicity, we assume $\mathbf{E}$ to be in the x direction and to vary sinusoidally in the x direction:
 
