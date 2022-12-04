@@ -488,7 +488,7 @@ $$
 
 $$
 \mathbf{u}_D\equiv-\frac{\nabla p\times\mathbf{B}}{qnB^2}\quad\text{Diamagnetic drift}
-$$
+$$ {#eq:diamagnetic_drift}
 
 The drift $\mathbf{u}_E$ is the same as for guiding centers, but there is now a new drift $\mathbf{u}_D$, called the diamagnetic drift. Since $\mathbf{u}_D$ is perpendicular to the direction of the gradient, our neglect of $(\mathbf{u}\cdot\nabla)\mathbf{u}$ is justified if $\mathbf{E}=0$. If $\mathbf{E}=-\nabla\phi\neq 0$ (i.e. a potential field), $(\mathbf{u}\cdot\nabla)\mathbf{u}$ is still zero if $\nabla\phi$ and $\nabla p$ are in the same direction; otherwise, there could be a more complicated solution involving $(\mathbf{u}\cdot\nabla)\mathbf{u}$.
 
@@ -496,7 +496,7 @@ With the help of @eq:eos_nabla_p, we can write the diamagnetic drift as
 
 $$
 \mathbf{u}_D = \pm \frac{\gamma k_B T}{eB}\frac{\hat{z}\times\nabla n}{n}
-$$
+$$ {#eq:diamagnetic_drift_eos}
 
 In particular, for an isothermal plasma in the geometry of Fig.3.4 (ADD IT!), in which $\nabla n = \partial n\partial r\hat{r} = n^\prime\hat{r}$ ($n^\prime < 0$), we have the following formulas familiar to experimentalists who have worked with Q-machines
 
@@ -515,7 +515,7 @@ Since ions and electrons drift in opposite directions, there is a diamagnetic cu
 
 $$
 \mathbf{j}_D = ne(\mathbf{u}_{Di} - \mathbf{u}_{De}) = (k_B T_i + k_B T_e)\frac{\mathbf{B}\times\nabla n}{B^2}
-$$
+$$ {#eq:diamagnetic_curent}
 
 In the particle picture, one would not expect to measure a current if the guiding centers do not drift. In the fluid picture, the current $\mathbf{j}_D$ flows wherever there is a pressure gradient. These two viewpoints can be reconciled if one considers that all experiments must be carried out in a finite-sized plasma. Suppose the plasma were in a rigid box (Fig. 3.6 ADD IT!). If one were to calculate the current from the single-particle picture, one would have to take into account the particles at the edges which have cycloidal paths. Since there are more particles on the left than on the right, there is a
 net current downward, in agreement with the fluid picture.
