@@ -166,6 +166,104 @@ behaves as if it had a mind of its own.
 
 ## Concept of Temperature
 
+Before proceeding further, it is important to review and extend our physical notions of “temperature”. A gas in thermal equilibrium has particles of all velocities, and the most probable distribution of these velocities is known as the Maxwellian distribution. For simplicity, consider a gas in which the particles can move only in one dimension. (This is not entirely frivolous; a strong magnetic field, for instance, can constrain electrons to move only along the field lines.) The one-dimensional Maxwellian distribution is given by
+
+$$
+f(v) = A \exp\left( -\frac{1}{2}mv^2/k_B T \right) 
+$$ {#eq:maxwellian_1d}
+
+where $f\mathrm{d}u$ is the number of particles per $\text{m}^3$ with velocity between $u$ and $u+\mathrm{d}u$, $\frac{1}{2}mu^2$ is the kinetic energy, and $k_B$ is Boltzmann's constant. The density $n$, or number of particles per $\text{m}^3$, is given by
+
+$$
+n = \int_{-\infty}^\infty f(v)\mathrm{d}v
+$$
+
+The constant $A$ is related to the density $n$ by
+
+$$
+A = n\left( \frac{m}{2\pi k_B T} \right)^{1/2}
+$$
+
+The width of the distribution is characterized by the constant $T$, which we call the temperature. To see the exact meaning of $T$, we can compute the average kinetic energy of particles in this distribution:
+
+$$
+E_\text{av} = \frac{\int_{-\infty}^\infty \frac{1}{2}mv^2f(v)\mathrm{d}v}{\int_{-\infty}^\infty f(v)\mathrm{d}v}
+$$ {#eq:average_kinetic_energy}
+
+Defining $y=v/v_\text{th}$ and
+
+$$
+v_\text{th} = \left( 2k_B T/m \right)^{1/2}
+$$ {#eq:thermal_speed}
+
+we can write @eq:maxwellian_1d as
+
+$$
+f(v) = A \exp(-v^2/v_text{th}^2)
+$$
+
+and @eq:average_kinetic_energy as
+
+$$
+E_\text{av} = \frac{\frac{1}{2}mA v_\text{th}^3 \int_{-\infty}^\infty [\exp(-y^2)]y^2\mathrm{d}y}{A v_\text{th}\int_{-\infty}^\infty [\exp(-y^2)]\mathrm{d}y}
+$$
+
+The integral in the numerator is integrable by parts:
+
+$$
+\begin{aligned}
+\int_{-\infty}^\infty y\cdot[\exp(-y^2)]y\mathrm{d}y &= \left[ -\frac{1}{2}[\exp(-y^2)]y \right]_{-\infty}^\infty -\int_{-\infty}^\infty -\frac{1}{2}[\exp(-y^2)]\mathrm{d}y \\
+&= \frac{1}{2}\int_{-\infty}^\infty [\exp(-y^2)]\mathrm{d}y
+\end{aligned}
+$$
+
+Canceling the integrals, we have
+
+$$
+E_\text{av} = \frac{\frac{1}{2}mA v_\text{th}^3\frac{1}{2}}{A v_\text{th}} = \frac{1}{4}m v_\text{th}^2 = \frac{1}{2}k_B T
+$$
+
+Thus the average kinetic energy is $\frac{1}{2}k_B T$.
+
+It is easy to extend this result to three dimensions. Maxwell’s distribution is then
+
+$$
+f(v_x, v_y, v_z) = A_3 \exp\left[ -\frac{1}{2}m(v_x^2 + v_y^2 + v_z^2)/k_B T \right]
+$$
+
+where
+
+$$
+A_3 = n\left( \frac{m}{2\pi k_B T} \right)^{3/2}
+$$
+
+Because a Maxwellian distribution is isotropic (i.e. the form is symmetric in $v_x,v_y,$ and $v_z$), we can separate each dimension. The average kinetic energy is then 3 times the single dimension result
+
+$$
+E_\text{av} = \frac{3}{2}k_B T
+$$
+
+The general result is that $E_\text{av}$ equals $\frac{1}{2}k_B T$ per degree of freedom.
+
+Since $T$ and $E_\text{av}$ are so closely related, it is customary in plasma physics to give temperatures in units of energy. To avoid confusion on the number of dimensions involved, it is not $E_\text{av}$ but the energy corresponding to $k_B T$ that is used to denote the temperature. For $k_B T = 1\,\text{eV}=1.6\times 10^{-19}\,\text{J}$, we have
+
+$$
+T = \frac{q}{k_B} = 11600
+$$
+
+Thus the conversion factor is
+
+$$
+1\,\text{eV} = 11600\,\text{K}
+$$
+
+By a 2-eV plasma we mean that $k_B T=2\,\text{eV}$, or $E_\text{av}=3\,\text{eV}$ in three dimensions.
+
+It is interesting that a plasma can have several temperatures at the same time. It often happens that the ions and the electrons have separate Maxwellian distributions with different temperatures $T_i$ and $T_e$. This can come about because the collision rate among ions or among electrons themselves is larger than the rate of collisions between an ion and an electron.
+Then each species can be in its own thermal equilibrium, but the plasma may not last long enough for the two temperatures to equalize. When there is a magnetic field ${\bf B}$, even a single species, say ions, can have two temperatures. This is because the forces acting on an ion along ${\bf B}$ are different from those acting perpendicular to ${\bf B}$ (due to the Lorentz force). The components of velocity perpendicular to ${\bf B}$ and parallel to ${\bf B}$ may then belong to different Maxwellian distributions with temperatures $T_\perp$ and $T_\parallel$.
+
+Before leaving our review of the notion of temperature, we should dispel the popular misconception that high temperature necessarily means a lot of heat. People are usually amazed to learn that the electron temperature inside a fluorescent light bulb is about $20000\, \text{K}$. “My, it doesn’t feel that hot!” Of course, the heat capacity must also be taken into account. The density of electrons inside a fluorescent tube is much less than that of a gas at atmospheric pressure, and the total amount of heat transferred to the wall by electrons striking it at their thermal velocities is not that great. For example, the temperature of a cigarette ash is high enough to cause a burn, but the total amount of heat involved is not. Many laboratory plasmas have temperatures of the order of $1,000,000\,\text{K}$ ($100\,\text{eV}$), but at densities of only $10^{18}-10^{19}$ per $\text{m}^3$, the heating of the walls is not a serious consideration.
+
 ## Debye Shielding {#sec:debye}
 
 (Problem 4 on P27 [@bellan2008fundamentals])
