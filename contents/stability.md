@@ -1780,6 +1780,30 @@ $$
 
 Reconnection tends to proceed near the most efficient state with $R\sim\mathcal{O}(0.1)$. Nicely, the rate is insensitive to $\delta/L$ near this state (BECAUSE THE SLOPE IS SMALL???).
 
+Amitava Bhattacharjee argued that scaling is a controversial subject:
+
+1. How does it scale with ion/electron skin depth, resistivity, plasma beta, and system size?
+2. Is the reconnection rate insensitive to the details of the electron layer (current sheet layer), and controlled by ions?
+* The whistler waves generate an out-of-plane quadrupolar magnetic field.
+* The ratio of the horizontal electron outflow to the horizontal magnetic perturbation scales as $k$ for the dispersive whistler (or kinetic Alfvén) wave. (WHICH WAVE IS IT? I have been confused by the relation between whistler waves ann KAWs. Both contains a region with super-Alfvénic phase speed for large $k$ and especially with frequency between $\Omega_i$ and $\Omega_e$; whister wave involves electrons whereas KAW can only rely on ions.)
+
+From the GEM Challenge perspective:
+
+* Reconnection is insensitive to the mechanism that breaks field lines (electron inertia or resistivity). The length of the reconnection layer $\Delta_i\sim 10 d_i$. Reconnection rate is a "universal constant", $V_in\approx 0.1 V_A$.
+* In the presence of Hall currents, whistler waves mediate reconnection. The characteristic outflow speed is the whistler phase speed (based on the upstream magnetic field).
+* The inflow velocity $v_\text{in}=\Omega_e\delta_e^2/\Delta_i$ where $\Delta_i\sim k^{-1}\ll L$ (system size). This rate is independent of $m_e$.
+
+The GEM perspective is not universally accepted. An alternate point of view provides evidence that:
+
+* Reconnection is not a universal constant, and depends on system parameters (such as ion/electron skin depth, plasma beta, boundary conditions).
+* Reconnection rate is not independent of the  system size, and in fact, often decreases as the system size increases.
+
+He provided three examples:
+
+1. Forced reconnection without guide field
+2. Undriven reconnection with guide field
+3. Undriven reconnection with open boundaries
+
 ### 3D Nature of Reconnection
 
 How about the freedom coming from the extra dimension? 
