@@ -442,13 +442,51 @@ simultaneous solution of this set of 16 equations in 16 unknowns gives a self-co
 
 DERIVATIONS TO BE ADDED...
 
+The generalized Ohm's law can be derived from two-fluid equations:
+
 $$
 \mathbf{E} = -\mathbf{u}\times\mathbf{B} + \eta\mathbf{j} + \frac{1}{en}\mathbf{j}\times\mathbf{B}-\frac{1}{en}\nabla\cdot\overleftrightarrow{P}_e +\frac{m_e}{ne^2}\Big[ \frac{\partial \mathbf{j}}{\partial t}+\nabla\cdot(\mathbf{j}\mathbf{u}+\mathbf{u}\mathbf{j}) \Big]
 $$ {#eq:genearlized_ohm_law}
 
-where the third term on the right-hand side is called the "Hall term", the fourth term is the electron pressure term, and the fifth term is called the "electron inertia term", since it is proportional to the mass of electrons.
+where the first term on the right-hand side is the _convection term_, the second term is the _resistivity term_ (_conductive term_), the third term is called the _Hall term_, the fourth term is the _electron pressure term_, and the fifth term is called the _electron inertia term_, since it is proportional to the mass of electrons.
 
 Note that both $\mathbf{u}$ and $\mathbf{j}$ are the first-order moments, with $\mathbf{u}$ being the (weighted) sum of the first-order moment of electrons and ions while $\mathbf{j}$ being the difference between them. The generalized Ohm's law is actually the difference between the electrons' and ions' first-order moment equations. _The generalized Ohm's law is an equation that governs the time evolution of $\mathbf{j}$_. Also note that Ampere's law, with the displacement current retained, is an equation governing the time evolution of $\mathbf{E}$. However, in the approximation of the resistive MHD, the time derivative terms $\partial \mathbf{E}/\partial t$ and $\partial \mathbf{j} /\partial t$ are ignored in Ampere's law and Ohm's law, respectively. In this approximation, Ohm's law is directly solved to determine $\mathbf{E}$ and Ampere's law is directly solved to determine $\mathbf{j}$. [Introduction to plasma physics: with space and laboratory applications, D. A. Gurnett and A. Bhattacharjee.]
+
+$$
+\underbrace{\mathbf{E}}_{a} + \underbrace{\mathbf{u}\times\mathbf{B}}_{b} - \underbrace{\frac{1}{\sigma}\mathbf{j}}_{c} - \underbrace{\frac{\mathbf{j}\times\mathbf{B}}{en_e}}_{d} + \underbrace{\frac{1}{n_e e}\nabla(n_e k_B T_e)}_{e} = 0
+$$
+
+Denote each term above with a to e. From the single-fluid MHD momentum equation, let $\omega$ be the oscillation frequency of the perturbed velocity, and variable in scalar form be the characteristic magnitude of that quantity,
+
+$$
+\begin{aligned}
+\rho\big( \frac{\partial \mathbf{u}}{\partial t}+\mathbf{u}\cdot\nabla\mathbf{u}\big) = \mathbf{j}\times\mathbf{B} - \nabla p +\rho\mathbf{g} \\
+\Rightarrow \omega\rho U\sim J B
+\end{aligned}
+$$ {#eq:mhd_scale}
+
+Using and the assumptions of MHD, the relations between each term in generalized Ohm's law are
+
+$$
+\begin{aligned}
+\frac{b}{d} &= \frac{UB}{JB/en_e} = \frac{en_eUB}{\omega \rho U} = \frac{en_e B}{\omega n_e m_i} = \frac{\Omega_i}{\omega} \gg 1 \\
+\frac{c}{d} &= \frac{J/\sigma}{JB/en_e} = \frac{en_e}{B\sigma} = \frac{en_e}{Be^2 n_e/\nu_{ei} m_e} = \frac{\nu_{ei}}{\Omega_e} \ll 1 \\
+\frac{b}{d} &= \frac{U}{J/en_e} \ll 1,\ \text{if } \mathbf{J} \text{ is carried by } \mathbf{u}_e
+\end{aligned}
+$$
+
+which generates direct contradiction with the MHD assumption that $\mathbf{u}\ll \mathbf{u}_e$ if currents are mostly carried by electrons. (WHAT ABOUT THE PRESSURE TERM SCALING? The gradient implies that it is related to the system size; the pressure implies that it is also related to thermal motion?)
+
+There is an interesting point about the electron pressure term. If we assume an isotropic plasma with $n_i=n_e$ and an adiabatic process $P/n^\gamma=C$ where $C$ is a constant and $\gamma$ is the adiabatic index, we have
+
+$$
+\begin{aligned}
+\mathbf{E}_{\nabla P_e} &= \frac{\nabla P_e}{n} = \frac{\nabla P_i}{n} = \frac{\nabla(Cn^\gamma)}{n} \\
+&= C\gamma n^{\gamma-2}\nabla n = C\frac{\gamma}{\gamma-1}\nabla n^{\gamma-1}
+\end{aligned}
+$$ {#eq:E_grad_pe}
+
+@eq:E_grad_pe indicates that the associated electric field is a potential field that only relates to density.
 
 ## Fluid Drifts Perpendicular to B
 
