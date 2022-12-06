@@ -260,9 +260,9 @@ function plot_b1z_ode()
    axislegend(ax; position=(0.25,1.0), framevisible=false)
    vlines!(ax, [1.0,2.0], color = :black)
 
-   caption = "Numerical solution of field line resonance perturbation equation for " *
-      "\$\\alpha=1,x_r=1,x_t=2\$. The singular behavior at \$x_r=1\$ for \$S(x)\$ is not " *
-      "so obvious and the boundary conditions on the right side are hard-coded."
+   caption = "Numerical solution of field line resonance perturbation equation for \
+      \$\\alpha=1,x_r=1,x_t=2\$. The singular behavior at \$x_r=1\$ for \$S(x)\$ is not \
+      so obvious and the boundary conditions on the right side are hard-coded."
    label = "b1z_ode"
    Options(f; caption, label)
 end
@@ -310,9 +310,9 @@ function plot_dispersion_parallel()
    axislegend(ax; position=:lt, framevisible=false)
    hlines!(ax, [ωci, ωce], color=:black, linestyle=:dot)
 
-   caption = "Wave modes propagating parallel to the magnetic field. Some arbitrary " *
-      "constants are used. Note that log scale is used since we can easily cross multiple "*
-      "scales so ion scales can be almost invisible if we include electron scales."
+   caption = "Wave modes propagating parallel to the magnetic field. Some arbitrary \
+      constants are used. Note that log scale is used since we can easily cross multiple \
+      scales so ion scales can be almost invisible if we include electron scales."
    label = "dispersion_parallel"
    Options(f; caption, label)
 end
