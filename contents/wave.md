@@ -568,7 +568,7 @@ Here somehow we can ignore $\omega_{pe}^2\omega_{ci}$ (I DON'T KNOW WHY???) and 
 
 $$
 \omega_{R=0} \approx \frac{\omega_{ce}}{2}\Big[ 1 + \sqrt{1+4\omega_{pe}^2/\omega_{ce}^2}\Big]
-$$
+$$ {#eq:cutoff_R_freq}
 
 In the low density limit, $\omega_p\ll\omega_c$, $(1+x)^{1/2}\approx 1+x/2$ when $x\rightarrow 0$,
 
@@ -586,7 +586,7 @@ Similarly for L-waves, the cutoff frequency can be approximated by
 
 $$
 \omega_{L=0} \approx \frac{\omega_{ce}}{2}\Big[ -1 + \sqrt{1+4\omega_{pe}^2/\omega_{ce}^2}\Big]
-$$
+$$ {#eq:cutoff_L_freq}
 
 In the low density limit, $\omega_p\ll\omega_c$,
 
@@ -684,11 +684,21 @@ $$
 
 For $\omega\lesssim\omega_{ci}$, we get the ion-cyclotron wave; for $\omega\ll\omega_{ci}$, Alfvén wave is recovered.
 
-@fig:dispersion_parallel shows the dispersion relation in a rough scale. Above the cut-off frequencies ($\omega_{R=0}$ and $\omega_{L=0}$) the solution to the wave dispersion equation is called the _free-space mode_. Below electron and ion cyclotron frequencies the waves are called the _cyclotron modes_. At low frequencies ($\omega\rightarrow 0$) L- and R-modes merge and the dispersion becomes that of the shear Alfvén wave $n^2\rightarrow c^2/v_A^2$.
+@fig:dispersion_parallel shows the dispersion relations for L/R waves in a rough scale (ACTUALLY THE SCALES ARE SO BAD...). Above the cut-off frequencies ($\omega_{R=0}$ and $\omega_{L=0}$) the solution to the wave dispersion equation is called the _free-space mode_. Below electron and ion cyclotron frequencies the waves are called the _cyclotron modes_. At low frequencies ($\omega\rightarrow 0$) L- and R-modes merge and the dispersion becomes that of the shear Alfvén wave $n^2\rightarrow c^2/v_A^2$.
 
 ```jl
 KeyNotes.plot_dispersion_parallel()
 ```
+
+The dispersion curve for a R-wave propagating parallel to the equilibrium magnetic field is sketched in @fig:dispersion_R_wave. The continuation of the Alfvén wave above the ion cyclotron frequency is called the _electron cyclotron wave_, or sometimes the _whistler wave_. The latter terminology is prevalent in ionospheric and space plasma physics contexts. The phase speed is mostly super-Alfvénic except near the electron gyrofrequency. The wave which propagates above the cutoff frequency, $\omega_1$, is a standard right-handed circularly polarized electromagnetic wave, somewhat modified by the presence of the plasma. Note that the low-frequency branch of the dispersion curve differs fundamentally from the high-frequency branch, because the former branch corresponds to a wave which can only propagate through the plasma in the presence of an equilibrium magnetic field, whereas the high-frequency branch corresponds to a wave which can propagate in the absence of an equilibrium field. 
+
+![Dispersion relation for a right-handed wave propagating parallel to the magnetic field in a magnetized plasma.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img1241.png){#fig:dispersion_R_wave}
+
+For a L-wave, similar considerations to the above give a dispersion curve of the form sketched in @fig:dispersion_L_wave. In this case, $n^2$ goes to infinity at the ion cyclotron frequency, $\Omega_i$, corresponding to the so-called _ion cyclotron resonance_ (at $L\rightarrow\infty$). At this resonance, the rotating electric field associated with a left-handed wave resonates with the gyromotion of the ions, allowing wave energy to be converted into perpendicular kinetic energy of the ions. There is a band of frequencies, lying above the ion cyclotron frequency, in which the left-handed wave does not propagate. At very high frequencies a propagating mode exists, which is basically a standard left-handed circularly polarized electromagnetic wave, somewhat modified by the presence of the plasma. 
+
+As before, the lower branch in @fig:dispersion_L_wave describes a wave that can only propagate in the presence of an equilibrium magnetic field, whereas the upper branch describes a wave that can propagate in the absence an equilibrium field. The continuation of the Alfvén wave to just below the ion cyclotron frequency is generally called the _ion cyclotron wave_. Note that the phase speed is always sub-Alfvénic.
+
+![Dispersion relation for a left-handed wave propagating parallel to the magnetic field in a magnetized plasma.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img1251.png){#fig:dispersion_L_wave}
 
 ### Faraday Rotation
 
@@ -719,6 +729,50 @@ $$
 where $\mathrm{d}\mathbf{s}$ is along the wave propagation path. The total rotation thus depends on both the dnesity and magnetic field of the medium.
 
 Faraday rotation is an important diagnostic tool both in laboratories and in astronomy. It can be used to obtain information of the magnetic field of the cosmic plasma. Note that density has to be known using other methods. On the other hand, if the magnetic field is known, Faraday rotation can give information of the density.
+
+### Perpendicular Wave Propagation
+
+Let us now consider wave propagation, at arbitrary frequencies, perpendicular to the equilibrium magnetic field, i.e. $\theta=90^o$.
+
+The cutoff frequencies, at which $n^2$ goes to zero, are the roots of $R=0$ and $L=0$ according to $n^2=LR/S$. In fact, we have already solved these equations in the previous sections (recall that cutoff frequencies do not depend on $\theta$). There are two cutoff frequencies, $\omega_{R=0}$ and $\omega_{L=0}$, which are specified by @eq:cutoff_R_freq and @eq:cutoff_L_freq, respectively.
+
+Let us, next, search for the resonant frequencies, at which $n^2$ goes to infinity. According to the previous discussions, the resonant frequencies are solutions of
+
+$$
+S = 1 - \frac{\omega_{pe}^2}{\omega^2 - \Omega_e^2} - \frac{\omega_{pi}^2}{\omega^2 - \Omega_i^2} = 0
+$$ {#eq:resonance_perp_wave}
+
+The roots of this equation can be obtained as follows. First, we note that if the first two terms are equated to zero, we obtain $\omega=\omega_{\rm UH}$, where
+
+$$
+\omega_{\rm UH} \equiv \sqrt{\omega_{pe}^2 + \Omega_e^2}
+$$ {#eq:upper_hybrid_freq}
+
+If this frequency is substituted into the third term, the result is far less than unity. We conclude that $\omega_{\rm UH}$ is a good approximation to one of the roots of @eq:resonance_perp_wave. To obtain the second root, we make use of the fact that the product of the square of the roots is
+
+$$
+\Omega_e^2\,\Omega_i^2 + \omega_{pe}^2\,\Omega_i^2 + \omega_{pi}^2\Omega_e^2 \simeq \Omega_e^2 \Omega_i^2 + \omega_{pi}^2\,\Omega_e^2
+$$
+
+We, thus, obtain $\omega= \omega_{\rm LH}$, where
+
+$$
+\omega_{\rm LH} \equiv \sqrt{\frac{\Omega_e^2\Omega_i^2 + \omega_{pi}^2\Omega_e^2}{\omega_{pe}^2 + \Omega_e^2}}
+$$
+
+The first resonant frequency, $\omega_{\rm UH}$, is greater than the electron cyclotron or plasma frequencies, and is called the _upper hybrid frequency_. The second resonant frequency, $\omega_{\rm LH}$, lies between the electron and ion cyclotron frequencies, and is called the _lower hybrid frequency_. Unfortunately, there is no simple explanation of the origins of the two hybrid resonances in terms of the motions of individual particles. At low frequencies, the mode in question reverts to the compressional-Alfvén wave discussed previously. Note that the shear-Alfvén wave does not propagate perpendicular to the magnetic field.
+
+Using the above information, and the easily demonstrated fact that
+
+$$
+\omega_{\rm LH} < \omega_{L=0} < \omega_{\rm UH} < \omega_{R=0}
+$$
+
+we can deduce that the dispersion curve for the mode in question takes the form sketched in @fig:dispersion_perp_wave. The lowest frequency branch corresponds to the compressional-Alfvén wave. The other two branches constitute the _extraordinary_, or $X$-, wave. The upper branch is basically a linearly polarized (in the $y$-direction) electromagnetic wave, somewhat modified by the presence of the plasma. This branch corresponds to a wave which propagates in the absence of an equilibrium magnetic field. The lowest branch corresponds to a wave which does not propagate in the absence of an equilibrium field. Finally, the middle branch corresponds to a wave which converts into an electrostatic plasma wave in the absence of an equilibrium magnetic field. 
+
+![Dispersion relation for a left-handed wave propagating parallel to the magnetic field in a magnetized plasma.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img1270.png){#fig:dispersion_perp_wave}
+
+Wave propagation at oblique angles is generally more complicated than propagation parallel or perpendicular to the equilibrium magnetic field, but does not involve any new physical effects.
 
 ## MHD Waves
 
@@ -1568,9 +1622,9 @@ Let $\epsilon=0$, we have
 
 $$
 \omega=\sqrt{{\omega_{pe}}^2+{\Omega_e}^2}\equiv \omega_{UH}
-$$
+$$ 
 
-which is called the \emph{upper hybrid} frequency. This is the highest characteristic frequency in plasma. This upper hybrid wave is a havoc to some beam generator devices as it appears near the electron collector. 
+which is called the _upper hybrid_ frequency. This is the highest characteristic frequency in plasma. This upper hybrid wave is a havoc to some beam generator devices as it appears near the electron collector. 
 
 What if ions are included? Similar to previous derivations and notice that we are still within the range of linear theory, we have
 
