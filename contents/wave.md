@@ -910,7 +910,7 @@ p_1 &= 0 \\
 \mathbf{E} &= -B_0 v_y\hat{x} \\
 \mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = -\frac{k_zB_0v_y}{\omega}\hat{y} = -\frac{\mathbf{v}}{\omega/k_\parallel}B_0
 \end{aligned}
-$$
+$$ {#eq:mhd_Alfven_perturbations}
 
 $\mathbf{E}$ (or $\mathbf{B}_1$) shows that the Alfvén wave in a uniform plasma is a linearly polarized wave mode. Correlated $\mathbf{B}$ and $\mathbf{v}$ corresponds to waves propagating anti-parallel to the $\mathbf{B}_0$, and anti-correlated $\mathbf{B}$ and $\mathbf{v}$ corresponds to waves propagating parallel to the $\mathbf{B}_0$. The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the _shear Alfvén wave_ (SAW). An animation of SAW is shown in @fig:alfven_wave. It is useful to remember that the magnetic perturbation is always parallel to the velocity perturbation.
 
@@ -1081,11 +1081,11 @@ $$
 \begin{aligned}
 \rho_1 &= \frac{\rho_0}{\omega}\mathbf{k}\cdot\mathbf{v} \\
 \mathbf{j} &= m n_0\mathbf{v} \\
-p_1 &= \rho_1 k_B T/m \\
+p_1 &= \gamma p_0\frac{\rho_1}{\rho_0} = \frac{\gamma p_0}{\omega}\mathbf{k}\cdot\mathbf{v} \\
 \mathbf{E} &= B_0 v_x\hat{y} \\
 \mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = -\frac{B_0v_xk_z}{\omega}\hat{x} - \frac{B_0v_zk_x}{\omega}\hat{z}
 \end{aligned}
-$$
+$$ {#eq:mhd_fast_perturbations}
 
 $\mathbf{E}$ shows that the fast/slow modes in a uniform plasma are also linearly polarized. When we have $\theta=90^o$ (@fig:fast_wave), the magnetic perturbation can be simplified to
 
