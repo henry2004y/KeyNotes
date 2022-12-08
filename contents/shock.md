@@ -1,6 +1,6 @@
 # Shock {#sec:shock}
 
-Consider a subsonic disturbance moving through a conventional neutral fluid. As is well-known, sound waves propagating ahead of the disturbance give advance warning of its arrival, and, thereby, allow the response of the fluid to be both smooth and adiabatic. Now, consider a supersonic disturbance. In this case, sound waves are unable to propagate ahead of the disturbance, and so there is no advance warning of its arrival, and, consequently, the fluid response is _sharp_ and _non-adiabatic_. This type of response is generally known as a _shock_. 
+Consider a subsonic disturbance moving through a conventional neutral fluid. As is well-known, sound waves propagating ahead of the disturbance give advance warning of its arrival, and, thereby, allow the response of the fluid to be both smooth and adiabatic. Now, consider a supersonic disturbance. In this case, sound waves are unable to propagate ahead of the disturbance, and so there is no advance warning of its arrival, and, consequently, the fluid response is _sharp_ and _non-adiabatic_. This type of response is generally known as a _shock_.
 
 In space, shock is a dissipative structure in which the kinetic and magnetic energy of a directed plasma flow is partly transferred to heating of the plasma. The dissipation does not take place, however, by means of particle collisions for a shock in space. Collisionless shocks can be divided into _super_- and _sub-critical_: the _critical Mach number_ $M_A^\ast$ is defined by equating the normal component of the downstream flow velocity in the shock frame to the sound speed. (In aerodynamics, the critical Mach number $M^\ast$ of an aircraft is the _lowest_ Mach number at which the airflow over some point of the aircraft reaches the speed of sound, but does not exceed it.) Above the critical Mach number, resistivity alone is unable to provide all the dissipation needed for the required _Rankine-Hugoniot_ shock jump. Supercritical shocks are important because they usually produce much greater ion heating than subcritical shocks. In contrast to sub-critical shocks, resistivity in super-critical shocks cannot provide all the necessary dissipation for a shock transition according to the _Rankine–Hugoniot_ relationships. Thus, other processes like wave-particle interactions provide the dissipation required for supercritical shock formation. This is the reason why they are able to accelerate particles to high energies. Note that most of the time we have supercritical bow shock at Earth, i.e. the sound speed in the magnetosheath is larger than the bulk speed.
 
@@ -230,7 +230,7 @@ $$
 r_1 r_2 = -\frac{\gamma(\gamma+1)\beta_1 M_1^2}{2(2-\gamma)}
 $$
 
-Assuming that $\gamma < 2$, we conclude that one of the roots is negative, and, hence, that @eq:perp_shock_coef_f only possesses one physical solution: i.e., there is only one type of MHD shock which is consistent with @eq:perp_shock. Now, it is easily demonstrated that $F(0)<0$ and $F(\gamma+1/\gamma-1)>0$. Hence, the physical root lies between $r=0$ and $r=(\gamma+1)/(\gamma-1)$. 
+Assuming that $\gamma < 2$, we conclude that one of the roots is negative, and, hence, that @eq:perp_shock_coef_f only possesses one physical solution: i.e., there is only one type of MHD shock which is consistent with @eq:perp_shock. Now, it is easily demonstrated that $F(0)<0$ and $F(\gamma+1/\gamma-1)>0$. Hence, the physical root lies between $r=0$ and $r=(\gamma+1)/(\gamma-1)$.
 
 Using similar analysis to that employed in the previous subsection, it is easily demonstrated that the second law of thermodynamics requires a perpendicular shock to be compressive: i.e., $r>1$. It follows that a physical solution is only obtained when $F(1)<0$, which reduces to
 
@@ -244,9 +244,9 @@ $$
 \mathbf{v}_1^2 > \mathbf{v}_{s1}^2 + \mathbf{v}_{A1}^2
 $$
 
-where $v_{A1} = B_1/\sqrt(\mu_0 \rho_1)$ is the upstream Alfvén speed. $v_{+\,1} = (v_{S\,1}^{\,2} + v_{A\,1}^{\,2})^{1/2}$ can be recognized as the velocity of a fast wave propagating perpendicular to the magnetic field (@sec:fast_slow). Thus, the condition for the existence of a perpendicular shock is that the relative upstream plasma velocity must be _greater_ than the upstream fast wave velocity. Incidentally, it is easily demonstrated that if this is the case then the downstream plasma velocity is less than the downstream fast wave velocity. We can also deduce that, in a stationary plasma, a perpendicular shock propagates across the magnetic field with a velocity which exceeds the fast wave velocity. 
+where $v_{A1} = B_1/\sqrt(\mu_0 \rho_1)$ is the upstream Alfvén speed. $v_{+\,1} = (v_{S\,1}^{\,2} + v_{A\,1}^{\,2})^{1/2}$ can be recognized as the velocity of a fast wave propagating perpendicular to the magnetic field (@sec:fast_slow). Thus, the condition for the existence of a perpendicular shock is that the relative upstream plasma velocity must be _greater_ than the upstream fast wave velocity. Incidentally, it is easily demonstrated that if this is the case then the downstream plasma velocity is less than the downstream fast wave velocity. We can also deduce that, in a stationary plasma, a perpendicular shock propagates across the magnetic field with a velocity which exceeds the fast wave velocity.
 
-In the strong shock limit, $M_1\gg 1$, @eq:perp_shock_coef and @eq:perp_shock_coef_f become identical to @eq:eq:parallel_shock_coef. Hence, a strong perpendicular shock is very similar to a strong hydrodynamic shock (except that the former shock propagates perpendicular, whereas the latter shock propagates parallel, to the magnetic field). In particular, just like a hydrodynamic shock, a perpendicular shock cannot compress the density by more than a factor $(\gamma+1)/(\gamma-1)$. However, according to @eq:perp_shock_relation, a perpendicular shock compresses the magnetic field by the same factor that it compresses the plasma density. It follows that there is also an upper limit to the factor by which a perpendicular shock can compress the magnetic field. 
+In the strong shock limit, $M_1\gg 1$, @eq:perp_shock_coef and @eq:perp_shock_coef_f become identical to @eq:eq:parallel_shock_coef. Hence, a strong perpendicular shock is very similar to a strong hydrodynamic shock (except that the former shock propagates perpendicular, whereas the latter shock propagates parallel, to the magnetic field). In particular, just like a hydrodynamic shock, a perpendicular shock cannot compress the density by more than a factor $(\gamma+1)/(\gamma-1)$. However, according to @eq:perp_shock_relation, a perpendicular shock compresses the magnetic field by the same factor that it compresses the plasma density. It follows that there is also an upper limit to the factor by which a perpendicular shock can compress the magnetic field.
 
 ### Oblique Shock
 
@@ -275,7 +275,7 @@ $$
 \frac{B_{y\,2}}{B_{y\,1}} &= r\left(\frac{v_{1}^{\,2} - \cos^2\theta_1\,v_{A\,1}^{\,2}}{v_{1}^{\,2}-r\,\cos^2\theta_1\,v_{A\,1}^{\,2}}\right) \\
 \frac{v_{x\,2}}{v_{x\,1}} &= \frac{1}{r} \\
 \frac{v_{y\,2}}{v_{y\,1}} &= \frac{v_{1}^{\,2} -\cos^2\theta_1\, v_{A\,1}^{\,2}}{v_{1}^{\,2}-r\,\cos^2\theta_1\,v_{A\,1}^{\,2}} \\
-\frac{p_2}{p_1} &= 1+\frac{\gamma v_1^2(r-1)}{v_{s1}^2 r}\left[1-\frac{r v_{A1}^2 [(r+1)v_1^2 - 2r v_{A1}^2\cos^2\theta_1]}{2(v_1^2 -r v_{A1}^2\cos^2\theta_1)^2} \right] 
+\frac{p_2}{p_1} &= 1+\frac{\gamma v_1^2(r-1)}{v_{s1}^2 r}\left[1-\frac{r v_{A1}^2 [(r+1)v_1^2 - 2r v_{A1}^2\cos^2\theta_1]}{2(v_1^2 -r v_{A1}^2\cos^2\theta_1)^2} \right]
 \end{aligned}
 $$ {#eq:oblique_shock_relation}
 
@@ -322,7 +322,7 @@ $$
 v_1^{\,2} \simeq \frac{r_m}{\gamma-1}\,\frac{2v_{S1}\sin^2\theta_1\,[\gamma + (2-\gamma)\,r_m]\,v_{A1}^2}{r_m-r}
 $$
 
-There are no other real roots. The above root is clearly a type of fast shock. The fact that there is only one real root suggests that there exists a critical shock strength above which the slow and intermediate shock solutions cease to exist. (In fact, they merge and annihilate one another.) In other words, there is a limit to the strength of a slow or an intermediate shock. On the other hand, there is no limit to the strength of a fast shock. Note, however, that the plasma density and tangential magnetic field cannot be compressed by more than a factor $(\gamma+1)/(\gamma-1)$ by any type of MHD shock. 
+There are no other real roots. The above root is clearly a type of fast shock. The fact that there is only one real root suggests that there exists a critical shock strength above which the slow and intermediate shock solutions cease to exist. (In fact, they merge and annihilate one another.) In other words, there is a limit to the strength of a slow or an intermediate shock. On the other hand, there is no limit to the strength of a fast shock. Note, however, that the plasma density and tangential magnetic field cannot be compressed by more than a factor $(\gamma+1)/(\gamma-1)$ by any type of MHD shock.
 
 __$\theta_1=0$__
 
@@ -338,7 +338,7 @@ $$
 
 We recognize the first of these roots as the hydrodynamic shock discussed in @sec:parallel_shock. This shock is classified as a slow shock when $V_{S\,1}<v_{A\,1}$, and as a fast shock when $V_{S\,1}> v_{A\,1}$. The other two roots are identical, and correspond to shocks which propagate at the velocity $v_1 =\sqrt{r}\, v_{A\,1}$ and "switch-on" the tangential components of the plasma flow and the magnetic field: it can be seen from @eq:oblique_shock_relation that $v_{y\,1}=B_{y\,1} =0$ whilst $v_{y\,2}\neq 0$ and $B_{y\,2}\neq 0$ for these types of shock.
 
-There we have "switch-on" and "switch-off" shocks which refer to the generation and elimination of tangential components of the plasma flow and the magnetic field. Incidentally, it is also possible to have a "switch-off" shock which eliminates the tangential components of the plasma flow and the magnetic field. According to @eq:oblique_shock_relation, such a shock propagates at the velocity $v_1=\cos\theta_1\,v_{A\,1}$. Switch-on and switch-off shocks are illustrated in @fig:shock_switch_on_off. 
+There we have "switch-on" and "switch-off" shocks which refer to the generation and elimination of tangential components of the plasma flow and the magnetic field. Incidentally, it is also possible to have a "switch-off" shock which eliminates the tangential components of the plasma flow and the magnetic field. According to @eq:oblique_shock_relation, such a shock propagates at the velocity $v_1=\cos\theta_1\,v_{A\,1}$. Switch-on and switch-off shocks are illustrated in @fig:shock_switch_on_off.
 
 ![Characteristic plasma flow patterns across switch-on and switch-off shocks in the shock rest frame.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img2247.png){#fig:shock_switch_on_off}
 
@@ -475,7 +475,7 @@ Parallel shocks are more special in that the magnetic field strength remains unc
 
 In the observation comparison paper [@slavin1981solar] for quasi-perpendicular shocks, they concluded that the variations in shock stand-off distance and shape are ordered by the sonic Mach number $M_s$ and not other Mach numbers involve magnetic field. In other words, they think the bow shock is a gasdynamic structure.
 
-However, even in neutral fluid theory, the determination of shock location as well as shape is still an ongoing research. Imagine the simplest scenario where there is a static ball in the air with infinite mass. Assuming purely homogenous air with known density, velocity and pressure in the upstream, can you tell me the exact location of shock stand-off distance with pen and paper? 
+However, even in neutral fluid theory, the determination of shock location as well as shape is still an ongoing research. Imagine the simplest scenario where there is a static ball in the air with infinite mass. Assuming purely homogenous air with known density, velocity and pressure in the upstream, can you tell me the exact location of shock stand-off distance with pen and paper?
 
 On top of that, the introduction of EM field complicates the story. Especially in the case of a parallel shock, the plasmas get "shocked" both upstream and downstream, and the stand-off distance of the shock may not be a single point theoretically. In some sense, normal magnetic field to the boundary "thickens" the shock front.
 

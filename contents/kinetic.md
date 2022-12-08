@@ -56,7 +56,7 @@ $$
 
 one easily verifies that the integral of $\hat{f}_m$ over $dv_x dv_y dv_z$ is unity.
 
-A common question to ask is: why do we see Maxwellian/Gaussian/normal distribution ubiquitously in nature? Well, this is related to the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem): in many situations, when independent random variables are summed up, their properly normalized sum tends toward a normal distribution even if the original variables themselves are not normally distributed (e.g. a biased coin which give 95% head and 5% tail). 
+A common question to ask is: why do we see Maxwellian/Gaussian/normal distribution ubiquitously in nature? Well, this is related to the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem): in many situations, when independent random variables are summed up, their properly normalized sum tends toward a normal distribution even if the original variables themselves are not normally distributed (e.g. a biased coin which give 95% head and 5% tail).
 
 There are several average velocities of a Maxwellian distribution that are commonly used. The root-mean-square velocity is given by
 
@@ -75,7 +75,7 @@ Since $\hat{f}_m$ is isotropic, the integral is most easily done in spherical co
 $$
 \begin{aligned}
 \bar{v} &= (m/2\pi k_B T)^{3/2}\int_0^\infty v[\exp(-v^2/v_{th}^2)]4\pi v^2 \mathrm{d}v \\
-&= (\pi v_{th}^2)^{-3/2} 4\pi v_{th}^4 \int_0^\infty [\exp(-y^2)]y^3 dy 
+&= (\pi v_{th}^2)^{-3/2} 4\pi v_{th}^4 \int_0^\infty [\exp(-y^2)]y^3 dy
 \end{aligned}
 $$
 
@@ -504,7 +504,7 @@ This result shows that $\left<\Delta W_k\right>$ depends on the frame of the obs
 
 The result we have just derived, however, still has nothing to do with linear Landau damping. Damping requires a continuous increase of $W_k$ at the expense of wave energy, but we have found that $\left<\Delta W_k\right>$ for untrapped particles is contant in time. If neither the untrapped particles nor the trapped particles are responsible for linear Landau damping, what is? The answer can be gleaned form the following observation: if $\left<\Delta W_k\right>$ is positive, say, there must have been a time when it was increasing. Indeed, there are particles in the original distribution which have velocities so close to $v_\phi$ that at time $t$ they have not yet gone a half wavelength relative to the wave. For these particles, one cannot take the average $\left<\Delta W_k\right>$. These particles can absorb energy from the wave and are properly called the "resonant" particles. As time goes on, the number of resonant electrons decreases, since an increasing number will have shifted more than $\frac{1}{2}\lambda$ from their orginal positions. The damping rate, however, can stay constant, since the amplitude is now smaller, and it takes fewer electrons to maintain a constant damping rate.
 
-The effect of the initial conditions is most easily seen form a phase-space diagram (Fig.7-24)(ADD IT with Luxor?). 
+The effect of the initial conditions is most easily seen form a phase-space diagram (Fig.7-24)(ADD IT with Luxor?).
 
 ## A Physical Derivation of Landau Damping
 

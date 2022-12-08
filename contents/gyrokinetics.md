@@ -120,13 +120,13 @@ H &= \frac{m}{2}v^2 + e\phi(\mathbf{x},t)
 \end{aligned}
 $$
 
-with $\mathbf{B} = \nabla\times\mathbf{A}$ and $\mathbf{E} = -\nabla\phi - \partial_t \mathbf{A}/c$. The equation of motion are given by the Lagrange equations (I almost forget everything from theoretical mechanics...): 
+with $\mathbf{B} = \nabla\times\mathbf{A}$ and $\mathbf{E} = -\nabla\phi - \partial_t \mathbf{A}/c$. The equation of motion are given by the Lagrange equations (I almost forget everything from theoretical mechanics...):
 
 $$
 \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{q}_i} - \frac{\partial L}{\partial q_i} = 0,\quad i=1,...,6
 $$
 
-For charged particles, 
+For charged particles,
 
 $$
 \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial\dot{\mathbf{v}}} - \frac{\partial L}{\partial\mathbf{v}} = 0 ?
@@ -259,7 +259,7 @@ $$
 \omega^2 \delta\phi_\mathbf{k} = k_\parallel^2 v_A^2 \frac{b_k}{1-\Gamma_k}\delta\Psi_\mathbf{k}
 $$ {#eq:gk_linear_vorticity_approxi}
 
-Here, $\tau=T_{0e}/T_{0i}, b_k=b_{ki}, \Gamma_k=\Gamma_{0ki}$, and $\epsilon_{s\mathbf{k}}$ is the dielectric constant for the slow-sound (ion-acoustic) wave (SSW). 
+Here, $\tau=T_{0e}/T_{0i}, b_k=b_{ki}, \Gamma_k=\Gamma_{0ki}$, and $\epsilon_{s\mathbf{k}}$ is the dielectric constant for the slow-sound (ion-acoustic) wave (SSW).
 
 It is also instructive, as done in some literatures, to define the effective parallel potential, $\delta\phi_{\parallel\mathbf{k}}=\delta\phi_\mathbf{k} - \delta\Psi_\mathbf{k}$, and rewrite @eq:gk_linear_par_potential and @eq:gk_linear_vorticity_approxi as
 
@@ -276,7 +276,7 @@ $$ {#eq:gk_linear_vorticity_approxi2}
 @eq:gk_linear_par_potential2 and @eq:gk_linear_vorticity_approxi2 demonstrate the coupling between SAW and SSW via the finite $|k_\perp r_{Ls}|$ term. In the $|k_\perp r_{Li}|\sim\mathcal{O}(1)$ short-wavelength limit, SAW evolves into KAW due to both the finite $|k_\perp r_{Li}|$ and $|k_\perp r_{Ls}|$ effects. (???) More specifically, the coupled KAW-SSW dispersion relation becomes
 
 $$
-\omega_\mathbf{k}^2\Big[ 1-\frac{\tau(1-\Gamma_k)}{\epsilon_{s\mathbf{k}}} \Big] = k_\parallel^2 v_A^2 \frac{b_k}{1-\Gamma_k} 
+\omega_\mathbf{k}^2\Big[ 1-\frac{\tau(1-\Gamma_k)}{\epsilon_{s\mathbf{k}}} \Big] = k_\parallel^2 v_A^2 \frac{b_k}{1-\Gamma_k}
 $$ {#eq:gk_linear_SAW_SSW}
 
 Let us concentrate on the KAW branch and, to further simplify the analysis, assume $1\gg \beta_i\sim\beta_e\gg m_e/m_i$. With $|\omega|\sim|k_\parallel v_A|$, we then have $|\xi_{ki}|=|\omega/k_\parallel v_{ti}|\sim\beta_i^{-1/2}\gg 1 \gg |\xi_{ke}|\sim(m_e/m_i\beta_e)^{1/2}$, and, keeping only the lowest order $\mathbf{O}(1)$ terms:
@@ -333,7 +333,7 @@ $$
 \Big[ \hat{r}^2\frac{\partial^2}{\partial x^2} - 1 - \frac{1}{\omega_A^2(x)}\frac{\partial^2}{\partial t^2} \Big] \delta B_y(x,t) = 0
 $$ {#eq:gk_linear_KAW_governing}
 
-@eq:gk_linear_KAW_governing can be readily derived from @eq:gk_linear_KAW_kperp_large by letting $\omega_\mathbf{k}=i\partial/\partial t$ and $k_\perp=-i\partial/\partial x$. The spatial profile of $\omega_A^2(x)/\omega^2 = 1/(1+x^2/L^2)$ is shown in 
+@eq:gk_linear_KAW_governing can be readily derived from @eq:gk_linear_KAW_kperp_large by letting $\omega_\mathbf{k}=i\partial/\partial t$ and $k_\perp=-i\partial/\partial x$. The spatial profile of $\omega_A^2(x)/\omega^2 = 1/(1+x^2/L^2)$ is shown in
 @fig:gk_KAW_evolution(a), with $L$ indicating the profile length-scale, so that the KAW wave-packet frequency is assumed to be consistent with the SAW frequency at $x=0$. @fig:gk_KAW_evolution(b) shows the propagation of the KAW wave-packet in the direction of radial non-uniformity, consistent with @eq:gk_linear_KAW_group.
 
 ![(a) Spatial dependence of $\omega_A^2$. (b) Propagation of the KAW wave-packet in the non-uniformity direction.](images/gk_kaw_propagation.png){#fig:gk_KAW_evolution}
@@ -539,7 +539,7 @@ $$
 The distribution function now depends on 6 variables, $f = f(\mathbf{X},v_\parallel,\mu;t)$. The Vlasov equation can be written as
 
 $$
-\frac{\partial f}{\partial t} + \dot{\mathbf{X}}\cdot\frac{\partial f}{\partial \mathbf{X}} + \dot{v_\parallel}\frac{\partial f}{\partial v_\parallel} = 0 
+\frac{\partial f}{\partial t} + \dot{\mathbf{X}}\cdot\frac{\partial f}{\partial \mathbf{X}} + \dot{v_\parallel}\frac{\partial f}{\partial v_\parallel} = 0
 $$
 
 where $\mathbf{X}$ is the gyrocenter position, $v_\parallel$ is the parallel velocity, and $\mu$ is the magnetic moment. The appropriate field equations are now

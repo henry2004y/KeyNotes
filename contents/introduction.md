@@ -60,7 +60,7 @@ At the beginning, it is important to get the idea of size. Starting from two bas
 * n = number density ($\sim 1/\text{cm}^3$ to $10^{20}/\text{cm}^3$)
 
 Physically, $n$ represents the number of particles in a unit volume, from which we know $n^{-1/3}$ has unit of length. It means a typical length for a single particle.
-Ionized state implies that $k_B T\gg E_i=$ ionization potential energy$\sim \frac{e^2}{4\pi\epsilon_0 a_0}\approx 14eV$). 
+Ionized state implies that $k_B T\gg E_i=$ ionization potential energy$\sim \frac{e^2}{4\pi\epsilon_0 a_0}\approx 14eV$).
 
 Gaseous state implies that $n^{-1/3}\gg a_0$.
 
@@ -88,7 +88,7 @@ This is necessarily satisfied for plasma under previous definitions.
 
 Indication from the definition of plasma:
 
-1. There are large number of particles in a Debye sphere. 
+1. There are large number of particles in a Debye sphere.
 
 $\underline{\text{Ex}.1}$ laboratory plasma $10^{8}\text{cm}^{-3}\rightarrow 10^{20}\text{cm}^{-3}$. Tokamak $n=10^{14}\text{cm}^{-3}$, $k_B T=10\text{keV}=10^4\text{eV}$, $n^{-1/3}=2.15\times10^{-5}\text{cm}$, $\lambda_D=7.4\times10^{-3}\text{cm} \gg n^{-1/3}$, $n{\lambda_{D}}^3\gg 1$.
 
@@ -169,7 +169,7 @@ behaves as if it had a mind of its own.
 Before proceeding further, it is important to review and extend our physical notions of “temperature”. A gas in thermal equilibrium has particles of all velocities, and the most probable distribution of these velocities is known as the Maxwellian distribution. For simplicity, consider a gas in which the particles can move only in one dimension. (This is not entirely frivolous; a strong magnetic field, for instance, can constrain electrons to move only along the field lines.) The one-dimensional Maxwellian distribution is given by
 
 $$
-f(v) = A \exp\left( -\frac{1}{2}mv^2/k_B T \right) 
+f(v) = A \exp\left( -\frac{1}{2}mv^2/k_B T \right)
 $$ {#eq:maxwellian_1d}
 
 where $f\mathrm{d}u$ is the number of particles per $\text{m}^3$ with velocity between $u$ and $u+\mathrm{d}u$, $\frac{1}{2}mu^2$ is the kinetic energy, and $k_B$ is Boltzmann's constant. The density $n$, or number of particles per $\text{m}^3$, is given by
@@ -272,19 +272,19 @@ A fundamental characteristic of the behavior of plasma is its ability to shield 
 
 Let us compute the approximate thickness of such a charge cloud. Let us put a point charge $q_T$ into a quasi-neutral gas of charged particles. The gas is in _local thermodynamic equilibrium_ (LTE) with ion and electron temperatures $T_e$ and $T_i$ (They are not necessarily the same, and in fact, quite different in nature.). (ADD FIGURE!) We wish to compute $\phi(x)$. For simplicity, we assume that the ion-electron mass ratio $M/m$ is infinite, so that the ions do not move but form a uniform background of positive charge. To be more precise, we can say that $M/m$ is large enough that the inertia of the ions prevents them from moving significantly on the time scale of the experiment.
 
-Maxwell distribution: 
+Maxwell distribution:
 
 $$
 f(\mathbf{v})=n_0\Big( \frac{m}{2\pi kT}\Big)^{3/2}\exp\Big( -\frac{mv^2}{2kT}\Big)
 $$
 
 In the presence of a potential energy $q\phi$m the distribution function follows the Boltzmann distribution:
- 
+
 $$
 f(\mathbf{x},\mathbf{v})=n_0\Big( \frac{m}{2\pi kT}\Big)^{3/2}\exp\Big( -\frac{\frac{1}{2}mv^2+q\phi(\mathbf{x})}{kT}\Big)
 $$
 
-It would not be worthwhile to prove this here. What this equation says is intuitively obvious: There are fewer particles at places where the potential energy is large, since not all particles have enough energy to get there. 
+It would not be worthwhile to prove this here. What this equation says is intuitively obvious: There are fewer particles at places where the potential energy is large, since not all particles have enough energy to get there.
 
 Note that the concept of temperature is valid in LTE. From the Boltzmann equation,
 
@@ -335,7 +335,7 @@ $$
 \end{aligned}
 $$
 
-where 
+where
 
 $$
 \lambda_D=\sqrt{\frac{\epsilon_0 k_BT^\ast}{n_0e^2}}
@@ -378,7 +378,7 @@ The following are useful forms of @eq:debye_length:
 $$
 \begin{aligned}
 \lambda_D &= 69 (T_e/n)^{1/2}\,\text{m},\quad T_e \text{ in K} \\
-\lambda_D &= 7430 (k_B T_e/n)^{1/2}\,\text{m},\quad k_BT_e \text{ in eV} 
+\lambda_D &= 7430 (k_B T_e/n)^{1/2}\,\text{m},\quad k_BT_e \text{ in eV}
 \end{aligned}
 $$
 

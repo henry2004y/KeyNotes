@@ -306,7 +306,7 @@ Light waves exert a radiation pressure which is usually very weak and hard to de
 The easiest way to derive this nonlinear force is to consider the motion of an electron in the oscillating $\mathbf{E}$ and $\mathbf{B}$ fields of a wave. We neglect dc $\mathbf{E}_0$ and $\mathbf{B}_0$ fields. The electron equation of motion is
 
 $$
-m\dot{\mathbf{v}} = -e[\mathbf{E}(\mathbf{r}) + \mathbf{v}\times\mathbf{B}(\mathbf{r})] 
+m\dot{\mathbf{v}} = -e[\mathbf{E}(\mathbf{r}) + \mathbf{v}\times\mathbf{B}(\mathbf{r})]
 $$
 
 This equation is exact if $\mathbf{E}$ and $\mathbf{B}$ are evaluated at the instantaneous position of the electron. The nonlinearity comes partly from the $\mathbf{v}\times\mathbf{B}$, which is second order because both $\mathbf{v}$ and $\mathbf{B}$ vanish in the equilibrium, so that the term is no larger than $\mathbf{v}_1\times\mathbf{B}_1$, where $\mathbf{v}_1$ and $\mathbf{B}_1$ are the linear-theory values. The other part of the nonlinearity, as we shall see, comes from evaluating $\mathbf{E}$ at the actual position of the particle rather than its initial position. Assume a wave electric field of the form

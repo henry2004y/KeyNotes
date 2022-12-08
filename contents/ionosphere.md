@@ -19,7 +19,7 @@ There is another form derived by [Wolf 1983]:
 $$
 \nabla_\perp\cdot
 \begin{pmatrix} \sigma_P/\cos^2\delta & -\sigma_H\cos\delta \\ \sigma_H/\cos\delta & \sigma_P \end{pmatrix} \cdot\nabla_\perp\Phi =
-j_\parallel\cos\delta 
+j_\parallel\cos\delta
 $$ {#eq:ionosphere_potential2}
 
 where $\delta$ is the magnetic field dip angle:
@@ -76,7 +76,7 @@ $$
 \end{aligned}
 $$ {#eq:ionosphere_potential2_spherical}
 
-* Be careful about distinguishing $E_\parallel$ and $j_\parallel$. $E_\parallel = 0$ from advection and Hall terms, but $j_\parallel=\nabla\times\mathbf{B}\cdot\hat{b}/\mu_0$ can be nonzero at the MHD inner boundary. 
+* Be careful about distinguishing $E_\parallel$ and $j_\parallel$. $E_\parallel = 0$ from advection and Hall terms, but $j_\parallel=\nabla\times\mathbf{B}\cdot\hat{b}/\mu_0$ can be nonzero at the MHD inner boundary.
 
 * How important it is to use a more realistic conductance model? [@merkin2010] shows that different BCs may give > 10% CPCP values, but I have no clue about the effect of a more complicated conductance.
 

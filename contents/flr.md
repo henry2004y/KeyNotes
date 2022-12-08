@@ -407,7 +407,7 @@ $$
 k_x &= \pm n \pi / a,\, &n = 1,2,3... \\
 k_z &= \pm m \pi / c,\, &m = 1,2,3...
 \end{aligned}
-$$ {#eq:flr_xz_quantized} 
+$$ {#eq:flr_xz_quantized}
 
 where $a$ is the box length in x and $c$ is the box length in z (i.e. length of the field lines).
 

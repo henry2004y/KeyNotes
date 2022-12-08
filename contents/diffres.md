@@ -157,7 +157,7 @@ whereupon @eq:ambipolar_diffusion, with the subscript on $D_a$ understood, becom
 $$
 \begin{aligned}
 S\frac{\mathrm{d}T}{\mathrm{d}t} &= DT\nabla^2 S \\
-\frac{1}{T}\frac{\mathrm{d}T}{\mathrm{d}t} &= \frac{D}{S}\nabla^2 S 
+\frac{1}{T}\frac{\mathrm{d}T}{\mathrm{d}t} &= \frac{D}{S}\nabla^2 S
 \end{aligned}
 $$
 
@@ -365,7 +365,7 @@ The equation resulting from setting $\nabla\cdot\mathbf{\Gamma}_i = \nabla\cdot\
 
 ## Collisions in Fully Ionized Plasmas {#sec:collision_ionized}
 
-When the plasma is composed of ions and electrons alone, all collisions are Coulomb collisions between charged particles. However, there is a distinct difference between 
+When the plasma is composed of ions and electrons alone, all collisions are Coulomb collisions between charged particles. However, there is a distinct difference between
 
 * collisions between like particles (ion–ion or electron–electron collisions) and
 * collisions between unlike particles (ion–electron or electron–ion collisions).
@@ -627,7 +627,7 @@ $$
 or in matrix form,
 
 $$
-\begin{pmatrix} j_x \\ j_y \\ j_z \end{pmatrix} = 
+\begin{pmatrix} j_x \\ j_y \\ j_z \end{pmatrix} =
 \begin{pmatrix} \sigma_P & -\sigma_H & 0 \\ \sigma_H & \sigma_P & 0 \\ 0 & 0 & \sigma_\parallel \end{pmatrix}
 \begin{pmatrix} E_x \\ E_y \\ E_z \end{pmatrix}
 $$
@@ -717,7 +717,7 @@ $$
 \eta=\frac{1}{\mu\sigma}=\frac{m_e}{\mu n_i e^2\tau_{ei}}=\frac{m_e n_e \ln\Lambda}{\mu n_i e^2 \cdot 5.45\times10^{5}T^{3/2}} =5.2\times10^7 \frac{\ln\Lambda}{T^{3/2}}
 $$
 
-where $\ln\Lambda$ is the Coulomb logarithm (generally $10\sim20$ which is insensitive to $n$ and $T$, @sec:coulomb_collision_mechanics). 
+where $\ln\Lambda$ is the Coulomb logarithm (generally $10\sim20$ which is insensitive to $n$ and $T$, @sec:coulomb_collision_mechanics).
 
 _Examples_:
 
@@ -850,7 +850,7 @@ The magnetic field lines are frozen in the plasma flow. The magnetic flux throug
 $$
 \frac{\mathrm{d}\Phi}{\mathrm{d}t}=0,
 $$
-where 
+where
 $$
 \Phi=\int\mathbf{B}\cdot \mathrm{d}\mathbf{A}.
 $$

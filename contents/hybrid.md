@@ -46,7 +46,7 @@ $$
 \mathbf{v}_e = \mathbf{v}_i - \mathbf{J}/n_e e
 $$ {#eq:hybrid_Je}
 
-The basic equations used in the conventional PIC hybrid model first has a particle pusher for individual ions 
+The basic equations used in the conventional PIC hybrid model first has a particle pusher for individual ions
 
 $$
 \frac{\mathrm{d}\mathbf{x}_j}{\mathrm{d}t} = \mathbf{v}_j
@@ -200,7 +200,7 @@ $$
 The difference between Hall MHD and hybrid model is the treatment of the pressure tensor term. For Hall MHD with constant $T_{i0}/T_{e0}$,
 
 $$
-\overleftrightarrow{P} = p_e(1 + T_{i0}/T_{e0})\mathbf{I} 
+\overleftrightarrow{P} = p_e(1 + T_{i0}/T_{e0})\mathbf{I}
 $$
 
 For hybrid models,

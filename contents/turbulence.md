@@ -43,7 +43,7 @@ $$
 \nabla\cdot\delta\mathbf{z}^\pm = 0
 $$ {#eq:elsassar_divergence}
 
-The zero divergence means that there are no forcing or dissipation terms. 
+The zero divergence means that there are no forcing or dissipation terms.
 
 @eq:mhd_elsassar unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term ($v_A$ constant?) that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence.
 

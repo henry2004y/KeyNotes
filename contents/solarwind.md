@@ -8,9 +8,9 @@ The solar wind is predominately composed of protons and electrons.
 
 Amazingly enough, the solar wind was predicted theoretically by Eugine Parker in 1958, a number of years before its existence was confirmed using satellite data. Parker's prediction of a super-sonic outflow of gas from the Sun is a fascinating scientific detective story, as well as a wonderful application of plasma physics.
 
-The solar wind originates from the solar corona. The solar corona is a hot, tenuous plasma surrounding the Sun, with characteristic temperatures and particle densities of about $10^6$K and $10^{14}\,{\rm m}^{-3}$, respectively. Note that the corona is _far hotter_ than the solar atmosphere, or photosphere. In fact, the temperature of the photosphere is only about 6000 K. It is thought that the corona is heated by Alfvén waves emanating from the photosphere together with a turbulent cascading process. The solar corona is most easily observed during a total solar eclipse, when it is visible as a white filamentary region immediately surrounding the Sun. 
+The solar wind originates from the solar corona. The solar corona is a hot, tenuous plasma surrounding the Sun, with characteristic temperatures and particle densities of about $10^6$K and $10^{14}\,{\rm m}^{-3}$, respectively. Note that the corona is _far hotter_ than the solar atmosphere, or photosphere. In fact, the temperature of the photosphere is only about 6000 K. It is thought that the corona is heated by Alfvén waves emanating from the photosphere together with a turbulent cascading process. The solar corona is most easily observed during a total solar eclipse, when it is visible as a white filamentary region immediately surrounding the Sun.
 
-Let us start, following Chapman, by attempting to construct a model for a static solar corona. The equation of hydrostatic equilibrium for the corona takes the form 
+Let us start, following Chapman, by attempting to construct a model for a static solar corona. The equation of hydrostatic equilibrium for the corona takes the form
 
 $$
 \frac{\mathrm{d}p}{\mathrm{d}r} = - \rho\,\frac{G\,M_\odot}{r^2}
@@ -136,14 +136,14 @@ $$ {#eq:corona_dynamic_critical2}
 
 Note that $u_c$ is the coronal sound speed.
 
-As is easily demonstrated, if @eq:corona_dynamic_critical1 is satisfied then $du/\mathrm{d}r$ has the same sign for all $r$, and $u(r)$ is either a monotonically increasing, or a monotonically decreasing, function of $r$. On the other hand, if @eq:corona_dynamic_critical2 is satisfied then $u^2-u_c^2$ has the same sign for all $r$, and $u(r)$ has an extremum close to $r=r_c$. The flow is either super-sonic for all $r$, or sub-sonic for all $r$. These possibilities lead to the existence of four classes of solutions to @eq:corona_dynamic_governing, with the following properties: 
+As is easily demonstrated, if @eq:corona_dynamic_critical1 is satisfied then $du/\mathrm{d}r$ has the same sign for all $r$, and $u(r)$ is either a monotonically increasing, or a monotonically decreasing, function of $r$. On the other hand, if @eq:corona_dynamic_critical2 is satisfied then $u^2-u_c^2$ has the same sign for all $r$, and $u(r)$ has an extremum close to $r=r_c$. The flow is either super-sonic for all $r$, or sub-sonic for all $r$. These possibilities lead to the existence of four classes of solutions to @eq:corona_dynamic_governing, with the following properties:
 
 1. $u(r)$ is sub-sonic throughout the domain $a<r<\infty$. $u(r)$ increases with $r$, attains a maximum value around $r=r_c$, and then decreases with $r$.
 2. a unique solution for which $u(r)$ increases monotonically with $r$, and $u(r_c) = u_c$.
 3. a unique solution for which $u(r)$ decreases monotonically with $r$, and $u(r_c) = u_c$.
 4. $u(r)$ is super-sonic throughout the domain $a<r<\infty$. $u(r)$ decreases with $r$, attains a minimum value around $r=r_c$, and then increases with $r$.
 
-These four classes of solutions are illustrated in @fig:parker_sol. 
+These four classes of solutions are illustrated in @fig:parker_sol.
 
 ![The four classes of Parker outflow solutions for the solar wind.](https://farside.ph.utexas.edu/teaching/plasma/lectures1/img1660.png){#fig:parker_sol}
 
@@ -161,7 +161,7 @@ $$
 \left(\frac{u}{u_c}\right)^2 -\ln\!\left(\frac{u}{u_c}\right)^2 = 4\,\ln r + 4\,\frac{r_c}{r} + C
 $$ {#eq:corona_dynamic_sol}
 
-where $C$ is a constant of integration. 
+where $C$ is a constant of integration.
 
 Let us consider the behaviour of Class 1 solutions in the limit $r\rightarrow\infty$. It is clear from @fig:parker_sol that, for Class 1 solutions, $u/u_c$ is less than unity and monotonically decreasing as $r\rightarrow\infty$. In the large-$r$ limit, @eq:corona_dynamic_sol reduces to
 
@@ -195,9 +195,9 @@ $$
 u \simeq 2\,u_c\,(\ln r)^{1/2}
 $$
 
-It follows from @eq:corona_dynamic_continuity_integrated that $\rho\rightarrow 0$ and $r\rightarrow\infty$. Thus, the Class 2 solution yields $p\rightarrow 0$ at large $r$, and can, therefore, be matched to the low pressure interstellar medium. 
+It follows from @eq:corona_dynamic_continuity_integrated that $\rho\rightarrow 0$ and $r\rightarrow\infty$. Thus, the Class 2 solution yields $p\rightarrow 0$ at large $r$, and can, therefore, be matched to the low pressure interstellar medium.
 
-We conclude that the only solution to @eq:corona_dynamic_governing which is consistent with physical boundary conditions at $r=a$ and $r\rightarrow\infty$ is the Class 2 solution. This solution predicts that the solar corona expands radially outward at relatively modest, sub-sonic velocities close to the Sun, and gradually accelerates to super-sonic velocities as it moves further away from the Sun. Parker termed this continuous, super-sonic expansion of the corona the _solar wind_. 
+We conclude that the only solution to @eq:corona_dynamic_governing which is consistent with physical boundary conditions at $r=a$ and $r\rightarrow\infty$ is the Class 2 solution. This solution predicts that the solar corona expands radially outward at relatively modest, sub-sonic velocities close to the Sun, and gradually accelerates to super-sonic velocities as it moves further away from the Sun. Parker termed this continuous, super-sonic expansion of the corona the _solar wind_.
 
 Note that while the velocity prediction accords well with satellite observations, the Parker model's prediction for the density of the solar wind at the Earth is significantly too high compared to satellite observations. Consequently, there have been many further developments of this model. In particular, the unrealistic assumption that the solar wind plasma is isothermal has been relaxed, and two-fluid effects have been incorporated into the analysis.
 
@@ -250,7 +250,7 @@ $$
 yields
 
 $$
-W = k_B T_\perp + k_B T_\parallel/2 = \text{const}.   
+W = k_B T_\perp + k_B T_\parallel/2 = \text{const}.
 $$
 
 These allows us to evaluate the variations in $T_\perp$ and $T_\parallel$ originating from isotropic distribution on the surface of the sun. Starting from $T_\perp(0.3 AU) = T_\parallel(0.3 AU)\simeq 1.3\times 10^{5}\textrm{K}$, the predicted anisotropy $T_\parallel / T_\perp$ at Earth can go beyond 20! Therefore, in fact, the reasonable question to ask is why the actual solar wind anisotropy factor is so small. In simulations, we always apply isotropic distribution in the upstream solar wind condition, which is primarily due to the fact that we are mostly using fluid models (i.e. MHD) for global magnetosphere-solar wind interactions. For kinetic models, _we need more realistic distribution setups_.

@@ -30,7 +30,7 @@ $$
 \nabla\times\mathbf{B} = \mu_0\mathbf{j} + \cancel{\epsilon_0\mu_0 \frac{\partial\mathbf{E}}{\partial t}},\, \mathbf{j} = \sum_s n_s q_s \mathbf{u}_s, \mathbf{u}_s = \frac{1}{n_s}\int \mathrm{d}\mathbf{v}\mathbf{v} f_s
 $$
 
-The displacement current can be neglected since $\omega\ll kc$ for low frequency waves and non-relativistic motions. 
+The displacement current can be neglected since $\omega\ll kc$ for low frequency waves and non-relativistic motions.
 
 Intuitively, we tend to think of the plasma as a fluid (or a multi-fluid of several species) with some density $n_s$, velocity $\mathbf{u}_s$ and perhaps pressure, temperature, etc. This is rooted in our experience with collisional gases ($\nu\gg \omega$), which are in local Maxwellian equilibrium:
 
@@ -68,7 +68,7 @@ $$
 \begin{aligned}
 t^\prime &= t \\
 \mathbf{r}^\prime &= \mathbf{r} \\
-\mathbf{w} &= \mathbf{v} - \mathbf{u}_s(t,\mathbf{r}) 
+\mathbf{w} &= \mathbf{v} - \mathbf{u}_s(t,\mathbf{r})
 \end{aligned}
 $$
 
@@ -87,7 +87,7 @@ $$
 \Big( \frac{\partial}{\partial t} + \mathbf{u}_s\cdot\nabla\Big)f_s + (\mathbf{w}\cdot\nabla)f_s + \Big(\frac{q_s}{m_s}\mathbf{w}\times\mathbf{B} +\mathbf{a}_s -\mathbf{w}\cdot\nabla\mathbf{u}_s )\cdot\frac{\partial f_s}{\partial\mathbf{w}} = C(f_s)
 $$ {#eq:boltzmann_change_of_var}
 
-where 
+where
 
 $$
 \mathbf{a}_s = \frac{q_s}{m_s}\Big(\mathbf{E} + \mathbf{u}_s\times\mathbf{B} \Big) - \frac{\mathrm{d}\mathbf{u}_s}{\mathrm{d}t}
@@ -514,7 +514,7 @@ so
 
 $$
 \begin{aligned}
-\int \mathrm{d}\mathbf{w}\frac{m_sw_\perp^2}{2}\delta F_s &= \frac{\delta B}{B}\Big[ \cancel{\frac{\omega}{|k_\parallel|}P\int\frac{dw_\parallel}{w_\parallel - \frac{\omega}{|k_\parallel|}} \big[ ... \big]} + i\pi\frac{\omega}{|k_\parallel|}\big[ ... \big]_{w_\parallel}=\omega/|k_\parallel| \Big] 
+\int \mathrm{d}\mathbf{w}\frac{m_sw_\perp^2}{2}\delta F_s &= \frac{\delta B}{B}\Big[ \cancel{\frac{\omega}{|k_\parallel|}P\int\frac{dw_\parallel}{w_\parallel - \frac{\omega}{|k_\parallel|}} \big[ ... \big]} + i\pi\frac{\omega}{|k_\parallel|}\big[ ... \big]_{w_\parallel}=\omega/|k_\parallel| \Big]
 \end{aligned}
 $$
 
@@ -560,7 +560,7 @@ $$
 
 Thus, fundamentally, pressure anisotropy makes it easier to compress or rarefy magnetic field --- and things become unstable when the sign of the pressure flips and it becomes energetically profitable to create compressions and rarefications. (ADD FIGURE!) The dispersion relation @eq:kmhd_mirror_dispersion is basically a statement of pressure balance between the magnetic pressure, the non-resonant particle pressure $\delta p_\perp$ and the resonant particle pressure $\propto\gamma$, which came from the _betatron acceleration_ $\mu \mathrm{d}B/\mathrm{d}t$ in @eq:kmhd_kinetic_1storder.
 
-The betatron acceleration term refers to what happens in the stable case. When magnetic pressure opposes formation of $\delta B$ perturbations (say, troughs), to compensate it, we must have $\gamma<0$ and energy goes from $\delta B$ to resonant particles, which are accelerated by the mirror force. The corresponding decaying of $\delta B$ is the well-known _Barnes damping_ (landau damping of "mirror field", Barnes 1966, also known as transit-time damping from Stix's book. See more discussion on the physics in Southwood & Kivelson 1993.) 
+The betatron acceleration term refers to what happens in the stable case. When magnetic pressure opposes formation of $\delta B$ perturbations (say, troughs), to compensate it, we must have $\gamma<0$ and energy goes from $\delta B$ to resonant particles, which are accelerated by the mirror force. The corresponding decaying of $\delta B$ is the well-known _Barnes damping_ (landau damping of "mirror field", Barnes 1966, also known as transit-time damping from Stix's book. See more discussion on the physics in Southwood & Kivelson 1993.)
 
 To finish the job, note that, from @eq:kmhd_mirror_dispersion (ADD FIGURE!) for a given $k_\perp$
 
@@ -635,7 +635,7 @@ $$ {#eq:kmhd_pressure_balance}
 This expression is valid only if $\Delta_s\ll 1$, i.e. $\nu_s\gg \frac{1}{B}\frac{\mathrm{d}B}{\mathrm{d}t}$, otherwise $\Delta_s$ will grow with time as B is changed. Thus
 
 * B increases locally $\rightarrow \Delta_s >0 \rightarrow$ mirror
-* B decreases locally $\rightarrow \Delta_s <0 \rightarrow$ firehose 
+* B decreases locally $\rightarrow \Delta_s <0 \rightarrow$ firehose
 
 As nealy any large-scale dynamics involves local changes in $\mathbf{B}$, this means that nearly any macroscopic solution of KMHD in the high-$\beta$ regime will be unstable. A very good example is the dynamo problem: when magnetic field is randomly stretched by turbulence, leading (in MHD) to exponential growth of magnetic energy (and, eventually, to saturated fields we observe), locally one find structures of this sort: (ADD FIGURE!)
 

@@ -65,7 +65,7 @@ where $w_j$ is the particle weight. All kinetic information lies in the marker p
 The idea of $\delta-f$ method is to decompose the total distribution function into two parts,
 
 $$
-f = f_0 + \delta f,\quad |\delta f|\ll f_0 
+f = f_0 + \delta f,\quad |\delta f|\ll f_0
 $$
 
 and let the particle weight be proportional to the perturbation part,

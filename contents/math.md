@@ -116,7 +116,7 @@ $$
 g(z)=\frac{1}{1-z}
 $$
 
-is analytic over the whole plane (except at $z=1$), and it coincides with $f(z)$ inside the unit circle. 
+is analytic over the whole plane (except at $z=1$), and it coincides with $f(z)$ inside the unit circle.
 
 Such a function $g(z)$, which coincides with a given analytic $f(z)$ over that region for which $f(z)$ is defined by which also is analytic over some extension of that region, is said to be an _analytic continuation_ of $f(z)$. It is useful to think of $f(z)$ and $g(z)$ as being the same function and to consider that the formula defining $f(z)$ failed to provide the values of $f(z)$ in the extended region because of some defect in the mode of description rather than because of some limitation inherent in $f(z)$ itself. [c.f. G.F.Carrier, M.Krook and C.E.Pearson, Functions of a Complex Variable, McGraw-Hill (1966), p.63]
 
@@ -132,12 +132,12 @@ To calculate the integral around singular points, we may take advantage of the C
 
 __Theorem 2.1__ Cauchy integral
 
-Let $C_\epsilon$ be a circular arc of radius $\epsilon$, centered at $\alpha$, with subtended angle $\theta_0$ in counterclockwise direction. 
+Let $C_\epsilon$ be a circular arc of radius $\epsilon$, centered at $\alpha$, with subtended angle $\theta_0$ in counterclockwise direction.
 Let $f(z)$ be an analytic function on $C_\epsilon+$inside $C_\epsilon$. Then
 
 $$
 \lim_{\epsilon\rightarrow0}\int_{c_\epsilon}\frac{f(z)dz}{z-\alpha}=i\theta_0 f(\alpha)
-$$ 
+$$
 
 _Proof:_
 On $C_\epsilon$, $z=\alpha+\epsilon e^{i\theta}$, $dz=i\epsilon e^{i\theta}\mathrm{d}\theta$.
@@ -153,7 +153,7 @@ Let $f(z)$ be an analytic function on a closed contour $C+$inside $C$. If point 
 
 $$
 f(\alpha)=\frac{1}{2\pi i}\oint_c \frac{f(z)dz}{z-\alpha}
-$$ 
+$$
 
 _Proof_:
 
@@ -245,7 +245,7 @@ where
 $$
 \begin{aligned}
 \Phi(\mathbf{r})&= \frac{1}{4\pi}\int_V\frac{\nabla^\prime\cdot\mathbf{F}^\prime(\mathbf{r}^\prime)}{|\mathbf{r}-\mathbf{r}^\prime|}dV^\prime -\frac{1}{4\pi}\oint_s \widehat{\mathbf{n}}^\prime\cdot\frac{\mathbf{F}(\mathbf{r}^\prime)}{|\mathbf{r}-\mathbf{r}^\prime|}dS^\prime \\
-\mathbf{A} &= \frac{1}{4\pi}\int_V\frac{\nabla^\prime\times \mathbf{F}^\prime(\mathbf{r}^\prime)}{|\mathbf{r}-\mathbf{r}^\prime|}dV^\prime -\frac{1}{4\pi}\oint_s \widehat{\mathbf{n}}^\prime\times\frac{\mathbf{F}(\mathbf{r}^\prime)}{|\mathbf{r}-\mathbf{r}^\prime|}dS^\prime 
+\mathbf{A} &= \frac{1}{4\pi}\int_V\frac{\nabla^\prime\times \mathbf{F}^\prime(\mathbf{r}^\prime)}{|\mathbf{r}-\mathbf{r}^\prime|}dV^\prime -\frac{1}{4\pi}\oint_s \widehat{\mathbf{n}}^\prime\times\frac{\mathbf{F}(\mathbf{r}^\prime)}{|\mathbf{r}-\mathbf{r}^\prime|}dS^\prime
 \end{aligned}
 $$
 
@@ -256,7 +256,7 @@ If $V = \mathbf{R}^3$ and is therefore unbounded, and $\mathbf{F}$ vanishes fast
 $$
 \begin{aligned}
 \Phi(\mathbf{r})&= \frac{1}{4\pi}\int_V\frac{\nabla^\prime\cdot\mathbf{F}^\prime(\mathbf{r}^\prime)}{|\mathbf{r}-\mathbf{r}^\prime|}dV^\prime  \\
-\mathbf{A} &= \frac{1}{4\pi}\int_V\frac{\nabla^\prime\times \mathbf{F}^\prime(\mathbf{r}^\prime)}{|\mathbf{r}-\mathbf{r}^\prime|}dV^\prime 
+\mathbf{A} &= \frac{1}{4\pi}\int_V\frac{\nabla^\prime\times \mathbf{F}^\prime(\mathbf{r}^\prime)}{|\mathbf{r}-\mathbf{r}^\prime|}dV^\prime
 \end{aligned}
 $$
 
@@ -334,7 +334,7 @@ $$
 Y_{lm}^\ast(\theta,\phi) = e^{im\phi}_{lm}(\cos{\theta})
 $$
 
-with associated Legendre polynomials $P_{lm}(\cos{\theta})$. e.g. $P_{00}(\cos\theta) = 1,\ P_{10} = \cos\theta,\ P_{11} = \sin\theta$. 
+with associated Legendre polynomials $P_{lm}(\cos{\theta})$. e.g. $P_{00}(\cos\theta) = 1,\ P_{10} = \cos\theta,\ P_{11} = \sin\theta$.
 
 _Ex 1._ Planet dipole field
 
@@ -364,7 +364,7 @@ $$
 {\bf B} = \frac{\mu_0}{4\pi} \frac{m}{r^3} (-2\cos\theta, -\sin\theta, \,0)
 $$ {#eq:dipole_spherical}
 
-It is usually convenient to work in terms of the latitude, $\vartheta = \pi/2 - \theta$, rather than the polar angle, $\theta$. An individual magnetic field-line satisfies the equation 
+It is usually convenient to work in terms of the latitude, $\vartheta = \pi/2 - \theta$, rather than the polar angle, $\theta$. An individual magnetic field-line satisfies the equation
 
 $$
 r = r_{\rm eq}\,\cos^2\vartheta
@@ -376,16 +376,16 @@ $$
 B = \frac{B_E}{L^3} \frac{(1+3\,\sin^2\vartheta)^{1/2}}{\cos^6\vartheta}
 $$
 
-where $B_E= \mu_0 M_E/(4\pi\, R_E^{~3}) = 3.11\times 10^{-5}\,{\rm T}$ is the equatorial magnetic field-strength on the Earth's surface. 
+where $B_E= \mu_0 M_E/(4\pi\, R_E^{~3}) = 3.11\times 10^{-5}\,{\rm T}$ is the equatorial magnetic field-strength on the Earth's surface.
 
 In Cartesian representation,
 
 $$
 \mathbf{B} = \frac{\mu_0}{4\pi}\frac{1}{r^5}
-\begin{pmatrix} 
+\begin{pmatrix}
 (3x^2-r^2) & 3xy & 3xz \\
 3yx & (3y^2-r^2) & 3yz \\
-3zx & 3zy & (3z^2-r^2) 
+3zx & 3zy & (3z^2-r^2)
 \end{pmatrix}
 \mathbf{m}
 $$ {#eq:dipole_cartesian}
@@ -412,7 +412,7 @@ $$
 
 where $\delta(x)$ is the $\delta$-function.
 
-The integral $\int_0^{\infty}\frac{\sin x}{x}\mathrm{d}x$ is called the Dirichlet integral. It is a very famous and important generalized improper integral. Here at least you can see that 
+The integral $\int_0^{\infty}\frac{\sin x}{x}\mathrm{d}x$ is called the Dirichlet integral. It is a very famous and important generalized improper integral. Here at least you can see that
 
 $$
 \int_{-\infty}^{\infty}G(x,0)=\frac{1}{\pi}\int_0^\infty \frac{\sin kx}{x}\mathrm{d}x=1\quad \textrm{and}\quad G(0,0)=\infty
@@ -471,7 +471,7 @@ The Shear Alfvén wave equation appears in nonuniform ideal MHD (@eq:mhd_cold_e_
 * EM waves in non-magnetized plasma, O mode:
 
 $$
-\frac{\mathrm{d}^2 E}{\mathrm{d}x^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2} \Big]E = 0  
+\frac{\mathrm{d}^2 E}{\mathrm{d}x^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2} \Big]E = 0
 $$ {#eq:ODE_Omode}
 
 * Electron cyclotron resonance heating (ECRH):
@@ -504,7 +504,7 @@ $$
 k^2(x) = a_2(x) - \frac{{a_1}^2}{4} -\frac{1}{2}\frac{\mathrm{d} a_1(x)}{\mathrm{d}x}
 $$
 
-Note that the lower bound of the integral is left on purpose to account for a constant. We will concentrate at special points, i.e. zeros (cutoff) and poles (resonance) of $k^2(x)\equiv \frac{\omega^2}{c^2}n^2(x)$. 
+Note that the lower bound of the integral is left on purpose to account for a constant. We will concentrate at special points, i.e. zeros (cutoff) and poles (resonance) of $k^2(x)\equiv \frac{\omega^2}{c^2}n^2(x)$.
 
 First, we will introduce _Wentzel–Kramers–Brillouin-Jeffreys_ ([WKBJ](https://en.wikipedia.org/wiki/WKB_approximation)) solution to @eq:2nd_ODE:
 
@@ -671,7 +671,7 @@ $$
 E(\zeta) = \int_{C_1,C_2,C_3} \mathrm{d}t\ e^{t\zeta-\frac{1}{3}t^3}
 $$
 
-This might appear at first to give three independent solutions, but the contour $C_1$ and be distorted so as to coincide with the two contours $C_2+C_3$, so that 
+This might appear at first to give three independent solutions, but the contour $C_1$ and be distorted so as to coincide with the two contours $C_2+C_3$, so that
 
 $$
 \int_{C_1} = \int_{C_2} + \int_{C_3}
@@ -723,7 +723,7 @@ Ai(\zeta) &= \frac{1}{2\pi}\int_{-\infty}^{\infty}e^{i(\zeta s+\frac{1}{3}s^3)}d
 \end{aligned}
 $$
 
-It is known as the Airy integral, which is the solution for $y\rightarrow 0$ as $x\rightarrow\infty$. The other linearly independent solution, the Airy function of the second kind, denoted $Bi(x)$, is defined as the solution with the same amplitude of oscillation as $Ai(x)$ as $x\rightarrow -\infty$ which differs in phase by $\pi/2$: 
+It is known as the Airy integral, which is the solution for $y\rightarrow 0$ as $x\rightarrow\infty$. The other linearly independent solution, the Airy function of the second kind, denoted $Bi(x)$, is defined as the solution with the same amplitude of oscillation as $Ai(x)$ as $x\rightarrow -\infty$ which differs in phase by $\pi/2$:
 
 $$
 Bi(\zeta) = \frac{1}{\pi}\int_{0}^{\infty}\Big[e^{-\frac{s^3}{3}+s\zeta} + \sin\Big(\zeta s+\frac{1}{3}s^3\Big)\Big]ds
@@ -815,7 +815,7 @@ Now, consider $\zeta<0$. When $\zeta\rightarrow-\infty$, we anticipate oscillati
 
 $$
 \begin{aligned}
-&\left\{  
+&\left\{
 \begin{array}{rl}
 f(t) &= \zeta t-\frac{1}{3}t^3 = -t|\zeta| - \frac{1}{3}t^3 \\
 f^\prime(t) &= -|\zeta| - t^2 = 0 \\
@@ -1250,7 +1250,7 @@ $$
 So
 
 $$
-k(z) = 
+k(z) =
 \begin{cases}
 -i|k| & z>z_2 \\
 |k| & z_1<z<z_2 \\
@@ -1264,7 +1264,7 @@ $$
 \Psi_{E_{S_1}} \sim \frac{1}{\sqrt{k}}e^{\pm i \int_{z_2}^{z} kdz^\prime} = \frac{1}{\sqrt{k}}e^{-i\int_{z_2}^{z}kdz^\prime}
 $$
 
-such that this is sub-dominant on $S_1$ ($k=-i|k|$). 
+such that this is sub-dominant on $S_1$ ($k=-i|k|$).
 
 Crossing $S_2$ into region I, we have
 
@@ -1326,7 +1326,7 @@ Since $z=z_1$, $z=z_2$ are simple turning points (with different slope in linear
 The branch cut defined as above give the following values of $k$ on the real $z$ axis:
 
 $$
-k(z) = 
+k(z) =
 \begin{cases}
 |k| & z>z_2 \\
 i|k| & z_1<z<z_2 \\
@@ -1428,7 +1428,7 @@ $$
 Then the branch cut defined as above give the following values of $k$ on the real $z$ axis:
 
 $$
-k(z) = 
+k(z) =
 \begin{cases}
 |k| & z>a \\
 i|k| & 0<z<a \\
@@ -1506,7 +1506,7 @@ $$
 
 where the first term represents the reflected wave, and the second term represents the incident wave.
 
-The transmission coefficient is 
+The transmission coefficient is
 
 $$
 \begin{aligned}
@@ -1605,7 +1605,7 @@ In Newtonian mechanics, one customarily uses all three Cartesian coordinates, or
 
 ### D'Alembert's Principle
 
-This principle is the analogy of Newton's second law in theoretical mechanics. It states that infinitesimal virtual work done by a force across reversible displacements is zero, which is the work done by a force consistent with ideal constraints of the system. The idea of a constraint is useful --- since this limits what the system can do, and can provide steps to solving for the motion of the system. The equation for D'Alembert's principle is: 
+This principle is the analogy of Newton's second law in theoretical mechanics. It states that infinitesimal virtual work done by a force across reversible displacements is zero, which is the work done by a force consistent with ideal constraints of the system. The idea of a constraint is useful --- since this limits what the system can do, and can provide steps to solving for the motion of the system. The equation for D'Alembert's principle is:
 
 $$
 \delta W = \mathbf{Q}\cdot \mathrm{d}\mathbf{q} = 0
@@ -1633,13 +1633,13 @@ $$
 
 **Lagrangian and Euler–Lagrange equations**
 
-The introduction of generalized coordinates and the fundamental Lagrangian function: 
+The introduction of generalized coordinates and the fundamental Lagrangian function:
 
 $$
 L(\mathbf{q},\dot{\mathbf{q}},t) = T(\mathbf{q},\dot{\mathbf{q}},t) - V(\mathbf{q},\dot{\mathbf{q}},t)
 $$
 
-where $T$ is the total kinetic energy and $V$ is the total potential energy of the entire system, then either following the calculus of variations or using the above formula --- lead to the Euler-Lagrange equations; 
+where $T$ is the total kinetic energy and $V$ is the total potential energy of the entire system, then either following the calculus of variations or using the above formula --- lead to the Euler-Lagrange equations;
 
 $$
 \frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{\partial L}{\partial\dot{\mathbf{q}}} \Big) = \frac{\partial L}{\partial\mathbf{q}}
@@ -1651,7 +1651,7 @@ which are a set of N second-order ordinary differential equations, one for each 
 
 **Hamiltonian and Hamilton's equations**
 
-The Legendre transformation of the Lagrangian replaces the generalized coordinates and velocities $(\mathbf{q}, \dot{\mathbf{q}})$ with $(\mathbf{q}, \mathbf{p})$; the generalized coordinates and the generalized momenta conjugate to the generalized coordinates: 
+The Legendre transformation of the Lagrangian replaces the generalized coordinates and velocities $(\mathbf{q}, \dot{\mathbf{q}})$ with $(\mathbf{q}, \mathbf{p})$; the generalized coordinates and the generalized momenta conjugate to the generalized coordinates:
 
 $$
 \mathbf{p} = \frac{\partial L}{\partial\dot{\mathbf{q}}} = \Big(\frac{\partial L}{\partial\dot{q}_1},\frac{\partial L}{\partial\dot{q}_2},,...,\frac{\partial L}{\partial\dot{q}_N} \Big) = (p_1, p_2, ..., p_N)
@@ -1669,7 +1669,7 @@ $$
 \dot{\mathbf{p}} = -\frac{\partial H}{\partial\mathbf{q}},\quad\dot{\mathbf{q}} = \frac{\partial H}{\partial \mathbf{p}}
 $$
 
-which are now a set of 2N first-order ordinary differential equations, one for each $q_i(t)$ and $p_i(t)$. Another result from the Legendre transformation relates the time derivatives of the Lagrangian and Hamiltonian: 
+which are now a set of 2N first-order ordinary differential equations, one for each $q_i(t)$ and $p_i(t)$. Another result from the Legendre transformation relates the time derivatives of the Lagrangian and Hamiltonian:
 
 $$
 \frac{dH}{\mathrm{d}t} = -\frac{\partial L}{\partial t}

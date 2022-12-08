@@ -54,7 +54,7 @@ $$
 
 However, for perfectly conducting boundaries or periodic systems without a net magnetic flux, the magnetic helicity is gauge invariant. A gauge-invariant relative helicity has been defined for volumes with non-zero magnetic flux on their boundary surfaces. If the magnetic field is turbulent and weakly inhomogeneous a magnetic helicity density and its associated flux can be defined in terms of the density of field line linkages.
 
-The topological properties of a magnetic field are interpreted in terms of magnetic helicity. The total helicity of a collection of flux tubes arises from the linking of flux tubes with one another (mutual helicity) and the internal magnetic structure of each flux tube (self-helicity). Reconnection changes the topology and magnetic connectivity of flux tubes. This can also be viewed as a redistribution of self- and mutual helicities. If total magnetic helicity is approximately conserved, it is possible to put quantitative limits upon the changes in self- and mutual helicities. This can be interpreted as the change in magnetic flux tube linkage (due to reconnection) and amount of twist present in the reconnected flux tubes. [Wright & Berger, 1989] 
+The topological properties of a magnetic field are interpreted in terms of magnetic helicity. The total helicity of a collection of flux tubes arises from the linking of flux tubes with one another (mutual helicity) and the internal magnetic structure of each flux tube (self-helicity). Reconnection changes the topology and magnetic connectivity of flux tubes. This can also be viewed as a redistribution of self- and mutual helicities. If total magnetic helicity is approximately conserved, it is possible to put quantitative limits upon the changes in self- and mutual helicities. This can be interpreted as the change in magnetic flux tube linkage (due to reconnection) and amount of twist present in the reconnected flux tubes. [Wright & Berger, 1989]
 
 Simple examples:
 
@@ -68,7 +68,7 @@ $$
 H = \int_V \mathbf{A}\cdot\mathbf{B} - \mathbf{A}_0\cdot\mathbf{B}_0 dV
 $$ {#eq:relative_magnetic_helicity}
 
-where $\mathbf{B}_0=\nabla\times\mathbf{A}_0$ is the potential field inside $V$ with the same field outside of $V$ (see also Finn & Antonsen 1985). 
+where $\mathbf{B}_0=\nabla\times\mathbf{A}_0$ is the potential field inside $V$ with the same field outside of $V$ (see also Finn & Antonsen 1985).
 
 In toroidal laboratory experiments, it is natural to consider the volume contained within conducting wall boundaries that are coincident with closed flux surfaces (i.e., the magnetic field along the wall is parallel to the boundary).
 

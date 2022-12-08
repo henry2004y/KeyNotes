@@ -250,7 +250,7 @@ $$
 \epsilon \sim \omega/\Omega_c \sim k\rho
 $$
 
-where the plasma varies on frequency scales $\omega$ small compared to the gyrofrequency $\Omega_c$, and varies on spatial scales $1/k$ long compared to the gyroradius $\rho$. (Here, $\epsilon$ means a "small" value.) Thus it covers phenomenon related to compressional and shear Alfvén waves and instabilities, ion acoustic waves, and ion and electron kinetic effects such as Landau damping. However, it does not include drift-waves or other micro-instabilities because they result from finite Larmor radius (FLR) effects which vanish in the usual MHD ordering. 
+where the plasma varies on frequency scales $\omega$ small compared to the gyrofrequency $\Omega_c$, and varies on spatial scales $1/k$ long compared to the gyroradius $\rho$. (Here, $\epsilon$ means a "small" value.) Thus it covers phenomenon related to compressional and shear Alfvén waves and instabilities, ion acoustic waves, and ion and electron kinetic effects such as Landau damping. However, it does not include drift-waves or other micro-instabilities because they result from finite Larmor radius (FLR) effects which vanish in the usual MHD ordering.
 
 ### Equation of Continuity
 
@@ -345,7 +345,7 @@ there is a similar effect which occurs even in the absence of collisions. The La
 If there is a neutral gas, the charged fluid will exchange momentum with it through collisions. The momentum lost per collision will be proportional to the relative velocity $\mathbf{u}-\mathbf{u}_0$, where $\mathbf{u}_0$ is the velocity of the neutral fluid. If $\tau$, the mean free time between collisions, is approximately constant, the resulting force term can be roughly written as $-mn(\mathbf{u}-\mathbf{u}_0)/\tau$. The equation of motion can be generalized to include anisotropic pressure and neutral collisions as follows:
 
 $$
-mn\Big[\frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u}\Big] = qn(\mathbf{E}+\mathbf{u}\times\mathbf{B}) - \nabla\cdot\overleftrightarrow{P} - \frac{mn(\mathbf{u}-\mathbf{u}_0)}{\tau} 
+mn\Big[\frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u}\Big] = qn(\mathbf{E}+\mathbf{u}\times\mathbf{B}) - \nabla\cdot\overleftrightarrow{P} - \frac{mn(\mathbf{u}-\mathbf{u}_0)}{\tau}
 $$ {#eq:momentum_single}
 
 This can also be written as (including the pressure term and other forces)
@@ -500,7 +500,7 @@ Consider the ratio of term 1 to term 3:
 
 $$
 \frac{\text{term }1}{\text{term }3} \approx \bigg\lvert\frac{mni\omega v_\perp}{qnv_\perp B}\bigg\rvert \approx \frac{\omega}{\omega_c}
-$$ 
+$$
 
 Here we have taken $\partial/\partial t=i\omega$ and are concerned only with $\mathbf{v}_\perp$. For drifts slow compared with the time scale associated with $\omega_c$, we may neglect term 1. We shall also neglect the $(\mathbf{u}\cdot\nabla)\mathbf{u}$ term and show a _posteriori_ that this is all right. Let $\mathbf{E}$ and $\mathbf{B}$ be uniform, but let $n$ and $p$ have a gradient. This is the usual situation in a magnetically confined plasma column (Fig. 3.4 ADD FIGURE!). Taking the cross product of @eq:momentum_single_fluid_ratio with B, we have (neglecting the left-hand side)
 
@@ -677,7 +677,7 @@ $$
 \end{aligned}
 $$
 
-This is the density perturbation in response to electric perturbation $E_1$ in 2-fluid theory. 
+This is the density perturbation in response to electric perturbation $E_1$ in 2-fluid theory.
 
 Then we can use the Poisson's equation to generate the dielectric function
 
@@ -730,7 +730,7 @@ $$
 \frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{(\omega-kv_0)^2}-\frac{{\omega_{pi}}^2}{\omega^2}
 $$
 
-Let $\epsilon=0$, we get the dispersion relation $\omega=\omega(k)$. An example dispersion relation and dielectric function property are shown in @fig:2stream_dispersion and @fig:2stream_dielectric, respectively. Note that if you have a real wave number $k$, you will get a pair of conjugate $\omega$, one of which that lies between $0$ and $kv_0$ is an unstable mode. This will exhibit 2-stream instability as shown by the velocity space distribution in @fig:2stream_velocity. 
+Let $\epsilon=0$, we get the dispersion relation $\omega=\omega(k)$. An example dispersion relation and dielectric function property are shown in @fig:2stream_dispersion and @fig:2stream_dielectric, respectively. Note that if you have a real wave number $k$, you will get a pair of conjugate $\omega$, one of which that lies between $0$ and $kv_0$ is an unstable mode. This will exhibit 2-stream instability as shown by the velocity space distribution in @fig:2stream_velocity.
 
 ![2-stream dispersion relation.](images/Two_stream_dispersion_relation.png){#fig:2stream_dispersion}
 

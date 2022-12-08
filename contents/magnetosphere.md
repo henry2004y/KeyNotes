@@ -31,7 +31,7 @@ With respect to polarization, field line resonant ULF waves can be categorized i
 * A sudden compression of the magnetosphere by increased solar wind pressure causes maximum distortion of the quiet magnetospheric plasma near noon at high latitudes. It is on the fieldlines which thread this disturbed plasma that one is most likely to witness ULF emissions.
 * Conversely, as suggested by Hirasawa (1981) sudden rarefactions of the magnetosphere would be expected to quench ULF wave growth by reducing the anisotropy and $\beta$ of the plasma. (INTERESTING ONE, SHOULD CHECK AT SOMETIME!)
 * Delay of 1-3 mins between the occurance of SI and the onset of the ULF emission (ground-based magnetometers)[^growth_rate]
-* Drive the trapped proton radiation, greatly enhanced eV energy range protons along the B field, and energization of keV range protons caused by betatron acceleration [@arnoldy2005pc]. 
+* Drive the trapped proton radiation, greatly enhanced eV energy range protons along the B field, and energization of keV range protons caused by betatron acceleration [@arnoldy2005pc].
 
 At Earth, Electromagnetic ion cyclotron (EMIC) waves are typically observed in Pc1 and Pc2 range. In the outer radiation belt, the frequency typically ranges between 0.1 to 5 Hz. The characteristic fine structure appearance of "pearl" Pc1 waves was attributed to dispersive field-aligned wave packet propagation in the LH ion mode on successive bounces between hemispheres. However, this still lacks observation support. Spacecraft measurements have shown that EMIC wave propagation is almost exclusively away from the equator at latitudes greater than about $11^o$, with minimal reflection at the ionosphere.
 
