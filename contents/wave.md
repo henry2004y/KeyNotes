@@ -522,7 +522,7 @@ When $\theta = 90^o$,
 $$
 (Sn^2-RL)(n^2-P) = 0
 $$
- 
+
 There are two roots:
 
 * $n^2=RL/S$ (extraordinary wave)
@@ -690,11 +690,11 @@ For $\omega\lesssim\omega_{ci}$, we get the ion-cyclotron wave; for $\omega\ll\o
 KeyNotes.plot_dispersion_parallel()
 ```
 
-The dispersion curve for a R-wave propagating parallel to the equilibrium magnetic field is sketched in @fig:dispersion_R_wave. The continuation of the Alfvén wave above the ion cyclotron frequency is called the _electron cyclotron wave_, or sometimes the _whistler wave_. The latter terminology is prevalent in ionospheric and space plasma physics contexts. The phase speed is mostly super-Alfvénic except near the electron gyrofrequency. The wave which propagates above the cutoff frequency, $\omega_1$, is a standard right-handed circularly polarized electromagnetic wave, somewhat modified by the presence of the plasma. Note that the low-frequency branch of the dispersion curve differs fundamentally from the high-frequency branch, because the former branch corresponds to a wave which can only propagate through the plasma in the presence of an equilibrium magnetic field, whereas the high-frequency branch corresponds to a wave which can propagate in the absence of an equilibrium field. 
+The dispersion curve for a R-wave propagating parallel to the equilibrium magnetic field is sketched in @fig:dispersion_R_wave. The continuation of the Alfvén wave above the ion cyclotron frequency is called the _electron cyclotron wave_, or sometimes the _whistler wave_. The latter terminology is prevalent in ionospheric and space plasma physics contexts. The phase speed is mostly super-Alfvénic except near the electron gyrofrequency. The wave which propagates above the cutoff frequency, $\omega_1$, is a standard right-handed circularly polarized electromagnetic wave, somewhat modified by the presence of the plasma. Note that the low-frequency branch of the dispersion curve differs fundamentally from the high-frequency branch, because the former branch corresponds to a wave which can only propagate through the plasma in the presence of an equilibrium magnetic field, whereas the high-frequency branch corresponds to a wave which can propagate in the absence of an equilibrium field.
 
 ![Dispersion relation for a right-handed wave propagating parallel to the magnetic field in a magnetized plasma.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img1241.png){#fig:dispersion_R_wave}
 
-For a L-wave, similar considerations to the above give a dispersion curve of the form sketched in @fig:dispersion_L_wave. In this case, $n^2$ goes to infinity at the ion cyclotron frequency, $\Omega_i$, corresponding to the so-called _ion cyclotron resonance_ (at $L\rightarrow\infty$). At this resonance, the rotating electric field associated with a left-handed wave resonates with the gyromotion of the ions, allowing wave energy to be converted into perpendicular kinetic energy of the ions. There is a band of frequencies, lying above the ion cyclotron frequency, in which the left-handed wave does not propagate. At very high frequencies a propagating mode exists, which is basically a standard left-handed circularly polarized electromagnetic wave, somewhat modified by the presence of the plasma. 
+For a L-wave, similar considerations to the above give a dispersion curve of the form sketched in @fig:dispersion_L_wave. In this case, $n^2$ goes to infinity at the ion cyclotron frequency, $\Omega_i$, corresponding to the so-called _ion cyclotron resonance_ (at $L\rightarrow\infty$). At this resonance, the rotating electric field associated with a left-handed wave resonates with the gyromotion of the ions, allowing wave energy to be converted into perpendicular kinetic energy of the ions. There is a band of frequencies, lying above the ion cyclotron frequency, in which the left-handed wave does not propagate. At very high frequencies a propagating mode exists, which is basically a standard left-handed circularly polarized electromagnetic wave, somewhat modified by the presence of the plasma.
 
 As before, the lower branch in @fig:dispersion_L_wave describes a wave that can only propagate in the presence of an equilibrium magnetic field, whereas the upper branch describes a wave that can propagate in the absence an equilibrium field. The continuation of the Alfvén wave to just below the ion cyclotron frequency is generally called the _ion cyclotron wave_. Note that the phase speed is always sub-Alfvénic.
 
@@ -768,7 +768,7 @@ $$
 \omega_{\rm LH} < \omega_{L=0} < \omega_{\rm UH} < \omega_{R=0}
 $$
 
-we can deduce that the dispersion curve for the mode in question takes the form sketched in @fig:dispersion_perp_wave. The lowest frequency branch corresponds to the compressional-Alfvén wave. The other two branches constitute the _extraordinary_, or $X$-, wave. The upper branch is basically a linearly polarized (in the $y$-direction) electromagnetic wave, somewhat modified by the presence of the plasma. This branch corresponds to a wave which propagates in the absence of an equilibrium magnetic field. The lowest branch corresponds to a wave which does not propagate in the absence of an equilibrium field. Finally, the middle branch corresponds to a wave which converts into an electrostatic plasma wave in the absence of an equilibrium magnetic field. 
+we can deduce that the dispersion curve for the mode in question takes the form sketched in @fig:dispersion_perp_wave. The lowest frequency branch corresponds to the compressional-Alfvén wave. The other two branches constitute the _extraordinary_, or $X$-, wave. The upper branch is basically a linearly polarized (in the $y$-direction) electromagnetic wave, somewhat modified by the presence of the plasma. This branch corresponds to a wave which propagates in the absence of an equilibrium magnetic field. The lowest branch corresponds to a wave which does not propagate in the absence of an equilibrium field. Finally, the middle branch corresponds to a wave which converts into an electrostatic plasma wave in the absence of an equilibrium magnetic field.
 
 ![Dispersion relation for a left-handed wave propagating parallel to the magnetic field in a magnetized plasma.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img1270.png){#fig:dispersion_perp_wave}
 
@@ -889,7 +889,7 @@ $$ {#eq:mhd_v_perturbation}
 For any nonzero $v_y$, the $y$-component of @eq:mhd_v_perturbation gives
 
 $$
-\omega^2 = k^2v_A^2\cos^2\theta = k_\parallel^2 v_A^2 
+\omega^2 = k^2v_A^2\cos^2\theta = k_\parallel^2 v_A^2
 $$
 
 which is known as the _Alfvén wave_, in a uniform plasma immersed in a uniform background magnetic field with phase speed
@@ -1079,7 +1079,7 @@ Given the velocity perturbation $\mathbf{v}_1 = (v_x, 0, v_z)$, the other pertur
 
 $$
 \begin{aligned}
-\rho_1 &= \frac{\rho_0}{i\omega}\mathbf{k}\cdot\mathbf{v} \\
+\rho_1 &= \frac{\rho_0}{\omega}\mathbf{k}\cdot\mathbf{v} \\
 \mathbf{j} &= m n_0\mathbf{v} \\
 p_1 &= \rho_1 k_B T/m \\
 \mathbf{E} &= B_0 v_x\hat{y} \\
@@ -1135,7 +1135,7 @@ $$
 where $\delta\mathbf{E}_\perp \perp \delta\mathbf{B}_\perp$. The parallel electric field is
 
 $$
-\bigg\lvert \frac{\delta E_\parallel}{\delta E_\perp} \bigg\rvert = k_\parallel k_\perp\frac{r_{sL}^2}{1+k_\perp^2r_{iL}^2} 
+\bigg\lvert \frac{\delta E_\parallel}{\delta E_\perp} \bigg\rvert = k_\parallel k_\perp\frac{r_{sL}^2}{1+k_\perp^2r_{iL}^2}
 $$
 
 It has been shown that KAWs can be generated via magnetic reconnection, mode conversion, and phase mixing.
@@ -1196,7 +1196,7 @@ $$
 \frac{\mathrm{d}\,cB_x}{\mathrm{d}z} = -{\rm i}\,k_0\,n^2\,E_y
 $$ {#eq:wave_nonuniform_b}
 
-respectively. Here, $k_0=\omega/c$ is the wave-number in free space. Of course, the actual wave-number is $k=k_0\,n$. 
+respectively. Here, $k_0=\omega/c$ is the wave-number in free space. Of course, the actual wave-number is $k=k_0\,n$.
 
 The solution to @eq:wave_nonuniform_e for the case of a homogeneous plasma, for which $n$ is constant, is straightforward:
 
@@ -1210,7 +1210,7 @@ $$
 \phi = \pm k_0\,n\,z
 $$ {#eq:wave_uniform_phase}
 
-The solution @eq:wave_uniform_sol represents a wave of constant amplitude, $A$, and phase, $\phi(z)$. According to @eq:wave_uniform_phase, there are, in fact, two independent waves which can propagate through the plasma. The upper sign corresponds to a wave which propagates in the $+z$-direction, whereas the lower sign corresponds to a wave which propagates in the $-z$-direction. Both waves propagate with the constant phase velocity $c/n$. 
+The solution @eq:wave_uniform_sol represents a wave of constant amplitude, $A$, and phase, $\phi(z)$. According to @eq:wave_uniform_phase, there are, in fact, two independent waves which can propagate through the plasma. The upper sign corresponds to a wave which propagates in the $+z$-direction, whereas the lower sign corresponds to a wave which propagates in the $-z$-direction. Both waves propagate with the constant phase velocity $c/n$.
 
 In general, if $n=n(z)$ then the solution of @eq:wave_nonuniform_e does not remotely resemble the wave-like solution @eq:wave_uniform_sol. However, in the limit in which $n(z)$ is a "slowly varying" function of $z$ (exactly how slowly varying is something which will be established later on), we expect to recover wave-like solutions. Let us suppose that $n(z)$ is indeed a "slowly varying" function, and let us try substituting the wave solution @eq:wave_uniform_sol into @eq:wave_nonuniform_e. We obtain
 
@@ -1232,7 +1232,7 @@ $$ {#eq:wave_nonuniform_phase_approxi}
 
 It is clear from a comparison of @eq:wave_nonuniform_phase and @eq:wave_nonuniform_phase_approxi that $n(z)$ can be regarded as a "slowly varying" function of $z$ as long as its variation length-scale is far longer than the wavelength of the wave. In other words, provided that $(dn/\mathrm{d}z)/(k_0\,n^2)\ll 1$.
 
-The second approximation to the solution is obtained by substituting @eq:wave_nonuniform_phase_approxi into the right-hand side of @eq:wave_nonuniform_phase: 
+The second approximation to the solution is obtained by substituting @eq:wave_nonuniform_phase_approxi into the right-hand side of @eq:wave_nonuniform_phase:
 
 $$
 \frac{\mathrm{d}\phi}{\mathrm{d}z} \simeq \pm \Big(k_0^{~2} n^2 \pm i\,k_0 \frac{dn}{\mathrm{d}z}\Big)^{1/2}
@@ -1244,7 +1244,7 @@ $$
 \frac{\mathrm{d}\phi}{\mathrm{d}z} \simeq \pm k_0\,n\Big(1\pm \frac{i}{k_0 n}\Big)^{1/2}\simeq \pm k_0\,n + \frac{i}{2n}\frac{dn}{\mathrm{d}z}
 $$
 
-where a binomial expansion has been used. The above expression can be integrated to give 
+where a binomial expansion has been used. The above expression can be integrated to give
 
 $$
 \phi \sim \pm k_0\! \int^z \!n\,\mathrm{d}z +i\,\log(n^{1/2})
@@ -1278,9 +1278,9 @@ $$ {#eq:wave_wkb_condition}
 
 The solutions @eq:wave_nonuniform_sol_e and @eq:wave_nonuniform_sol_b (without the second term) are most commonly referred to as the _WKB_ solutions, in honour of G. Wentzel, H.A. Kramers, and L. Brillouin, who are credited with independently discovering these solutions (in a quantum mechanical context) in 1926. Actually, H. Jeffries wrote a paper on the WKB solutions (in a wave propagation context) in 1923. Hence, some people call them the WKBJ solutions (or even the JWKB solutions). To be strictly accurate, the WKB solutions were first discussed by Liouville and Green in 1837, and again by Rayleigh in 1912. The advance in science discovery is always a collective achievement.
 
-Recall, that when a propagating wave is normally incident on an interface, where the refractive index suddenly changes (for instance, when a light wave propagating through air is normally incident on a glass slab), there is generally significant reflection of the wave. However, according to the WKB solutions, when a propagating wave is normally incident on a medium in which the refractive index changes slowly along the direction of propagation of the wave then the wave is not reflected at all. This is true even if the refractive index varies very substantially along the path of propagation of the wave, as long as it varies slowly. The WKB solutions imply that as the wave propagates through the medium its wave-length gradually changes. In fact, the wave-length at position $z$ is approximately $\lambda(z)= 2\pi/ k_0\,n(z)$. The WKB solutions also imply that the amplitude of the wave gradually changes as it propagates. The amplitude of the electric field component is inversely proportional to $n^{1/2}$, whereas the amplitude of the magnetic field component is directly proportional to $n^{1/2}$. Note, however, that the energy flux in the $z$-direction, given by the the Poynting vector $-(E_y B_x^\ast +E_y^\ast B_x)/(4\mu_0)$, remains constant (assuming that $n$ is predominately real). 
+Recall, that when a propagating wave is normally incident on an interface, where the refractive index suddenly changes (for instance, when a light wave propagating through air is normally incident on a glass slab), there is generally significant reflection of the wave. However, according to the WKB solutions, when a propagating wave is normally incident on a medium in which the refractive index changes slowly along the direction of propagation of the wave then the wave is not reflected at all. This is true even if the refractive index varies very substantially along the path of propagation of the wave, as long as it varies slowly. The WKB solutions imply that as the wave propagates through the medium its wave-length gradually changes. In fact, the wave-length at position $z$ is approximately $\lambda(z)= 2\pi/ k_0\,n(z)$. The WKB solutions also imply that the amplitude of the wave gradually changes as it propagates. The amplitude of the electric field component is inversely proportional to $n^{1/2}$, whereas the amplitude of the magnetic field component is directly proportional to $n^{1/2}$. Note, however, that the energy flux in the $z$-direction, given by the the Poynting vector $-(E_y B_x^\ast +E_y^\ast B_x)/(4\mu_0)$, remains constant (assuming that $n$ is predominately real).
 
-Of course, the WKB solutions are only approximations. In reality, a wave propagating into a medium in which the refractive index is a slowly varying function of position is subject to a small amount of reflection. However, it is easily demonstrated that the ratio of the reflected amplitude to the incident amplitude is of order $(dn/\mathrm{d}z)/(k_0\,n^2)$. Thus, as long as the refractive index varies on a much longer length-scale than the wavelength of the radiation, the reflected wave is negligibly small. This conclusion remains valid as long as the inequality @eq:wave_wkb_condition is satisfied. This inequality obviously breaks down in the vicinity of a point where $n^2=0$. We would, therefore, expect strong reflection of the incident wave from such a point. Furthermore, the WKB solutions also break down at a point where $n^2\rightarrow\infty$, since the amplitude of $B_x$ becomes infinite. 
+Of course, the WKB solutions are only approximations. In reality, a wave propagating into a medium in which the refractive index is a slowly varying function of position is subject to a small amount of reflection. However, it is easily demonstrated that the ratio of the reflected amplitude to the incident amplitude is of order $(dn/\mathrm{d}z)/(k_0\,n^2)$. Thus, as long as the refractive index varies on a much longer length-scale than the wavelength of the radiation, the reflected wave is negligibly small. This conclusion remains valid as long as the inequality @eq:wave_wkb_condition is satisfied. This inequality obviously breaks down in the vicinity of a point where $n^2=0$. We would, therefore, expect strong reflection of the incident wave from such a point. Furthermore, the WKB solutions also break down at a point where $n^2\rightarrow\infty$, since the amplitude of $B_x$ becomes infinite.
 
 ### Electron Cyclotron Resonance Heating
 
@@ -1500,7 +1500,7 @@ $$
 \end{aligned}
 $$
 
-Note that here the tilde signs $\sim$ of the variables are neglected for convenience without ambiguity. 
+Note that here the tilde signs $\sim$ of the variables are neglected for convenience without ambiguity.
 
 Do we need to calculate $n_{1i}$??? Yes. MORE to do here!
 
@@ -1549,7 +1549,7 @@ At time $t$, $[x_0,x_0+\mathrm{d}x]\rightarrow[x_0+x_1(x_0,t),x_0+\mathrm{d}x+x_
 $$
 \begin{aligned}
 n_0(x_0)\mathrm{d}x&=[n_0(x_0+x_1)+n_1(x_0+x_1,t)]\cdot[x_0+\mathrm{d}x+x_1(x_0+\mathrm{d}x,t)-(x_0+x_1(x_0,t))] \\
-&\approx \Big[n_0(x_0)+x_1\frac{\partial n_0(x_0)}{\partial x_0}+n_1(x_0,t)\Big]\mathrm{d}x\Big[1+\frac{\partial x_1(x_0,t)}{\partial x_0}\Big] 
+&\approx \Big[n_0(x_0)+x_1\frac{\partial n_0(x_0)}{\partial x_0}+n_1(x_0,t)\Big]\mathrm{d}x\Big[1+\frac{\partial x_1(x_0,t)}{\partial x_0}\Big]
 \end{aligned}
 $$
 
@@ -1622,9 +1622,9 @@ Let $\epsilon=0$, we have
 
 $$
 \omega=\sqrt{{\omega_{pe}}^2+{\Omega_e}^2}\equiv \omega_{UH}
-$$ 
+$$
 
-which is called the _upper hybrid_ frequency. This is the highest characteristic frequency in plasma. This upper hybrid wave is a havoc to some beam generator devices as it appears near the electron collector. 
+which is called the _upper hybrid_ frequency. This is the highest characteristic frequency in plasma. This upper hybrid wave is a havoc to some beam generator devices as it appears near the electron collector.
 
 What if ions are included? Similar to previous derivations and notice that we are still within the range of linear theory, we have
 
