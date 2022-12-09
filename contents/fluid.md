@@ -66,24 +66,24 @@ In vacuum:
 $$
 \begin{aligned}
 \epsilon_0 \nabla\cdot\mathbf{E} &= \sigma \\
-\nabla\cdot\mathbf{E} &= -\dot{\mathbf{B}} \\
+\nabla\times\mathbf{E} &= -\dot{\mathbf{B}} \\
 \nabla\cdot\mathbf{B} &= 0 \\
 \nabla\times\mathbf{B} &= \mu_0 (\mathbf{j}+\epsilon_0\dot{\mathbf{E}})
 \end{aligned}
-$$
+$$ {#eq:maxwell_vacuum}
 
 In a medium:
 
 $$
 \begin{aligned}
 \nabla\cdot\mathbf{D} &= \sigma \\
-\nabla\cdot\mathbf{E} &= -\dot{\mathbf{B}} \\
+\nabla\times\mathbf{E} &= -\dot{\mathbf{B}} \\
 \nabla\cdot\mathbf{B} &= 0 \\
 \nabla\times\mathbf{H} &= \mathbf{j}+\dot{\mathbf{D}} \\
 \mathbf{D} &= \epsilon\mathbf{E} \\
 \mathbf{B} &= \mu\mathbf{H}
 \end{aligned}
-$$
+$$ {#eq:maxwell_medium}
 
 $\sigma$ and $\mathbf{j}$ stand for the "free" charge and current densities. The "bound" charge and current densities arising from polarization and magnetization of the medium are included in the definition of the quantities $\mathbf{D}$ and $\mathbf{H}$ in terms of $\epsilon$ and $\mu$. In a plasma, the ions and electrons comprising the plasma are the equivalent of the "bound" charges and currents. Since these charges move in a complicated way, it is impractical to try to lump their effects into two constants $\epsilon$ and $\mu$. Consequently, in plasma physics, one generally works with the vacuum equations, in which $\sigma$ and $\mathbf{j}$ include _all_ the charges and currents, both external and internal.
 
@@ -618,7 +618,13 @@ The previous example reveals an important characteristic of plasmas that has wid
 
 In a plasma, it is usually possible to assume $n_i=n_e$ and $\nabla\cdot\mathbf{E}\neq 0$ at the same time. We shall call this the _plasma approximation_. It is a fundamental trait of plasmas, one which is difficult for the novice to understand. _Do not use Poisson's equation to obtain $\mathbf{E}$ unless it is unavoidable_! In the set of fluid equations @eq:fluid_set, we may now eliminate Poisson's equation and also eliminate one of the unknowns by setting $n_i = n_e = n$.
 
-The _plasma approximation_ is almost the same as the condition of quasineutrality discussed earlier but has a more exact meaning. Whereas quasineutrality refers to a general tendency for a plasma to be neutral in its state of rest, the plasma approximation is a mathematical shortcut that one can use even for wave motions. As long as these motions are slow enough that both ions and electrons have time to move, it is a good approximation to replace Poisson's equation by the equation $n_i=n_e$. Of course, if only one species can move and the other cannot follow, such as in high-frequency electron waves, then the plasma approximation is not valid, and $\mathbf{E}$ must be found from Maxwell's equations rather than from the ion and electron equations of motion. We shall return to the question of the validity of the plasma approximation when we come to the theory of ion waves. At that time, it will become clear why we had to use Poisson's equation in the derivation of Debye shielding.
+The _plasma approximation_ is almost the same as the condition of quasineutrality discussed earlier but has a more exact meaning. Whereas quasineutrality refers to a general tendency for a plasma to be neutral in its state of rest, the plasma approximation is a mathematical shortcut that one can use even for wave motions. As long as these motions are slow enough that both ions and electrons have time to move, it is a good approximation to replace Poisson's equation by the equation $n_i=n_e$. Of course, if only one species can move and the other cannot follow, such as in high-frequency electron waves, then the plasma approximation is not valid, and $\mathbf{E}$ must be found from Maxwell's @eq:maxwell_vacuum rather than from the ion and electron equations of motion. Ampere's law with the displacement current retained gives the time evolution of ${bf E}$:
+
+$$
+\frac{\mathrm{d}\mathbf{E}}{\mathrm{d}t} = \frac{1}{\epsilon_0}\left( \frac{\nabla\times\mathbf{B}}{\mu_0} - \mathbf{j} \right)
+$$
+
+We shall return to the question of the validity of the plasma approximation when we come to the theory of ion waves. At that time, it will become clear why we had to use Poisson's equation in the derivation of Debye shielding. For electron waves, we can also show that with a simple "modified" electron test particle model that updates the electric field while keeping the magnetic field constant, we can retain the plasma oscillation and electron Berstein wave.
 
 ## Two-Fluid Model {#sec:2fluid}
 
