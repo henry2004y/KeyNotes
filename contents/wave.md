@@ -760,7 +760,7 @@ $$
 \omega_{\rm LH} \equiv \sqrt{\frac{\Omega_e^2\Omega_i^2 + \omega_{pi}^2\Omega_e^2}{\omega_{pe}^2 + \Omega_e^2}}
 $$
 
-The first resonant frequency, $\omega_{\rm UH}$, is greater than the electron cyclotron or plasma frequencies, and is called the _upper hybrid frequency_. The second resonant frequency, $\omega_{\rm LH}$, lies between the electron and ion cyclotron frequencies, and is called the _lower hybrid frequency_. Unfortunately, there is no simple explanation of the origins of the two hybrid resonances in terms of the motions of individual particles. At low frequencies, the mode in question reverts to the compressional-Alfvén wave discussed previously. Note that the shear-Alfvén wave does not propagate perpendicular to the magnetic field.
+The first resonant frequency, $\omega_{\rm UH}$, is greater than the electron cyclotron or plasma frequencies, and is called the _upper hybrid frequency_. The second resonant frequency, $\omega_{\rm LH}$, lies between the electron and ion cyclotron frequencies, and is called the _lower hybrid frequency_. [@chen2016introduction] gave some nice explanations of the physical origins of these frequencies by looking at the electrostatic electron/ion waves perpendicular to ${\bf B}$. At low frequencies, the mode in question reverts to the compressional-Alfvén wave discussed previously. Note that the shear-Alfvén wave does not propagate perpendicular to the magnetic field.
 
 Using the above information, and the easily demonstrated fact that
 
