@@ -1083,7 +1083,7 @@ $$
 \mathbf{j} &= m n_0\mathbf{v} \\
 p_1 &= \gamma p_0\frac{\rho_1}{\rho_0} = \frac{\gamma p_0}{\omega}\mathbf{k}\cdot\mathbf{v} \\
 \mathbf{E} &= B_0 v_x\hat{y} \\
-\mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = -\frac{B_0v_xk_z}{\omega}\hat{x} - \frac{B_0v_zk_x}{\omega}\hat{z}
+\mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = \frac{B_0v_xk_z}{\omega}\hat{x} + \frac{B_0v_xk_x}{\omega}\hat{z}
 \end{aligned}
 $$ {#eq:mhd_fast_perturbations}
 
