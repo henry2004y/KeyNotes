@@ -1095,6 +1095,22 @@ $$
 
 which means that the perturbed magnetic field is always aligned with the background magnetic field.
 
+The temperature perturbation, based on the equation of state, can be derived as follows:
+
+$$
+\begin{aligned}
+T_1 &= T - T_0 = \frac{p_0 + p_1}{(n_0 + n_1)k_B} - \frac{p_0}{n_0 k_B} \\
+&= p_0\left( 1+\gamma\frac{n_1}{n_0} \right) \frac{1}{(n_0 + n_1)k_B} - \frac{p_0}{n_0 k_B} \\
+&= p_0\frac{1}{k_B}\left[ \left(1+\gamma\frac{n_1}{n_0}\right)\frac{1}{n_0 + n_1} - \frac{1}{n_0} \right] \\
+&= p_0\frac{1}{k_B}\left[ \frac{(\gamma-1)n_1}{n_0(n_0+n_1)} \right] \\
+&= p_0\frac{\gamma-1}{k_B}\left[ \frac{\rho_1}{\rho_0(\rho_0+\rho_1)} \right] \\
+&= p_0\frac{\gamma-1}{k_B}\frac{\mathbf{k}\cdot\mathbf{v}}{\rho_0(\omega + \mathbf{k}\cdot\mathbf{v})} \\
+&= T_0\frac{\gamma-1}{m}\frac{\mathbf{k}\cdot\mathbf{v}}{\omega + \mathbf{k}\cdot\mathbf{v}}
+\end{aligned}
+$$ {#eq:mhd_fast_wave_T_perturbation}
+
+@eq:mhd_fast_wave_T_perturbation shows that temperature does not follow the same sinusoidal shape as the perturbed velocity.
+
 In the case $v_A\gg v_s$ (e.g. cold, strong B), the phase speed of the fast mode becomes $v_p \approx v_A$. This is often called the _compressional Alfvén wave_. It is also clear that in the cold plasma limit the slow mode ceases to exit.
 
 ![Fast wave.](https://s8.gifyu.com/images/fast.gif){#fig:fast_wave}
