@@ -849,6 +849,12 @@ $$ {#eq:mhd_force}
 
 which separates into the magnetic pressure term and the magnetic tension term.
 
+If we use an anisotropic description of the thermal pressure term, @eq:mhd_force can be written as
+
+$$
+\mathbf{J}\times\mathbf{B} = -\nabla_\perp\left( p_\perp + \frac{B^2}{2\mu_0}\right) + \left( 1+\frac{p_\perp - p_\parallel}{B^2/\mu_0}\right)\mathbf{B}\cdot\nabla\mathbf{B}
+$$ {#eq:mhd_force_anisotropic}
+
 ### Harris Current Sheet {#sec:harris_cs}
 
 An example of a MHD equilibrium configuration is the Harris current sheet, in which the variations in the magnetic field and plasma pressure over the current sheet balance each other In a 1D Harris current sheet the magnetic field (assumed here to be in the $z$-direction) is given by
@@ -1644,6 +1650,31 @@ $$
 The tearing mode is unstable whenever ${\Delta}'>0$, and grows on the hybrid time-scale $\tau_H^{2/5}\,\tau_R^{3/5}$.
 
 ## Magnetic Reconnection {#sec:reconnection}
+
+There are several key elements for understanding the physics of reconnection at a deeper level [@ji2022magnetic]. First, the frozen-in properties in an electron-ion plasma are associated with the electron fluid due to its light weight. This is expressed in terms of the time changing rate of magnetic flux (@eq:magnetic_flux) through an arbitrary area, $\mathbf{S}$ (enclosed by loop $l$), convecting with the electron flow as $\mathrm{d}\Phi/\mathrm{d}t = \oint(\mathbf{E}+\mathbf{u}_e\times\mathbf{B})\cdot\mathrm{d}l = 0$. Thus, the frozen-in condition is regulated by the electron momentum equation (i.e. the generalized Ohm's law)
+
+$$
+\underbrace{{\bf E} + \mathbf{V}_e\times{\bf B}}_{\text{Ideal}} = \underbrace{\mathbf{R}_\text{col}}_{\text{Collisional}} - \underbrace{\frac{\nabla\cdot\mathbf{P}_e}{en} - \frac{m_e}{e}\frac{\mathrm{d}\mathbf{u}_e}{\mathrm{d}t}}_{\text{Kinetic}}
+$$ {#eq:ohms_law_reconnection}
+
+where $\mathbf{R}_\text{col}$ is the collisional force per electron charge. In a fully ionized collisional plasma, $\mathbf{R}_\text{col}\approx \eta\mathbf{j}$ where $\eta$ is the resistivity due to Coulomb collisions. If the terms on the right-hand side of @eq:ohms_law_reconnection are negligible, then $\mathrm{d}\Phi/\mathrm{d}t \approx 0$ and the magnetic flux is "frozen-in" to the electron flow. For the generic reconnection layer illustrated in the middle panel of @fig:reconnection_configurations, deviations from ideal evolution occur within the "diffusion region" (blue), where either finite resistivity or kinetic effects (electron inertia and pressure tensor) are important. Within the diffusion region, field lines converging from opposite sides of the layer can change connectivity.
+
+![Magnetic reconnection within a current sheet (depicted at the center) features inflows ($V_\text{in}$) of plasma with density $\rho$ and reconnecting magnetic field $B_0$, outflows ($V_\text{out}$) on order of Alfvén speed $V_A$, and a diffusion region (with a length of $2L$ and a thickness of $2\Delta$) where field lines change connectivity. Magnetic separatrices (red) are field lines marking the topological boundary between the upstream flux and the downstream flow jet. Top panels display reconnection phases that have been confirmed in the laboratory experiments: single X-line collisional, single X-line collisionless, and multiple X-line collisionless. Here R and Z are radial and axial coordinates, respectively, in Magnetic Reconnection Experiment (MRX) where these data were taken. $B_Y$ and $J_Y$ are out-of-the-plane field and current density, respectively. Bottom panels illustrate cartoons of plasmoid mediated and 3D turbulent reconnection, both of which are expected to exhibit some degree of self-similarity. Figure 2 from [@ji2022magnetic].](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs42254-021-00419-x/MediaObjects/42254_2021_419_Fig2_HTML.png){#fig:reconnection_configurations}
+
+The next key element for understanding the physics of magnetic reconnection is to grasp the remarkable global consequences
+of changing field line connectivity within a localized region. In particular, the newly reconnected field lines have a large
+curvature ${\bf B}\cdot\nabla{\bf B}$ which produces a tension force --- closely analogous to a stretched rubber band.  Allowing for the possibility of pressure anisotropy, the MHD momentum equation perpendicular to magnetic field is
+
+$$
+\rho\frac{\mathrm{d}\mathbf{u}_\perp}{\mathrm{d}t} = -\nabla_\perp\left( p_\perp + \frac{B^2}{2\mu_0}\right) + \left( 1+\frac{p_\perp - p_\parallel}{B^2/\mu_0}\right)\mathbf{B}\cdot\nabla\mathbf{B} - \mathbf{F}_{\text{col}\perp}
+$$ {#eq:mhd_force_perp_anisotropic}
+
+where $\mathbf{F}_\text{col}$ is due to collisions between ions (viscous force) and between ions and neutral particles
+(frictional force). For newly reconnected field lines, the magnetic tension in @eq:mhd_force_perp_anisotropic drives an outflow jet approaching the Alfvén speed $V_\text{out} \approx V_A \equiv B_0/\sqrt{\mu_0 \rho}$ ($B_0$ is the reconnecting field component). The resulting deficit in magnetic pressure pushes new field lines into the diffusion region with a maximum inflow velocity $V_\text{in}\sim (0.01 \rightarrow 0.1) V_A$. As this process continues, the larger stressed region is relaxed, leading to a reconfiguration of the global magnetic field on fast Alfvénic time scales $\sim L/V_A$. Assuming the diffusion regions remain small in comparison to the global scales, most plasma enters the flow jet across the magnetic separatrices as illustrated in @fig:reconnection_configurations. This inflow is a consequence of changing the field
+line connectivity within the diffusion region, which causes the entire extent of the reconnected field lines to join the outflow. In this limit, the majority of the energy release is associated with the relaxation of field-line tension within outflow jets over long distances. Since the spatial extent of these jets is limited only by the macroscopic configuration, they are one of the most prominent signatures of reconnection in both in-situ and remote-sensing observations. Our primary
+focus is on situations where the available magnetic energy to drive reconnection is comparable or larger than the initial plasma thermal energy, corresponding to $\beta\equiv p/(B_0^2/2\mu_0)\simless 1$. In these regimes, global relaxation of field-line tension is the ultimate "engine" for reconnection and is essentially "ideal", thus operating in a similar manner for most applications, but with a few important exceptions. Plasma heating preferentially along the magnetic field ($p_\parallel\gg p_\perp$) can weaken the magnetic tension force in @eq:mhd_force_perp_anisotropic, whereas in partially ionized regimes the jet formation is more complicated due to interactions with neutrals. In addition, non-ideal kinetic physics may persist along magnetic separatrices (see red lines in @fig:reconnection_configurations) to larger distances, while in very large systems shocks may form along these boundaries and play a role in the energy conversion.
+
+In contrast to the ideal physics driving the jet, the non-ideal terms within the diffusion region are intimately dependent upon the plasma conditions and spatial scales, and thus, a variety of different regimes are possible, as illustrated in the various panels of @fig:reconnection_configurations. Since the outflow is always energetically limited to $V_A$ in a quasi-steady state, mass conservation implies that the geometry of the diffusion region determines the dimensionless reconnection rate, $R \equiv V_\text{in}/V_A \approx \Delta/L$ where $\Delta$ is the diffusion region thickness. The current understanding of the diffusion region physics has evolved over more than 60 years in three main stages, yet a full understanding remains elusive for large space and astrophysical problems.
 
 ### Hall Magnetic Field
 
