@@ -919,6 +919,12 @@ Note that MeV energy electrons and ions precess around the Earth with about the 
 
 Note, finally, that, since the rest mass of an electron is $0.51$ MeV, most of the above formulae require relativistic correction when applied to MeV energy electrons. Fortunately, however, there is no such problem for protons, whose rest mass energy is $0.94$ GeV.
 
+## Particle Acceleration
+
+* _Fermi acceleration_ is the acceleration that charged particles undergo when being repeatedly reflected, usually by a magnetic mirror. This is sometimes referred to as _diffusive shock acceleration_, which is actually a subclass of Fermi acceleration. There are two types of Fermi acceleration: _first-order Fermi acceleration_ (in shocks) and _second-order Fermi acceleration_ (in the environment of moving magnetized gas clouds). In both cases the environment has to be collisionless in order for the mechanism to be effective. This is because Fermi acceleration only applies to particles with energies exceeding the thermal energies, and frequent collisions with surrounding particles will cause severe energy loss and as a result no acceleration will occur. See more in [wiki](https://en.wikipedia.org/wiki/Fermi_acceleration).
+
+* _Betatron acceleration_ refers to situations in which the magnetic field strength increases slowly in time (compared with a gyroperiod), so that $\mu$ remains constant, but the particle kinetic energy is not constant due to the presence of electric fields (associated with the time-varying magnetic field). Then, the perpendicular energy is increased due to constancy of $\mu$.
+
 ## Test Particle Model
 
 The test particle method is not self-consistent, because we only describe the effect of the fields onto particles, but not vice versa. This reduces the PDEs to ODEs which is much simpler to solve. Despite of this, we use the trajectories of test particles to infer approximate kinetic properties of the system. You will see many examples of understanding more complicated scenario using the drifts derived from test particle motions, especially in terms of stability analysis.
