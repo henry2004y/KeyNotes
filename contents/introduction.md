@@ -199,7 +199,7 @@ $$ {#eq:thermal_speed}
 we can write @eq:maxwellian_1d as
 
 $$
-f(v) = A \exp(-v^2/v_text{th}^2)
+f(v) = A \exp(-v^2/v_\text{th}^2)
 $$
 
 and @eq:average_kinetic_energy as
