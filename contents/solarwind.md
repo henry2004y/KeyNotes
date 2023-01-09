@@ -264,3 +264,15 @@ The mirror instability criterion as an additional relation to determine the pres
 $$
 1 + \sum_{\textrm{species}} \beta_\perp \big( 1 - \frac{\beta_\perp}{\beta_\parallel} \big) < 0
 $$
+
+## Switchbacks
+
+When Parker Solar Probe (PSP) sent back the first observations from its voyage to the Sun, scientists found signs of a wild ocean of currents and waves quite unlike the near-Earth space much closer to our planet. This ocean was spiked with what became known as _switchbacks_: rapid flips in the Sun’s magnetic field that reversed direction like a zig-zagging mountain road. 
+
+![Animation of traveling disturbances in the solar wind that caused the magnetic field to bend back on itself known as switchbacks. **Credits: NASA's Goddard Space Flight Center/Conceptual Image Lab/Adriana Manrique Gutierrez**](https://www.nasa.gov/sites/default/files/thumbnails/image/switchbacks-sun-web.gif){#fig:switchbacks}
+
+Our current understanding is that switchbacks may be generated from either magnetic reconnection, turbulence, or plasma velocity shears. There are models for each, but they all requires more testing from future PSP data.
+
+![Illustration of five current theories explaining how switchbacks form. **Credits: NASA’s Goddard Space Flight Center/Miles Hatfield/Lina Tran/Mary-Pat Hrybyk Keith**](https://www.nasa.gov/sites/default/files/thumbnails/image/rsz_switchbacks_infographic.png){#fig:switchbacks_mechanisms}
+
+See more in [Switchbacks Science: Explaining Parker Solar Probe's Magnetic Puzzle](https://www.nasa.gov/feature/goddard/2021/switchbacks-science-explaining-parker-solar-probe-s-magnetic-puzzle).
