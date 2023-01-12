@@ -1124,7 +1124,7 @@ It has been found in the plasma sheet, at the plasma sheet boundary layer (PSBL)
 
 KAW differ from SAW because the short wavelength requires a significant $E_\parallel$ to maintain charge neutrality due to ion density perturbations caused by the ion polarization drift. When $v_{te}>v_A$, the parallel electric field counteracts electron pressure that would push the electrons away from the ion density perturbations. When $v_{te}<v_A$, the electric field must overcome the electron inertia that prevents the electrons from responding rapidly to the ion density perturbations. $E_\parallel$ associated with small-scale KAWs may efficiently accelerate particles on the magnetic field lines. (Chaston+ 2009) presented observations in the magnetotail from the Cluster spacecraft showing that KAWs radiate outward from the X-line with outward energy fluxes equivalent to that contained in the outstreaming ions. Wave-particle energy exchange between KAWs and plasmas near the dayside magnetopause has been confirmed by MMS observations (Gershman+ 2017).
 
-Almost half a century later, [@chen2021physics] demonstrated that the proper treatment of KAW requires gyrokinetics (@sec:gyrokinetics).
+Almost half a century after the discovery of KAW, [@chen2021physics] demonstrated that the proper treatment of this wave requires gyrokinetics (@sec:gyrokinetics).
 
 While SAW satisfy $\omega=k_\parallel v_A$, the dispersion relation of KAW can be written as (Johnson & Cheng, 1997)
 
