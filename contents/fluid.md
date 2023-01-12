@@ -242,7 +242,7 @@ $$
 \end{aligned}
 $$
 
-where $\omega$ is the plasma frequency, $v$ is the plasma bulk velocity, $\lambda$ is the average free distance, and $L$ is the system characteristic length.
+where $\omega$ is the plasma frequency, $v$ is the plasma bulk speed, $\lambda$ is the average free distance, and $L$ is the system characteristic length.
 
 Standard orderings of ideal MHD can also be written as
 
@@ -251,6 +251,8 @@ $$
 $$
 
 where the plasma varies on frequency scales $\omega$ small compared to the gyrofrequency $\Omega_c$, and varies on spatial scales $1/k$ long compared to the gyroradius $\rho$. (Here, $\epsilon$ means a "small" value.) Thus it covers phenomenon related to compressional and shear Alfvén waves and instabilities, ion acoustic waves, and ion and electron kinetic effects such as Landau damping. However, it does not include drift-waves or other micro-instabilities because they result from finite Larmor radius (FLR) effects which vanish in the usual MHD ordering.
+
+Single fluid MHD is somehow inconsistent since there is only one velocity. The definition of current using velocity cannot be applied, and the current can only be given by Ampere's law (without the displacement current), $\mathbf{J}=\nabla\times\mathbf{B}/\mu_0$.
 
 ### Equation of Continuity
 

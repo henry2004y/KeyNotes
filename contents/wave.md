@@ -905,10 +905,10 @@ Given the velocity perturbation $\mathbf{v}_1 = (0, v_y, 0)$, $-i\omega\rho_1 + 
 $$
 \begin{aligned}
 \rho_1 &= 0 \\
-\mathbf{j} &= m n_0\mathbf{v} = mn_0 v_y \hat{y} \\
 p_1 &= 0 \\
 \mathbf{E} &= -B_0 v_y\hat{x} \\
-\mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = -\frac{k_zB_0v_y}{\omega}\hat{y} = -\frac{\mathbf{v}}{\omega/k_\parallel}B_0
+\mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = -\frac{k_zB_0v_y}{\omega}\hat{y} = -\frac{\mathbf{v}}{\omega/k_\parallel}B_0 \\
+\mathbf{j} &= \frac{1}{\mu_0}\nabla\times\mathbf{B}_1 = \frac{i\mathbf{k}\times\mathbf{B}_1}{\mu_0}
 \end{aligned}
 $$ {#eq:mhd_Alfven_perturbations}
 
@@ -1080,11 +1080,11 @@ Given the velocity perturbation $\mathbf{v}_1 = (v_x, 0, v_z)$, the other pertur
 $$
 \begin{aligned}
 \rho_1 &= \frac{\rho_0}{\omega}\mathbf{k}\cdot\mathbf{v} \\
-\mathbf{j} &= m n_0\mathbf{v} \\
 p_1 &= \gamma p_0\frac{\rho_1}{\rho_0} = \frac{\gamma p_0}{\omega}\mathbf{k}\cdot\mathbf{v} \\
 \mathbf{E} &= B_0 v_x\hat{y} \\
 \mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = \frac{B_0v_xk_z}{\omega}\hat{x} + \frac{B_0v_xk_x}{\omega}\hat{z}
-\end{aligned}
+\end{aligned} \\
+\mathbf{j} &= \frac{1}{\mu_0}\nabla\times\mathbf{B}_1 = \frac{i\mathbf{k}\times\mathbf{B}_1}{\mu_0}
 $$ {#eq:mhd_fast_perturbations}
 
 $\mathbf{E}$ shows that the fast/slow modes in a uniform plasma are also linearly polarized. When we have $\theta=90^o$ (@fig:fast_wave), the magnetic perturbation can be simplified to
