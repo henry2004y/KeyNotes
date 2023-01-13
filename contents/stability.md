@@ -1679,6 +1679,7 @@ In contrast to the ideal physics driving the jet, the non-ideal terms within the
 ### Hall Field
 
 Let X be the inflow direction, Z the outflow direction, and Y the out-of-plane direction. During magnetic reconnection,
+
 * a quadrupolar out-of-plane or _Hall_ magnetic field $B_y$ is formed by the field aligned currents $j_\parallel$ that flow in the vicinity of the magnetic separatrices when ion and electrons decouple on the length scales less than the ion inertial length [@sonnerup1979space]. The quadruple Hall magnetic field was analyzed as a tearing mode eigenmode of the current layer (Terasawa 1983). The Hall effect introduces a coupling between the tearing mode perturbations (2D configuration in-plane $\mathbf{B}$ components) and shear Alfvén mode perturbations (out-of-plane $\mathbf{B}$ component).
 * In the context of collisionless plasmas, ion-electron collisions are absent so that ions and electrons behave differently at micro-scale. On the ion scale, ions start to become demagnetized whereas electrons are still coupled to the magnetic field. The difference in the ion and electron motion produces _charge separation_, _Hall electric fields_ and the _associated electric current_. (On the even smaller electron-scale, electrons are demagnetized and correspond to the "breaking" of the field line.) The spatial variation of Hall electric fields is mostly in X, normal to and pointing towards the current layer. Relevance of Hall effects in reconnection is considered important at the ion inertial scale, providing a source for non-ideal reconnection electric field. (In observations, the perpendicular scale of the Hall fields and current layer can be as small as electron scales as well?) The parallel scale of the Hall fields are much larger. Equivalently, Hall fields are associated with a wave vector $\mathbf{k}$ so that $k_x\gg k_z$ and $1/k_x$ on the ion-scale.
 
@@ -1687,6 +1688,7 @@ The Hall fields are continuously produced quasi-steady structures accompanied wi
 In observations, signatures of Hall magnetic fields are used as a working definition of collisionless magnetic reconnection in the Earth’s and planetary magnetosphere.
 
 [@dai2023kinetic] emphasized that the physics underlying the Hall effect is similar to that in KAW:
+
 * Both can be described by the two-fluid equations.
 * The temporal and spatial scales of Hall fields are exactly the same as those of KAW.
 * The polarity of the Hall electric field (in X) and the Hall magnetic field (in Y) is also consistent with that of KAW.
