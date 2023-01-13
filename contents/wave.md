@@ -706,7 +706,7 @@ As before, the lower branch in @fig:dispersion_L_wave describes a wave that can 
 
 ### Faraday Rotation
 
-A linearly polarized plane wave can be expressed as a sum of left- and right-hand circularly polarized waves (R- and L-modes having equal amplitudes, $E_0$). If we assume that at $z=0$, the wave is linearly polarized along the x axis, and that the wave vector $\mathbf{k}$ and the background magnetic field $\mathbf{B}_0$ are along the $z$-axis, we can write
+A linearly polarized plane wave can be expressed as a sum of left- and right-hand circularly polarized waves (R- and L-modes having equal amplitudes, $E_0$). If we assume that at $z=0$, the wave is linearly polarized along the $x$-axis, and that the wave vector $\mathbf{k}$ and the background magnetic field $\mathbf{B}_0$ are along the $z$-axis, we can write
 
 $$
 \mathbf{E} = E_0 [(e^{ik_Rz}+e^{ik_Lz})\hat{x} + (e^{ik_Rz}-e^{ik_Lz})\hat{y}] e^{-i\omega t}
@@ -916,9 +916,9 @@ p_1 &= 0 \\
 \end{aligned}
 $$ {#eq:mhd_Alfven_perturbations}
 
-SAW has a wave vector $\mathbf{k}$ in the XZ-plane. $\mathbf{E}$ shall oscillate in the X-direction; $\mathbf{B}$ shall oscillate in the Y-direction. The electric current of the wave is $\mathbf{j}=\nabla\times\mathbf{B}_1/\mu_0 = i\mathbf{k}\times\mathbf{B}_1/\mu_0$ in the XZ-plane. The timescale of the variations of the wave fields is much longer than the ion gyroperiod $\Omega_i^{-1}$. In both the perpendicular and parallel directions, the spatial scale of the waves $1/k$ are much larger than ion motion scale $r_{iL}$. The wave carries a Poynting flux $S = \mathbf{E}\times\mathbf{B}_1$ strictly parallel to $\mathbf{B}_0$. The ratio of the wave electric field to the wave magnetic field $|\mathbf{E}|/|\mathbf{B}_1|$ is exactly one Alfvén speed $V_A$.
+SAW has a wave vector $\mathbf{k}$ in the XZ-plane. $\mathbf{E}$ shall oscillate in the X-direction; $\mathbf{B}$ shall oscillate in the Y-direction. The electric current of the wave $\mathbf{j}$ lies in the XZ-plane. The timescale of the variations of the wave fields is much longer than the ion gyroperiod $\Omega_i^{-1}$. In both the perpendicular and parallel directions, the spatial scale of the waves $1/k$ are much larger than ion motion scale $r_{iL}$. The wave carries a Poynting flux $S = \mathbf{E}\times\mathbf{B}_1$ strictly parallel to $\mathbf{B}_0$. The ratio of the wave electric field to the wave magnetic field $|\mathbf{E}|/|\mathbf{B}_1|$ is exactly one Alfvén speed $V_A$.
 
-$\mathbf{E}$ (or $\mathbf{B}_1$) shows that the Alfvén wave in a uniform plasma is a linearly polarized wave mode. Correlated $\mathbf{B}$ and $\mathbf{v}$ corresponds to waves propagating anti-parallel to the $\mathbf{B}_0$, and anti-correlated $\mathbf{B}$ and $\mathbf{v}$ corresponds to waves propagating parallel to the $\mathbf{B}_0$. The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the _shear Alfvén wave_ (SAW). An animation of SAW is shown in @fig:alfven_wave. It is useful to remember that the magnetic perturbation is always parallel to the velocity perturbation.
+$\mathbf{E}$ (or $\mathbf{B}_1$) in @eq:mhd_Alfven_perturbations shows that the Alfvén wave in a uniform plasma is a linearly polarized wave if $\mathbf{v}_1 = (0, v_y, 0)$. If instead we set $\mathbf{k}=(0,0,k)$ ($\theta=0^o$) and $\mathbf{v}_1 = (v_x, v_y, 0)$, then $\mathbf{k}\cdot\mathbf{v}=0\Rightarrow \rho_1=0$ but $\mathbf{E}=-\mathbf{v}\times\mathbf{B}_0 = kv_y\hat{x} - kv_x\hat{y}$ can be a circularly polarized wave or else. Correlated $\mathbf{B}$ and $\mathbf{v}$ corresponds to waves propagating anti-parallel to the $\mathbf{B}_0$, and anti-correlated $\mathbf{B}$ and $\mathbf{v}$ corresponds to waves propagating parallel to the $\mathbf{B}_0$. The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the _shear Alfvén wave_ (SAW). An animation of SAW is shown in @fig:alfven_wave. It is useful to remember that the magnetic perturbation is always parallel to the velocity perturbation.
 
 ![Alfvén wave.](https://s8.gifyu.com/images/alfven.gif){#fig:alfven_wave}
 
