@@ -276,3 +276,9 @@ Our current understanding is that switchbacks may be generated from either magne
 ![Illustration of five current theories explaining how switchbacks form. **Credits: NASA’s Goddard Space Flight Center/Miles Hatfield/Lina Tran/Mary-Pat Hrybyk Keith**](https://www.nasa.gov/sites/default/files/thumbnails/image/rsz_switchbacks_infographic.png){#fig:switchbacks_mechanisms}
 
 See more in [Switchbacks Science: Explaining Parker Solar Probe's Magnetic Puzzle](https://www.nasa.gov/feature/goddard/2021/switchbacks-science-explaining-parker-solar-probe-s-magnetic-puzzle).
+
+## MHD Description
+
+Because of the presence of a strong magnetic field carried by the wind, low-frequency fluctuations in the solar wind are usually described with MHD. However, due to some peculiar characteristics, the solar wind turbulence contains some features hardly classified within a general theoretical framework. (Tu and Marsch 1995) presents a thorough review of the turbulent phenomena in the solar wind from observations in the ecliptic. In the 1990s, with the launch of the Ulysses spacecraft, investigations have been extended to the high-latitude regions of the heliosphere.
+
+Ruelle and Takens (1971) who showed that a strange attractor in the phase space of the system is the best model for the birth of turbulence. This gave a strong impulse to the investigation of the phenomenology of turbulence from the point of view of dynamical systems. Turbulence in the solar wind has been used as a big wind tunnel to investigate scaling laws of turbulent fluctuations, multifractals models, etc. Therefore, the solar wind can be seen as a very big laboratory where fully developed turbulence can be investigated not only per se, rather as far as basic theoretical aspects are concerned.
