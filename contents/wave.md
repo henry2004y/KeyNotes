@@ -168,6 +168,10 @@ Note:
 
 ## ES vs. EM Waves
 
+A practical way to distinguish ES and EM waves is to check $\nabla\times\mathbf{E}$ and $\nabla\cdot\mathbf{E}$, where $\mathbf{E}$ is the electric field of the wave:
+* If the curvature is relatively small and the divergence is relatively large, then it is likely to be ES.
+* Otherwise it is likely to be EM.
+
 As we will see in @sec:CPDR, the dielectric function is defined in @eq:d_e_relation. From other perspectives, the dielectric function shows up in the Ampère's law as well as the Poisson's equation
 
 $$
@@ -912,6 +916,8 @@ p_1 &= 0 \\
 \end{aligned}
 $$ {#eq:mhd_Alfven_perturbations}
 
+SAW has a wave vector $\mathbf{k}$ in the XZ-plane. $\mathbf{E}$ shall oscillate in the X-direction; $\mathbf{B}$ shall oscillate in the Y-direction. The electric current of the wave is $\mathbf{j}=\nabla\times\mathbf{B}_1/\mu_0 = i\mathbf{k}\times\mathbf{B}_1/\mu_0$ in the XZ-plane. The timescale of the variations of the wave fields is much longer than the ion gyroperiod $\Omega_i^{-1}$. In both the perpendicular and parallel directions, the spatial scale of the waves $1/k$ are much larger than ion motion scale $r_{iL}$. The wave carries a Poynting flux $S = \mathbf{E}\times\mathbf{B}_1$ strictly parallel to $\mathbf{B}_0$. The ratio of the wave electric field to the wave magnetic field $|\mathbf{E}|/|\mathbf{B}_1|$ is exactly one Alfvén speed $V_A$.
+
 $\mathbf{E}$ (or $\mathbf{B}_1$) shows that the Alfvén wave in a uniform plasma is a linearly polarized wave mode. Correlated $\mathbf{B}$ and $\mathbf{v}$ corresponds to waves propagating anti-parallel to the $\mathbf{B}_0$, and anti-correlated $\mathbf{B}$ and $\mathbf{v}$ corresponds to waves propagating parallel to the $\mathbf{B}_0$. The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the _shear Alfvén wave_ (SAW). An animation of SAW is shown in @fig:alfven_wave. It is useful to remember that the magnetic perturbation is always parallel to the velocity perturbation.
 
 ![Alfvén wave.](https://s8.gifyu.com/images/alfven.gif){#fig:alfven_wave}
@@ -1085,6 +1091,7 @@ p_1 &= \gamma p_0\frac{\rho_1}{\rho_0} = \frac{\gamma p_0}{\omega}\mathbf{k}\cdo
 \mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = \frac{B_0v_xk_z}{\omega}\hat{x} + \frac{B_0v_xk_x}{\omega}\hat{z}
 \end{aligned} \\
 \mathbf{j} &= \frac{1}{\mu_0}\nabla\times\mathbf{B}_1 = \frac{i\mathbf{k}\times\mathbf{B}_1}{\mu_0}
+\end{aligned}
 $$ {#eq:mhd_fast_perturbations}
 
 $\mathbf{E}$ shows that the fast/slow modes in a uniform plasma are also linearly polarized. When we have $\theta=90^o$ (@fig:fast_wave), the magnetic perturbation can be simplified to
@@ -1123,6 +1130,13 @@ In KAWs, parallel electric field $E_\parallel$ can be developed and facilitate p
 It has been found in the plasma sheet, at the plasma sheet boundary layer (PSBL), and in the inner magnetosphere.
 
 KAW differ from SAW because the short wavelength requires a significant $E_\parallel$ to maintain charge neutrality due to ion density perturbations caused by the ion polarization drift. When $v_{te}>v_A$, the parallel electric field counteracts electron pressure that would push the electrons away from the ion density perturbations. When $v_{te}<v_A$, the electric field must overcome the electron inertia that prevents the electrons from responding rapidly to the ion density perturbations. $E_\parallel$ associated with small-scale KAWs may efficiently accelerate particles on the magnetic field lines. (Chaston+ 2009) presented observations in the magnetotail from the Cluster spacecraft showing that KAWs radiate outward from the X-line with outward energy fluxes equivalent to that contained in the outstreaming ions. Wave-particle energy exchange between KAWs and plasmas near the dayside magnetopause has been confirmed by MMS observations (Gershman+ 2017).
+
+We consider a KAW with a wave vector $\mathbf{k}$ in the XZ-plane, same as in the SAW case. In many aspects, KAW is similar to SAW: $\mathbf{E}$ shall oscillate in the X-direction; $\mathbf{B}$ shall oscillate in the Y-direction. The electric current of the wave $i\mathbf{k}\times\mathbf{B}_1/\mu_0$ is still in the XZ-plane. The timescale of the variations of the wave field of KAW is much longer than the ion gyroperiod. However, unlike SAW, KAW has
+* a perpendicular scale $k_\perp^{-1}$ that is comparable to the particle kinetic scale $r_{iL}$.
+* a very oblique wave vector $k_\perp \gg k_\parallel$ so that the wave is not strongly affected by the Landau damping.
+* $k_\perp^{-1} \ll k_\parallel^{-1}$. The finite-Larmor-radius effect starts to become important as the perpendicular wavelength is comparable to the ion gyromotion: Ions can not follow the $\mathbf{E}\times\mathbf{B}$ drift in the electric fields of KAW, because they encounter significantly different electric field in the different phases of the gyromotion.
+Electrons are still frozen-in in the presence of the wave field. The difference in the ion and electron motion in the perpendicular direction introduces charge separation and coupling to the electrostatic mode. Because the wave electric field $E_x$ is mainly parallel to the $\mathbf{k}$, $\nabla\times\mathbf{E}=i\mathbf{k}\times\mathbf{E}$ is small and $\nabla\cdot\mathbf{E}=i\mathbf{k}\cdot\mathbf{E}$ is relatively large for KAW. Accordingly, the perpendicular wave electric field $E_x$ is mostly electrostatic in KAW.
+* Because of charge separation in KAW, electrons need to move along the magnetic field to preserve the charge neutrality. Associated with the parallel motion of electron, a small wave electric field $E_\parallel$ is established, the existence of which is a distinct feature of KAW. The parallel motion of electrons creates a field-aligned current $j_\parallel$ of KAW. From Ampère's law $i\mathbf{k}\times\mathbf{B}_1=\mu_0 \mathbf{j}$, the field-aligned current $\mathbf{j}_z$ produces a wave magnetic field $\mathbf{B}_{1y}$. As a result, KAW is in fact an EM wave. The ratio of the wave electric field to the wave magnetic field is $V_A\sqrt{1+k_x^2 r_{iL}^2}$ (Stasiewicz et al. 2000). The kinetic correction $k_x^2 r_{iL}^2$ introduces a deviation of the ratio $E_x/B_y$ from one $V_A$ as in the SAWs.
 
 Almost half a century after the discovery of KAW, [@chen2021physics] demonstrated that the proper treatment of this wave requires gyrokinetics (@sec:gyrokinetics).
 
