@@ -188,11 +188,11 @@ instead of the physical electron mass $m_e$. Here $V_A$ is the Alfvén speed cal
 
 ## Comparison with Hall MHD
 
-If we moments the zeroth and first moments of the ion Vlasov equation,
+The zeroth and first moments of the ion Vlasov equation are
 
 $$
 \begin{aligned}
-\frac{\partial n}{\partial t} + \nabla\cdot(n\mathbf{u}_i) = 0
+\frac{\partial n}{\partial t} + \nabla\cdot(n\mathbf{u}_i) = 0 \\
 \frac{\partial mn\mathbf{u}_i}{\partial t} + \nabla\cdot\Big[ mn\mathbf{u}_i\mathbf{u}_i - \frac{\mathbf{B}\mathbf{B}}{\mu_0} + \frac{B^2}{2\mu_0}\mathbf{I} + \overleftrightarrow{P} \Big] = 0
 \end{aligned}
 $$

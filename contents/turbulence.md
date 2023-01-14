@@ -20,7 +20,13 @@ It should be emphasized that there are no firm mathematical arguments for the ex
 
 ## MHD
 
-Nunov highly recommended a review [@schekochihin_2022].
+Nunov highly recommended a review [@schekochihin_2022]. Another nice reference for the solar wind turbulence is presented [@bruno2013solar], where I cite many materials in this note.
+
+### Navier–Stokes equation and Reynolds number
+
+
+
+### Coupling between charged fluid and magnetic field
 
 Elsässer variables are used to extract the Alfvénic component from MHD. They are defined as
 

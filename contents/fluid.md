@@ -630,7 +630,57 @@ We shall return to the question of the validity of the plasma approximation when
 
 ## Two-Fluid Model {#sec:2fluid}
 
-Besides the Vlasov theory, we can apply the simpler but equally powerful 2-fluid model, in which electrons and ions are treated as two different fluids. The general procedure of obtaining the dispersion relation for electrostatic wave is:
+Besides the Vlasov theory, we can apply the simpler but equally powerful 2-fluid model, in which electrons and ions are treated as two different fluids. Depending on the form of the pressure term, we have the 5/6/10-moment equations.
+
+For monatomic gases, the six-moment equations for all charged fluids (indexed by $s$) can be written as:
+
+$$
+\begin{aligned}
+\frac{\partial \rho_s}{\partial t} + \nabla\cdot(\rho_s\mathbf{u}_s) = 0 \\
+\frac{\partial (\rho_s\mathbf{u}_s)}{\partial t} + \nabla\cdot\left[ \rho_s\mathbf{u}_s\mathbf{u}_s + p_{s\perp}\pmb{I} + (p_{s\parallel} - p_{s\perp})\hat{b}\hat{b} \right] = \frac{q_s}{m_s}\rho_s(\mathbf{E} + \mathbf{u}_s\times\mathbf{B}) \\
+\frac{\partial p_{s\parallel}}{\partial t} + \nabla\cdot(p_{s\parallel}\mathbf{u}_s) = -2p_{s\parallel}\hat{b}\cdot(\hat{b}\cdot\nabla)\mathbf{u}_s \\
+\frac{\partial p_{s\perp}}{\partial t} + \nabla\cdot(p_{s\perp}\mathbf{u}_s) = -p_{s\perp}(\nabla\cdot\mathbf{u}_s) + p_{s\perp}\hat{b}\cdot(\hat{b}\cdot\nabla)\mathbf{u}_s
+\end{aligned}
+$$ {#eq:6-moment-fluids}
+
+The two pressure equations in @eq:6-moment-fluids can be combined to give the equation for the average pressure $p=(2p_\perp + p_\parallel)/3$:
+
+$$
+\frac{\partial p_s}{\partial t} + \nabla\cdot(p_s\mathbf{u}_s) = (p_s - p_{s\parallel})\hat{b}\cdot(\hat{b}\cdot\nabla)\mathbf{u}_s - \left( p_s - \frac{p_{s\parallel}}{3} \right)\nabla\cdot\mathbf{u}_s
+$$ {#eq:6-moment_average_p}
+
+Alternatively, we can solve for the hydrodynamic energy density $e = \frac{n\mathbf{u}^2}{2} + \frac{3}{2}p$ for each species:
+
+$$
+\frac{\partial e_s}{\partial t} + \nabla\cdot\left[ \mathbf{u}_s(e_s+p_s) + \mathbf{u}_s\cdot(p_{s\parallel} - p_{s\perp})\hat{b}\hat{b} \right] = \frac{q_s}{m_s}\rho_s \mathbf{u}_s\cdot\mathbf{E}
+$$
+
+which is more of a conservative form and can be beneficial to get better jump conditions across shock waves. Note, however, that the parallel pressure equation is still solved with the adiabatic assumption, so non-adiabatic heating is not properly captured. In addition, the magnetic energy is not included into the energy density, so the jump conditions are only approximate (I think this is more of a numerical consideration). In general, there can be many more source terms on the right hand sides of the above equations corresponding to gravity, charge exchange, chemical reactions, collisions, etc.
+
+The electric field $\mathbf{E}$ and magnetic field $\mathbf{B}$ are obtained from Maxwell's equations:
+
+$$
+\begin{aligned}
+\frac{\partial \mathbf{B}}{\partial t} + \nabla\times\mathbf{E} &= 0 \\
+\frac{\partial \mathbf{E}}{\partial t} - c^2\nabla\times\mathbf{B} &= -c^2\mu_0\mathbf{j} \\
+\nabla\cdot\mathbf{E} &= \frac{\rho_c}{\epsilon_0} \\
+\nabla\cdot\mathbf{B} &= 0
+\end{aligned}
+$$
+
+where $\rho_c = \sum_s (q_s/m_s)\rho_s$ is the total charge density and $\mathbf{j}=\sum_s(q_s/m_s)\rho_s\mathbf{u}_s$ is the current density.
+
+The last two equations are constraints on the initial conditions; these are not guaranteed to hold numerically. Classical tricks involves using hyperbolic/parabolic cleaning or a facially-collocated Yee-type mesh.
+
+### Characteristic wave speeds
+
+The fastest wave speed in the 5/6/10-moment equations is the speed of light $c$. Theoretically, the characteristic wave speeds shall be consistent and fallback to MHD in the isotropic 5-moment case.
+
+Numerically, however, using $c$ in the numerical fluxes makes the scheme rather diffusive (?). The discretization time step is limited by the Courant-Friedrichs-Lewy (CFL) condition based on the speed of light. In practice, we can reduce the speed of light to a value that is a factor of 2-3 faster than the fastest flow and fast wave speed to speed up the simulation.
+
+### Electrostatic wave dispersion relation
+
+The general procedure of obtaining the dispersion relation for electrostatic wave is:
 
 1. Get the linear equations from governing equations.
 2. Get the relation between linearized velocity and perturbed electric field.

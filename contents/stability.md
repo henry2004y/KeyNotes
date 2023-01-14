@@ -1816,7 +1816,7 @@ However, this model has a small $\delta/L$, the rate is too small to explain the
 
 Reconnection in this model is much larger because $R\sim \delta/L$ goes up. However, this is not a self-consistent solution.
 
-In PIC simulations, the diffusion region is localized like the Petschek solution. The reason we use PIC instead of MHD is that PIC captures the key physics that breaks the frozen-in condition in nature. In the GEM challenge study, PIC, hybrid, Hall-MHD, MHD with a localized resistivity all give similar $R\sim 0.1$ fast reconnection rate in disparate systems.
+In PIC simulations, the diffusion region is localized like the Petschek solution. The reason we use PIC instead of MHD is that PIC captures the key physics that breaks the frozen-in condition in nature. In the GEM challenge study, PIC, hybrid, Hall-MHD, MHD with a localized artificial resistivity all give similar $R\sim 0.1$ fast reconnection rate in disparate systems. In terms of the pressure descriptions from the moment equations, it has been found that 6-moment cannot trigger fast reconnection while 10-moment can, which essentially indicates that the off-diagonal terms in the pressure tensor is critical in getting the right physics.
 
 One possible explanation for this $0.1$ rate comes from geometrical consideration. In the small $\delta/L$ limit, $R\sim\delta/L\sim0$. In the large $\delta/L$ limit, $\delta/L\rightarrow 1$, $R\rightarrow0$. It turns out that there should be an optimized $R_{\text{max}}$ in between. In the large $\delta/L$ limit,
 
