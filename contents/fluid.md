@@ -810,3 +810,45 @@ f(z)=\frac{1}{(z-\lambda)^2}+\frac{{\omega_{pi}}^2/{\omega_{pe}}^2}{z^2}=\frac{z
 $$
 
 We can plot $f$ to find the threshold of $k$ when the instability will happen. See Y.Y's Problem Set 6.3 for details.
+
+## Hall MHD
+
+As an extension to the ideal/resistive MHD model, Hall MHD decouples the electron and ion motions by retrieving the Hall term in the generalized Ohm's law
+
+$$
+\mathbf{E} = -\mathbf{u}\times\mathbf{B}+\eta\mathbf{J}+\frac{1}{en}\mathbf{J}\times\mathbf{B} - \frac{\nabla p_e}{ne}
+$$
+
+where the first term on the right-hand-side is the convective term, the second is the resistive term, the third is the Hall term, and the fourth is the electron pressure gradient term. The electron pressure scalar is simplified from the electron pressure tensor, which is obtained from an independent electron pressure equation.
+
+The Hall MHD equations are
+
+$$
+\begin{aligned}
+\frac{\partial\rho}{\partial t}&=-\nabla\cdot \left(\rho \mathbf{u} \right) \\
+\frac{\partial (\rho\mathbf{u})}{\partial t}&=-\nabla\cdot \left(\rho\mathbf{u}\mathbf{u}+(p+p_e)\bar{\bar{I}}+\frac{B^2}{2\mu_0}\bar{\bar{I}}-\frac{\mathbf{B}\mathbf{B}}{\mu_0} \right) \\
+\frac{\partial e}{\partial t}&=-\nabla\cdot\left[ \left(\epsilon+p\right)\mathbf{u} +(\epsilon_e + p_e)\mathbf{u}_e+\mathbf{u}_e\cdot\left(\frac{\mathbf{B}^2}{\mu_0}\bar{\bar{I}}-\frac{\mathbf{B}\mathbf{B}}{\mu_0}\right) - \mathbf{B}\times\eta\mathbf{j} \right] \\
+\frac{\partial \mathbf{B}}{\partial t} &= -\nabla\times\left[ \mathbf{u}_e \times\mathbf{B} + \eta\mathbf{j} - \frac{\nabla p_e}{ne}\right] \\
+\frac{\partial p_e}{\partial t} + \nabla\cdot \left(p_e\mathbf{u}_e \right)&=-(\gamma-1)p_e\nabla\cdot\mathbf{u}_e
+\end{aligned}
+$$ {#eq:hall_mhd}
+
+where $\bar{\bar{I}}$ is the identity matrix, $\rho$ is the mass density, $\mathbf{u}$ is the plasma bulk velocity, $\mathbf{B}$ is the magnetic field, $p_e$ is the electron pressure, $p$ is the ion thermal pressure, $\mathbf{j}=\nabla\times\mathbf{B}/\mu_0$ is the current density, $\epsilon=\rho\mathbf{u}^2/2$ is the hydrodynamic energy density, and $\epsilon_e=\rho\mathbf{u}_e^2/2$ is the electron hydrodynamic energy density. The Hall velocity is defined as
+
+$$
+\mathbf{v}_H=-\frac{\mathbf{j}}{ne}
+$$
+
+and the electron bulk velocity is given by
+
+$$
+\mathbf{u}_e = \mathbf{u} + \mathbf{v}_H
+$$
+
+The total energy density is (I may have a coefficient error here for $p_e$!)
+
+$$
+e= \frac{1}{2}\rho \mathbf{u}^2+\frac{1}{\gamma-1}(p+p_e)+\frac{\mathbf{B}^2}{2\mu_0}
+$$
+
+where $\gamma$ is the adiabatic index. Note that in Hall MHD only $(\rho,\mathbf{u},\mathbf{B},p,p_e)$ are unknowns; all others are derived quantities.
