@@ -746,30 +746,30 @@ $$
 S = 1 - \frac{\omega_{pe}^2}{\omega^2 - \Omega_e^2} - \frac{\omega_{pi}^2}{\omega^2 - \Omega_i^2} = 0
 $$ {#eq:resonance_perp_wave}
 
-The roots of this equation can be obtained as follows. First, we note that if the first two terms are equated to zero, we obtain $\omega=\omega_{\rm UH}$, where
+The roots of this equation can be obtained as follows. First, we note that if the first two terms are equated to zero, we obtain $\omega=\omega_\mathrm{UH}$, where
 
 $$
-\omega_{\rm UH} \equiv \sqrt{\omega_{pe}^2 + \Omega_e^2}
+\omega_\mathrm{UH} \equiv \sqrt{\omega_{pe}^2 + \Omega_e^2}
 $$ {#eq:upper_hybrid_freq}
 
-If this frequency is substituted into the third term, the result is far less than unity. We conclude that $\omega_{\rm UH}$ is a good approximation to one of the roots of @eq:resonance_perp_wave. To obtain the second root, we make use of the fact that the product of the square of the roots is
+If this frequency is substituted into the third term, the result is far less than unity. We conclude that $\omega_\mathrm{UH}$ is a good approximation to one of the roots of @eq:resonance_perp_wave. To obtain the second root, we make use of the fact that the product of the square of the roots is
 
 $$
 \Omega_e^2\,\Omega_i^2 + \omega_{pe}^2\,\Omega_i^2 + \omega_{pi}^2\Omega_e^2 \simeq \Omega_e^2 \Omega_i^2 + \omega_{pi}^2\,\Omega_e^2
 $$
 
-We, thus, obtain $\omega= \omega_{\rm LH}$, where
+We, thus, obtain $\omega= \omega_\mathrm{LH}$, where
 
 $$
-\omega_{\rm LH} \equiv \sqrt{\frac{\Omega_e^2\Omega_i^2 + \omega_{pi}^2\Omega_e^2}{\omega_{pe}^2 + \Omega_e^2}}
+\omega_\mathrm{LH} \equiv \sqrt{\frac{\Omega_e^2\Omega_i^2 + \omega_{pi}^2\Omega_e^2}{\omega_{pe}^2 + \Omega_e^2}}
 $$
 
-The first resonant frequency, $\omega_{\rm UH}$, is greater than the electron cyclotron or plasma frequencies, and is called the _upper hybrid frequency_. The second resonant frequency, $\omega_{\rm LH}$, lies between the electron and ion cyclotron frequencies, and is called the _lower hybrid frequency_. [@chen2016introduction] gave some nice explanations of the physical origins of these frequencies by looking at the electrostatic electron/ion waves perpendicular to ${\bf B}$. At low frequencies, the mode in question reverts to the compressional-Alfvén wave discussed previously. Note that the shear-Alfvén wave does not propagate perpendicular to the magnetic field.
+The first resonant frequency, $\omega_\mathrm{UH}$, is greater than the electron cyclotron or plasma frequencies, and is called the _upper hybrid frequency_. The second resonant frequency, $\omega_\mathrm{LH}$, lies between the electron and ion cyclotron frequencies, and is called the _lower hybrid frequency_. [@chen2016introduction] gave some nice explanations of the physical origins of these frequencies by looking at the electrostatic electron/ion waves perpendicular to $\mathbf{B}$. At low frequencies, the mode in question reverts to the compressional-Alfvén wave discussed previously. Note that the shear-Alfvén wave does not propagate perpendicular to the magnetic field.
 
 Using the above information, and the easily demonstrated fact that
 
 $$
-\omega_{\rm LH} < \omega_{L=0} < \omega_{\rm UH} < \omega_{R=0}
+\omega_\mathrm{LH} < \omega_{L=0} < \omega_\mathrm{UH} < \omega_{R=0}
 $$
 
 we can deduce that the dispersion curve for the mode in question takes the form sketched in @fig:dispersion_perp_wave. The lowest frequency branch corresponds to the compressional-Alfvén wave. The other two branches constitute the _extraordinary_, or $X$-, wave. The upper branch is basically a linearly polarized (in the $y$-direction) electromagnetic wave, somewhat modified by the presence of the plasma. This branch corresponds to a wave which propagates in the absence of an equilibrium magnetic field. The lowest branch corresponds to a wave which does not propagate in the absence of an equilibrium field. Finally, the middle branch corresponds to a wave which converts into an electrostatic plasma wave in the absence of an equilibrium magnetic field.
@@ -1223,7 +1223,7 @@ $$ {#eq:wave_nonuniform_e}
 and
 
 $$
-\frac{\mathrm{d}\,cB_x}{\mathrm{d}z} = -{\rm i}\,k_0\,n^2\,E_y
+\frac{\mathrm{d}\,cB_x}{\mathrm{d}z} = -i\,k_0\,n^2\,E_y
 $$ {#eq:wave_nonuniform_b}
 
 respectively. Here, $k_0=\omega/c$ is the wave-number in free space. Of course, the actual wave-number is $k=k_0\,n$.
@@ -1231,7 +1231,7 @@ respectively. Here, $k_0=\omega/c$ is the wave-number in free space. Of course, 
 The solution to @eq:wave_nonuniform_e for the case of a homogeneous plasma, for which $n$ is constant, is straightforward:
 
 $$
-E_y = A\,{\rm e}^{\,{\rm i}\,\phi(z)}
+E_y = A\,e^{\,i\,\phi(z)}
 $$ {#eq:wave_uniform_sol}
 
 where $A$ is a constant, and

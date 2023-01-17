@@ -632,6 +632,8 @@ We shall return to the question of the validity of the plasma approximation when
 
 Besides the Vlasov theory, we can apply the simpler but equally powerful 2-fluid model, in which electrons and ions are treated as two different fluids. Depending on the form of the pressure term, we have the 5/6/10-moment equations.
 
+### Six-moment
+
 For monatomic gases, the six-moment equations for all charged fluids (indexed by $s$) can be written as:
 
 $$
@@ -671,6 +673,92 @@ $$
 where $\rho_c = \sum_s (q_s/m_s)\rho_s$ is the total charge density and $\mathbf{j}=\sum_s(q_s/m_s)\rho_s\mathbf{u}_s$ is the current density.
 
 The last two equations are constraints on the initial conditions; these are not guaranteed to hold numerically. Classical tricks involves using hyperbolic/parabolic cleaning or a facially-collocated Yee-type mesh.
+
+### Five/Ten-moment
+
+[@wang2020exact]
+
+$$
+\begin{aligned}
+\frac{\partial(m_s n_s)}{\partial t} + \frac{\partial(m_sn_su_{j,s})}{\partial x_j} = 0 \\
+\frac{\partial(m_s n_s u_{j,s})}{\partial t} + \frac{\partial \mathcal{P}_{ij,s}}{\partial x_j} = n_s q_s (E_i + \epsilon_{ijk}u_{j,s}B_k)
+\end{aligned}
+$$
+
+where $\epsilon_{ijk}$ is the Levi-Civita symbol. The moments are defined as
+
+$$
+\begin{aligned}
+n_s(\mathbf{x}) &\equiv \int f_s \mathrm{d}\mathbf{v} \\
+u_{i,s}(\mathbf{x}) &\equiv \frac{1}{n_s(\mathbf{x})}\int v_i f_s \mathrm{d}\mathbf{v} \\
+\mathcal{P}_{ij,s}(\mathbf{x}) &\equiv m_s \int v_i v_j f_s \mathrm{d}\mathbf{v}
+\end{aligned}
+$$
+
+with $f_s(\mathbf{x},\mathbf{v},t)$ being the phase space distribution function. We will neglect the subscript $s$ hereinafter for convenience. For completeness, $\mathcal{P}_{ij}$ relates to the more familiar thermal pressure tensor
+
+$$
+P_{ij} \equiv m\int(v_i - u_i)(v_i - u_i)f\mathrm{d}\mathbf{v}
+$$
+
+by
+
+$$
+\mathcal{P}_{ij} = P_{ij} + nm u_i u_j
+$$
+
+For simplicity, non-ideal effects like viscous dissipation are neglected. The electric and magnetic fields $\mathbf{E}$ and $\mathbf{B}$ are evolved using Maxwell equations
+
+$$
+\begin{aligned}
+\frac{\partial\mathbf{B}}{\partial t} + \nabla\times\mathbf{E} = 0 \\
+\frac{\partial\mathbf{E}}{\partial t} - c^2\nabla\times\mathbf{B} = -\frac{1}{\epsilon_0}\sum_s q_s n_s \mathbf{u}_s
+\end{aligned}
+$$
+
+with $c=1/\sqrt(\mu_0\epsilon_0)$ being the speed of light.
+
+To close the system, the second order moment $\mathcal{P}_{ij}$ or $P_{ij}$ must be specified. For example, a cold fluid closure simply sets $P_{ij}=0$, while an isothermal equation of state (EOS) assumes that the temperature is constant. Or, assuming zero heat flux and that the pressure tensor is isotropic, we can write an adiabatic EOS for $P_{ij} = p I_{ij}$,
+
+$$
+\frac{\partial\mathcal{\epsilon}}{\partial t} + \nabla\cdot\left[ (p+\mathcal{\epsilon})\mathbf{u} \right] = nq\mathbf{u}\cdot\mathbf{E}
+$$
+
+where
+
+$$
+\mathcal{\epsilon} \equiv \frac{p}{\gamma-1} + \frac{1}{2}mn\mathbf{u}^2
+$$
+
+is the total fluid (thermal + kinetic) energy and $\gamma$ is the adiabatic index, setting to $5/3$ for a fully ionized plasma. For a plasma with $S$ species ($s=1,...,S$) this system is closed and has a total of $5S+6$ equations, and are here referred to as the _five-moment_ model. More general models can be obtained by retaining the evolution equations for all six components of the pressure tensor in the so-called _ten-moment_ model
+
+$$
+\frac{\mathcal{P}_{ij,s}}{\partial t} + \frac{\partial \mathcal{Q}_{ijm,s}}{\partial x_m} = n_sq_su_{i,s}E_j + \frac{q_s}{m_s}\epsilon_{iml}\mathcal{P}_{mj,s}B_l
+$$ {#eq:ten-moment}
+
+where the third moment
+
+$$
+\mathcal{Q}_{ijm,s}(\mathbf{x}) \equiv m_s\int v_i v_j v_m f_s\mathrm{d}\mathbf{v}
+$$
+
+relates to the heat flux tensor defined in the fluid frame
+
+$$
+Q_{ijm} \equiv m\int (v_i-u_i)(v_j-u_j)(v_m-u_m)\mathrm{d}\mathbf{v}
+$$
+
+by
+
+$$
+\mathcal{Q}_{ijm} = Q_{ijm} + u_i\mathcal{P}_{jm} - 2nm u_i u_j u_m
+$$
+
+Again, the equations here must be closed by some approximation for the heat-flux tensor. Another option is to include evolution equations for even higher order moments, e.g., the ten independent components of the heat-flux tensor.
+
+Theoretically, the multifluid-Maxwell equations approach the Hall magnetohydrodynamics (MHD) under asymptotic limits of vanishing electron mass ($m_e \rightarrow 0$) and infinite speed of light ($c\rightarrow\infty$). All waves and effects within the two-fluid picture are retained, for example, the light wave, electron and ion inertial effects like the ion cyclotron wave and whistler wave. Particularly, through properly devised heat-flux closures, the ten-moment model could partially capture nonlocal kinetic effects like Landau damping, in a manner similar to the gyrofluid (?) models.
+
+Although multifluid-Maxwell models provide a more complete description of the plasma than reduced, asymptotic models like MHD, they are less frequently used. The reason for this is the fast kinetic scales involved. Retaining the electron inertia adds plasma-frequency and cyclotron time-scale, while non-neutrality adds Debye length spatial-scales. Further, inclusion of the displacement currents means that EM waves must be resolved when using an explicit scheme. Fortunately, the restrictions due to kinetic scales are introduced _only through the non-hyperbolic source terms_ of the momentum equation, the Ampère's law, and the pressure equation. Therefore we may eliminate these restrictions by _updating the source term separately either exactly_ or _using an implicit algorithm_ (Note: BATSRUS applies the point-implicit scheme.). This allows larger time steps and leads to significant speedup, especially with realistic electron/ion mass ratios. The speed of light constraint still exists, however, can be greatly relaxed, using reduced values for the speed of light and/or sub-cycling Maxwell equations. Of course, an implicit Maxwell solver, or a reduced set of electromagnetic equations like the Darwin approximation (???), can also relax the time-step restrictions.
 
 ### Characteristic wave speeds
 

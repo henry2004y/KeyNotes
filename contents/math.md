@@ -361,22 +361,22 @@ $$
 In spherical coordinates $(r,\theta,\varphi)$ aligned with the dipole moment,
 
 $$
-{\bf B} = \frac{\mu_0}{4\pi} \frac{m}{r^3} (-2\cos\theta, -\sin\theta, \,0)
+\mathbf{B} = \frac{\mu_0}{4\pi} \frac{m}{r^3} (-2\cos\theta, -\sin\theta, \,0)
 $$ {#eq:dipole_spherical}
 
 It is usually convenient to work in terms of the latitude, $\vartheta = \pi/2 - \theta$, rather than the polar angle, $\theta$. An individual magnetic field-line satisfies the equation
 
 $$
-r = r_{\rm eq}\,\cos^2\vartheta
+r = r_\mathrm{eq}\,\cos^2\vartheta
 $$
 
-where $r_{\rm eq}$ is the radial distance to the field line in the equatorial plane ($\vartheta=0^\circ$). It is conventional to label field lines using the L-shell parameter, $L=r_{\rm eq}/R_E$. Here, $R_E = 6.37\times 10^6\,{\rm m}$ is the Earth's radius. Thus, the variation of the magnetic field-strength along a field line characterized by a given $L$-value is
+where $r_\mathrm{eq}$ is the radial distance to the field line in the equatorial plane ($\vartheta=0^\circ$). It is conventional to label field lines using the L-shell parameter, $L=r_\mathrm{eq}/R_E$. Here, $R_E = 6.37\times 10^6\,\mathrm{m}$ is the Earth's radius. Thus, the variation of the magnetic field-strength along a field line characterized by a given $L$-value is
 
 $$
 B = \frac{B_E}{L^3} \frac{(1+3\,\sin^2\vartheta)^{1/2}}{\cos^6\vartheta}
 $$
 
-where $B_E= \mu_0 M_E/(4\pi\, R_E^{~3}) = 3.11\times 10^{-5}\,{\rm T}$ is the equatorial magnetic field-strength on the Earth's surface.
+where $B_E= \mu_0 M_E/(4\pi\, R_E^{~3}) = 3.11\times 10^{-5}\,\mathrm{T}$ is the equatorial magnetic field-strength on the Earth's surface.
 
 In Cartesian representation,
 

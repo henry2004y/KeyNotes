@@ -877,22 +877,22 @@ $$
 Let us neglect $\mathbf{E}\times\mathbf{B}$ drift, since this motion merely gives rise to the convection of plasma within the magnetosphere, without generating a current. By contrast, there is a net current associated with grad-$B$ drift and curvature drift. In the limit in which this current does not strongly modify the ambient magnetic field (i.e., $\nabla\times\mathbf{B} \simeq {\bf0}$), which is certainly the situation in the Earth's magnetosphere, we can write
 
 $$
-({\bf b}\cdot\nabla)\,{\bf b} =-{\bf b}\times(\nabla\times {\bf b})\simeq \frac{\nabla_\perp B}{B}
+(\mathbf{B}\cdot\nabla)\,\mathbf{B} =-\mathbf{B}\times(\nabla\times \mathbf{B})\simeq \frac{\nabla_\perp B}{B}
 $$
 
 It follows that the higher order drifts can be combined to give
 
 $$
-{\bf v}_{1\perp} = \frac{(v_\perp^{~2}/2+v_\parallel^{~2})}{{\Omega}\,B}\, {\bf b}\times\nabla B
+\mathbf{v}_{1\perp} = \frac{(v_\perp^{~2}/2+v_\parallel^{~2})}{{\Omega}\,B}\, \mathbf{B}\times\nabla B
 $$
 
 For the dipole field @eq:dipole_spherical, the above expression yields
 
 $$
-{\bf v}_{1\perp} \simeq -{\rm sgn}({\Omega})\,\frac{6\,{\cal E} L^2}{eB_E R_E}(1-B/2B_m)\frac{\cos^5\vartheta(1+\sin^2\vartheta)}{(1+3\sin^2\vartheta)^2}\,\hat{\varphi}
+\mathbf{v}_{1\perp} \simeq -\mathrm{sgn}({\Omega})\,\frac{6\,\mathcal{E} L^2}{eB_E R_E}(1-B/2B_m)\frac{\cos^5\vartheta(1+\sin^2\vartheta)}{(1+3\sin^2\vartheta)^2}\,\hat{\varphi}
 $$ {#eq:high_order_drifts}
 
-where ${\cal E}$ is the energy of the particle, $B_E$ is the equatorial magnetic field-strength on the Earth's surface, and $B_m$ is the magnetic field-strength at the mirror points.
+where $\mathcal{E}$ is the energy of the particle, $B_E$ is the equatorial magnetic field-strength on the Earth's surface, and $B_m$ is the magnetic field-strength at the mirror points.
 Note that the drift is in the azimuthal direction. A positive drift velocity corresponds to eastward motion, whereas a negative velocity corresponds to westward motion. It is clear that, in addition to their gyromotion and periodic bouncing motion along field lines, charged particles trapped in the magnetosphere also slowly precess around the Earth. The ions drift westwards and the electrons drift eastwards, giving rise to a net westward current circulating around the Earth. This current is known as the _ring current_.
 
 Although the perturbations to the Earth's magnetic field induced by the ring current are small, they are still detectable. In fact, the ring current causes a slight reduction in the Earth's magnetic field in equatorial regions. The size of this reduction is a good measure of the number of charged particles contained in the Van Allen belts (@sec:radiation_belt). During the development of so-called geomagnetic storms, charged particles are injected into the Van Allen belts from the outer magnetosphere, giving rise to a sharp increase in the ring current, and a corresponding decrease in the Earth's equatorial magnetic field. These particles eventually precipitate out of the magnetosphere into the upper atmosphere at high latitudes, giving rise to intense auroral activity, serious interference in electromagnetic communications, and, in extreme cases, disruption of electric power grids. The ring current induced reduction in the Earth's magnetic field is measured by the so-called _Dst_ index, which is based on hourly averages of the northward horizontal component of the terrestrial magnetic field recorded at four low-latitude observatories; Honolulu (Hawaii), San Juan (Puerto Rico), Hermanus (South Africa), and Kakioka (Japan). A reduction in the Dst index by 600 nT corresponds to a $2\%$ reduction in the terrestrial magnetic field at the equator.
@@ -900,22 +900,22 @@ Although the perturbations to the Earth's magnetic field induced by the ring cur
 According to @eq:high_order_drifts, the precessional drift velocity of charged particles in the magnetosphere is a rapidly decreasing function of increasing latitude (i.e., most of the ring current is concentrated in the equatorial plane). Since particles typically complete many bounce orbits during a full rotation around the Earth, it is convenient to average @eq:high_order_drifts over a bounce period to obtain the _average_ drift velocity. This averaging can only be performed numerically. The final answer is well approximated by
 
 $$
-\langle v_d\rangle \simeq \frac{6\,{\cal E}\,L^2}{e\,B_E\,R_E} \,(0.35 + 0.15\,\sin\alpha_{\rm eq})
+\langle v_d\rangle \simeq \frac{6\,\mathcal{E}\,L^2}{e\,B_E\,R_E} \,(0.35 + 0.15\,\sin\alpha_\mathrm{eq})
 $$ {#eq:drift_ring_current}
 
 The average drift period (i.e., the time required to perform a complete rotation around the Earth) is simply
 
 $$
-\langle \tau_d\rangle = \frac{2\pi\,L\,R_E}{\langle v_d\rangle}\simeq\frac{\pi e B_E R_E^2}{3\,{\cal E}\,L}\,(0.35 + 0.15\,\sin\alpha_{\rm eq})^{-1}
+\langle \tau_d\rangle = \frac{2\pi\,L\,R_E}{\langle v_d\rangle}\simeq\frac{\pi e B_E R_E^2}{3\,\mathcal{E}\,L}\,(0.35 + 0.15\,\sin\alpha_\mathrm{eq})^{-1}
 $$
 
 Thus, the drift period for protons and electrons is
 
 $$
-\langle \tau_d\rangle_p=\langle \tau_d\rangle_e \simeq \frac{1.05}{{\cal E}(\text{MeV})L}\,(1+0.43\,\sin\alpha_{\rm eq})^{-1}\,\,\,{\rm hours}
+\langle \tau_d\rangle_p=\langle \tau_d\rangle_e \simeq \frac{1.05}{\mathcal{E}(\text{MeV})L}\,(1+0.43\,\sin\alpha_\mathrm{eq})^{-1}\,\,\,\mathrm{hours}
 $$
 
-Note that MeV energy electrons and ions precess around the Earth with about the same velocity, only in opposite directions, because there is no explicit mass dependence in @eq:drift_ring_current. It typically takes $\sim 20$ mins to perform a full rotation. The drift period only depends weakly on the equatorial pitch angle $\alpha_{\rm eq}$, as is the case for the bounce period. Somewhat paradoxically, the drift period is shorter on more distant $L$-shells. Note, of course, that particles only get a chance to complete a full rotation around the Earth if the inner magnetosphere remains quiescent on time-scales of order an hour, which is, by no means, always the case.
+Note that MeV energy electrons and ions precess around the Earth with about the same velocity, only in opposite directions, because there is no explicit mass dependence in @eq:drift_ring_current. It typically takes $\sim 20$ mins to perform a full rotation. The drift period only depends weakly on the equatorial pitch angle $\alpha_\mathrm{eq}$, as is the case for the bounce period. Somewhat paradoxically, the drift period is shorter on more distant $L$-shells. Note, of course, that particles only get a chance to complete a full rotation around the Earth if the inner magnetosphere remains quiescent on time-scales of order an hour, which is, by no means, always the case.
 
 Note, finally, that, since the rest mass of an electron is $0.51$ MeV, most of the above formulae require relativistic correction when applied to MeV energy electrons. Fortunately, however, there is no such problem for protons, whose rest mass energy is $0.94$ GeV.
 
@@ -932,10 +932,10 @@ in collisionless reconnection: _Fermi acceleration_ which takes place as particl
 magnetic field lines, relatively _localized electric fields_ $E_\parallel$ parallel to the magnetic field directly accelerate particles, and _betatron heating_ which occurs as particles drift into regions of stronger magnetic field while conserving the first adiabatic moment $\mu=mv_\perp^2/B$. These mechanisms are described by guiding center equations of motion for the particles, and the energization rate in the non-relativistic limit is given approximately by the following equation:
 
 $$
-\frac{\mathrm{d}{\cal E}}{dt} = qE_\parallel v_\parallel + \mu\frac{\mathrm{d}B}{\mathrm{d}t} + q\mathbf{E}\cdot\mathbf{u}_c + \frac{1}{2}m\frac{\mathrm{d}}{\mathrm{d}t}|\mathbf{u}_E|^2
+\frac{\mathrm{d}\mathcal{E}}{dt} = qE_\parallel v_\parallel + \mu\frac{\mathrm{d}B}{\mathrm{d}t} + q\mathbf{E}\cdot\mathbf{u}_c + \frac{1}{2}m\frac{\mathrm{d}}{\mathrm{d}t}|\mathbf{u}_E|^2
 $$ {#eq:particle_energization_nonrelativistic}
 
-where ${cal E}$ is the energy of a particle, $\mathbf{u}_E$ is the $\mathbf{E}\times\mathbf{B}$ drift velocity, $\frac{\mathrm{d}}{\mathrm{d}t}=\frac{\partial}{\partial t} + \mathbf{u}_E\cdot\nabla$, $E_\parallel$ is the parallel electric field, and $v_\parallel$ is the drift-corrected guiding center parallel velocity. For slowly varying fields, $\mathbf{u}_c$ is the curvature drift of particles and reduces to $\mathbf{u}_c \sim(mv_\parallel^2/qB)(\hat{b}\times\pmb{\kappa})$, where $\pmb{\kappa}=\hat{b}\cdot\nabla\hat{b}$ is the magnetic field curvature and $\hat{b}$ is the unit vector in the direction of ${\bf B}$. The terms on the right-hand side represent energy gain by the parallel electric field, betatron heating, Fermi acceleration, and the polarization drift respectively. The first three mechanisms are sketched in @fig:particle_acceleration_reconnection. The polarization drift is particularly important for lower-energy ions, and this terms accounts for the kinetic ennergy gain in the large-scale reconnection outflow jets. Although @eq:particle_energization_nonrelativistic is valid in the non-relativistic limit, the same basic acceleration mechanisms are responsible for energizing particles in more extreme relativistic contexts relevant to astrophysical systems.
+where ${cal E}$ is the energy of a particle, $\mathbf{u}_E$ is the $\mathbf{E}\times\mathbf{B}$ drift velocity, $\frac{\mathrm{d}}{\mathrm{d}t}=\frac{\partial}{\partial t} + \mathbf{u}_E\cdot\nabla$, $E_\parallel$ is the parallel electric field, and $v_\parallel$ is the drift-corrected guiding center parallel velocity. For slowly varying fields, $\mathbf{u}_c$ is the curvature drift of particles and reduces to $\mathbf{u}_c \sim(mv_\parallel^2/qB)(\hat{b}\times\pmb{\kappa})$, where $\pmb{\kappa}=\hat{b}\cdot\nabla\hat{b}$ is the magnetic field curvature and $\hat{b}$ is the unit vector in the direction of $\mathbf{B}$. The terms on the right-hand side represent energy gain by the parallel electric field, betatron heating, Fermi acceleration, and the polarization drift respectively. The first three mechanisms are sketched in @fig:particle_acceleration_reconnection. The polarization drift is particularly important for lower-energy ions, and this terms accounts for the kinetic ennergy gain in the large-scale reconnection outflow jets. Although @eq:particle_energization_nonrelativistic is valid in the non-relativistic limit, the same basic acceleration mechanisms are responsible for energizing particles in more extreme relativistic contexts relevant to astrophysical systems.
 
 ![Illustration of particle acceleration mechanisms. The reconnection electric field is along the $y$ direction.
 Acceleration by the reconnection electric field occurs near the X-line, which is associated with the Speiser orbit, and by parallel electric field near separatrices, which are boundaries between upstream (before-reconnection) and downstream
@@ -945,7 +945,7 @@ accelerated along the (opposite) direction of the field, and the direct accelera
 Particles gain energy when their drift induced by the curvature of the magnetic field lines is aligned with the reconnection
 electric field, which is a form of Fermi heating. Fermi acceleration may resolve two major challenges for heating models. First, it may operate over large volumes in the presence of many magnetic islands or plasmoids, which may be
 sampled by electrons in the presence of 3D ergodic field lines. There are several space observations of energetic electrons
-near magnetic islands or plasmoids. Second, the Fermi process naturally generates power laws because a particle undergoing Fermi acceleration gains energy at a rate proportional to its energy, $\delta{\cal E}\propto {\cal E}$. In the non-relativistic limit, adiabatic particle  energization by Fermi acceleration along with the other heating mechanisms for magnetized particles leads to a Parker-like transport equation for the distribution $f(v_\parallel, v_\perp)$ of particles within a magnetic flux tube including time-varying plasma density $n$ and magnetic field $\mathbf{B}$:
+near magnetic islands or plasmoids. Second, the Fermi process naturally generates power laws because a particle undergoing Fermi acceleration gains energy at a rate proportional to its energy, $\delta\mathcal{E}\propto \mathcal{E}$. In the non-relativistic limit, adiabatic particle  energization by Fermi acceleration along with the other heating mechanisms for magnetized particles leads to a Parker-like transport equation for the distribution $f(v_\parallel, v_\perp)$ of particles within a magnetic flux tube including time-varying plasma density $n$ and magnetic field $\mathbf{B}$:
 
 $$
 \frac{\partial f}{\partial t} + \frac{\dot{B}}{B}v_\perp^2\frac{\partial f}{\partial v_\perp^2} + \left( \frac{\dot{n}}{n} - \frac{\dot{B}}{B} \right)v_\parallel\frac{\partial f}{\partial v_\parallel} = \frac{D\{ f \}}{\tau_\text{diff}} - \frac{f}{\tau_\text{esc}} + \frac{f_\text{inj}}{\tau_\text{inj}}

@@ -1654,7 +1654,7 @@ The tearing mode is unstable whenever ${\Delta}'>0$, and grows on the hybrid tim
 There are several key elements for understanding the physics of reconnection at a deeper level [@ji2022magnetic]. First, the frozen-in properties in an electron-ion plasma are associated with the electron fluid due to its light weight. This is expressed in terms of the time changing rate of magnetic flux (@eq:magnetic_flux) through an arbitrary area, $\mathbf{S}$ (enclosed by loop $l$), convecting with the electron flow as $\mathrm{d}\Phi/\mathrm{d}t = \oint(\mathbf{E}+\mathbf{u}_e\times\mathbf{B})\cdot\mathrm{d}l = 0$. Thus, the frozen-in condition is regulated by the electron momentum equation (i.e. the generalized Ohm's law)
 
 $$
-\underbrace{{\bf E} + \mathbf{V}_e\times{\bf B}}_{\text{Ideal}} = \underbrace{\mathbf{R}_\text{col}}_{\text{Collisional}} - \underbrace{\frac{\nabla\cdot\mathbf{P}_e}{en} - \frac{m_e}{e}\frac{\mathrm{d}\mathbf{u}_e}{\mathrm{d}t}}_{\text{Kinetic}}
+\underbrace{\mathbf{E} + \mathbf{V}_e\times\mathbf{B}}_{\text{Ideal}} = \underbrace{\mathbf{R}_\text{col}}_{\text{Collisional}} - \underbrace{\frac{\nabla\cdot\mathbf{P}_e}{en} - \frac{m_e}{e}\frac{\mathrm{d}\mathbf{u}_e}{\mathrm{d}t}}_{\text{Kinetic}}
 $$ {#eq:ohms_law_reconnection}
 
 where $\mathbf{R}_\text{col}$ is the collisional force per electron charge. In a fully ionized collisional plasma, $\mathbf{R}_\text{col}\approx \eta\mathbf{j}$ where $\eta$ is the resistivity due to Coulomb collisions. If the terms on the right-hand side of @eq:ohms_law_reconnection are negligible, then $\mathrm{d}\Phi/\mathrm{d}t \approx 0$ and the magnetic flux is "frozen-in" to the electron flow. For the generic reconnection layer illustrated in the middle panel of @fig:reconnection_configurations, deviations from ideal evolution occur within the "diffusion region" (blue), where either finite resistivity or kinetic effects (electron inertia and pressure tensor) are important. Within the diffusion region, field lines converging from opposite sides of the layer can change connectivity.
@@ -1663,7 +1663,7 @@ where $\mathbf{R}_\text{col}$ is the collisional force per electron charge. In a
 
 The next key element for understanding the physics of magnetic reconnection is to grasp the remarkable global consequences
 of changing field line connectivity within a localized region. In particular, the newly reconnected field lines have a large
-curvature ${\bf B}\cdot\nabla{\bf B}$ which produces a tension force --- closely analogous to a stretched rubber band.  Allowing for the possibility of pressure anisotropy, the MHD momentum equation perpendicular to magnetic field is
+curvature $\mathbf{B}\cdot\nabla\mathbf{B}$ which produces a tension force --- closely analogous to a stretched rubber band.  Allowing for the possibility of pressure anisotropy, the MHD momentum equation perpendicular to magnetic field is
 
 $$
 \rho\frac{\mathrm{d}\mathbf{u}_\perp}{\mathrm{d}t} = -\nabla_\perp\left( p_\perp + \frac{B^2}{2\mu_0}\right) + \left( 1+\frac{p_\perp - p_\parallel}{B^2/\mu_0}\right)\mathbf{B}\cdot\nabla\mathbf{B} - \mathbf{F}_{\text{col}\perp}

@@ -2,13 +2,13 @@
 
 The _solar wind_ is a high-speed particle stream continuously blown out from the Sun into interplanetary space. It extends far beyond the orbit of the Earth, and terminates in a shock front, called the heliopause, where it interfaces with the weakly ionized interstellar medium. The heliopause is predicted to lie between 110 and 160 AU (1 Astronomical Unit is $1.5\times 10^{11}$m) from the center of the Sun. Voyager 1 & 2, which were launched in 1977, have passed through the heliopause, and are still functional!
 
-In the vicinity of the Earth, (i.e., at about 1 AU from the Sun) the solar wind velocity typically ranges between 300 and 1400 ${\rm km}\,{\rm s}^{-1}$. The average value is approximately $500\,{\rm km}\,{\rm s}^{-1}$, which corresponds to about a 4 day time of flight from the Sun. Note that the solar wind is both _super-sonic_ and _super-Alfvénic_.
+In the vicinity of the Earth, (i.e., at about 1 AU from the Sun) the solar wind velocity typically ranges between 300 and 1400 $\mathrm{km}\,\mathrm{s}^{-1}$. The average value is approximately $500\,\mathrm{km}\,\mathrm{s}^{-1}$, which corresponds to about a 4 day time of flight from the Sun. Note that the solar wind is both _super-sonic_ and _super-Alfvénic_.
 
 The solar wind is predominately composed of protons and electrons.
 
 Amazingly enough, the solar wind was predicted theoretically by Eugine Parker in 1958, a number of years before its existence was confirmed using satellite data. Parker's prediction of a super-sonic outflow of gas from the Sun is a fascinating scientific detective story, as well as a wonderful application of plasma physics.
 
-The solar wind originates from the solar corona. The solar corona is a hot, tenuous plasma surrounding the Sun, with characteristic temperatures and particle densities of about $10^6$K and $10^{14}\,{\rm m}^{-3}$, respectively. Note that the corona is _far hotter_ than the solar atmosphere, or photosphere. In fact, the temperature of the photosphere is only about 6000 K. It is thought that the corona is heated by Alfvén waves emanating from the photosphere together with a turbulent cascading process. The solar corona is most easily observed during a total solar eclipse, when it is visible as a white filamentary region immediately surrounding the Sun.
+The solar wind originates from the solar corona. The solar corona is a hot, tenuous plasma surrounding the Sun, with characteristic temperatures and particle densities of about $10^6$K and $10^{14}\,\mathrm{m}^{-3}$, respectively. Note that the corona is _far hotter_ than the solar atmosphere, or photosphere. In fact, the temperature of the photosphere is only about 6000 K. It is thought that the corona is heated by Alfvén waves emanating from the photosphere together with a turbulent cascading process. The solar corona is most easily observed during a total solar eclipse, when it is visible as a white filamentary region immediately surrounding the Sun.
 
 Let us start, following Chapman, by attempting to construct a model for a static solar corona. The equation of hydrostatic equilibrium for the corona takes the form
 
@@ -16,7 +16,7 @@ $$
 \frac{\mathrm{d}p}{\mathrm{d}r} = - \rho\,\frac{G\,M_\odot}{r^2}
 $$ {#eq:corona_static}
 
-where $G= 6.67\times 10^{-11}\,{\rm m}^{3}\,{\rm s}^{-2}\,{\rm kg}^{-1}$ is the gravitational constant, and $M_\odot=2\times 10^{30}\,{\rm kg}$ is the solar mass. The plasma density is written
+where $G= 6.67\times 10^{-11}\,\mathrm{m}^{3}\,\mathrm{s}^{-2}\,\mathrm{kg}^{-1}$ is the gravitational constant, and $M_\odot=2\times 10^{30}\,\mathrm{kg}$ is the solar mass. The plasma density is written
 
 $$
 \rho\simeq n\,m_p
@@ -58,7 +58,7 @@ $$
 T(r) = T(a)\left(\frac{a}{r}\right)^{2/7}
 $$ {#eq:corona_T_static}
 
-The reference level $r=a$ is conveniently taken to be the base of the corona, where $a\sim 7\times 10^5\,{\rm km}$, $n\sim 2\times 10^{14}\,{\rm m}^{-3}$, and $T\sim 2\times 10^{6}$K.
+The reference level $r=a$ is conveniently taken to be the base of the corona, where $a\sim 7\times 10^5\,\mathrm{km}$, $n\sim 2\times 10^{14}\,\mathrm{m}^{-3}$, and $T\sim 2\times 10^{6}$K.
 
 @eq:corona_static, @eq:corona_mass_density, @eq:corona_pressure_constT, and @eq:corona_T_static can be combined and integrated to give
 
