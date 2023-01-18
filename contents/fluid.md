@@ -334,7 +334,7 @@ $$
 $-\nabla\cdot\mathbf{P} = \nabla p$. A plasma could have two temperatures $T_\perp$ and $T_\parallel$ in the presence of a magnetic field. In that case, there would be two pressures $T_\perp$ and $T_\parallel$ in the presence of a magnetic field. In that case, there would be two pressure $p_\perp = nk_B T_\perp$ and $p_\parallel = nk_B T_\parallel$. The stress tensor is then
 
 $$
-\mathbf{P} = \begin{pmatrix}p_\perp & 0 & 0 \\ 0 & p_\perp & 0 \\ 0 & - & p_\parallel\end{pmatrix}
+\mathbf{P} = \begin{pmatrix}p_\perp & 0 & 0 \\ 0 & p_\perp & 0 \\ 0 & 0 & p_\parallel\end{pmatrix}
 $$
 
 where the coordinate of the third row or column is the direction of $\mathbf{B}$. This is still diagonal and shows isotropy in a plane perpendicular to $\mathbf{B}$.
