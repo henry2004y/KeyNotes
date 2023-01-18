@@ -1699,6 +1699,30 @@ As the perpendicular wavelength of Alfvén wave becomes comparable to the ion gy
 
 In the direction parallel to the magnetic field ($\hat{z}$), $B_y$ reverses but $E_x$ remains its sign. This feature is related to the _superposition_ of two KAW mode waves that propagate in the opposite direction and outward from the reconnection region. In the perpendicular direction, the Hall fields appears to exist only for one wavelength along $\hat{x}$. This is related to the eigenmode (standing mode) structure of KAW in the current layer.
 
+In the literature, the Hall electric field is usually considered to arise from the $\mathbf{j}\times\mathbf{B}/n_e q$ term in the context of the generalized Ohm’s law @eq:genearlized_ohm_law. The Hall term starts to become important at the ion inertial scale, contributing to the Hall electric field. Interestingly, the $\mathbf{j}\times\mathbf{B}$ also represents a major force term in the one-fluid MHD momentum equation. The $\mathbf{j}\times\mathbf{B}$ force could be important on the large MHD-scale and the argument for the origin of Hall electric field becomes ambiguous; from the MHD momentum equation, $\mathbf{j}\times\mathbf{B}$ term is equivalent to the ion inertial effect, ion pressure effect and the electron pressure effect:
+
+$$
+\rho\frac{{d\mathbf{u}}}{dt}+\nabla\cdot(\overleftrightarrow{P}_i+\overleftrightarrow{P}_e)=\mathbf{J}\times\mathbf{B}
+$$ {#eq:mhd_momentum_JxB}
+
+which is derived from the sum of the two-fluid momentum equations multiplied by the mass of each species. The one-fluid MHD momentum equation @eq:mhd_momentum_JxB together with the general Ohm’s law is nearly equivalent (with some extent of reduction?) to the two-fluid momentum for two species. The Hall electric field is equivalently described by either set of equations.
+
+From the ion momentum equation
+
+$$
+\mathbf{E} + \mathbf{u}_i\times\mathbf{B} = \frac{1}{n_i q_i}\nabla\cdot\overleftrightarrow{P}_i + \frac{m_i}{q_i}\frac{\mathrm{d}\mathbf{v}_i}{\mathrm{d}t}
+$$ {#eq:ion_momentum_E}
+
+The perpendicular component of the non-ideal electric field $\mathbf{E} + \mathbf{u}_i\times\mathbf{B}$ is the Hall electric field at the ion kinetic scale; as seen on the RHS, two sources of Hall electric fields are the ion inertial term and the ion pressure gradient. From the KAW perspective, the Hall electric field is supported by the ion pressure gradient. In the regime of the temporal and spatial scale of KAW, the ion inertial term is small and on the order of $\mathcal{O}(\omega^2/\Omega_i^2)$.
+
+If the ion inertial term is neglected, @eq:ion_momentum_E becomes
+
+$$
+\mathbf{E} + \mathbf{u}_i\times\mathbf{B} = \frac{1}{n_i q_i}\nabla\cdot\overleftrightarrow{P}_i
+$$
+
+The $\mathbf{u}_i\times\mathbf{B}$ term is kept since the ion flow may not be neglected near the X-line.
+
 ### Kinetic Signatures of Diffusion Region
 
 (The following part is from [Kinetic signatures of the region surrounding the X-line in asymmetric (magnetopause) reconnection] and [Fluid and kinetics signatures of reconnection at the dawn tail magnetopause-Wind observations].)
