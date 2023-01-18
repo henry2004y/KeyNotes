@@ -644,38 +644,7 @@ $$
 
 This is the whistler wave, with group velocity $v_g=\partial\omega/\partial k\propto\sqrt{\omega}$. It means that high frequency waves transpose energy faster than low frequency waves. In other words, one will hear high frequency components earlier than low frequency components, creating a "whistler effect". This was discovered during the first world war, and the theoretical explanation came out in the 1950s. Also note that since whistler wave travels along the field line, in near-Earth space we have signals traveling from the south hemisphere to the north hemisphere within this frequency regime. [Here](https://en.wikipedia.org/wiki/Whistler_(radio)) is an observation example from Palmer station, Antarctica. For $\omega\ll\omega_{ci}$, Alfvén wave is recovered.
 
-![Whistler wave.](https://s8.gifyu.com/images/whistler.gif){#fig:whistler_wave}
-
-Another way to derive the whistler mode dispersion relation, which is probably easier, is to include the Hall term from the generalized Ohm's law:
-
-$$
-\mathbf{E} = -\mathbf{U}\times\mathbf{B} + \frac{1}{ne}\mathbf{J}\times\mathbf{B}
-$$
-
-Using Ampère’s law and retaining only the Hall term leads to the equation
-
-$$
-\dot{\mathbf{B}} = -\frac{1}{\mu_0 ne}\nabla\times[(\nabla\times\mathbf{B})\times\mathbf{B}]
-$$
-
-Performing linearization and assuming that the magnetic field is parallel to the z axis and its perturbation is only in x and y, the last equation becomes
-
-$$
-\begin{aligned}
-\omega B_{1x} &= -i\frac{k_z^2 B_0}{\mu_0 ne} B_{1y} \\
-\omega B_{1y} &=  i\frac{k_z^2 B_0}{\mu_0 ne} B_{1x}
-\end{aligned}
-$$
-
-which easily yields
-
-$$
-\omega = \frac{B_0}{\mu_0 ne} k_z^2
-$$
-
-Whistler mode is excited by the electron temperature anisotropy (???).
-
-The dispersion property of whistler waves makes it a problem for hybrid simulations (@sec:finite_e_mass).
+See more in @sec:whistler.
 
 The L-wave corresponds to ion. When $\omega<\omega_{ci}$,
 
@@ -1138,6 +1107,8 @@ We consider a KAW with a wave vector $\mathbf{k}$ in the XZ-plane, same as in th
 Electrons are still frozen-in in the presence of the wave field. The difference in the ion and electron motion in the perpendicular direction introduces charge separation and coupling to the electrostatic mode. Because the wave electric field $E_x$ is mainly parallel to the $\mathbf{k}$, $\nabla\times\mathbf{E}=i\mathbf{k}\times\mathbf{E}$ is small and $\nabla\cdot\mathbf{E}=i\mathbf{k}\cdot\mathbf{E}$ is relatively large for KAW. Accordingly, the perpendicular wave electric field $E_x$ is mostly electrostatic in KAW.
 * Because of charge separation in KAW, electrons need to move along the magnetic field to preserve the charge neutrality. Associated with the parallel motion of electron, a small wave electric field $E_\parallel$ is established, the existence of which is a distinct feature of KAW. The parallel motion of electrons creates a field-aligned current $j_\parallel$ of KAW. From Ampère's law $i\mathbf{k}\times\mathbf{B}_1=\mu_0 \mathbf{j}$, the field-aligned current $\mathbf{j}_z$ produces a wave magnetic field $\mathbf{B}_{1y}$. As a result, KAW is in fact an EM wave. The ratio of the wave electric field to the wave magnetic field is $V_A\sqrt{1+k_x^2 r_{iL}^2}$ (Stasiewicz et al. 2000). The kinetic correction $k_x^2 r_{iL}^2$ introduces a deviation of the ratio $E_x/B_y$ from one $V_A$ as in the SAWs.
 
+In principle, the KAW eigenmode solution can be obtained from the linearized two-fluid equations (Dai 2009).
+
 While SAW satisfy $\omega=k_\parallel v_A$, the dispersion relation of KAW can be written as (Johnson & Cheng, 1997)
 
 $$
@@ -1179,7 +1150,7 @@ It would be very intuitive to compare animations between [MHD Alfvén waves](htt
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7RB_kD9aSqo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Almost half a century after the discovery of KAW, [@chen2021physics] demonstrated that the proper treatment of this wave requires gyrokinetics (@sec:gyrokinetics).
+Almost half a century after the discovery of KAW, [@chen2021physics] demonstrated that the proper treatment of this wave requires gyrokinetics (@sec:gyrokinetics). However, under some circumstances ($\beta\gg 1$?) the two-fluid theory can recover most if not all of the KAW physics. I need to go over the derivations!
 
 ## Particle Motions
 
@@ -1764,3 +1735,39 @@ $$
 
 The co-centric deformation of the distribution function achieves a quasi-linear equilibrium in that the velocity–space
 gradient becomes zero (plateau formation) in the pitch angle directions. For example, in the solar wind ions are found to be resonating with obliquely propagating Alfvén/ion cyclotron waves. Note that the relevant phase speed is $\omega/k_\parallel$, and is different from the true phase speed $\omega/k$. The perpendicular component of the wavevector $k_\perp$ does not play a role in pitch angle scattering.
+
+## Whistler Wave {#sec:whistler}
+
+Whistler waves are a type of electron-scale plasma waves that contribute to electron scattering, acceleration, and energy transport. They are excited by the electron temperature anisotropy ($T_{e\perp}/T_{e\parallel}>1$ ???) and shape the electron velocity distribution function through wave-particle interactions. (Ren+ 2020) Therefore, properties of whistler waves relate closely to electron-scale physics in magnetic reconnection. According to (Zhao 2017), the whistler wave can be described by _electron magnetohydrodynamics (EMHD?)_ on timescales of $2\pi/\Omega_{ce}<t<2\pi/\Omega{LH}$ and spatial scales of $L<\lambda_i$, where the ions are assumed as a motionless neutralizing background. When magnetic field lines are fully frozen into the electron fluid, the whistler wave follows the dispersion relation $\omega=\Omega_{ce}\lamda_e^2 k^2\cos\theta$. The dispersion relation becomes $\omega=\Omega_{ce}\lambda_e^2 k^2\cos\theta/(1+\lambda_e^2 k^2)$ as the electron inertia is contained in Ohm's law. Zhao further extended the model by taking the electron thermal pressure and the displacement current into the EMHD model.
+
+We first see the derivations of whistler wave dispersion relation in @sec:CPDR at the low frequency MHD limit.
+Another way to derive the whistler mode dispersion relation, which is probably easier, is to include the Hall term from the generalized Ohm's law:
+
+$$
+\mathbf{E} = -\mathbf{U}\times\mathbf{B} + \frac{1}{ne}\mathbf{J}\times\mathbf{B}
+$$
+
+Using Ampère’s law and retaining only the Hall term leads to the equation
+
+$$
+\dot{\mathbf{B}} = -\frac{1}{\mu_0 ne}\nabla\times[(\nabla\times\mathbf{B})\times\mathbf{B}]
+$$
+
+Performing linearization and assuming that the magnetic field is parallel to the z-axis and its perturbation is only in x and y, the last equation becomes
+
+$$
+\begin{aligned}
+\omega B_{1x} &= -i\frac{k_z^2 B_0}{\mu_0 ne} B_{1y} \\
+\omega B_{1y} &=  i\frac{k_z^2 B_0}{\mu_0 ne} B_{1x}
+\end{aligned}
+$$
+
+which easily yields
+
+$$
+\omega = \frac{B_0}{\mu_0 ne} k_z^2
+$$
+
+The dispersion property of whistler waves makes it a problem for hybrid simulations (@sec:finite_e_mass).
+
+![Whistler wave.](https://s8.gifyu.com/images/whistler.gif){#fig:whistler_wave}
