@@ -98,4 +98,13 @@ The formation of ion/electron foreshocks requires counter-streaming of ions and 
 
 ### Jets
 
-Think of jets as raindrops in the magnetosheath falling on the magnetopause.
+Magnetosheath jets are regions of high dynamic pressure. Think of jets as raindrops in the magnetosheath falling on the magnetopause. They are widely associated with the quasi-parallel magnetosheath, suggesting that their origin is tied to the interactions between the foreshock and the bow shock.
+
+The formation of magnetosheath jets may be related to both external and internal drivings.
+
+* External
+  * Solar wind pressure pulses
+  * Rotational discontinuities
+* Internal
+  * Local ripples from foreshock turbulence could lead to the refraction and funneling of plasma.
+  * Short large-amplitude magnetic structures (SLAMS), which are steepened foreshock fluctuations in a short time-scale but large spatial scale.
