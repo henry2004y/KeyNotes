@@ -26,7 +26,7 @@ $$ {#eq:mean_free_path_collision}
 After traveling a distance $\lambda_m$, a particle will have had a good probability of making a collision. The mean time between collisions, for particles of velocity $v$, is given by
 
 $$
-\tau = lambda_m/v
+\tau = \lambda_m/v
 $$
 
 and the mean frequency of collisions is
@@ -437,7 +437,7 @@ $$
 \Delta(mv) = |FT| \approx \frac{e^2}{4\pi\epsilon_0r_0v}
 $$
 
-We wish to estimate the cross section for large-angle collisions, in which $\chi \ge 90^o$. For a $9^o0$ collision, the change in $mv$ is of the order of $mv$ itself. Thus
+We wish to estimate the cross section for large-angle collisions, in which $\chi \ge 90^o$. For a $90^o$ collision, the change in $mv$ is of the order of $mv$ itself. Thus
 
 $$
 \Delta(mv) \simeq mv \simeq e^2/4\pi\epsilon_0r_0v,\quad r_0 = e^2/4\pi\epsilon_0 mv^2
