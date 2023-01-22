@@ -46,21 +46,78 @@ The auroral breakup occurs in the region of upward field-aligned current, at the
 
 The inertia of the plasma flowing in from the tail with high speed will carry it into a region where the ambient, mainly magnetic, pressure is higher than the pressure in the injected plasma. As the inflow continues the pressure increases, and the injected plasma will start to expand towards the evening and morning side of the magnetosphere. This happens somewhat further from Earth where the ambient magnetic pressure is lower, on field lines that reach the ionosphere poleward of the initial breakup. The azimuthal plasma flows associated with this expansion cause the discrete arcs that form poleward of the breakup.
 
+### Knight relation
+
+By studying the adiabatic motion of electrons in a parallel electric field, Knight [1973] derived a formula for the auroral current-voltage (C-V) relation. Analyzing data from sounding rockets, Lyons et al. [1979] found that the energy flux of pre-
+cipitating electrons was proportional to the square of the potential drop. Soon after, it was noticed that for the parameters of interest in the upward current region, Knight’s relation could be approximated by [Fridman and Lemaire, 1980]
+
+$$
+j_{z} \approx -K \Delta\phi
+$$ {#eq:knight_relation}
+
+where $j_z$ is the field-aligned current density below the potential drop and $\Delta\phi$ is the potential difference between the ionosphere and the equatorial magnetosphere. The constant $K$, known as the Lyons-Evans-Lundin constant, is given by
+
+$$
+K=\frac{n_{G}e^2}{\sqrt{2\pi m T_G}}
+$$
+
+where $N_G$ and $T_G$ are the density and temperature of electrons in the equatorial generator region. Notice that since $N_G$ and $T_G$ may vary in space and time, the term "constant" in this context means "independent of $\phi$". The linear C-V relation @eq:knight_relation has since been adopted as a part of theoretical and numerical models. However, there are observations both support and against this relation.
+
+Using a fluid description of the plasma, Rönnmark [1999] showed that within a purely electrostatic quasineutral model
+the potential drop should be proportional to the square of the upward field-aligned current
+
+$$
+\Delta \phi = \frac{m_e}{2e^3}\frac{j_z^3}{n^2}
+$$ {#eq:phi_jpar_electrostatic}
+
+where $n$ is the density in the acceleration region above the ionosphere.
+
+### Current circuit
+
 The current circuit connected with a discrete auroral arc is shown in @fig:discrete_auroral_arc_current. Comparing with @fig:substorm we see that the flows have been rotated from radial to azimuthal. The length scales are also different, since the auroral electrojet is hundreds of kilometers long and the ionospheric current in @fig:discrete_auroral_arc_current which runs across an auroral arc is at most a few km. Still the physics is very similar. When pointing out some details, we will here use the geometry shown in @fig:discrete_auroral_arc_current.
 
-![Geometry of the current circuit in a discrete auroral arc.](images/current_discrete_auroral_arc.jpg){#fig:discrete_auroral_arc_current}
+![Geometry of the auroral current circuit and the generator region in the equatorial magnetosphere.](images/current_discrete_auroral_arc.png){#fig:discrete_auroral_arc_current}
 
-Pressure forces in the equatorial plane try to establish a strong velocity shear $\partial_x u_y$, which implies a strong $\partial_x E_x$ in @fig:discrete_auroral_arc_current. ??? Recalling eq:ionosphere_potential_derivation we find that the gradient of the ionospheric electric field is determined by the field-aligned current as
+Let us assume that the auroral flux tube, extending from the ionosphere to the equatorial plane, can be separated into three parts.
+
+1. At low altitudes we have the collision dominated ionosphere, where field-aligned currents are connected to horizontal currents.
+2. The magnetospheric plasma above the ionosphere is collisionless. In a stationary state, and in the absence of collisions, the magnetic moment $\mu$ and the total energy $H$ are conserved along the phase-space trajectory of a particle.
+These assumptions imply that there are no currents perpendicular to the magnetic field lines (???), and the field-aligned current in a flux tube is conserved in the second, main, part of the flux tube.
+3. The third part is the equatorial generator region. Perpendicular currents are in the generator region driven by
+kinetic and dynamic pressure gradients, and the divergence of these perpendicular currents is diverted to field-aligned
+currents. In the real magnetosphere the boundaries between these parts may be rather diffuse, and the generator region
+may extend far from the equatorial plane.
+
+For simplicity we assume that the main part of an auroral flux tube is separated from the ionosphere and the generator region by well-defined boundaries. Because of quasineutrality, the density of the light and mobile electrons is determined by the ion density. The ion density will remain approximately constant during transitions between different stationary states. Such transitions, for example increases of the field-aligned current, are accomplished by shear Alfvén waves propagating up and down the field lines. The time variation of $E_\perp$ associated with these Alfvén waves will cause an _ion polarization current_ $j_\perp$ given by
+
+$$
+k_\perp = \frac{n_i m_i}{B^2}\frac{\partial E_\perp}{\partial t}
+$$
+
+Combining this with the ion continuity equation
+
+$$
+e\frac{\partial n_i}{\partial t} \approx -\partial_\perp j_\perp = \frac{n_i m_i}{B^2}\frac{\partial \partial_\perp E_\perp}{\partial t}
+$$
+
+we can integrate to find the density change $\Delta n_i$ during the growth of $E_\perp$. Let $L_\perp$ be the thickness of the current sheet that $j_\perp$ connects to. Choosing $E_\perp=0.1\,\mathrm{V}/\mathrm{m}$ and $B=10\,\mu\mathrm{T}$ as typical values for the auroral acceleration region we find
+
+$$
+\bigg\lvert \frac{\Delta n_i}{n_i} \bigg\rvert \sim \frac{m_i}{eB^2}|\partial_\perp E_\perp| \sim \frac{10\,\mathrm{m}}{L_\perp}
+$$
+
+Clearly, this process can increase the plasma density significantly only within extremely thin current sheets. On the other hand, if the current sheet has a thickness of a few hundred meters or more, the density will remain almost constant. Hence, it seems reasonable to consider the plasma density in the main part of the flux tube as fixed when the current and voltage vary.
+
+In a state of steady field-aligned current the contribution to the current by ions of mass $m_i$ is about a factor $\sqrt{m_e/m_i}$ smaller than the contribution by electrons of mass $m_e$. If we as a first approximation consider this ratio as fixed, the ion and electron currents are separately conserved. In the main part of the flux tube, where the current is purely field-aligned, the plasma density will then be unaffected by the presence of a steady current. However, altitude variations in
+plasma properties such as ion composition and electron and ion temperatures may cause variations in the ratio between ion and electron current, and this will cause slow decreases or increases of the plasma density.
+
+Pressure forces in the equatorial plane try to establish a strong velocity shear $\partial_x u_y$, which implies a strong $\partial_x E_x$ in @fig:discrete_auroral_arc_current ($\mathbf{E} = -\mathbf{u}\times\mathbf{B}$). Recalling eq:ionosphere_potential_derivation we find that the gradient of the ionospheric electric field is determined by the field-aligned current as
 
 $$
 \frac{\partial E_x}{\partial x} = \frac{j_z}{\Sigma_P}
 $$
 
-As long as there is no potential drop along the field lines, the magnetospheric and ionospheric electric fields are simply related, and the mapping of a strong velocity shera in the equatorial plane to the ionosphere demands a strong field-aligned current. However, a strong current through the auroral cavity means that the electrons must be accelerated by a potential drop ???
-
-$$
-\Delta \phi = \frac{m_e}{2e^3}\frac{j_z^3}{n^2}
-$$
+As long as there is no potential drop along the field lines, the magnetospheric and ionospheric electric fields are simply related, and the mapping of a strong velocity shera in the equatorial plane to the ionosphere demands a strong field-aligned current. However, a strong current through the auroral cavity means that the electrons must be accelerated by a potential drop (e.g. @eq:phi_jpar_electrostatic).
 
 The appearance of this potential drop on field lines that carry currents up from the ionosphere means that the ionospheric and magnetospheric electric fields become decoupled. The frozen-in condition does not hold in the acceleration region, and this breakdown of ideal MHD also means that the equatorial plasma is free to flow without dragging the ionosphere along. The potential drop $\Delta\phi$ limits the current density, and hence the braking $\mathbf{j}\times\mathbf{B}$ force. Notice that it is the low altitude acceleration in this potential drop, which in the energy spectrum of the precipitating electrons is observed as a peak at the energy $e\Delta\phi$, that distinguishes the discrete from the diffuse aurora.
 
