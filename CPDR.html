@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Hongyang Zhou" />
+  <title>Cold Uniform Plasma - Key Notes of Plasma Physics</title>
+  <link rel="shortcut icon" type="image/png" href="/KeyNotes/favicon.png"/>
+  <link rel="stylesheet" href="/KeyNotes/style.css"/>
+    <script src="/KeyNotes/mousetrap.min.js"></script>
+    <style>
+  @font-face {
+    font-family: JuliaMono-Regular;
+    src: url("/KeyNotes/JuliaMono-Regular.woff2");
+  }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/KeyNotes/github.min.css">
+<script src="/KeyNotes/highlight.min.js"></script>
+<script src="/KeyNotes/julia.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('pre').forEach((el) => {
+        if (!el.classList.contains('output')) {
+            hljs.highlightElement(el);
+        }
+    });
+});
+</script>
+ 
+</head>
+<body>
+<script>
+function click_next() {
+  var next = document.getElementById('nav-next');
+  next.firstElementChild.nextElementSibling.click();
+}
+function click_prev() {
+  var prev = document.getElementById('nav-prev');
+  prev.firstElementChild.click();
+}
+Mousetrap.bind('right', click_next);
+Mousetrap.bind('h', click_prev);
+Mousetrap.bind('left', click_prev);
+Mousetrap.bind('l', click_next);
+</script>
+
+<div class="books-container">
+<aside class="books-menu">
+<input type="checkbox" id="menu">
+<label for="menu">☰</label>
+<div class="books-title">
+<a href="/KeyNotes/">Key Notes of Plasma Physics</a>
+</div><br />
+<span class="books-subtitle">
+My Journey in the Field
+</span>
+<div class="books-menu-content">
+<li><a class="menu-level-1" href="/KeyNotes/about"><b>1</b> About</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/intro"><b>2</b> Introduction</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/occurrence-of-plasma-in-nature"><b>2.1</b> Occurrence of Plasma in ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/definition-of-plasma"><b>2.2</b> Definition of Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/concept-of-temperature"><b>2.3</b> Concept of Temperature</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/debye"><b>2.4</b> Debye Shielding</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/criteria-for-plasmas"><b>2.5</b> Criteria for Plasmas</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/plasma-frequency"><b>2.6</b> Plasma Frequency</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/spatial-scales"><b>2.7</b> Spatial Scales</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/math"><b>3</b> Math</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/vector-identities"><b>3.1</b> Vector Identities</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/differential-of-line-segments"><b>3.2</b> Differential of Line Seg..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/complex-analysis"><b>3.3</b> Complex Analysis</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/helmholtzs-theorem"><b>3.4</b> Helmholtz’s Theorem</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/toroidal-and-poloidal-decomposition"><b>3.5</b> Toroidal and Poloidal De..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetic-dipole-field"><b>3.6</b> Magnetic Dipole Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/greens-function"><b>3.7</b> Green’s Function</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/linearization"><b>3.8</b> Linearization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/WKB"><b>3.9</b> Wave Equations</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/normalization"><b>3.10</b> Normalization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/theoretical-mechanics"><b>3.11</b> Theoretical Mechanics</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/wavelet-analysis"><b>3.12</b> Wavelet Analysis</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/single"><b>4</b> Single-Particle Motions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/uniform-e-and-b-fields"><b>4.1</b> Uniform E and B Fields</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonuniform-b-field"><b>4.2</b> Nonuniform B Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonuniform_E"><b>4.3</b> Nonuniform E Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/time-varying_E"><b>4.4</b> Time-Varying E Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/time-varying-b-field"><b>4.5</b> Time-Varying B Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/summary-of-guiding-center-drifts"><b>4.6</b> Summary of Guiding Cente..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/adiabatic-invariants"><b>4.7</b> Adiabatic Invariants</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ring-current"><b>4.8</b> Ring Current</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle-acceleration"><b>4.9</b> Particle Acceleration</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/test-particle-model"><b>4.10</b> Test Particle Model</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/fluid"><b>5</b> Plasmas as Fluid</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/definitions"><b>5.1</b> Definitions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/relation-of-plasma-physics-to-ordinary-electromagnetics"><b>5.2</b> Relation of Plasma Physi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-single-fluid-mhd-equations"><b>5.3</b> The Single-Fluid MHD Equ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/generalized-ohms-law"><b>5.4</b> Generalized Ohm’s Law</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/fluid-drifts-perpendicular-to-b"><b>5.5</b> Fluid Drifts Perpendicul..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/fluid-drifts-parallel-to-b"><b>5.6</b> Fluid Drifts Parallel to..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/plasma_approximation"><b>5.7</b> The Plasma Approximation</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/2fluid"><b>5.8</b> Two-Fluid Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/hall-mhd"><b>5.9</b> Hall MHD</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/resisvity"><b>6</b> Diffusion and Resisvity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-and-mobility-in-weakly-ionized-gases"><b>6.1</b> Diffusion and Mobility i..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/collision-parameters"><b>6.2</b> Collision Parameters</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-parameters"><b>6.3</b> Diffusion Parameters</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/decay-of-a-plasma-by-diffusion"><b>6.4</b> Decay of a Plasma by Dif..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/steady-state-solutions"><b>6.5</b> Steady State Solutions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/recombination"><b>6.6</b> Recombination</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-across-a-magnetic-field"><b>6.7</b> Diffusion Across a Magne..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/collision_ionized"><b>6.8</b> Collisions in Fully Ioni..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-of-fully-ionized-plasmas"><b>6.9</b> Diffusion of Fully Ioniz..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/solutions-of-the-diffusion-equation"><b>6.10</b> Solutions of the Diffus..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bohm-diffusion-and-neoclassical-diffusion"><b>6.11</b> Bohm Diffusion and Neoc..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/waves"><b>7</b> Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/oscillations"><b>7.1</b> Plasma Oscillations</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/dielectric-function"><b>7.2</b> Dielectric Function</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/classification-of-em-waves-in-uniform-plasma"><b>7.3</b> Classification of EM Wav..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/es-vs.-em-waves"><b>7.4</b> ES vs. EM Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/CPDR"><b>7.5</b> Cold Uniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-waves"><b>7.6</b> MHD Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kaw"><b>7.7</b> Kinetic Alfvén Wave</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle-motions"><b>7.8</b> Particle Motions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cold-nonuniform-plasma"><b>7.9</b> Cold Nonuniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/warm-uniform-plasma"><b>7.10</b> Warm Uniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/es_wave_magnetized"><b>7.11</b> Electrostatic Wave in a..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/animation-of-waves"><b>7.12</b> Animation of Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cma-diagram"><b>7.13</b> CMA Diagram</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/wave-particle-interactions"><b>7.14</b> Wave-Particle Interacti..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/whistler"><b>7.15</b> Whistler Wave</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/kinetic"><b>8</b> Kinetic Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-meaning-of-fv"><b>8.1</b> The Meaning of f(v)</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/equations-of-kinetic-theory"><b>8.2</b> Equations of Kinetic The..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/derivation-of-the-fluid-equations"><b>8.3</b> Derivation of the Fluid ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/landau"><b>8.4</b> Plasma Oscillations and ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/landau_damping"><b>8.5</b> The Meaning of Landau Da..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-physical-derivation-of-landau-damping"><b>8.6</b> A Physical Derivation of..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bgk-and-van-kampen-modes"><b>8.7</b> BGK and Van Kampen Modes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ion-landau-damping"><b>8.8</b> Ion Landau Damping</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kinetic-effects-in-a-magnetic-field"><b>8.9</b> Kinetic Effects in a Mag..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/stability"><b>9</b> Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/analogy-of-the-energy-principle"><b>9.1</b> Analogy of the Energy Pr..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle_motion_instability"><b>9.2</b> Implication of Single Pa..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/RT"><b>9.3</b> Rayleigh-Taylor Instabil..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/KH"><b>9.4</b> Kelvin-Helmholtz instabi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-stability"><b>9.5</b> MHD Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-modes"><b>9.6</b> MHD Modes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/reconnection"><b>9.7</b> Magnetic Reconnection</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/LHDI"><b>9.8</b> Lower Hybrid Drift Insta..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kinetic-mode"><b>9.9</b> Kinetic Mode</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/pressure-anisotropy-instabilities"><b>9.10</b> Pressure Anisotropy Ins..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cyclotron-instability"><b>9.11</b> Cyclotron Instability</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/kmhd"><b>10</b> Kinetic MHD</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/firehose"><b>10.1</b> Firehose Instability: L..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mirror"><b>10.2</b> Mirror Instability: Lin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/origin-of-pressure-anisotropy"><b>10.3</b> Origin of Pressure Anis..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/remarks"><b>10.4</b> Remarks</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/gyrokinetics"><b>11</b> Gyrokinetics</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-brief-historical-review"><b>11.1</b> A Brief Historical Revi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/coordinate-transformation"><b>11.2</b> Coordinate Transformati..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-gyrokinetic-ordering"><b>11.3</b> The Gyrokinetic Orderin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-lagriangian-approach"><b>11.4</b> A Lagriangian Approach</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/applications"><b>11.5</b> Applications</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/limitations"><b>11.6</b> Limitations</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/flr"><b>12</b> Field Line Resonance</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/historial-review"><b>12.1</b> Historial Review</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/theory"><b>12.2</b> Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/energy-consideration"><b>12.3</b> Energy Consideration</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/non-mhd-effects"><b>12.4</b> Non-MHD Effects</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/d-flr"><b>12.5</b> 3D FLR</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/nonlinear"><b>13</b> Nonlinear Effects</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/sheath"><b>13.1</b> The Necessity for Sheat..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ion-acoustic-shock-waves"><b>13.2</b> Ion Acoustic Shock Wave..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ponderomotive"><b>13.3</b> The Ponderomotive Force</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parametric-instabilities"><b>13.4</b> Parametric Instabilitie..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/echo"><b>13.5</b> Plasma Echoes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonlinear-landau-damping"><b>13.6</b> Nonlinear Landau Dampin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/equations-of-nonlinear-plasma-physics"><b>13.7</b> Equations of Nonlinear ..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/turbulence"><b>14</b> Turbulence</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd"><b>14.1</b> MHD</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/solar-wind-turbulence"><b>14.2</b> Solar Wind Turbulence</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/geometry"><b>15</b> Geometry</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/helicity"><b>15.1</b> Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetic-helicity"><b>15.2</b> Magnetic Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cross_helicity"><b>15.3</b> Cross Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/flux-rope-identification"><b>15.4</b> Flux Rope Identificatio..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/reconnection-identification"><b>15.5</b> Reconnection Identifica..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetospause-identification"><b>15.6</b> Magnetospause Identific..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/solarwind"><b>16</b> Solar Wind</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parker-solar-wind-model"><b>16.1</b> Parker Solar Wind Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parker-spiral"><b>16.2</b> Parker Spiral</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/anisotropy-in-the-solar-wind"><b>16.3</b> Anisotropy in the Solar..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/switchbacks"><b>16.4</b> Switchbacks</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-description"><b>16.5</b> MHD Description</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/shock"><b>17</b> Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-theory"><b>17.1</b> MHD Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/double-adiabatic-theory"><b>17.2</b> Double Adiabatic Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/location-of-shock"><b>17.3</b> Location of Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/earth-bow-shock"><b>17.4</b> Earth Bow Shock</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/magnetosphere"><b>18</b> Magnetosphere</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ulf-waves"><b>18.1</b> ULF Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bow-shock"><b>18.2</b> Bow Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosheath"><b>18.3</b> Magnetosheath</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosphere"><b>18.4</b> Magnetosphere</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/iono"><b>19</b> Ionosphere</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/current-systems"><b>19.1</b> Current Systems</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/MI_coupling"><b>19.2</b> M-I Coupling</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ionosphere-modeling"><b>19.3</b> Ionosphere Modeling</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/radiation_belt"><b>20</b> Radiation Belt</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/waves-in-the-radiation-belt"><b>20.1</b> Waves in the Radiation ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/modeling"><b>20.2</b> Modeling</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/aurora"><b>21</b> Aurora</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/auroral-light-emission"><b>21.1</b> Auroral Light Emission</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffuse-aurora"><b>21.2</b> Diffuse Aurora</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/auroral-waves-and-ion-heating"><b>21.3</b> Auroral Waves and Ion H..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/substorms-and-discrete-aurora"><b>21.4</b> Substorms and Discrete ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/omega-band-auroras"><b>21.5</b> Omega Band Auroras</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/pulsation-auroras"><b>21.6</b> Pulsation Auroras</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/summary"><b>21.7</b> Summary</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/BC"><b>22</b> Boundary Conditions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/conducting-boundary"><b>22.1</b> Conducting Boundary</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/perfectly-matched-layer"><b>22.2</b> Perfectly Matched Layer</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/pic"><b>23</b> Particle-in-Cell</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/phase-space-sampling"><b>23.1</b> Phase Space Sampling</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/computational-cost"><b>23.2</b> Computational Cost</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/delta_f"><b>23.3</b> δf Method</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/hybrid"><b>24</b> Hybrid Methods</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/classical-hybrid-model"><b>24.1</b> Classical Hybrid Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/finite_e_mass"><b>24.2</b> Finite Electron Inertia</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/low-density-treatment"><b>24.3</b> Low Density Treatment</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/comparison-with-hall-mhd"><b>24.4</b> Comparison with Hall MH..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/normalization-1"><b>24.5</b> Normalization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/numerical-stability"><b>24.6</b> Numerical Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosphere-inner-boundary-conditions"><b>24.7</b> Magnetosphere Inner Bou..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/tests"><b>24.8</b> Tests</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/appendix"><b></b> Appendix</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/references"><b></b> References</a></li>
+</div>
+</aside>
+
+<div class="books-content">
+<h2 data-number="7.5" id="sec:CPDR"><span class="header-section-number">7.5</span> Cold Uniform Plasma</h2>
+<p>As long as <span class="math inline">\(T_e = T_i = 0\)</span>, the linear plasma waves can easily be generalized to an arbitrary number of charged particle species and an arbitrary angle of propagation <span class="math inline">\(\theta\)</span> relative to the magnetic field. Waves that depend on finite <span class="math inline">\(T\)</span>, such as ion acoustic waves, are not included in this treatment. The derivations go back to late 1920s when Appleton and Wilhelm Altar first calculated the cold plasma dispersion relation (CPDR).</p>
+<p>First, we define the dielectric tensor of a plasma as follows. The fourth Maxwell equation is</p>
+<p><span class="math display">\[
+\nabla\times\mathbf{B} = \mu_0(\mathbf{j} + \epsilon_0\dot{\mathbf{E}})
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{j}\)</span> is the plasma current due to the motion of the various charged particle species <span class="math inline">\(s\)</span>, with density <span class="math inline">\(n_s\)</span>, charge <span class="math inline">\(q_s\)</span>, and velocity <span class="math inline">\(\mathbf{v}_s\)</span>:</p>
+<p><span id="eq:ampere"><span class="math display">\[
+\mathbf{j} = \sum_s n_s q_s\mathbf{v}_s
+\qquad(94)\]</span></span></p>
+<p>Considering the plasma to be a dielectric with internal currents <span class="math inline">\(\mathbf{j}\)</span>, we may write Equation <a href="/KeyNotes#eq:ampere">94</a> as</p>
+<p><span class="math display">\[
+\nabla\times\mathbf{B} = \mu_0\dot{\mathbf{D}}
+\]</span></p>
+<p>where</p>
+<p><span id="eq:electric_displacement_field"><span class="math display">\[
+\mathbf{D} = \epsilon_0 \mathbf{E} + \frac{i}{\omega}\mathbf{j}
+\qquad(95)\]</span></span></p>
+<p>is the <strong>electric displacement field</strong> or <strong>electric induction</strong>. It accounts for the effects of <em>bound charge within materials</em> (i.e. plasma). Here we have assumed an <span class="math inline">\(\exp(-i\omega t)\)</span> dependence for all plasma motions. Let the current <span class="math inline">\(\mathbf{j}\)</span> be proportional to <span class="math inline">\(\mathbf{E}\)</span> but not necessarily in the same direction (because of the magnetic field <span class="math inline">\(B_0\hat{\mathbf{z}}\)</span>); we may then define a conductivity tensor <span class="math inline">\(\pmb{\sigma}\)</span> by the relation</p>
+<p><span class="math display">\[
+\mathbf{j} = \pmb{\sigma}\cdot\mathbf{E}
+\]</span></p>
+<p>Equation <a href="/KeyNotes#eq:electric_displacement_field">95</a> becomes</p>
+<p><span id="eq:d_e_relation"><span class="math display">\[
+\mathbf{D} = \epsilon\Big( \mathbf{I} + \frac{i}{\epsilon_0\omega}\pmb{\sigma} \Big)\cdot\mathbf{E} = \pmb{\epsilon}\cdot\mathbf{E}
+\qquad(96)\]</span></span></p>
+<p>Thus the effective dielectric constant of the plasma is the tensor</p>
+<p><span class="math display">\[
+\pmb{\epsilon} = \epsilon_0 (\mathbf{I} + i\pmb{\sigma}/\epsilon_0\omega)
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{I}\)</span> is the unit tensor. In electromagnetism, a <strong>dielectric</strong> is an electrical insulator that can be polarised by an applied electric field. When a dielectric material is placed in an electric field, electric charges do not flow through the material as they do in an electrical conductor, because they have no loosely bound, or free, electrons that may drift through the material, but instead they shift, only slightly, from their average equilibrium positions, causing dielectric polarisation.</p>
+<p>To evaluate <span class="math inline">\(\pmb{\sigma}\)</span>, we use the linearized fluid equation of motion for species <span class="math inline">\(s\)</span>, neglecting the collision and pressure terms:</p>
+<p><span id="eq:motion_linear"><span class="math display">\[
+m_s\frac{\partial \mathbf{v}_s}{\partial t} = q_s(\mathbf{E}+\mathbf{v}_s\times\mathbf{B}_0)
+\qquad(97)\]</span></span></p>
+<p>Defining the cyclotron and plasma frequencies for each species as</p>
+<p><span class="math display">\[
+\omega_{cs}\equiv\bigg\lvert\frac{q_s B_0}{m_s}\bigg\rvert, \quad \omega_{ps}^2\equiv\bigg\lvert\frac{n_0 q_s^2}{\epsilon_0m_s}\bigg\rvert
+\]</span></p>
+<p>we can separate Equation <a href="/KeyNotes#eq:motion_linear">97</a> into x, y, and z components and solve for <span class="math inline">\(\mathbf{v}_s\)</span>, obtaining</p>
+<p><span id="eq:v"><span class="math display">\[
+\begin{aligned}
+v_{xs} &amp;= \frac{iq_s}{m_s\omega} \frac{E_x\pm i(\omega_{cs}/\omega)E_y}{1-(\omega_{cs}/\omega)^2} \\
+v_{ys} &amp;= \frac{iq_s}{m_s\omega} \frac{E_y\mp i(\omega_{cs}/\omega)E_x}{1-(\omega_{cs}/\omega)^2} \\
+v_{zs} &amp;= \frac{iq_s}{m_s\omega} E_z
+\end{aligned}
+\qquad(98)\]</span></span></p>
+<p>where <span class="math inline">\(\pm\)</span> stands for the sign of <span class="math inline">\(q_s\)</span>. The plasma current is</p>
+<p><span class="math display">\[
+\mathbf{j} = \sum_s n_{0s}q_s\mathbf{v}_s
+\]</span></p>
+<p>so that</p>
+<p><span id="eq:current_jx"><span class="math display">\[
+\begin{aligned}
+\frac{i}{\epsilon_0\omega}j_x &amp;= \sum_s \frac{in_{0s}}{\epsilon_0 \omega}\frac{iq_s^2}{m_s\omega}\frac{E_x\pm i(\omega_{cs}/\omega)E_y}{1-(\omega_{cs}/\omega)} \\
+&amp;=\sum_s -\frac{\omega_{ps}^2}{\omega^2}\frac{E_x\pm i(\omega_{cs}/\omega)E_y}{1-(\omega_{cs}/\omega)}
+\end{aligned}
+\qquad(99)\]</span></span></p>
+<p>Using the identities</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{1}{1-(\omega_{cs}/\omega)^2} &amp;= \frac{1}{2}\Big[ \frac{\omega}{\omega\mp\omega_{cs}} + \frac{\omega}{\omega\pm\omega_{cs}} \Big] \\
+\pm\frac{\omega_{cs}/\omega}{1-(\omega_{cs}/\omega)^2} &amp;= \frac{1}{2}\Big[ \frac{\omega}{\omega\mp\omega_{cs}} - \frac{\omega}{\omega\pm\omega_{cs}} \Big],
+\end{aligned}
+\]</span></p>
+<p>we can write Equation <a href="/KeyNotes#eq:current_jx">99</a> as follows:</p>
+<p><span id="eq:jx"><span class="math display">\[
+\begin{aligned}
+\frac{1}{\epsilon_0\omega}j_x &amp;= -\frac{1}{2}\sum_s \frac{\omega_{ps}^2}{\omega^2}\Big[ \Big( \frac{\omega}{\omega\pm\omega_{cs}} + \frac{\omega}{\omega\mp\omega_{cs}} \Big)E_x \\
+&amp;+ \Big( \frac{\omega}{\omega\mp\omega_{cs}} + \frac{\omega}{\omega\pm\omega_{cs}} \Big)iE_y \Big]
+\end{aligned}
+\qquad(100)\]</span></span></p>
+<p>Similarly, the <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> components are</p>
+<p><span id="eq:jy"><span class="math display">\[
+\begin{aligned}
+\frac{1}{\epsilon_0\omega}j_y &amp;= -\frac{1}{2}\sum_s \frac{\omega_{ps}^2}{\omega^2}\Big[ \Big( \frac{\omega}{\omega\pm\omega_{cs}} + \frac{\omega}{\omega\mp\omega_{cs}} \Big)iE_x \\
+&amp;+ \Big( \frac{\omega}{\omega\mp\omega_{cs}} + \frac{\omega}{\omega\pm\omega_{cs}} \Big)E_y \Big]
+\end{aligned}
+\qquad(101)\]</span></span></p>
+<p><span id="eq:jz"><span class="math display">\[
+\frac{i}{\epsilon_0\omega}j_z = -\sum_s\frac{\omega_{ps}^2}{\omega^2}E_z
+\qquad(102)\]</span></span></p>
+<p>Use of Equation <a href="/KeyNotes#eq:jx">100</a> in Equation <a href="/KeyNotes#eq:electric_displacement_field">95</a> gives</p>
+<p><span id="eq:dx"><span class="math display">\[
+\begin{aligned}
+\frac{1}{\epsilon_0}D_x &amp;= E_x -\frac{1}{2}\sum_s \frac{\omega_{ps}^2}{\omega^2}\Big[ \Big( \frac{\omega}{\omega\pm\omega_{cs}} + \frac{\omega}{\omega\mp\omega_{cs}} )E_x \\
+&amp;+ \Big( \frac{\omega}{\omega\mp\omega_{cs}} + \frac{\omega}{\omega\pm\omega_{cs}} )iE_y \Big] \\
+\end{aligned}
+\qquad(103)\]</span></span></p>
+<p>We define the convenient abbreviations</p>
+<p><span id="eq:stix_notation"><span class="math display">\[
+\begin{aligned}
+R &amp;\equiv 1 - \sum_s\frac{\omega_{ps}^2}{\omega^2}\Big( \frac{\omega}{\omega\pm\omega_{cs}} \Big)\\
+L &amp;\equiv 1 - \sum_s\frac{\omega_{ps}^2}{\omega^2}\Big( \frac{\omega}{\omega\mp\omega_{cs}} \Big)\\
+S &amp;\equiv \frac{1}{2}(R+L)\quad D\equiv \frac{1}{2}(R-L)^\ast \\
+P &amp;\equiv 1-\sum_s\frac{\omega_{ps}^2}{\omega^2}
+\end{aligned}
+\qquad(104)\]</span></span></p>
+<p>where “R” stands for right, “L” stands for left, “S” stands for sum, “D” stands for difference, and “P” stands for plasma. Do not confuse D with the electric displacement field <span class="math inline">\(\mathbf{D}\)</span>. Using these in Equation <a href="/KeyNotes#eq:dx">103</a> and proceeding similarly with the <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> components, we obtain</p>
+<p><span class="math display">\[
+\begin{aligned}
+\epsilon_0^{-1}D_x &amp;= SE_x -iDE_y \\
+\epsilon_0^{-1}D_y &amp;= iDE_x + SE_y \\
+\epsilon_0^{-1}D_z &amp;= PE_z
+\end{aligned}
+\]</span></p>
+<p>Comparing with Equation <a href="/KeyNotes#eq:d_e_relation">96</a>, we see that</p>
+<p><span id="eq:dielectric_matrix"><span class="math display">\[
+\pmb{\epsilon} = \epsilon_0\begin{pmatrix}
+S &amp; -iD &amp; 0 \\
+iD &amp; S &amp; 0 \\
+0 &amp; 0 &amp; P
+\end{pmatrix} \equiv \epsilon_0\pmb{\epsilon}_R
+\qquad(105)\]</span></span></p>
+<p>We next derive the wave equation by taking the curl of the equation <span class="math inline">\(\nabla\times\mathbf{E} = -\dot{\mathbf{B}}\)</span> and substituting <span class="math inline">\(\nabla\times\mathbf{B}=\mu_0\pmb{\epsilon}\cdot\dot{\mathbf{E}}\)</span>, obtaining</p>
+<p><span id="eq:wave1"><span class="math display">\[
+\nabla\times\nabla\times\mathbf{E} = -\mu_0\epsilon_0( \pmb{\epsilon}_R \cdot\ddot{\mathbf{E}} ) = -\frac{1}{c^2}\pmb{\epsilon}_R\cdot\ddot{\mathbf{E}}
+\qquad(106)\]</span></span></p>
+<p>Assuming an <span class="math inline">\(\exp(i\mathbf{k}\cdot\mathbf{r})\)</span> spatial dependence of <span class="math inline">\(\mathbf{E}\)</span> and defining a vector index of refraction</p>
+<p><span class="math display">\[
+\mathbf{n}=\frac{c}{\omega}\mathbf{k}
+\]</span></p>
+<p>we can write Equation <a href="/KeyNotes#eq:wave1">106</a> as</p>
+<p><span id="eq:wave2"><span class="math display">\[
+\mathbf{n}\times(\mathbf{n}\times\mathbf{E})+\pmb{\epsilon}_R\cdot\mathbf{E} = 0
+\qquad(107)\]</span></span></p>
+<p>The uniform plasma is isotropic in the <span class="math inline">\(x-y\)</span> plane, so we may choose the <span class="math inline">\(y\)</span> axis so that <span class="math inline">\(k_y = 0\)</span>, without loss of generality. If <span class="math inline">\(\theta\)</span> is the angle between <span class="math inline">\(\mathbf{k}\)</span> and <span class="math inline">\(\mathbf{B}_0\)</span>, we then have</p>
+<p><span class="math display">\[
+n_x = n\sin\theta\quad n_z=n\cos\theta\quad n_y = 0
+\]</span></p>
+<p>The next step is to separate Equation <a href="/KeyNotes#eq:wave2">107</a> into components, using the elements of <span class="math inline">\(\pmb{\epsilon}_R\)</span> given in Equation <a href="/KeyNotes#eq:dielectric_matrix">105</a>. This procedure readily yields</p>
+<p><span id="eq:dielectric"><span class="math display">\[
+\mathbf{R}\cdot\mathbf{E}\equiv\begin{pmatrix}
+S - n^2\cos\theta &amp; -iD &amp; n^2\sin\theta\cos\theta \\
+iD &amp; S-n^2 &amp; 0 \\
+n^2\sin\theta\cos\theta &amp; 0 &amp; P-n^2\sin^2\theta
+\end{pmatrix}
+\begin{pmatrix}
+E_x \\ E_y \\ E_z
+\end{pmatrix} = 0
+\qquad(108)\]</span></span></p>
+<p>From this it is clear that the <span class="math inline">\(E_x\)</span>, <span class="math inline">\(E_y\)</span> components are coupled to <span class="math inline">\(E_z\)</span> only if one deviates from the principal angles <span class="math inline">\(\theta = 0, 90^o\)</span>.</p>
+<p>Equation <a href="/KeyNotes#eq:dielectric">108</a> is a set of three simultaneous, homogeneous equations; the condition for the existence of a solution is that the determinant of <span class="math inline">\(\mathbf{R}\)</span> vanish: <span class="math inline">\(||\mathbf{R}||=0\)</span>. We then obtain</p>
+<p><span id="eq:dispersion_2ndcol"><span class="math display">\[
+\begin{aligned}
+(iD)^2&amp;(P-n^2\sin^2\theta) + (S - n^2)  \\
+&amp;\times [(S-n^2\cos^2\theta)(P-n^2\sin^2\theta)-n^4\sin^2\theta\cos^2\theta] = 0
+\end{aligned}
+\qquad(109)\]</span></span></p>
+<p>By replacing <span class="math inline">\(\cos^2\theta\)</span> by <span class="math inline">\(1-\sin^2\theta\)</span>, we can solve for <span class="math inline">\(\sin^2\theta\)</span>, obtaining</p>
+<p><span class="math display">\[
+\sin^2\theta = \frac{-P(n^4-2Sn^2+RL)}{n^4(S-P)+n^2(PS-RL)}
+\]</span></p>
+<p>We have used the identity <span class="math inline">\(S^2 - D^2 = RL\)</span>. Similarly,</p>
+<p><span class="math display">\[
+\cos^2\theta = \frac{Sn^4 - (PS + RL)n^2 + PRL}{n^4(S-P)+n^2(PS-RL)}
+\]</span></p>
+<p>Dividing the last two equations, we obtain</p>
+<p><span class="math display">\[
+\tan^2\theta = \frac{-P(n^4-2Sn^2+RL)}{Sn^4-(PS+RL)n^2+PRL}
+\]</span></p>
+<p>Since <span class="math inline">\(2S = R + L\)</span>, the numerator and denominator can be factored to give the cold-plasma dispersion relation</p>
+<p><span id="eq:cold_plasma_dispersion"><span class="math display">\[
+\tan^2\theta = \frac{-P(n^2-R)(n^2-L)}{(Sn^2-RL)(n^2-P)}
+\qquad(110)\]</span></span></p>
+<h3 data-number="7.5.1" id="wave-modes"><span class="header-section-number">7.5.1</span> Wave Modes</h3>
+<p>The principal modes of cold plasma waves can be recovered by setting <span class="math inline">\(\theta = 0^0\)</span> and <span class="math inline">\(90^o\)</span>. When <span class="math inline">\(\theta = 0^o\)</span>,</p>
+<p><span class="math display">\[
+P(n^2-R)(n^2-L) = 0
+\]</span></p>
+<p>There are three roots:</p>
+<ul>
+<li><span class="math inline">\(P=0\)</span> (Langmuir wave)</li>
+<li><span class="math inline">\(n^2=R\)</span> (R wave)</li>
+<li><span class="math inline">\(n^2=L\)</span> (L wave)</li>
+</ul>
+<p>When <span class="math inline">\(\theta = 90^o\)</span>,</p>
+<p><span class="math display">\[
+(Sn^2-RL)(n^2-P) = 0
+\]</span></p>
+<p>There are two roots:</p>
+<ul>
+<li><span class="math inline">\(n^2=RL/S\)</span> (extraordinary wave)</li>
+<li><span class="math inline">\(n^2=P\)</span> (ordinary wave)</li>
+</ul>
+<p>By inserting the definitions of Equation <a href="/KeyNotes#eq:stix_notation">104</a>, one can verify that these are identical to the dispersion relations given in separate derivations, with the addition of corrections due to ion motions.</p>
+<h3 data-number="7.5.2" id="resonances"><span class="header-section-number">7.5.2</span> Resonances</h3>
+<p>The resonances can be found by letting <span class="math inline">\(n\)</span> go to <span class="math inline">\(\infty\)</span>. We then have</p>
+<p><span class="math display">\[
+\tan^2\theta_{res} = -P/S
+\]</span></p>
+<p>This shows that the resonance frequencies depend on angle <span class="math inline">\(\theta\)</span>.</p>
+<ul>
+<li>If <span class="math inline">\(\theta=0^o\)</span>, the possible solutions are <span class="math inline">\(P = 0\)</span> and <span class="math inline">\(S = \infty\)</span>. The former is the plasma resonance <span class="math inline">\(\omega=\omega_p\)</span>, while the latter occurs when either <span class="math inline">\(R = \infty\)</span> (i.e. <span class="math inline">\(\omega=\omega_{ce}\)</span>, electron cyclotron resonance) or <span class="math inline">\(L =\infty\)</span> (i.e. <span class="math inline">\(\omega=\omega_{ci}\)</span>, ion cyclotron resonance).</li>
+<li>If <span class="math inline">\(θ = 90^o\)</span>, the possible solutions are <span class="math inline">\(P =\infty\)</span> or <span class="math inline">\(S = 0\)</span>. The former cannot occur for finite <span class="math inline">\(\omega_p\)</span> and <span class="math inline">\(\omega\)</span>, and the latter yields the upper and lower hybrid frequencies, as well as the two-ion hybrid frequency when there is more than one ion species.</li>
+</ul>
+<h3 data-number="7.5.3" id="cutoffs"><span class="header-section-number">7.5.3</span> Cutoffs</h3>
+<p>The cutoffs can be found by setting <span class="math inline">\(n = 0\)</span> in Equation <a href="/KeyNotes#eq:cold_plasma_dispersion">110</a>. Again using <span class="math inline">\(S^2-D^2 = RL\)</span>, we find that the condition for cutoff is independent of <span class="math inline">\(\theta\)</span>:</p>
+<p><span class="math display">\[
+PRL = 0
+\]</span></p>
+<ul>
+<li>The conditions <span class="math inline">\(R = 0\)</span> and <span class="math inline">\(L = 0\)</span> yield the <span class="math inline">\(\omega_R\)</span> and <span class="math inline">\(\omega_L\)</span> cutoff frequencies, with the addition of ion corrections.</li>
+</ul>
+<p>For R-waves, since <span class="math inline">\(\omega_{pi}^2\ll\omega_{pe}^2,\omega_{ci}\ll\omega_{ce}\)</span>, the cutoff frequency can be approximated by</p>
+<p><span class="math display">\[
+\begin{aligned}
+1-\frac{\omega_{pe}^2}{\omega(\omega-\omega_{ce})} - \frac{\omega_{pi}^2}{\omega(\omega+\omega_{ci})} = 0 \\
+1 = \frac{\omega_{pe}^2\Big[ \omega\Big(1+\cancel{\frac{\omega_{pi}^2}{\omega_{pe}^2}}\Big)+\omega_{ci}-\cancel{\frac{\omega_{pi}^2}{\omega_{pe}^2}}\omega_{ce}\Big]}{\omega_{ce}\omega(\omega-\omega_{ce})\Big( \frac{\omega}{\omega_{ce}}+\cancel{\frac{\omega_{ci}}{\omega_{ce}}}\Big)} \\
+1 = \frac{\omega_{pe}^2(\omega+\omega_{ci})}{\omega^2(\omega-\omega_{ce})} \\
+\omega^3 - \omega_{ce}\omega^2 - \omega_{pe}^2\omega - \omega_{pe}^2\omega_{ci} = 0
+\end{aligned}
+\]</span></p>
+<p>Here somehow we can ignore <span class="math inline">\(\omega_{pe}^2\omega_{ci}\)</span> (I DON’T KNOW WHY???) and obtain the positive solution</p>
+<p><span id="eq:cutoff_R_freq"><span class="math display">\[
+\omega_{R=0} \approx \frac{\omega_{ce}}{2}\Big[ 1 + \sqrt{1+4\omega_{pe}^2/\omega_{ce}^2}\Big]
+\qquad(111)\]</span></span></p>
+<p>In the low density limit, <span class="math inline">\(\omega_p\ll\omega_c\)</span>, <span class="math inline">\((1+x)^{1/2}\approx 1+x/2\)</span> when <span class="math inline">\(x\rightarrow 0\)</span>,</p>
+<p><span class="math display">\[
+\omega_{R=0} \approx \omega_{ce}(1+\omega_{pe}^2/\omega_{ce}^2)
+\]</span></p>
+<p>In the high density limit, <span class="math inline">\(\omega_p\gg\omega_c\)</span>,</p>
+<p><span class="math display">\[
+\omega_{R=0} \approx \omega_{pe} + \omega_{ce}/2
+\]</span></p>
+<p>Similarly for L-waves, the cutoff frequency can be approximated by</p>
+<p><span id="eq:cutoff_L_freq"><span class="math display">\[
+\omega_{L=0} \approx \frac{\omega_{ce}}{2}\Big[ -1 + \sqrt{1+4\omega_{pe}^2/\omega_{ce}^2}\Big]
+\qquad(112)\]</span></span></p>
+<p>In the low density limit, <span class="math inline">\(\omega_p\ll\omega_c\)</span>,</p>
+<p><span class="math display">\[
+\omega_{L=0} \approx \omega_{pe}^2/\omega_{ce}
+\]</span></p>
+<p>In the high density limit, <span class="math inline">\(\omega_p\gg\omega_c\)</span>,</p>
+<p><span class="math display">\[
+\omega_{L=0} \approx \omega_{pe} - \omega_{ce}/2
+\]</span></p>
+<ul>
+<li>The condition <span class="math inline">\(P = 0\)</span> is seen to correspond to cutoff as well as to resonance. This degeneracy is due to our neglect of thermal motions. Actually, <span class="math inline">\(P = 0\)</span> (or <span class="math inline">\(\omega = \omega_p\)</span>) is a resonance for longitudinal waves and a cutoff for transverse waves.</li>
+</ul>
+<h3 data-number="7.5.4" id="polarizations"><span class="header-section-number">7.5.4</span> Polarizations</h3>
+<p>The information contained in Equation <a href="/KeyNotes#eq:cold_plasma_dispersion">110</a> is summarized in the Clemmow–Mullaly–Allis (CMA) diagram. One further result, not in the diagram, can be obtained easily from this formulation. The middle line of Equation <a href="/KeyNotes#eq:dielectric">108</a> reads</p>
+<p><span class="math display">\[
+iDE_x + (S-n^2)E_y = 0
+\]</span></p>
+<p>Thus the polarization in the plane perpendicular to <span class="math inline">\(\mathbf{B}_0\)</span> is given by</p>
+<p><span class="math display">\[
+\frac{iE_x}{E_y} = \frac{n^2 - S}{D}
+\]</span></p>
+<p>From this it is easily seen that waves are linearly polarized at resonance (<span class="math inline">\(n^2=\infty\)</span>) and circularly polarized at cutoff (<span class="math inline">\(n^2 = 0\)</span>, <span class="math inline">\(R = 0\)</span> or <span class="math inline">\(L = 0\)</span>; thus <span class="math inline">\(S = \pm D\)</span>).</p>
+<h3 data-number="7.5.5" id="low-frequency-limit"><span class="header-section-number">7.5.5</span> Low Frequency Limit</h3>
+<p>It is very useful to obtain the circularly polarized wave dispersion relation in the MHD regime.</p>
+<p>The R-wave corresponds to electron. When <span class="math inline">\(\omega\ll\omega_{ce}\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+n^2 = R - 1 - \frac{\omega_{pi}^2}{\omega(\omega+\omega_{ci})} - \frac{\omega_{pe}^2}{\omega(\omega-\omega_{ce})} \\
+k^2 c^2 = \omega^2\Big( 1+\frac{\omega_{pe}^2}{\omega\omega_{ce}}-\frac{\omega_{pi}^2}{\omega\omega_{ci}}\frac{\omega_{ci}}{\omega_{ci}+\omega} \Big) = \omega^2 \Big[ 1+\frac{\omega_{pe}^2}{\omega_{ce}(\omega_{ci}+\omega)}\Big] \\
+k^2 c^2 = \omega^2\Big( 1+\frac{c^2}{v_A^2}\frac{\omega_{ci}}{\omega_{ci}+\omega}\Big)
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(\omega_{ci}\ll\omega\ll\omega_{ce}\)</span>, we can make further simplification:</p>
+<p><span class="math display">\[
+k^2c^2 = \omega^2\Big(1+\frac{\omega_{pe}^2}{\omega\omega_{ce}} \Big)
+\]</span></p>
+<p>This is the whistler wave, with group velocity <span class="math inline">\(v_g=\partial\omega/\partial k\propto\sqrt{\omega}\)</span>. It means that high frequency waves transpose energy faster than low frequency waves. In other words, one will hear high frequency components earlier than low frequency components, creating a “whistler effect”. This was discovered during the first world war, and the theoretical explanation came out in the 1950s. Also note that since whistler wave travels along the field line, in near-Earth space we have signals traveling from the south hemisphere to the north hemisphere within this frequency regime. <a href="https://en.wikipedia.org/wiki/Whistler_(radio)">Here</a> is an observation example from Palmer station, Antarctica. For <span class="math inline">\(\omega\ll\omega_{ci}\)</span>, Alfvén wave is recovered.</p>
+<p>See more in Section <a href="/KeyNotes/whistler#sec:whistler">7.15</a>.</p>
+<p>The L-wave corresponds to ion. When <span class="math inline">\(\omega&lt;\omega_{ci}\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+k^2c^2 &amp;= \omega^2\Big[1+\frac{\omega_{pi}^2}{\omega_{ci}(\omega_{ci}-\omega)} \Big] \\
+&amp;= \omega^2\Big( 1+\frac{c^2}{v_A^2}\frac{\omega_{ci}}{\omega_{ci}-\omega} \Big)
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(\omega\lesssim\omega_{ci}\)</span>, we get the ion-cyclotron wave; for <span class="math inline">\(\omega\ll\omega_{ci}\)</span>, Alfvén wave is recovered.</p>
+<p>Figure <a href="/KeyNotes#fig:dispersion_parallel">22</a> shows the dispersion relations for L/R waves in a rough scale (ACTUALLY THE SCALES ARE SO BAD…). Above the cut-off frequencies (<span class="math inline">\(\omega_{R=0}\)</span> and <span class="math inline">\(\omega_{L=0}\)</span>) the solution to the wave dispersion equation is called the <em>free-space mode</em>. Below electron and ion cyclotron frequencies the waves are called the <em>cyclotron modes</em>. At low frequencies (<span class="math inline">\(\omega\rightarrow 0\)</span>) L- and R-modes merge and the dispersion becomes that of the shear Alfvén wave <span class="math inline">\(n^2\rightarrow c^2/v_A^2\)</span>.</p>
+<figure>
+<img src="/KeyNotes/im/KeyNotes_plot_dispersion_parallel_.svg" id="fig:dispersion_parallel" alt="Figure 22: Wave modes propagating parallel to the magnetic field. Some arbitrary constants are used. Note that log scale is used since we can easily cross multiple scales so ion scales can be almost invisible if we include electron scales." /><figcaption aria-hidden="true">Figure 22: Wave modes propagating parallel to the magnetic field. Some arbitrary constants are used. Note that log scale is used since we can easily cross multiple scales so ion scales can be almost invisible if we include electron scales.</figcaption>
+</figure>
+<p>The dispersion curve for a R-wave propagating parallel to the equilibrium magnetic field is sketched in Figure <a href="/KeyNotes#fig:dispersion_R_wave">23</a>. The continuation of the Alfvén wave above the ion cyclotron frequency is called the <em>electron cyclotron wave</em>, or sometimes the <em>whistler wave</em>. The latter terminology is prevalent in ionospheric and space plasma physics contexts. The phase speed is mostly super-Alfvénic except near the electron gyrofrequency. The wave which propagates above the cutoff frequency, <span class="math inline">\(\omega_1\)</span>, is a standard right-handed circularly polarized electromagnetic wave, somewhat modified by the presence of the plasma. Note that the low-frequency branch of the dispersion curve differs fundamentally from the high-frequency branch, because the former branch corresponds to a wave which can only propagate through the plasma in the presence of an equilibrium magnetic field, whereas the high-frequency branch corresponds to a wave which can propagate in the absence of an equilibrium field.</p>
+<figure>
+<img src="https://farside.ph.utexas.edu/teaching/plasma/lectures/img1241.png" id="fig:dispersion_R_wave" alt="Figure 23: Dispersion relation for a right-handed wave propagating parallel to the magnetic field in a magnetized plasma." /><figcaption aria-hidden="true">Figure 23: Dispersion relation for a right-handed wave propagating parallel to the magnetic field in a magnetized plasma.</figcaption>
+</figure>
+<p>For a L-wave, similar considerations to the above give a dispersion curve of the form sketched in Figure <a href="/KeyNotes#fig:dispersion_L_wave">24</a>. In this case, <span class="math inline">\(n^2\)</span> goes to infinity at the ion cyclotron frequency, <span class="math inline">\(\Omega_i\)</span>, corresponding to the so-called <em>ion cyclotron resonance</em> (at <span class="math inline">\(L\rightarrow\infty\)</span>). At this resonance, the rotating electric field associated with a left-handed wave resonates with the gyromotion of the ions, allowing wave energy to be converted into perpendicular kinetic energy of the ions. There is a band of frequencies, lying above the ion cyclotron frequency, in which the left-handed wave does not propagate. At very high frequencies a propagating mode exists, which is basically a standard left-handed circularly polarized electromagnetic wave, somewhat modified by the presence of the plasma.</p>
+<p>As before, the lower branch in Figure <a href="/KeyNotes#fig:dispersion_L_wave">24</a> describes a wave that can only propagate in the presence of an equilibrium magnetic field, whereas the upper branch describes a wave that can propagate in the absence an equilibrium field. The continuation of the Alfvén wave to just below the ion cyclotron frequency is generally called the <em>ion cyclotron wave</em>. Note that the phase speed is always sub-Alfvénic.</p>
+<figure>
+<img src="https://farside.ph.utexas.edu/teaching/plasma/lectures/img1251.png" id="fig:dispersion_L_wave" alt="Figure 24: Dispersion relation for a left-handed wave propagating parallel to the magnetic field in a magnetized plasma." /><figcaption aria-hidden="true">Figure 24: Dispersion relation for a left-handed wave propagating parallel to the magnetic field in a magnetized plasma.</figcaption>
+</figure>
+<h3 data-number="7.5.6" id="faraday-rotation"><span class="header-section-number">7.5.6</span> Faraday Rotation</h3>
+<p>A linearly polarized plane wave can be expressed as a sum of left- and right-hand circularly polarized waves (R- and L-modes having equal amplitudes, <span class="math inline">\(E_0\)</span>). If we assume that at <span class="math inline">\(z=0\)</span>, the wave is linearly polarized along the <span class="math inline">\(x\)</span>-axis, and that the wave vector <span class="math inline">\(\mathbf{k}\)</span> and the background magnetic field <span class="math inline">\(\mathbf{B}_0\)</span> are along the <span class="math inline">\(z\)</span>-axis, we can write</p>
+<p><span class="math display">\[
+\mathbf{E} = E_0 [(e^{ik_Rz}+e^{ik_Lz})\hat{x} + (e^{ik_Rz}-e^{ik_Lz})\hat{y}] e^{-i\omega t}
+\]</span></p>
+<p>The ratio of the <span class="math inline">\(E_x\)</span> and <span class="math inline">\(E_y\)</span> components is</p>
+<p><span class="math display">\[
+\frac{E_x}{E_y} = \cot\Big( \frac{k_L-k_R}{2}z\Big)
+\]</span></p>
+<p>Hence, due to different phase speeds of R- and L-modes the linrealy polarized wave that is travelling along a magnetic field will experience the rotation of its plane of polarization. This is called <em>Faraday rotation</em>. The magnitude of the rotation depends on the density and magnetic field of the plasma. Considering frequencies above the plasma frequency one can show that the rate of change in the rotation angle <span class="math inline">\(\phi\)</span> with the distance travelled (assumed here to be in the <span class="math inline">\(z\)</span>-direction) is</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}\phi}{\mathrm{d}z} = \frac{-e^3}{2m_e^2\epsilon_0 c\omega^2}n_e B_0
+\]</span></p>
+<p>and the total rotation from the source to the observer is</p>
+<p><span class="math display">\[
+\phi=\frac{-e^3}{2m_e^2\epsilon_0 c\omega^2}\int_0^d n_e\mathbf{B}\cdot \mathrm{d}\mathbf{s}
+\]</span></p>
+<p>where <span class="math inline">\(\mathrm{d}\mathbf{s}\)</span> is along the wave propagation path. The total rotation thus depends on both the dnesity and magnetic field of the medium.</p>
+<p>Faraday rotation is an important diagnostic tool both in laboratories and in astronomy. It can be used to obtain information of the magnetic field of the cosmic plasma. Note that density has to be known using other methods. On the other hand, if the magnetic field is known, Faraday rotation can give information of the density.</p>
+<h3 data-number="7.5.7" id="perpendicular-wave-propagation"><span class="header-section-number">7.5.7</span> Perpendicular Wave Propagation</h3>
+<p>Let us now consider wave propagation, at arbitrary frequencies, perpendicular to the equilibrium magnetic field, i.e. <span class="math inline">\(\theta=90^o\)</span>.</p>
+<p>The cutoff frequencies, at which <span class="math inline">\(n^2\)</span> goes to zero, are the roots of <span class="math inline">\(R=0\)</span> and <span class="math inline">\(L=0\)</span> according to <span class="math inline">\(n^2=LR/S\)</span>. In fact, we have already solved these equations in the previous sections (recall that cutoff frequencies do not depend on <span class="math inline">\(\theta\)</span>). There are two cutoff frequencies, <span class="math inline">\(\omega_{R=0}\)</span> and <span class="math inline">\(\omega_{L=0}\)</span>, which are specified by Equation <a href="/KeyNotes#eq:cutoff_R_freq">111</a> and Equation <a href="/KeyNotes#eq:cutoff_L_freq">112</a>, respectively.</p>
+<p>Let us, next, search for the resonant frequencies, at which <span class="math inline">\(n^2\)</span> goes to infinity. According to the previous discussions, the resonant frequencies are solutions of</p>
+<p><span id="eq:resonance_perp_wave"><span class="math display">\[
+S = 1 - \frac{\omega_{pe}^2}{\omega^2 - \Omega_e^2} - \frac{\omega_{pi}^2}{\omega^2 - \Omega_i^2} = 0
+\qquad(113)\]</span></span></p>
+<p>The roots of this equation can be obtained as follows. First, we note that if the first two terms are equated to zero, we obtain <span class="math inline">\(\omega=\omega_\mathrm{UH}\)</span>, where</p>
+<p><span id="eq:upper_hybrid_freq"><span class="math display">\[
+\omega_\mathrm{UH} \equiv \sqrt{\omega_{pe}^2 + \Omega_e^2}
+\qquad(114)\]</span></span></p>
+<p>If this frequency is substituted into the third term, the result is far less than unity. We conclude that <span class="math inline">\(\omega_\mathrm{UH}\)</span> is a good approximation to one of the roots of Equation <a href="/KeyNotes#eq:resonance_perp_wave">113</a>. To obtain the second root, we make use of the fact that the product of the square of the roots is</p>
+<p><span class="math display">\[
+\Omega_e^2\,\Omega_i^2 + \omega_{pe}^2\,\Omega_i^2 + \omega_{pi}^2\Omega_e^2 \simeq \Omega_e^2 \Omega_i^2 + \omega_{pi}^2\,\Omega_e^2
+\]</span></p>
+<p>We, thus, obtain <span class="math inline">\(\omega= \omega_\mathrm{LH}\)</span>, where</p>
+<p><span class="math display">\[
+\omega_\mathrm{LH} \equiv \sqrt{\frac{\Omega_e^2\Omega_i^2 + \omega_{pi}^2\Omega_e^2}{\omega_{pe}^2 + \Omega_e^2}}
+\]</span></p>
+<p>The first resonant frequency, <span class="math inline">\(\omega_\mathrm{UH}\)</span>, is greater than the electron cyclotron or plasma frequencies, and is called the <em>upper hybrid frequency</em>. The second resonant frequency, <span class="math inline">\(\omega_\mathrm{LH}\)</span>, lies between the electron and ion cyclotron frequencies, and is called the <em>lower hybrid frequency</em>. <span class="citation" data-cites="chen2016introduction">(<a href="/KeyNotes/references#ref-chen2016introduction" role="doc-biblioref">F. F. Chen, 2016</a>)</span> gave some nice explanations of the physical origins of these frequencies by looking at the electrostatic electron/ion waves perpendicular to <span class="math inline">\(\mathbf{B}\)</span>. At low frequencies, the mode in question reverts to the compressional-Alfvén wave discussed previously. Note that the shear-Alfvén wave does not propagate perpendicular to the magnetic field.</p>
+<p>Using the above information, and the easily demonstrated fact that</p>
+<p><span class="math display">\[
+\omega_\mathrm{LH} &lt; \omega_{L=0} &lt; \omega_\mathrm{UH} &lt; \omega_{R=0}
+\]</span></p>
+<p>we can deduce that the dispersion curve for the mode in question takes the form sketched in Figure <a href="/KeyNotes#fig:dispersion_perp_wave">25</a>. The lowest frequency branch corresponds to the compressional-Alfvén wave. The other two branches constitute the <em>extraordinary</em>, or <span class="math inline">\(X\)</span>-, wave. The upper branch is basically a linearly polarized (in the <span class="math inline">\(y\)</span>-direction) electromagnetic wave, somewhat modified by the presence of the plasma. This branch corresponds to a wave which propagates in the absence of an equilibrium magnetic field. The lowest branch corresponds to a wave which does not propagate in the absence of an equilibrium field. Finally, the middle branch corresponds to a wave which converts into an electrostatic plasma wave in the absence of an equilibrium magnetic field.</p>
+<figure>
+<img src="https://farside.ph.utexas.edu/teaching/plasma/lectures/img1270.png" id="fig:dispersion_perp_wave" alt="Figure 25: Dispersion relation for a left-handed wave propagating parallel to the magnetic field in a magnetized plasma." /><figcaption aria-hidden="true">Figure 25: Dispersion relation for a left-handed wave propagating parallel to the magnetic field in a magnetized plasma.</figcaption>
+</figure>
+<p>Wave propagation at oblique angles is generally more complicated than propagation parallel or perpendicular to the equilibrium magnetic field, but does not involve any new physical effects.</p>
+
+
+<div class="bottom-nav">
+    <p id="nav-prev" style="text-align: left;">
+        <a class="menu-level-2" href="/KeyNotes/es-vs.-em-waves"><b>7.4</b> ES vs. EM Waves</a> <kbd>←</kbd>
+        <span id="nav-next" style="float: right;">
+            <kbd>→</kbd> <a class="menu-level-2" href="/KeyNotes/mhd-waves"><b>7.6</b> MHD Waves</a>
+        </span>
+    </p>
+</div>
+
+
+<div class="license">
+    <br/>
+  <br/>
+  <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    Hongyang Zhou
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Hongyang Zhou" />
+  <title>Theory - Key Notes of Plasma Physics</title>
+  <link rel="shortcut icon" type="image/png" href="/KeyNotes/favicon.png"/>
+  <link rel="stylesheet" href="/KeyNotes/style.css"/>
+    <script src="/KeyNotes/mousetrap.min.js"></script>
+    <style>
+  @font-face {
+    font-family: JuliaMono-Regular;
+    src: url("/KeyNotes/JuliaMono-Regular.woff2");
+  }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/KeyNotes/github.min.css">
+<script src="/KeyNotes/highlight.min.js"></script>
+<script src="/KeyNotes/julia.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('pre').forEach((el) => {
+        if (!el.classList.contains('output')) {
+            hljs.highlightElement(el);
+        }
+    });
+});
+</script>
+ 
+</head>
+<body>
+<script>
+function click_next() {
+  var next = document.getElementById('nav-next');
+  next.firstElementChild.nextElementSibling.click();
+}
+function click_prev() {
+  var prev = document.getElementById('nav-prev');
+  prev.firstElementChild.click();
+}
+Mousetrap.bind('right', click_next);
+Mousetrap.bind('h', click_prev);
+Mousetrap.bind('left', click_prev);
+Mousetrap.bind('l', click_next);
+</script>
+
+<div class="books-container">
+<aside class="books-menu">
+<input type="checkbox" id="menu">
+<label for="menu">☰</label>
+<div class="books-title">
+<a href="/KeyNotes/">Key Notes of Plasma Physics</a>
+</div><br />
+<span class="books-subtitle">
+My Journey in the Field
+</span>
+<div class="books-menu-content">
+<li><a class="menu-level-1" href="/KeyNotes/about"><b>1</b> About</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/intro"><b>2</b> Introduction</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/occurrence-of-plasma-in-nature"><b>2.1</b> Occurrence of Plasma in ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/definition-of-plasma"><b>2.2</b> Definition of Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/concept-of-temperature"><b>2.3</b> Concept of Temperature</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/debye"><b>2.4</b> Debye Shielding</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/criteria-for-plasmas"><b>2.5</b> Criteria for Plasmas</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/plasma-frequency"><b>2.6</b> Plasma Frequency</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/spatial-scales"><b>2.7</b> Spatial Scales</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/math"><b>3</b> Math</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/vector-identities"><b>3.1</b> Vector Identities</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/differential-of-line-segments"><b>3.2</b> Differential of Line Seg..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/complex-analysis"><b>3.3</b> Complex Analysis</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/helmholtzs-theorem"><b>3.4</b> Helmholtz’s Theorem</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/toroidal-and-poloidal-decomposition"><b>3.5</b> Toroidal and Poloidal De..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetic-dipole-field"><b>3.6</b> Magnetic Dipole Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/greens-function"><b>3.7</b> Green’s Function</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/linearization"><b>3.8</b> Linearization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/WKB"><b>3.9</b> Wave Equations</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/normalization"><b>3.10</b> Normalization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/theoretical-mechanics"><b>3.11</b> Theoretical Mechanics</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/wavelet-analysis"><b>3.12</b> Wavelet Analysis</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/single"><b>4</b> Single-Particle Motions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/uniform-e-and-b-fields"><b>4.1</b> Uniform E and B Fields</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonuniform-b-field"><b>4.2</b> Nonuniform B Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonuniform_E"><b>4.3</b> Nonuniform E Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/time-varying_E"><b>4.4</b> Time-Varying E Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/time-varying-b-field"><b>4.5</b> Time-Varying B Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/summary-of-guiding-center-drifts"><b>4.6</b> Summary of Guiding Cente..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/adiabatic-invariants"><b>4.7</b> Adiabatic Invariants</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ring-current"><b>4.8</b> Ring Current</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle-acceleration"><b>4.9</b> Particle Acceleration</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/test-particle-model"><b>4.10</b> Test Particle Model</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/fluid"><b>5</b> Plasmas as Fluid</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/definitions"><b>5.1</b> Definitions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/relation-of-plasma-physics-to-ordinary-electromagnetics"><b>5.2</b> Relation of Plasma Physi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-single-fluid-mhd-equations"><b>5.3</b> The Single-Fluid MHD Equ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/generalized-ohms-law"><b>5.4</b> Generalized Ohm’s Law</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/fluid-drifts-perpendicular-to-b"><b>5.5</b> Fluid Drifts Perpendicul..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/fluid-drifts-parallel-to-b"><b>5.6</b> Fluid Drifts Parallel to..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/plasma_approximation"><b>5.7</b> The Plasma Approximation</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/2fluid"><b>5.8</b> Two-Fluid Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/hall-mhd"><b>5.9</b> Hall MHD</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/resisvity"><b>6</b> Diffusion and Resisvity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-and-mobility-in-weakly-ionized-gases"><b>6.1</b> Diffusion and Mobility i..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/collision-parameters"><b>6.2</b> Collision Parameters</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-parameters"><b>6.3</b> Diffusion Parameters</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/decay-of-a-plasma-by-diffusion"><b>6.4</b> Decay of a Plasma by Dif..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/steady-state-solutions"><b>6.5</b> Steady State Solutions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/recombination"><b>6.6</b> Recombination</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-across-a-magnetic-field"><b>6.7</b> Diffusion Across a Magne..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/collision_ionized"><b>6.8</b> Collisions in Fully Ioni..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-of-fully-ionized-plasmas"><b>6.9</b> Diffusion of Fully Ioniz..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/solutions-of-the-diffusion-equation"><b>6.10</b> Solutions of the Diffus..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bohm-diffusion-and-neoclassical-diffusion"><b>6.11</b> Bohm Diffusion and Neoc..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/waves"><b>7</b> Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/oscillations"><b>7.1</b> Plasma Oscillations</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/dielectric-function"><b>7.2</b> Dielectric Function</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/classification-of-em-waves-in-uniform-plasma"><b>7.3</b> Classification of EM Wav..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/es-vs.-em-waves"><b>7.4</b> ES vs. EM Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/CPDR"><b>7.5</b> Cold Uniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-waves"><b>7.6</b> MHD Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kaw"><b>7.7</b> Kinetic Alfvén Wave</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle-motions"><b>7.8</b> Particle Motions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cold-nonuniform-plasma"><b>7.9</b> Cold Nonuniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/warm-uniform-plasma"><b>7.10</b> Warm Uniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/es_wave_magnetized"><b>7.11</b> Electrostatic Wave in a..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/animation-of-waves"><b>7.12</b> Animation of Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cma-diagram"><b>7.13</b> CMA Diagram</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/wave-particle-interactions"><b>7.14</b> Wave-Particle Interacti..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/whistler"><b>7.15</b> Whistler Wave</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/kinetic"><b>8</b> Kinetic Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-meaning-of-fv"><b>8.1</b> The Meaning of f(v)</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/equations-of-kinetic-theory"><b>8.2</b> Equations of Kinetic The..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/derivation-of-the-fluid-equations"><b>8.3</b> Derivation of the Fluid ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/landau"><b>8.4</b> Plasma Oscillations and ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/landau_damping"><b>8.5</b> The Meaning of Landau Da..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-physical-derivation-of-landau-damping"><b>8.6</b> A Physical Derivation of..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bgk-and-van-kampen-modes"><b>8.7</b> BGK and Van Kampen Modes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ion-landau-damping"><b>8.8</b> Ion Landau Damping</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kinetic-effects-in-a-magnetic-field"><b>8.9</b> Kinetic Effects in a Mag..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/stability"><b>9</b> Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/analogy-of-the-energy-principle"><b>9.1</b> Analogy of the Energy Pr..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle_motion_instability"><b>9.2</b> Implication of Single Pa..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/RT"><b>9.3</b> Rayleigh-Taylor Instabil..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/KH"><b>9.4</b> Kelvin-Helmholtz instabi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-stability"><b>9.5</b> MHD Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-modes"><b>9.6</b> MHD Modes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/reconnection"><b>9.7</b> Magnetic Reconnection</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/LHDI"><b>9.8</b> Lower Hybrid Drift Insta..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kinetic-mode"><b>9.9</b> Kinetic Mode</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/pressure-anisotropy-instabilities"><b>9.10</b> Pressure Anisotropy Ins..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cyclotron-instability"><b>9.11</b> Cyclotron Instability</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/kmhd"><b>10</b> Kinetic MHD</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/firehose"><b>10.1</b> Firehose Instability: L..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mirror"><b>10.2</b> Mirror Instability: Lin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/origin-of-pressure-anisotropy"><b>10.3</b> Origin of Pressure Anis..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/remarks"><b>10.4</b> Remarks</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/gyrokinetics"><b>11</b> Gyrokinetics</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-brief-historical-review"><b>11.1</b> A Brief Historical Revi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/coordinate-transformation"><b>11.2</b> Coordinate Transformati..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-gyrokinetic-ordering"><b>11.3</b> The Gyrokinetic Orderin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-lagriangian-approach"><b>11.4</b> A Lagriangian Approach</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/applications"><b>11.5</b> Applications</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/limitations"><b>11.6</b> Limitations</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/flr"><b>12</b> Field Line Resonance</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/historial-review"><b>12.1</b> Historial Review</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/theory"><b>12.2</b> Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/energy-consideration"><b>12.3</b> Energy Consideration</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/non-mhd-effects"><b>12.4</b> Non-MHD Effects</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/d-flr"><b>12.5</b> 3D FLR</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/nonlinear"><b>13</b> Nonlinear Effects</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/sheath"><b>13.1</b> The Necessity for Sheat..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ion-acoustic-shock-waves"><b>13.2</b> Ion Acoustic Shock Wave..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ponderomotive"><b>13.3</b> The Ponderomotive Force</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parametric-instabilities"><b>13.4</b> Parametric Instabilitie..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/echo"><b>13.5</b> Plasma Echoes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonlinear-landau-damping"><b>13.6</b> Nonlinear Landau Dampin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/equations-of-nonlinear-plasma-physics"><b>13.7</b> Equations of Nonlinear ..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/turbulence"><b>14</b> Turbulence</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd"><b>14.1</b> MHD</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/solar-wind-turbulence"><b>14.2</b> Solar Wind Turbulence</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/geometry"><b>15</b> Geometry</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/helicity"><b>15.1</b> Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetic-helicity"><b>15.2</b> Magnetic Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cross_helicity"><b>15.3</b> Cross Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/flux-rope-identification"><b>15.4</b> Flux Rope Identificatio..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/reconnection-identification"><b>15.5</b> Reconnection Identifica..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetospause-identification"><b>15.6</b> Magnetospause Identific..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/solarwind"><b>16</b> Solar Wind</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parker-solar-wind-model"><b>16.1</b> Parker Solar Wind Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parker-spiral"><b>16.2</b> Parker Spiral</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/anisotropy-in-the-solar-wind"><b>16.3</b> Anisotropy in the Solar..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/switchbacks"><b>16.4</b> Switchbacks</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-description"><b>16.5</b> MHD Description</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/shock"><b>17</b> Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-theory"><b>17.1</b> MHD Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/double-adiabatic-theory"><b>17.2</b> Double Adiabatic Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/location-of-shock"><b>17.3</b> Location of Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/earth-bow-shock"><b>17.4</b> Earth Bow Shock</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/magnetosphere"><b>18</b> Magnetosphere</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ulf-waves"><b>18.1</b> ULF Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bow-shock"><b>18.2</b> Bow Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosheath"><b>18.3</b> Magnetosheath</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosphere"><b>18.4</b> Magnetosphere</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/iono"><b>19</b> Ionosphere</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/current-systems"><b>19.1</b> Current Systems</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/MI_coupling"><b>19.2</b> M-I Coupling</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ionosphere-modeling"><b>19.3</b> Ionosphere Modeling</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/radiation_belt"><b>20</b> Radiation Belt</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/waves-in-the-radiation-belt"><b>20.1</b> Waves in the Radiation ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/modeling"><b>20.2</b> Modeling</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/aurora"><b>21</b> Aurora</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/auroral-light-emission"><b>21.1</b> Auroral Light Emission</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffuse-aurora"><b>21.2</b> Diffuse Aurora</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/auroral-waves-and-ion-heating"><b>21.3</b> Auroral Waves and Ion H..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/substorms-and-discrete-aurora"><b>21.4</b> Substorms and Discrete ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/omega-band-auroras"><b>21.5</b> Omega Band Auroras</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/pulsation-auroras"><b>21.6</b> Pulsation Auroras</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/summary"><b>21.7</b> Summary</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/BC"><b>22</b> Boundary Conditions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/conducting-boundary"><b>22.1</b> Conducting Boundary</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/perfectly-matched-layer"><b>22.2</b> Perfectly Matched Layer</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/pic"><b>23</b> Particle-in-Cell</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/phase-space-sampling"><b>23.1</b> Phase Space Sampling</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/computational-cost"><b>23.2</b> Computational Cost</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/delta_f"><b>23.3</b> δf Method</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/hybrid"><b>24</b> Hybrid Methods</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/classical-hybrid-model"><b>24.1</b> Classical Hybrid Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/finite_e_mass"><b>24.2</b> Finite Electron Inertia</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/low-density-treatment"><b>24.3</b> Low Density Treatment</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/comparison-with-hall-mhd"><b>24.4</b> Comparison with Hall MH..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/normalization-1"><b>24.5</b> Normalization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/numerical-stability"><b>24.6</b> Numerical Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosphere-inner-boundary-conditions"><b>24.7</b> Magnetosphere Inner Bou..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/tests"><b>24.8</b> Tests</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/appendix"><b></b> Appendix</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/references"><b></b> References</a></li>
+</div>
+</aside>
+
+<div class="books-content">
+<h2 data-number="12.2" id="theory"><span class="header-section-number">12.2</span> Theory</h2>
+<p>The theory starts from linearized cold MHD Equation <a href="/KeyNotes#eq:mhd_cold_e_wave">116</a> and Equation <a href="/KeyNotes#eq:mhd_cold_b_wave">117</a>.</p>
+<h3 data-number="12.2.1" id="axisymmetric-spherical-coordinates"><span class="header-section-number">12.2.1</span> Axisymmetric Spherical Coordinates</h3>
+<p>First, let’s treat the problem in spherical coordinates <span class="math inline">\((r,\theta,\phi)\)</span>, as done by <span class="citation" data-cites="radoski1966">(<a href="/KeyNotes/references#ref-radoski1966" role="doc-biblioref">Radoski &amp; Carovillano, 1966</a>)</span>.</p>
+<p>The background density is taken to be only a function of the radial distance, <span class="math inline">\(\rho = \rho(r)\)</span>. In the analysis below the perturbed variables, <span class="math inline">\(\mathbf{B}_1\)</span>, <span class="math inline">\(\mathbf{E}\)</span>, <span class="math inline">\(\mathbf{j}\)</span> and <span class="math inline">\(\mathbf{u}\)</span> are treated as axisymmetric, i.e. in spherical coordinates any perturbed function has the form</p>
+<p><span class="math display">\[
+\mathbf{\delta} = \delta_r(r,\theta)\hat{r} + \delta_\theta(r,\theta)\hat{\theta} + \delta_\phi(r,\theta)\hat{\phi}
+\]</span></p>
+<p>Under this symmetry, the variables can be separated into two independent sets referred to as the <em>toroidal</em> and <em>poloidal</em> variables:</p>
+<ul>
+<li>Toroidal variables</li>
+</ul>
+<p><span class="math inline">\(B_{1\phi}, E_r, E_\theta, u_\phi, j_r, j_\theta;\, \nabla\cdot\mathbf{u} = \frac{1}{r\sin\theta}\frac{\partial u_\phi}{\partial \phi}\equiv 0\)</span> (incompressible)</p>
+<ul>
+<li>Poloidal variables</li>
+</ul>
+<p><span class="math inline">\(B_{1r}, B_{1\theta}, E_\phi, u_r, u_\theta, j_\phi ;\, \nabla\cdot\mathbf{E} = \frac{1}{r\sin\theta}\frac{\partial E_\phi}{\partial \phi}\equiv 0\)</span></p>
+<p>The name of the set were originally based on the magnetic field perturbation directions. One insight into these two sets of variables can be gained from the Poynting vector <span class="math inline">\(\mathbf{S}\)</span>. The simplest MHD Ohm’s law constrains the electric field <span class="math inline">\(\mathbf{E}\)</span> to be perpendicular to the background magnetic field <span class="math inline">\(\mathbf{B}_0\)</span>. For the toroidal mode, <span class="math inline">\(\mathbf{E}\)</span> lies in a meridional plane and <span class="math inline">\(B_{1\phi}\)</span> is out of plane, so <span class="math inline">\(\mathbf{S}\)</span> is directed along the field lines. For the poloidal mode, <span class="math inline">\(\mathbf{S}\)</span> is in a meridional plane and parallel to the wave vector <span class="math inline">\(\mathbf{k}\)</span>, because</p>
+<p><span class="math display">\[\mathbf{B}_1 = -i\mathbf{k}\times\mathbf{E}\Rightarrow \mathbf{S}\parallel\mathbf{E}\times\mathbf{B}_1 \parallel \mathbf{E}\times(\mathbf{k}\times\mathbf{E})=E^2\mathbf{k} - \cancel{(\mathbf{E}\cdot\mathbf{k})}\mathbf{E} \parallel \mathbf{k}
+\]</span></p>
+<p>for a transverse EM wave (<span class="math inline">\(\mathbf{E}\perp\mathbf{k}\)</span>). Thus the toroidal mode is an Alfvén mode with dispersion relation <span class="math inline">\(\omega = V_A k \cos\theta\)</span>, <span class="math inline">\(\mathbf{S} \parallel \mathbf{B}_0\)</span>, while poloidal mode is a fast mode with dispersion relation <span class="math inline">\(\omega = V_A k\)</span>, <span class="math inline">\(\mathbf{S} \parallel \mathbf{k}\)</span>.</p>
+<p>To clarify my early misunderstanding: <em>a toroidal mode is not propagating in the toroidal direction</em>! Similarly, <em>a poloidal mode does not propagate in the poloidal direction</em>. In fact, it is more common to have a fast poloidal mode propagating in the azimuthal direction, then coupling to the Alfvén toroidal mode along the ambient magnetic field direction, then being observed on the ground.</p>
+<p>For the axisymmetric poloidal electric field <span class="math inline">\(E_\phi \sim e^{i\omega t}\)</span>, Equation <a href="/KeyNotes#eq:mhd_cold_e_wave">116</a> becomes (I HAVEN‘T DERIVED THIS!)</p>
+<p><span class="math display">\[
+B_0^2[\nabla^2 - (r^2 \sin^2\theta)^{-1}] E_\phi = -\mu_0 \rho \omega^2 E_\phi
+\]</span></p>
+<p>This is the decoupled poloidal wave equation. For a dipole field, <span class="math inline">\(B_0^2 = \frac{M^2(1+3\mu^2)}{r^6}\)</span>, where <span class="math inline">\(M\)</span> is the magnetic moment and <span class="math inline">\(\mu = \cos\theta\)</span> is the colatitude. A solution for <span class="math inline">\(E_\phi\)</span> is sought after a separation of the unknowns of the form</p>
+<p><span class="math display">\[
+E_\phi = \sum_{l=1}^{\infty} f_l(r) P_l^m(\mu)
+\]</span></p>
+<p>where <span class="math inline">\(P_l^m\)</span> is the associated Legendre function with integer indices <span class="math inline">\(l\)</span> and <span class="math inline">\(m\)</span>. Why this form you may ask? It’s a mathematical hypothesis based on experience and talents. With this representation the poloidal wave equation becomes</p>
+<p><span id="eq:poloidal_spherical_assump"><span class="math display">\[
+\sum_{l=1}^{\infty}[(1+3\mu^2)O_l + 2K^2] f_l P_l^m = 0
+\qquad(228)\]</span></span></p>
+<p>where <span class="math inline">\(K^2 = \frac{\mu_0 \rho}{2}\big( \frac{\omega^2 r^2}{M^2}\big)^2\)</span> (maybe the coefficient is wrong) and <span class="math inline">\(O_l\)</span> is the spherical Bessel operator</p>
+<p><span class="math display">\[
+O_l = \frac{1}{r}\frac{\partial^2}{\partial r^2}r - \frac{l(l+1)}{r^2}
+\]</span></p>
+<p>(This is almost out of my control now. If I want to fully understand this, I need to go back to math equations for physics!!!) The special property of Legendre polynomials allows us to write the solution to the wave equation as</p>
+<p><span id="eq:poloidal_spherical_sol"><span class="math display">\[
+\sum_{s = 0,\pm 2} a_{l+s} O_{l+s} f_{l+s} + K^2 f_l = 0
+\qquad(229)\]</span></span></p>
+<p>where the constants coefficients are</p>
+<p><span class="math display">\[
+\begin{aligned}
+a_{l+2} &amp;= \frac{3(l+2)(l+3)}{2(2l+3)(2l+5)} \\
+a_{l} &amp;= \frac{5l(l+1)-6}{(2l-1)(2l+3)} \\
+a_{l-2} &amp;= \frac{3(l-2)(l-1)}{2(2l-3)(2l-1)}
+\end{aligned}
+\]</span></p>
+<p>From Equation <a href="/KeyNotes#eq:poloidal_spherical_sol">229</a>, we know that radial amplitudes of opposite parity do not couple. Since only <span class="math inline">\(l\ge 1\)</span> occurs in Equation <a href="/KeyNotes#eq:poloidal_spherical_assump">228</a>, there are two fundamental unknown radial amplitudes: one for odd <span class="math inline">\(l\)</span> and one for even <span class="math inline">\(l\)</span>.</p>
+<p>We assume perfect reflection at the boundaries so that the transverse components of <span class="math inline">\(E\)</span>, i.e. <span class="math inline">\(E_\theta\)</span> and <span class="math inline">\(E_\phi\)</span>, are zeros. The walls are assumed to be rigid so that <span class="math inline">\(u_r = 0\)</span>. The normal component of <span class="math inline">\(\mathbf{B}_1\)</span> also vanishes from the governing equations.</p>
+<p>The toroidal wave equation seems to be too complicated for me following Radoski’s derivations…</p>
+<figure>
+<img src="images/FLR_toroidal_poloidal_harmonics.png" id="fig:flr_harmonics" alt="Figure 58: Cartoons showing the oscillation of a field line in the two lowest frequency toroidal modes (left) and poloidal modes (right). On the left the field line is drawn stretched out from north to south, and we look towards the Earth as the field line is displaced east and west. On the right, the dipolar field line is displaced within its meridian plane so all magnetic perturbations are radial. Note that for the toroidal mode, the magnetic perturbations (AD) have the opposite sense north and south in the fundamental and the same sense in the second harmonic. The opposite is true of the AH perturbation in the poloidal mode." /><figcaption aria-hidden="true">Figure 58: Cartoons showing the oscillation of a field line in the two lowest frequency toroidal modes (left) and poloidal modes (right). On the left the field line is drawn stretched out from north to south, and we look towards the Earth as the field line is displaced east and west. On the right, the dipolar field line is displaced within its meridian plane so all magnetic perturbations are radial. Note that for the toroidal mode, the magnetic perturbations (AD) have the opposite sense north and south in the fundamental and the same sense in the second harmonic. The opposite is true of the AH perturbation in the poloidal mode.</figcaption>
+</figure>
+<p>From the boundary condition, the length <span class="math inline">\(l\)</span> of the field line between two reflection point must be a multiple of half the wavelength <span class="math inline">\(\lambda\)</span>, implying</p>
+<p><span class="math display">\[
+n\lambda = 2l,\quad n = 1,2,3,...
+\]</span></p>
+<p>From the dispersion relation, with the average Alfvén speed <span class="math inline">\(&lt;V_A&gt;\)</span>, one finds:</p>
+<p><span class="math display">\[
+\omega_n = &lt;V_A&gt; k = &lt;V_A&gt;\frac{2\pi}{\lambda} = \frac{n\pi&lt;V_A&gt;}{l}
+\]</span></p>
+<h3 data-number="12.2.2" id="cylindrical-coordinates"><span class="header-section-number">12.2.2</span> Cylindrical Coordinates</h3>
+<p>In cylindrical coordinates <span class="math inline">\((r,\phi,z)\)</span>, assuming perturbations of the form <span class="math inline">\(e^{i(m\phi - \omega t)}\)</span>, we can separate the linearized equations (<span class="citation" data-cites="hughes1994">(<a href="/KeyNotes/references#ref-hughes1994" role="doc-biblioref">Hughes, 1994</a>)</span> I HAVEN’T DERIVED THIS!),</p>
+<p><span id="eq:cylindrical_mhd_toroidal"><span class="math display">\[
+\Big[ \omega^2 \mu_0 \rho - \frac{1}{r}(\mathbf{B}_0\cdot\nabla)r^2(\mathbf{B}_0\cdot\nabla) \Big]\frac{u_\phi}{r} = \omega m \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{r}
+\qquad(230)\]</span></span></p>
+<p><span id="eq:cylindrical_mhd_poloidal"><span class="math display">\[
+\Big[\omega^2 \mu_0 \rho - rB^2 (\mathbf{B}_0\cdot\nabla)\frac{1}{r^2 B^2}(\mathbf{B}_0\cdot\nabla) \Big]rE_\phi = i\omega B^2 (\mathbf{B}_0\times\nabla)_\phi \Big( \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{B^2} \Big)
+\qquad(231)\]</span></span></p>
+<p><span class="math display">\[
+i\omega \mathbf{B}_0\cdot\mathbf{B}_1 = \frac{1}{r}(\mathbf{B}\times\nabla)_\phi (rE_\phi) - imB^2\frac{u_\phi}{r}
+\]</span></p>
+<p>The first two equations are from the momentum equation. <span class="math inline">\(\mathbf{B}_0\cdot\nabla\)</span> is the derivative along the direction of <span class="math inline">\(\mathbf{B}\)</span>. These are wave equations coupled by the terms on the RHS which depend on <span class="math inline">\(\mathbf{B}_0\cdot\mathbf{B}_1\)</span>, the compressional part of the magnetic perturbation. The third equation is from Faraday’s law and Ohm’s law. It shows how <span class="math inline">\(\mathbf{B}_0\cdot\mathbf{B}_1\)</span>, <span class="math inline">\(E_\phi\)</span> and <span class="math inline">\(u_\phi\)</span> are related and closes the set. Since the transverse dispersion relation depends only on <span class="math inline">\(k_\parallel\)</span>, it is tempting to think of the LHS of Equation <a href="/KeyNotes#eq:cylindrical_mhd_toroidal">230</a> and Equation <a href="/KeyNotes#eq:cylindrical_mhd_poloidal">231</a> as representing pseudo-transverse mode oscillations, and the RHS as representing the coupling due to the fast mode which has a compressional component. When <span class="math inline">\(m\neq 0\)</span>, the phase variation of the toroidal mode in the <span class="math inline">\(\phi\)</span> direction leads to a compressional perturbation in the magnetic field. The polarizations of the toroidal and poloidal oscillations are no longer orthogonal, and thus there is coupling.</p>
+<p>If <span class="math inline">\(m = 0\)</span> the RHS of Equation <a href="/KeyNotes#eq:cylindrical_mhd_toroidal">230</a> vanishes. The LHS then describes a mode in which the electric field is purely radial and the magnetic and velocity perturbations are azimuthal. Magnetic L shells decouple and each shell oscillates azimuthally independently of each other. This is the Alfvénic <em>toroidal</em> mode. If <span class="math inline">\(m\rightarrow\infty\)</span>, for the RHS to remain finite, <span class="math inline">\(\mathbf{B}_0\cdot\mathbf{B}_1\rightarrow0\)</span> so the RHS of Equation <a href="/KeyNotes#eq:cylindrical_mhd_poloidal">231</a> vanishes. Equation <a href="/KeyNotes#eq:cylindrical_mhd_poloidal">231</a> then describes a mode in which <span class="math inline">\(\mathbf{E}\)</span> is azimuthal and <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{b}\)</span> are contained in a meridian plane. This is the compressional <em>poloidal</em> mode.</p>
+<h3 data-number="12.2.3" id="cartesian-box-model"><span class="header-section-number">12.2.3</span> Cartesian Box Model</h3>
+<p>Earliest theories had cold ideal MHD equations Equation <a href="/KeyNotes#eq:mhd_cold_e_wave">116</a> or Equation <a href="/KeyNotes#eq:mhd_cold_b_wave">117</a> expressed in the spherical or cylindrical coordinates, which are not easy to solve. As we will see, the essence of FLR can be obtained in the Cartesian coordinates. We simplify the actual dayside magnetosphere, which like a compressed dipole, to something we can solve analytically. Imagine a field line with both footpoints connecting to the conducting ionosphere, we can map this curved field line into a straight line extending along <span class="math inline">\(z\)</span>. In the <span class="math inline">\(x\)</span>-direction, the outer boundary is the magnetopause, and the inner boundary is the reflection point (plasmapause or ionosphere). The <span class="math inline">\(y\)</span>-direction represents the azimuthal direction, therefore at the front of the magnetosphere it is more aligned with the <span class="math inline">\(y\)</span>-direction in GSE/GSM and at the flanks/sides it is more aligned with the <span class="math inline">\(x\)</span>-direction. If the length in <span class="math inline">\(y\)</span> is finite (<span class="math inline">\(b &lt; \infty\)</span>), we call it a <em>cavity</em>; if the length in <span class="math inline">\(y\)</span> is infinite (<span class="math inline">\(b\rightarrow \infty\)</span>), we call it a <em>waveguide</em>. The names cavity and waveguide are inherited from electrodynamics. This is shown in the schematic Figure <a href="/KeyNotes#fig:box_mapping">59</a> and Figure <a href="/KeyNotes#fig:box_config">60</a>.</p>
+<figure>
+<img src="images/box_model_mapping.png" id="fig:box_mapping" alt="Figure 59: From one of Southwood &amp; Kivelson’s paper." /><figcaption aria-hidden="true">Figure 59: From one of Southwood &amp; Kivelson’s paper.</figcaption>
+</figure>
+<figure>
+<img src="images/box_model_config.png" id="fig:box_config" alt="Figure 60: From one of Southwood &amp; Kivelson’s paper." /><figcaption aria-hidden="true">Figure 60: From one of Southwood &amp; Kivelson’s paper.</figcaption>
+</figure>
+<p>Along the <span class="math inline">\(z\)</span>-direction, we impose the ionospheric boundary for closed field lines <span class="math inline">\(u_x = u_y = B_{1z} = 0\)</span>. Because of the ideal MHD assumption, the electric field along the field lines <span class="math inline">\(E_z = 0\)</span>. In the <span class="math inline">\(y\)</span>-direction, we impose either a periodic boundary condition for the cavity model that leads to a quantized wavenumber <span class="math inline">\(k_y\)</span>, or a infinite boundary. In the <span class="math inline">\(x\)</span> direction, the boundaries are provided by large <span class="math inline">\(V_A\)</span> gradients at both the outer boundary <span class="math inline">\(x_m\)</span> (magnetopause) and the inner boundary <span class="math inline">\(x_t\)</span> (plasmapause). We impose a reflective boundary <span class="math inline">\(u_x = 0\)</span> at <span class="math inline">\(x = x_t, x_m\)</span>. <em>The inhomogeity in <span class="math inline">\(x\)</span> means that we can only consider Fourier components in the <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> directions</em>. Therefore, we seek wave modes of the form <span class="math inline">\(\propto \exp[i(k_y y + k_z z - \omega t)]\)</span> with the ansatz</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{k} &amp;= (0, k_y, k_z) \\
+\mathbf{E} &amp;= (E_x(x), E_y(x), 0) e^{i(k_y y + k_z z - \omega t)} \\
+\mathbf{B}_1 &amp;= (B_{1x}, B_{1y}, B_{1z}) e^{i(k_y y + k_z z - \omega t)} \\
+\mathbf{B}_0 &amp;= B_z \hat{z} = B\hat{z} \\
+\rho &amp;= \rho(x) \\
+\mathbf{u} &amp;= \mathbf{u}_0 + \mathbf{u}_1 = \mathbf{u}_1
+\end{aligned}
+\]</span></p>
+<p>The linearized momentum Equation <a href="/KeyNotes#eq:mhd_cold">115</a> gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\rho\Big(\frac{\partial\mathbf{u}}{\partial t} + \cancel{\mathbf{u}\cdot\nabla\mathbf{u}}\Big) &amp;= \mathbf{j}\times\mathbf{B} \\
+\rho\frac{\partial\mathbf{u}}{\partial t} &amp;= \frac{1}{\mu_0}(\nabla\times\mathbf{B})\times\mathbf{B}
+\end{aligned}
+\]</span></p>
+<p>Separating the two perpendicular <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> directions and applying plane wave decomposition,</p>
+<p><span class="math display">\[
+\begin{aligned}
+-i\omega\rho\mu_0 u_x &amp;= (\nabla\times\mathbf{B}_1)_y B_z - (\nabla\times\mathbf{B}_1)_z \cancel{B_y} \\
+&amp;= \Big(\frac{\partial B_{1x}}{\partial z} - \frac{\partial B_{1z}}{\partial x}\Big) B \\
+&amp;= -\frac{\partial}{\partial x}\Big( B B_{1z} \Big) + i k_z B B_{1x}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+-i\omega\rho\mu_0 u_y &amp;= (\nabla\times\mathbf{B}_1)_z \cancel{B_x} - (\nabla\times\mathbf{B}_1)_x B_z \\
+&amp;= \Big(\frac{\partial B_{1y}}{\partial z} - \frac{\partial B_{1z}}{\partial y}\Big) B \\
+&amp;= k_z B B_{1y} - k_y B B_{1z}
+\end{aligned}
+\]</span></p>
+<p>From the simplest form of the generalized Ohm’s law <span class="math inline">\(\mathbf{E} = -\mathbf{u}_1 \times\mathbf{B}_0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+E_x &amp;= - u_y B \\
+E_y &amp;= - u_x B
+\end{aligned}
+\]</span></p>
+<p>Inserting into the linearized momentum equation, we have</p>
+<p><span id="eq:flr_momentum"><span class="math display">\[
+\begin{aligned}
+-i \omega \rho \mu_0 \frac{E_y}{B} &amp;= -\frac{\partial}{\partial x}\Big( B B_{1z} \Big) + i k_z B B_{1x} \\
+\omega \rho \mu_0 \frac{E_x}{B} &amp;= - k_y B B_{1z} + k_z B B_{1y}
+\end{aligned}
+\qquad(232)\]</span></span></p>
+<p>From linearized Faraday’s law <span class="math inline">\(\nabla\times\mathbf{E} = -\dot{\mathbf{B}_1}\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+-\frac{\partial E_y}{\partial z} &amp;= -\dot{B_{1x}} \\
+\frac{\partial E_x}{\partial z} &amp;= -\dot{B_{1y}} \\
+\frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} &amp;= -\dot{B_{1z}}
+\end{aligned}
+\]</span></p>
+<p><span id="eq:flr_faraday_linear"><span class="math display">\[
+\begin{aligned}
+B_{1x} &amp;= \frac{1}{\omega}(- k_z E_y) \\
+B_{1y} &amp;= \frac{1}{\omega}(k_z E_x) \\
+B_{1z} &amp;= \frac{1}{\omega}\Big(-i\frac{\partial E_y}{\partial x} - k_y E_x\Big)
+\end{aligned}
+\qquad(233)\]</span></span></p>
+<p>Substituting Equation <a href="/KeyNotes#eq:flr_faraday_linear">233</a> into Equation <a href="/KeyNotes#eq:flr_momentum">232</a> gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+-i \omega \rho \mu_0 \frac{E_y}{B} = -\frac{\partial}{\partial x}\Big[ B  \frac{1}{\omega}\Big(-i\frac{\partial E_y}{\partial x} - k_y E_x\Big) \Big] + i k_z B \frac{-k_z}{\omega} E_y \\
+-i \big( \omega^2 \rho \mu_0 / B^2 - k_z^2 \big)E_y = k_y \frac{\partial E_x}{\partial x} - i \frac{\partial^2 E_y}{\partial x^2}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+-i \omega \rho \mu_0 \frac{E_x}{B} = k_z B \frac{k_z}{\omega} E_x - k_y B \frac{1}{\omega}\Big(-i\frac{\partial E_y}{\partial x} - k_y E_x\Big) \\
+\big( \omega^2 \rho \mu_0 / B^2 - k_y^2 - k_z^2 \big)E_x + i k_y\frac{\partial E_y}{\partial x} = 0
+\end{aligned}
+\]</span></p>
+<p>Let <span class="math inline">\(R^2 = \mu_0 \rho(x) \omega^2 / B^2 = \omega^2/V_A(x)^2\)</span>, we have</p>
+<p><span id="eq:flr_ex_ey"><span class="math display">\[
+\begin{aligned}
+-i (R^2 - k_z^2)E_y = k_y \frac{\partial E_x}{\partial x} - i \frac{\partial^2 E_y}{\partial x^2} \\
+(R^2 - k_y^2 -k_z^2)E_x + i k_y\frac{\partial E_y}{\partial x} = 0
+\end{aligned}
+\qquad(234)\]</span></span></p>
+<p>Eliminating <span class="math inline">\(E_x\)</span> from Equation <a href="/KeyNotes#eq:flr_ex_ey">234</a> gives</p>
+<p><span id="eq:flr_wave_ey"><span class="math display">\[
+\frac{\partial^2}{\partial x^2}E_y - k_y^2 \frac{\partial}{\partial x}R^2(x)\frac{1}{(R^2 - k_z^2)(R^2 - k_z^2 - k_y^2)}\frac{\partial E_y}{\partial x} + (R^2 - k_z^2 - k_y^2)E_y = 0
+\qquad(235)\]</span></span></p>
+<p>There is a very important observation about polarization from Equation <a href="/KeyNotes#eq:flr_ex_ey">234</a>, <span class="citation" data-cites="southwood1974some">(<a href="/KeyNotes/references#ref-southwood1974some" role="doc-biblioref">Southwood, 1974</a>)</span>:</p>
+<p><span id="eq:flr_polarization"><span class="math display">\[
+\frac{E_x}{E_y} = -\frac{ik_y}{R^2-k_y^2-k_z^2}\frac{\partial E_y}{\partial x}\frac{1}{E_y}
+\qquad(236)\]</span></span></p>
+<p>Our familiar fast MHD wave is <em>no longer linearly polarized in a nonuniform plasma</em>! A key thing on the RHS is the dependence on the sign of <span class="math inline">\(k_y\)</span> as well as <span class="math inline">\(\partial E_y/\partial x\)</span>. For fast waves propagating in opposite directions (i.e. eastward and westward in the azimuthal direction), the sense of polarization (RH, LH) will change as <span class="math inline">\(k_y\)</span> changes sign across local noon. Right at the resonance point where <span class="math inline">\(R^2 - k_z^2 - k_y^2 = 0\)</span>, we get linearly polarized Alfvén wave. <span class="math inline">\(\partial E_y/\partial x\)</span> changes sign across the resonance point, thus we also have another change in polarization detected on the ground for different L-shells (or magnetic latitudes).</p>
+<figure>
+<img src="images/FLR_ground_Pc5_1974.png" id="fig:flr_polarization" alt="Figure 61: The variation of amplitude and the sense of polarization of Pc5’s seen at high latitudes with latitude and magnetic local time. (After [Samson +, 1974].)" /><figcaption aria-hidden="true">Figure 61: The variation of amplitude and the sense of polarization of Pc5’s seen at high latitudes with latitude and magnetic local time. (After [Samson +, 1974].)</figcaption>
+</figure>
+<p>Equation <a href="/KeyNotes#eq:flr_wave_ey">235</a> can also be written as a second order differential equation of <span class="math inline">\(B_{1z}\)</span>, the compressional component of the magnetic field (see Equation <a href="/KeyNotes#eq:perturb_b">12</a>), as <span class="citation" data-cites="kivelson1985resonant">(<a href="/KeyNotes/references#ref-kivelson1985resonant" role="doc-biblioref">Kivelson &amp; Southwood, 1985</a>)</span> did in proposing the idea of cavity modes:</p>
+<p><span class="math display">\[
+\frac{\partial^2 B_{1z}}{\partial x^2} - \frac{ \frac{\partial R^2}{\partial x}}{R^2 - k_z^2}\frac{\partial B_{1z}}{\partial x} + ( R^2 - k_y^2 - k_z^2 ) B_{1z} = 0
+\]</span></p>
+<p>or equivalently,</p>
+<p><span id="eq:flr_wave_bz"><span class="math display">\[
+\frac{\partial^2 B_{1z}}{\partial x^2} - \frac{\omega^2 \partial V_A^{-2}/\partial x}{\omega^2/V_A^2 - k_z^2}\frac{\partial B_{1z}}{\partial x} + \Big( \frac{\omega^2}{V_A^2} - k_y^2 - k_z^2 \Big) B_{1z} = 0
+\qquad(237)\]</span></span></p>
+<p>Let us first get some intuitions about Equation <a href="/KeyNotes#eq:flr_wave_ey">235</a> (following <span class="citation" data-cites="glassmeier1999">(<a href="/KeyNotes/references#ref-glassmeier1999" role="doc-biblioref">Glassmeier et al., 1999</a>)</span>, but note that there are sign errors and wrong equations in the original paper!). This equation exhibits strong singularities found in the denominator of its second term, much as first described by Tamao (1965). The following solutions are possible. If <span class="math inline">\(R^2 - k_z^2 - k_y^2 &gt; 0\)</span>, from which <span class="math inline">\(R^2 - k_z^2 &gt; 0\)</span> follows, no singularities appear. Assuming <span class="math inline">\(k_y \approx 0\)</span>, the above equation reduces to</p>
+<p><span class="math display">\[
+\frac{\partial^2}{\partial x^2}E_y + (R^2 - k_z^2)E_y = 0
+\]</span></p>
+<p>For a linear density profile, i.e. <span class="math inline">\(R^2 = \alpha_0^2 + \alpha^2 x\)</span>, with the definition of the turning point <span class="math inline">\(x_t\)</span> via <span class="math inline">\(R^2 = k_z^2\)</span>, and the transformation <span class="math inline">\(s = \alpha^{2/3}(x-x_t)&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial E_y}{\partial x} &amp;= \frac{\partial E_y}{\partial(\alpha^{-2/3}s+x_t)} = \alpha^{2/3}\frac{\partial E_y}{\partial s} \\
+\frac{\partial^2 E_y}{\partial x^2} &amp;=  \alpha^{4/3}\frac{\partial^2 E_y}{\partial s^2}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\frac{\partial^2 E_y}{\partial s^2} + sE_y = 0
+\]</span></p>
+<p>This is the Airy or Stokes equation (Section <a href="/KeyNotes/WKB#sec:airy">3.9.1</a>) with the two principal solutions displayed in Figure <a href="/KeyNotes#fig:airy_flr">62</a>. The solution <span class="math inline">\(Bi(s)\)</span> is unphysical as it implies unlimited growth of <span class="math inline">\(E_y\)</span> behind the turning point at <span class="math inline">\(s=0\)</span>. Thus <span class="math inline">\(E_y(s) = Ai(s)\)</span> is the required solution. The turning point actually is the point of total reflection of the wave field. Its appearance can be understood on the following grounds. The “effective” local wavenumber in <span class="math inline">\(x\)</span> is given by</p>
+<p><span id="eq:flr_kx_effective"><span class="math display">\[
+k_x^2(x, \omega) = \frac{\omega^2}{V_A^2(x)} - k_y^2 - k_z^2
+\qquad(238)\]</span></span></p>
+<p>If <span class="math inline">\(V_A^2\)</span> increases with <span class="math inline">\(x\)</span>, that is with <span class="math inline">\(s\)</span> in the Airy function plot, <span class="math inline">\(k_x^2\)</span> has to decrease as <span class="math inline">\(\omega, k_y\)</span> and <span class="math inline">\(k_z\)</span> stay constant. Eventually <span class="math inline">\(k_x^2\)</span> may become negative, which implies an imaginary wave number <span class="math inline">\(k_x\)</span>. At this turning point the wave will be reflected.</p>
+<figure>
+<img src="/KeyNotes/im/KeyNotes_plot_airy_minus_x_.svg" id="fig:airy_flr" alt="Figure 62: Airy functions solutions for the simplified field line resonance equation." /><figcaption aria-hidden="true">Figure 62: Airy functions solutions for the simplified field line resonance equation.</figcaption>
+</figure>
+<p>Next if <span class="math inline">\(R^2 - k_z^2 - k_y^2 &lt; 0\)</span>, <span class="math inline">\(R^2 - k_z^2 = 0\)</span> may occur. Assuming again a linear density profile, defining a resonance point <span class="math inline">\(x_r\)</span> via <span class="math inline">\(R^2 = k_z^2\)</span>, and <span class="math inline">\(s = x-x_r\)</span>, the electric field perturbation transforms close to the resonance point <span class="math inline">\(x - x_r = 0\)</span> into</p>
+<p><span id="eq:flr_wave_ey_perturbation"><span class="math display">\[
+\frac{\partial^2 E_y}{\partial s^2} - \frac{1}{s}\frac{s_t}{s-s_t}\frac{\partial E_y}{\partial s} + \alpha^2(s-s_t) E_y = 0
+\qquad(239)\]</span></span></p>
+<p>where <span class="math inline">\(s_t = k_y^2/\alpha^2\)</span>.</p>
+<p>At the resonance point its solution exhibits a clear singularity with unlimited growth of <span class="math inline">\(E_y\)</span>. In front of the turning point <span class="math inline">\(s&gt;s_t\)</span> the solution is similar to an Airy function, while behind it singular behaviour is observed at the resonance point <span class="math inline">\(s=0\)</span>. I do not show the solution BECAUSE I DON’T KNOW HOW TO WRITE IT DOWN! But let us now follow <span class="citation" data-cites="kivelson1985resonant">(<a href="/KeyNotes/references#ref-kivelson1985resonant" role="doc-biblioref">Kivelson &amp; Southwood, 1985</a>)</span> and check the equivalent perturbation Equation <a href="/KeyNotes#eq:flr_wave_bz">237</a> for <span class="math inline">\(B_{1z}\)</span>.</p>
+<p>When we also assume linear mass density variation with <span class="math inline">\(x\)</span> in Equation <a href="/KeyNotes#eq:flr_wave_bz">237</a> such that</p>
+<p><span class="math display">\[
+\begin{aligned}
+R^2 - k_z^2 &amp;= \alpha^2(x - x_r) \\
+R^2 - k_z^2 - k_y^2 &amp;= \alpha^2(x-x_t)
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(x_r = k_z^2/\alpha^2\)</span>, <span class="math inline">\(x_t = x_r + k_y^2/\alpha^2\)</span>, we have</p>
+<p><span id="eq:flr_bz_perturbation"><span class="math display">\[
+\frac{\partial^2 B_{1z}}{\partial x^2} - \frac{1}{x-x_r}\frac{\partial B_{1z}}{\partial x} + \alpha^2(x-x_t)B_{1z} = 0
+\qquad(240)\]</span></span></p>
+<p>The solution of Equation <a href="/KeyNotes#eq:flr_bz_perturbation">240</a> is discussed by <span class="citation" data-cites="kivelson1986coupling">(<a href="/KeyNotes/references#ref-kivelson1986coupling" role="doc-biblioref">Kivelson &amp; Southwood, 1986</a>)</span>. The singular point where <span class="math inline">\(x=x_r\)</span> and <span class="math inline">\(R^2=k_z^2\)</span> corresponds to the <em>resonance point</em> where the wave frequency matches the Alfvén mode frequency. The point where <span class="math inline">\(x=x_t\)</span> and <span class="math inline">\(R^2=k_y^2 + k_z^2\)</span> is the <em>turning point</em> of the equation. When <span class="math inline">\(x&gt;x_t\)</span>, any wave described by the equation oscillates with <span class="math inline">\(x\)</span>; when <span class="math inline">\(x&lt;x_t\)</span> independent solutions grow or evanesce with <span class="math inline">\(x\)</span> on each side of the resonance singularity <span class="math inline">\(x_r\)</span>.</p>
+<p>Series solutions valid in the neighborhood of <span class="math inline">\(x=x_r\)</span> and <span class="math inline">\(x=x_t\)</span> have been derived by a variety of authors. The Frobenius method of solution of partial differential equations can be used to find solutions valid near <span class="math inline">\(x_r\)</span>, where the analytic solution is of the form</p>
+<p><span id="eq:flr_bz_analytic"><span class="math display">\[
+R_t(x) = k_y^2(x-x_r)^2 + \mathcal{O}[(x-x_r)^4]
+\qquad(241)\]</span></span></p>
+<p>and the singular solution is of the form</p>
+<p><span id="eq:flr_bz_singular"><span class="math display">\[
+s_t(x) = 1 + \frac{1}{2}R_t(x)\ln(x_r - x) + \mathcal{O}[(x-x_r)^2]
+\qquad(242)\]</span></span></p>
+<p>For <span class="math inline">\(k_y^2=\alpha^{4/3}\)</span>, the two solutions for <span class="math inline">\(B_{1z}\)</span> is shown in Figure <a href="/KeyNotes#fig:flr_b1z_solutions">63</a>. On the far right side of the plot the functions are close to spatial quadrature and have zeros whose spacing decreases with increasing <span class="math inline">\(x\)</span>. In this regime, as we will mention later, the WKB approximation is good and the amplitude and phase are proportional to <span class="math inline">\(s^{1/4}\)</span> and <span class="math inline">\(s^{3/2}\)</span>, respectively. The amplitudes have been plotted just such that an incoming wave from large <span class="math inline">\(x\)</span> would be represented by <span class="math inline">\(R_t(x)+iS_t(x)\)</span> if a time variation <span class="math inline">\(e^{-i\omega t}\)</span> is specified. The corresponding mode propagating toward large <span class="math inline">\(x\)</span> would be <span class="math inline">\(R_t(x)-iS_t(x)\)</span>. Thus <span class="math inline">\(R_t(x), S_t(x)\)</span> represent standing wave forms. However, the presence of the resonance (at the far left of the plots) preludes there being perfect reflection or perfect standing wave solutions.</p>
+<figure>
+<img src="images/b1z_solutions.png" id="fig:flr_b1z_solutions" alt="Figure 63: Two independent solutions of Equation 240 for x &gt; x_r. The particular pair illustrated are solutions for the case \lambda^2/\alpha^{4/3}=1 for which x_t/x_r = 2. The dashed curve is the solution that is analytic at the singular point (cf. Equation 241). The solution plotted as a solid curve is finite at the singularity with infinite derivatives as evident from Equation 242. Amplitudes have been selected to match at large x where the oscillating solutions are in spatial quadrature." /><figcaption aria-hidden="true">Figure 63: Two independent solutions of Equation <a href="/KeyNotes#eq:flr_bz_perturbation">240</a> for <span class="math inline">\(x &gt; x_r\)</span>. The particular pair illustrated are solutions for the case <span class="math inline">\(\lambda^2/\alpha^{4/3}=1\)</span> for which <span class="math inline">\(x_t/x_r = 2\)</span>. The dashed curve is the solution that is analytic at the singular point (cf. Equation <a href="/KeyNotes#eq:flr_bz_analytic">241</a>). The solution plotted as a solid curve is finite at the singularity with infinite derivatives as evident from Equation <a href="/KeyNotes#eq:flr_bz_singular">242</a>. Amplitudes have been selected to match at large <span class="math inline">\(x\)</span> where the oscillating solutions are in spatial quadrature.</figcaption>
+</figure>
+<pre class="language-julia"><code>function plot_b1z_ode()
+   # Initial Conditions
+   x₀1 = [0.033]
+   dx₀1 = [1.0]
+   x₀2 = [0.28]
+   dx₀2 = [0.0]
+
+   tspan = (15.0, 1.0)
+
+   # Define the problem
+   function b1z_equation(ddu, du, u, α, t)
+      ddu .= du/(t - 1) - (t - 2)*u
+   end
+
+   # Pass to solvers
+   prob = SecondOrderODEProblem(b1z_equation, dx₀1, x₀1, tspan)
+   sol1 = solve(prob, Nystrom4(), dt=0.05)
+   prob = SecondOrderODEProblem(b1z_equation, dx₀2, x₀2, tspan)
+   sol2 = solve(prob, Nystrom4(), dt=0.05)
+
+   # Extract solutions
+   x = sol1.t
+   a = getindex.(sol1.u, 2)
+   b = getindex.(sol2.u, 2)
+
+   f = Figure(fontsize=25, resolution=(800, 500))
+   ax = Axis(f[1, 1],
+      xticks = 0:15,
+      xlabel=&quot;x&quot;,
+      ylabel=L&quot;B_{1z}&quot;,
+   )
+
+   p1 = lines!(ax, x, a, linewidth=3, label=&quot;R(x)&quot;)
+   p2 = lines!(ax, x, b, linewidth=3, label=&quot;S(x)&quot;)
+   axislegend(ax; position=(0.25,1.0), framevisible=false)
+   vlines!(ax, [1.0,2.0], color = :black)
+
+   caption = &quot;Numerical solution of field line resonance perturbation equation for \
+      \$\\alpha=1,x_r=1,x_t=2\$. The singular behavior at \$x_r=1\$ for \$S(x)\$ is not \
+      so obvious and the boundary conditions on the right side are hard-coded.&quot;
+   label = &quot;b1z_ode&quot;
+   Options(f; caption, label)
+end
+KeyNotes.plot_b1z_ode()</code></pre>
+<figure>
+<img src="/KeyNotes/im/KeyNotes_plot_b1z_ode_.svg" id="fig:b1z_ode" alt="Figure 64: Numerical solution of field line resonance perturbation equation for \alpha=1,x_r=1,x_t=2. The singular behavior at x_r=1 for S(x) is not so obvious and the boundary conditions on the right side are hard-coded." /><figcaption aria-hidden="true">Figure 64: Numerical solution of field line resonance perturbation equation for <span class="math inline">\(\alpha=1,x_r=1,x_t=2\)</span>. The singular behavior at <span class="math inline">\(x_r=1\)</span> for <span class="math inline">\(S(x)\)</span> is not so obvious and the boundary conditions on the right side are hard-coded.</figcaption>
+</figure>
+<p>The following physical interpretation is tempting. The MHD wave propagating into the magnetosphere is a fast mode wave generated by, e.g. plasma instabilities at the magnetopause. Eventually the wave reaches the turning point where reflection occurs. If conditions are favourable, that is if a resonance point occurs, part of the fast mode wave energy can tunnel into the resonance, where coupling from the fast mode disturbance into an Alfvén mode perturbation takes place. The resonance point <em>always</em> lies beyond the turning point, but energy tunnels to the resonance point and the reflection is found to be less than perfect. This scenario is schematically shown in Figure <a href="/KeyNotes#fig:flr_schematic">65</a>, where the reflection or turning point is assumed to coincide with the magnetopause. The point of maximum coupling or “resonant mode coupling” is given by <span class="math inline">\(\omega = k_\parallel V_A(x)\)</span>, where <span class="math inline">\(\omega\)</span> is the fast mode wave frequency, <span class="math inline">\(k_\parallel\)</span> is the field-aligned component of the fast mode wave vector and <span class="math inline">\(V_A(x)\)</span> is the local Alfvén velocity. This is also the Alfvén dispersion relation.</p>
+<figure>
+<img src="images/FLR_schematic.png" id="fig:flr_schematic" alt="Figure 65: Schematic view of the field line resonance, driven by unstable surface wave." /><figcaption aria-hidden="true">Figure 65: Schematic view of the field line resonance, driven by unstable surface wave.</figcaption>
+</figure>
+<p>Equation <a href="/KeyNotes#eq:flr_wave_bz">237</a> has a long history that appeared first in the context of a radio wave obliquely incident on a region of increasing electron density, all the way back to 1951, as mentioned in <span class="citation" data-cites="kivelson1986coupling">(<a href="/KeyNotes/references#ref-kivelson1986coupling" role="doc-biblioref">Kivelson &amp; Southwood, 1986</a>)</span>. It also appears in calculating the absorption of laser energy by a plasma and heating a plasma by radio wave injection to excite internal Alfvén waves. Energy is absorbed at the location in the plasma corresponding to the singular point of the governing differential Equation <a href="/KeyNotes#eq:flr_wave_bz">237</a> or its equivalent. Without the introduction of additional effects such as dissipation or dispersion near resonance, the singularity in the differential equation implies that the amplitude of the Alfvén wave grows secularly.</p>
+<p>Some studies (e.g. <span class="citation" data-cites="kivelson1986coupling">(<a href="/KeyNotes/references#ref-kivelson1986coupling" role="doc-biblioref">Kivelson &amp; Southwood, 1986</a>)</span>, <span class="citation" data-cites="wright1994">(<a href="/KeyNotes/references#ref-wright1994" role="doc-biblioref">Wright, 1994</a>)</span>) prefer to use plasma displacement <span class="math inline">\(\pmb{\xi}\)</span> instead of <span class="math inline">\(\mathbf{u}\)</span>, where <span class="math inline">\(\mathbf{u} = \dot{\pmb{\xi}}\)</span>, and perturbed magnetic field component <span class="math inline">\(B_{1z}\)</span> to describe the model:</p>
+<p><span id="eq:flr_box_displacement_b1z"><span class="math display">\[
+\begin{aligned}
+\frac{1}{V_A^2}\frac{\partial^2 \xi_x}{\partial t^2} - \frac{\partial \xi_x}{\partial z^2} &amp;= -\frac{1}{B_0}\frac{\partial B_{1z}}{\partial x} \\
+\frac{1}{V_A^2}\frac{\partial^2 \xi_y}{\partial t^2} - \frac{\partial \xi_y}{\partial z^2} &amp;= -\frac{1}{B_0}\frac{\partial B_{1z}}{\partial y} \\
+B_{1z} &amp;= - B_0 \Big( \frac{\partial \xi_x}{\partial x} + \frac{\partial \xi_y}{\partial y} \Big)
+\end{aligned}
+\qquad(243)\]</span></span></p>
+<p>This equation set is equivalent to Equation <a href="/KeyNotes#eq:mhd_cold_b_wave">117</a>. The first two equations are the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> component of the momentum equation, and the last equation is the magnetic field advection equation (Faraday’s law + Ohm’s law). Recall that <span class="math inline">\(B_{1z}\)</span> is the compressional perturbation to the ambient magnetic field. Then on the RHS of the second equation, it is the azimuthal gradient in the fast mode <span class="math inline">\(\partial B_{1z}/\partial y\)</span> that drives the response in the azimuthal place displacement <span class="math inline">\(\xi_y\)</span>. It is like the LHS is a simple harmonic oscillator and the RHS is the forcing term. Recall that we are seeking for solutions of the form <span class="math inline">\(e^{i(k_y y + k_z z - \omega t)}\)</span>. From here we can see that:</p>
+<ul>
+<li>if <span class="math inline">\(k_y=0\)</span> for the fast mode, then there are no azimuthal gradients to drive FLRs and hence you get no wave coupling;</li>
+<li>if <span class="math inline">\(k_y \rightarrow \infty\)</span>, then <span class="math inline">\(\xi_y \rightarrow 0\)</span> and <span class="math inline">\(\xi_x\)</span> describes a decoupled poloidal Alfvén wave.</li>
+<li>if <span class="math inline">\(k_y \neq 0\)</span> or <span class="math inline">\(\infty\)</span>, the wave modes are coupled together and energy initially in the fast mode may mode convert to Alfvén wave energy on localized field lines.</li>
+</ul>
+<p><strong>Uniform density and background magnetic field</strong></p>
+<p>Let <span class="math inline">\(\rho = \text{const.}\)</span>, <span class="math inline">\(V_A = \text{const.}\)</span>. From Equation <a href="/KeyNotes#eq:flr_box_displacement_b1z">243</a>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\ddot{B_{1z}} &amp;= - B_0 \Big( \frac{\partial \ddot{\xi_x}}{\partial x} + \frac{\partial \ddot{\xi_y}}{\partial y} \Big) = V_A^2 \Big( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} \Big) B_{1z} \\ &amp;= V_A^2 \nabla^2 B_{1z}
+\end{aligned}
+\]</span></p>
+<p>Consider normal modes of waveguides of the form <span class="math inline">\(e^{\mathbf{k}\cdot\mathbf{r} - i\omega t}\)</span>, where <span class="math inline">\(\mathbf{k} = (k_x, k_y, k_z)\)</span>. The dispersion relation for the fast mode is then</p>
+<p><span id="eq:flr_uniform_fast"><span class="math display">\[
+\omega^2 = V_A^2 (k_x^2 + k_y^2 + k_z^2)
+\qquad(244)\]</span></span></p>
+<p>In an infinite medium this relation gives nondispersive propagation. Since we are interested primarily in propagation along the waveguide (i.e., in the <span class="math inline">\(y\)</span> direction) we shall define <span class="math inline">\(v_p\)</span> and <span class="math inline">\(v_g\)</span> to be the phase and group velocities along <span class="math inline">\(\hat{y}\)</span>. Employing Equation <a href="/KeyNotes#eq:flr_uniform_fast">244</a> gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+v_p &amp;= \frac{\omega}{k_y} = \frac{k}{k_y}V_A \\
+v_g &amp;= \frac{\partial\omega}{\partial k_y} = \frac{k_y}{k}V_A
+\end{aligned}
+\]</span></p>
+<p>which yields the familiar waveguide relation</p>
+<p><span id="eq:flr_waveguide_relation"><span class="math display">\[
+v_p v_g = V_A^2
+\qquad(245)\]</span></span></p>
+<p>The shear Alfvén wave has the same velocity parallel to the field line (because it is cold). However, in a waveguide the boundary conditions in the <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span> directions restrict the choice of wavenumbers and introduce dispersion. Suppose that the boundaries in <span class="math inline">\(x\)</span> are perfectly reflecting (e.g. <span class="math inline">\(\xi_x = \frac{\partial B_{1z}}{\partial y} = 0\)</span>) as are those in <span class="math inline">\(z\)</span> (<span class="math inline">\(\xi_x = \xi_y = B_{1z} = 0\)</span>) which represent the ionospheric boundary for closed field lines. Then</p>
+<p><span id="eq:flr_xz_quantized"><span class="math display">\[
+\begin{aligned}
+k_x &amp;= \pm n \pi / a,\, &amp;n = 1,2,3... \\
+k_z &amp;= \pm m \pi / c,\, &amp;m = 1,2,3...
+\end{aligned}
+\qquad(246)\]</span></span></p>
+<p>where <span class="math inline">\(a\)</span> is the box length in x and <span class="math inline">\(c\)</span> is the box length in z (i.e. length of the field lines).</p>
+<p>Given values of <span class="math inline">\(k_x\)</span> and <span class="math inline">\(k_z\)</span>, we may use Equation <a href="/KeyNotes#eq:flr_uniform_fast">244</a> to find <span class="math inline">\(k_y\)</span> as a function of <span class="math inline">\(\omega\)</span>,</p>
+<p><span class="math display">\[
+k_y^2 = \frac{\omega^2}{V_A^2} - k_x^2 - k_y^2
+\]</span></p>
+<p>If <span class="math inline">\(k_y\)</span> is real then the mode may propagate along the guide. However, if we believe that the boundary at <span class="math inline">\(x = x_m = a\)</span> is not a reflector but is driven, it would be appropriate to impose a wavenumber <span class="math inline">\(k_y\)</span> along the outer boundary and solve for <span class="math inline">\(k_x\)</span> given <span class="math inline">\(k_z\)</span>. This is the case when the magnetopause is driven by the Kelvin-Helmholtz instability (i.e. <span class="math inline">\(k_y\)</span> given by the surface waves), which was proposed in the 1970s to be the driver of field line resonances. In this situation <span class="math inline">\(k_x\)</span> is found to be imaginary, and the mode is evanescent (exponentially decaying) in <span class="math inline">\(x\)</span>.</p>
+<p><strong>Nonuniform density and magnetic field</strong></p>
+<p>The simplest assumptions in this case would be <span class="math inline">\(\rho = \rho(x)\)</span>, <span class="math inline">\(\mathbf{B}_0 = B_0\hat{z}\)</span>, and that the Alfvén speed <span class="math inline">\(V_A\)</span> is monotonically decreasing with <span class="math inline">\(x\)</span>, <span class="math inline">\(\partial V_A / \partial x &lt; 0\)</span>. Then again we get Equation <a href="/KeyNotes#eq:flr_wave_bz">237</a>. Solving this equation for given boundary conditions in <span class="math inline">\(x\)</span> yields a set of orthogonal eigenfunctions <span class="math inline">\(B_{1z}(x)\)</span> and eigenfrequencies.</p>
+<p>First of all, we shall notice that a singularity/resonance occurs at <span class="math inline">\(x_r\)</span> where</p>
+<p><span id="eq:flr_resonance_dispersion"><span class="math display">\[
+\omega^2 = k_z^2 V_A^2(x_r)
+\qquad(247)\]</span></span></p>
+<p>Across <span class="math inline">\(x_r\)</span> there will be a <span class="math inline">\(180^o\)</span> phase shift for the perturbed terms (Equation <a href="/KeyNotes#eq:flr_polarization">236</a>). Energy is been absorbed at the resonance point from fast mode to Alfvén mode. Dissipation is required, otherwise the amplitude of the Alfvén wave grows secularly. Ionospheric dissipation near the resonant field line is likely to be one important process limiting the growth of the resonance amplitude.</p>
+<p>Secondly, there is a turning point at <span class="math inline">\(x_t\)</span> defined via <span class="math inline">\(k_x^2 = 0\)</span> (fixed <span class="math inline">\(k_y, k_z, \omega\)</span>):</p>
+<p><span id="eq:flr_turning_dispersion"><span class="math display">\[
+\omega^2 = (k_y^2 + k_z^2)V_A^2(x_t)
+\qquad(248)\]</span></span></p>
+<p>On the right of <span class="math inline">\(x_t\)</span>, the positive exponent represents a wave propagating in the positive <span class="math inline">\(x\)</span> direction towards the magnetopause, and the negative exponent represents one propagating away from the magnetopause. This is like an imperfect standing wave solution. Across <span class="math inline">\(x_t\)</span> on the left, the oscillating solutions convert to a decaying solution and an exponentially growing solution (Section <a href="/KeyNotes/WKB#sec:airy">3.9.1</a>).</p>
+<p>If the Alfvén speed <span class="math inline">\(V_A\)</span> is monotonically decreasing with <span class="math inline">\(x\)</span>, from Equation <a href="/KeyNotes#eq:flr_resonance_dispersion">247</a> and Equation <a href="/KeyNotes#eq:flr_turning_dispersion">248</a> we always have <span class="math inline">\(0 &lt; x_r &lt; x_t &lt; x_m\)</span>. In the low Alfvén speed region <span class="math inline">\([x_t, x_m]\)</span> the fast mode may propagate, while in the high Alfvén speed region <span class="math inline">\([0, x_t]\)</span> the fast mode is evanescent. Thus the resonant singularity <span class="math inline">\(x_r\)</span> is in the evanescent tail of the fast mode.</p>
+<p>The first-order derivative term in Equation <a href="/KeyNotes#eq:flr_wave_bz">237</a> dominate near <span class="math inline">\(x=x_r\)</span>, but is small in the propagating interval <span class="math inline">\([x_t, x_m]\)</span>. This is particularly true in the WKB limit (Section <a href="/KeyNotes/WKB#sec:WKB">3.9</a>), where we consider waves of short wavelength in <span class="math inline">\(x\)</span>; i.e. second-order derivative term is much larger than the first-order derivative term. In the lowest order WKB analysis we may neglect the first-order derivatives and solve</p>
+<p><span id="eq:flr_wave_bz_wkb"><span class="math display">\[
+\frac{\partial^2 B_{1z}}{\partial x^2} + \Big( \frac{\omega^2}{V_A^2} - k_y^2 - k_z^2 \Big) B_{1z} = 0
+\qquad(249)\]</span></span></p>
+<p>and the WKB solution is given in the form</p>
+<p><span class="math display">\[
+B_{1z}(x) = A k_x^{-1/2} e^{i\int k_x dx} + B k_x^{-1/2}e^{-i\int k_x dx}
+\]</span></p>
+<p>where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are constants, and <span class="math inline">\(k_x\)</span> is the “effective” wavenumber defined in Equation <a href="/KeyNotes#eq:flr_kx_effective">238</a>, an explicit function of <span class="math inline">\(x\)</span>.</p>
+<p>The Bohr-Sommerfeld (or phase integral, Section <a href="/KeyNotes/WKB#sec:stokes_application">3.9.4</a>) condition which the quasi-standing wave must satisfy between <span class="math inline">\(x_t\)</span> and <span class="math inline">\(x_m\)</span> is</p>
+<p><span id="eq:cavity_eigen_wkb"><span class="math display">\[
+\int_{x_t}^{x_m} k_x(x,\omega_n) dx = (n+\alpha)\pi\qquad n = 1,2,3...
+\qquad(250)\]</span></span></p>
+<p>where <span class="math inline">\(x_m = a\)</span> is the location of the outer boundary in <span class="math inline">\(x\)</span> and the phase factor <span class="math inline">\(\alpha\)</span> is determined by the boundary conditions in <span class="math inline">\(x\)</span>. For a perfect reflector at <span class="math inline">\(a\)</span> (<span class="math inline">\(\xi_x=0\)</span>) and evanescent decay at small x, we find <span class="math inline">\(\alpha = -1/4\)</span>. If there is a resonance in the waveguide, it will modify <span class="math inline">\(\alpha\)</span>; however, since the resonance is in the evanescent tail there will be no leading order change in <span class="math inline">\(\alpha\)</span>.</p>
+<p>Equation <a href="/KeyNotes#eq:cavity_eigen_wkb">250</a> is an integral relation for the eigenfrequencies of the fast mode: we specify <span class="math inline">\(k_y\)</span>, <span class="math inline">\(k_z\)</span>, and <span class="math inline">\(n\)</span> (the mode number in x), then find the n-th eigenfrequency <span class="math inline">\(\omega_n\)</span> as that frequency for which the criterion is met. Once we compute <span class="math inline">\(\omega_n\)</span>, we can then compute the locations of the excited field line <span class="math inline">\(x_r\)</span> from Equation <a href="/KeyNotes#eq:flr_resonance_dispersion">247</a>. These are the most observable discrete modes.</p>
+<figure>
+<img src="images/FLR_waveguides_Wright.png" id="fig:flr_wright" alt="Figure 66: From Wright 1992." /><figcaption aria-hidden="true">Figure 66: From Wright 1992.</figcaption>
+</figure>
+<figure>
+<img src="images/FLR_waveguides_Samson.png" id="fig:flr_samson" alt="Figure 67: From (Samson et al., 1992)." /><figcaption aria-hidden="true">Figure 67: From <span class="citation" data-cites="samson1992field">(<a href="/KeyNotes/references#ref-samson1992field" role="doc-biblioref">Samson et al., 1992</a>)</span>.</figcaption>
+</figure>
+<p><strong>Driven FLR vs Cavity Modes vs Waveguide Modes</strong></p>
+<p>The surface wave driven FLR seems reasonable. However, the biggest problem for this hypothesis to be valid is that the mapped phase speeds to the magnetopause were too high compared to in-situ measurements. In addition, in spite of numerous magnetopause crossings by ISEE 1 and 2, regular oscillations of the magnetopause corresponding to the Kelvin-Helmholtz waves were not seen. These two facts indicated that we should seek for a new explanation for the driver.</p>
+<p>In the 1980s, cavity modes and waveguide modes were proposed to remove the constraint on driven FLR. The analogy of a magnetosphere to a cavity came before the analogy to a waveguide. In a cavity model the azimuthal direction <span class="math inline">\(\phi\)</span> or the <span class="math inline">\(y\)</span> direction in the box geometry is finite, and the wavenumber <span class="math inline">\(k_y\)</span> is determined by the given scale size <span class="math inline">\(b\)</span>. In the axisymmetric cylindrical coordinates <span class="math inline">\((r,\phi,z)\)</span>, where <span class="math inline">\(\phi\)</span> is the azimuthal angle and <span class="math inline">\(z\)</span> is the coordinate along the field lines, the field has the form <span class="math inline">\(\sim e^{im\phi},\, m=0,1,2\)</span>. This is a weak point of the theory because the magnetosphere is far from axisymmetric and there are no other obvious boundaries to define the cavity. If the system is similar to a waveguide, then <span class="math inline">\(k_y\)</span> can have a continuum of values, and the waveguide allows propagation over a wide band of frequencies.</p>
+<p>If instead we use a waveguide model, the azimuthal direction (or <span class="math inline">\(y\)</span>-direction) will have no imposed boundary condition. Theoretically a continuum of wave modes <span class="math inline">\(k_y\)</span> can excite FLR, and the discrete resonance frequencies are determined by the Bohr-Sommerfeld condition eq:cavity_eigen_wkb where harmonics of toroidal and poloidal are given by <span class="math inline">\(k_z\)</span>. The discrete frequency spectrum of the fast waveguide modes is suitable for driving a series of Alfvén resonance; however, it is not obvious that the continuous frequency spectrum of the modes will be able to drive resonances at discrete frequencies. A key observation to make waveguide mode more valid is that <em>only small <span class="math inline">\(k_y\)</span> contributes to the resonance</em>. (<span class="citation" data-cites="walker1992spatial">(<a href="/KeyNotes/references#ref-walker1992spatial" role="doc-biblioref">Walker et al., 1992</a>)</span>,[Wright 1992], <span class="citation" data-cites="wright1994">(<a href="/KeyNotes/references#ref-wright1994" role="doc-biblioref">Wright, 1994</a>)</span>). If <span class="math inline">\(k_y\)</span> is not fixed (but <span class="math inline">\(k_z\)</span> is fixed), then Equation <a href="/KeyNotes#eq:cavity_eigen_wkb">250</a> is the dispersion relation for the waveguide expressing <span class="math inline">\(\omega\)</span> as a function of <span class="math inline">\(k_y\)</span>. The Alfvén speed is a strong function of the L shell, typically <span class="math inline">\(\sim L^{-3}\)</span>. Thus, if the turning point <span class="math inline">\(x_t\)</span> is reasonably deep within the magnetosphere, the range over which <span class="math inline">\(\omega^2/V_A^2 \gg k_y^2 + k_z^2\)</span> contributes most significantly to the integral Equation <a href="/KeyNotes#eq:cavity_eigen_wkb">250</a>. The result is that over a wide range of wavelengths the frequency is very insensitive to <span class="math inline">\(k_y\)</span>. Only when <span class="math inline">\(k_y\)</span> is quite large this is not true, and then the turning point is near the magnetopause, and the wave does not penetrate very deeply into the magnetosphere. Each waveguide mode has a phase velocity <span class="math inline">\(\omega/k_y\)</span> and a group velocity <span class="math inline">\(\mathrm{d}\omega/dk_y\)</span>. Since Equation <a href="/KeyNotes#eq:cavity_eigen_wkb">250</a> defines <span class="math inline">\(\omega\)</span> as a function of <span class="math inline">\(k_y\)</span>, we can substitute Equation <a href="/KeyNotes#eq:flr_kx_effective">238</a> into Equation <a href="/KeyNotes#eq:cavity_eigen_wkb">250</a> and differentiate with respect to <span class="math inline">\(k_y\)</span> (assuming <span class="math inline">\(\alpha\)</span> is a constant):</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial}{\partial k_y}\int_{x_t}^{x_m}\Big(\frac{\omega^2}{V_A(x)^2}-k_y^2 - k_z^2\Big)^{1/2}dx = 0 \\
+\int_{x_t}^{x_m}\frac{1}{2}k_x^{-1}\Big( \frac{1}{V_A^2}\frac{\partial \omega^2}{\partial k_y} - 2k_y \Big)dx = 0 \\
+\frac{\omega}{k_y}\frac{\partial\omega}{\partial k_y}\int_{x_t}^{x_m}k_x^{-1}V_A^{-2}dx = \int_{x_t}^{x_m} k_x^{-1}dx
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+v_p v_g \equiv \frac{\omega}{k_y}\frac{\mathrm{d}\omega}{dk_y} = \frac{\int_{x_t}^{x_m}k_x^{-1}dx}{\int_{x_t}^{x_m}V_A^{-2}k_x^{-1}dx}
+\]</span></p>
+<p>The RHS is the reciprocal of the weighted mean of <span class="math inline">\(V_A^{-2}\)</span> with weighting function <span class="math inline">\(k_x^{-1}\)</span>. Thus we can write</p>
+<p><span id="eq:flr_waveguide_relation_modified"><span class="math display">\[
+v_p v_g = \left&lt;V_A^{-2}\right&gt;^{-1}
+\qquad(251)\]</span></span></p>
+<p>In a uniform waveguide filled with plasma for which the Alfvén speed was <span class="math inline">\(V_A\)</span> the well-known waveguide relation Equation <a href="/KeyNotes#eq:flr_waveguide_relation">245</a> would be recovered. In this more complicated case where the Alfvén speed is not constant throughout the waveguide the RHS of Equation <a href="/KeyNotes#eq:flr_waveguide_relation_modified">251</a> is an appropriately weight mean of <span class="math inline">\(V_A^{-2}\)</span>. In general the phase velocity <span class="math inline">\(v_p\)</span> is much larger than the mean Alfvén velocity in the guide, and the group velocity <span class="math inline">\(v_g\)</span> is much smaller. This is also consistent with the weak dependence of <span class="math inline">\(\omega\)</span> on <span class="math inline">\(k_y\)</span> such that <span class="math inline">\(v_g\)</span> is small. The consequence is that even if the ends of the guide are open, the time taken for energy to be propagated along it is long compared with the period of the oscillations.</p>
+<p>Therefore, the waveguide model proposes the following explanation. Disturbances in the solar wind move along the magnetopause, producing a disturbance on the boundary which is propagated tailward with speed <span class="math inline">\(v_w\)</span>. Generally <span class="math inline">\(v_w \gg V_A\)</span>. Such a disturbance is likely to excite waveguide modes with phase velocities equal to <span class="math inline">\(v_w\)</span>. Because the frequency of the modes is very insensitive to <span class="math inline">\(k_y\)</span>, the same frequencies (determined by eigenmodes in <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span>) are excited no matter what the velocity. The disturbance moving with the wave can feed energy continuously into it. This then requires</p>
+<p><span class="math display">\[
+k_y = \frac{\omega}{v_w}
+\]</span></p>
+<p>i.e., <em>the azimuthal wavenumber is determined by the velocity of the source rather than by a boundary condition on <span class="math inline">\(y\)</span></em>. Thus we have a discrete value of wavenumber and a discrete fast mode frequency spectrum, without relying on the resonance modes from the cavity model.</p>
+<p>Such a disturbance could arise from more than one type of source. If it arose from an impulse in the solar wind, then one would expect the waveguide response to be a ringing at the natural frequencies of its modes with growth on the time scale required to establish the mode and decay on the time scale for leakage to the resonance and loss in the ionosphere or elsewhere. Alternatively the waveguide modes could be excited by the Kelvin-Helmholtz instability. In this case it could be expected that the waveguide modes would all be excited continuously and would be driven so long as the solar wind velocity and the characteristics of the magnetopause were maintained.</p>
+
+
+<div class="bottom-nav">
+    <p id="nav-prev" style="text-align: left;">
+        <a class="menu-level-2" href="/KeyNotes/historial-review"><b>12.1</b> Historial Review</a> <kbd>←</kbd>
+        <span id="nav-next" style="float: right;">
+            <kbd>→</kbd> <a class="menu-level-2" href="/KeyNotes/energy-consideration"><b>12.3</b> Energy Consideration</a>
+        </span>
+    </p>
+</div>
+
+
+<div class="license">
+    <br/>
+  <br/>
+  <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    Hongyang Zhou
+</div>
+</div>
+</div>
+</body>
+</html>

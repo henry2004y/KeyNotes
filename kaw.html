@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Hongyang Zhou" />
+  <title>Kinetic Alfvén Wave - Key Notes of Plasma Physics</title>
+  <link rel="shortcut icon" type="image/png" href="/KeyNotes/favicon.png"/>
+  <link rel="stylesheet" href="/KeyNotes/style.css"/>
+    <script src="/KeyNotes/mousetrap.min.js"></script>
+    <style>
+  @font-face {
+    font-family: JuliaMono-Regular;
+    src: url("/KeyNotes/JuliaMono-Regular.woff2");
+  }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/KeyNotes/github.min.css">
+<script src="/KeyNotes/highlight.min.js"></script>
+<script src="/KeyNotes/julia.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('pre').forEach((el) => {
+        if (!el.classList.contains('output')) {
+            hljs.highlightElement(el);
+        }
+    });
+});
+</script>
+ 
+</head>
+<body>
+<script>
+function click_next() {
+  var next = document.getElementById('nav-next');
+  next.firstElementChild.nextElementSibling.click();
+}
+function click_prev() {
+  var prev = document.getElementById('nav-prev');
+  prev.firstElementChild.click();
+}
+Mousetrap.bind('right', click_next);
+Mousetrap.bind('h', click_prev);
+Mousetrap.bind('left', click_prev);
+Mousetrap.bind('l', click_next);
+</script>
+
+<div class="books-container">
+<aside class="books-menu">
+<input type="checkbox" id="menu">
+<label for="menu">☰</label>
+<div class="books-title">
+<a href="/KeyNotes/">Key Notes of Plasma Physics</a>
+</div><br />
+<span class="books-subtitle">
+My Journey in the Field
+</span>
+<div class="books-menu-content">
+<li><a class="menu-level-1" href="/KeyNotes/about"><b>1</b> About</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/intro"><b>2</b> Introduction</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/occurrence-of-plasma-in-nature"><b>2.1</b> Occurrence of Plasma in ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/definition-of-plasma"><b>2.2</b> Definition of Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/concept-of-temperature"><b>2.3</b> Concept of Temperature</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/debye"><b>2.4</b> Debye Shielding</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/criteria-for-plasmas"><b>2.5</b> Criteria for Plasmas</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/plasma-frequency"><b>2.6</b> Plasma Frequency</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/spatial-scales"><b>2.7</b> Spatial Scales</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/math"><b>3</b> Math</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/vector-identities"><b>3.1</b> Vector Identities</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/differential-of-line-segments"><b>3.2</b> Differential of Line Seg..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/complex-analysis"><b>3.3</b> Complex Analysis</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/helmholtzs-theorem"><b>3.4</b> Helmholtz’s Theorem</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/toroidal-and-poloidal-decomposition"><b>3.5</b> Toroidal and Poloidal De..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetic-dipole-field"><b>3.6</b> Magnetic Dipole Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/greens-function"><b>3.7</b> Green’s Function</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/linearization"><b>3.8</b> Linearization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/WKB"><b>3.9</b> Wave Equations</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/normalization"><b>3.10</b> Normalization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/theoretical-mechanics"><b>3.11</b> Theoretical Mechanics</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/wavelet-analysis"><b>3.12</b> Wavelet Analysis</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/single"><b>4</b> Single-Particle Motions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/uniform-e-and-b-fields"><b>4.1</b> Uniform E and B Fields</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonuniform-b-field"><b>4.2</b> Nonuniform B Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonuniform_E"><b>4.3</b> Nonuniform E Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/time-varying_E"><b>4.4</b> Time-Varying E Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/time-varying-b-field"><b>4.5</b> Time-Varying B Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/summary-of-guiding-center-drifts"><b>4.6</b> Summary of Guiding Cente..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/adiabatic-invariants"><b>4.7</b> Adiabatic Invariants</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ring-current"><b>4.8</b> Ring Current</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle-acceleration"><b>4.9</b> Particle Acceleration</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/test-particle-model"><b>4.10</b> Test Particle Model</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/fluid"><b>5</b> Plasmas as Fluid</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/definitions"><b>5.1</b> Definitions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/relation-of-plasma-physics-to-ordinary-electromagnetics"><b>5.2</b> Relation of Plasma Physi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-single-fluid-mhd-equations"><b>5.3</b> The Single-Fluid MHD Equ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/generalized-ohms-law"><b>5.4</b> Generalized Ohm’s Law</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/fluid-drifts-perpendicular-to-b"><b>5.5</b> Fluid Drifts Perpendicul..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/fluid-drifts-parallel-to-b"><b>5.6</b> Fluid Drifts Parallel to..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/plasma_approximation"><b>5.7</b> The Plasma Approximation</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/2fluid"><b>5.8</b> Two-Fluid Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/hall-mhd"><b>5.9</b> Hall MHD</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/resisvity"><b>6</b> Diffusion and Resisvity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-and-mobility-in-weakly-ionized-gases"><b>6.1</b> Diffusion and Mobility i..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/collision-parameters"><b>6.2</b> Collision Parameters</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-parameters"><b>6.3</b> Diffusion Parameters</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/decay-of-a-plasma-by-diffusion"><b>6.4</b> Decay of a Plasma by Dif..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/steady-state-solutions"><b>6.5</b> Steady State Solutions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/recombination"><b>6.6</b> Recombination</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-across-a-magnetic-field"><b>6.7</b> Diffusion Across a Magne..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/collision_ionized"><b>6.8</b> Collisions in Fully Ioni..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-of-fully-ionized-plasmas"><b>6.9</b> Diffusion of Fully Ioniz..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/solutions-of-the-diffusion-equation"><b>6.10</b> Solutions of the Diffus..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bohm-diffusion-and-neoclassical-diffusion"><b>6.11</b> Bohm Diffusion and Neoc..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/waves"><b>7</b> Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/oscillations"><b>7.1</b> Plasma Oscillations</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/dielectric-function"><b>7.2</b> Dielectric Function</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/classification-of-em-waves-in-uniform-plasma"><b>7.3</b> Classification of EM Wav..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/es-vs.-em-waves"><b>7.4</b> ES vs. EM Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/CPDR"><b>7.5</b> Cold Uniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-waves"><b>7.6</b> MHD Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kaw"><b>7.7</b> Kinetic Alfvén Wave</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle-motions"><b>7.8</b> Particle Motions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cold-nonuniform-plasma"><b>7.9</b> Cold Nonuniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/warm-uniform-plasma"><b>7.10</b> Warm Uniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/es_wave_magnetized"><b>7.11</b> Electrostatic Wave in a..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/animation-of-waves"><b>7.12</b> Animation of Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cma-diagram"><b>7.13</b> CMA Diagram</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/wave-particle-interactions"><b>7.14</b> Wave-Particle Interacti..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/whistler"><b>7.15</b> Whistler Wave</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/kinetic"><b>8</b> Kinetic Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-meaning-of-fv"><b>8.1</b> The Meaning of f(v)</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/equations-of-kinetic-theory"><b>8.2</b> Equations of Kinetic The..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/derivation-of-the-fluid-equations"><b>8.3</b> Derivation of the Fluid ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/landau"><b>8.4</b> Plasma Oscillations and ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/landau_damping"><b>8.5</b> The Meaning of Landau Da..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-physical-derivation-of-landau-damping"><b>8.6</b> A Physical Derivation of..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bgk-and-van-kampen-modes"><b>8.7</b> BGK and Van Kampen Modes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ion-landau-damping"><b>8.8</b> Ion Landau Damping</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kinetic-effects-in-a-magnetic-field"><b>8.9</b> Kinetic Effects in a Mag..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/stability"><b>9</b> Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/analogy-of-the-energy-principle"><b>9.1</b> Analogy of the Energy Pr..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle_motion_instability"><b>9.2</b> Implication of Single Pa..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/RT"><b>9.3</b> Rayleigh-Taylor Instabil..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/KH"><b>9.4</b> Kelvin-Helmholtz instabi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-stability"><b>9.5</b> MHD Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-modes"><b>9.6</b> MHD Modes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/reconnection"><b>9.7</b> Magnetic Reconnection</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/LHDI"><b>9.8</b> Lower Hybrid Drift Insta..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kinetic-mode"><b>9.9</b> Kinetic Mode</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/pressure-anisotropy-instabilities"><b>9.10</b> Pressure Anisotropy Ins..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cyclotron-instability"><b>9.11</b> Cyclotron Instability</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/kmhd"><b>10</b> Kinetic MHD</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/firehose"><b>10.1</b> Firehose Instability: L..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mirror"><b>10.2</b> Mirror Instability: Lin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/origin-of-pressure-anisotropy"><b>10.3</b> Origin of Pressure Anis..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/remarks"><b>10.4</b> Remarks</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/gyrokinetics"><b>11</b> Gyrokinetics</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-brief-historical-review"><b>11.1</b> A Brief Historical Revi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/coordinate-transformation"><b>11.2</b> Coordinate Transformati..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-gyrokinetic-ordering"><b>11.3</b> The Gyrokinetic Orderin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-lagriangian-approach"><b>11.4</b> A Lagriangian Approach</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/applications"><b>11.5</b> Applications</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/limitations"><b>11.6</b> Limitations</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/flr"><b>12</b> Field Line Resonance</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/historial-review"><b>12.1</b> Historial Review</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/theory"><b>12.2</b> Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/energy-consideration"><b>12.3</b> Energy Consideration</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/non-mhd-effects"><b>12.4</b> Non-MHD Effects</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/d-flr"><b>12.5</b> 3D FLR</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/nonlinear"><b>13</b> Nonlinear Effects</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/sheath"><b>13.1</b> The Necessity for Sheat..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ion-acoustic-shock-waves"><b>13.2</b> Ion Acoustic Shock Wave..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ponderomotive"><b>13.3</b> The Ponderomotive Force</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parametric-instabilities"><b>13.4</b> Parametric Instabilitie..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/echo"><b>13.5</b> Plasma Echoes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonlinear-landau-damping"><b>13.6</b> Nonlinear Landau Dampin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/equations-of-nonlinear-plasma-physics"><b>13.7</b> Equations of Nonlinear ..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/turbulence"><b>14</b> Turbulence</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd"><b>14.1</b> MHD</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/solar-wind-turbulence"><b>14.2</b> Solar Wind Turbulence</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/geometry"><b>15</b> Geometry</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/helicity"><b>15.1</b> Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetic-helicity"><b>15.2</b> Magnetic Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cross_helicity"><b>15.3</b> Cross Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/flux-rope-identification"><b>15.4</b> Flux Rope Identificatio..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/reconnection-identification"><b>15.5</b> Reconnection Identifica..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetospause-identification"><b>15.6</b> Magnetospause Identific..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/solarwind"><b>16</b> Solar Wind</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parker-solar-wind-model"><b>16.1</b> Parker Solar Wind Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parker-spiral"><b>16.2</b> Parker Spiral</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/anisotropy-in-the-solar-wind"><b>16.3</b> Anisotropy in the Solar..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/switchbacks"><b>16.4</b> Switchbacks</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-description"><b>16.5</b> MHD Description</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/shock"><b>17</b> Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-theory"><b>17.1</b> MHD Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/double-adiabatic-theory"><b>17.2</b> Double Adiabatic Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/location-of-shock"><b>17.3</b> Location of Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/earth-bow-shock"><b>17.4</b> Earth Bow Shock</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/magnetosphere"><b>18</b> Magnetosphere</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ulf-waves"><b>18.1</b> ULF Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bow-shock"><b>18.2</b> Bow Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosheath"><b>18.3</b> Magnetosheath</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosphere"><b>18.4</b> Magnetosphere</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/iono"><b>19</b> Ionosphere</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/current-systems"><b>19.1</b> Current Systems</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/MI_coupling"><b>19.2</b> M-I Coupling</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ionosphere-modeling"><b>19.3</b> Ionosphere Modeling</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/radiation_belt"><b>20</b> Radiation Belt</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/waves-in-the-radiation-belt"><b>20.1</b> Waves in the Radiation ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/modeling"><b>20.2</b> Modeling</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/aurora"><b>21</b> Aurora</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/auroral-light-emission"><b>21.1</b> Auroral Light Emission</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffuse-aurora"><b>21.2</b> Diffuse Aurora</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/auroral-waves-and-ion-heating"><b>21.3</b> Auroral Waves and Ion H..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/substorms-and-discrete-aurora"><b>21.4</b> Substorms and Discrete ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/omega-band-auroras"><b>21.5</b> Omega Band Auroras</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/pulsation-auroras"><b>21.6</b> Pulsation Auroras</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/summary"><b>21.7</b> Summary</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/BC"><b>22</b> Boundary Conditions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/conducting-boundary"><b>22.1</b> Conducting Boundary</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/perfectly-matched-layer"><b>22.2</b> Perfectly Matched Layer</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/pic"><b>23</b> Particle-in-Cell</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/phase-space-sampling"><b>23.1</b> Phase Space Sampling</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/computational-cost"><b>23.2</b> Computational Cost</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/delta_f"><b>23.3</b> δf Method</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/hybrid"><b>24</b> Hybrid Methods</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/classical-hybrid-model"><b>24.1</b> Classical Hybrid Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/finite_e_mass"><b>24.2</b> Finite Electron Inertia</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/low-density-treatment"><b>24.3</b> Low Density Treatment</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/comparison-with-hall-mhd"><b>24.4</b> Comparison with Hall MH..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/normalization-1"><b>24.5</b> Normalization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/numerical-stability"><b>24.6</b> Numerical Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosphere-inner-boundary-conditions"><b>24.7</b> Magnetosphere Inner Bou..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/tests"><b>24.8</b> Tests</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/appendix"><b></b> Appendix</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/references"><b></b> References</a></li>
+</div>
+</aside>
+
+<div class="books-content">
+<h2 data-number="7.7" id="sec:kaw"><span class="header-section-number">7.7</span> Kinetic Alfvén Wave</h2>
+<p>The solution of Equation <a href="/KeyNotes#eq:mhd_alfven_wavenumber_nonuniform">121</a> exhibits singularities as <span class="math inline">\(t\rightarrow\infty\)</span> naturally suggests that the microscopic length-scale physics neglected in the ideal MHD fluid description should be included in the long-time-scale dynamics of SAWs. For low-frequency SAWs, one can readily recognize the relevant perpendicular (to <span class="math inline">\(\mathbf{B}_0\)</span>) microscopic scales are either the ion Larmor radius, <span class="math inline">\(r_{iL}=v_{ti}/\omega_{ci}\)</span> with <span class="math inline">\(v_{ti}\)</span> and <span class="math inline">\(\omega_{ci}\)</span> being, respectively, the ion thermal speed and ion cyclotron frequency, and/or <span class="math inline">\(r_{eL}=v_{te}/\omega_{ce}\)</span> with <span class="math inline">\(v_{te}\)</span> being the electron thermal speed. Including the effects of finite <span class="math inline">\(r_{iL}\)</span> and/or <span class="math inline">\(r_{eL}\)</span> in the SAW dynamics then led to the discovery of the so-called <em>kinetic Alfvén wave</em> (KAW) [Hasegawa and Chen].</p>
+<p>In KAWs, parallel electric field <span class="math inline">\(E_\parallel\)</span> can be developed and facilitate particle heating, acceleration, and transport. It has been found in the plasma sheet, at the plasma sheet boundary layer (PSBL), and in the inner magnetosphere.</p>
+<p>KAW differ from SAW because the short wavelength requires a significant <span class="math inline">\(E_\parallel\)</span> to maintain charge neutrality due to ion density perturbations caused by the ion polarization drift. When <span class="math inline">\(v_{te}&gt;v_A\)</span>, the parallel electric field counteracts electron pressure that would push the electrons away from the ion density perturbations. When <span class="math inline">\(v_{te}&lt;v_A\)</span>, the electric field must overcome the electron inertia that prevents the electrons from responding rapidly to the ion density perturbations. <span class="math inline">\(E_\parallel\)</span> associated with small-scale KAWs may efficiently accelerate particles on the magnetic field lines. (Chaston+ 2009) presented observations in the magnetotail from the Cluster spacecraft showing that KAWs radiate outward from the X-line with outward energy fluxes equivalent to that contained in the outstreaming ions. Wave-particle energy exchange between KAWs and plasmas near the dayside magnetopause has been confirmed by MMS observations (Gershman+ 2017).</p>
+<p>We consider a KAW with a wave vector <span class="math inline">\(\mathbf{k}\)</span> in the XZ-plane, same as in the SAW case. In many aspects, KAW is similar to SAW: <span class="math inline">\(\mathbf{E}\)</span> shall oscillate in the X-direction; <span class="math inline">\(\mathbf{B}\)</span> shall oscillate in the Y-direction. The electric current of the wave <span class="math inline">\(i\mathbf{k}\times\mathbf{B}_1/\mu_0\)</span> is still in the XZ-plane. The timescale of the variations of the wave field of KAW is much longer than the ion gyroperiod. However, unlike SAW, KAW has</p>
+<ul>
+<li>a perpendicular scale <span class="math inline">\(k_\perp^{-1}\)</span> that is comparable to the particle kinetic scale <span class="math inline">\(r_{iL}\)</span>.</li>
+<li>a very oblique wave vector <span class="math inline">\(k_\perp \gg k_\parallel\)</span> so that the wave is not strongly affected by the Landau damping.</li>
+<li><span class="math inline">\(k_\perp^{-1} \ll k_\parallel^{-1}\)</span>. The finite-Larmor-radius effect starts to become important as the perpendicular wavelength is comparable to the ion gyromotion: Ions can not follow the <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift in the electric fields of KAW, because they encounter significantly different electric field in the different phases of the gyromotion. Electrons are still frozen-in in the presence of the wave field. The difference in the ion and electron motion in the perpendicular direction introduces charge separation and coupling to the electrostatic mode. Because the wave electric field <span class="math inline">\(E_x\)</span> is mainly parallel to the <span class="math inline">\(\mathbf{k}\)</span>, <span class="math inline">\(\nabla\times\mathbf{E}=i\mathbf{k}\times\mathbf{E}\)</span> is small and <span class="math inline">\(\nabla\cdot\mathbf{E}=i\mathbf{k}\cdot\mathbf{E}\)</span> is relatively large for KAW. Accordingly, the perpendicular wave electric field <span class="math inline">\(E_x\)</span> is mostly electrostatic in KAW.</li>
+<li>Because of charge separation in KAW, electrons need to move along the magnetic field to preserve the charge neutrality. Associated with the parallel motion of electron, a small wave electric field <span class="math inline">\(E_\parallel\)</span> is established, the existence of which is a distinct feature of KAW. The parallel motion of electrons creates a field-aligned current <span class="math inline">\(j_\parallel\)</span> of KAW. From Ampère’s law <span class="math inline">\(i\mathbf{k}\times\mathbf{B}_1=\mu_0 \mathbf{j}\)</span>, the field-aligned current <span class="math inline">\(\mathbf{j}_z\)</span> produces a wave magnetic field <span class="math inline">\(\mathbf{B}_{1y}\)</span>. As a result, KAW is in fact an EM wave. The ratio of the wave electric field to the wave magnetic field is <span class="math inline">\(V_A\sqrt{1+k_x^2 r_{iL}^2}\)</span> (Stasiewicz et al. 2000). The kinetic correction <span class="math inline">\(k_x^2 r_{iL}^2\)</span> introduces a deviation of the ratio <span class="math inline">\(E_x/B_y\)</span> from one <span class="math inline">\(V_A\)</span> as in the SAWs.</li>
+</ul>
+<p>In principle, the KAW eigenmode solution can be obtained from the linearized two-fluid equations (Dai 2009).</p>
+<p>While SAW satisfy <span class="math inline">\(\omega=k_\parallel v_A\)</span>, the dispersion relation of KAW can be written as (Johnson &amp; Cheng, 1997)</p>
+<p><span id="eq:kaw_dispersion"><span class="math display">\[
+\omega^2 = k_\parallel^2 v_A^2 \Big[ \frac{1}{1-I_0(k_\perp^2 r_{iL}^2)e^{-k_\perp^2 r_{iL}^2}} + \frac{T_e}{T_i} \Big]k_\perp^2 r_{iL}^2
+\qquad(132)\]</span></span></p>
+<p>where <span class="math inline">\(I_0\)</span> is the modified Bessel function. Using a Padé approximation <span class="math inline">\(I_0(x)e^{-x}\approx 1/(1+x)\)</span> when <span class="math inline">\(x=k_\perp^2r_{iL}^2\sim\mathcal{O}(1)\)</span>, the relation can be simplified to</p>
+<p><span id="eq:kaw_dispersion_ion_approxi"><span class="math display">\[
+\omega^2 = k_\parallel^2 v_A^2\Big[1+\Big(1+\frac{T_e}{T_i}k_\perp^2r_{iL}^2\Big) \Big] =  k_\parallel^2 v_A^2 [1+k_\perp^2(r_{iL}^2+r_{sL}^2)]
+\qquad(133)\]</span></span></p>
+<p>where <span class="math inline">\(r_{sL}=\sqrt{T_e/m_i}/\omega_{ci}\)</span>. This term is kind of strange, because it looks like a Larmor radius for ion with electron temperature. We can see from Equation <a href="/KeyNotes#eq:kaw_dispersion_ion_approxi">133</a> that the phase speed for KAW is larger than <span class="math inline">\(v_A\)</span>.</p>
+<p>While SAWs do not have ion density perturbations, KAWs do (???).</p>
+<p>The polarizations of KAW can be expressed as</p>
+<p><span class="math display">\[
+\bigg\lvert \frac{\delta \mathbf{E}_\perp}{\delta \mathbf{B}_\perp} \bigg\rvert = v_A(1+k_\perp^2r_{iL}^2)[1+k_\perp^2(r_{iL}^2+r_{sL}^2)]^{-1/2}
+\]</span></p>
+<p>where <span class="math inline">\(\delta\mathbf{E}_\perp \perp \delta\mathbf{B}_\perp\)</span>. The parallel electric field is</p>
+<p><span class="math display">\[
+\bigg\lvert \frac{\delta E_\parallel}{\delta E_\perp} \bigg\rvert = k_\parallel k_\perp\frac{r_{sL}^2}{1+k_\perp^2r_{iL}^2}
+\]</span></p>
+<p>It has been shown that KAWs can be generated via magnetic reconnection, mode conversion, and phase mixing.</p>
+<p><span class="citation" data-cites="gurram2021shear">(<a href="/KeyNotes/references#ref-gurram2021shear" role="doc-biblioref">Gurram et al., 2021</a>)</span> used a 2D VPIC simulation to show a transition from KAWs to SAWs from the immediate vicinity of the reconnection region to the exhaust. They checked two important quantities we have seen above:</p>
+<ul>
+<li>the transition in wave speeds from super Alfvénic near the X-point to order of the Alfvén speed deeper into the exhaust (<span class="math inline">\(\sim 60 d_i\)</span> from the X-point);</li>
+<li>the transition of <span class="math inline">\(k_\perp d_i\)</span> from larger than unity to smaller than unity.</li>
+</ul>
+<p>It would be very intuitive to compare animations between <a href="https://youtu.be/7RB_kD9aSqo">MHD Alfvén waves</a> and <a href="https://youtu.be/aRLXQRvwCas">kinetic Alfvén waves</a>. In a typical MHD Alfvén wave, the particles (yellow) move freely along the magnetic field lines (blue). In a kinetic Alfvén wave, some particles become trapped in the weak spots of the wave’s magnetic field and ride along with the wave as it moves through space.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aRLXQRvwCas" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7RB_kD9aSqo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Almost half a century after the discovery of KAW, <span class="citation" data-cites="chen2021physics">(<a href="/KeyNotes/references#ref-chen2021physics" role="doc-biblioref">L. Chen et al., 2021</a>)</span> demonstrated that the proper treatment of this wave requires gyrokinetics (Section <a href="/KeyNotes/gyrokinetics#sec:gyrokinetics">11</a>). However, under some circumstances (<span class="math inline">\(\beta\gg 1\)</span>?) the two-fluid theory can recover most if not all of the KAW physics. I need to go over the derivations!</p>
+
+
+<div class="bottom-nav">
+    <p id="nav-prev" style="text-align: left;">
+        <a class="menu-level-2" href="/KeyNotes/mhd-waves"><b>7.6</b> MHD Waves</a> <kbd>←</kbd>
+        <span id="nav-next" style="float: right;">
+            <kbd>→</kbd> <a class="menu-level-2" href="/KeyNotes/particle-motions"><b>7.8</b> Particle Motions</a>
+        </span>
+    </p>
+</div>
+
+
+<div class="license">
+    <br/>
+  <br/>
+  <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    Hongyang Zhou
+</div>
+</div>
+</div>
+</body>
+</html>

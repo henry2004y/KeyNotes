@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Hongyang Zhou" />
+  <title>MHD Modes - Key Notes of Plasma Physics</title>
+  <link rel="shortcut icon" type="image/png" href="/KeyNotes/favicon.png"/>
+  <link rel="stylesheet" href="/KeyNotes/style.css"/>
+    <script src="/KeyNotes/mousetrap.min.js"></script>
+    <style>
+  @font-face {
+    font-family: JuliaMono-Regular;
+    src: url("/KeyNotes/JuliaMono-Regular.woff2");
+  }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/KeyNotes/github.min.css">
+<script src="/KeyNotes/highlight.min.js"></script>
+<script src="/KeyNotes/julia.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('pre').forEach((el) => {
+        if (!el.classList.contains('output')) {
+            hljs.highlightElement(el);
+        }
+    });
+});
+</script>
+ 
+</head>
+<body>
+<script>
+function click_next() {
+  var next = document.getElementById('nav-next');
+  next.firstElementChild.nextElementSibling.click();
+}
+function click_prev() {
+  var prev = document.getElementById('nav-prev');
+  prev.firstElementChild.click();
+}
+Mousetrap.bind('right', click_next);
+Mousetrap.bind('h', click_prev);
+Mousetrap.bind('left', click_prev);
+Mousetrap.bind('l', click_next);
+</script>
+
+<div class="books-container">
+<aside class="books-menu">
+<input type="checkbox" id="menu">
+<label for="menu">☰</label>
+<div class="books-title">
+<a href="/KeyNotes/">Key Notes of Plasma Physics</a>
+</div><br />
+<span class="books-subtitle">
+My Journey in the Field
+</span>
+<div class="books-menu-content">
+<li><a class="menu-level-1" href="/KeyNotes/about"><b>1</b> About</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/intro"><b>2</b> Introduction</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/occurrence-of-plasma-in-nature"><b>2.1</b> Occurrence of Plasma in ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/definition-of-plasma"><b>2.2</b> Definition of Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/concept-of-temperature"><b>2.3</b> Concept of Temperature</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/debye"><b>2.4</b> Debye Shielding</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/criteria-for-plasmas"><b>2.5</b> Criteria for Plasmas</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/plasma-frequency"><b>2.6</b> Plasma Frequency</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/spatial-scales"><b>2.7</b> Spatial Scales</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/math"><b>3</b> Math</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/vector-identities"><b>3.1</b> Vector Identities</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/differential-of-line-segments"><b>3.2</b> Differential of Line Seg..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/complex-analysis"><b>3.3</b> Complex Analysis</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/helmholtzs-theorem"><b>3.4</b> Helmholtz’s Theorem</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/toroidal-and-poloidal-decomposition"><b>3.5</b> Toroidal and Poloidal De..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetic-dipole-field"><b>3.6</b> Magnetic Dipole Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/greens-function"><b>3.7</b> Green’s Function</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/linearization"><b>3.8</b> Linearization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/WKB"><b>3.9</b> Wave Equations</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/normalization"><b>3.10</b> Normalization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/theoretical-mechanics"><b>3.11</b> Theoretical Mechanics</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/wavelet-analysis"><b>3.12</b> Wavelet Analysis</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/single"><b>4</b> Single-Particle Motions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/uniform-e-and-b-fields"><b>4.1</b> Uniform E and B Fields</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonuniform-b-field"><b>4.2</b> Nonuniform B Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonuniform_E"><b>4.3</b> Nonuniform E Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/time-varying_E"><b>4.4</b> Time-Varying E Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/time-varying-b-field"><b>4.5</b> Time-Varying B Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/summary-of-guiding-center-drifts"><b>4.6</b> Summary of Guiding Cente..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/adiabatic-invariants"><b>4.7</b> Adiabatic Invariants</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ring-current"><b>4.8</b> Ring Current</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle-acceleration"><b>4.9</b> Particle Acceleration</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/test-particle-model"><b>4.10</b> Test Particle Model</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/fluid"><b>5</b> Plasmas as Fluid</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/definitions"><b>5.1</b> Definitions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/relation-of-plasma-physics-to-ordinary-electromagnetics"><b>5.2</b> Relation of Plasma Physi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-single-fluid-mhd-equations"><b>5.3</b> The Single-Fluid MHD Equ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/generalized-ohms-law"><b>5.4</b> Generalized Ohm’s Law</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/fluid-drifts-perpendicular-to-b"><b>5.5</b> Fluid Drifts Perpendicul..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/fluid-drifts-parallel-to-b"><b>5.6</b> Fluid Drifts Parallel to..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/plasma_approximation"><b>5.7</b> The Plasma Approximation</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/2fluid"><b>5.8</b> Two-Fluid Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/hall-mhd"><b>5.9</b> Hall MHD</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/resisvity"><b>6</b> Diffusion and Resisvity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-and-mobility-in-weakly-ionized-gases"><b>6.1</b> Diffusion and Mobility i..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/collision-parameters"><b>6.2</b> Collision Parameters</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-parameters"><b>6.3</b> Diffusion Parameters</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/decay-of-a-plasma-by-diffusion"><b>6.4</b> Decay of a Plasma by Dif..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/steady-state-solutions"><b>6.5</b> Steady State Solutions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/recombination"><b>6.6</b> Recombination</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-across-a-magnetic-field"><b>6.7</b> Diffusion Across a Magne..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/collision_ionized"><b>6.8</b> Collisions in Fully Ioni..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-of-fully-ionized-plasmas"><b>6.9</b> Diffusion of Fully Ioniz..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/solutions-of-the-diffusion-equation"><b>6.10</b> Solutions of the Diffus..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bohm-diffusion-and-neoclassical-diffusion"><b>6.11</b> Bohm Diffusion and Neoc..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/waves"><b>7</b> Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/oscillations"><b>7.1</b> Plasma Oscillations</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/dielectric-function"><b>7.2</b> Dielectric Function</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/classification-of-em-waves-in-uniform-plasma"><b>7.3</b> Classification of EM Wav..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/es-vs.-em-waves"><b>7.4</b> ES vs. EM Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/CPDR"><b>7.5</b> Cold Uniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-waves"><b>7.6</b> MHD Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kaw"><b>7.7</b> Kinetic Alfvén Wave</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle-motions"><b>7.8</b> Particle Motions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cold-nonuniform-plasma"><b>7.9</b> Cold Nonuniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/warm-uniform-plasma"><b>7.10</b> Warm Uniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/es_wave_magnetized"><b>7.11</b> Electrostatic Wave in a..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/animation-of-waves"><b>7.12</b> Animation of Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cma-diagram"><b>7.13</b> CMA Diagram</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/wave-particle-interactions"><b>7.14</b> Wave-Particle Interacti..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/whistler"><b>7.15</b> Whistler Wave</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/kinetic"><b>8</b> Kinetic Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-meaning-of-fv"><b>8.1</b> The Meaning of f(v)</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/equations-of-kinetic-theory"><b>8.2</b> Equations of Kinetic The..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/derivation-of-the-fluid-equations"><b>8.3</b> Derivation of the Fluid ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/landau"><b>8.4</b> Plasma Oscillations and ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/landau_damping"><b>8.5</b> The Meaning of Landau Da..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-physical-derivation-of-landau-damping"><b>8.6</b> A Physical Derivation of..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bgk-and-van-kampen-modes"><b>8.7</b> BGK and Van Kampen Modes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ion-landau-damping"><b>8.8</b> Ion Landau Damping</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kinetic-effects-in-a-magnetic-field"><b>8.9</b> Kinetic Effects in a Mag..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/stability"><b>9</b> Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/analogy-of-the-energy-principle"><b>9.1</b> Analogy of the Energy Pr..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle_motion_instability"><b>9.2</b> Implication of Single Pa..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/RT"><b>9.3</b> Rayleigh-Taylor Instabil..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/KH"><b>9.4</b> Kelvin-Helmholtz instabi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-stability"><b>9.5</b> MHD Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-modes"><b>9.6</b> MHD Modes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/reconnection"><b>9.7</b> Magnetic Reconnection</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/LHDI"><b>9.8</b> Lower Hybrid Drift Insta..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kinetic-mode"><b>9.9</b> Kinetic Mode</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/pressure-anisotropy-instabilities"><b>9.10</b> Pressure Anisotropy Ins..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cyclotron-instability"><b>9.11</b> Cyclotron Instability</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/kmhd"><b>10</b> Kinetic MHD</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/firehose"><b>10.1</b> Firehose Instability: L..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mirror"><b>10.2</b> Mirror Instability: Lin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/origin-of-pressure-anisotropy"><b>10.3</b> Origin of Pressure Anis..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/remarks"><b>10.4</b> Remarks</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/gyrokinetics"><b>11</b> Gyrokinetics</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-brief-historical-review"><b>11.1</b> A Brief Historical Revi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/coordinate-transformation"><b>11.2</b> Coordinate Transformati..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-gyrokinetic-ordering"><b>11.3</b> The Gyrokinetic Orderin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-lagriangian-approach"><b>11.4</b> A Lagriangian Approach</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/applications"><b>11.5</b> Applications</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/limitations"><b>11.6</b> Limitations</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/flr"><b>12</b> Field Line Resonance</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/historial-review"><b>12.1</b> Historial Review</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/theory"><b>12.2</b> Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/energy-consideration"><b>12.3</b> Energy Consideration</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/non-mhd-effects"><b>12.4</b> Non-MHD Effects</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/d-flr"><b>12.5</b> 3D FLR</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/nonlinear"><b>13</b> Nonlinear Effects</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/sheath"><b>13.1</b> The Necessity for Sheat..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ion-acoustic-shock-waves"><b>13.2</b> Ion Acoustic Shock Wave..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ponderomotive"><b>13.3</b> The Ponderomotive Force</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parametric-instabilities"><b>13.4</b> Parametric Instabilitie..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/echo"><b>13.5</b> Plasma Echoes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonlinear-landau-damping"><b>13.6</b> Nonlinear Landau Dampin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/equations-of-nonlinear-plasma-physics"><b>13.7</b> Equations of Nonlinear ..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/turbulence"><b>14</b> Turbulence</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd"><b>14.1</b> MHD</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/solar-wind-turbulence"><b>14.2</b> Solar Wind Turbulence</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/geometry"><b>15</b> Geometry</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/helicity"><b>15.1</b> Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetic-helicity"><b>15.2</b> Magnetic Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cross_helicity"><b>15.3</b> Cross Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/flux-rope-identification"><b>15.4</b> Flux Rope Identificatio..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/reconnection-identification"><b>15.5</b> Reconnection Identifica..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetospause-identification"><b>15.6</b> Magnetospause Identific..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/solarwind"><b>16</b> Solar Wind</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parker-solar-wind-model"><b>16.1</b> Parker Solar Wind Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parker-spiral"><b>16.2</b> Parker Spiral</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/anisotropy-in-the-solar-wind"><b>16.3</b> Anisotropy in the Solar..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/switchbacks"><b>16.4</b> Switchbacks</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-description"><b>16.5</b> MHD Description</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/shock"><b>17</b> Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-theory"><b>17.1</b> MHD Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/double-adiabatic-theory"><b>17.2</b> Double Adiabatic Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/location-of-shock"><b>17.3</b> Location of Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/earth-bow-shock"><b>17.4</b> Earth Bow Shock</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/magnetosphere"><b>18</b> Magnetosphere</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ulf-waves"><b>18.1</b> ULF Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bow-shock"><b>18.2</b> Bow Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosheath"><b>18.3</b> Magnetosheath</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosphere"><b>18.4</b> Magnetosphere</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/iono"><b>19</b> Ionosphere</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/current-systems"><b>19.1</b> Current Systems</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/MI_coupling"><b>19.2</b> M-I Coupling</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ionosphere-modeling"><b>19.3</b> Ionosphere Modeling</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/radiation_belt"><b>20</b> Radiation Belt</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/waves-in-the-radiation-belt"><b>20.1</b> Waves in the Radiation ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/modeling"><b>20.2</b> Modeling</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/aurora"><b>21</b> Aurora</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/auroral-light-emission"><b>21.1</b> Auroral Light Emission</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffuse-aurora"><b>21.2</b> Diffuse Aurora</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/auroral-waves-and-ion-heating"><b>21.3</b> Auroral Waves and Ion H..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/substorms-and-discrete-aurora"><b>21.4</b> Substorms and Discrete ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/omega-band-auroras"><b>21.5</b> Omega Band Auroras</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/pulsation-auroras"><b>21.6</b> Pulsation Auroras</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/summary"><b>21.7</b> Summary</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/BC"><b>22</b> Boundary Conditions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/conducting-boundary"><b>22.1</b> Conducting Boundary</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/perfectly-matched-layer"><b>22.2</b> Perfectly Matched Layer</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/pic"><b>23</b> Particle-in-Cell</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/phase-space-sampling"><b>23.1</b> Phase Space Sampling</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/computational-cost"><b>23.2</b> Computational Cost</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/delta_f"><b>23.3</b> δf Method</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/hybrid"><b>24</b> Hybrid Methods</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/classical-hybrid-model"><b>24.1</b> Classical Hybrid Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/finite_e_mass"><b>24.2</b> Finite Electron Inertia</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/low-density-treatment"><b>24.3</b> Low Density Treatment</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/comparison-with-hall-mhd"><b>24.4</b> Comparison with Hall MH..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/normalization-1"><b>24.5</b> Normalization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/numerical-stability"><b>24.6</b> Numerical Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosphere-inner-boundary-conditions"><b>24.7</b> Magnetosphere Inner Bou..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/tests"><b>24.8</b> Tests</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/appendix"><b></b> Appendix</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/references"><b></b> References</a></li>
+</div>
+</aside>
+
+<div class="books-content">
+<h2 data-number="9.6" id="mhd-modes"><span class="header-section-number">9.6</span> MHD Modes</h2>
+<p>A simple but representative dispersion relation writes</p>
+<p><span class="math display">\[
+\omega^2=(\mathbf{k}\cdot\mathbf{V}_A)^2-\mathbf{k}\cdot\mathbf{g},\quad \text{where }\mathbf{V}_A=\frac{\mathbf{B}_0}{B_0}\cdot V_A
+\]</span></p>
+<p>If we treat plasma as a single magnetized fluid,</p>
+<p><span class="math display">\[
+\rho\Big( \frac{\partial\mathbf{u}}{\partial t}+\underbrace{\mathbf{u}\cdot\nabla \mathbf{u}}_{\textrm{K-H inst.}} \Big)=\underbrace{-\nabla p}_{\text{ballooning inst.}} + \underbrace{\mathbf{j}\times\mathbf{B}}_{\text{kink, sausage inst.}}+\underbrace{\rho\mathbf{g}}_{\text{R-T inst.}}
+\]</span></p>
+<p>Qualitatively, we can identify the source for each kind of instability in plasma. We will discuss them separately and in a set of combination below.</p>
+<h3 data-number="9.6.1" id="kink-mode"><span class="header-section-number">9.6.1</span> Kink Mode</h3>
+<p>A kink instability, is a <em>current-driven</em> plasma instability characterized by transverse displacements of a plasma column’s cross-section from its center of mass without any change in the characteristics of the plasma. It typically develops in a thin plasma column carrying a strong axial current which exceeds the <a href="https://en.wikipedia.org/wiki/Safety_factor_(plasma_physics)">Kruskal–Shafranov limit</a> and is sometimes known as the Kruskal–Shafranov (kink) instability.</p>
+<p>The kink instability was first widely explored in fusion power machines with Z-pinch configurations in the 1950s. It is one of the common magnetohydrodynamic instability modes which can develop in a pinch plasma and is sometimes referred to as the <span class="math inline">\(m=1\)</span> mode.</p>
+<p>If a “kink” begins to develop in a column the magnetic forces on the inside of the kink become larger than those on the outside, which leads to growth of the perturbation. As it develops at fixed areas in the plasma, kinks belong to the class of “absolute plasma instabilities”, as opposed to convective processes.</p>
+<figure>
+<img src="/KeyNotes/im/KeyNotes_plot_kink_.svg" id="fig:kink" alt="Figure 45: Plasma column (poloidal m = 2, toroidal n = 1) kink mode in a Tokamak." /><figcaption aria-hidden="true">Figure 45: Plasma column (poloidal m = 2, toroidal n = 1) kink mode in a Tokamak.</figcaption>
+</figure>
+<p>The kink instability is the most dangerous instability in Tokamak. We have discussed this kind of micro-instability from the view of single particle motion in Section <a href="/KeyNotes/particle_motion_instability#sec:particle_motion_instability">9.2</a>; here, we will explore this a little bit further.</p>
+<p><strong>String model</strong></p>
+<p>First, image a current-carrying plasma column, shown in the x-z plane in fig:kink_column. The metallic wire carries current under tension <span class="math inline">\(T\)</span>, and <span class="math inline">\(\mu=\)</span>mass/length is the mass per length. From the basic mechanics, <span class="math inline">\(C_s=\sqrt{T/\mu}\)</span> is the acoustic velocity in the system. Let the background field <span class="math inline">\(\mathbf{B}_0=\hat{z}B_0\)</span> and the displacement <span class="math inline">\(\pmb{\xi}=\pmb{\xi}(\mathbf{x},t)\)</span>. We can show that, if the current <span class="math inline">\(\mathbf{I}\)</span> is sufficiently strong, there will be kink instability.</p>
+<p>ADD PLASMA KINK COLUMN FIGURE!</p>
+<p>Assume the displacement in x-y plane has the form</p>
+<p><span class="math display">\[
+\pmb{\xi} = (\xi_x,\xi_y)e^{ik_z z-i\omega t}
+\]</span></p>
+<p>The force law gives (i.e. the basic string model in mechanics textbooks)</p>
+<p><span class="math display">\[
+\mu\frac{\partial^2\pmb{\xi}}{\partial t^2}=T\frac{\partial^2\pmb{\xi}}{\partial z^2}+ \text{force per unit length}
+\]</span></p>
+<p>Here, the external force <em>per length</em> is the Lorentz force (which is why we say the R-T instability is current-driven),</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{I}\times\mathbf{B}&amp;=\Big( \hat{x}I\frac{\partial \xi_x}{\partial z}+\hat{y}I\frac{\partial\xi_y}{\partial z}+\hat{z}0 \Big)\times B_0\hat{z} \\
+&amp;=IB_0 \Big( \hat{x}\frac{\partial\xi_y}{\partial z}-\hat{y}\frac{\partial \xi_x}{\partial z}\Big)
+\end{aligned}
+\]</span></p>
+<p>In scalar forms, the force law gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{x}:\ -\mu\omega^2 \xi_x &amp;= T(-{k_z}^2)\xi_x + IB_0 \frac{\partial \xi_y}{\partial z}\\
+\hat{y}:\ -\mu\omega^2\xi_y &amp;= T(-{k_z}^2)\xi_y - IB_0 \frac{\partial \xi_x}{\partial z}
+\end{aligned}
+\]</span></p>
+<p>Combining these two equations, we can easily get the dispersion relation</p>
+<p><span class="math display">\[
+\omega^2 = {k_z}^2{C_s}^2 \pm \frac{IB_0}{\mu_0 \mu}k_z
+\]</span></p>
+<p>The dispersion relation is a representation of the force-law. The first term on the right-hand side is a stabilizing term due to tension; the second term with a minus sign is a destabilizing term due to Lorentz force. Note that the expression is very similar to R-T instability. (Which one?)</p>
+<p>We can immediately estimate the scenario in a Tokamak. Take the radius of the column cut as <span class="math inline">\(a\)</span>, wave number <span class="math inline">\(k_z\sim 1/R\)</span> (i.e. wave length is on the order of tokamak radius), <span class="math inline">\({C_s}^2={V_A}^2={B_{0z}}^2/(\mu_0\rho_0)\)</span> (i.e. tension in plasma give rises to Alfvén wave), then the current is</p>
+<p><span class="math display">\[
+I=J_z(\pi a^2)=\frac{B_\theta 2\pi a}{\mu_0} \sim \frac{B_\theta a}{\mu_0}
+\]</span></p>
+<p>and the mass per unit length is</p>
+<p><span class="math display">\[
+\mu =\rho_0(\pi a^2) \sim \rho_0 a^2
+\]</span></p>
+<p>The criterion for stability then becomes</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;{k_z}^2{C_s}^2 &gt;\frac{IB_0}{\mu_0}k_z\Rightarrow \frac{1}{R}\frac{{B_0z}^2}{\mu_0\rho_0}&gt;\frac{B_\theta a}{\mu_0}\frac{B_{0z}}{\rho_0 a^2} \\
+\Rightarrow &amp;\frac{a}{R}\frac{B_{0z}}{B_{0\theta}}&gt;1
+\end{aligned}
+\]</span></p>
+<p>which is called the <em>Kruskal-Shafranov stability criterion</em>. Usually we define</p>
+<p><span class="math display">\[
+q\equiv\frac{a}{R}\frac{B_{0z}}{B_{0\theta}}=\frac{a}{R}\frac{B_t}{B_p}
+\]</span></p>
+<p>as the safety factor. A real value for <span class="math inline">\(q\)</span> is about 2 to 3.</p>
+<p><strong>Ideal MHD Approach</strong></p>
+<p>Now we use a more standard way to treat the kink mode. (Section 10.9 <span class="citation" data-cites="bellan2008fundamentals">(<a href="/KeyNotes/references#ref-bellan2008fundamentals" role="doc-biblioref">Bellan, 2008</a>)</span>) Assume we have a plasma column with radius <span class="math inline">\(a\)</span>. Inside the column, we assume infinite conductivity, <span class="math inline">\(\sigma=\infty\)</span>; outside the column, we assume vacuum so that we can only have current flow on surface <span class="math inline">\(r=a\)</span>. Thus, besides the universal background magnetic field in the z direction, we also have an azimuthal field due to surface current. (You will see later that the decay in <span class="math inline">\(\theta\)</span> actually drives the kink instability.)</p>
+<p>In equilibrium,</p>
+<p><span class="math display">\[
+\begin{aligned}
+r&lt;a:\ &amp;\mathbf{B}_0 = \hat{z}B_0 = \text{const.} \\
+&amp; p_0 = \text{const.},\ \mathbf{v}_0 = \text{const.},\ \mathbf{J}_0 = 0,\ \rho_0=\text{const.} \\
+r&gt;a:\ &amp; \mathbf{B}_0 = B_0\hat{z} + B_{0\theta}\frac{a}{r}\hat{\theta} \\
+&amp; p_0=0,\ \rho_0 = 0
+\end{aligned}
+\]</span></p>
+<p>The force equation in equilibrium</p>
+<p><span class="math display">\[
+\nabla p_0 = \mathbf{J}\times\mathbf{B}_0
+\]</span></p>
+<p>is satisfied automatically both for <span class="math inline">\(r&gt;a\)</span> and <span class="math inline">\(r&lt;a\)</span>.</p>
+<p>Let us introduce a small perturbation</p>
+<p><span class="math display">\[
+\pmb{\xi}_{1r}(\mathbf{x},t) = \widetilde{\xi}_{1r}(r)e^{ikz + im\theta-i\omega t}
+\]</span></p>
+<p>such that at <span class="math inline">\(r=a\)</span>,</p>
+<p><span class="math display">\[
+\pmb{\xi}_{1r}(\mathbf{x},t)\big|_{r=a} = \widetilde{\xi}_{1a}(r)e^{ikz + im\theta-i\omega t}
+\]</span></p>
+<p>Before running into linearized equations, we can first take a look at different wave modes. That is, what will the perturbation looks like at a fixed time <span class="math inline">\(t\)</span> with different <span class="math inline">\(m\)</span>? For simplicity, let us assume <span class="math inline">\(t=0\)</span>. (You can always make a time shift.) The actual displacement is the real part of <span class="math inline">\(\pmb{\xi}\)</span>,</p>
+<p><span class="math display">\[
+\xi_{1r} = \xi_{1a}\cos(k_z z+m\theta)
+\]</span></p>
+<p>For <span class="math inline">\(m=0\)</span>,</p>
+<p><span class="math display">\[
+\xi_{1r} = \xi_{1a}\cos(k_z z)
+\]</span></p>
+<p>which is the sausage mode.</p>
+<p>For <span class="math inline">\(m=1\)</span>,</p>
+<p><span class="math display">\[
+\xi_{1r} = \xi_{1a}\cos(k_z z+\theta)
+\]</span></p>
+<p>If we draw the displacement down for <span class="math inline">\(k_z z=0,\frac{\pi}{2},\pi,\frac{3}{2}\pi\)</span>, you can see one rotation in a <span class="math inline">\(2\pi\)</span> period, which indicates a shape of helix. This is often called the kink mode.</p>
+<p>For higher <span class="math inline">\(m\)</span>,</p>
+<p><span class="math display">\[
+\xi_{1r} = \xi_{1a}\cos(k_z z+m\theta)
+\]</span></p>
+<p>which looks like <span class="math inline">\(m\)</span> intertwine helixes in one axial wavelength.</p>
+<p>Now let’s return to the perturbed equations. Here we will assume incompressibility as the equation of state,</p>
+<p><span class="math display">\[
+\nabla\cdot\mathbf{v}=0
+\]</span></p>
+<p>The procedure to get the dispersion relation goes as follows:</p>
+<ol type="1">
+<li>Express the perturbed magnetic field as a function of displacement inside and outside the surface.</li>
+<li>Relate the two regions by total force balance.</li>
+</ol>
+<ol type="I">
+<li><span class="math inline">\(r&lt;a\)</span></li>
+</ol>
+<p><span class="math display">\[
+\mathbf{v}_1=\frac{\partial \pmb{\xi}_1}{\partial t} \Rightarrow \nabla\cdot\pmb{\xi_1}=0
+\]</span></p>
+<p>The linearized continuity equation gives</p>
+<p><span class="math display">\[
+\rho_1 = -\nabla\cdot(\rho_0\pmb{\xi}_1)=-\pmb{\xi}_1 \cdot\nabla\rho_0 - \rho_0\nabla\cdot\pmb{\xi}_1 =0
+\]</span></p>
+<p>The linearized force law gives</p>
+<p><span class="math display">\[
+\rho_0\frac{\partial^2\pmb{\xi}_1}{\partial t^2} = -\nabla p_1 +\frac{(\nabla\times\mathbf{B}_1)\times\mathbf{B}_0}{\mu_0} +\cancel{\mathbf{J}_0}\times\mathbf{B}_1
+\]</span></p>
+<p>And the Ohm’s law gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+-\frac{\partial \mathbf{B}_1}{\partial t} &amp;= \nabla\times\mathbf{E}_1 = \nabla\times(-\mathbf{v}_1\times\mathbf{B}_0) \\
+\mathbf{B}_1 &amp;= \nabla\times(\pmb{\xi}_1\times\mathbf{B}_0)=B_0 \nabla\times(\pmb{\xi}_1\times\hat{z})=ik_z B_0\pmb{\xi}_1
+\end{aligned}
+\]</span></p>
+<p>The last equivalence is obtained from the expansion of the second term into four terms and cancellation of zero terms.</p>
+<p>In cylindrical coordinates,</p>
+<p><span class="math display">\[
+(\nabla\times\mathbf{B}_1)\times\mathbf{B}_0 = ik{B_0}^2 (\nabla\times\pmb{\xi}_1)\times\hat{z}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\nabla\times\pmb{\xi}_1=\frac{1}{r}
+\begin{bmatrix}
+\hat{r} &amp; r\hat{\theta} &amp;\hat{z} \\
+\partial_r &amp; \partial_\theta &amp; \partial z \\
+\xi_{1\theta} &amp; r\xi_{1\theta} &amp; \xi_{1z}
+\end{bmatrix}
+\]</span></p>
+<p>so the linearized force law gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+-\omega^2 \xi_{1r} &amp;= -\frac{1}{\rho_0}\frac{\partial p_1}{\partial r} +ik{v_A}^2 \big[ ik\xi_{1r} - \frac{\partial \xi_{1z}}{\partial r}\big] \\
+-\omega^2 \xi_{1\theta} &amp;= -\frac{im}{\rho_0 r}p_1 + k{v_A}^2 \big[ -\frac{im}{r}\xi_{1z} + ik\xi_{1\theta} \big] \\
+-\omega^2 \xi_{1z}&amp;= -ik_z p_0/\rho_0
+\end{aligned}
+\]</span></p>
+<p>Substituting the expression of <span class="math inline">\(\xi_{1z}\)</span> into the other two equations, we can get</p>
+<p><span class="math display">\[
+\pmb{\xi}_1 = \frac{1}{\omega^2}\nabla\big( \frac{p_1}{\rho_0} \big)
+\]</span></p>
+<p>From the incompressibility condition, we have</p>
+<p><span class="math display">\[
+\nabla\cdot\pmb{\xi}_1=0\Rightarrow \nabla^2 p_1 =0
+\]</span></p>
+<p>or in cylindrical coordinates,</p>
+<p><span class="math display">\[
+\frac{1}{r}\frac{\partial}{\partial r}\big( r\frac{\partial p_1}{\partial r} \big) - \frac{m^2 p_1}{r^2} - k^2 p_1 = 0
+\]</span></p>
+<p>Assume long wavelength limit and <span class="math inline">\(m=1\)</span> (kink mode),</p>
+<p><span class="math display">\[
+kr&lt;ka\ll 1
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\frac{1}{r}\frac{\partial}{\partial r}\big( r\frac{\partial p_1}{\partial r} \big) - \frac{p_1}{r^2} = 0
+\]</span></p>
+<p>the solution of which from Legendre polynomials (I need to check) is</p>
+<p><span class="math display">\[
+p_1 = Ar + \frac{B}{r} = Ar
+\]</span></p>
+<p>because <span class="math inline">\(p_1\)</span> is finite at <span class="math inline">\(r=0\)</span>.</p>
+<p>So we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+\pmb{\xi}_1 &amp;= \frac{1}{\omega^2}\nabla\big( \frac{p_1}{\rho_0} \big)=\hat{r}\frac{A}{\rho_0\omega}e^{-i\omega t +i\theta+ikz} \\
+\Rightarrow\ \xi_{1ra} &amp;= \frac{A}{\rho_0\omega^2}
+\end{aligned}
+\]</span></p>
+<p>Then the perturbed kinetic pressure on the surface is</p>
+<p><span class="math display">\[
+p_1(r=a^-) = Aa = \rho_0 \omega^2 \xi_{1ra} a,
+\]</span></p>
+<p>and the perturbed magnetic field is</p>
+<p><span class="math display">\[
+\mathbf{B}_1=ikB_0\pmb{\xi}_1 \Rightarrow B_{1z}(r=a^-)=ikB_0 \xi_{1z}=-k^2 B_0\xi_{1ra}
+\]</span></p>
+<ol start="2" type="I">
+<li><span class="math inline">\(r&gt;a\)</span></li>
+</ol>
+<p><span class="math display">\[
+\nabla\cdot\mathbf{B}_1=0,\ \nabla\times\mathbf{B}_1=0\Rightarrow \mathbf{B}_1 = \nabla\Psi_1,\ \nabla^2\Psi_1 = 0
+\]</span></p>
+<p>The solution of Laplace equation in cylindrical coordinates is</p>
+<p><span class="math display">\[
+\Psi = \big( \frac{C}{r}+\cancel{D}r\big)e^{-i\omega t+i\theta+ikz}
+\]</span></p>
+<p>where <span class="math inline">\(D=0\)</span> because <span class="math inline">\(\Psi &lt;\infty\)</span> when <span class="math inline">\(r\rightarrow\infty\)</span>.</p>
+<p>The perturbed magnetic field is then</p>
+<p><span class="math display">\[
+\mathbf{B}_1=\mathbf{B}_{1e}\nabla\Psi = C\big[ -\frac{\hat{r}}{r^2}+i\frac{\hat{\theta}}{r^2}+ik\frac{\hat{z}}{r} \big]e^{-i\omega t+i\theta+ikz}
+\]</span></p>
+<p>and at <span class="math inline">\(r=a\)</span>,</p>
+<p><span class="math display">\[
+\mathbf{B}_{1e}(r=a)=B_{1ra}[\hat{r}-i\hat{\theta}-ika\hat{z}]e^{i\theta+ikz}.
+\]</span></p>
+<p>Now, we want to relate <span class="math inline">\(\xi_{1ra}\)</span> and <span class="math inline">\(B_{1ra}\)</span> by the “frozen-in” law. To first-order approximation, let <span class="math inline">\(\hat{n}\)</span> be the direction normal to the perturbed boundary, we have</p>
+<p><span class="math display">\[
+(\hat{n}\cdot\mathbf{B})_1=0
+\]</span></p>
+<p>The equation for the perturbed boundary (Eq.(10.146) of <span class="citation" data-cites="bellan2008fundamentals">(<a href="/KeyNotes/references#ref-bellan2008fundamentals" role="doc-biblioref">Bellan, 2008</a>)</span>) gives</p>
+<p><span class="math display">\[
+r-\xi_r-a =0
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{n}&amp;=\frac{\nabla(r-\xi_r-a)}{|\nabla(r-\xi_r-a)|} \\
+&amp;=\frac{\hat{r}-\frac{i}{r}\xi_{1ra}\hat{\theta}-ik\xi_{1ra}\hat{z}}{|\hat{r}-\frac{i}{r}\xi_{1ra}\hat{\theta}-ik\xi_{1ra}\hat{z}|} \\
+&amp;=\hat{r}-\frac{i}{r}\xi_{1ra}\hat{\theta}-ik\xi_{1ra}\hat{z}
+\end{aligned}
+\]</span></p>
+<p>where the last equivalence holds because <span class="math inline">\(\xi_{1ra}/r\)</span> and <span class="math inline">\(k\xi_{1ra}\)</span> are both second-order in magnitude.</p>
+<p>Therefore we get</p>
+<p><span class="math display">\[
+\begin{aligned}
+(\hat{n}\cdot\mathbf{B})_1 = ( \hat{r}-\frac{i}{r}\xi_{1ra}\hat{\theta}-ik\xi_{1ra}\hat{z} )\cdot (B_{1r}\hat{r}+B_{0\theta}\hat{\theta}+B_{0z}\hat{z})=0 \\
+B_{1r} = B_{0\theta}\frac{i\xi_{1ra}}{a}+ik_z\xi_{1ra}B_{0z}=  B_{1ra} = \frac{i\xi_{1ra}}{a}[B_{0\theta}+k_z a B_{0z}] = i\xi_{1ra}(\mathbf{k}\cdot\mathbf{B})
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{k}=k_\theta \hat{\theta}+k_z\hat{z}=\frac{m}{r}\hat{\theta}+k_z\hat{z}=\frac{m}{a}\hat{\theta}+k_z\hat{z}\)</span>.</p>
+<p>Finally, <span class="math inline">\(p+B^2/2\mu_0\)</span> is continuous across perturbed boundary,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Big( p+\frac{B^2}{2\mu_0}\Big)_{1,interior} &amp;= p_{1i} + \frac{2\mathbf{B}_{oi}\cdot\mathbf{B}_{1i}}{2\mu_0}=\rho_0\omega^2 a\xi_{1ra} - \frac{1}{\mu_0}k^2{B_0}^2a\xi_{1ra}=a\rho_0\xi_{1ra}(\omega^2-k^2{v_A}^2) \\
+\Big( p+\frac{B^2}{2\mu_0}\Big)_{1,exterior}&amp;=0+\frac{1}{2\mu_0}[{B_{0e}}^2+2\mathbf{B}_{oe}\cdot\mathbf{B}_1e]_{1,r=a+\xi_r} \\
+&amp;=\frac{1}{2\mu_0}\Big[ \cancel{{B_{0ze}}^2}+{B_{0\theta a}}^2\big( \frac{a}{a+\xi_{1r}}\big)^2+2(B_{0\theta}B_{1e\theta}+B_{0z}B_{1ez})\Big]_1 \\
+&amp;=\frac{1}{2\mu_0}\Big[ -\frac{2\xi_{1ra}{B_{0\theta a}}^2}{a}+2\big[ B_{0\theta}(-iB_{1ra})+B_{0z}(-ikaB_{1ra})\big]\Big]\\
+&amp;=\frac{1}{2\mu_0}\Big[ -\frac{2\xi_{1ra}{B_{0\theta a}}^2}{a}+\frac{2\xi_{1ra}}{a}\big[ B_{0\theta}+kaB_{0z}\big]^2\Big]
+\end{aligned}
+\]</span></p>
+<p>where in one of the equivalence <span class="math inline">\(\frac{\xi_{1ra}}{a}\rightarrow0\)</span>,</p>
+<p><span class="math display">\[
+\Big( \frac{1}{1+\frac{\xi_{1r}}{a}}\Big)^2 \approx -2\frac{\xi_{1ra}}{a}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\Big( p+\frac{B^2}{2\mu_0}\Big)_{1,interior} &amp;= \Big( p+\frac{B^2}{2\mu_0}\Big)_{1,exterior} \\
+\omega^2&amp;=k^2{v_A}^2 + \frac{1}{a\mu_0 a^2 \rho_0}\big[ k^2 a^2{B_{0z}}^2+2kaB_{0\theta}B_{0z} \big]\\
+\omega^2&amp;= \frac{1}{a\mu_0 a^2 \rho_0}\big[2 k^2 a^2{B_{0z}}^2+2kaB_{0\theta}B_{0z} \big]
+=\frac{2k^2{B_{0z}}^2}{\mu_0\rho_0}\Big[ 1+\frac{B_{0\theta}}{kaB_{0z}}\Big]
+\end{aligned}
+\]</span></p>
+<p>For stability, <span class="math inline">\(1&gt;\big| \frac{B_{0\theta}}{ka B_{0z}}\big|\Rightarrow |ka|&gt;\frac{B_{0\theta}}{B_{0z}}\)</span>. Take <span class="math inline">\(|k|=R^{-1}\)</span>, where <span class="math inline">\(R\)</span> is the major radius, the stability condition becomes</p>
+<p><span class="math display">\[
+q\equiv \frac{a}{R}\frac{B_{0z}}{B_{0\theta}}&gt;1
+\]</span></p>
+<p>and the <span class="math inline">\(q\)</span> the called the safety factor. This is again the Kruskal-Shafranov limit for <span class="math inline">\(m=1\)</span> kink mode. For sausage mode <span class="math inline">\(m=0\)</span>, the same approach as above can get</p>
+<p><span class="math display">\[
+B_{0\theta}&lt; \sqrt{2} B_{0z}
+\]</span></p>
+<p>for stability.</p>
+<p>Note:</p>
+<ol type="1">
+<li>This 2-region model can be generalized to 3-region model, which is more realistic compared to experiments. In the liner inertial fusion experiment, there is a mixture of R-T, sausage, kink and many high order modes.</li>
+<li>In general, the dispersion relation can be written as</li>
+</ol>
+<p><span class="math display">\[
+\omega^2 = (\mathbf{k}\cdot\mathbf{v_A})^2 - \text{destablizing term}
+\]</span></p>
+<p>where the destablizing term can be gravity <span class="math inline">\(\mathbf{k}\cdot\mathbf{g}\)</span>, current <span class="math inline">\(I/I_{crit}\)</span>, tearing mode due to resistivity, etc.</p>
+<ol start="3" type="1">
+<li>If we do the same analysis in Cartesian coordinates (x,y,z), there will be no sausage or kink mode! See HW3.</li>
+</ol>
+<p><strong>3-Region Problem</strong></p>
+<p>In 572 HW3.1, we have shown that a Cartesian liner is always stable for kink and sausage mode while a cylindrical liner isn’t. However, if you also consider the gravity (or equivalently, centrifugal forc, etc.) then you can have magnetic Rayleigh-Taylor (MRT) instability.</p>
+<p>Here we show the derivation of dispersion relation in a 3-region problem in Cartesian liner. This method can be found in Chandrasekhar`s book on instability, P429. Consider Fig.1 shown in Prof.Lau’s paper “Anisotropy and feedthrough in magneto-Rayleigh-Taylor instability”. The interface of the regions are <span class="math inline">\(x=\alpha,\ x=\beta\)</span>. The governing equation including gravity is</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}x}\Big\{ \rho_0\big[ \omega^2-(\mathbf{k}\cdot\mathbf{v}_A)^2\big] \frac{\partial \xi_{1x}}{\partial x} \Big\}
+- k^2 \big[ \rho_0\big( \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2\big)+g\frac{\partial \rho_0}{\partial x}\big] \xi_{1x} = 0
+\]</span></p>
+<p>If <span class="math inline">\(\rho_0=\text{const.}\Rightarrow g\frac{\partial \rho_0}{\partial x}=0\)</span>. Within region I, II, and III, the governing equation can be simplified to</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}^2 \xi_{1x}}{\mathrm{d}x^2} - k^2\xi_{1x} = 0
+\]</span></p>
+<p>the general solution of which reads</p>
+<p><span class="math display">\[
+\xi_{1x} = Ae^{-kx} + Be^{kx} = C\sinh{k(x-\alpha)} + D\sinh{k(x-\beta)}
+\]</span></p>
+<p>where <span class="math inline">\(A,B,C,D\)</span> are coefficients. Cancelling out the unphysical solutions in each region, we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{I: }&amp; \xi_{1x} = \xi_\beta e^{k(x-\beta)} \\
+\text{II: }&amp; \xi_{1x} = \xi_\alpha \frac{\sinh{k(x-\beta)}}{\sinh{k(\alpha-\beta)}} + \xi_\beta \frac{\sinh{k(x-\alpha)}}{\sinh{k(\beta-\alpha)}} \\
+\text{III: }&amp; \xi_{1x} = \xi_\alpha e^{-k(x-\alpha)}
+\end{aligned}
+\]</span></p>
+<p>Note that there’s a jump for <span class="math inline">\(\rho_0(x)\)</span> at <span class="math inline">\(x=\alpha,\beta\)</span>. Now we can integrate the governing equation across the boundaries,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{x=\alpha^-}^{x=\alpha^+} \mathrm{d}x \Big[ \frac{\mathrm{d}}{\mathrm{d}x}\Big\{ \rho_0\big[ \omega^2-(\mathbf{k}\cdot\mathbf{v}_A)^2\big] \frac{\partial \xi_{1x}}{\partial x} \Big\}
+- k^2 \big[ \rho_0\big( \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2\big)+g\frac{\partial \rho_0}{\partial x}\big] \xi_{1x}  \Big]= 0 \\
+\Rightarrow F_1(\xi_\alpha,\xi_\beta) = 0 \\
+\int_{x=\beta^-}^{x=\beta^+} \mathrm{d}x \Big[ \frac{\mathrm{d}}{\mathrm{d}x}\Big\{ \rho_0\big[ \omega^2-(\mathbf{k}\cdot\mathbf{v}_A)^2\big] \frac{\partial \xi_{1x}}{\partial x} \Big\}
+- k^2 \big[ \rho_0\big( \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2\big)+g\frac{\partial \rho_0}{\partial x}\big] \xi_{1x}  \Big]= 0 \\
+\Rightarrow F_2(\xi_\alpha,\xi_\beta) = 0
+\end{aligned}
+\]</span></p>
+<p>Finally, from <span class="math inline">\(F_1\)</span> and <span class="math inline">\(F_2\)</span>, we can get the dispersion relation</p>
+<p><span class="math display">\[
+\omega^4 - R\omega^2  + S = 0
+\]</span></p>
+<p>where <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span> are functions of <span class="math inline">\(B_{01},B_{02},B_{03},\rho_{01},\rho_{02},\rho_{03},g,\Delta,k_y\)</span> and <span class="math inline">\(k_z\)</span>.</p>
+<p>Next, we can examine the temporal evolution of sinusoidal ripples at interfaces in the form</p>
+<p><span class="math display">\[
+\xi_{\alpha,\beta}(t) = A_1 e^{i\omega_1 t}+A_2 e^{-i\omega_3 t}+A_3e^{i\omega_3 t}  + A_4 e^{-i\omega_3 t}
+\]</span></p>
+<p>where <span class="math inline">\(\omega_1\)</span> and <span class="math inline">\(\omega_3\)</span> are two eigen mode from the dispersion relation. See the details in the paper. The details of dispersion relation is given in M.Weis, et. al., Phys. Plasmas 21, 122708 (2014), and the coulping of MRT, sausage and kink mode in a cyclindrical liner is given by M.Weis, et. al., Phys. Plasma 22, 032706 (2015).</p>
+<p>Note: for RT/MRT,</p>
+<p><span class="math display">\[
+\xi_{RT}(t) \sim\xi_0 e^{\gamma t} &lt; \xi_0 e^{\sqrt{gk}t}
+\]</span></p>
+<p>the growth rate</p>
+<p><span class="math display">\[
+\gamma_{\max} = \sqrt{gk}
+\]</span></p>
+<p>If we use <span class="math inline">\(s=\frac{1}{2}gt^2\Rightarrow \sqrt{2s}=\sqrt{|g|}t\)</span>,</p>
+<p><span class="math display">\[
+\xi_{RT}(t)&lt;\xi_0 e^{\sqrt{2ks}}
+\]</span></p>
+<p>which only depends on wavenumber and distance.</p>
+<h3 data-number="9.6.2" id="sausage-mode"><span class="header-section-number">9.6.2</span> Sausage Mode</h3>
+<p>The <span class="math inline">\(m=0\)</span> mode is known as the sausage instability. There is no <span class="math inline">\(B_z\)</span> so we have purely toroidal field. The initial equilibrium is established with radially inward Lorentz force and outward pressure gradient. But it is unstable to interchange due to curvature. When a perturbation that causes the rings to shrink, magnetic field in the plasma increases so that the <span class="math inline">\(\mathbf{J}\times\mathbf{B}\)</span> Lorentz force increases. There is nothing to counter this radially inward force increase, which leads to instability.</p>
+<p>The dispersion relation is</p>
+<p><span class="math display">\[
+\omega^2 = -2\frac{p_0}{\rho_0}\frac{k}{R_c^2}
+\]</span></p>
+<p>Adding <span class="math inline">\(B_z\)</span> to the interior plasma stabilizes sausage instability: the magnetic pressure caused by <span class="math inline">\(B_z\)</span> pushes back to oppose squeezing. The pressure balance at the interface gives</p>
+<p><span class="math display">\[
+p_0 + \frac{B_{0z}^2}{2\mu_0} = \frac{B_\phi^2}{2\mu_0}
+\]</span></p>
+<p>With the modified dispersion relation</p>
+<p><span class="math display">\[
+\omega^2 = -2\frac{p_0}{\rho_0 a^2} + \frac{B_{0z}^2}{\mu_0\rho_0 a^2}
+\]</span></p>
+<p>we have the condition for stability</p>
+<p><span class="math display">\[
+B_{0z}^2 &gt; \frac{1}{2}B_\phi^2
+\]</span></p>
+<p>THIS IS PROBABLY DUPLICATE WITH THE PREVIOUS SECTION.</p>
+<h3 data-number="9.6.3" id="kink-mode-1"><span class="header-section-number">9.6.3</span> Kink Mode</h3>
+<p>However, even when the sausage mode is suppressed, the configuration is still unstable to the kink mode. This <span class="math inline">\(m=1\)</span> mode retains circular cross-section of the tube and the perturbation is a kink of the tube into a helix. Without <span class="math inline">\(B_z\)</span>, the system is unstable for all <span class="math inline">\(k\)</span>; with <span class="math inline">\(B_z\)</span>, it is unstable for wavelengths long enough such that the pitch of the perturbation follows the pitch of the helix, i.e. the crests/troughs of the perturbations follow the fieldlines of tube</p>
+<p><span class="math display">\[
+B_\phi/R + k B_Z \ge 0
+\]</span></p>
+<p>In terms of a twist <span class="math inline">\(\Phi = 2LB_\phi/RB_z\)</span>, this criterion is equivalent to</p>
+<p><span class="math display">\[
+k\ge-\frac{\Phi}{2L}
+\]</span></p>
+<p>The perturbation Lorentz force <span class="math inline">\(\mathbf{j}_1\times\mathbf{B}_0\)</span> is zero. (???)</p>
+<h3 data-number="9.6.4" id="sec:ballooning"><span class="header-section-number">9.6.4</span> Ballooning Mode</h3>
+<p>The ballooning instability is a type of internal pressure-driven plasma instability usually seen in tokamak fusion power reactors or in space plasmas <span class="citation" data-cites="hameiri1991ballooning">(<a href="/KeyNotes/references#ref-hameiri1991ballooning" role="doc-biblioref">Hameiri et al., 1991</a>)</span>. It is important in fusion research as it determines a set of criteria for the maximum achievable plasma beta. The name refers to the shape and action of the instability, which acts like the elongations formed in a long balloon when it is squeezed. In literature, the structure of these elongations are commonly referred to as “fingers”.</p>
+<p>The narrow fingers of plasma produced by the instability are capable of accelerating and pushing aside the surrounding magnetic field in order to cause a sudden, explosive release of energy. Thus, the instability is also known as the explosive instability.</p>
+<p>The interchange instability can be derived from the equations of the ballooning instability as a special case in which the ballooning mode does not perturb the equilibrium magnetic field.<span class="citation" data-cites="hameiri1991ballooning">(<a href="/KeyNotes/references#ref-hameiri1991ballooning" role="doc-biblioref">Hameiri et al., 1991</a>)</span> This special limit is known as the Mercier criterion.</p>
+<figure>
+<img src="/KeyNotes/im/KeyNotes_plot_balloon_.svg" id="fig:balloon" alt="Figure 46: Plasma column (poloidal m = 15, toroidal n = 10) balloon mode." /><figcaption aria-hidden="true">Figure 46: Plasma column (poloidal m = 15, toroidal n = 10) balloon mode.</figcaption>
+</figure>
+<h3 data-number="9.6.5" id="sec:tearing"><span class="header-section-number">9.6.5</span> Tearing Mode</h3>
+<figure>
+<img src="/KeyNotes/im/KeyNotes_plot_tearing_.svg" id="fig:tearing" alt="Figure 47: Plasma column (poloidal m = 3, toroidal n = 1) tearing mode." /><figcaption aria-hidden="true">Figure 47: Plasma column (poloidal m = 3, toroidal n = 1) tearing mode.</figcaption>
+</figure>
+<p>Tearing mode is closely related to magnetic reconnection (Section <a href="/KeyNotes/reconnection#sec:reconnection">9.7</a>). The reconnection process is very important because it is one of the main way of burst energy transformation. It is known that in collisionless systems current sheets are unstable against tearing instability, a process where the current tends to collapse into filaments. The tearing instability produces magnetic islands that then interact and merge together giving rise to a nonlinear instability phase, where the reconnection process is enhanced. See <span class="citation" data-cites="bellan2008fundamentals">(<a href="/KeyNotes/references#ref-bellan2008fundamentals" role="doc-biblioref">Bellan, 2008</a>)</span> P413 for more.</p>
+<p><strong>Linear Tearing Mode</strong></p>
+<p>Consider the interface between two plasmas containing magnetic fields of different orientations. The simplest imaginable field configuration is that illustrated in Figure <a href="/KeyNotes#fig:tearing_config_simple">48</a>. Here, the field varies only in the <span class="math inline">\(x\)</span>-direction, and points only in the <span class="math inline">\(y\)</span>-direction. The field is directed in the <span class="math inline">\(-y\)</span>-direction for <span class="math inline">\(x&lt;0\)</span>, and in the <span class="math inline">\(+y-\)</span>direction for <span class="math inline">\(x&gt;0\)</span>. The interface is situated at <span class="math inline">\(x=0\)</span>. The sudden reversal of the field direction across the interface gives rise to a <span class="math inline">\(z\)</span>-directional current sheet at <span class="math inline">\(x=0\)</span>.</p>
+<figure>
+<img src="https://farside.ph.utexas.edu/teaching/plasma/Plasmahtml/img1924.png" id="fig:tearing_config_simple" alt="Figure 48: A reconnection magnetic field configuration." /><figcaption aria-hidden="true">Figure 48: A reconnection magnetic field configuration.</figcaption>
+</figure>
+<p>With the neglect of plasma resistivity, the field configuration shown in Figure <a href="/KeyNotes#fig:tearing_config_simple">48</a> represents a stable equilibrium state, assuming, of course, that we have normal pressure balance across the interface. But, does the field configuration remain stable when we take resistivity into account? If not, we expect an instability to develop which relaxes the configuration to one possessing lower magnetic energy. As we shall see, this type of relaxation process inevitably entails the breaking and reconnection of magnetic field lines, and is, therefore, termed <em>magnetic reconnection</em>. The magnetic energy releases during the reconnection process eventually appears as plasma thermal energy. Thus, magnetic reconnection also involves plasma heating.</p>
+<p>In the following, we shall outline the standard method for determining the linear stability of the type of magnetic field configuration shown in Figure <a href="/KeyNotes#fig:tearing_config_simple">48</a>, taking into account the effect of plasma resistivity. We are particularly interested in plasma instabilities which are stable in the absence of resistivity, and only grow when the resistivity is non-zero. Such instabilities are conventionally termed <em>tearing modes</em>. Since magnetic reconnection is, in fact, a nonlinear process, we shall then proceed to investigate the nonlinear development of tearing modes.</p>
+<p>The equilibrium magnetic field is written</p>
+<p><span class="math display">\[
+\mathbf{B}_0=B_{0y}(x)\hat{y}
+\]</span></p>
+<p>where <span class="math inline">\(B_{0y}(-x)=-B_{0y}(x)\)</span>. There is assumed to be non-equilibrium plasma flow. The linearized equations of resistive-MHD, assuming incompressible flow, take the form</p>
+<p><span id="eq:linear_induction_B"><span class="math display">\[
+\frac{\partial \mathbf{B}}{\partial t}=\nabla\times(\mathbf{v}\times\mathbf{B}_0)+\frac{\eta}{\mu_0}\nabla^2\mathbf{B}
+\qquad(170)\]</span></span></p>
+<p><span id="eq:linear_moment"><span class="math display">\[
+\rho_0\frac{\partial\mathbf{v}}{\partial t}=-\nabla p +\frac{(\nabla\times\mathbf{B})\times\mathbf{B}_0}{\mu_0}+\frac{(\nabla\times\mathbf{B}_0)\times\mathbf{B}}{\mu_0}
+\qquad(171)\]</span></span></p>
+<p><span id="eq:linear_divB"><span class="math display">\[
+\nabla\cdot\mathbf{B}=0
+\qquad(172)\]</span></span></p>
+<p><span id="eq:linear_divV"><span class="math display">\[
+\nabla\cdot\mathbf{v}=0
+\qquad(173)\]</span></span></p>
+<p>Here, <span class="math inline">\(\rho_0\)</span> is the equilibrium plasma density, <span class="math inline">\(\mathbf{B}\)</span> is the perturbed magnetic field, <span class="math inline">\(\mathbf{v}\)</span> the perturbed plasma velocity, and <span class="math inline">\(p\)</span> the perturbed plasma pressure. The assumption of incompressible plasma flow is valid provided that the plasma velocity associated with the instability remains significantly smaller than both the Alfvén velocity and the sonic velocity.</p>
+<p>Suppose that all perturbed quantities vary like</p>
+<p><span id="eq:linear_tearing_pert"><span class="math display">\[
+A(x,y,z,t)=A(x)e^{iky+\gamma t}
+\qquad(174)\]</span></span></p>
+<p>where <span class="math inline">\(\gamma\)</span> is the instability growth rate. The <span class="math inline">\(x\)</span>-component of Equation <a href="/KeyNotes#eq:linear_induction_B">170</a> and the <span class="math inline">\(z\)</span>-component of the curl of Equation <a href="/KeyNotes#eq:linear_moment">171</a> reduce to ???</p>
+<p><span id="eq:pert_induction_B"><span class="math display">\[
+\gamma B_x = ikB_{0y}v_x + \frac{\eta}{\mu_0}\Big( \frac{\mathrm{d}^2}{\mathrm{d}x^2}-k^2\Big)B_x
+\qquad(175)\]</span></span></p>
+<p><span id="eq:pert_momentum"><span class="math display">\[
+\gamma \rho_0 \Big( \frac{\mathrm{d}^2}{\mathrm{d}x^2}-k^2 \Big)v_x=\frac{ikB_{0y}}{\mu_0}\Big( \frac{\mathrm{d}^2}{\mathrm{d}x^2}-k^2-\frac{B_{0y}^{\prime\prime}}{B_{0y}}\Big)B_x
+\qquad(176)\]</span></span></p>
+<p>respectively, where use has been made of Equation <a href="/KeyNotes#eq:linear_divB">172</a> and Equation <a href="/KeyNotes#eq:linear_divV">173</a>. Here, <span class="math inline">\(\prime\)</span> denotes <span class="math inline">\(\mathrm{d}/\mathrm{d}x\)</span>.</p>
+<p>It is convenient to normalize Equation <a href="/KeyNotes#eq:pert_induction_B">175</a> and Equation <a href="/KeyNotes#eq:pert_momentum">176</a> using a typical magnetic field-strength, <span class="math inline">\(B_0\)</span>, and a typical scale-length, <span class="math inline">\(a\)</span>. Let us define the <em>Alfvén time-scale</em></p>
+<p><span class="math display">\[
+\tau_A=\frac{a}{V_A}
+\]</span></p>
+<p>where <span class="math inline">\(V_A=B_0/\sqrt{\mu_0 \rho_0}\)</span> is the Alfvén velocity, and the resistive diffusion time-scale</p>
+<p><span class="math display">\[
+\tau_R=\frac{\mu_0 a^2}{\eta}
+\]</span></p>
+<p>The ratio of these two time-scale is the <em>Lundquist number</em>:</p>
+<p><span class="math display">\[
+S=\frac{\tau_R}{\tau_A}
+\]</span></p>
+<p>Let <span class="math inline">\(\psi= B_x/B_0\)</span>, <span class="math inline">\(\phi = i\,k\,V_y/\gamma\)</span>, <span class="math inline">\(\bar{x}=x/a\)</span>, <span class="math inline">\(F=B_{0y}/B_0\)</span>, <span class="math inline">\(F&#39;\equiv dF/\mathrm{d}\bar{x}\)</span>, <span class="math inline">\(\bar{\gamma} = \gamma\,\tau_A\)</span>, and <span class="math inline">\(\bar{k} = k\,a\)</span>. It follows that</p>
+<p><span id="eq:tearing_normalized_induction_B"><span class="math display">\[
+\bar{\gamma}\,(\psi-F\,\phi) = S^{-1}\left(\frac{\mathrm{d}^2}{\mathrm{d}\bar{x}^2}-\bar{k}^2\right) \psi
+\qquad(177)\]</span></span></p>
+<p><span id="eq:tearing_normalized_momentum"><span class="math display">\[
+\bar{\gamma}^2\left(\frac{\mathrm{d}^2}{\mathrm{d}\bar{x}^2} -\bar{k}^2\right)\phi = -\bar{k}^2\, F \left( \frac{\mathrm{d}^2}{\mathrm{d}\bar{x}^2} -\bar{k}^2 - \frac{F&#39;&#39;}{F}\right) \psi
+\qquad(178)\]</span></span></p>
+<p>The term on the right-hand side of Equation <a href="/KeyNotes#eq:tearing_normalized_induction_B">177</a> represents plasma resistivty, whilst the term on the left-hand side of Equation <a href="/KeyNotes#eq:tearing_normalized_momentum">178</a> represents plasma inertia.</p>
+<p>It is assumed that <em>the tearing instability grows on a hybrid time-scale which is much less than <span class="math inline">\(\tau_R\)</span> but much greater than <span class="math inline">\(\tau_A\)</span></em>. It follows that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\tau_A \ll \gamma^{-1} \ll \tau_R \\
+\gamma\tau_A \ll 1 \ll \gamma\tau_R \\
+\bar{\gamma} \ll 1 \ll S\,\bar{\gamma}
+\end{aligned}
+\]</span></p>
+<p>Thus, throughout most of the plasma we can neglect the right-hand side of Equation <a href="/KeyNotes#eq:tearing_normalized_induction_B">177</a> and the left-hand side of Equation <a href="/KeyNotes#eq:tearing_normalized_momentum">178</a>, which is equivalent to the neglect of plasma resistivity and inertia. In this case, the two equations reduce to</p>
+<p><span id="eq:tearing_normalized_induction_ideal"><span class="math display">\[
+\phi = \frac{\psi}{F}
+\qquad(179)\]</span></span></p>
+<p><span id="eq:tearing_normalized_momentum_ideal"><span class="math display">\[
+\frac{\mathrm{d}^2\psi}{\mathrm{d}\bar{x}^2} - \bar{k}^2\psi - \frac{F&#39;&#39;}{F}\psi = 0
+\qquad(180)\]</span></span></p>
+<p>Equation <a href="/KeyNotes#eq:tearing_normalized_induction_ideal">179</a> is simply the flux freezing constraint, which requires the plasma to move with the magnetic field. Equation <a href="/KeyNotes#eq:tearing_normalized_momentum_ideal">180</a> is the linearized, static force balance criterion <span class="math inline">\(\nabla\times(\mathbf{j}\times\mathbf{B})=0\)</span>. These two equations are known collectively as the equations of ideal-MHD, and are valid throughout virtually the whole plasma. However, it is clear that these equations <em>break down</em> in the immediate vicinity of the interface, where <span class="math inline">\(F=0\)</span> (i.e. where the magnetic field reverses direction). Witness, for instance, the fact that the normalized “radial” velocity, <span class="math inline">\(\phi\)</span>, becomes infinite as <span class="math inline">\(F\rightarrow 0\)</span>, according to Equation <a href="/KeyNotes#eq:tearing_normalized_induction_ideal">179</a>.</p>
+<p>The ideal-MHD equations break down close to the interface because the neglect of plasma resistivity and inertia becomes untenable as <span class="math inline">\(F\rightarrow 0\)</span>. Thus, there is a thin layer, in the immediate vicinity of the interface, <span class="math inline">\(\bar{x}=0\)</span>, where the behaviour of the plasma is governed by the full MHD equations, Equation <a href="/KeyNotes#eq:tearing_normalized_induction_B">177</a> and Equation <a href="/KeyNotes#eq:tearing_normalized_momentum">178</a>. We can simplify these equations, making use of the fact that <span class="math inline">\(\bar{x}\ll 1\)</span> and <span class="math inline">\(\mathrm{d}/\mathrm{d}\bar{x} \gg 1\)</span> in a thin layer, to obtain the following layer equations:</p>
+<p><span id="eq:tearing_layer_induction"><span class="math display">\[
+\bar{\gamma}\,(\psi - \bar{x}\,\phi) = S^{-1}\frac{\mathrm{d}^2\psi}{\mathrm{d}\bar{x}^2}
+\qquad(181)\]</span></span></p>
+<p><span id="eq:tearing_layer_momentum"><span class="math display">\[
+\bar{\gamma}^2\,\frac{\mathrm{d}^2\phi}{\mathrm{d}\bar{x}^2} = - \bar{x}\,\frac{\mathrm{d}^2\psi}{\mathrm{d}\bar{x}^2}
+\qquad(182)\]</span></span></p>
+<p>Note that we have redefined the variables <span class="math inline">\(\phi\)</span>, <span class="math inline">\(\bar{\gamma}\)</span>, and <span class="math inline">\(S\)</span>, such that <span class="math inline">\(\phi\rightarrow F&#39;(0)\,\phi\)</span>, <span class="math inline">\(\bar{\gamma}\rightarrow \gamma\,\tau_H\)</span>, and <span class="math inline">\(S\rightarrow \tau_R/\tau_H\)</span>. Here,</p>
+<p><span class="math display">\[
+\tau_H = \frac{\tau_A}{k\,a\,F&#39;(0)}
+\]</span></p>
+<p>is the <em>hydromagnetic time-scale</em>.</p>
+<p>The tearing mode stability problem reduces to solving the non-ideal-MHD layer equations, Equation <a href="/KeyNotes#eq:tearing_layer_induction">181</a> and Equation <a href="/KeyNotes#eq:tearing_layer_momentum">182</a>, in the immediate vicinity of the interface, <span class="math inline">\(\bar{x}=0\)</span>, solving the ideal-MHD equations, @Equation <a href="/KeyNotes#eq:tearing_normalized_induction_ideal">179</a> and Equation <a href="/KeyNotes#eq:tearing_normalized_momentum_ideal">180</a>, everywhere else in the plasma, matching the two solutions at the edge of the layer, and applying physical boundary conditions as <span class="math inline">\(\vert\bar{x}\vert\rightarrow\infty\)</span>. This method of solution was first described in a classic paper <span class="citation" data-cites="furth1963finite">(<a href="/KeyNotes/references#ref-furth1963finite" role="doc-biblioref">Furth et al., 1963</a>)</span>. The steps are listed in the <a href="https://farside.ph.utexas.edu/teaching/plasma/Plasmahtml/node76.html">farside note</a>. The procedure is similar to the 3 layer solution of the K-H instability. After some maths, tearing mode dispersion relation is given as</p>
+<p><span class="math display">\[
+\gamma = \left[\frac{{\Gamma}(1/4)}{2\pi\,{\Gamma}(3/4)}\right]^{4/5}\, \frac{({\Delta}&#39;)^{4/5}}{\tau_H^{2/5}\,\tau_R^{3/5}}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\Delta} &amp;= 2\pi\,\frac{{\Gamma}(3/4)}{{\Gamma}(1/4)}\,S^{1/3}\, Q^{5/4} \\
+Q &amp;= \gamma\,\tau_H^{2/3}\,\tau_R^{1/3}
+\end{aligned}
+\]</span></p>
+<p>The tearing mode is unstable whenever <span class="math inline">\({\Delta}&#39;&gt;0\)</span>, and grows on the hybrid time-scale <span class="math inline">\(\tau_H^{2/5}\,\tau_R^{3/5}\)</span>.</p>
+
+
+<div class="bottom-nav">
+    <p id="nav-prev" style="text-align: left;">
+        <a class="menu-level-2" href="/KeyNotes/mhd-stability"><b>9.5</b> MHD Stability</a> <kbd>←</kbd>
+        <span id="nav-next" style="float: right;">
+            <kbd>→</kbd> <a class="menu-level-2" href="/KeyNotes/reconnection"><b>9.7</b> Magnetic Reconnection</a>
+        </span>
+    </p>
+</div>
+
+
+<div class="license">
+    <br/>
+  <br/>
+  <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    Hongyang Zhou
+</div>
+</div>
+</div>
+</body>
+</html>

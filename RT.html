@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Hongyang Zhou" />
+  <title>Rayleigh-Taylor Instability - Key Notes of Plasma Physics</title>
+  <link rel="shortcut icon" type="image/png" href="/KeyNotes/favicon.png"/>
+  <link rel="stylesheet" href="/KeyNotes/style.css"/>
+    <script src="/KeyNotes/mousetrap.min.js"></script>
+    <style>
+  @font-face {
+    font-family: JuliaMono-Regular;
+    src: url("/KeyNotes/JuliaMono-Regular.woff2");
+  }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/KeyNotes/github.min.css">
+<script src="/KeyNotes/highlight.min.js"></script>
+<script src="/KeyNotes/julia.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('pre').forEach((el) => {
+        if (!el.classList.contains('output')) {
+            hljs.highlightElement(el);
+        }
+    });
+});
+</script>
+ 
+</head>
+<body>
+<script>
+function click_next() {
+  var next = document.getElementById('nav-next');
+  next.firstElementChild.nextElementSibling.click();
+}
+function click_prev() {
+  var prev = document.getElementById('nav-prev');
+  prev.firstElementChild.click();
+}
+Mousetrap.bind('right', click_next);
+Mousetrap.bind('h', click_prev);
+Mousetrap.bind('left', click_prev);
+Mousetrap.bind('l', click_next);
+</script>
+
+<div class="books-container">
+<aside class="books-menu">
+<input type="checkbox" id="menu">
+<label for="menu">☰</label>
+<div class="books-title">
+<a href="/KeyNotes/">Key Notes of Plasma Physics</a>
+</div><br />
+<span class="books-subtitle">
+My Journey in the Field
+</span>
+<div class="books-menu-content">
+<li><a class="menu-level-1" href="/KeyNotes/about"><b>1</b> About</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/intro"><b>2</b> Introduction</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/occurrence-of-plasma-in-nature"><b>2.1</b> Occurrence of Plasma in ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/definition-of-plasma"><b>2.2</b> Definition of Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/concept-of-temperature"><b>2.3</b> Concept of Temperature</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/debye"><b>2.4</b> Debye Shielding</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/criteria-for-plasmas"><b>2.5</b> Criteria for Plasmas</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/plasma-frequency"><b>2.6</b> Plasma Frequency</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/spatial-scales"><b>2.7</b> Spatial Scales</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/math"><b>3</b> Math</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/vector-identities"><b>3.1</b> Vector Identities</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/differential-of-line-segments"><b>3.2</b> Differential of Line Seg..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/complex-analysis"><b>3.3</b> Complex Analysis</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/helmholtzs-theorem"><b>3.4</b> Helmholtz’s Theorem</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/toroidal-and-poloidal-decomposition"><b>3.5</b> Toroidal and Poloidal De..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetic-dipole-field"><b>3.6</b> Magnetic Dipole Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/greens-function"><b>3.7</b> Green’s Function</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/linearization"><b>3.8</b> Linearization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/WKB"><b>3.9</b> Wave Equations</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/normalization"><b>3.10</b> Normalization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/theoretical-mechanics"><b>3.11</b> Theoretical Mechanics</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/wavelet-analysis"><b>3.12</b> Wavelet Analysis</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/single"><b>4</b> Single-Particle Motions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/uniform-e-and-b-fields"><b>4.1</b> Uniform E and B Fields</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonuniform-b-field"><b>4.2</b> Nonuniform B Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonuniform_E"><b>4.3</b> Nonuniform E Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/time-varying_E"><b>4.4</b> Time-Varying E Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/time-varying-b-field"><b>4.5</b> Time-Varying B Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/summary-of-guiding-center-drifts"><b>4.6</b> Summary of Guiding Cente..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/adiabatic-invariants"><b>4.7</b> Adiabatic Invariants</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ring-current"><b>4.8</b> Ring Current</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle-acceleration"><b>4.9</b> Particle Acceleration</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/test-particle-model"><b>4.10</b> Test Particle Model</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/fluid"><b>5</b> Plasmas as Fluid</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/definitions"><b>5.1</b> Definitions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/relation-of-plasma-physics-to-ordinary-electromagnetics"><b>5.2</b> Relation of Plasma Physi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-single-fluid-mhd-equations"><b>5.3</b> The Single-Fluid MHD Equ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/generalized-ohms-law"><b>5.4</b> Generalized Ohm’s Law</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/fluid-drifts-perpendicular-to-b"><b>5.5</b> Fluid Drifts Perpendicul..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/fluid-drifts-parallel-to-b"><b>5.6</b> Fluid Drifts Parallel to..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/plasma_approximation"><b>5.7</b> The Plasma Approximation</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/2fluid"><b>5.8</b> Two-Fluid Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/hall-mhd"><b>5.9</b> Hall MHD</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/resisvity"><b>6</b> Diffusion and Resisvity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-and-mobility-in-weakly-ionized-gases"><b>6.1</b> Diffusion and Mobility i..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/collision-parameters"><b>6.2</b> Collision Parameters</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-parameters"><b>6.3</b> Diffusion Parameters</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/decay-of-a-plasma-by-diffusion"><b>6.4</b> Decay of a Plasma by Dif..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/steady-state-solutions"><b>6.5</b> Steady State Solutions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/recombination"><b>6.6</b> Recombination</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-across-a-magnetic-field"><b>6.7</b> Diffusion Across a Magne..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/collision_ionized"><b>6.8</b> Collisions in Fully Ioni..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-of-fully-ionized-plasmas"><b>6.9</b> Diffusion of Fully Ioniz..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/solutions-of-the-diffusion-equation"><b>6.10</b> Solutions of the Diffus..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bohm-diffusion-and-neoclassical-diffusion"><b>6.11</b> Bohm Diffusion and Neoc..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/waves"><b>7</b> Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/oscillations"><b>7.1</b> Plasma Oscillations</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/dielectric-function"><b>7.2</b> Dielectric Function</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/classification-of-em-waves-in-uniform-plasma"><b>7.3</b> Classification of EM Wav..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/es-vs.-em-waves"><b>7.4</b> ES vs. EM Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/CPDR"><b>7.5</b> Cold Uniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-waves"><b>7.6</b> MHD Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kaw"><b>7.7</b> Kinetic Alfvén Wave</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle-motions"><b>7.8</b> Particle Motions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cold-nonuniform-plasma"><b>7.9</b> Cold Nonuniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/warm-uniform-plasma"><b>7.10</b> Warm Uniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/es_wave_magnetized"><b>7.11</b> Electrostatic Wave in a..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/animation-of-waves"><b>7.12</b> Animation of Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cma-diagram"><b>7.13</b> CMA Diagram</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/wave-particle-interactions"><b>7.14</b> Wave-Particle Interacti..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/whistler"><b>7.15</b> Whistler Wave</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/kinetic"><b>8</b> Kinetic Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-meaning-of-fv"><b>8.1</b> The Meaning of f(v)</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/equations-of-kinetic-theory"><b>8.2</b> Equations of Kinetic The..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/derivation-of-the-fluid-equations"><b>8.3</b> Derivation of the Fluid ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/landau"><b>8.4</b> Plasma Oscillations and ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/landau_damping"><b>8.5</b> The Meaning of Landau Da..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-physical-derivation-of-landau-damping"><b>8.6</b> A Physical Derivation of..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bgk-and-van-kampen-modes"><b>8.7</b> BGK and Van Kampen Modes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ion-landau-damping"><b>8.8</b> Ion Landau Damping</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kinetic-effects-in-a-magnetic-field"><b>8.9</b> Kinetic Effects in a Mag..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/stability"><b>9</b> Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/analogy-of-the-energy-principle"><b>9.1</b> Analogy of the Energy Pr..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle_motion_instability"><b>9.2</b> Implication of Single Pa..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/RT"><b>9.3</b> Rayleigh-Taylor Instabil..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/KH"><b>9.4</b> Kelvin-Helmholtz instabi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-stability"><b>9.5</b> MHD Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-modes"><b>9.6</b> MHD Modes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/reconnection"><b>9.7</b> Magnetic Reconnection</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/LHDI"><b>9.8</b> Lower Hybrid Drift Insta..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kinetic-mode"><b>9.9</b> Kinetic Mode</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/pressure-anisotropy-instabilities"><b>9.10</b> Pressure Anisotropy Ins..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cyclotron-instability"><b>9.11</b> Cyclotron Instability</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/kmhd"><b>10</b> Kinetic MHD</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/firehose"><b>10.1</b> Firehose Instability: L..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mirror"><b>10.2</b> Mirror Instability: Lin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/origin-of-pressure-anisotropy"><b>10.3</b> Origin of Pressure Anis..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/remarks"><b>10.4</b> Remarks</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/gyrokinetics"><b>11</b> Gyrokinetics</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-brief-historical-review"><b>11.1</b> A Brief Historical Revi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/coordinate-transformation"><b>11.2</b> Coordinate Transformati..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-gyrokinetic-ordering"><b>11.3</b> The Gyrokinetic Orderin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-lagriangian-approach"><b>11.4</b> A Lagriangian Approach</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/applications"><b>11.5</b> Applications</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/limitations"><b>11.6</b> Limitations</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/flr"><b>12</b> Field Line Resonance</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/historial-review"><b>12.1</b> Historial Review</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/theory"><b>12.2</b> Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/energy-consideration"><b>12.3</b> Energy Consideration</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/non-mhd-effects"><b>12.4</b> Non-MHD Effects</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/d-flr"><b>12.5</b> 3D FLR</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/nonlinear"><b>13</b> Nonlinear Effects</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/sheath"><b>13.1</b> The Necessity for Sheat..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ion-acoustic-shock-waves"><b>13.2</b> Ion Acoustic Shock Wave..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ponderomotive"><b>13.3</b> The Ponderomotive Force</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parametric-instabilities"><b>13.4</b> Parametric Instabilitie..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/echo"><b>13.5</b> Plasma Echoes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonlinear-landau-damping"><b>13.6</b> Nonlinear Landau Dampin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/equations-of-nonlinear-plasma-physics"><b>13.7</b> Equations of Nonlinear ..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/turbulence"><b>14</b> Turbulence</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd"><b>14.1</b> MHD</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/solar-wind-turbulence"><b>14.2</b> Solar Wind Turbulence</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/geometry"><b>15</b> Geometry</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/helicity"><b>15.1</b> Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetic-helicity"><b>15.2</b> Magnetic Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cross_helicity"><b>15.3</b> Cross Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/flux-rope-identification"><b>15.4</b> Flux Rope Identificatio..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/reconnection-identification"><b>15.5</b> Reconnection Identifica..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetospause-identification"><b>15.6</b> Magnetospause Identific..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/solarwind"><b>16</b> Solar Wind</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parker-solar-wind-model"><b>16.1</b> Parker Solar Wind Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parker-spiral"><b>16.2</b> Parker Spiral</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/anisotropy-in-the-solar-wind"><b>16.3</b> Anisotropy in the Solar..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/switchbacks"><b>16.4</b> Switchbacks</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-description"><b>16.5</b> MHD Description</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/shock"><b>17</b> Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-theory"><b>17.1</b> MHD Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/double-adiabatic-theory"><b>17.2</b> Double Adiabatic Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/location-of-shock"><b>17.3</b> Location of Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/earth-bow-shock"><b>17.4</b> Earth Bow Shock</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/magnetosphere"><b>18</b> Magnetosphere</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ulf-waves"><b>18.1</b> ULF Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bow-shock"><b>18.2</b> Bow Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosheath"><b>18.3</b> Magnetosheath</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosphere"><b>18.4</b> Magnetosphere</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/iono"><b>19</b> Ionosphere</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/current-systems"><b>19.1</b> Current Systems</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/MI_coupling"><b>19.2</b> M-I Coupling</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ionosphere-modeling"><b>19.3</b> Ionosphere Modeling</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/radiation_belt"><b>20</b> Radiation Belt</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/waves-in-the-radiation-belt"><b>20.1</b> Waves in the Radiation ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/modeling"><b>20.2</b> Modeling</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/aurora"><b>21</b> Aurora</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/auroral-light-emission"><b>21.1</b> Auroral Light Emission</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffuse-aurora"><b>21.2</b> Diffuse Aurora</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/auroral-waves-and-ion-heating"><b>21.3</b> Auroral Waves and Ion H..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/substorms-and-discrete-aurora"><b>21.4</b> Substorms and Discrete ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/omega-band-auroras"><b>21.5</b> Omega Band Auroras</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/pulsation-auroras"><b>21.6</b> Pulsation Auroras</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/summary"><b>21.7</b> Summary</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/BC"><b>22</b> Boundary Conditions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/conducting-boundary"><b>22.1</b> Conducting Boundary</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/perfectly-matched-layer"><b>22.2</b> Perfectly Matched Layer</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/pic"><b>23</b> Particle-in-Cell</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/phase-space-sampling"><b>23.1</b> Phase Space Sampling</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/computational-cost"><b>23.2</b> Computational Cost</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/delta_f"><b>23.3</b> δf Method</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/hybrid"><b>24</b> Hybrid Methods</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/classical-hybrid-model"><b>24.1</b> Classical Hybrid Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/finite_e_mass"><b>24.2</b> Finite Electron Inertia</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/low-density-treatment"><b>24.3</b> Low Density Treatment</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/comparison-with-hall-mhd"><b>24.4</b> Comparison with Hall MH..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/normalization-1"><b>24.5</b> Normalization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/numerical-stability"><b>24.6</b> Numerical Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosphere-inner-boundary-conditions"><b>24.7</b> Magnetosphere Inner Bou..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/tests"><b>24.8</b> Tests</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/appendix"><b></b> Appendix</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/references"><b></b> References</a></li>
+</div>
+</aside>
+
+<div class="books-content">
+<h2 data-number="9.3" id="sec:RT"><span class="header-section-number">9.3</span> Rayleigh-Taylor Instability</h2>
+<p>The Rayleigh-Taylor instability is probably the most important MHD instability. It is also called <em>gravitational instability</em> , <em>flute instability</em> or more generally, <em>interchange instability</em>. In ordinary hydrodynamics, a Rayleigh-Taylor instability arises when one attempts to support a heavy fluid on top of a light fluid: the interface becomes “rippled”, allowing the heavy fluid to fall through the light fluid. In plasmas, a Rayleigh-Taylor instability can occur when a dense plasma is supported against gravity by the pressure of a magnetic field.</p>
+<p>The situation would not be of much interest or relevance in its own right, since actual gravitational forces are rarely of much importance in plasmas. However, in curved magnetic fields, the centrifugal force on the plasma due to particle motion along the curved field-lines acts like a “gravitational” force (Section <a href="/KeyNotes/uniform-e-and-b-fields#sec:gravity_field">4.1.3</a>). For this reason, the analysis of the Rayleigh-Taylor instability provides useful insight as to the stability properties of plasmas in curved magnetic fields. Rayleigh-Taylor-like instabilities driven by actual field curvature are the most virulent type of MHD instability in non-uniform plasmas.</p>
+<p>Here we use a 2-fluid model and a so-called “diffuse boundary” model <span class="citation" data-cites="chen2016introduction">(<a href="/KeyNotes/references#ref-chen2016introduction" role="doc-biblioref">F. F. Chen, 2016</a>)</span> to describe it mathematically. Recall the structure of magnetic mirror: we have curved magnetic field lines and high density plasma at the center. From the discussion in Section <a href="/KeyNotes/particle_motion_instability#sec:single_particle_instability">9.2.2</a>, we know that the central part of magnetic mirror is unstable for Rayleigh-Taylor instability because of centrifugal force. Let us simplify the scenario and study the problem in Cartesian coordinates. The centrifugal force is irrelevant to particle charge and proportional to particle mass, so both ions and electrons have the same acceleration due to it. Let us replace the centrifugal force with gravity <span class="math inline">\(\mathbf{g}\)</span>. In Figure <a href="/KeyNotes#fig:RT_instability">40</a>, there are high density plasma on top and low density plasma on the bottom, with a distribution <span class="math inline">\(\partial n_o/\partial x&lt;0\)</span>.</p>
+<figure>
+<img src="images/Rayleigh_Taylor_Instability.png" id="fig:RT_instability" alt="Figure 40: Simultaion of Rayleigh-Taylor instability (Rahman &amp; San, 2019)." /><figcaption aria-hidden="true">Figure 40: Simultaion of Rayleigh-Taylor instability <span class="citation" data-cites="rahman2019">(<a href="/KeyNotes/references#ref-rahman2019" role="doc-biblioref">Rahman &amp; San, 2019</a>)</span>.</figcaption>
+</figure>
+<h3 data-number="9.3.1" id="fluid-diffuse-boundary-model"><span class="header-section-number">9.3.1</span> 2-Fluid Diffuse Boundary Model</h3>
+<p>This section is similar to Section 6.7 in <span class="citation" data-cites="chen2016introduction">(<a href="/KeyNotes/references#ref-chen2016introduction" role="doc-biblioref">F. F. Chen, 2016</a>)</span>.</p>
+<p>The continuity and momentum equations are:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial n_j}{\partial t}+\nabla\cdot(n_j \mathbf{v_j})&amp;=0 \\
+\frac{\partial \mathbf{v_j}}{\partial t}+\mathbf{v_j}\cdot\nabla\mathbf{v_j}&amp;=\frac{q_j}{m_j}\big( \mathbf{E}+\mathbf{v_j}\times\mathbf{B} \big)-\frac{\nabla P_j}{n_j m_j} + \mathbf{g}
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(j=e^-, i^+\)</span> for electrons and ions.</p>
+<p>Assume an one-dimensional case</p>
+<p><span class="math display">\[
+\begin{aligned}
+T_e = T_i = 0 \Rightarrow P_e=n_ek_BT_e = 0,\ P_i = n_ik_BT_i = 0 \\
+n_0 = n_0(x), \frac{\partial n_0}{\partial x}&lt;0\ (\textrm{nonuniform plasma}) \\
+\mathbf{g}=g\hat{x}, g=\textrm{const.}&gt;0 \\
+\mathbf{B}_0=B_0\hat{z},\ B_0=\textrm{const.},\ \mathbf{E}_0=0\ (\textrm{no gradient/curvature drift})
+\end{aligned}
+\]</span></p>
+<p>Note that there is no diamagnetic current if <span class="math inline">\(P_e=P_i=0\)</span> (no electric field so no current along <span class="math inline">\(\mathbf{B}_0\)</span> ?):</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\mathbf{J}_{de}\times\mathbf{B}_0=-\nabla P_e=0 \\
+&amp;\mathbf{J}_{di}\times\mathbf{B}_0=-\nabla P_i=0 \\
+\Rightarrow &amp; \mathbf{J}_{de}=\mathbf{J}_{di}=0
+\end{aligned}
+\]</span></p>
+<p>Instability arises when an equilibrium state is violated. What is the force that balances the gravity? It turns out to be the Lorentz force <span class="math inline">\(\mathbf{v}\times\mathbf{B}\)</span> term: the separation of electrons and ions creates currents, and currents lead to force.</p>
+<p>ADD FIGURE!</p>
+<p>In equilibrium, <span class="math inline">\(\frac{\partial}{\partial t}=0\)</span>, <span class="math inline">\(\frac{\partial}{\partial y}\big[ n_{0j}(x)v_{0j} \big]=0,\)</span> <span class="math inline">\(v_{0j}=\text{const.}\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\frac{\partial{n_{oj}}}{{\partial t}}+\nabla\cdot(n_{oj}\mathbf{v}_{oj})=0 \\
+&amp;\frac{q_j}{m_j}\mathbf{v}_j\times\mathbf{B}_0+\mathbf{g}=0 \\
+\Rightarrow &amp;
+\begin{cases}
+\mathbf{v}_i=\frac{gm_i}{q_iB_0}(-\hat{y})=-\frac{g}{\Omega_i}\hat{y}=-\hat{y}v_{0i} \\
+\mathbf{v}_e=\frac{gm_e}{q_eB_0}(\hat{y})=\frac{g}{\Omega_e}\hat{y}=\hat{y}v_{0e}\approx 0 (v_{0e}\ll v_{0i})
+\end{cases}
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\Omega_i,\ \Omega_e\)</span> are the gyro-frequency for ions and electrons respectively.</p>
+<p>Now, we introduce an electrostatic perturbation on this equilibrium state (<span class="math inline">\(\mathbf{B}_1(\mathbf{x},t)=0\)</span>, <span class="math inline">\(\nabla\times\mathbf{E}_1=-\frac{\partial \mathbf{B}_1}{\partial t}=i\omega\mathbf{B}_1=0\)</span>, <span class="math inline">\(\mathbf{E}_1\)</span> can be written as a gradient of a scalar potential)</p>
+<p><span class="math display">\[
+\mathbf{E}_1(\mathbf{x},t)=-\nabla\Phi_1 = -\nabla\big[ \phi_1(x)e^{ik_y y-i\omega t} \big]
+\]</span></p>
+<p>In addition, we adopt the so-called “local approximation”, i.e. we assume <span class="math inline">\(\partial \phi_1/\partial x=0\)</span>, <span class="math inline">\(\frac{\partial}{\partial x}\big[ E_1,\mathbf{v}_1,n_1 \big]=0\)</span>. This is a very drastic assumption that greatly simplifies the problem but cannot be justified. This assumption is commonly used in many textbooks, both explicitly and implicitly (e.g. <span class="citation" data-cites="bellan2008fundamentals">(<a href="/KeyNotes/references#ref-bellan2008fundamentals" role="doc-biblioref">Bellan, 2008</a>)</span> used this to treat universal instability. Remember in solving the Vlasov equations, we integrate along the unperturbed orbits, which also requires this assumption.)</p>
+<p>In this case,</p>
+<p><span class="math display">\[
+\mathbf{E}_1=0\hat{x}+E_{1y}\hat{y}=\hat{y}\widetilde{E}_{1y}e^{ik_y y-i\omega t}
+\]</span></p>
+<p>where <span class="math inline">\(\widetilde{E}_{1y}=-i k_y \phi_1\)</span> is a constant.</p>
+<p>Linearization:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial}{\partial t}(n_0+n_1) +\nabla\cdot\big[ (n_0+n_1)(\mathbf{v}_0+\mathbf{v}_1) \big]&amp;=0 \\
+\frac{\partial}{\partial t}(\mathbf{v}_0+\mathbf{v}_1)+(\mathbf{v}_0+\mathbf{v}_1)\cdot\nabla(\mathbf{v}_0+\mathbf{v}_1)&amp;=\frac{q}{m}\big[ \mathbf{E}_0+\mathbf{E}_1+(\mathbf{v}_0+\mathbf{v}_1)\times(\mathbf{B}_0+\mathbf{B}_1)\big]+\mathbf{g}
+\end{aligned}
+\]</span></p>
+<p>Getting rid of the equilibrium and high-order terms, we have (Notice that <span class="math inline">\(\mathbf{g}\)</span> does not even appear here! In MHD, it does, in a very explicit way.)</p>
+<p><span class="math display">\[
+\begin{aligned}
+i(k_yv_{0y}-\omega)n_1=-n_0 ik_y v_{1y} - v_{1x}\frac{\partial n_0}{\partial x} \\
+\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{v}_1=i(k_yv_{0y}-\omega)\mathbf{v}_1=\frac{q}{m}\big( \mathbf{E}_1+\mathbf{v}_1\times\mathbf{B}_0 \big)
+\end{aligned}
+\]</span></p>
+<p>Now, from the linearized momentum equation, we can get the x and y components of perturbed velocity; intuitively, you can guess the expression:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;v_{1,ix}=\frac{E_{1y}}{B_0},\ v_{1,ex}=\frac{E_{1y}}{B_0}\\
+&amp;v_{1,iy}=\frac{1}{\Omega_i}\frac{\mathrm{d}}{\mathrm{d}t}\Big(\frac{E_{1y}}{B_0} \Big)=\frac{i(k_yv_{0i}-\omega)}{\Omega_i}\Big( \frac{E_{1y}}{B_0}\Big),\ v_{1,ey}=\frac{1}{\Omega_e}\frac{\mathrm{d}}{\mathrm{d}t}\Big(\frac{E_{1y}}{B_0} \Big)\approx0
+\end{aligned}
+\]</span></p>
+<p>where in the x direction, it is the <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift, and in the y direction, it is the polarization drift.</p>
+<p>From the linearized continuity equation</p>
+<p><span class="math display">\[
+\begin{aligned}
+i(k_y v_{0,yi}-\omega)n_{1i} &amp;= -n_0 ik_y v_{1,yi} - v_{1,xi}\frac{\partial n_0}{\partial x} \\
+-i\omega n_{1e} &amp;= - v_{1,xe}\frac{\partial n_0}{\partial x}
+\end{aligned}
+\]</span></p>
+<p>Then we can get <span class="math inline">\(n_{1e}=n_{1e}(E_{1y}),\ n_{1i}=n_{1i}(E_{1y})\)</span>. Setting <span class="math inline">\(n_{1e}=n_{1i}\)</span>, we have the dispersion relation</p>
+<p><span class="math display">\[
+\omega(\omega-k_y v_{0i})=g\frac{1}{n_0}\frac{\partial n_0}{\partial x}
+\]</span></p>
+<p>When <span class="math inline">\(k_y\rightarrow0\)</span>,</p>
+<p><span class="math display">\[
+\omega^2=g\frac{1}{n_0}\frac{\partial n_0}{\partial x}&lt;0 \Rightarrow\ \text{instability!}
+\]</span></p>
+<p>Let’s think about this 2-fluid approach for a while. Apparently, we cannot treat a sharp boundary, namely <span class="math inline">\(\frac{\partial n_0}{\partial x}=\delta(x)\)</span>, with exactly the same equations. However, it’s quite a surprise that MHD approach can easily do that, as we will see in the next section.</p>
+<h3 data-number="9.3.2" id="single-fluid-mhd-method"><span class="header-section-number">9.3.2</span> Single fluid MHD method</h3>
+<p>In equilibrium, <span class="math inline">\(\mathbf{g}=\hat{x}g,\ \mathbf{B}_0=\hat{z}B_0(x),\ \mathbf{U}_0=0,\ \mathbf{E}_0=0,\ \rho_0(x),\ p_0(x)\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial \rho_0}{\partial t}+\nabla\cdot(\rho_0 \mathbf{U}_0)=0 \\
+0=\frac{1}{\mu_0}\Big[ -\frac{1}{2}\frac{\partial}{\partial x}({B_0}^2)\Big] -\frac{\partial}{\partial x}p_0(x)+\rho_0(x)g
+\end{aligned}
+\]</span></p>
+<p>Note that there’s a difference between cases where different pressure is dominant. For example, in z-pinch the magnetic pressure is dominant, while in a laser pulse, the thermal pressure is usually dominant.</p>
+<p>Assume perturbations of the form</p>
+<p><span class="math display">\[
+\begin{aligned}
+p_1(\mathbf{x},t) &amp;= p_1(x) e^{ik_y y-i\omega t} \\
+\rho_1(\mathbf{x},t) &amp;= \rho_1(x) e^{i k_y y-i\omega t} \\
+\mathbf{U}_1 &amp;=\frac{\partial \pmb{\xi}_1}{\partial t}=-i\omega\pmb{\xi}_1
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\pmb{\xi}_1\)</span> is the displacement.</p>
+<p>We can calculate each linear term:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\big[(\mathbf{B}_0+\mathbf{B}_1)\cdot\nabla \big](\mathbf{B}_0+\mathbf{B}_1) \approx (\mathbf{B}_0\cdot\nabla)\mathbf{B}_1 + (\mathbf{B}_1\cdot\nabla)\mathbf{B}_0 = \big( B_0(x)\frac{\partial}{\partial z}\big)\mathbf{B}_1 \\
+B^2 = (\mathbf{B}_0+\mathbf{B}_1)\cdot(\mathbf{B}_1+\mathbf{B}_1)\approx 2\mathbf{B}_0\cdot\mathbf{B}_1 \\
+\mathbf{U} = \mathbf{U}_0+\mathbf{U}_1 = \mathbf{U}_1
+\end{aligned}
+\]</span></p>
+<p>The tension term has no x or y component, so we can just ignore it. Then the linearized momentum equation can be written as</p>
+<p><span class="math display">\[
+\rho_0\frac{\partial \mathbf{u}_1}{\partial t}=\rho_0\frac{\partial^2\pmb{\xi}_1}{\partial t^2}=-\nabla\Big( \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\Big) - \nabla p_1 +\rho_1\mathbf{g}
+\]</span></p>
+<p>which can be separated into two scalar equations</p>
+<p><span class="math display">\[
+\begin{aligned}
+-\rho_0 \omega^2 \xi_{1x} &amp;= -\frac{\partial}{\partial x}\Big( \frac{\mathbf{B}_1\cdot\mathbf{B}_1}{\mu_0}+p_1 \Big) +\rho_1 g \\
+-\rho_0 \omega^2 \xi_{1y} &amp;= -ik_y\Big( \frac{\mathbf{B}_1\cdot\mathbf{B}_1}{\mu_0}+p_1\Big)
+\end{aligned}
+\]</span></p>
+<p>Assume incompressibility</p>
+<p><span class="math display">\[
+\nabla\cdot\mathbf{u}=0\Rightarrow \nabla\cdot\mathbf{u}_1=0,\ \nabla\cdot\pmb{\xi}_1=\frac{\partial \xi_{1x}}{\partial x}+ik_y \xi_{1y}=0
+\]</span></p>
+<p>The linearized continuity equation (Section <a href="/KeyNotes/es_wave_magnetized#sec:es_wave_magnetized">7.11</a>) yields</p>
+<p><span class="math display">\[
+\rho_1=-\nabla\cdot(\rho_0\pmb{\xi}_1)=\xi_{1x}\frac{\partial}{\partial x}\rho_0
+\]</span></p>
+<p>Combining the last four equations, we have</p>
+<p><span id="eq:RT_MHD_linear"><span class="math display">\[
+-\rho_0\omega^2 \xi_{1x} = -\frac{\partial}{\partial x}\Big[ \rho_0\omega^2 \frac{1}{{k_y}^2}\frac{\partial \xi_{1x}}{\partial x}\Big] - g\xi_{1x}\frac{\partial \rho_0}{\partial x}
+\qquad(159)\]</span></span></p>
+<p>This is the governing equation for the Rayleigh-Taylor instability, which is the same as Eq.(10.15) in <span class="citation" data-cites="bellan2008fundamentals">(<a href="/KeyNotes/references#ref-bellan2008fundamentals" role="doc-biblioref">Bellan, 2008</a>)</span>. Note that here we have no assumption on the x-dependence; if we simply use the local approximation as before, this immediately gives you the identical result.</p>
+<p>To treat the sharp boundary problem, we assume</p>
+<p><span class="math display">\[
+\begin{aligned}
+\rho_0= \left\{
+\begin{array}{rl}
+\textrm{const.} &amp; \text{if } x&lt;0 \\
+0 &amp; \text{if } x&gt;0
+\end{array} \right.
+\end{aligned}
+\]</span></p>
+<p>Then for <span class="math inline">\(x&lt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial^2 \xi_{1x}}{\partial x^2} -{k_y}^2 \xi_{1x} = 0 \\
+\Rightarrow\ \xi_{1x}=Ae^{k_y x} + Be^{-k_y x}
+\end{aligned}
+\]</span></p>
+<p>and for <span class="math inline">\(x&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial^2 \xi_{1x}}{\partial x^2} -{k_y}^2 \xi_{1x} = 0 \\
+\Rightarrow\ \xi_{1x}=Ce^{k_y x} + De^{-k_y x}
+\end{aligned}
+\]</span></p>
+<p>The coefficient <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> must be zero because of infinite field requirement. Due to continuity at <span class="math inline">\(x=0\)</span>, we set</p>
+<p><span class="math display">\[
+A = D = \xi_0
+\]</span></p>
+<p>The density profile obeys</p>
+<p><span class="math display">\[
+\frac{\partial \rho_0}{\partial x}=-\rho_0\delta(x)
+\]</span></p>
+<p>Integrating the governing Equation <a href="/KeyNotes#eq:RT_MHD_linear">159</a> from <span class="math inline">\(x=0^-\)</span> to <span class="math inline">\(x=0^+\)</span> yields</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;-\frac{\rho_0 \omega^2}{{k_y}^2}\frac{\xi_{1x}}{\partial x}\bigg|_{x=0^-}^{x=0^+} - g\xi_{1x}(-\rho_0)=0 \\
+\Rightarrow &amp;\omega^2=k_y g
+\end{aligned}
+\]</span></p>
+<p>Therefore the growth rate is <span class="math inline">\(\gamma=\Im(\omega)=\sqrt{k_y g}\)</span>. You may realize that <span class="math inline">\(\mathbf{k}\cdot\mathbf{B}_0=0\)</span> here, so this magnetic stablizing term vanishes in the dispersion relation.</p>
+<h3 data-number="9.3.3" id="fluid-sharp-boundary-model"><span class="header-section-number">9.3.3</span> 2-fluid sharp boundary model</h3>
+<p>Now let’s go back and see if we can treat the sharp boundary problem with 2-fluid model. This is actually not easy: it is first solved by S.Chandraserkhar in the view of particle orbit theory. I believe there is a more `modern’ way of doing exactly the same thing, but here I just list the original derivation.</p>
+<p>We consider a plasma at uniform temperature lying above a horizontal plane in a uniform gravitational field directed vertically downwards. There is a horizontal magnetic field in x direction uniform in each half volumn with a jump in field strength produced by a uniform horizontal current sheet at the boundary plane <span class="math inline">\(z=0\)</span>. The gravitational force is balanced by a pressure gradient in the plasma and by the jump in the magnetic pressure at <span class="math inline">\(z=0\)</span>.</p>
+<p>We now suppose the boundary of the plasam at <span class="math inline">\(z=0\)</span> to be rippled by a sinusoidal disturbance as shown in fig:RT_perturb. We may write for the displacement of the interface (ADD FIGURE!)</p>
+<p><span id="eq:RT_displacement_z"><span class="math display">\[
+\Delta z = a \sin ky
+\qquad(160)\]</span></span></p>
+<p>where <span class="math inline">\(a\)</span>, the amplitude of the disturbance, is considered small and <span class="math inline">\(k(=2\pi/\lambda)\)</span> is the wave number of the disturbance in the y-direction. The drift resulting from gravity is given by</p>
+<p><span class="math display">\[
+\mathbf{V}_g = \frac{m}{q}\frac{\mathbf{g}\times\mathbf{B}}{B^2}
+\]</span></p>
+<p>Since the magnetic field is in the x-direction, the electrons will drift to the right and the positive ions will drift to the left. The gravity drift, therefore, causes a charge separation in the plasma and the resulting boundary has the form shown in fig:RT_displacement. The surface charge <span class="math inline">\(\delta\sigma\)</span> due to the separation (<span class="math inline">\(\delta\Delta z\)</span>) of ions and electrons is given by</p>
+<p><span class="math display">\[
+\begin{aligned}
+\delta\sigma&amp;=Ne\delta\Delta z \\
+&amp;=Ne\frac{\partial \Delta z}{\partial y}\delta y \\
+&amp;=e\frac{\partial \Delta z}{\partial y}V_g \delta t
+\end{aligned}
+\]</span></p>
+<p>Therefore, the time rate of change of the surface charge density is given by</p>
+<p><span id="eq:RT_time_rate_surface_charge"><span class="math display">\[
+\begin{aligned}
+\frac{\partial \sigma}{\partial t}&amp;=NeV_g\frac{\partial}{\partial y}\Delta z \\
+&amp;=-Ne\frac{Mg}{eB}ak\cos ky \\
+&amp;=-\frac{NMeg}{B}ak\cos ky
+\end{aligned}
+\qquad(161)\]</span></span></p>
+<p>where in writing these expressions, we have neglected the electron drift, as being small in the ratio <span class="math inline">\(m/M\)</span> compared to the ion drift. The electric field resulting from the surface charge can be computed in a straight-forward manner. In the region away from the boundary, we must have</p>
+<p><span id="eq:RT_dielectric"><span class="math display">\[
+\nabla\cdot(\epsilon\mathbf{E})=0
+\qquad(162)\]</span></span></p>
+<p>where <span class="math inline">\(\epsilon=\epsilon_0\big( 1+\frac{{\omega_{pi}}^2}{{\Omega_i}^2}\big)=...\)</span> is the dielectric constant of the plasma. At the interface the electric field is determined by</p>
+<p><span class="math display">\[
+\nabla\cdot(\epsilon\mathbf{E})=\frac{1}{\mu_0}\frac{\sigma}{dz}
+\]</span></p>
+<p>where <span class="math inline">\(\sigma\)</span> is the surface charge density and <span class="math inline">\(\mathrm{d}z\)</span> is the infinitesimal thickness of the layer. We now integrate this equation over an element of volumn <span class="math inline">\(\mathrm{d}S\mathrm{d}z\)</span>. The right-hand side gives the charge within the column element (<span class="math inline">\(\sigma\mathrm{d}S\)</span>). Making use of Gauss`s theorem to transform the left-hand side, we obtain</p>
+<p><span class="math display">\[
+\epsilon E_z dS = \frac{1}{\mu_0}\sigma dS = \frac{1}{\mu_0}\sigma_0 \cos ky dS
+\]</span></p>
+<p>Thus the electric field at the interface is given by</p>
+<p><span id="eq:RT_surface_bc"><span class="math display">\[
+\epsilon E_z = \frac{\sigma_0}{\mu_0}\cos ky
+\qquad(163)\]</span></span></p>
+<p>The electric field which satisfies Equation <a href="/KeyNotes#eq:RT_dielectric">162</a> within the plasma and the boundary condition Equation <a href="/KeyNotes#eq:RT_surface_bc">163</a> at <span class="math inline">\(z=0\)</span> has the components</p>
+<p><span class="math display">\[
+\begin{aligned}
+E_y &amp;= \frac{\sigma_0}{\mu_0\epsilon}\sin ky\, e^{-kz} \\
+E_z &amp;= \frac{\sigma_0}{\mu_0\epsilon}\cos ky\, e^{-kz}
+\end{aligned}
+\]</span></p>
+<p>with <span class="math inline">\(E_x=0\)</span>. These electric fields give rise to the drifts which can be computed from the equation</p>
+<p><span class="math display">\[
+\mathbf{V}=\frac{\mathbf{E}\times\mathbf{B}}{B^2}
+\]</span></p>
+<p>Remembering that <span class="math inline">\(\mathbf{B}\)</span> is in the x-direction, we obtain</p>
+<p><span class="math display">\[
+V_y = \frac{E_z}{B},\quad V_z = -\frac{E_y}{B}
+\]</span></p>
+<p>From the foregoing equations we obtain</p>
+<p><span class="math display">\[
+\begin{aligned}
+V_y &amp;= \frac{\sigma_0}{\mu_0 B}\cos ky\, e^{-kz} \\
+V_z &amp;=-\frac{\sigma_0}{\mu_0 B}\sin ky\, e^{-kz}
+\end{aligned}
+\]</span></p>
+<p>It is clear from the solutions that the velocity field is divergence free and, therefore, does not cause any change in the density of the plasma except at the boundary. We have</p>
+<p><span id="eq:RT_vel_boundary"><span class="math display">\[
+\frac{\partial}{\partial t}\Delta z(z=0)=V_z(z=0) = -\frac{\sigma}{\mu_0 B}\sin ky
+\qquad(164)\]</span></span></p>
+<p>From Equation <a href="/KeyNotes#eq:RT_displacement_z">160</a> and Equation <a href="/KeyNotes#eq:RT_vel_boundary">164</a>, we obtain the equation of motion for the amplitude <span class="math inline">\(a\)</span>:</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}a}{\mathrm{d}t}=-\frac{\sigma_0}{\mu_0 B}
+\]</span></p>
+<p>Equation <a href="/KeyNotes#eq:RT_time_rate_surface_charge">161</a> and Equation <a href="/KeyNotes#eq:RT_surface_bc">163</a> yield</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}\sigma_0}{\mathrm{d}t}=-\frac{NMg}{\mu_0B}ak
+\]</span></p>
+<p>From the above two equations, we obtain</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\mathrm{d}^2 a}{\mathrm{d}t^2} &amp;= \frac{1}{\mu_0\epsilon B}\frac{NMg}{B}ka \\
+&amp;\approx gka, \quad(\text{for } \epsilon \gg 1)
+\end{aligned}
+\]</span></p>
+<p>(<span class="math inline">\(g=...\)</span> from equilibrium). The solution of this equation is given by</p>
+<p><span class="math display">\[
+a(t) = a_0e^{\pm\sqrt{gk} t}
+\]</span></p>
+<p>It is interesting to note that the rate of growth of the instability is exactly the same as in the Rayleigh-Taylor instability of a fluid supported against gravity by a second fluid which is weightless. The charge separation is able to overcome exactly the restraining influence of the magnetic field. This exact compensation occurs only in the limit of <span class="math inline">\(\epsilon\gg1\)</span>.</p>
+<p>The same result can also be obtained using the rigorous formulation of the Boltzmann transport equation. However, in more complicated cases, the first order orbit theory gives results which agree with those obtained from the Boltzmann equation only in some special cases.</p>
+<p>The essential mechanism which gives rise to the instability is the charge separation resulting from the gravity drift — drift arising from a force which does not depend upon the sign of the charge. If we consider a plasma configuration in a torus, the particles experience the centrifugal force <span class="math inline">\(m{v_\parallel}^2/R\)</span> and the gradient B force <span class="math inline">\(m{v_\perp}^2/R\)</span> which are both independent of the sign of the charge. Therefore, we should expect instabilities in a plasma confined to a torus.</p>
+
+
+<div class="bottom-nav">
+    <p id="nav-prev" style="text-align: left;">
+        <a class="menu-level-2" href="/KeyNotes/particle_motion_instability"><b>9.2</b> Implication of Single Pa..</a> <kbd>←</kbd>
+        <span id="nav-next" style="float: right;">
+            <kbd>→</kbd> <a class="menu-level-2" href="/KeyNotes/KH"><b>9.4</b> Kelvin-Helmholtz instabi..</a>
+        </span>
+    </p>
+</div>
+
+
+<div class="license">
+    <br/>
+  <br/>
+  <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    Hongyang Zhou
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Hongyang Zhou" />
+  <title>Kelvin-Helmholtz instability - Key Notes of Plasma Physics</title>
+  <link rel="shortcut icon" type="image/png" href="/KeyNotes/favicon.png"/>
+  <link rel="stylesheet" href="/KeyNotes/style.css"/>
+    <script src="/KeyNotes/mousetrap.min.js"></script>
+    <style>
+  @font-face {
+    font-family: JuliaMono-Regular;
+    src: url("/KeyNotes/JuliaMono-Regular.woff2");
+  }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/KeyNotes/github.min.css">
+<script src="/KeyNotes/highlight.min.js"></script>
+<script src="/KeyNotes/julia.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('pre').forEach((el) => {
+        if (!el.classList.contains('output')) {
+            hljs.highlightElement(el);
+        }
+    });
+});
+</script>
+ 
+</head>
+<body>
+<script>
+function click_next() {
+  var next = document.getElementById('nav-next');
+  next.firstElementChild.nextElementSibling.click();
+}
+function click_prev() {
+  var prev = document.getElementById('nav-prev');
+  prev.firstElementChild.click();
+}
+Mousetrap.bind('right', click_next);
+Mousetrap.bind('h', click_prev);
+Mousetrap.bind('left', click_prev);
+Mousetrap.bind('l', click_next);
+</script>
+
+<div class="books-container">
+<aside class="books-menu">
+<input type="checkbox" id="menu">
+<label for="menu">☰</label>
+<div class="books-title">
+<a href="/KeyNotes/">Key Notes of Plasma Physics</a>
+</div><br />
+<span class="books-subtitle">
+My Journey in the Field
+</span>
+<div class="books-menu-content">
+<li><a class="menu-level-1" href="/KeyNotes/about"><b>1</b> About</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/intro"><b>2</b> Introduction</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/occurrence-of-plasma-in-nature"><b>2.1</b> Occurrence of Plasma in ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/definition-of-plasma"><b>2.2</b> Definition of Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/concept-of-temperature"><b>2.3</b> Concept of Temperature</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/debye"><b>2.4</b> Debye Shielding</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/criteria-for-plasmas"><b>2.5</b> Criteria for Plasmas</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/plasma-frequency"><b>2.6</b> Plasma Frequency</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/spatial-scales"><b>2.7</b> Spatial Scales</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/math"><b>3</b> Math</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/vector-identities"><b>3.1</b> Vector Identities</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/differential-of-line-segments"><b>3.2</b> Differential of Line Seg..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/complex-analysis"><b>3.3</b> Complex Analysis</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/helmholtzs-theorem"><b>3.4</b> Helmholtz’s Theorem</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/toroidal-and-poloidal-decomposition"><b>3.5</b> Toroidal and Poloidal De..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetic-dipole-field"><b>3.6</b> Magnetic Dipole Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/greens-function"><b>3.7</b> Green’s Function</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/linearization"><b>3.8</b> Linearization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/WKB"><b>3.9</b> Wave Equations</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/normalization"><b>3.10</b> Normalization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/theoretical-mechanics"><b>3.11</b> Theoretical Mechanics</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/wavelet-analysis"><b>3.12</b> Wavelet Analysis</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/single"><b>4</b> Single-Particle Motions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/uniform-e-and-b-fields"><b>4.1</b> Uniform E and B Fields</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonuniform-b-field"><b>4.2</b> Nonuniform B Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonuniform_E"><b>4.3</b> Nonuniform E Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/time-varying_E"><b>4.4</b> Time-Varying E Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/time-varying-b-field"><b>4.5</b> Time-Varying B Field</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/summary-of-guiding-center-drifts"><b>4.6</b> Summary of Guiding Cente..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/adiabatic-invariants"><b>4.7</b> Adiabatic Invariants</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ring-current"><b>4.8</b> Ring Current</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle-acceleration"><b>4.9</b> Particle Acceleration</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/test-particle-model"><b>4.10</b> Test Particle Model</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/fluid"><b>5</b> Plasmas as Fluid</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/definitions"><b>5.1</b> Definitions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/relation-of-plasma-physics-to-ordinary-electromagnetics"><b>5.2</b> Relation of Plasma Physi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-single-fluid-mhd-equations"><b>5.3</b> The Single-Fluid MHD Equ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/generalized-ohms-law"><b>5.4</b> Generalized Ohm’s Law</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/fluid-drifts-perpendicular-to-b"><b>5.5</b> Fluid Drifts Perpendicul..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/fluid-drifts-parallel-to-b"><b>5.6</b> Fluid Drifts Parallel to..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/plasma_approximation"><b>5.7</b> The Plasma Approximation</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/2fluid"><b>5.8</b> Two-Fluid Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/hall-mhd"><b>5.9</b> Hall MHD</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/resisvity"><b>6</b> Diffusion and Resisvity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-and-mobility-in-weakly-ionized-gases"><b>6.1</b> Diffusion and Mobility i..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/collision-parameters"><b>6.2</b> Collision Parameters</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-parameters"><b>6.3</b> Diffusion Parameters</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/decay-of-a-plasma-by-diffusion"><b>6.4</b> Decay of a Plasma by Dif..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/steady-state-solutions"><b>6.5</b> Steady State Solutions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/recombination"><b>6.6</b> Recombination</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-across-a-magnetic-field"><b>6.7</b> Diffusion Across a Magne..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/collision_ionized"><b>6.8</b> Collisions in Fully Ioni..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffusion-of-fully-ionized-plasmas"><b>6.9</b> Diffusion of Fully Ioniz..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/solutions-of-the-diffusion-equation"><b>6.10</b> Solutions of the Diffus..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bohm-diffusion-and-neoclassical-diffusion"><b>6.11</b> Bohm Diffusion and Neoc..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/waves"><b>7</b> Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/oscillations"><b>7.1</b> Plasma Oscillations</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/dielectric-function"><b>7.2</b> Dielectric Function</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/classification-of-em-waves-in-uniform-plasma"><b>7.3</b> Classification of EM Wav..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/es-vs.-em-waves"><b>7.4</b> ES vs. EM Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/CPDR"><b>7.5</b> Cold Uniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-waves"><b>7.6</b> MHD Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kaw"><b>7.7</b> Kinetic Alfvén Wave</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle-motions"><b>7.8</b> Particle Motions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cold-nonuniform-plasma"><b>7.9</b> Cold Nonuniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/warm-uniform-plasma"><b>7.10</b> Warm Uniform Plasma</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/es_wave_magnetized"><b>7.11</b> Electrostatic Wave in a..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/animation-of-waves"><b>7.12</b> Animation of Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cma-diagram"><b>7.13</b> CMA Diagram</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/wave-particle-interactions"><b>7.14</b> Wave-Particle Interacti..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/whistler"><b>7.15</b> Whistler Wave</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/kinetic"><b>8</b> Kinetic Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-meaning-of-fv"><b>8.1</b> The Meaning of f(v)</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/equations-of-kinetic-theory"><b>8.2</b> Equations of Kinetic The..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/derivation-of-the-fluid-equations"><b>8.3</b> Derivation of the Fluid ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/landau"><b>8.4</b> Plasma Oscillations and ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/landau_damping"><b>8.5</b> The Meaning of Landau Da..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-physical-derivation-of-landau-damping"><b>8.6</b> A Physical Derivation of..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bgk-and-van-kampen-modes"><b>8.7</b> BGK and Van Kampen Modes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ion-landau-damping"><b>8.8</b> Ion Landau Damping</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kinetic-effects-in-a-magnetic-field"><b>8.9</b> Kinetic Effects in a Mag..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/stability"><b>9</b> Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/analogy-of-the-energy-principle"><b>9.1</b> Analogy of the Energy Pr..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/particle_motion_instability"><b>9.2</b> Implication of Single Pa..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/RT"><b>9.3</b> Rayleigh-Taylor Instabil..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/KH"><b>9.4</b> Kelvin-Helmholtz instabi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-stability"><b>9.5</b> MHD Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-modes"><b>9.6</b> MHD Modes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/reconnection"><b>9.7</b> Magnetic Reconnection</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/LHDI"><b>9.8</b> Lower Hybrid Drift Insta..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/kinetic-mode"><b>9.9</b> Kinetic Mode</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/pressure-anisotropy-instabilities"><b>9.10</b> Pressure Anisotropy Ins..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cyclotron-instability"><b>9.11</b> Cyclotron Instability</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/kmhd"><b>10</b> Kinetic MHD</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/firehose"><b>10.1</b> Firehose Instability: L..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mirror"><b>10.2</b> Mirror Instability: Lin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/origin-of-pressure-anisotropy"><b>10.3</b> Origin of Pressure Anis..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/remarks"><b>10.4</b> Remarks</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/gyrokinetics"><b>11</b> Gyrokinetics</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-brief-historical-review"><b>11.1</b> A Brief Historical Revi..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/coordinate-transformation"><b>11.2</b> Coordinate Transformati..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/the-gyrokinetic-ordering"><b>11.3</b> The Gyrokinetic Orderin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/a-lagriangian-approach"><b>11.4</b> A Lagriangian Approach</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/applications"><b>11.5</b> Applications</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/limitations"><b>11.6</b> Limitations</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/flr"><b>12</b> Field Line Resonance</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/historial-review"><b>12.1</b> Historial Review</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/theory"><b>12.2</b> Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/energy-consideration"><b>12.3</b> Energy Consideration</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/non-mhd-effects"><b>12.4</b> Non-MHD Effects</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/d-flr"><b>12.5</b> 3D FLR</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/nonlinear"><b>13</b> Nonlinear Effects</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/sheath"><b>13.1</b> The Necessity for Sheat..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ion-acoustic-shock-waves"><b>13.2</b> Ion Acoustic Shock Wave..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ponderomotive"><b>13.3</b> The Ponderomotive Force</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parametric-instabilities"><b>13.4</b> Parametric Instabilitie..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/echo"><b>13.5</b> Plasma Echoes</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/nonlinear-landau-damping"><b>13.6</b> Nonlinear Landau Dampin..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/equations-of-nonlinear-plasma-physics"><b>13.7</b> Equations of Nonlinear ..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/turbulence"><b>14</b> Turbulence</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd"><b>14.1</b> MHD</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/solar-wind-turbulence"><b>14.2</b> Solar Wind Turbulence</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/geometry"><b>15</b> Geometry</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/helicity"><b>15.1</b> Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetic-helicity"><b>15.2</b> Magnetic Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/cross_helicity"><b>15.3</b> Cross Helicity</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/flux-rope-identification"><b>15.4</b> Flux Rope Identificatio..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/reconnection-identification"><b>15.5</b> Reconnection Identifica..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetospause-identification"><b>15.6</b> Magnetospause Identific..</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/solarwind"><b>16</b> Solar Wind</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parker-solar-wind-model"><b>16.1</b> Parker Solar Wind Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/parker-spiral"><b>16.2</b> Parker Spiral</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/anisotropy-in-the-solar-wind"><b>16.3</b> Anisotropy in the Solar..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/switchbacks"><b>16.4</b> Switchbacks</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-description"><b>16.5</b> MHD Description</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/shock"><b>17</b> Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/mhd-theory"><b>17.1</b> MHD Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/double-adiabatic-theory"><b>17.2</b> Double Adiabatic Theory</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/location-of-shock"><b>17.3</b> Location of Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/earth-bow-shock"><b>17.4</b> Earth Bow Shock</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/magnetosphere"><b>18</b> Magnetosphere</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ulf-waves"><b>18.1</b> ULF Waves</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/bow-shock"><b>18.2</b> Bow Shock</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosheath"><b>18.3</b> Magnetosheath</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosphere"><b>18.4</b> Magnetosphere</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/iono"><b>19</b> Ionosphere</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/current-systems"><b>19.1</b> Current Systems</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/MI_coupling"><b>19.2</b> M-I Coupling</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/ionosphere-modeling"><b>19.3</b> Ionosphere Modeling</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/radiation_belt"><b>20</b> Radiation Belt</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/waves-in-the-radiation-belt"><b>20.1</b> Waves in the Radiation ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/modeling"><b>20.2</b> Modeling</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/aurora"><b>21</b> Aurora</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/auroral-light-emission"><b>21.1</b> Auroral Light Emission</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/diffuse-aurora"><b>21.2</b> Diffuse Aurora</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/auroral-waves-and-ion-heating"><b>21.3</b> Auroral Waves and Ion H..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/substorms-and-discrete-aurora"><b>21.4</b> Substorms and Discrete ..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/omega-band-auroras"><b>21.5</b> Omega Band Auroras</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/pulsation-auroras"><b>21.6</b> Pulsation Auroras</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/summary"><b>21.7</b> Summary</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/BC"><b>22</b> Boundary Conditions</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/conducting-boundary"><b>22.1</b> Conducting Boundary</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/perfectly-matched-layer"><b>22.2</b> Perfectly Matched Layer</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/pic"><b>23</b> Particle-in-Cell</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/phase-space-sampling"><b>23.1</b> Phase Space Sampling</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/computational-cost"><b>23.2</b> Computational Cost</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/delta_f"><b>23.3</b> δf Method</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/hybrid"><b>24</b> Hybrid Methods</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/classical-hybrid-model"><b>24.1</b> Classical Hybrid Model</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/finite_e_mass"><b>24.2</b> Finite Electron Inertia</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/low-density-treatment"><b>24.3</b> Low Density Treatment</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/comparison-with-hall-mhd"><b>24.4</b> Comparison with Hall MH..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/normalization-1"><b>24.5</b> Normalization</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/numerical-stability"><b>24.6</b> Numerical Stability</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/magnetosphere-inner-boundary-conditions"><b>24.7</b> Magnetosphere Inner Bou..</a></li>
+<li><a class="menu-level-2" href="/KeyNotes/tests"><b>24.8</b> Tests</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/appendix"><b></b> Appendix</a></li>
+<li><a class="menu-level-1" href="/KeyNotes/references"><b></b> References</a></li>
+</div>
+</aside>
+
+<div class="books-content">
+<h2 data-number="9.4" id="sec:KH"><span class="header-section-number">9.4</span> Kelvin-Helmholtz instability</h2>
+<p>Kelvin-Helmholtz (KH) instability happens due to velocity shear. Typical examples are:</p>
+<ul>
+<li>plane crash</li>
+<li>flapping of flags</li>
+<li>diocotron instability in an electron sheet</li>
+<li>water wave, nonlinear phase</li>
+<li>laser ablation of metal</li>
+</ul>
+<p>To understand why shear flow can lead to instability, we’ll first introduce the Bernoulli theorem in fluid mechanics. From the MHD momentum equation, take <span class="math inline">\(\partial/\partial t=0,\ \mathbf{J}=0,\ \mathbf{g}=0\)</span>, we obtain</p>
+<p><span class="math display">\[
+\begin{aligned}
+\rho\mathbf{v}\cdot\nabla\mathbf{v}=-\nabla p
+\end{aligned}
+\]</span></p>
+<p>Using the natural coordinates, let <span class="math inline">\(\hat{t}\)</span> be the unit tangent vector on a streamline, <span class="math inline">\(\hat{n}\)</span> be the unit normal vector pointing from concave to convex side, and <span class="math inline">\(ds\)</span> be the infinitisimal distance along streamline, we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+\rho\mathbf{v}\cdot\nabla\mathbf{v} &amp;= (\rho v\frac{\partial }{\partial s})\mathbf{v} =\rho v_s \frac{\partial }{\partial s}(\hat{t} v) =\rho v \Big( \frac{\partial v}{\partial s}\hat{t} + \frac{\partial \hat{t}}{\partial s}v\Big) \\
+&amp;=-\frac{\partial p}{\partial s}\hat{t}-\nabla_\perp p\\
+\Rightarrow \hat{t}:\ pv\frac{\partial v}{\partial s}+\frac{\partial p}{\partial s}&amp;=\frac{\partial}{\partial s}\Big( \frac{1}{2}\rho v^2 + p \Big) = 0
+\end{aligned}
+\]</span></p>
+<p>Therefore, <span class="math inline">\(\frac{1}{2}\rho v^2 + p = \text{const.}\)</span> along a streamline for an incompressible flow. This is the classical Bernoulli equation.</p>
+<p>Now, consider two flow layer with velocity shear at the plane interface in fig:two_layer (ADD FIGURE!). Imaging there’s a ripple on the layer interface pointing upward at <span class="math inline">\(Q\)</span>. If we examine the cross section at <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> for the lower layer respectively, we find</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{flux at P} = \rho v A|_P = \text{flux at Q} = \rho v A|_Q
+\end{aligned}
+\]</span></p>
+<p>Since density along field lines are constant (incompressible) and area <span class="math inline">\(A_P&lt;A_Q\)</span>, we have <span class="math inline">\(v_P&gt;v_Q\)</span>. From the Bernoulli equation, <span class="math inline">\(p_P&lt;p_Q\)</span>. Similar for the upper layer, we get the pressure at <span class="math inline">\(P\)</span> is larger than that at <span class="math inline">\(Q\)</span>. Therefore, the total pressure is pointing away from interface, which let the ripple grow.</p>
+<figure>
+<img src="images/electron_sheet.png" id="fig:two_layer_flow" alt="Figure 41: Two layers of flow with a velocity shear at the plane interface." /><figcaption aria-hidden="true">Figure 41: Two layers of flow with a velocity shear at the plane interface.</figcaption>
+</figure>
+<p>Now we are ready to do more careful derivations. The governing equations are</p>
+<p><span class="math display">\[
+\begin{aligned}
+\nabla\cdot\mathbf{v}&amp;=0 \\
+\rho\Big( \frac{\partial\mathbf{v}}{\partial t}+\mathbf{v}\cdot\nabla\mathbf{v}\Big) &amp;= -\nabla p \\
+\end{aligned}
+\]</span></p>
+<p>In equilibrium, suppose there is a velocity shear in the x direction, and the interface lies along the y direction,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\rho_0 &amp;= \text{const.} \\
+p_0 &amp;= \text{const.} \\
+\mathbf{v}_0 &amp;= \hat{y}v_{0y}(x)
+\end{aligned}
+\]</span></p>
+<p>Assume linear perturbations of the form</p>
+<p><span class="math display">\[
+\begin{aligned}
+v_{1x}(\mathbf{x},t) &amp;= v_{1x}(x)e^{i k_y y-i\omega t} \\
+p_1(\mathbf{x},t) &amp;= p_1(x)e^{i k_y y-i\omega t}
+\end{aligned}
+\]</span></p>
+<p>so the linearized momentum equation is</p>
+<p><span class="math display">\[
+\rho_0\big( \frac{\partial \mathbf{v}_1}{\partial t}+\mathbf{v}_0\cdot\nabla\mathbf{v}_1 +\mathbf{v}_1\cdot\nabla\mathbf{v}_0 \big) = -\nabla p_1
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{v}_0\cdot\nabla\mathbf{v}_1 &amp;= i k_y v_{0y} \mathbf{v}_1 \\
+\mathbf{v}_1\cdot\nabla\mathbf{v}_0 &amp;= v_{1x}\frac{\partial}{\partial x}v_{0y}(x)\hat{y}
+\end{aligned}
+\]</span></p>
+<p>Then the x and y components of the linearized momentum equation give</p>
+<p><span class="math display">\[
+\begin{aligned}
+-i\omega \rho_0 v_{1x} +\rho_0 i k_y v_{0y}v_{1x} &amp;= -\frac{\partial p_1}{\partial x} \\
+-i\omega \rho_0 v_{1y} + \rho_0 i k_y v_{0y}v_{1y} + \rho_0 v_{1x}\frac{\partial}{\partial x}v_{0y}(x) &amp;= -ik_y p_1
+\end{aligned}
+\]</span></p>
+<p>Together with the linearized incompressibility condition</p>
+<p><span class="math display">\[
+\frac{\partial v_{1x}}{\partial x} + ik_y v_{1y}  = 0
+\]</span></p>
+<p>by eliminating <span class="math inline">\(p_1\)</span> and <span class="math inline">\(v_{1y}\)</span> we get</p>
+<p><span id="eq:KH_governing"><span class="math display">\[
+\frac{\partial^2 v_{1x}}{\partial x^2} - \Big[ {k_y}^2 - \frac{k_y {v_{0y}}^{\prime\prime}(x)}{\omega-k_y v_{0y}(x)} \Big]v_{1x} = 0
+\qquad(165)\]</span></span></p>
+<p>Now we are half way from obtaining the dispersion relation. For simplicity, let us assume three layer regions with Region I on the left (<span class="math inline">\(x&lt;0\)</span>), Region II in the middle (<span class="math inline">\(x\in(0,\tau)\)</span>), and Region III on the right (<span class="math inline">\(x&gt;\tau\)</span>). Let the shear layer II thickness be <span class="math inline">\(\tau\)</span>. Set the velocity on the two sides <span class="math inline">\(v_1 = 0,\ v_2 = v_1+\Delta v \equiv v\)</span>, and <span class="math inline">\(k_y=k\)</span>. Then</p>
+<p><span class="math display">\[
+v_{0y}^{\prime\prime}(x) = \Big(\frac{v}{\tau}\Big)\big[ \delta(x) - \delta(x-\tau)\big]
+\]</span></p>
+<p>except at <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=\tau\)</span>. Equation <a href="/KeyNotes#eq:KH_governing">165</a> can be simplified to</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}^2 v_{1x}}{\mathrm{d}x^2}-k^2 v_{1x} = 0
+\]</span></p>
+<p>In region I (<span class="math inline">\(x&lt;0\)</span>),</p>
+<p><span class="math display">\[
+\begin{aligned}
+v_{1x} &amp;= \xi_0 e^{kx},\quad x&lt;0 \\
+\frac{\partial v_{1x}}{\partial x}\big|_{x=0_-} &amp;= k\xi_0
+\end{aligned}
+\]</span></p>
+<p>In region III (<span class="math inline">\(x&gt;\tau\)</span>),</p>
+<p><span class="math display">\[
+\begin{aligned}
+v_{1x} &amp;= \xi_\tau e^{-k(x-\tau)},\quad x&gt;\tau \\
+\frac{\partial v_{1x}}{\partial x}\big|_{x=\tau^+} &amp;= -k\xi_\tau
+\end{aligned}
+\]</span></p>
+<p>In region II (<span class="math inline">\(x\in(0,\tau)\)</span>), we are looking for a solution which is a superposition of the solutions from both sides and is continuous at the boundaries</p>
+<p><span class="math display">\[
+\begin{aligned}
+v_{1x} &amp;=\xi_\tau \frac{\sinh{kx}}{\sinh{k\tau}} + \xi_0\frac{\sinh{k(x-\tau)}}{\sinh{-k\tau}},\quad 0&lt;x&lt;\tau \\
+\frac{\partial v_{1x}}{\partial x}\big|_{x=\tau^-} &amp;= k\xi_\tau \frac{\cosh{k\tau}}{\sinh{k\tau}} - k\xi_0\frac{1}{\sinh{k\tau}} \\
+ \frac{\partial v_{1x}}{\partial x}\big|_{x=0^+} &amp;= k\xi_\tau \frac{1}{\sinh{k\tau}} - k\xi_0\frac{\cosh{k\tau}}{\sinh{k\tau}}
+\end{aligned}
+\]</span></p>
+<p>The continuity at <span class="math inline">\(x = 0\)</span> requires <span class="math inline">\(V_{0y}=0, V_{1x}=\xi_0\)</span>. Integrating the governing Equation <a href="/KeyNotes#eq:KH_governing">165</a> from <span class="math inline">\(x=0^-\)</span> to <span class="math inline">\(x=0^+\)</span> yields</p>
+<p><span class="math display">\[
+-\xi_0 k\frac{\cosh{k\tau}}{\sinh{k\tau}} + \xi_\tau k\frac{1}{\sinh{k\tau}} - k\xi_0 + \frac{kv}{\omega\tau}\xi_0 = 0
+\]</span></p>
+<p>Integrating the governing Equation <a href="/KeyNotes#eq:KH_governing">165</a> from <span class="math inline">\(x=\tau^-\)</span> to <span class="math inline">\(x=\tau^+\)</span> yields</p>
+<p><span class="math display">\[
+-\xi_\tau k +\xi_0 k\frac{1}{\sinh{k\tau}} - \xi_\tau k\frac{\cosh{k\tau}}{\sinh{k\tau}} - \frac{kv}{\omega\tau}\xi_\tau = 0
+\]</span></p>
+<p>Combining the last two equations, we obtain</p>
+<p><span class="math display">\[
+1 = \Big[ \sinh{k\tau} + \cosh{k\tau} + \frac{kv}{\omega-kv}\frac{\sinh{k\tau}}{k\tau}\Big] \Big[ \cosh{k\tau}+\sinh{k\tau} - \frac{kv}{\omega}\frac{\sinh{k\tau}}{k\tau}\Big]
+\]</span></p>
+<p>which is the dispersion relation.</p>
+<p>With the identity <span class="math inline">\(\sinh{k\tau} + \cosh{k\tau} = e^{k\tau}\)</span>, the dispersion relation can be simplified to</p>
+<p><span class="math display">\[
+\begin{aligned}
+1 &amp;= \Big[ e^{k\tau} + \frac{kv}{\omega-kv}\frac{\sinh{k\tau}}{k\tau}\Big] \Big[ e^{k\tau} - \frac{kv}{\omega}\frac{\sinh{k\tau}}{k\tau}\Big] \\
+1 &amp;= e^{2k\tau} +e^{k\tau}\frac{(k\tau)^2}{\omega(\omega-kv)}\frac{\sinh{k\tau}}{k\tau} - \frac{(k\tau)^2}{\omega(\omega-k\tau)}\Big(\frac{\sinh{k\tau}}{k\tau}\Big)^2 \\
+1 &amp;= e^{2k\tau} + \frac{(k\tau)^2}{\omega(\omega-kv)} \frac{\sinh{k\tau}}{k\tau} \Big[ e^{k\tau} - \frac{\sinh{k\tau}}{k\tau}\Big]
+\end{aligned}
+\]</span></p>
+<p>Multiplying both sides by <span class="math inline">\(\omega(\omega-kv)\)</span>, we get</p>
+<p><span class="math display">\[
+\omega(\omega-k\tau)(1-e^{2k\tau}) = (kv)^2  \frac{\sinh{k\tau}}{k\tau} \Big[ e^{k\tau} - \frac{\sinh{k\tau}}{k\tau}\Big]
+\]</span></p>
+<p>Assuming <span class="math inline">\(k\tau\ll 1\)</span> (long wavelength approximation), <span class="math inline">\(e^{k\tau}\approx 1+k\tau\)</span>, we obtain</p>
+<p><span class="math display">\[
+\omega(\omega-kv) + \frac{(kv)^2}{2} \approx 0
+\]</span></p>
+<p>the solution of which is</p>
+<p><span class="math display">\[
+\omega=\frac{1}{2}kv(1\pm i),\quad k\tau \ll 1
+\]</span></p>
+<p>In general, the growth rate of KH is</p>
+<p><span class="math display">\[
+\omega_i = \frac{1}{2}|k_y \Delta v|,\quad k_y\tau\ll 1
+\]</span></p>
+<h3 data-number="9.4.1" id="diocotron-instability-on-electron-sheet"><span class="header-section-number">9.4.1</span> Diocotron instability on electron sheet</h3>
+<p>HAVEN’T CHECKED!</p>
+<p>A diocotron instability is a plasma instability created by two sheets of charge slipping past each other. Energy is dissipated in the form of two surface waves propagating in opposite directions, with one flowing over the other. This instability is the plasma analog of the Kelvin-Helmholtz instability in fluid mechanics.</p>
+<p>For the simplest case, we have a uniform electron sheet and a parallel constant magnetic field in the plane of the sheet, as illustrated in fig:electron_sheet. Due to space charge of electron sheet, there is electric field pointing towards the sheet in the upper and lower region. Consider a small perturbation (sinusoidal ripple) on an electron sheet. The coulomb force expels electrons outward, so the electrons will drift, according to the right-hand rule, to the left. The deficit of electrons is equivalent to some positive charge distribution, and thus created an electric field. The <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift is pointing outward, so the perturbation is growing. Note that even though this problem looks innocent, but it is actually not easy. People, even the giants in plasma physics, made a lot of mistakes in the derivation!</p>
+<p>If there is also a magnetic field inside the sheet, the <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift will form a velocity gradient within the sheet, and lead to K-H instability. Denote <span class="math inline">\(\sigma_0\)</span> as the surface charge density and <span class="math inline">\(\rho_0\)</span> as charge density, we have <span class="math display">\[
+\sigma_0 = \rho_0 \tau = en_0\tau,
+\]</span> and the velocity shear across the sheet <span class="math display">\[
+\Delta v = \frac{E_2}{B_0} + \frac{E_1}{B_0} = -\frac{1}{B_0}\frac{\sigma_0}{\epsilon_0}=-\frac{en_0\tau}{B_0 \epsilon_0}.
+\]</span> Then from the dispersion relation of K-H mode, we have the growth rate <span class="math display">\[
+\omega_i = \frac{1}{2}k_y|\Delta v|=\frac{1}{2}k_y\Big|\frac{en_0\tau}{B_0 \epsilon_0}\Big|=\frac{1}{2}k_y \tau\frac{{\omega_{pe}}^2}{|\Omega_e|},
+\]</span> which is valid as long as <span class="math inline">\(k_y\tau\ll1\)</span>,i.e., long wave length limit.</p>
+<figure>
+<img src="images/electron_sheet.png" id="fig:electron_sheet" alt="Figure 42: Illustration of an electron sheet with surface charge density \sigma_0, charge density \rho_0 and thickness \tau. The electric field is generated by electron charge in the sheet, and the \mathbf{E}\times\mathbf{B} drift will cause a velocity shear through the sheet. This velocity shear will lead to K-H instability." /><figcaption aria-hidden="true">Figure 42: Illustration of an electron sheet with surface charge density <span class="math inline">\(\sigma_0\)</span>, charge density <span class="math inline">\(\rho_0\)</span> and thickness <span class="math inline">\(\tau\)</span>. The electric field is generated by electron charge in the sheet, and the <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift will cause a velocity shear through the sheet. This velocity shear will lead to K-H instability.</figcaption>
+</figure>
+<p><span class="citation" data-cites="bellan2008fundamentals">(<a href="/KeyNotes/references#ref-bellan2008fundamentals" role="doc-biblioref">Bellan, 2008</a>)</span> P537.</p>
+<p>FIGURE NEEDED from H.W.3.4 Consider the diocotron instabity on a MELBA-like annular electron beam which propagates inside a metallic drift tube. Let $V = $ beam voltage, <span class="math inline">\(I =\)</span> beam current, <span class="math inline">\(a =\)</span> beam radius, <span class="math inline">\(\tau=\)</span> annular beam thickness (<span class="math inline">\(\tau\ll 1\)</span>)m <span class="math inline">\(L=\)</span> length of drift tube, $T = $ beam’s pulselength, <span class="math inline">\(B=\)</span> axial magnetic field. Note that the combined self-electric and self-magnetic field of the beam produces a slow rotational <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift in the <span class="math inline">\(\theta-\)</span>direction. This azimuthal drift velocity, <span class="math inline">\(v_{0\theta}\)</span>, is much less than the axial velocity of the beam, but it is sheared.</p>
+<p>In equilibrium,</p>
+<p><span class="math display">\[
+\begin{aligned}
+0&amp;=q(\mathbf{v}\times\mathbf{B}+\mathbf{E}) \\
+\mathbf{v}&amp;=v_{0\theta}\hat{\theta} + v_{0z}\hat{z} \\
+\mathbf{B}&amp;=B_{0\theta}\hat{\theta} + B_{0z}\hat{z} \\
+\Rightarrow &amp; v_\theta - v_z B_\theta + E_r = 0
+\end{aligned}
+\]</span></p>
+<p>From Ampère’s law,</p>
+<p><span class="math display">\[
+\begin{aligned}
+B_{0\theta}\cdot 2\pi (a+\tau) \approx B_\theta \cdot 2\pi a = \mu_0 2\pi a \tau J_z \\
+\Rightarrow J_z = \frac{1}{\mu_0\tau} B_{0\theta} = -en_0 V_{0z}
+\end{aligned}
+\]</span></p>
+<p>From Gauss’s law,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\nabla\cdot\mathbf{E} = \frac{\rho}{\epsilon_0} = \frac{-en_0}{\epsilon_0} \\
+E_r\cdot 2\pi a \Delta = \frac{-en_0}{\epsilon_0}\cdot 2\pi a\tau \Delta \\
+\Rightarrow E_r = \frac{1}{\epsilon_0}\tau(-e)n_0
+\end{aligned}
+\]</span></p>
+<p>Substituing <span class="math inline">\(E_r\)</span> and <span class="math inline">\(J_z\)</span> into the radial force balance equation, we obtain</p>
+<p><span class="math display">\[
+\begin{aligned}
+V_{\theta}\big|_{r=a+\tau} &amp;= \frac{1}{B_{z}}[V_{0z}B_\theta - E_r]\big|_{r=a+\tau}\\
+&amp;=\frac{1}{\gamma^2}\frac{E_r}{B_z}
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\gamma=(1-\beta)^{-1/2}=1+V/(511\text{ keV})\)</span>, and <span class="math inline">\(\beta= V_{0z}/c\)</span>.</p>
+<p>Let <span class="math inline">\(\nu=\frac{I}{\beta I_A}\)</span> be the Budker parameter, <span class="math inline">\(I_A=4\pi\epsilon_0 mc^2/e=17\,\text{kA}\)</span> be the Alfvén-Lawson current, and <span class="math inline">\(\Omega=\frac{eB_{0z}}{m_e}\)</span> be the nonrelativistic cyclotron frequency associated with the axial B field, we have</p>
+<p><span class="math display">\[
+V_\theta\big|_{r=a+\tau} = \frac{2c^2\nu}{\Omega a\gamma^2}
+\]</span></p>
+<p>At <span class="math inline">\(r=a\)</span>, <span class="math inline">\(V_\theta=0\)</span> because there’s no E field. Therefore the velocity shear in <span class="math inline">\(\hat{\theta}\)</span> is</p>
+<p><span class="math display">\[
+\Delta V_{\theta} = V_\theta\big|_{r=a+\tau} - V_\theta\big|_{r=a} =\frac{2c^2\nu}{\Omega a \gamma^2}
+\]</span></p>
+<p>Then from the analysis of K-H instability, the temporal growth rate <span class="math inline">\(\omega_i\)</span> is given by</p>
+<p><span class="math display">\[
+\begin{aligned}
+\omega_i &amp;= \frac{1}{2}|k_\theta \Delta V_{0\theta}| \\
+&amp;=\frac{1}{2}\frac{m}{a}\frac{2c^2\nu}{\Omega a \gamma^2}
+\end{aligned}
+\]</span></p>
+<p>For long wavelength limit, let <span class="math inline">\(m=1\)</span>.</p>
+<p>For MELBA-like beam with the following parameters, <span class="math inline">\(V=700\text{keV},\ I=1\text{kA},\ a = 5\text{cm},\ \tau=0.5\text{cm},\ T=500\text{ns},\ L=1\text{m},\ B=2\text{kG}\)</span>,</p>
+<p><span class="math display">\[
+\omega_i =1.18\times 10^7 \text{s}^{-1}
+\]</span></p>
+<p>The total number of e-folds of the instability growth during the pulse time T is</p>
+<p><span class="math display">\[
+\omega_i T \approx 5.9
+\]</span></p>
+<p>Even though this is large, K-H instability will not stay at the initial position and grow in time; instead it will be transported. It is more meaningful to estimate the spatial growth by evaluating the total number of e-folds experienced by a signal of some frequency as it propagates along the machine length L:</p>
+<p><span class="math display">\[
+k_i L =\frac{\omega_i}{V_{0z}}L = \omega_i \frac{L}{\beta c}\approx 0.04
+\]</span></p>
+<p>Therefore we don’t need to worry too much about this instability.</p>
+
+
+<div class="bottom-nav">
+    <p id="nav-prev" style="text-align: left;">
+        <a class="menu-level-2" href="/KeyNotes/RT"><b>9.3</b> Rayleigh-Taylor Instabil..</a> <kbd>←</kbd>
+        <span id="nav-next" style="float: right;">
+            <kbd>→</kbd> <a class="menu-level-2" href="/KeyNotes/mhd-stability"><b>9.5</b> MHD Stability</a>
+        </span>
+    </p>
+</div>
+
+
+<div class="license">
+    <br/>
+  <br/>
+  <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    Hongyang Zhou
+</div>
+</div>
+</div>
+</body>
+</html>
