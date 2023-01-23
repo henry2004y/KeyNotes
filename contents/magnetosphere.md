@@ -108,3 +108,13 @@ The formation of magnetosheath jets may be related to both external and internal
 * Internal
   * Local ripples from foreshock turbulence could lead to the refraction and funneling of plasma.
   * Short large-amplitude magnetic structures (SLAMS), which are steepened foreshock fluctuations in a short time-scale but large spatial scale.
+
+## Magnetosphere
+
+### Dungey cycle
+
+Dungey (1961) was the first to propose a cycle of magnetospheric convection driven by magnetic reconnection at the dayside magnetosphere. Magnetic field connected on the dayside of Earth is transported by the solar wind to the night side where it forms a long tail behind the Earth. This transfer of flux to the nightside forces the magnetosphere to undergo systematic changes in configuration that eventually lead to nightside magnetic reconnection, which returns flux to the dayside along the flanks of the magnetosphere via the different response modes.
+
+### Vasyliunas cycle
+
+The Jovian equivalent to the Dungey cycle of the Earth's magnetosphere, where the centrifugal force plays a critical role in affecting the plasma convection.
