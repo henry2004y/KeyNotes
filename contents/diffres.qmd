@@ -1,4 +1,4 @@
-# Diffusion and Resisvity {#sec:resisvity}
+# Diffusion and Resisvity {#sec-resisvity}
 
 ## Diffusion and Mobility in Weakly Ionized Gases
 
@@ -21,7 +21,7 @@ In a distance $\lambda_m$, the flux would be decreased to $1/e$ of its initial v
 
 $$
 \lambda_m = 1/n_n\sigma
-$$ {#eq:mean_free_path_collision}
+$$ {#eq-mean_free_path_collision}
 
 After traveling a distance $\lambda_m$, a particle will have had a good probability of making a collision. The mean time between collisions, for particles of velocity $v$, is given by
 
@@ -33,13 +33,13 @@ and the mean frequency of collisions is
 
 $$
 \tau^{-1} = v/\lambda_m = n_n \sigma v
-$$ {#eq:mean_freq_collision}
+$$ {#eq-mean_freq_collision}
 
 If we now average over particles of all velocities $v$ in a Maxwellian distribution, we have what is generally called the collision frequency $\nu$:
 
 $$
 \nu = n_n \overline{\sigma v}
-$$ {#eq:collision_freq}
+$$ {#eq-collision_freq}
 
 ## Diffusion Parameters
 
@@ -60,23 +60,23 @@ The coefficients above are called the _mobility_ and the _diffusion coefficient_
 
 $$
 \mu\equiv |q|/m\nu\quad\text{Mobility}
-$$ {#eq:mobility}
+$$ {#eq-mobility}
 
 $$
 D\equiv k_B T/ m\nu\quad\text{Diffusion coefficient}
-$$ {#eq:diffusion_coef}
+$$ {#eq-diffusion_coef}
 
 These will be different for each species. Note that $D$ is measured in $\text{m}^2/s$. The transport coefficients $\mu$ and $D$ are connected by the _Einstein relation_:
 
 $$
 \mu = |q|D/k_B T
-$$ {#eq:einstein_relation}
+$$ {#eq-einstein_relation}
 
 With the help of these definitions, the flux $\Gamma_s$ of the sth species can be written
 
 $$
 \Gamma_s = n\mathbf{v}_s = \pm \mu_s n\mathbf{E} - D_s\nabla n
-$$ {#eq:species_flux}
+$$ {#eq-species_flux}
 
 _Fick’s law_ of diffusion is a special case of this, occurring when either $\mathbf{E}=0$ or the particles are uncharged, so that $\mu=0$:
 
@@ -95,10 +95,10 @@ We now consider how a plasma created in a container decays by diffusion to the w
 
 $$
 \frac{\partial n}{\partial t} + \nabla\cdot\Gamma_s = 0
-$$ {#eq:diffusion_continuity}
+$$ {#eq-diffusion_continuity}
 
-with $\Gamma_s$ given by @eq:species_flux. It is clear that if $\Gamma_i$ and $\Gamma_e$ were not equal, a serious charge imbalance would soon arise. If the plasma is much larger than a Debye length, it must be quasineutral; and one would expect that the rates of diffusion of ions and electrons would somehow adjust themselves so that the two species leave at the same rate. How this happens is easy to see. The electrons, being lighter, have higher thermal velocities and tend to leave the plasma first. A positive charge is left behind, and an electric field is set up of such a polarity as to retard the loss of
-electrons and accelerate the loss of ions. The required $\mathbf{E}$ field is found by setting $\Gamma_i=\Gamma_e=\Gamma$. From @@eq:species_flux, we can write
+with $\Gamma_s$ given by @eq-species_flux. It is clear that if $\Gamma_i$ and $\Gamma_e$ were not equal, a serious charge imbalance would soon arise. If the plasma is much larger than a Debye length, it must be quasineutral; and one would expect that the rates of diffusion of ions and electrons would somehow adjust themselves so that the two species leave at the same rate. How this happens is easy to see. The electrons, being lighter, have higher thermal velocities and tend to leave the plasma first. A positive charge is left behind, and an electric field is set up of such a polarity as to retard the loss of
+electrons and accelerate the loss of ions. The required $\mathbf{E}$ field is found by setting $\Gamma_i=\Gamma_e=\Gamma$. From @@eq-species_flux, we can write
 
 $$
 \Gamma = \mu_i n\mathbf{E} - D_i \nabla n = -\mu_e n\mathbf{E} - D_e\nabla n
@@ -122,15 +122,15 @@ This is Fick's law with a new diffusion coefficient
 
 $$
 D_a \equiv \frac{\mu_iD_e + \mu_eD_i}{\mu_i+\mu_e}
-$$ {#eq:ambipolar_diffusion_coef}
+$$ {#eq-ambipolar_diffusion_coef}
 
 called the _ambipolar diffusion coefficient_. If this is constant, the continuity equation above becomes simply
 
 $$
 \frac{\partial n}{\partial t} = D_a \nabla^2 n
-$$ {#eq:ambipolar_diffusion}
+$$ {#eq-ambipolar_diffusion}
 
-The magnitude of Da can be estimated if we take $\mu_e\gg\mu_i$. That this is true can be seen from @eq:mobility. Since $\nu$ is proportional to the thermal velocity, which is proportional to $m^{-1/2}$, $\mu$ is proportional to $m^{-1/2}$. @eq:mobility and @eq:ambipolar_diffusion_coef then give
+The magnitude of Da can be estimated if we take $\mu_e\gg\mu_i$. That this is true can be seen from @eq-mobility. Since $\nu$ is proportional to the thermal velocity, which is proportional to $m^{-1/2}$, $\mu$ is proportional to $m^{-1/2}$. @eq-mobility and @eq-ambipolar_diffusion_coef then give
 
 $$
 D_a \approx D_i + \frac{\mu_i}{\mu_e}D_e = D_i + \frac{T_e}{T_i}D_i
@@ -146,13 +146,13 @@ The effect of the ambipolar electric field is to enhance the diffusion of ions b
 
 ### Diffusion in a Slab
 
-The diffusion @eq:ambipolar_diffusion can easily be solved by the method of separation of variables. We let
+The diffusion @eq-ambipolar_diffusion can easily be solved by the method of separation of variables. We let
 
 $$
 n(\mathbf{r}, t) = T(t)S(\mathbf{r})
 $$
 
-whereupon @eq:ambipolar_diffusion, with the subscript on $D_a$ understood, becomes
+whereupon @eq-ambipolar_diffusion, with the subscript on $D_a$ understood, becomes
 
 $$
 \begin{aligned}
@@ -165,7 +165,7 @@ Since the left side is a function of time alone and the right side a function of
 
 $$
 \frac{\mathrm{d}T}{\mathrm{d}t} = -\frac{T}{\tau}
-$$ {#eq:diffusion_temporal}
+$$ {#eq-diffusion_temporal}
 
 with the solution
 
@@ -177,21 +177,21 @@ The spatial part $S$ obeys the equation
 
 $$
 \nabla^2 S = -\frac{1}{D\tau} S
-$$ {#eq:diffusion_spatial}
+$$ {#eq-diffusion_spatial}
 
 In slab geometry, this becomes
 
 $$
 \frac{\mathrm{d}^2 S}{\mathrm{d}x^2} = -\frac{1}{D\tau}S
-$$ {#eq:diffusion_spatial_slab}
+$$ {#eq-diffusion_spatial_slab}
 
 with the solution
 
 $$
 S = A\cos\frac{x}{(D\tau)^{1/2}} + B\sin\frac{x}{(D\tau)^{1/2}}
-$$ {#eq:slab_sol}
+$$ {#eq-slab_sol}
 
-We would expect the density to be nearly zero at the walls (Fig. 5.3 ADD IT!) and to have one or more peaks in between. The simplest solution is that with a single maximum. By symmetry, we can reject the odd (sine) term in @eq:slab_sol. The boundary conditions $S=0$ at $x=\pm L$ then requires
+We would expect the density to be nearly zero at the walls (Fig. 5.3 ADD IT!) and to have one or more peaks in between. The simplest solution is that with a single maximum. By symmetry, we can reject the odd (sine) term in @eq-slab_sol. The boundary conditions $S=0$ at $x=\pm L$ then requires
 
 $$
 \frac{L}{(D\tau)^{1/2}} = \frac{\pi}{2}
@@ -223,7 +223,7 @@ $$
 n = n_0 \Big( \sum_l a_l e^{-t/\tau_l}\cos\frac{(l+\frac{1}{2})\pi x}{L} \sum_m b_m e^{-t/\tau_m}\sin\frac{m\pi x}{L} \Big)
 $$
 
-Substituting this into the diffusion @eq:ambipolar_diffusion, we see that each cosine term yields a relation of the form
+Substituting this into the diffusion @eq-ambipolar_diffusion, we see that each cosine term yields a relation of the form
 
 $$
 -\frac{1}{\tau_l} = -D\Big[ \Big(l+\frac{\pi}{2}\Big)\frac{\pi}{L} \Big]^2
@@ -241,18 +241,18 @@ I WANT TO DO A SIMULATION ON THIS! TRY METHODOFLINES.JL?
 
 ### Diffusion in a Cylinder
 
-The spatial part of the diffusion equation, eq:diffusion_spatial, reads, in cylindrical geometry,
+The spatial part of the diffusion equation, eq-diffusion_spatial, reads, in cylindrical geometry,
 
 $$
 \frac{\mathrm{d}^2 S}{dr^2} + \frac{1}{r}\frac{dS}{dr} + \frac{1}{D\tau}S = 0
-$$ {#eq:diffusion_spatial_cylinder}
+$$ {#eq-diffusion_spatial_cylinder}
 
-This differs from @eq:diffusion_spatial_slab by the addition of the middle term, which merely accouts for the change in coordinates. The need for the extra term is illustrated simply in Fig. 5.5 ADD IT. If a slice of plasma in (a) is moved toward larger x without being allowed to expand, the density would remain constant. On the other hand, if a shell of plasma in (b) is moved toward larger $r$ with the shell thickness kept constant, the density would necessarily decrease as $1/r$. Consequently, one would expect the solution to @eq:diffusion_spatial_cylinder to be like a damped cosine (Fig. 5.6 ADD IT). This function is called a _Bessel function of order zero_, and eq:diffusion_spatial_cylinder is called Bessel's equation (of order zero). Instead of the symbol cos, it is given the symbol $J_0$. The function $J0(r/[D\tau]^{1/2})$ is a solution to eq:diffusion_spatial_cylinder, just as $\cos[x/(\mathrm{d}\tau)^{1/2}]$ is a solution to eq:diffusion_spatial. Both $\cos kx$ and $J_0(kr)$ are expressible in terms of infinite series.
+This differs from @eq-diffusion_spatial_slab by the addition of the middle term, which merely accouts for the change in coordinates. The need for the extra term is illustrated simply in Fig. 5.5 ADD IT. If a slice of plasma in (a) is moved toward larger x without being allowed to expand, the density would remain constant. On the other hand, if a shell of plasma in (b) is moved toward larger $r$ with the shell thickness kept constant, the density would necessarily decrease as $1/r$. Consequently, one would expect the solution to @eq-diffusion_spatial_cylinder to be like a damped cosine (Fig. 5.6 ADD IT). This function is called a _Bessel function of order zero_, and eq-diffusion_spatial_cylinder is called Bessel's equation (of order zero). Instead of the symbol cos, it is given the symbol $J_0$. The function $J0(r/[D\tau]^{1/2})$ is a solution to eq-diffusion_spatial_cylinder, just as $\cos[x/(\mathrm{d}\tau)^{1/2}]$ is a solution to eq-diffusion_spatial. Both $\cos kx$ and $J_0(kr)$ are expressible in terms of infinite series.
 
 FIGURE: Motion of a plasma slab in rectilinear and cylindrical geometry, illustrating the difference between a cosine and a Bessel function.
 
 To satisfy the boundary condition $n=0$ at $r=a$, we must set $a/(D\tau)^{1/2}$ equal to the first zero of $J_0$; namely, 2.4. This yields the decay time constant $\tau$. The plasma
-again decays exponentially, since the temporal part of the diffusion equation, @eq:diffusion_temporal, is unchanged. We have described the lowest diffusion mode in a cylinder. Higher diffusion modes, with more than one maximum in the cylinder, will be given in terms of Bessel functions of higher order, in direct analogy to the case of slab geometry.
+again decays exponentially, since the temporal part of the diffusion equation, @eq-diffusion_temporal, is unchanged. We have described the lowest diffusion mode in a cylinder. Higher diffusion modes, with more than one maximum in the cylinder, will be given in terms of Bessel functions of higher order, in direct analogy to the case of slab geometry.
 
 ## Steady State Solutions
 
@@ -272,7 +272,7 @@ $$
 \nabla^2 n = -(Z/D)n
 $$
 
-This is the same equation as that for S, @eq:diffusion_spatial. Consequently, the density profile
+This is the same equation as that for S, @eq-diffusion_spatial. Consequently, the density profile
 is a cosine or Bessel function, as in the case of a decaying plasma, only in this case the density remains constant. The plasma is maintained against diffusion losses by whatever heat source keeps the electron temperature at its constant value and by a small influx of neutral atoms to replenish those that are ionized.
 
 ### Plane Source
@@ -327,21 +327,21 @@ Figure 5.9 (ADD IT!) shows the results of measurements of the density decay in t
 
 ## Diffusion Across a Magnetic Field
 
-The rate of plasma loss by diffusion can be decreased by a magnetic field; this is the problem of confinement in controlled fusion research. Consider a weakly ionized plasma in a magnetic field (fig:gyration_collision ADD IT!). Charged particles will move along $\mathbf{B}$ by diffusion and mobility according to @eq:species_flux, since $\mathbf{B}$ does not affect motion in the parallel direction. Thus we have, for each species,
+The rate of plasma loss by diffusion can be decreased by a magnetic field; this is the problem of confinement in controlled fusion research. Consider a weakly ionized plasma in a magnetic field (fig-gyration_collision ADD IT!). Charged particles will move along $\mathbf{B}$ by diffusion and mobility according to @eq-species_flux, since $\mathbf{B}$ does not affect motion in the parallel direction. Thus we have, for each species,
 
 $$
 \Gamma_z = \pm\mu n E_z - D\frac{\partial n}{\partial z}
 $$
 
-If there were no collisions, particles would not diffuse at all in the perpendicular direction --- they would continue to gyrate about the same magnetic field line. There are, of course, particle drifts across $\mathbf{B}$ because of electric fields or gradients in $\mathbf{B}$, but these can be arranged to be parallel to the walls. For instance, in a perfectly symmetric cylinder (fig:drift_cylinder ADD IT!), the gradients are all in the radial direction, so that the guiding center drifts are in the azimuthal direction. The drifts would then be harmless.
+If there were no collisions, particles would not diffuse at all in the perpendicular direction --- they would continue to gyrate about the same magnetic field line. There are, of course, particle drifts across $\mathbf{B}$ because of electric fields or gradients in $\mathbf{B}$, but these can be arranged to be parallel to the walls. For instance, in a perfectly symmetric cylinder (fig-drift_cylinder ADD IT!), the gradients are all in the radial direction, so that the guiding center drifts are in the azimuthal direction. The drifts would then be harmless.
 
-FIGURE: A charged particle in a magnetic field will gyrate about the same line of force until it makes a collision. #fig:gyration_collision
+FIGURE: A charged particle in a magnetic field will gyrate about the same line of force until it makes a collision. #fig-gyration_collision
 
-FIGURE: Particle drifts in a cylindrically symmetric plasma column do not lead to losses.#fig:drift_cylinder
+FIGURE: Particle drifts in a cylindrically symmetric plasma column do not lead to losses.#fig-drift_cylinder
 
-When there are collisions, particles migrate across $\mathbf{B}$ to the walls along the gradients. They do this by a random-walk process (fig:diffusion_collision_neutral ADD IT!). When an ion, say, collides with a neutral atom, the ion leaves the collision traveling in a different direction. It continues to gyrate about the magnetic field in the same direction, but its phase of gyration is changed discontinuously. (The Larmor radius may also change, but let us suppose that the ion does not gain or lose energy on the average.)
+When there are collisions, particles migrate across $\mathbf{B}$ to the walls along the gradients. They do this by a random-walk process (fig-diffusion_collision_neutral ADD IT!). When an ion, say, collides with a neutral atom, the ion leaves the collision traveling in a different direction. It continues to gyrate about the magnetic field in the same direction, but its phase of gyration is changed discontinuously. (The Larmor radius may also change, but let us suppose that the ion does not gain or lose energy on the average.)
 
-FIGURE: Diffusion of gyrating particles by collisions with neutral atoms.#fig:diffusion_collision_neutral
+FIGURE: Diffusion of gyrating particles by collisions with neutral atoms.#fig-diffusion_collision_neutral
 
 The guiding center, therefore, shifts position in a collision and undergoes a random walk. The particles will diffuse in the direction opposite $\nabla n$. The step length in the random walk is no longer $\lambda_m$, as in magnetic-field-free diffusion, but has instead the magnitude of the Larmor radius $r_L$. Diffusion across $\mathbf{B}$ can therefore be slowed down by decreasing $r_L$; that is, by increasing B.
 
@@ -352,7 +352,7 @@ To see how this comes about, we write the perpendicular component of the fluid e
 Because the diffusion and mobility coefficients are anisotropic in the presence of a magnetic field, the problem of ambipolar diffusion is not as straightforward as in the $B = 0$ case. Consider the particle fluxes perpendicular to $\mathbf{B}$ (Fig. 5.13 ADD IT!). Ordinarily, since $\Gamma_{e\perp}$ is smaller than $\Gamma_{i\perp}$, a transverse electric field would be set up so as to aid electron diffusion and retard ion diffusion. However, this electric field can be short-circuited by an imbalance of the fluxes along $\mathbf{B}$. That is, the negative charge resulting from $\Gamma_{e\perp} < \Gamma_{i\perp}$ can be dissipated by electrons escaping along the field lines. Although the total diffusion must be ambipolar, the perpendicular part of the losses need not be ambipolar. The ions can diffuse out primarily radially, while the electrons diffuse out primarily along $\mathbf{B}$. Whether or not this in fact happens depends on the particular experiment. In short plasma columns with the field lines terminating on conducting plates, one would expect the ambipolar electric field to be
 short-circuited out. Each species then diffuses radially at a different rate. In long, thin plasma columns terminated by insulating plates, one would expect the radial diffusion to be ambipolar because escape along $\mathbf{B}$ is arduous.
 
-Mathematically, the problem is to solve simultaneously the continuity @eq:diffusion_continuity for ions and electrons. It is not the fluxes $\mathbf{\Gamma}_j$, but the divergence $\nabla\cdot\mathbf{\Gamma}_j$ which must be set equal to each other. Separating $\nabla\cdot\mathbf{\Gamma}_j$ into perpendicular and parallel components, we have
+Mathematically, the problem is to solve simultaneously the continuity @eq-diffusion_continuity for ions and electrons. It is not the fluxes $\mathbf{\Gamma}_j$, but the divergence $\nabla\cdot\mathbf{\Gamma}_j$ which must be set equal to each other. Separating $\nabla\cdot\mathbf{\Gamma}_j$ into perpendicular and parallel components, we have
 
 $$
 \begin{aligned}
@@ -363,7 +363,7 @@ $$
 
 The equation resulting from setting $\nabla\cdot\mathbf{\Gamma}_i = \nabla\cdot\mathbf{\Gamma}_e$ cannot easily be separated into one-dimensional equations. Furthermore, the answer depends sensitively on the boundary conditions at the ends of the field lines. Unless the plasma is so long that parallel diffusion can be neglected altogether, there is no simple answer to the problem of ambipolar diffusion across a magnetic field.
 
-## Collisions in Fully Ionized Plasmas {#sec:collision_ionized}
+## Collisions in Fully Ionized Plasmas {#sec-collision_ionized}
 
 When the plasma is composed of ions and electrons alone, all collisions are Coulomb collisions between charged particles. However, there is a distinct difference between
 
@@ -384,7 +384,7 @@ $$
 m_i n\frac{\mathrm{d}\mathbf{v}_i}{\mathrm{d}t} &= en(\mathbf{E}+\mathbf{v}_i\times\mathbf{B}) - \nabla p_i -\nabla\cdot\pmb{\pi}_i + \mathbf{P}_{ie} \\
 m_e n\frac{\mathrm{d}\mathbf{v}_e}{\mathrm{d}t} &= -en(\mathbf{E}+\mathbf{v}_e\times\mathbf{B}) - \nabla p_e -\nabla\cdot\pmb{\pi}_e + \mathbf{P}_{ei}
 \end{aligned}
-$$ {#eq:resistivity_fluid_momentum}
+$$ {#eq-resistivity_fluid_momentum}
 
 The terms $\mathbf{P}_{ie}$ and $\mathbf{P}_{ei}$ represent, respectively, the momentum gain of the ion fluid caused by collisions with electrons, and vice versa. The stress tensor $\mathbf{P}_j$ has been split into the isotropic part $p_j$ and the anisotropic viscosity tensor $\pmb{\pi}_j$. Like-particle collisions, which give rise to stresses within each fluid individually, are contained in $\pmb{\pi}_j$. Since these collisions do not give rise to much diffusion, we shall ignore the
 terms $\nabla\cdot\pmb{\pi}_j$. As for the terms $\mathbf{P}_{ie}$ and $\mathbf{P}_{ei}$, which represent the friction between the two fluids, the conservation of momentum requires
@@ -404,22 +404,22 @@ grounds, then, we can write $\mathbf{P}_{ei}$ as
 
 $$
 \mathbf{P}_{ei} = \eta e^2n^2(\mathbf{v}_i - \mathbf{v}_e)
-$$ {#eq:coulomb_collision_momentum}
+$$ {#eq-coulomb_collision_momentum}
 
 where $\eta$ is a constant of proportionality. Comparing this with the last equation, we see that
 
 $$
 \nu_{ei} = \frac{ne^2}{m}\eta
-$$ {#eq:coulomb_collision_frequency}
+$$ {#eq-coulomb_collision_frequency}
 
 The constant $\eta$ is the _specific resistivity_ of the plasma; that this jibes with the usual meaning of resistivity will become clear shortly.
 
-### Mechanics of Coulomb Collisions {#sec:coulomb_collision_mechanics}
+### Mechanics of Coulomb Collisions {#sec-coulomb_collision_mechanics}
 
 When an electron collides with a neutral atom, no force is felt until the electron is close to the atom on the scale of atomic dimensions; the collisions are like billiard-ball collisions. When an electron collides with an ion, the electron is gradually deflected by the long-range Coulomb field of the ion. Nonetheless, one can derive an effective cross section for this kind of collision. It will suffice for our purposes to give an order-of-magnitude estimate of the cross section. In Fig. 5.18 ADD IT!, an electron of velocity $\mathbf{v}$ approaches a fixed ion of charge $e$. In the absence of Coulomb forces, the
 electron would have a distance of closest approach $r_0$, called the impact parameter. In the presence of a Coulomb attraction, the electron will be deflected by an angle $\chi$, which is related to $r_0$. The Coulomb force is
 
-FIGURE:Orbit of an electron making a Coulomb collision with an ion.#fig:coulomb_collision}
+FIGURE:Orbit of an electron making a Coulomb collision with an ion.#fig-coulomb_collision}
 
 $$
 F = -\frac{e^2}{4\pi\epsilon_0 r^2}
@@ -441,7 +441,7 @@ We wish to estimate the cross section for large-angle collisions, in which $\chi
 
 $$
 \Delta(mv) \simeq mv \simeq e^2/4\pi\epsilon_0r_0v,\quad r_0 = e^2/4\pi\epsilon_0 mv^2
-$$ {#eq:impact_parameter}
+$$ {#eq-impact_parameter}
 
 The cross section is then
 
@@ -453,25 +453,25 @@ The collision frequency is, therefore,
 
 $$
 \nu_{ei} = n\sigma v = ne^4/16\pi\epsilon_0^2 m^2 v^3
-$$ {#eq:coulomb_collision_freq}
+$$ {#eq-coulomb_collision_freq}
 
 and the resistivity is
 
 $$
 \eta = \frac{m}{ne^2}\nu_{ei} = \frac{e^2}{16\pi\epsilon_0^2 mv^3}
-$$ {#eq:coulomb_resistivity}
+$$ {#eq-coulomb_resistivity}
 
 For a Maxwellian distribution of electrons, we may replace $v^2$ by $k_B T_e/m$ for our order-of-magnitude estimate:
 
 $$
 \eta \approx \frac{\pi e^2m^{1/2}}{(4\pi\epsilon_0)^2 (k_B T_e)^{3/2}}
-$$ {#eq:coulomb_resistivity_maxwellian}
+$$ {#eq-coulomb_resistivity_maxwellian}
 
-This is the resistivity based on large-angle collisions alone. In practice, because of the long range of the Coulomb force, small-angle collisions are much more frequent, and the cumulative effect of many small-angle deflections turns out to be larger than the effect of large-angle collisions. It was shown by Spitzer that @eq:coulomb_resistivity_maxwellian should be multiplied by a factor $\ln \Lambda$:
+This is the resistivity based on large-angle collisions alone. In practice, because of the long range of the Coulomb force, small-angle collisions are much more frequent, and the cumulative effect of many small-angle deflections turns out to be larger than the effect of large-angle collisions. It was shown by Spitzer that @eq-coulomb_resistivity_maxwellian should be multiplied by a factor $\ln \Lambda$:
 
 $$
 \eta\approx\frac{\pi e^2m^{1/2}}{(4\pi\epsilon_0)^2 (k_B T_e)^{3/2}}\ln\Lambda
-$$ {#eq:coulomb_resistivity_maxwellian_correction}
+$$ {#eq-coulomb_resistivity_maxwellian_correction}
 
 where
 
@@ -479,7 +479,7 @@ $$
 \Lambda = \overline{\lambda_D/r_0} = 12\pi n\lambda_D^3
 $$
 
-This factor represents the maximum impact parameter, in units of $r_0$ as given by @eq:impact_parameter, averaged over a Maxwellian distribution. The maximum impact parameter is taken to be $\lambda_D$ because Debye shielding suppresses the Coulomb field at larger distances. Although $\Lambda$ depends on $n$ and $k_BT_e$, its logarithm is insensitive to the exact values of the plasma parameters. Typical values of $\ln \Lambda$ are given below ($\lambda_D$ defined in @sec:debye).
+This factor represents the maximum impact parameter, in units of $r_0$ as given by @eq-impact_parameter, averaged over a Maxwellian distribution. The maximum impact parameter is taken to be $\lambda_D$ because Debye shielding suppresses the Coulomb field at larger distances. Although $\Lambda$ depends on $n$ and $k_BT_e$, its logarithm is insensitive to the exact values of the plasma parameters. Typical values of $\ln \Lambda$ are given below ($\lambda_D$ defined in @sec-debye).
 
 | $k_B T_e\,[\text{eV}]$ | $n\,[\text{m}^{-3}]$ | $\ln\Lambda$  |   |
 |------------------------|----------------------|---------------|---|
@@ -493,34 +493,34 @@ It is evident that $\ln \Lambda$ varies only a factor of two as the plasma param
 
 ### Physical Meaning of η
 
-Let us suppose that an electric field $\mathbf{E}$ exists in a plasma and that the current that it drives is all carried by the electrons, which are much more mobile than the ions. Let $B=0$ and $k_BT_e=0$, so that $\nabla\cdot\mathbf{P}_e=0$. Then, in steady state, the electron equation of motion from @eq:resistivity_fluid_momentum reduces to
+Let us suppose that an electric field $\mathbf{E}$ exists in a plasma and that the current that it drives is all carried by the electrons, which are much more mobile than the ions. Let $B=0$ and $k_BT_e=0$, so that $\nabla\cdot\mathbf{P}_e=0$. Then, in steady state, the electron equation of motion from @eq-resistivity_fluid_momentum reduces to
 
 $$
 en\mathbf{E} = \mathbf{P}_{ei}
-$$ {#eq:resistivity_momentum_steady}
+$$ {#eq-resistivity_momentum_steady}
 
-Since $\mathbf{j}=en(\mathbf{v}_i-\mathbf{v}_e)$, @eq:coulomb_collision_momentum can be written
+Since $\mathbf{j}=en(\mathbf{v}_i-\mathbf{v}_e)$, @eq-coulomb_collision_momentum can be written
 
 $$
 \mathbf{P}_{ei} = \eta en\mathbf{j}
 $$
 
-so that @eq:resistivity_momentum_steady becomes
+so that @eq-resistivity_momentum_steady becomes
 
 $$
 \mathbf{E} = \eta\mathbf{j}
-$$ {#eq:ohm}
+$$ {#eq-ohm}
 
-This is simply Ohm's law, and the constant $\eta$ is just the specific resistivity. The expression for $\eta$ in a plasma, as given by @eq:coulomb_resistivity_maxwellian or @eq:coulomb_resistivity_maxwellian_correction, has several features which should be pointed out.
+This is simply Ohm's law, and the constant $\eta$ is just the specific resistivity. The expression for $\eta$ in a plasma, as given by @eq-coulomb_resistivity_maxwellian or @eq-coulomb_resistivity_maxwellian_correction, has several features which should be pointed out.
 
-1. In @eq:coulomb_resistivity_maxwellian_correction, we see that $\eta$ is _independent of density_ (except for the weak dependence in $\ln\Lambda$). This is a rather surprising result, since it means that if a field $\mathbf{E}$ is applied to a plasma, the current $\mathbf{j}$, as given by @eq:ohm, is independent of the number of charge carriers. The reason is that although
+1. In @eq-coulomb_resistivity_maxwellian_correction, we see that $\eta$ is _independent of density_ (except for the weak dependence in $\ln\Lambda$). This is a rather surprising result, since it means that if a field $\mathbf{E}$ is applied to a plasma, the current $\mathbf{j}$, as given by @eq-ohm, is independent of the number of charge carriers. The reason is that although
 $j$ increases with $n_e$, the frictional drag against the ions increases with $n_i$. Since $n_e=n_i$ these two effects cancel.
-This cancellation can be seen in @eq:coulomb_collision_freq and @eq:coulomb_resistivity. The collision frequency $\nu_{ei}$ is indeed proportional to $n$, but the factor $n$ cancels out in $\eta$. A fully ionized plasma behaves quite differently from
+This cancellation can be seen in @eq-coulomb_collision_freq and @eq-coulomb_resistivity. The collision frequency $\nu_{ei}$ is indeed proportional to $n$, but the factor $n$ cancels out in $\eta$. A fully ionized plasma behaves quite differently from
 a weakly ionized one in this respect. In a weakly ionized plasma, we have $\mathbf{j}=-ne\mathbf{v}_e,\mathbf{v}_e=-\mu_e\mathbf{E}$, so that $\mathbf{j}=ne\mu_e\mathbf{E}$. Since the electron mobility $\mu_e$ depends only on the density of _neutrals_, the current is proportional to the plasma density $n$.
 
-2. @eq:coulomb_resistivity_maxwellian_correction shows that $\eta$ is proportional to $T_e^{-3/2}$. As a plasma is heated, the Coulomb cross section decreases, and the resistivity drops rather rapidly with increasing temperature. Plasmas at thermonuclear temperatures (tens of keV) are essentially collisionless; this is the reason so much theoretical research is done on collisionless plasmas. Of course, there must always be some collisions; otherwise, there wouldn't be any fusion reactions either. An easy way to heat a plasma is simply to pass a current through it. The $I^2R$ or $\eta j^2$ losses then turn up as an increase in electron temperature. This is called _ohmic heating_. The $(k_BT_e)^{-3/2}$ dependence of $\eta$, however, does not allow this method to be used up to thermonuclear temperatures. The plasma becomes such a good conductor at temperatures above 1 keV that ohmic heating is a very slow process in that range.
+2. @eq-coulomb_resistivity_maxwellian_correction shows that $\eta$ is proportional to $T_e^{-3/2}$. As a plasma is heated, the Coulomb cross section decreases, and the resistivity drops rather rapidly with increasing temperature. Plasmas at thermonuclear temperatures (tens of keV) are essentially collisionless; this is the reason so much theoretical research is done on collisionless plasmas. Of course, there must always be some collisions; otherwise, there wouldn't be any fusion reactions either. An easy way to heat a plasma is simply to pass a current through it. The $I^2R$ or $\eta j^2$ losses then turn up as an increase in electron temperature. This is called _ohmic heating_. The $(k_BT_e)^{-3/2}$ dependence of $\eta$, however, does not allow this method to be used up to thermonuclear temperatures. The plasma becomes such a good conductor at temperatures above 1 keV that ohmic heating is a very slow process in that range.
 
-3. @eq:coulomb_collision_freq shows that $\nu_{ei}$ varies as $v^{-3}$. The fast electrons in the tail of the velocity distribution make very few collisions. The current is therefore carried mainly by these electrons rather than by the bulk of the electrons in the main body of the distribution. The strong dependence on $v$ has another interesting consequence. If an electric field is suddenly applied to a plasma, a phenomenon known as _electron runaway_ can occur. A few electrons which happen to be moving fast in the direction of $-\mathbf{E}$ when the field is applied will have gained so much energy before encountering an ion that they can make only a glancing collision. This allows them to pick up more energy from the electric
+3. @eq-coulomb_collision_freq shows that $\nu_{ei}$ varies as $v^{-3}$. The fast electrons in the tail of the velocity distribution make very few collisions. The current is therefore carried mainly by these electrons rather than by the bulk of the electrons in the main body of the distribution. The strong dependence on $v$ has another interesting consequence. If an electric field is suddenly applied to a plasma, a phenomenon known as _electron runaway_ can occur. A few electrons which happen to be moving fast in the direction of $-\mathbf{E}$ when the field is applied will have gained so much energy before encountering an ion that they can make only a glancing collision. This allows them to pick up more energy from the electric
 field and decrease their collision cross section even further. If E is large enough, the cross section falls so fast that these runaway electrons never make a collision. They form an accelerated electron beam detached from the main body of the distribution.
 
 ### Numerical Values of η
@@ -529,7 +529,7 @@ Exact computations of $\eta$ which take into account the ion recoil in each coll
 
 $$
 \eta_\parallel = 5.2\times 10^{-5}\frac{Z\ln\Lambda}{T^{3/2}[\text{eV}]}\, [\text{ohm}\cdot\text{m}]
-$$ {#eq:spitzer_resistivity}
+$$ {#eq-spitzer_resistivity}
 
 Here $Z$ is the ion charge number, which we have taken to be 1 elsewhere. Since the dependence on $m_i$ is weak, these values can also be used for other gases. The subscript $\parallel$ means that this value of $\eta$ is to be used for motions parallel to $\mathbf{B}$. For motions perpendicular to $\mathbf{B}$, one should use $\eta_\perp$ given by
 
@@ -539,7 +539,7 @@ $$
 
 This does not mean that conductivity along $\mathbf{B}$ is only two times better than conductivity across $\mathbf{B}$. A factor like $\omega_c^2\tau^2$ still has to be taken into account. The factor 2.0 comes from a difference in weighting of the various velocities in the electron distribution. In perpendicular motions, the slow electrons, which have small Larmor radii, contribute more to the resistivity than in parallel motions.
 
-For $k_BT_e=100\, \text{eV}$, @eq:spitzer_resistivity yields
+For $k_BT_e=100\, \text{eV}$, @eq-spitzer_resistivity yields
 
 $$
 \eta = 5\times 10^{-7}\, [\text{ohm}\cdot\text{m}]
@@ -592,7 +592,7 @@ we have from the last two equations
 
 $$
 \mathbf{j} = \frac{n_e e^2}{m_e\nu_c}\mathbf{E} \equiv \sigma\mathbf{E}
-$$ {#eq:classical_conductivity}
+$$ {#eq-classical_conductivity}
 
 where $\sigma$ is the classical conductivity.
 
@@ -604,7 +604,7 @@ $$
 0 = -e(\mathbf{E} + \mathbf{u}_e\times\mathbf{B}) - \nu_c m_e\mathbf{u}_e
 $$
 
-In order to avoid confusion, let $\sigma_0$ denote the classical conductivity from @eq:classical_conductivity. Using the definition of current density and writing in scalar forms, we now have
+In order to avoid confusion, let $\sigma_0$ denote the classical conductivity from @eq-classical_conductivity. Using the definition of current density and writing in scalar forms, we now have
 
 $$
 \begin{aligned}
@@ -642,7 +642,7 @@ $$
 \end{aligned}
 $$
 
-Magnetic field-aligned currents (FACs) are very important in plasma physics. From @fig:conductivity, we see that $\Omega_e \simeq \nu_c$ is the most complicated regime where the three conductivities are comparable, and $\Omega_e \gg \nu_c$ is the most anisotropic regime as particles are tightly bound in the perpendicular direction but free to move along $\mathbf{B}$.
+Magnetic field-aligned currents (FACs) are very important in plasma physics. From @fig-conductivity, we see that $\Omega_e \simeq \nu_c$ is the most complicated regime where the three conductivities are comparable, and $\Omega_e \gg \nu_c$ is the most anisotropic regime as particles are tightly bound in the perpendicular direction but free to move along $\mathbf{B}$.
 
 ```jl
 KeyNotes.plot_conductivity()
@@ -667,9 +667,9 @@ $$
 \nabla\cdot(\pmb{\Sigma}\cdot\mathbf{E}) = - j_\parallel \\
 \nabla\cdot(\pmb{\Sigma}\cdot\nabla\Phi) = j_\parallel
 \end{aligned}
-$$ {#eq:ionosphere_potential_derivation}
+$$ {#eq-ionosphere_potential_derivation}
 
-$\mathbf{E}=-\nabla\Phi$, and $j_\parallel$ is defined such that upward ($+z$) is considered positive. Here we assume that $\mathbf{B}$ is aligned with $\hat{z}$; a more realistic geometry requires the consideration of inclination angle. See @eq:ionosphere_potential and note the sign difference between the definitions of $j_\parallel$.
+$\mathbf{E}=-\nabla\Phi$, and $j_\parallel$ is defined such that upward ($+z$) is considered positive. Here we assume that $\mathbf{B}$ is aligned with $\hat{z}$; a more realistic geometry requires the consideration of inclination angle. See @eq-ionosphere_potential and note the sign difference between the definitions of $j_\parallel$.
 
 The forces that act on a flux tube in the ionosphere can be expressed in terms of these conductances and the force balance expressions can consequently be used to derive other properties of the ionospheric flow such as its velocity. (???)
 
@@ -717,7 +717,7 @@ $$
 \eta=\frac{1}{\mu\sigma}=\frac{m_e}{\mu n_i e^2\tau_{ei}}=\frac{m_e n_e \ln\Lambda}{\mu n_i e^2 \cdot 5.45\times10^{5}T^{3/2}} =5.2\times10^7 \frac{\ln\Lambda}{T^{3/2}}
 $$
 
-where $\ln\Lambda$ is the Coulomb logarithm (generally $10\sim20$ which is insensitive to $n$ and $T$, @sec:coulomb_collision_mechanics).
+where $\ln\Lambda$ is the Coulomb logarithm (generally $10\sim20$ which is insensitive to $n$ and $T$, @sec-coulomb_collision_mechanics).
 
 _Examples_:
 
@@ -789,9 +789,9 @@ $$
 \text{erf}(\xi)=\frac{2}{\sqrt{\pi}}\Big( \xi-\frac{\xi^3}{3}+\frac{\xi^5}{10}-\frac{\xi^7}{42}+... \Big)\approx \frac{2\xi}{\sqrt{\pi}},\ |\xi|\ll 1
 $$
 
-The shape is shown in @fig:erf.
+The shape is shown in @fig-erf.
 
-![Error function.](images/erf_plot.png){#fig:erf}
+![Error function.](../images/erf_plot.png){#fig-erf}
 
 $$
 |B(x,t)|\approx\left\{
@@ -803,9 +803,9 @@ B_0 & ,|\xi|\gg1\ \text{or}\ |x|\gg\sqrt{\pi\eta t} \\
 \right.
 $$
 
-If you want to draw this time-variant magnetic field at two different times $t_1$ and $t_2$ ($t_1<t_2$), you should have less dense lines at $t_2$ than $t_1$. An example plot is present in @fig:mag_diff_1d.
+If you want to draw this time-variant magnetic field at two different times $t_1$ and $t_2$ ($t_1<t_2$), you should have less dense lines at $t_2$ than $t_1$. An example plot is present in @fig-mag_diff_1d.
 
-![Magnetic field at $t=0.1,1,10$, respectively.](images/mag_diff_1d.png){#fig:mag_diff_1d}
+![Magnetic field at $t=0.1,1,10$, respectively.](../images/mag_diff_1d.png){#fig-mag_diff_1d}
 
 Conclusion:
 
@@ -922,7 +922,7 @@ we can get
 
 $$
 \frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{\mathbf{B}}{\rho} \Big)=\Big( \frac{\mathbf{B}}{\rho}\cdot\nabla \Big)\mathbf{u}
-$$ {#eq:B_Rho_diff}
+$$ {#eq-B_Rho_diff}
 
 _Proof_.
 
@@ -934,7 +934,7 @@ $$
 $$
 □
 
-Compare @eq:B_Rho_diff and @eq:line_diff, we have
+Compare @eq-B_Rho_diff and @eq-line_diff, we have
 
 $$
 \frac{\mathbf{B}}{\rho}\propto \mathbf{l}

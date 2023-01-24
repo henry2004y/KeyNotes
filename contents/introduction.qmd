@@ -1,4 +1,4 @@
-# Introduction {#sec:intro}
+# Introduction {#sec-intro}
 
 * What is plasma?
 
@@ -133,7 +133,7 @@ The reason for this can be seen from the Saha equation, which tells us the amoun
 
 $$
 \frac{n_i}{n_n}\approx 2.4\times 10^{21}\frac{T^{3/2}}{n_i} e^{-\frac{U_i}{k_B T}}
-$$ {#eq:saha}
+$$ {#eq-saha}
 
 Here $n_i$ and $n_n$ are, respectively, the density (number per $\text{m}^3$) of ionized atoms and of neutral atoms, T is the gas temperature in Kelvin, $k_B$ is Boltzmann's constant, and $U_i$ is the ionization energy of the gas --- that is, the number of joules required to remove the outermost electron from an atom. For ordinary air at room temperature, we may take $n_n\approx 3\times 10^{25}\,\text{m}^{-3}$, $T\approx 300\, \text{K}$, and $U_i = 14.5\,\text{eV}$ (for nitrogen), where $1\,\text{eV} = 1.6\times 10^{19}\,\text{J}$. The fractional ionization $n_i/(n_n + n_i) \approx n_i/n_n$ is ridiculously low:
 
@@ -144,8 +144,8 @@ $$
 As the temperature is raised, the degree of ionization remains low until $U_i$ is only a few times $k_B T$. Then $n_i/n_e$ rises abruptly, and the gas is in a plasma state. Further increase in temperature makes $n_n$ less than $n_i$, and the plasma eventually becomes fully ionized. This is the reason plasmas exist in astronomical bodies with temperatures of millions of degrees, but not on the earth. Life could not easily coexist with a plasma --- at least, plasma of the type we are talking about. The natural occurrence of plasmas at high temperatures is the reason for the designation "the fourth state of matter".
 
 Although we do not intend to emphasize the Saha equation, we should point out its physical meaning. Atoms in a gas have a spread of thermal energies, and an atom is ionized when, by chance, it suffers a collision of high enough energy to knock out
-an electron. In a cold gas, such energetic collisions occur infrequently, since an atom must be accelerated to much higher than the average energy by a series of "favorable" collisions. The exponential factor in @eq:saha expresses the fact that the
-number of fast atoms falls exponentially with $U_i/k_BT$. Once an atom is ionized, it remains charged until it meets an electron; it then very likely recombines with the electron to become neutral again. The recombination rate clearly depends on the density of electrons, which we can take as equal to $n_i$. ni. The equilibrium ion fraction, therefore, should decrease with $n_i$; and this is the reason for the factor $ni^{-1}$ on the right-hand side of @eq:saha. The plasma in the interstellar medium owes its existence to the low value of $n_i$ (about 1 per $\text{cm}^3$), and hence the low recombination rate.
+an electron. In a cold gas, such energetic collisions occur infrequently, since an atom must be accelerated to much higher than the average energy by a series of "favorable" collisions. The exponential factor in @eq-saha expresses the fact that the
+number of fast atoms falls exponentially with $U_i/k_BT$. Once an atom is ionized, it remains charged until it meets an electron; it then very likely recombines with the electron to become neutral again. The recombination rate clearly depends on the density of electrons, which we can take as equal to $n_i$. ni. The equilibrium ion fraction, therefore, should decrease with $n_i$; and this is the reason for the factor $ni^{-1}$ on the right-hand side of @eq-saha. The plasma in the interstellar medium owes its existence to the low value of $n_i$ (about 1 per $\text{cm}^3$), and hence the low recombination rate.
 
 ## Definition of Plasma
 
@@ -170,7 +170,7 @@ Before proceeding further, it is important to review and extend our physical not
 
 $$
 f(v) = A \exp\left( -\frac{1}{2}mv^2/k_B T \right)
-$$ {#eq:maxwellian_1d}
+$$ {#eq-maxwellian_1d}
 
 where $f\mathrm{d}u$ is the number of particles per $\text{m}^3$ with velocity between $u$ and $u+\mathrm{d}u$, $\frac{1}{2}mu^2$ is the kinetic energy, and $k_B$ is Boltzmann's constant. The density $n$, or number of particles per $\text{m}^3$, is given by
 
@@ -188,21 +188,21 @@ The width of the distribution is characterized by the constant $T$, which we cal
 
 $$
 E_\text{av} = \frac{\int_{-\infty}^\infty \frac{1}{2}mv^2f(v)\mathrm{d}v}{\int_{-\infty}^\infty f(v)\mathrm{d}v}
-$$ {#eq:average_kinetic_energy}
+$$ {#eq-average_kinetic_energy}
 
 Defining $y=v/v_\text{th}$ and
 
 $$
 v_\text{th} = \left( 2k_B T/m \right)^{1/2}
-$$ {#eq:thermal_speed}
+$$ {#eq-thermal_speed}
 
-we can write @eq:maxwellian_1d as
+we can write @eq-maxwellian_1d as
 
 $$
 f(v) = A \exp(-v^2/v_\text{th}^2)
 $$
 
-and @eq:average_kinetic_energy as
+and @eq-average_kinetic_energy as
 
 $$
 E_\text{av} = \frac{\frac{1}{2}mA v_\text{th}^3 \int_{-\infty}^\infty [\exp(-y^2)]y^2\mathrm{d}y}{A v_\text{th}\int_{-\infty}^\infty [\exp(-y^2)]\mathrm{d}y}
@@ -264,7 +264,7 @@ Then each species can be in its own thermal equilibrium, but the plasma may not 
 
 Before leaving our review of the notion of temperature, we should dispel the popular misconception that high temperature necessarily means a lot of heat. People are usually amazed to learn that the electron temperature inside a fluorescent light bulb is about $20000\, \text{K}$. “My, it doesn’t feel that hot!” Of course, the heat capacity must also be taken into account. The density of electrons inside a fluorescent tube is much less than that of a gas at atmospheric pressure, and the total amount of heat transferred to the wall by electrons striking it at their thermal velocities is not that great. For example, the temperature of a cigarette ash is high enough to cause a burn, but the total amount of heat involved is not. Many laboratory plasmas have temperatures of the order of $1,000,000\,\text{K}$ ($100\,\text{eV}$), but at densities of only $10^{18}-10^{19}$ per $\text{m}^3$, the heating of the walls is not a serious consideration.
 
-## Debye Shielding {#sec:debye}
+## Debye Shielding {#sec-debye}
 
 (Problem 4 on P27 [@bellan2008fundamentals])
 
@@ -299,7 +299,7 @@ If we neglect the time derivatives, we obtain
 
 $$
 (\mathbf{v}_j\cdot\nabla)f(\mathbf{r},\mathbf{v}_j)+\big[-\frac{1}{m_j}\nabla(q_j\phi)\cdot\nabla_v\big]f(\mathbf{r},\mathbf{v}_j)=0
-$$ {#eq:LTE_Vlasov}
+$$ {#eq-LTE_Vlasov}
 
 The LTE distribution is in a Maxwellian shape,
 
@@ -307,7 +307,7 @@ $$
 f(\mathbf{r},\mathbf{v}_j)=n_j(\mathbf{r})\Big( \frac{m}{2\pi k_BT}\Big)^{3/2}\exp\Big( -\frac{mv^2}{2k_BT}\Big)
 $$
 
-Substitute into @eq:LTE_Vlasov, we have
+Substitute into @eq-LTE_Vlasov, we have
 
 $$
 \begin{aligned}
@@ -339,7 +339,7 @@ where
 
 $$
 \lambda_D=\sqrt{\frac{\epsilon_0 k_BT^\ast}{n_0e^2}}
-$$ {#eq:debye_length}
+$$ {#eq-debye_length}
 
 is the Debye length, $T^\ast=\Big( \frac{1}{T_e}+\frac{1}{T_i} \Big)^{-1}$. The Debye length, is a measure of the shielding distance or thickness of the sheath. Note that larger density indicates better shielding effects, as one would expect, since each layer of plasma contains more electrons. Furthermore, $\lambda_D$ increases with increasing $k_B T^\ast$. Without thermal agitation, the charge cloud would collapse to an infinitely thin layer. Finally, most commonly it is the _electron_ temperature ($T^\ast\approx T_e$) which is used in the definition of $\lambda_D$ because the electrons, being more mobile than the ions, generally do the shielding by moving so as to create a surplus or deficit of negative charge. Only in special situations is this not true.
 
@@ -365,15 +365,15 @@ $$
 \phi(r)=\frac{q_t}{4\pi\epsilon_0r}e^{-r/\lambda_D}
 $$
 
-![Electric potential.](images/ElectricPotential.png){#fig:electric_potential}
+![Electric potential.](../images/ElectricPotential.png){#fig-electric_potential}
 
-The electric potential drops very quickly (@fig:electric_potential). In other words, if you insert a charge into a neutral plasma, its potential will only effect within a small range. Recall the Gauss`s law,
+The electric potential drops very quickly (@fig-electric_potential). In other words, if you insert a charge into a neutral plasma, its potential will only effect within a small range. Recall the Gauss`s law,
 
 $$
 \oint\mathbf{E}\cdot \mathrm{d}\mathbf{A}=\frac{Q_T}{\epsilon_0}\rightarrow\textrm{ as }R\rightarrow \infty, \textrm{ E goes to zero.}
 $$
 
-The following are useful forms of @eq:debye_length:
+The following are useful forms of @eq-debye_length:
 
 $$
 \begin{aligned}
@@ -387,7 +387,7 @@ We are now in a position to define "quasineutrality." If the dimensions $L$ of a
 Additional comments:
 
 1. Plasma acts like dielectron.
-2. There is a plasma sheath near to where materials contact, inside which charge neutrality is violated. This will be discussed in @sec:sheath.
+2. There is a plasma sheath near to where materials contact, inside which charge neutrality is violated. This will be discussed in @sec-sheath.
 
 ## Criteria for Plasmas
 
@@ -418,7 +418,7 @@ $$
 
 giving $\delta x = \delta x_0\,\cos\omega_p t$.
 
-Plasma frequency is closely associated with plasma oscillation and waves. A more thorough derivation is given in @sec:oscillations. Note that plasma oscillations will only be observed if the plasma system is studied over time periods $\tau$ longer than the plasma period $\tau_p\equiv 1/\omega_p$, and if external actions change the system at a rate no faster than $\omega_p$. In the opposite case, one is clearly studying something other than plasma physics (e.g., nuclear reactions), and the system cannot not usefully be considered to be a plasma. Likewise, observations over length-scales $L$ shorter than the distance $v_t\,\tau_p$ traveled by a typical plasma particle during a plasma period will also not detect plasma behaviour. In this case, particles will exit the system before completing a plasma oscillation. This distance, which is the spatial equivalent to $\tau_p$, is called the _Debye length_, and takes the form
+Plasma frequency is closely associated with plasma oscillation and waves. A more thorough derivation is given in @sec-oscillations. Note that plasma oscillations will only be observed if the plasma system is studied over time periods $\tau$ longer than the plasma period $\tau_p\equiv 1/\omega_p$, and if external actions change the system at a rate no faster than $\omega_p$. In the opposite case, one is clearly studying something other than plasma physics (e.g., nuclear reactions), and the system cannot not usefully be considered to be a plasma. Likewise, observations over length-scales $L$ shorter than the distance $v_t\,\tau_p$ traveled by a typical plasma particle during a plasma period will also not detect plasma behaviour. In this case, particles will exit the system before completing a plasma oscillation. This distance, which is the spatial equivalent to $\tau_p$, is called the _Debye length_, and takes the form
 
 $$
 \lambda_D \equiv \sqrt{T/m}\,\,\omega_p^{-1}.
@@ -434,7 +434,7 @@ is independent of mass, and therefore generally comparable for different species
 
 $$
 \frac{\lambda_D}{L} \ll 1
-$$ {#eq:length_limit}
+$$ {#eq-length_limit}
 
 and
 
@@ -443,7 +443,7 @@ $$
 $$
 
 Here, $\tau$ and $L$ represent the typical time-scale and length-scale of the process under investigation.
-It should be noted that, despite the conventional requirement \ref{eq:length_limit}, plasma physics is capable of considering structures on the Debye scale. The most important example of this is the Debye sheath: i.e., the boundary layer which surrounds a plasma confined by a material surface.
+It should be noted that, despite the conventional requirement \ref{eq-length_limit}, plasma physics is capable of considering structures on the Debye scale. The most important example of this is the Debye sheath: i.e., the boundary layer which surrounds a plasma confined by a material surface.
 
 ## Spatial Scales
 

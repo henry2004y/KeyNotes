@@ -1,4 +1,4 @@
-# Hybrid Methods {#sec:hybrid}
+# Hybrid Methods {#sec-hybrid}
 
 The hybrid model is valid for low-frequency physics with $\omega\sim\Omega_i$ and $kr_{Li}\sim 1$ (wavelength $\lambda\sim 6r_{Li}$), where $\omega$ is the wave frequency, $k$ is the wave number, $\Omega_i$ is the ion gyrofrequency, and $r_{Li}$ is the ion Larmor radius. For this range of wave frequency and wavelength, the ion kinetic physics in the near-Earth instabilities are resolved with grid sizes $\sim r_{Li}$ or ion inertial length $d_i$. The finite ion gyroradius effects are resolved with particle time steps $\Delta t$ much smaller than the gyroperiod.
 
@@ -44,7 +44,7 @@ and the relation
 
 $$
 \mathbf{v}_e = \mathbf{v}_i - \mathbf{J}/n_e e
-$$ {#eq:hybrid_Je}
+$$ {#eq-hybrid_Je}
 
 The basic equations used in the conventional PIC hybrid model first has a particle pusher for individual ions
 
@@ -74,7 +74,7 @@ The generalized Ohm's law is used to determine the time evolution of the electri
 
 $$
 \mathbf{E} = - \mathbf{V}_i \times \mathbf{B} + \frac{1}{n_i e}(\nabla\times\mathbf{B})\times\mathbf{B} - \frac{1}{n_i e}\nabla\cdot\overleftrightarrow{P}_e + \eta \mathbf{J}
-$$ {#eq:hybrid_ohm}
+$$ {#eq-hybrid_ohm}
 
 where the current in the Hall term has already been replaced by the curvature of B. The last term can either represent collision/physical resistivity, or artificial resistivity/numerical diffusion.
 
@@ -116,9 +116,9 @@ Limitations:
 * Explicit time-stepping schemes can be complex.
 * No existing method conserves momentum or energy.
 
-## Finite Electron Inertia {#sec:finite_e_mass}
+## Finite Electron Inertia {#sec-finite_e_mass}
 
-The conventional hybrid simulation model dealing with kinetic ions and a massless charge-neutralizing electron fluid is known to be susceptible to numerical instability due to divergence of the whistler-mode wave dispersion, as well as division-by-density operation in regions of low density. The Alfvén wave at short wavelength comparable to ion inertia length has dispersion due to the decoupling between ion and electron dynamics. There thus appears the whistler mode whose frequency diverges as $\omega \propto k^2$. This means that the maximum phase velocity in the system increases rapidly without bound, implying numerical difficulty. The division-by-density issue originates from @eq:hybrid_Je and appears in the Hall and electron pressure gradient terms. Consequently, a pure vacuum region is not allowed to exist in the simulation domain unless some ad hoc technique is used.
+The conventional hybrid simulation model dealing with kinetic ions and a massless charge-neutralizing electron fluid is known to be susceptible to numerical instability due to divergence of the whistler-mode wave dispersion, as well as division-by-density operation in regions of low density. The Alfvén wave at short wavelength comparable to ion inertia length has dispersion due to the decoupling between ion and electron dynamics. There thus appears the whistler mode whose frequency diverges as $\omega \propto k^2$. This means that the maximum phase velocity in the system increases rapidly without bound, implying numerical difficulty. The division-by-density issue originates from @eq-hybrid_Je and appears in the Hall and electron pressure gradient terms. Consequently, a pure vacuum region is not allowed to exist in the simulation domain unless some ad hoc technique is used.
 
 The finite electron inertia correction is proposed to solve the whistler-mode wave dispersion issue. The conventional way to include a finite electron inertia correction into the hybrid model is to introduce the following so-called generalized electromagnetic field $\widehat{\mathbf{E}}, \widehat{\mathbf{B}}$, defined as
 
@@ -138,7 +138,7 @@ $$
 \widehat{\mathbf{E}} = - \mathbf{V}_i \times \mathbf{B} + \frac{1}{n_i e}(\nabla\times\mathbf{B})\times\mathbf{B} - \frac{1}{n_i e}\nabla\cdot\overleftrightarrow{P}_e - \frac{m_e}{e}(\mathbf{V}_e\cdot\nabla)\mathbf{V}_e
 $$
 
-which is similar to the generalized Ohm's law but now with the last term which also represents the correction. $\mathbf{V}_e$ is obtain from @eq:hybrid_Je.
+which is similar to the generalized Ohm's law but now with the last term which also represents the correction. $\mathbf{V}_e$ is obtain from @eq-hybrid_Je.
 
 Given the generalized electric field $\widehat{\mathbf{E}}$, one can advance the generalized magnetic field $\widehat{\mathbf{B}}$ by using Faraday's law, which can be easily checked to satisfy
 
@@ -294,7 +294,7 @@ $$
 
 where $r$ is in the unit of $\text{R}_\text{E}$, and $n_\text{eq}=1000\,\text{cm}^{-3}$.
 
-The inclusion of the cold ion fluid in the inner magnetosphere simplifies the conditions for the fluid-dominant low-altitude, inner boundary. Ion particles are set to be reflected at the magnetospheric inner boundary (e.g. $r=3.5\,\text{R}_\text{E}$). This simple reflection of the ion parallel velocity $\mathbf{v}_{i\parallel}$ means that loss cone effects are omitted. For a particle distribution with an isotropic pitch angle distribution in a dipole field, the particles in a full loss cone are only 0.3% of the total, which is reasonably neglected. $\mathbf{B}$ is assumed to maintain the dipole field values at the inner boundary. The ionospheric conditions (1000 km altitude) are incorporated into the hybrid code, as in global MHD models [@raeder1995]. See @sec:MI_coupling.
+The inclusion of the cold ion fluid in the inner magnetosphere simplifies the conditions for the fluid-dominant low-altitude, inner boundary. Ion particles are set to be reflected at the magnetospheric inner boundary (e.g. $r=3.5\,\text{R}_\text{E}$). This simple reflection of the ion parallel velocity $\mathbf{v}_{i\parallel}$ means that loss cone effects are omitted. For a particle distribution with an isotropic pitch angle distribution in a dipole field, the particles in a full loss cone are only 0.3% of the total, which is reasonably neglected. $\mathbf{B}$ is assumed to maintain the dipole field values at the inner boundary. The ionospheric conditions (1000 km altitude) are incorporated into the hybrid code, as in global MHD models [@raeder1995]. See @sec-MI_coupling.
 
 ## Tests
 
@@ -302,7 +302,7 @@ The inclusion of the cold ion fluid in the inner magnetosphere simplifies the co
 
 This is an electromagnetic and multi-ion verification test. We have an 1D-3V electromagnetic instability driven by $p_{i\perp}/p_{i\parallel} > 1$. Maximum growth happens at $\mathbf{k}\times\mathbf{B}=0$ with a finite real frequency. For the initial perturbation, we choose $k_x \Delta x = 0.065$. We set an 1D simulation with 64 cells and 10K particles/cell, $\Delta t \Omega_{ci} = 0.01$, dissipation=0.
 
-![PCAI results from a VPIC hybrid simulation.](images/EMIC_hybrid_vpic.png){#fig:vpic_pcai}
+![PCAI results from a VPIC hybrid simulation.](../images/EMIC_hybrid_vpic.png){#fig-vpic_pcai}
 
 PCAI results for nominal parameters:
 
@@ -312,7 +312,7 @@ PCAI results for nominal parameters:
 
 When we add a 20% density fraction of a minor species of alpha particles ($\text{He}^+$), the growth rate is modified.
 
-![Growth rate from a VPIC hybrid simulation.](images/EMIC_growth_hybrid_vpic.png){#fig:vpic_cai_growth}
+![Growth rate from a VPIC hybrid simulation.](../images/EMIC_growth_hybrid_vpic.png){#fig-vpic_cai_growth}
 
 The growth rates across a range of $\beta$ and anisotropy can be computed and compared with a linear solve, e.g. [HYDROS](https://github.com/dtold/HYDROS).
 
@@ -326,7 +326,7 @@ $$
 \frac{dZ(\zeta)}{\mathrm{d}\zeta} = 2\frac{T_i}{T_e},\quad \zeta\equiv \frac{\omega-i\gamma}{kv_{\text{th},i}}
 $$
 
-![Growth rate from a VPIC hybrid simulation.](images/Ion_acoustic_wave_hybrid_vpic.png){#fig:vpic_ldiaw}
+![Growth rate from a VPIC hybrid simulation.](../images/Ion_acoustic_wave_hybrid_vpic.png){#fig-vpic_ldiaw}
 
 The nominal simulation parameters are:
 
@@ -341,7 +341,7 @@ Results for nominal parameters
   1. Use more particles/cell (noise $\sim 1/\sqrt(N_p)$).
   2. Binomial smoothing/higher order shape functions.
   3. Using low-discrepancy quasi-Random numbers to seed particles (noise $\sim 1/N_p$).
-  4. Most efficient: Delta-F (See @sec:delta_f).
+  4. Most efficient: Delta-F (See @sec-delta_f).
 
 ### Magnetic Reconnection Island Coalescence
 
@@ -373,7 +373,7 @@ $$
 
 and for the numerical parameters, we have a 2D space with $256\times128$ cells, 50 particles/cell, $\Delta t\Omega_{ci} = 0.005$.
 
-![Magnetic island coalescence from a VPIC hybrid simulation.](images/magnetic_islands_hybrid_vpic.png){#fig:vpic_reconnection2d}
+![Magnetic island coalescence from a VPIC hybrid simulation.](../images/magnetic_islands_hybrid_vpic.png){#fig-vpic_reconnection2d}
 
 ### Collisionless Shock
 

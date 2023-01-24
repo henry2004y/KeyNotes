@@ -1,4 +1,4 @@
-# Turbulence {#sec:turbulence}
+# Turbulence {#sec-turbulence}
 
 Turbulence is perhaps the most beautiful unsolved problem of classical physics. History of turbulence in interplanetary space is, perhaps, even more interesting since its knowledge proceeds together with the human conquest of space. The behavior of a flow which rebels against the deterministic rules of classical dynamics is called _turbulent_. Practically turbulence appears everywhere when the velocity of the flow is high enough. At a first sight turbulence looks strongly irregular and chaotic, both in space and time: it seems to be impossible to predict any future state of the motion. However, it is interesting to recognize the fact that, when we take a picture of a turbulent flow at a given time, we see the presence of a lot of _different turbulent structures of all sizes_ which are actively present during the motion. We recognize that the gross features of the flow are reproducible but details are not predictable. We have to use a _statistical approach_ to turbulence, just as it is done to describe stochastic processes, even if the problem is born within the strange dynamics of a deterministic system.
 
@@ -57,15 +57,15 @@ The incompressible MHD wave equation in fluctuating Elsässer form is:
 
 $$
 \frac{\partial\delta\mathbf{z}^\pm}{\partial t} \mp v_A\nabla_\parallel\delta\mathbf{z}^\pm + \delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm = -\nabla p
-$$ {#eq:mhd_elsassar}
+$$ {#eq-mhd_elsassar}
 
 $$
 \nabla\cdot\delta\mathbf{z}^\pm = 0
-$$ {#eq:elsassar_divergence}
+$$ {#eq-elsassar_divergence}
 
 The zero divergence means that there are no forcing or dissipation terms.
 
-@eq:mhd_elsassar unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term ($v_A$ constant?) that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence.
+@eq-mhd_elsassar unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term ($v_A$ constant?) that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence.
 
 ### Critical balance
 
@@ -92,31 +92,31 @@ Residual energy is the difference in energy between magnetic and velocity fluctu
 
 $$
 \sigma_r = \frac{|\delta\mathbf{v}|^2 - |\delta\mathbf{b}|^2}{|\delta\mathbf{v}|^2 + |\delta\mathbf{b}|^2}
-$$ {#eq:residual_energy_normalized}
+$$ {#eq-residual_energy_normalized}
 
 $\sigma_r$ is zero for an Alfvén wave but is generally negative ($|\delta\mathbf{b}|^2 > |\delta\mathbf{v}|^2$) at MHD scales for solar wind observations, meaning that they are mostly likely turbulence but not waves.
 
-### Normalized Cross Helicity {#sec:turbulence_cross_helicity}
+### Normalized Cross Helicity {#sec-turbulence_cross_helicity}
 
-Cross helicity is the difference in energy between $\mathbf{z}^+$ and $\mathbf{z}^-$ fluctuations (@sec:cross_helicity). The normalized cross helicity is
+Cross helicity is the difference in energy between $\mathbf{z}^+$ and $\mathbf{z}^-$ fluctuations (@sec-cross_helicity). The normalized cross helicity is
 
 $$
 \sigma_c = \frac{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2}{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2} = \frac{2\delta\mathbf{v}\cdot\delta\mathbf{b}}{|\delta\mathbf{v}|^2 + |\delta\mathbf{b}|^2}
-$$ {#eq:cross_helicity_normalized}
+$$ {#eq-cross_helicity_normalized}
 
 * $|\sigma_c|=1$: unidirectional Alfvén waves (no turbulence)
 * $|\sigma_c|\lesssim 1$: imbalanced turbulence
 * $|\sigma_c|=0$: balanced turbulence (or non-Alfvénic fluctuations)
 
-The solar wind is typically imbalanced towards the anti-sunward direction. From @eq:residual_energy_normalized and @eq:cross_helicity_normalized we can easily see that
+The solar wind is typically imbalanced towards the anti-sunward direction. From @eq-residual_energy_normalized and @eq-cross_helicity_normalized we can easily see that
 
 $$
 \sqrt{\sigma_r^2 + \sigma_c^2} \le 1
 $$
 
-The observed distribution is shown in @fig:turbulence_residual_energy_cross_helicity. Note, however, $\sigma_r$ depends on how you evaluate $\delta{b}$. In the MHD case $\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}$ is used, but in the kinetic case there will be an extra coefficient. The results look pretty different!
+The observed distribution is shown in @fig-turbulence_residual_energy_cross_helicity. Note, however, $\sigma_r$ depends on how you evaluate $\delta{b}$. In the MHD case $\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}$ is used, but in the kinetic case there will be an extra coefficient. The results look pretty different!
 
-![Solar wind normalized residual energy and cross helicity statistics from Chen+ 2013.](images/solarwind_residual_energy_cross_helicity.png){#fig:turbulence_residual_energy_cross_helicity}
+![Solar wind normalized residual energy and cross helicity statistics from Chen+ 2013.](../images/solarwind_residual_energy_cross_helicity.png){#fig-turbulence_residual_energy_cross_helicity}
 
 ## Solar Wind Turbulence
 
@@ -130,15 +130,15 @@ $$
 
 This is often not appropriate in the magnetosheath, and modified Taylor’s hypothesis is required close to the Sun.
 
-![Wave scale from typical L1 satellite solar wind observation.](images/turbulence_par_perp_L1.png){#fig:turbulence_v_b}
+![Wave scale from typical L1 satellite solar wind observation.](../images/turbulence_par_perp_L1.png){#fig-turbulence_v_b}
 
-The wavenumber $k$ determined from Taylor's hypothesis is really the flow-aligned component of $\mathbf{k}$. For a given angle $\theta_{vb}$, one cannot distinguish $k_\perp$ and $k_\parallel$; these can be possibly measured for small ($\sim 0^o$ for $k_\parallel$) and large ($\sim 90^o$ for $k_\perp$) at different times. In the solar wind, $P(k_\perp) \gg P(k_\parallel)$, where $P$ is the power of perturbation. For a Parker spiral-like magnetic field at 1 AU, the angle between $\mathbf{B}_0$ and $\mathbf{v}_\text{sw}$ is rarely small ($\sim 45^o$), the power spectra are typically dominated by the contribution from the $k_\perp$ fluctuations (@fig:turbulence_v_b).
+The wavenumber $k$ determined from Taylor's hypothesis is really the flow-aligned component of $\mathbf{k}$. For a given angle $\theta_{vb}$, one cannot distinguish $k_\perp$ and $k_\parallel$; these can be possibly measured for small ($\sim 0^o$ for $k_\parallel$) and large ($\sim 90^o$ for $k_\perp$) at different times. In the solar wind, $P(k_\perp) \gg P(k_\parallel)$, where $P$ is the power of perturbation. For a Parker spiral-like magnetic field at 1 AU, the angle between $\mathbf{B}_0$ and $\mathbf{v}_\text{sw}$ is rarely small ($\sim 45^o$), the power spectra are typically dominated by the contribution from the $k_\perp$ fluctuations (@fig-turbulence_v_b).
 
 ### Solar Wind Power Spectrum
 
-![Solar wind power spectrum from Kiyoni+, 2015.](images/solarwind_power_spectrum.png){#fig:solarwind_power_spectrum}
+![Solar wind power spectrum from Kiyoni+, 2015.](../images/solarwind_power_spectrum.png){#fig-solarwind_power_spectrum}
 
-When we plot the solar wind power spectrum ($\delta|\mathbf{B}|$), it is usually representative of $k_\perp$. There are three distinct power-law ranges in the spectrum from spacecraft solar wind observations (@fig:solarwind_power_spectrum):
+When we plot the solar wind power spectrum ($\delta|\mathbf{B}|$), it is usually representative of $k_\perp$. There are three distinct power-law ranges in the spectrum from spacecraft solar wind observations (@fig-solarwind_power_spectrum):
 
 * Injection range:
   * Large amplitude, low frequency Alfvén waves originating from the Sun.
@@ -152,10 +152,10 @@ When we plot the solar wind power spectrum ($\delta|\mathbf{B}|$), it is usually
 * Kinetic range:
   * Scales at which particles are heated
   * Typically $f^{-2.8}$ spectrum
-  * Possibly KAW (@sec:kaw) or whistler mode (@sec:CPDR) turbulence
+  * Possibly KAW (@sec-kaw) or whistler mode (@sec-CPDR) turbulence
 
-When we move to smaller scales, anisotropy increases. This is demonstrated in @fig:turbulence_scale as a result of $k_\perp \gg k_\parallel$, which is also why gyrokinetics is the theory for turbulence.
+When we move to smaller scales, anisotropy increases. This is demonstrated in @fig-turbulence_scale as a result of $k_\perp \gg k_\parallel$, which is also why gyrokinetics is the theory for turbulence.
 
-![Demonstration of parallel and perpendicular length scales of turbulence.](images/turbulence_par_perp_scale.png){#fig:turbulence_scale}
+![Demonstration of parallel and perpendicular length scales of turbulence.](../images/turbulence_par_perp_scale.png){#fig-turbulence_scale}
 
 Fluctuation modes in the inertial range consists of 90% incompressible (Alfvén) modes and 10% compressible slow/mirror modes. Alfvénic turbulence is thought to be passive to the compressive modes: compressive modes scatter off Alfvén modes without affecting them significantly (i.e. being decoupled from each other). The compressive modes are expected to damp $\sim k_\parallel v_A$. Since $k_\perp \gg k_\parallel$, the damp is not significant for compressive modes, so they tend to be more anisotropic than the Alfvénic turbulence.

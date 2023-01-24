@@ -1,4 +1,4 @@
-# Radiation Belt {#sec:radiation_belt}
+# Radiation Belt {#sec-radiation_belt}
 
 A [Van Allen radiation belt](https://en.wikipedia.org/wiki/Van_Allen_radiation_belt) is a zone of energetic charged particles, most of which originate from the solar wind, that are captured by and held around a planet by that planet's magnetosphere. Earth possesses an inner belt and an outer belt.
 
@@ -26,7 +26,7 @@ In 1998, two new theories came out:
 
 1. Enhanced radial diffusion
   * Solar wind flows past the magnetosphere, drives K-H instability, and in turn triggers ULF waves.
-  * The ULF waves trigger FLR (@sec:flr).
+  * The ULF waves trigger FLR (@sec-flr).
   * The outcome is a faster radial diffusion process?
 
 2. Wave acceleration
@@ -39,13 +39,13 @@ The wave acceleration, or more specifically, wave-particle interaction, has been
 
 ::: {.content-visible unless-format="pdf"}
 
-![Schematic diagram showing many of the wave modes that affect energetic electrons in the Earth’s radiation belts. Viewing from the north pole.](https://media.springernature.com/lw685/springer-static/image/art%3A10.1186%2Fs40623-021-01508-y/MediaObjects/40623_2021_1508_Figa_HTML.png){#fig:radiation_belt_waves}
+![Schematic diagram showing many of the wave modes that affect energetic electrons in the Earth’s radiation belts. Viewing from the north pole.](https://media.springernature.com/lw685/springer-static/image/art%3A10.1186%2Fs40623-021-01508-y/MediaObjects/40623_2021_1508_Figa_HTML.png){#fig-radiation_belt_waves}
 
 :::
 
 * Lower hybrid waves: ???
 
-* Whistler waves (@sec:CPDR)
+* Whistler waves (@sec-CPDR)
 
 * Chorus waves
   * 1-5 kHz
@@ -57,13 +57,13 @@ The wave acceleration, or more specifically, wave-particle interaction, has been
 
 ::: {.content-visible unless-format="pdf"}
 
-![In-situ observation by the ERG (Arase) spacecraft. The ERG spacecraft observed chorus waves and scattered electrons in the magnetosphere, the origin of pulsation auroras. The scattered electrons precipitated into the atmosphere resulting in auroral illumination. Intermittent occurrence of chorus waves and associated electron scattering lead to auroral pulsation.](https://www.eoportal.org/api/cms/documents/163813/3290385/ERG_Auto6.jpeg){#fig:arase_waves}
+![In-situ observation by the ERG (Arase) spacecraft. The ERG spacecraft observed chorus waves and scattered electrons in the magnetosphere, the origin of pulsation auroras. The scattered electrons precipitated into the atmosphere resulting in auroral illumination. Intermittent occurrence of chorus waves and associated electron scattering lead to auroral pulsation.](https://www.eoportal.org/api/cms/documents/163813/3290385/ERG_Auto6.jpeg){#fig-arase_waves}
 
 :::
 
 Before 1990s, waves in the radiation belts are known for transferring energy from charged particles, which act as a loss process to the particles. Richard Thorne, together with his collegues, proposed that they could also the sources of energetic particles ([Horne & Thorne], 1998, 2003, 2005a,b). If that is the case, _the wave-particle interactions must break the adiabatic invariants_.
 
-The theory of wave-particle interaction starts with hot plasma kinetic theory (@sec:HPDR). When the denominator goes to 0, the resonance condition is fulfilled. From observations, we learned that the wave frequencies are smaller than the gyro-frequencies. How can we have resonance then? The answer is, Doppler shift needs to be taken into account.
+The theory of wave-particle interaction starts with hot plasma kinetic theory (@sec-HPDR). When the denominator goes to 0, the resonance condition is fulfilled. From observations, we learned that the wave frequencies are smaller than the gyro-frequencies. How can we have resonance then? The answer is, Doppler shift needs to be taken into account.
 
 ### Sources of Waves
 
@@ -78,15 +78,15 @@ As a rough physical picture, during the cyclotron resonance:
 
 ## Modeling
 
-3D Fokker-Planck diffusion model (e.g. [@glauert2014three]) has been built to model the radiation belt electrons. In the Earth's radiation belts, the evolution of the phase-averaged phase-space density $f(p,r,t)$ can be described by a diffusion equation (see also @eq:fokker_planck):
+3D Fokker-Planck diffusion model (e.g. [@glauert2014three]) has been built to model the radiation belt electrons. In the Earth's radiation belts, the evolution of the phase-averaged phase-space density $f(p,r,t)$ can be described by a diffusion equation (see also @eq-fokker_planck):
 
 $$
 \frac{\partial f}{\partial t} = \sum_{i,j}\frac{\partial}{\partial J_i}\left[ D_{ij}\frac{\partial f}{\partial J_j} \right]
-$$ {#eq:fokker_planck_general}
+$$ {#eq-fokker_planck_general}
 
-Here $D_{ij}$ are diffusion coefficients and $J_i$ are the action integrals, $J_1 = 2\pi m_e \mu/|q|$, $J_2 = J$, and $J_3 = q|\phi|$, where $\mu,J$, and $\phi$ are the adiabatic invariants of charged particle motion, $m_e$ is the electron mass, and $q$ the charge. The adiabatic invariants are awkward variables to visualize and relate to data so many authors transform to other coordinates. One choice is to use pitch angle, energy, and $L^\ast=2\pi M/(|\phi| R_\text{E})$ (@eq:Lstar), where $M=8.22\times 10^{22}\, \text{A}\,\text{m}^2$ is the magnetic moment of the Earth's dipole field and $R_\text{E}$ is the Earth's radius, as the three independent variables.
+Here $D_{ij}$ are diffusion coefficients and $J_i$ are the action integrals, $J_1 = 2\pi m_e \mu/|q|$, $J_2 = J$, and $J_3 = q|\phi|$, where $\mu,J$, and $\phi$ are the adiabatic invariants of charged particle motion, $m_e$ is the electron mass, and $q$ the charge. The adiabatic invariants are awkward variables to visualize and relate to data so many authors transform to other coordinates. One choice is to use pitch angle, energy, and $L^\ast=2\pi M/(|\phi| R_\text{E})$ (@eq-Lstar), where $M=8.22\times 10^{22}\, \text{A}\,\text{m}^2$ is the magnetic moment of the Earth's dipole field and $R_\text{E}$ is the Earth's radius, as the three independent variables.
 
-Assuming a dipole field, changing coordinates to equatorial pitch angle $\alpha$, kinetic energy $E$, and $L^\ast$, and neglecting some cross derivatives, @eq:fokker_planck can be written as
+Assuming a dipole field, changing coordinates to equatorial pitch angle $\alpha$, kinetic energy $E$, and $L^\ast$, and neglecting some cross derivatives, @eq-fokker_planck can be written as
 
 $$
 \begin{aligned}
@@ -94,7 +94,7 @@ $$
 &+ \frac{1}{A(E)}\frac{\partial}{\partial E}\bigg\rvert_{\alpha,L} A(E) \left( D_{EE}\frac{\partial f}{\partial E}\bigg\rvert_{\alpha,L} + D_{E\alpha}\frac{\partial f}{\partial \alpha}\bigg\rvert_{E,L} \right) \\
 &+ L^2 \frac{\partial}{\partial L}\bigg\rvert_{\mu,J}\left( \frac{D_{LL}}{L^2}\frac{\partial f}{\partial L}\bigg\rvert_{\mu,J} \right)
 \end{aligned}
-$$ {#eq:fokker_planck_convenient}
+$$ {#eq-fokker_planck_convenient}
 
 where
 
@@ -125,7 +125,7 @@ $$
 
 with units of $\text{s}^{-1}, \text{J}\text{s}^{-1}$, and $\text{J}^2\text{s}^{-1}$, respectively.
 
-A loss term of the form $f/\tau_L$ can be added to represent losses to the atmosphere due to collisions. Here, $\tau_L$, the loss timescale, is equal to 1/4 of the bounce time in the loss cone and infinite elsewhere. As a first-order approximation, we can neglect the cross terms and simplify @eq:fokker_planck_convenient as
+A loss term of the form $f/\tau_L$ can be added to represent losses to the atmosphere due to collisions. Here, $\tau_L$, the loss timescale, is equal to 1/4 of the bounce time in the loss cone and infinite elsewhere. As a first-order approximation, we can neglect the cross terms and simplify @eq-fokker_planck_convenient as
 
 $$
 \begin{aligned}
@@ -134,7 +134,7 @@ $$
 &+ L^2 \frac{\partial}{\partial L}\bigg\rvert_{\mu,J}\left( \frac{D_{LL}}{L^2}\frac{\partial f}{\partial L}\bigg\rvert_{\mu,J} \right) \\
 &- \frac{f}{\tau_L}
 \end{aligned}
-$$ {#eq:fokker_planck_nocrossterm}
+$$ {#eq-fokker_planck_nocrossterm}
 
 The first three terms on the right-hand side represent pitch angle, energy, and radial diffusion, respectively. The final term accounts for losses to the atmosphere. Pitch angle diffusion has contributions from wave-particle interactions and Coulomb collisions with the atmosphere, though the latter are only significant inside the loss cone. Energy diffusion is due to wave-particle interactions and radial diffusion to interactions with large-scale fluctuations in the Earth's magnetic and electric fields. The diffusion coefficients are based on statistical wave models derived from data. Depending on the choice of the diffusion coefficients, the Fokker-Planck equation can be linear, quasi-linear, or nonlinear.
 

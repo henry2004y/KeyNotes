@@ -1,10 +1,10 @@
-# Kinetic Theory {#sec:kinetic}
+# Kinetic Theory {#sec-kinetic}
 
 ## The Meaning of f(v)
 
-The fluid theory we have been using so far is the simplest description of a plasma; it is indeed fortunate that this approximation is sufficiently accurate to describe the majority of observed phenomena. There are some phenomena, however, for which a fluid treatment is inadequate. For these, we need to consider the velocity distribution function $f(\mathbf{v})$ for each species; this treatment is called kinetic theory. In fluid theory, the dependent variables are functions of only four independent variables: $x, y, z,$ and $t$. This is possible because the velocity distribution of each species is assumed to be Maxwellian everywhere and can therefore be uniquely specified by only one number, the temperature $T$. Since collisions can be rare in high-temperature plasmas, deviations from thermal equilibrium can be maintained for relatively long times. As an example, consider two velocity distributions $f_1(v_x)$ and $f_2(v_x)$ in a one-dimensional system. (@fig:distributions_1d) These two distributions will have entirely different behaviors, but as long as the areas under the curves are the same, fluid theory does not distinguish between them.
+The fluid theory we have been using so far is the simplest description of a plasma; it is indeed fortunate that this approximation is sufficiently accurate to describe the majority of observed phenomena. There are some phenomena, however, for which a fluid treatment is inadequate. For these, we need to consider the velocity distribution function $f(\mathbf{v})$ for each species; this treatment is called kinetic theory. In fluid theory, the dependent variables are functions of only four independent variables: $x, y, z,$ and $t$. This is possible because the velocity distribution of each species is assumed to be Maxwellian everywhere and can therefore be uniquely specified by only one number, the temperature $T$. Since collisions can be rare in high-temperature plasmas, deviations from thermal equilibrium can be maintained for relatively long times. As an example, consider two velocity distributions $f_1(v_x)$ and $f_2(v_x)$ in a one-dimensional system. (@fig-distributions_1d) These two distributions will have entirely different behaviors, but as long as the areas under the curves are the same, fluid theory does not distinguish between them.
 
-![Examples of non-Maxwellian distribution functions](images/distributions_1d.png){#fig:distributions_1d}
+![Examples of non-Maxwellian distribution functions](../images/distributions_1d.png){#fig-distributions_1d}
 
 The density is a function of four scalar variables: $n=n(\mathbf{r}, t)$. When we consider velocity distributions, we have seven independent variables: $f = f(\mathbf{r}, \mathbf{v}, t)$.
 By $f(\mathbf{r}, \mathbf{v}, t)$, we mean that the number of particles per meter cubed at position $\mathbf{r}$ and time $t$ with velocity components between $v_x$ and $v_x + dv_x$, $v_y and $v_y + dv_y$, and $v_z$ and $v_z + dv_z$ is
@@ -26,15 +26,15 @@ Note that $d\mathbf{v}$ is not a vector; it stands for a three-dimensional volum
 
 $$
 \int_{-\infty}^{\infty} \hat{f}(\mathbf{r}, \mathbf{v}, t) d\mathbf{v} = 1
-$$ {#eq:f_normalization}
+$$ {#eq-f_normalization}
 
 it is a probability, which we denote by $\hat{f}$. Thus
 
 $$
 f(\mathbf{r}, \mathbf{v}, t) = n(\mathbf{r}, t)\hat{f}(\mathbf{r}, \mathbf{v}, t)
-$$ {#eq:f_normalization_dimensionless}
+$$ {#eq-f_normalization_dimensionless}
 
-Note that $\hat{f}$ is still a function of seven variables, since the shape of the distribution, as well as the density, can change with space and time. From @eq:f_normalization, it is clear that $\hat{f}$ has the dimensions $(\text{m}/\text{s})^{-3}$; and consequently, from @eq:f_normalization_dimensionless, f has the dimensions $\text{s}^3 \text{m}^{-6}$.
+Note that $\hat{f}$ is still a function of seven variables, since the shape of the distribution, as well as the density, can change with space and time. From @eq-f_normalization, it is clear that $\hat{f}$ has the dimensions $(\text{m}/\text{s})^{-3}$; and consequently, from @eq-f_normalization_dimensionless, f has the dimensions $\text{s}^3 \text{m}^{-6}$.
 
 A particularly important distribution function is the Maxwellian:
 
@@ -112,13 +112,13 @@ For a Maxwellian, we see that
 
 $$
 g(v) = 4\pi n (m/2\pi k_B T)^{3/2} v^2 \exp(-v^2/v_{th}^2)
-$$ {#eq:g_dist}
+$$ {#eq-g_dist}
 
-@fig:f_g shows the difference between $g(v)$ and a one-dimensional Maxwellian distribution $f(v_x)$. Although $f(v_x)$ is maximum for $v_x=0$, $g(v)$ is zero for $v=0$.
+@fig-f_g shows the difference between $g(v)$ and a one-dimensional Maxwellian distribution $f(v_x)$. Although $f(v_x)$ is maximum for $v_x=0$, $g(v)$ is zero for $v=0$.
 
-![One- and three-dimensional Maxwellian velocity distributions.](images/f_g.png){#fig:f_g}
+![One- and three-dimensional Maxwellian velocity distributions.](../images/f_g.png){#fig-f_g}
 
-This is just a consequence of the vanishing of the volume in phase space for $v=0$. Sometimes $g(v)$ is carelessly denoted by $f(v)$, as distinct from $f(\mathbf{v})$; but $g(v)$ is a different function of its argument than $f(\mathbf{v})$ is of its argument. From eq:g_dist, it is clear that $g(v)$ has dimensions $\text{s}/\text{m}^4$.
+This is just a consequence of the vanishing of the volume in phase space for $v=0$. Sometimes $g(v)$ is carelessly denoted by $f(v)$, as distinct from $f(\mathbf{v})$; but $g(v)$ is a different function of its argument than $f(\mathbf{v})$ is of its argument. From eq-g_dist, it is clear that $g(v)$ has dimensions $\text{s}/\text{m}^4$.
 
 ADD EXAMPLE DISTRIBUTIONS!
 
@@ -158,7 +158,7 @@ Since $\mathrm{d}W=mvdv$ we can write the relationship between the differential 
 
 $$
 J(W,\Omega, \alpha, \mathbf{r},t) = \frac{v^2}{m}f
-$$ {#eq:diff_flux_dist}
+$$ {#eq-diff_flux_dist}
 
 One application of the differential flux is the _particle precipitation flux_. With the idea of loss lone, we have a cone of particles that moves along the field lines and can propagate down to the ionosphere, and each shell from $v$ to $v+\mathrm{d}v$ corresponds to a specific energy range. This is something we can measure close to the ground and use to infer the plasma properties in the magnetosphere.
 
@@ -166,7 +166,7 @@ One application of the differential flux is the _particle precipitation flux_. W
 
 The Maxwellian distribution is probably the most studied one theoretically, but may not be the most commonly observed distribution in a collisionless space plasma system. In recent years, another distribution named [Kappa distribution](https://link.springer.com/article/10.1007/s11214-013-9982-9) has gained more attention.
 
-Distribution functions are often nearly Maxwellian at low energies, but they decrease more slowly at high energies. At higher energies the distribution is described better by a power law than by an exponential decay of the Maxwell distribution. Such a behavior is not surprising if we remember that the Coulomb collision frequency decreases with increasing temperature as $T^{-3/2}$ (@eq:coulomb_resistivity_maxwellian_correction). Hence, it takes longer time for fast particles to reach Maxwellian distirbution than for slow particles. The kappa distribution has the form
+Distribution functions are often nearly Maxwellian at low energies, but they decrease more slowly at high energies. At higher energies the distribution is described better by a power law than by an exponential decay of the Maxwell distribution. Such a behavior is not surprising if we remember that the Coulomb collision frequency decreases with increasing temperature as $T^{-3/2}$ (@eq-coulomb_resistivity_maxwellian_correction). Hence, it takes longer time for fast particles to reach Maxwellian distirbution than for slow particles. The kappa distribution has the form
 
 $$
 f_\kappa(W) = n\Big( \frac{m}{2\pi\kappa W_0} \Big)^{3/2}\frac{\Gamma(\kappa + 1)}{\Gamma(\kappa-1/2)}\Big( 1+\frac{W}{\kappa W_0} \Big)^{-(\kappa+1)}
@@ -180,7 +180,7 @@ The fundamental equation which $f(\mathbf{r}, \mathbf{v}, t)$ has to satisfy is 
 
 $$
 \frac{\partial f}{\partial t} + \mathbf{v}\cdot\nabla f +\frac{\mathbf{F}}{m}\cdot\frac{\partial f}{\partial v} = \Big( \frac{\partial f}{\partial t} \Big)_c
-$$ {#eq:boltzmann}
+$$ {#eq-boltzmann}
 
 Here $\mathbf{F}$ is the force acting on the particles, and $(\partial f/\partial t)_C$ is the time rate of change of $f$ due to collisions[^numerical_diffusion]. The symbol $\nabla$ stands, as usual, for the gradient in $(x, y, z)$ space. The symbol $\partial/\partial\mathbf{v}$ or $\nabla_v$ stands for the gradient in velocity space:
 
@@ -190,38 +190,38 @@ $$
 
 [^numerical_diffusion]: For simulations, the effect of numerical diffusion may be treated as one type of "collision".
 
-In a sufficiently hot plasma, collisions can be neglected. If, furthermore, the force $\mathbf{F}$ is entirely electromagnetic, @eq:boltzmann takes the special form
+In a sufficiently hot plasma, collisions can be neglected. If, furthermore, the force $\mathbf{F}$ is entirely electromagnetic, @eq-boltzmann takes the special form
 
 $$
 \frac{\partial f}{\partial t} + \mathbf{v}\cdot\nabla f +\frac{\mathbf{F}}{m}\cdot\frac{\partial f}{\partial v} = 0
-$$ {#eq:vlasov}
+$$ {#eq-vlasov}
 
-This is called the _Vlasov equation_. Because of its comparative simplicity, this is the equation most commonly studied in kinetic theory. When there are collisions with neutral atoms, the collision term in @eq:boltzmann can be approximated by
+This is called the _Vlasov equation_. Because of its comparative simplicity, this is the equation most commonly studied in kinetic theory. When there are collisions with neutral atoms, the collision term in @eq-boltzmann can be approximated by
 
 $$
 \Big( \frac{\partial f}{\partial t} \Big)_c = \frac{f_n - f}{\tau}
 $$
 
-where $f_n$ is the distribution function of the neutral atoms, and $\tau$ is a constant collision time. This is called the _Krook collision term_. It is the kinetic generalization of the collision term in Eq. (5.5) in F. F. Chen's book. When there are Coulomb collisions, @eq:boltzmann can be approximated by
+where $f_n$ is the distribution function of the neutral atoms, and $\tau$ is a constant collision time. This is called the _Krook collision term_. It is the kinetic generalization of the collision term in Eq. (5.5) in F. F. Chen's book. When there are Coulomb collisions, @eq-boltzmann can be approximated by
 
 $$
 \frac{\mathrm{d}f}{\mathrm{d}t} = -\frac{\partial}{\partial\mathbf{v}}\cdot(f\left<\Delta\mathbf{v}\right>)\frac{1}{2}\frac{\partial^2}{\partial\mathbf{v}\partial\mathbf{v}}:(f\left<\Delta\mathbf{v}\Delta\mathbf{v}\right>)
-$$ {#eq:fokker_planck}
+$$ {#eq-fokker_planck}
 
-This is called the _Fokker-Planck equation_; it takes into account binary Coulomb collisions only. Here, $\Delta\mathbf{v}$ is the change of velocity in a collision, and @eq:fokker_planck is a shorthand way of writing a rather complicated expression.
+This is called the _Fokker-Planck equation_; it takes into account binary Coulomb collisions only. Here, $\Delta\mathbf{v}$ is the change of velocity in a collision, and @eq-fokker_planck is a shorthand way of writing a rather complicated expression.
 The colon operator $\mathbf{a}\mathbf{b}:\mathbf{c}\mathbf{d} = a_ib_jc_id_j$.
 
 The fact that $\mathrm{d}f/\mathrm{d}t$ is constant in the absence of collisions means that particles follow the contours of constant $f$ as they move around in phase space. As an example of how these contours can be used, consider the beam-plasma instability
-of Section ???. In the unperturbed plasma, the electrons all have velocity $v_0$, and the contour of constant $f$ is a straight line. The function $f(x, v_x)$ is a wall rising out of the plane of the paper at $v_x=v_0$. The electrons move along the trajectory shown. When a wave develops, the electric field $\mathbf{E}_1$ causes electrons to suffer changes in $v_x$ as they stream along. The trajectory then develops a sinusoidal ripple (@fig:beam_e_dist_1d B). This ripple travels at the phase velocity, not the particle velocity. Particles stay on the curve as they move relative to the wave. If $\mathbf{E}_1$ becomes very large as the wave grows, and if there are a few collisions, some electrons will be trapped in the electrostatic potential of the wave. In coordinate space, the wave potential appears as in @fig:wave_potential. In phase space, $f(x, v_x)$ will have peaks wherever there is a potential trough (@fig:contour_dist). Since the contours of $f$ are also electron trajectories, one sees that some electrons move in closed orbits in phase space; these are just the trapped electrons.
+of Section ???. In the unperturbed plasma, the electrons all have velocity $v_0$, and the contour of constant $f$ is a straight line. The function $f(x, v_x)$ is a wall rising out of the plane of the paper at $v_x=v_0$. The electrons move along the trajectory shown. When a wave develops, the electric field $\mathbf{E}_1$ causes electrons to suffer changes in $v_x$ as they stream along. The trajectory then develops a sinusoidal ripple (@fig-beam_e_dist_1d B). This ripple travels at the phase velocity, not the particle velocity. Particles stay on the curve as they move relative to the wave. If $\mathbf{E}_1$ becomes very large as the wave grows, and if there are a few collisions, some electrons will be trapped in the electrostatic potential of the wave. In coordinate space, the wave potential appears as in @fig-wave_potential. In phase space, $f(x, v_x)$ will have peaks wherever there is a potential trough (@fig-contour_dist). Since the contours of $f$ are also electron trajectories, one sees that some electrons move in closed orbits in phase space; these are just the trapped electrons.
 
-![(A) Representation in one-dimensional phase space of a beam of electrons all with the same velocity $v_0$. The distribution function $f(x, v_x)$ is infinite along the line and zero elsewhere. The line is also the trajectory of individual electrons, which move in the direction of the arrow. (B) when a plasma wave exists in the electron beam. The entire pattern moves to the right with the phase velocity of the wave. If the observer goes to the frame of the wave, the pattern would stand still, and electrons would be seen to trace the curve with the velocity $v_0-v_\phi$.](images/beam_e_dist_1d.png){#fig:beam_e_dist_1d}
+![(A) Representation in one-dimensional phase space of a beam of electrons all with the same velocity $v_0$. The distribution function $f(x, v_x)$ is infinite along the line and zero elsewhere. The line is also the trajectory of individual electrons, which move in the direction of the arrow. (B) when a plasma wave exists in the electron beam. The entire pattern moves to the right with the phase velocity of the wave. If the observer goes to the frame of the wave, the pattern would stand still, and electrons would be seen to trace the curve with the velocity $v_0-v_\phi$.](../images/beam_e_dist_1d.png){#fig-beam_e_dist_1d}
 
-![The potential of a plasma wave, as seen by an electron. The pattern moves with the velocity $v_\phi$. An electron with small velocity relative to the wave would be trapped in a potential trough and be carried along with the wave.](images/wave_potential.png){#fig:wave_potential}
+![The potential of a plasma wave, as seen by an electron. The pattern moves with the velocity $v_\phi$. An electron with small velocity relative to the wave would be trapped in a potential trough and be carried along with the wave.](../images/wave_potential.png){#fig-wave_potential}
 
-![Electron trajectories, or contours of constant $f$, as seen in the wave frame, in which the pattern is stationary. This type of diagram, appropriate for finite distributions $f(v)$, is easier to understand than the $\delta$-function distribution of @fig:beam_e_dist_1d.](images/contour_dist.png){#fig:contour_dist}
+![Electron trajectories, or contours of constant $f$, as seen in the wave frame, in which the pattern is stationary. This type of diagram, appropriate for finite distributions $f(v)$, is easier to understand than the $\delta$-function distribution of @fig-beam_e_dist_1d.](../images/contour_dist.png){#fig-contour_dist}
 
 Electron trapping is a nonlinear phenomenon which cannot be treated by straightforward solution of the Vlasov equation. However, electron trajectories can be followed on a computer, and the results are often presented in the form
-of a plot like @fig:contour_dist.
+of a plot like @fig-contour_dist.
 
 ADD A TWO STREAM INSTABILITY PHASE ANIMATION!
 
@@ -229,12 +229,12 @@ ADD A TWO STREAM INSTABILITY PHASE ANIMATION!
 
 This has been repeated multiple times.
 
-The fluid equations we have been using are simply moments of the Boltzmann equation. The lowest moment is obtained by integrating @eq:vlasov with $\mathbf{F}$ specialized to the Lorentz force:
+The fluid equations we have been using are simply moments of the Boltzmann equation. The lowest moment is obtained by integrating @eq-vlasov with $\mathbf{F}$ specialized to the Lorentz force:
 
 
 The energy equation derivation can be found in [An introductory guide to fluid models with anisotropic temperatures](https://arxiv.org/abs/1901.09354).
 
-## Plasma Oscillations and Landau Damping {#sec:landau}
+## Plasma Oscillations and Landau Damping {#sec-landau}
 
 As an elementary illustration of the use of the Vlasov equation, we shall derive the dispersion relation for electron plasma oscillations, which is originally treated from the fluid point of view. This derivation will require a knowledge of contour integration.
 
@@ -248,7 +248,7 @@ Since $\mathbf{v}$ is now an independent variable and is not to be linearized, t
 
 $$
 \frac{\partial f_1}{\partial t} + \mathbf{v}\cdot\nabla f_1 - \frac{e}{m}\mathbf{E}_1\cdot\frac{\partial f_0}{\partial \mathbf{v}} = 0
-$$ {#eq:vlasov_1st}
+$$ {#eq-vlasov_1st}
 
 As before, we assume the ions are massive and fixed and that the waves are plane waves in the x direction $f_1 \propto e^{i(kx - \omega t)}$. Then the linearized Vlasov equation becomes
 
@@ -287,7 +287,7 @@ Since we are dealing with a one-dimensional problem we may drop the subscript x,
 
 $$
 1 = \frac{\omega_p^2}{k^2}\int_{-\infty}^{\infty}\frac{\partial \hat{f}_0/\partial v}{v - \omega/k}\mathrm{d}v
-$$ {#eq:dispersion_0th}
+$$ {#eq-dispersion_0th}
 
 Here, $\hat{f}_0$ is understood to be a one-dimensional distribution function, the integrations over $v_y$ and $v_z$ having been made. This equation holds for any equilibrium distribution $\hat{f}_0(v)$.
 
@@ -307,11 +307,11 @@ $$
 
 This factor becomes large for $v\rightarrow \pm i \infty$, and the contribution from $C_2$ cannot be neglected. Landau showed that when the problem is properly treated as an initial value problem the correct contour to use is the curve $C_1$ passing below the singularity. This integral must in general be evaluated numerically.
 
-Although an exact analysis of this problem is complicated, we can obtain an approximate dispersion relation for the case of large phase velocity and weak damping. In this case, the pole at $\omega/k$ lies near the real $v$ axis. The contour prescribed by Landau is then a straight line along the $\Re(v)$ axis with a small semicircle around the pole. In going around the pole, one obtains $2\pi i$ time half the residue there. Then @eq:dispersion_0th becomes
+Although an exact analysis of this problem is complicated, we can obtain an approximate dispersion relation for the case of large phase velocity and weak damping. In this case, the pole at $\omega/k$ lies near the real $v$ axis. The contour prescribed by Landau is then a straight line along the $\Re(v)$ axis with a small semicircle around the pole. In going around the pole, one obtains $2\pi i$ time half the residue there. Then @eq-dispersion_0th becomes
 
 $$
 1 = \frac{\omega_p^2}{k^2} \Big[ P\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0/\partial v}{v - (\omega/k)}\mathrm{d}v + i\pi \frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=\omega/k} \Big]
-$$ {#eq:landau_residue}
+$$ {#eq-landau_residue}
 
 where $P$ stands for the Cauchy principal value. To evaluate this, we integrate along the real $v$ axis but stop just before encountering the pole. If the phase velocity $v_\phi = \omega/k$ is sufficiently large, as we assume, there will not be much contribution from the neglected part of the contour, since both $\hat{f}_0$ and $\partial\hat{f}_0/\partial v$ are very small there. The integral above can be evaluated by integration by parts:
 
@@ -374,7 +374,7 @@ Treating the imaginary term as small, we can bring it to the right-hand side and
 
 $$
 \omega = \omega_p\Big( 1 + i\frac{\pi}{2}\frac{\omega_p^2}{k^2}\frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=v_\phi} \Big)
-$$ {#eq:landau}
+$$ {#eq-landau}
 
 If $\hat{f}_0$ is a one-dimensional Maxwellian, we have
 
@@ -394,7 +394,7 @@ $$
 
 Since $\Im(\omega)$ is negative, there is a collisionless damping of plasma waves; this is called _Landau damping_. As is evident from the expression, this damping is extremely small for small $k\lambda_D$, but becomes important for $k\lambda_D = \mathcal{O}(1)$. This effect is connected with $f_1$, the distortion of the distribution function caused by the wave.
 
-## The Meaning of Landau Damping {#sec:landau_damping}
+## The Meaning of Landau Damping {#sec-landau_damping}
 
 __The theoretical discovery of wave damping without energy dissipation by collisions is perhaps the most astounding result of plasma physics research__. That this is a real effect has been demonstrated in the laboratory. Although a simple physical explanation for this damping is now available, it is a triumph of applied mathematics that this unexpected effect was first discovered purely mathematically in the course of a careful analysis of a contour integral. Landau damping is a characteristic of collisionless plasmas, but it may also have application in other fields. For instance, in the kinetic treatment of galaxy formation, stars can be considered as atoms of a plasma interacting via gravitational rather than electromagnetic forces. Instabilities of the gas of stars can cause spiral arms to form, but this process is limited by Landau damping.
 
@@ -415,7 +415,7 @@ $$
 m\Big[ \frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)\mathbf{v} \Big] = q\mathbf{E}(x)
 $$
 
-Here, $\mathbf{E}(x)$ is to be evaluated in the laboratory frame, which is easy; but to make up for it, there is the $(\mathbf{v}\cdot\nabla)\mathbf{v}$ term. The neglect of $(\mathbf{v}_1\cdot\nabla)\mathbf{v}_1$ in linear theory amounts to the same thing as using unperturbed orbits. In kinetic theory, the nonlinear term that is neglected is, from the first-order Vlasov @eq:vlasov_1st,
+Here, $\mathbf{E}(x)$ is to be evaluated in the laboratory frame, which is easy; but to make up for it, there is the $(\mathbf{v}\cdot\nabla)\mathbf{v}$ term. The neglect of $(\mathbf{v}_1\cdot\nabla)\mathbf{v}_1$ in linear theory amounts to the same thing as using unperturbed orbits. In kinetic theory, the nonlinear term that is neglected is, from the first-order Vlasov @eq-vlasov_1st,
 
 $$
 \frac{q}{m}E_1\frac{\partial f_1}{\partial v}
@@ -747,7 +747,7 @@ We now define the _plasma dispersion function_ $Z(\zeta)$:
 
 $$
 Z(\zeta) = \frac{1}{\pi^{1/2}}\int_{-\infty}^{\infty}\frac{e^{-s^2}}{s -\zeta}ds\quad \Im(\zeta)>0
-$$ {#eq:plasma_dispersion_function}
+$$ {#eq-plasma_dispersion_function}
 
 (Why positive imaginary part???)This is a contour integral, as explained in previous sections, and analytic continuation to the lower half plane must be used if $\Im(\zeta)<0$. $Z(\zeta)$ is a complex function of a complex argument (since $\omega$ or $k$ usually has an imaginary part). In cases where $Z(\zeta)$ cannot be approximated by an asymptotic formula, one can do it numerically.
 
@@ -799,7 +799,7 @@ $$
 k/k_D^2 = \frac{1}{2}Z^\prime(\zeta_e)
 $$
 
-which is the same as @eq:dispersion_0th when $f_{0e}$ is Maxwellian.
+which is the same as @eq-dispersion_0th when $f_{0e}$ is Maxwellian.
 
 ### Ion Waves and Their Damping
 
@@ -945,7 +945,7 @@ $$
 
 This shows that the motion has frequency components differing from the driving frequency by multiples of $\omega_c$, and that the amplitudes of these components are proportional to $J_n(kr_L)/[\omega_c^2 - (\omega - n\omega_c)^2]$. When the denominator vanishes, the amplitude becomes large. This happens when $\omega-n\omega_c = \pm \omega_c$, or $\omega=(n\pm 1)\omega_c,\ n=0,\pm 1, \pm 2, ...$; that is, when the field $\mathbf{E}(x,t)$ resonates with any harmonic of $\omega_c$. In the fluid limit $kr_L\rightarrow 0$, $J_n(kr_L)$ can be approximated by $(kr_L/2)^n/n!$, which approaches 0 for all $n$ except $n=0$. For $n=0$, the coefficient becomes $(\omega_c^2-\omega^2)^{-1}$, which is the fluid result containing only the fundamental cyclotron frequency.
 
-### The Hot Plasma Dielectric Tensor {#sec:HPDR}
+### The Hot Plasma Dielectric Tensor {#sec-HPDR}
 
 After Fourier analysis of $f_1(\mathbf{r},\mathbf{v},t)$ in space and time, the linearized Vlasov equation can be solved for a Maxwellian distribution $f_0(\mathbf{v})$, and the resulting expression $f_1(\mathbf{k},\mathbf{v},\omega)$ can be used to calculate the density and current of each species. The result is usually expressed in the form of an equivalent dielectric tensor $\overleftrightarrow{\epsilon}$, such that the dispersion vector $\mathbf{D}=\overleftrightarrow{\epsilon}\cdot\mathbf{E}$ can be used in the Maxwell's equations to calculate dispersion relations for various waves. The algebra is horrendous and therefore omitted. We quote only a restricted result valid for nonrelativistic plasmas with isotropic pressure $T_\perp = T_\parallel$ and no zero-order drifts $\mathbf{v}_{0j}$; these restrictions are easily removed, but he general formulas are too cluttered for our purposes. We further assume $\mathbf{k} = k_x\hat{\mathbf{x}} + k_z\hat{\mathbf{z}}$, with $\hat{\mathbf{z}}$ being the direction of $\mathbf{B}_0$; no generality is lost by setting $k_y$ equal to zero, since the plasma is isotropic in the plane perpendicular to $\mathbf{B}_0$. The elements of $\overleftrightarrow{\epsilon}_R = \overleftrightarrow{\epsilon}/\epsilon_0$ are then
 
