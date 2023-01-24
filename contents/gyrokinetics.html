@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Key Notes in Plasma Physics - 11&nbsp; Gyrokinetics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../contents/flr.html" rel="next">
+<link href="../contents/kmhd.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Key Notes in Plasma Physics</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/about.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/single.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">Appendix</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-brief-historical-review" id="toc-a-brief-historical-review" class="nav-link active" data-scroll-target="#a-brief-historical-review"><span class="toc-section-number">11.1</span>  A Brief Historical Review</a></li>
+  <li><a href="#coordinate-transformation" id="toc-coordinate-transformation" class="nav-link" data-scroll-target="#coordinate-transformation"><span class="toc-section-number">11.2</span>  Coordinate Transformation</a></li>
+  <li><a href="#the-gyrokinetic-ordering" id="toc-the-gyrokinetic-ordering" class="nav-link" data-scroll-target="#the-gyrokinetic-ordering"><span class="toc-section-number">11.3</span>  The Gyrokinetic Ordering</a>
+  <ul class="collapse">
+  <li><a href="#from-kinetics-to-gyrokinetics" id="toc-from-kinetics-to-gyrokinetics" class="nav-link" data-scroll-target="#from-kinetics-to-gyrokinetics"><span class="toc-section-number">11.3.1</span>  From Kinetics to Gyrokinetics</a></li>
+  </ul></li>
+  <li><a href="#a-lagriangian-approach" id="toc-a-lagriangian-approach" class="nav-link" data-scroll-target="#a-lagriangian-approach"><span class="toc-section-number">11.4</span>  A Lagriangian Approach</a>
+  <ul class="collapse">
+  <li><a href="#linear-gyrokinetics" id="toc-linear-gyrokinetics" class="nav-link" data-scroll-target="#linear-gyrokinetics"><span class="toc-section-number">11.4.1</span>  Linear Gyrokinetics</a></li>
+  <li><a href="#nonlinear-gyrokinetics" id="toc-nonlinear-gyrokinetics" class="nav-link" data-scroll-target="#nonlinear-gyrokinetics"><span class="toc-section-number">11.4.2</span>  Nonlinear Gyrokinetics</a></li>
+  </ul></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="toc-section-number">11.5</span>  Applications</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations"><span class="toc-section-number">11.6</span>  Limitations</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/gyrokinetics.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-gyrokinetics" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This is taken from the slide given by Frank Jenko from Max-Planck-Institut für Plasmaphysik.</p>
+<p>Gyrokinetics is a theory for describing plasmas at a much finer level. If kinetic effects (e.g.&nbsp;finite Larmor radius, Landau damping, magnetic trapping etc.) play a role, MHD is not applicable, and one has to use a kinetic description.</p>
+<p>Once again we start from the Vlasov-Maxwell equation. Removing the fast gyromotion under the assumption <span class="math inline">\(\omega\ll\Omega\)</span> leads to a dramatic speed-up. Thus we can think the basic element of charged rings as quasiparticles: it is described by gyrocenter coordinates and can keep the kinetic effects.</p>
+<section id="a-brief-historical-review" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="a-brief-historical-review"><span class="header-section-number">11.1</span> A Brief Historical Review</h2>
+<p>The word “gyrokinetics” appeared in the literature in the late 1960s, first proposed by Rutherford, Frieman, Taylor and Hastie. The goal is to provide an adequate formalism for the linear kinetic drift waves study in general magnetic configurations, including finite Larmor radius effects. The first nonlinear set of equations for the perturbed distribution function <span class="math inline">\(\delta f\)</span> was given by Friemann and Liu Chen in 1982, who also introduced the gyrokinetic ordering. Gyrokinetic theory is based on Hamiltonian methods, which means that from a Lagrangian description, we remove the gyro-angle dependency by the change of coordinate systems to describe the equation of motion.</p>
+</section>
+<section id="coordinate-transformation" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="coordinate-transformation"><span class="header-section-number">11.2</span> Coordinate Transformation</h2>
+<p>We perform the following coordinate transformation from the charged particle’s phase space (<span class="math inline">\(\mathbf{x},\mathbf{v}\)</span>) to the corresponding guiding-center phase space (<span class="math inline">\(\mathbf{X},\mathbf{V}\)</span>), where:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{X} = \mathbf{X}_\perp + X_\parallel \mathbf{b}_0,\quad \mathbf{X}_\perp = \mathbf{x}_\perp + \mathbf{r}_L,\quad \mathbf{r}_L = \mathbf{v}\times\mathbf{b}_0 / \Omega_c
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{V} = [\epsilon=v^2/2, \mu=v_\perp^2/2B_0, \sigma=\text{sgn}(v_\parallel)]
+\]</span></p>
+<p>Here, <span class="math inline">\(\mathbf{b}_0 = \mathbf{B}_0/B_0\)</span>, <span class="math inline">\(\mathbf{r}_L\)</span> is the gyroradius vector, <span class="math inline">\(v_\parallel=\mathbf{v}\cdot\mathbf{b}_0\)</span>, <span class="math inline">\(\mu\)</span> is the magnetic moment adiabatic invariant and, assuming there is no equilibrium electrostatic potential, <span class="math inline">\(\epsilon\)</span> is an equilibrium constant of motion.</p>
+<p>In the guiding-center phase space, charged particle dynamics is naturally separated into the fast cyclotron motion and the slow guiding-center motion. One can then apply the gyrokinetic orderings and systematically average out the fast cyclotron motion (i.e., the gyrophase averaging) and obtain the asymptotically dominant (in terms of the smallness parameter <span class="math inline">\(\epsilon\)</span>) perturbed distribution function response. This perturbed distribution function in the guiding-center phase space can then be <em>inversely transformed</em> back to the charged particle phase space and applied toward the field equations (i.e., Maxwell’s equations) for a self-consistent kinetic description.</p>
+<ul>
+<li>Obtain Vlasov equation in the guiding center coordinates.</li>
+<li>Obtain Maxwell’s equations in the guiding center coordinates.</li>
+</ul>
+<p>Why do we need extra steps before using Maxwell’s equations? It is because in Maxwell’s equations the particle information (<span class="math inline">\(\rho, \mathbf{j}\)</span>) are described not in the guiding center coordinates. The distribution we obtain from Vlasov equation must be transformed back to ordinary coordinates and then we can do the moment integral.</p>
+<p>In the guiding center coordinates, density and current density can be expressed as</p>
+<p><span id="eq-gk_density"><span class="math display">\[
+n = \bar{N}_0 + \bar{\nabla}\cdot\Big( \frac{c\bar{N}_0}{B\Omega}\bar{\nabla}_\perp \delta\phi \Big) + \frac{\bar{N}_0\delta B_\parallel}{B} + \int \bar{F}_1d\mathbf{p}
+\tag{11.1}\]</span></span></p>
+<p><span id="eq-gk_current_density"><span class="math display">\[
+\begin{aligned}
+\mathbf{j} &amp;= -\frac{\bar{N}_0 q^2}{cm}\delta A_\parallel\hat{b} + \int\frac{q \bar{\mathbf{P}}_\parallel}{m}\hat{b}\mathrm{d}\bar{\mathbf{P}} + \frac{cq\bar{N}_0}{B}\hat{b}\times\bar{\nabla}\delta\phi + \frac{3c^2\bar{N}_0\bar{T}}{2B^2\Omega}\hat{b}\times\bar{\nabla}\bar{\nabla}_\perp^2\delta\phi \\
+&amp;+ \frac{2c\bar{N}_0 \bar{T}}{B^2}\hat{b}\times\bar{\nabla}\delta B_\parallel + \frac{\hat{b}}{B}\times\bar{\nabla}(c\bar{N}_0\bar{T}) + \hat{b}\times\bar{\nabla}\int c\bar{\mu}\bar{F}_1 \mathrm{d}\bar{\mathbf{P}}
+\end{aligned}
+\tag{11.2}\]</span></span></p>
+<p>Note that</p>
+<ul>
+<li>In Vlasov equation in the guiding center coordinates, the <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift, gradient drift and curvature drift all appears but the polarization drift is missing.</li>
+<li>In <a href="#eq-gk_density">Equation&nbsp;<span>11.1</span></a>, only the polarization term correction appears. From Hamilton’s mechanics, all term that has a explicit time dependency will not contribute here since it will break the energy conservation of the system.</li>
+</ul>
+</section>
+<section id="the-gyrokinetic-ordering" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="the-gyrokinetic-ordering"><span class="header-section-number">11.3</span> The Gyrokinetic Ordering</h2>
+<section id="from-kinetics-to-gyrokinetics" class="level3" data-number="11.3.1">
+<h3 data-number="11.3.1" class="anchored" data-anchor-id="from-kinetics-to-gyrokinetics"><span class="header-section-number">11.3.1</span> From Kinetics to Gyrokinetics</h3>
+<div id="fig-kinetics2gk" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/kinetics2gyrokinetics.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;11.1: Charged particle orbit in a magnetic field pointing into the plane with electrostatic potential fluctuations.</figcaption><p></p>
+</figure>
+</div>
+<p><a href="#fig-kinetics2gk">Figure&nbsp;<span>11.1</span></a> shows the basic idea of gyrokinetic approximation. There is a strong magnetic field pointing into the plane. The electrostatic potential fluctuations are shown by the colored contours. The particle orbit is composed of two parts: a fast gyromotion and a slow <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift. In gyrokinetics we simply remove the fast gyromotion and introduce charged rings as quasiparticles, i.e.&nbsp;go from particle to gyrocenter coordinates.</p>
+<div id="fig-gk_approximation" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/gyrokinetic_approximation.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;11.2: Gyrokinetic approximation.</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Slow time variation as compared to the gyromotion time scale:</li>
+</ul>
+<p><span class="math display">\[
+\omega/\Omega_i \ll 1
+\]</span></p>
+<ul>
+<li>Spatial equilibirum scale much larger than the Larmor radius:</li>
+</ul>
+<p><span class="math display">\[
+r_L/L\ll 1
+\]</span></p>
+<ul>
+<li>Strong anisotropy, i.e.&nbsp;only perpendicular components of the fluctuating quantities can be large:</li>
+</ul>
+<p><span class="math display">\[
+k_\parallel/k_\perp \ll 1
+\]</span></p>
+<ul>
+<li>Small amplitude perturbations, i.e.&nbsp;energy of perturbation much smaller than the thermal energy:</li>
+</ul>
+<p><span class="math display">\[
+e\phi/k_BT_e \ll 1
+\]</span></p>
+<p>There exists a natural smallness parameter, <span class="math inline">\(\epsilon=r_L/L\)</span>, which we are going to use in the ordering. In magnetically confined plasmas, typically we have <span class="math inline">\(\epsilon\lesssim\mathcal{O}(10^{-2})\ll 1\)</span>.</p>
+<p><span class="math display">\[
+\frac{\omega}{\Omega}\sim\frac{r_L}{L}\sim\frac{k_\parallel}{k_\perp}\sim\frac{\delta F}{F_0}\sim\frac{\delta T}{T_0}\sim\frac{\delta n}{n_0}\sim\frac{|\delta \mathbf{B}|}{|\mathbf{B}_0|}\sim\frac{q\delta\phi}{T}\sim\epsilon
+\]</span></p>
+<p>Usually low-frequency (<span class="math inline">\(|\omega/\Omega_i|\sim\epsilon\)</span>) but short-wavelength (<span class="math inline">\(k_\perp r_L \sim 1\)</span>) fluctuations are of interest in gyrokinetics. To include Landau resonance (???),</p>
+<p><span class="math display">\[
+k_\parallel v_\parallel\sim \omega,\quad\text{or}\quad |k_\perp r_i|\sim 1
+\]</span></p>
+<p>Noting, furthermore, for <span class="math inline">\(|k_\perp r_i|\sim 1\)</span> and the ratio of plasma ion pressure to the background magnetic field energy density <span class="math inline">\(\beta_i \lesssim 1\)</span>:</p>
+<p><span class="math display">\[
+\beta = \frac{P_{0i}}{P_{0B}} = \frac{m_i n_i v_{\perp i}^2/2}{B_0^2/2\mu_0} = \frac{v_{\perp i}^2}{v_A^2}
+\]</span></p>
+<p><span class="math display">\[
+\bigg\lvert \frac{\omega}{k_\perp v_A} \bigg\rvert \sim \bigg\lvert \frac{\omega}{\Omega_i} \bigg\rvert \bigg\lvert \frac{1}{k_\perp r_{iL}} \bigg\rvert \beta_i^{1/2} \lesssim \epsilon
+\]</span></p>
+<p>i.e.&nbsp;fast waves are systematically suppressed in the gyrokinetic orderings.</p>
+</section>
+</section>
+<section id="a-lagriangian-approach" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="a-lagriangian-approach"><span class="header-section-number">11.4</span> A Lagriangian Approach</h2>
+<p>If the Lagriangian of a dynamical system is known, e.g.&nbsp;for charged particle motion in non-canonical coordinates <span class="math inline">\((\mathbf{x},\mathbf{v})\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+L &amp;= \Big(\frac{e}{c}\mathbf{A}(\mathbf{x},t) + m\mathbf{v}\Big)\cdot\dot{\mathbf{x}} - H(\mathbf{x},\mathbf{v}) \\
+H &amp;= \frac{m}{2}v^2 + e\phi(\mathbf{x},t)
+\end{aligned}
+\]</span></p>
+<p>with <span class="math inline">\(\mathbf{B} = \nabla\times\mathbf{A}\)</span> and <span class="math inline">\(\mathbf{E} = -\nabla\phi - \partial_t \mathbf{A}/c\)</span>. The equation of motion are given by the Lagrange equations (I almost forget everything from theoretical mechanics…):</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{q}_i} - \frac{\partial L}{\partial q_i} = 0,\quad i=1,...,6
+\]</span></p>
+<p>For charged particles,</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial\dot{\mathbf{v}}} - \frac{\partial L}{\partial\mathbf{v}} = 0 ?
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\dot{\mathbf{x}} &amp;= \mathbf{v} \\
+\dot{\mathbf{v}} &amp;= \frac{e}{m}(\mathbf{E} + \mathbf{v}\times\mathbf{B})
+\end{aligned}
+\]</span></p>
+<p>In gyrokinetics we add low-frequency, anisotropic, small-amplitude fluctuations:</p>
+<p><span class="math display">\[
+\frac{\omega}{\Omega_i} \sim \frac{k_\parallel}{k_\perp}\sim\frac{e\phi}{T_e} \sim \epsilon
+\]</span></p>
+<p>We need a transition from particle coordinates <span class="math inline">\((\mathbf{x},\mathbf{v})\)</span> to guiding center coordinates <span class="math inline">\((\mathbf{R},v_\parallel, \mu, \varphi)\)</span>. The easy way is to construct a new Lagrangian using Lie transforms (???)</p>
+<p><span class="math display">\[
+\Gamma = \Big( mv_\parallel\hat{b}_0 + \frac{e}{c}\bar{\mathbf{A}}_{1\parallel}\hat{b}_0 + \frac{e}{c}\mathbf{A}_0 \Big)\cdot \mathrm{d}\mathbf{X} + \frac{mc}{e}\mu \mathrm{d}\theta - \Big( \frac{m}{2}v_\parallel^2 + \mu B_0 + \mu \bar{B}_{1\parallel} + e\bar{\phi}_1 \Big)\mathrm{d}t
+\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> is the magnetic moment, <span class="math inline">\(\theta\)</span> is the gyroangle, and the overbar denotes a gyroaveraging operation. This gives the Euler-Lagrange equations</p>
+<p><span id="eq-gk_euler_lagrange"><span class="math display">\[
+\begin{aligned}
+\dot{\mathbf{X}} &amp;= v_\parallel\hat{b} + \frac{B}{B_\parallel^\ast}\Big[ \frac{v_\perp}{B}\bar{\mathbf{B}}_{1\perp} + \frac{c}{B^2}\bar{\mathbf{E}}_1\times\mathbf{B} + \frac{\mu}{m\Omega}\hat{b}\times\nabla(B+\bar{B}_{1\parallel}) + \frac{v_\parallel^2}{\Omega}(\nabla\times\hat{b})_\perp \Big] \\
+\dot{v}_\parallel &amp;= \frac{\dot{\mathbf{X}}}{mv_\parallel}\cdot\big( e\bar{\mathbf{E}}_1 - \mu\nabla(B+\bar{B}_{1\parallel}) \big) \\
+\dot{\mu} &amp;= 0
+\end{aligned}
+\tag{11.3}\]</span></span></p>
+<p><a href="#eq-gk_euler_lagrange">Equation&nbsp;<span>11.3</span></a> contains all the drifts we have seen in <a href="single.html"><span>Chapter&nbsp;4</span></a>.</p>
+<p>Applying the gyrokinetic approximation, the effective gyroaveraged potential over one gyroperiod can be written using Fourier transform (???):</p>
+<p><span class="math display">\[
+\begin{aligned}
+\phi^{\text{eff}}(\mathbf{x},r_L) &amp;= \frac{1}{2\pi} \int_0^{2\pi}\mathrm{d}\theta \phi(\mathbf{x}+\mathbf{r}_L) \\
+&amp;= \frac{1}{(2\pi)^2}\int_{-\infty}^{\infty}\mathrm{d}\mathbf{k}e^{i\mathbf{k}\cdot\mathbf{x}}\phi(\mathbf{k})J_0(kr_L)
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(J_0\)</span> is the zeroth order Bessel function.</p>
+<section id="linear-gyrokinetics" class="level3" data-number="11.4.1">
+<h3 data-number="11.4.1" class="anchored" data-anchor-id="linear-gyrokinetics"><span class="header-section-number">11.4.1</span> Linear Gyrokinetics</h3>
+<p>We shall limit our considerations to that of a simple uniform plasma with an isotropic Maxwellian equilibrium distribution function. Assuming, furthermore, <span class="math inline">\(\beta\)</span> (ratio between the plasma and magnetic pressures) <span class="math inline">\(\ll 1\)</span>, such that there is negligible magnetic compression, the particle velocity distribution is then given by:</p>
+<p><span class="math display">\[
+f(\mathbf{x},\mathbf{v},t) = f_M(\epsilon) + \delta f(\mathbf{x},\mathbf{v},t)
+\]</span></p>
+<p>where <span class="math inline">\(f_M(\epsilon)=n_0/(\pi^{3/2}v_t^3)\exp(-\epsilon/v_t^2)\)</span> is the Maxwellian distribution function, <span class="math inline">\(v_t\)</span> is the thermal speed (HOW TO UNDERSTAND THIS???):</p>
+<p><span class="math display">\[
+\delta f = \frac{q}{T}f_M(\epsilon)\delta\phi + e^{-\mathbf{r}_L\cdot\nabla}\delta g
+\]</span></p>
+<p><span class="math inline">\(T=mv_t^2/2\)</span>, <span class="math inline">\(\delta g\)</span> satisfies the following linear gyrokinetic equation:</p>
+<p><span id="eq-gk_linear"><span class="math display">\[
+\begin{aligned}
+\Big( \frac{\partial}{\partial t}+v_\parallel\mathbf{b}_0\cdot\nabla \Big)\delta g = \frac{q}{T}f_M(\epsilon)\frac{\partial} {\partial t}\left&lt; \delta L_g \right&gt;_\alpha \\
+\delta L_g = e^{-\mathbf{r}_L\cdot\nabla}\delta L \\
+\delta L = \delta \phi - v_\parallel \delta A_\parallel/c
+\end{aligned}
+\tag{11.4}\]</span></span></p>
+<p>and <span class="math inline">\(&lt;...&gt;_\alpha\)</span> denotes averaging over the gyrophase angle, <span class="math inline">\(\alpha\)</span>. Here, the field variables are the scalar and vector potentials, <span class="math inline">\(\delta\phi\)</span> and <span class="math inline">\(\delta\mathbf{A}\)</span>, with <span class="math inline">\(\delta A_\parallel=\delta\mathbf{A}\cdot\mathbf{b}_0\)</span> and the <span class="math inline">\(\nabla\cdot\delta\mathbf{A}=0\)</span> Coulomb gauge. The operator <span class="math inline">\(e^{-\mathbf{r}_L\cdot\nabla}\)</span>, meanwhile, represents the transformation between the particle and guiding center positions.</p>
+<p>The corresponding field equations are the Poisson’s equation and the parallel Ampère’s law, <span class="math inline">\(\nabla^2 \delta A_\parallel = -4\pi\delta J_\parallel/c\)</span>. In the low-frequency and <span class="math inline">\(|k\lambda_D|^2\ll 1\)</span> limit with <span class="math inline">\(\lambda_D\)</span> being the Debye length, Poisson’s equation can be approximated as the quasi-neutrality condition; <span class="math inline">\(\sum_j n_{0j}q_j&lt;\delta f_j&gt;_v\simeq 0\)</span>. Here, <span class="math inline">\(&lt;...&gt;_v = \int \mathrm{d}\mathbf{v} (...)\)</span> is the velocity-space integral, and subscript <span class="math inline">\(j\)</span> runs over the particle species. Meanwhile, substituting the parallel Ampère’s law into the <span class="math inline">\(\nabla\cdot\delta\mathbf{J}\simeq 0\)</span> quasi-neutrality condition as derived by <a href="#eq-gk_linear">Equation&nbsp;<span>11.4</span></a> yields a generalized linear gyrokinetic vorticity equation, which is often convenient to use in studying shear/kinetic Alfvén wave dynamics.</p>
+<p><strong>Linear kinetic Alfvén wave properties</strong></p>
+<p>(WARNING: SUPER HARD TO FOLLOW!) For plane wave <span class="math inline">\(\omega,\mathbf{k}\)</span> perturbations, <a href="#eq-gk_linear">Equation&nbsp;<span>11.4</span></a> gives:</p>
+<p><span class="math display">\[
+\delta g_\mathbf{k} = -\frac{q}{T}f_M J_0(k_\perp \mathbf{r}_L) \frac{\omega}{k_\parallel v_\parallel - \omega}\Big( \delta\phi - \frac{v_\parallel}{c}\delta A_\parallel \Big)_\mathbf{k}
+\]</span></p>
+<p><span class="math inline">\(J_0\)</span> is the Bessel function and <span class="math inline">\(J_0(k_\perp \mathbf{r}_L)\)</span> corresponds to the gyro-averaging of the coordinate transformation, that is:</p>
+<p><span class="math display">\[
+&lt;\exp(-\mathbf{r}_L\cdot\nabla)&gt;_\alpha = J_0(k_\perp r_L)
+\]</span></p>
+<p>In SAW/KAW analyses, it is sometimes convenient to introduce an <em>effective induced parallel potential</em> defined by <span class="math inline">\(\mathbf{b}_0\cdot\nabla\delta\Psi = -\partial_t \delta A_\parallel/c\)</span> or:</p>
+<p><span class="math display">\[
+\delta\Psi_\mathbf{k} = \omega\delta A_{\parallel\mathbf{k}} / (ck_\parallel)
+\]</span></p>
+<p><span class="math inline">\(\delta\Psi\)</span>, thus, gives rise to the induced parallel electric field; that is, the net parallel electric field is given by:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\delta E_\parallel &amp;= -\mathbf{b}_0\cdot\nabla(\delta\phi-\delta\Psi)\quad\text{or} \\
+\delta E_{\parallel\mathbf{k}} &amp;= -ik_\parallel(\delta\phi-\delta\Psi)_\mathbf{k}
+\end{aligned}
+\]</span></p>
+<p>The quasi-neutrality condition then straightforwardly yields: (Chen and Hasegawa 1991)</p>
+<p><span id="eq-gk_linear_quasi_neutrality_derive"><span class="math display">\[
+\sum_j\Big( \frac{n_0 q^2}{T_0} \Big)_j \{ \delta\phi_\mathbf{k} + \Gamma_{0kj}[\xi_{kj}Z_{kj}\delta\phi_\mathbf{k} - (1+\xi_{kj}Z_{kj}\delta\Psi_\mathbf{k})] \} = 0
+\tag{11.5}\]</span></span></p>
+<p>Here, <span class="math inline">\(\xi_{kj}=\omega/|k_\parallel|v_{tj},Z_{kj}=Z(\xi_{kj})\)</span> with <span class="math inline">\(Z\)</span> being the well-known plasma dispersion function (<a href="kinetic.html#eq-plasma_dispersion_function">Equation&nbsp;<span>8.12</span></a>), and <span class="math inline">\(\Gamma_{0kj} = I_0(b_{kj})\exp(-b_{kj})\)</span> with <span class="math inline">\(I_0\)</span> the modified Bessel function and <span class="math inline">\(b_{kj}=k_\perp^2 r_{Lj}/2 = k_\perp^2(T_j/m_j)/\Omega_j^2\)</span>. The linear gyrokinetic vorticity equation, meanwhile, is given by: (Chen and Hasegawa 1991)</p>
+<p><span id="eq-gk_linear_vorticity"><span class="math display">\[
+i\frac{c^2}{4\pi\omega}k_\parallel^2 k_\perp^2 \delta\Psi_\mathbf{k} - i \sum_j\Big( \frac{n_0q^2}{T_0} \Big)_j (1-\Gamma_{0kj})\omega\delta\phi_\mathbf{k} = 0
+\tag{11.6}\]</span></span></p>
+<p>Nothing that, for KAW, <span class="math inline">\(|k_\perp r_{Li}| \sim\mathcal{O}(1)\)</span> and <span class="math inline">\(|k_\perp r_{Le}|\ll 1\)</span> and, thus, <span class="math inline">\(\Gamma_{0ke}\simeq 1\)</span>, <a href="#eq-gk_linear_quasi_neutrality_derive">Equation&nbsp;<span>11.5</span></a> and <a href="#eq-gk_linear_vorticity">Equation&nbsp;<span>11.6</span></a> then become</p>
+<p><span id="eq-gk_linear_par_potential"><span class="math display">\[
+\begin{aligned}
+\epsilon_{s\mathbf{k}} \delta\phi_\mathbf{k} &amp;= [1+\xi_{ke}Z_{ke}+\tau(1+\Gamma_k \xi_{ki}Z_ki)]\delta\phi_\mathbf{k} \\
+&amp;= [1+\xi_{ke}Z_{ke}+\tau\Gamma_k(1+\xi_{ki}Z_{ki})]\delta\Psi_\mathbf{k}
+\end{aligned}
+\tag{11.7}\]</span></span></p>
+<p>and</p>
+<p><span id="eq-gk_linear_vorticity_approxi"><span class="math display">\[
+\omega^2 \delta\phi_\mathbf{k} = k_\parallel^2 v_A^2 \frac{b_k}{1-\Gamma_k}\delta\Psi_\mathbf{k}
+\tag{11.8}\]</span></span></p>
+<p>Here, <span class="math inline">\(\tau=T_{0e}/T_{0i}, b_k=b_{ki}, \Gamma_k=\Gamma_{0ki}\)</span>, and <span class="math inline">\(\epsilon_{s\mathbf{k}}\)</span> is the dielectric constant for the slow-sound (ion-acoustic) wave (SSW).</p>
+<p>It is also instructive, as done in some literatures, to define the effective parallel potential, <span class="math inline">\(\delta\phi_{\parallel\mathbf{k}}=\delta\phi_\mathbf{k} - \delta\Psi_\mathbf{k}\)</span>, and rewrite <a href="#eq-gk_linear_par_potential">Equation&nbsp;<span>11.7</span></a> and <a href="#eq-gk_linear_vorticity_approxi">Equation&nbsp;<span>11.8</span></a> as</p>
+<p><span id="eq-gk_linear_par_potential2"><span class="math display">\[
+\epsilon_{s\mathbf{k}} \delta\phi_{\parallel\mathbf{k}} = -\tau(1-\Gamma_k)\delta\Psi_\mathbf{k}
+\tag{11.9}\]</span></span></p>
+<p>and</p>
+<p><span id="eq-gk_linear_vorticity_approxi2"><span class="math display">\[
+\Big[ \omega^2 - k_\parallel^2v_A^2\frac{b_k}{1-\Gamma_k} \Big] \delta\Psi_\mathbf{k} = -\omega^2\delta\phi_{\parallel\mathbf{k}}
+\tag{11.10}\]</span></span></p>
+<p><a href="#eq-gk_linear_par_potential2">Equation&nbsp;<span>11.9</span></a> and <a href="#eq-gk_linear_vorticity_approxi2">Equation&nbsp;<span>11.10</span></a> demonstrate the coupling between SAW and SSW via the finite <span class="math inline">\(|k_\perp r_{Ls}|\)</span> term. In the <span class="math inline">\(|k_\perp r_{Li}|\sim\mathcal{O}(1)\)</span> short-wavelength limit, SAW evolves into KAW due to both the finite <span class="math inline">\(|k_\perp r_{Li}|\)</span> and <span class="math inline">\(|k_\perp r_{Ls}|\)</span> effects. (???) More specifically, the coupled KAW-SSW dispersion relation becomes</p>
+<p><span id="eq-gk_linear_SAW_SSW"><span class="math display">\[
+\omega_\mathbf{k}^2\Big[ 1-\frac{\tau(1-\Gamma_k)}{\epsilon_{s\mathbf{k}}} \Big] = k_\parallel^2 v_A^2 \frac{b_k}{1-\Gamma_k}
+\tag{11.11}\]</span></span></p>
+<p>Let us concentrate on the KAW branch and, to further simplify the analysis, assume <span class="math inline">\(1\gg \beta_i\sim\beta_e\gg m_e/m_i\)</span>. With <span class="math inline">\(|\omega|\sim|k_\parallel v_A|\)</span>, we then have <span class="math inline">\(|\xi_{ki}|=|\omega/k_\parallel v_{ti}|\sim\beta_i^{-1/2}\gg 1 \gg |\xi_{ke}|\sim(m_e/m_i\beta_e)^{1/2}\)</span>, and, keeping only the lowest order <span class="math inline">\(\mathbf{O}(1)\)</span> terms:</p>
+<p><span class="math display">\[
+\epsilon_{s\mathbf{k}} \simeq 1+\tau(1-\Gamma_k) \equiv \sigma_k
+\]</span></p>
+<p>From <a href="#eq-gk_linear_SAW_SSW">Equation&nbsp;<span>11.11</span></a>, we then have</p>
+<p><span id="eq-gk_linear_SAW_SSW_approxi"><span class="math display">\[
+\omega_{\mathbf{k}}^2 \simeq k_\parallel^2 v_A^2\frac{\sigma_k b_k}{1-\Gamma_k}
+\tag{11.12}\]</span></span></p>
+<p>As to wave polarizations, which are useful for wave identification in observations, we can readily derive:</p>
+<p><span id="eq-gk_linear_polarization_perp"><span class="math display">\[
+\bigg\lvert \frac{c\delta\mathbf{E}_\perp}{\delta\mathbf{B}_\perp} \bigg\rvert = v_A \Big[ \frac{b_k}{\sigma_k(1-\Gamma_k)}\Big]^{1/2}
+\tag{11.13}\]</span></span></p>
+<p>and</p>
+<p><span id="eq-gk_linear_polarization_par"><span class="math display">\[
+\bigg\lvert \frac{c\delta E_\parallel}{\delta\mathbf{B}_\perp} \bigg\rvert = v_A \bigg\lvert \frac{k_\parallel}{k_\perp}\tau \bigg\rvert\Big[ \frac{b_k(1-\Gamma_k)}{\sigma_k} \Big]^{1/2}
+\tag{11.14}\]</span></span></p>
+<p>ADD PLOTS for <a href="#eq-gk_linear_SAW_SSW_approxi">Equation&nbsp;<span>11.12</span></a>, <a href="#eq-gk_linear_polarization_perp">Equation&nbsp;<span>11.13</span></a>, and <a href="#eq-gk_linear_polarization_par">Equation&nbsp;<span>11.14</span></a>!!!</p>
+<p><a href="#eq-gk_linear_polarization_par">Equation&nbsp;<span>11.14</span></a> show that, for a fixed <span class="math inline">\(|k_\parallel/k_\perp|, |\delta E_\parallel/\delta\mathbf{B}_\perp|\)</span> increases with <span class="math inline">\(b_k\)</span>. Since wave-particel energy and momentum exchanges are proportional to <span class="math inline">\(|\delta E_\parallel|\)</span>, short-wavelength KAW are, thus, expected to play crucial roles in the heating, acceleration, and transport of charged particles.</p>
+<p>In addition to having a significant <span class="math inline">\(\delta E_\parallel\)</span>, another important property of KAW, in contrast to SAW, is that KAW has a finite perpendicular (to <span class="math inline">\(\mathbf{B}_0\)</span>) group velocity, <span class="math inline">\(\mathbf{v}_{g\perp}\)</span>. Assuming <span class="math inline">\(|k_\perp r_{Li}|^2\ll 1\)</span>, we have, letting <span class="math inline">\(\omega_A^2\equiv k_\parallel^2 v_A^2\)</span>:</p>
+<p><span id="eq-gk_linear_KAW_kperp_large"><span class="math display">\[
+\omega_\mathbf{k}^2 \simeq \omega_A^2(1+k_\perp^2 \hat{r}^2)
+\tag{11.15}\]</span></span></p>
+<p>where</p>
+<p><span id="eq-gk_linear_KAW_scale"><span class="math display">\[
+\hat{r}^2 = (3/4 + \tau)r_{Li}^2
+\tag{11.16}\]</span></span></p>
+<p>Thus</p>
+<p><span id="eq-gk_linear_KAW_group"><span class="math display">\[
+\mathbf{v}_{g\perp}=\frac{\partial \omega_\mathbf{k}}{\partial \mathbf{k}_\perp}\simeq \frac{\omega_A^2}{\omega_\mathbf{k}}\hat{r}^2\mathbf{k}_\perp
+\tag{11.17}\]</span></span></p>
+<p><strong>Linear mode conversion of KAW</strong></p>
+<p><a href="#eq-gk_linear_KAW_kperp_large">Equation&nbsp;<span>11.15</span></a> has a significant implication in non-uniform plasmas. Consider, again, a slab plasma with a non-uniform <span class="math inline">\(\omega_A^2(x)\)</span> and <span class="math inline">\(k_\perp^2 = k_x^2(x)\)</span> being the WKB wavenumber in the non-uniformity <span class="math inline">\(x\)</span>-direction. <a href="#eq-gk_linear_KAW_kperp_large">Equation&nbsp;<span>11.15</span></a> then indicates that KAW is propagating (<span class="math inline">\(k_x^2&gt;0\)</span>) in the <span class="math inline">\(\omega_\mathbf{k}^2&gt;\omega_A^2(x)\)</span> region, and it is cutoff (<span class="math inline">\(k_x^2&lt;0\)</span>) in the <span class="math inline">\(\omega_\mathbf{k}^2&lt;\omega_A^2(x)\)</span> region. That <span class="math inline">\(\mathbf{v}_{g\perp}\)</span> is finite also suggests that, in constrast to SAW, an initial smooth perturbation will not only evolve into short wavelengths, but also propagate toward the lower <span class="math inline">\(\omega_A^2(x)\)</span> region. These features are illustrated in <a href="#fig-gk_KAW_evolution">Figure&nbsp;<span>11.3</span></a>(b); where the spatial-temporal evolution of KAW is solved explicitly according to the following wave equation: (DO IT MYSELF!!!)</p>
+<p><span id="eq-gk_linear_KAW_governing"><span class="math display">\[
+\Big[ \hat{r}^2\frac{\partial^2}{\partial x^2} - 1 - \frac{1}{\omega_A^2(x)}\frac{\partial^2}{\partial t^2} \Big] \delta B_y(x,t) = 0
+\tag{11.18}\]</span></span></p>
+<p><a href="#eq-gk_linear_KAW_governing">Equation&nbsp;<span>11.18</span></a> can be readily derived from <a href="#eq-gk_linear_KAW_kperp_large">Equation&nbsp;<span>11.15</span></a> by letting <span class="math inline">\(\omega_\mathbf{k}=i\partial/\partial t\)</span> and <span class="math inline">\(k_\perp=-i\partial/\partial x\)</span>. The spatial profile of <span class="math inline">\(\omega_A^2(x)/\omega^2 = 1/(1+x^2/L^2)\)</span> is shown in <a href="#fig-gk_KAW_evolution">Figure&nbsp;<span>11.3</span></a>(a), with <span class="math inline">\(L\)</span> indicating the profile length-scale, so that the KAW wave-packet frequency is assumed to be consistent with the SAW frequency at <span class="math inline">\(x=0\)</span>. <a href="#fig-gk_KAW_evolution">Figure&nbsp;<span>11.3</span></a>(b) shows the propagation of the KAW wave-packet in the direction of radial non-uniformity, consistent with <a href="#eq-gk_linear_KAW_group">Equation&nbsp;<span>11.17</span></a>.</p>
+<div>
+<div id="fig-gk_KAW_evolution" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/gk_kaw_propagation.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;11.3: (a) Spatial dependence of <span class="math inline">\(\omega_A^2\)</span>. (b) Propagation of the KAW wave-packet in the non-uniformity direction.</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>That there exists a finite perpendicular group velocity also implies, in the steady state, the removal of “singular” resonance and linear mode conversion process (Hasegawa and Chen 1976, see also <a href="flr.html"><span>Chapter&nbsp;12</span></a>). More specifically, the corresponding wave equation is given by:</p>
+<p><span id="eq-gk_linear_KAW_governing2"><span class="math display">\[
+\Big[\hat{r}^2\frac{\partial^2}{\partial x^2} + \Big( \frac{\omega_0^2}{\omega_A^2(x)} - 1 \Big) \Big]\delta\hat{B}_y(x) = \delta\hat{B}_{y0}
+\tag{11.19}\]</span></span></p>
+<p>Here, <span class="math inline">\(\omega_0\)</span> is the external driving frequency. In the ideal SAW (<span class="math inline">\(\hat{r}\rightarrow 0\)</span>) limit, there is the resonance singularity at <span class="math inline">\(x_0\)</span>, where <span class="math inline">\(\omega_0^2 = \omega_A^2(x_0)\)</span>. Noting that, near <span class="math inline">\(x=x_0\)</span>, <span class="math inline">\(\omega_A^2(x)\simeq \omega_0^2 + (\omega_A^2)^\prime(x_0)(x-x_0)\equiv \omega_0^2 - (\omega_0^2/L_A)(x-x_0)\)</span>, <a href="#eq-gk_linear_KAW_governing2">Equation&nbsp;<span>11.19</span></a> can be approximated as an inhomogeneous Airy equation and solved analytically. <a href="#eq-gk_linear_KAW_governing2">Equation&nbsp;<span>11.19</span></a> can then be solved, with appropriate boundary conditions, by connecting the solutions valid away from the <span class="math inline">\(x=x_0\)</span> resonance layer via the analytic solution of the inhomogeneous Airy equation valid near <span class="math inline">\(x=x_0\)</span> (Hasegawa and Chen 1975, 1976). The solutions away from the singular layer are given by:</p>
+<p><span id="eq-inhomogeneous_by_sol"><span class="math display">\[
+\delta\hat{B}_y(x) = \left\{
+\begin{array}{lr}
+\frac{\delta\hat{B}_{y0}}{\epsilon_A(x)} &amp; \text{for }\omega_0^2 &lt; \omega_A^2(x) \\
+\frac{\delta\hat{B}_{y0}}{\epsilon_A(x)} - \frac{\sqrt{\pi}\delta\hat{B}_{y0}}{(\hat{r}/L_A)^{1/2}}\Big( \frac{\hat{r}^2}{\epsilon_A(x)} \Big)^{1/4}\exp\Big[ i\int_{x_0}^x \Big( \frac{\epsilon_A(x^\prime)}{\hat{r}^2} \Big)^{1/2} \mathrm{d}x^\prime +i\frac{\pi}{4} \Big] &amp; \text{for }\omega_0^2 &gt; \omega_A^2(x)
+\end{array}
+\right.
+\tag{11.20}\]</span></span></p>
+<p>where</p>
+<p><span class="math display">\[
+\epsilon_A(x) = \frac{\omega_0^2}{\omega_A^2(x)} - 1
+\]</span></p>
+<p>The corresponding numerical solutions are plotted in <a href="#fig-gk_KAW_MHD">Figure&nbsp;<span>11.4</span></a>. (I DON’T UNDERSTAND!!!)</p>
+<div>
+<div id="fig-gk_KAW_MHD" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/gk_kaw_propagation.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;11.4: Illustration of ideal MHD (dashed blue line) and KAW (red line) solutions, which asymptotically match <a href="#eq-inhomogeneous_by_sol">Equation&nbsp;<span>11.20</span></a> for <span class="math inline">\(|x-x_0|/\Delta_0\gg 1\)</span>. The Airy swelling factor is evident from the normalization of the ordinate.</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Both the analytical results and mode conversion process exhibit two important features. One is, instead of being singular, the amplitude at <span class="math inline">\(x=x_0\)</span> (where <span class="math inline">\(\omega_A(x_0) = \omega_0\)</span>) is amplified by the Airy swelling factor <span class="math inline">\((L_A/\hat{r})^{2/3}\)</span>. Here, we recall <span class="math inline">\(L_A\)</span> is the scale length of <span class="math inline">\(\omega_A\)</span> and <span class="math inline">\(\hat{r}\)</span>, from <a href="#eq-gk_linear_KAW_scale">Equation&nbsp;<span>11.16</span></a>, is of <span class="math inline">\(\mathcal{O}(r_{Li})\)</span>, and, hence, <span class="math inline">\(|L_A/\hat{r}|\gg 1\)</span>. The other is the singularity at <span class="math inline">\(x=x_0\)</span> is being replaced by the Airy scale length <span class="math inline">\(\Delta_0=(\hat{r}^2L_A)^{1/3}\)</span>. Recalling, from <a href="wave.html#eq-mhd_alfven_wavenumber_nonuniform">Equation&nbsp;<span>7.29</span></a>, <span class="math inline">\(|k_x|\simeq |\omega_A^\prime| t\simeq (\omega/L_A)t\)</span>, there then exists a KAW formation time scale given by <span class="math inline">\((\omega_0/L_A)t_0\simeq 1/\Delta_0\)</span>; i.e., <span class="math inline">\(\omega_0 t_0\simeq (L_A/\hat{r})^{2/3}\)</span>. Taking, for an example, a typical laboratory plasma, <span class="math inline">\(L_A/\hat{r}\simeq\mathcal{O}(10^3)\)</span>, we have <span class="math inline">\(\omega_0 t_0\simeq\mathcal{O}(10^2)\)</span>, suggesting that it is reasonable to anticipate, in the presence of SAW continuous spectrum, the appearance of KAW in such plasmas.</p>
+<p>The main mode identification method for KAWs is based on the measurement of the wave polarization, <span class="math inline">\(|c\delta\mathbf{E}_\perp/v_A\delta\mathbf{B}_\perp|\)</span>. Observations can be found from <em>Van Allen Probes</em> in the Earth’s inner magnetosphere and the <em>Cluster</em> satellites in the solar wind.</p>
+</section>
+<section id="nonlinear-gyrokinetics" class="level3" data-number="11.4.2">
+<h3 data-number="11.4.2" class="anchored" data-anchor-id="nonlinear-gyrokinetics"><span class="header-section-number">11.4.2</span> Nonlinear Gyrokinetics</h3>
+<p>The idea of deriving the gyrokinetic equations is very similar to the derivation of 5/10-moment equations. Extra care is needed because of the coordinate transformation to the guiding center coordinates. For species <span class="math inline">\(\alpha\)</span>,</p>
+<p><span class="math display">\[
+\frac{\partial f_\alpha}{\partial t} + \mathbf{v}\cdot\frac{\partial f_\alpha}{\partial\mathbf{x}} + \frac{q_\alpha}{m_\alpha}\Big( \mathbf{E}+\frac{\mathbf{v}\times\mathbf{B}}{c} \Big)\cdot\frac{\partial f_\alpha}{\partial \mathbf{v}} = \sum_{\alpha^\prime} C_{\alpha\alpha^\prime}(f_\alpha, f_\alpha^\prime)
+\]</span></p>
+<p>We expand <span class="math inline">\(f\)</span> in different orders:</p>
+<p><span class="math display">\[
+f = f_0 + \delta f = f_0 + f_1 + f_2 + ...
+\]</span></p>
+<p>and treat the velocity as a first order quantity. For simplicity, we now ignore the species subscript <span class="math inline">\(\alpha\)</span>. Separating the equilibrium and perturbation terms, we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\frac{\partial f_0}{\partial t} + \frac{\partial \delta f}{\partial t} \\
+&amp;+ \mathbf{v}_\perp\cdot\frac{\partial \delta f}{\partial\mathbf{x}} + \mathbf{v}_\parallel\cdot\frac{\partial \delta f}{\partial\mathbf{x}} \\
+&amp;+ \frac{q}{m}\Big( \delta\mathbf{E}+\frac{\mathbf{v}\times\mathbf{B}_0}{c} + \frac{\mathbf{v}\times\delta\mathbf{B}_0}{c} \Big)\cdot\frac{\partial f_0}{\partial \mathbf{v}} + \frac{q}{m}\Big( \delta\mathbf{E}+\frac{\mathbf{v}\times\mathbf{B}_0}{c}+\frac{\mathbf{v}\times\delta\mathbf{B}}{c} \Big)\cdot\frac{\partial \delta f}{\partial \mathbf{v}} = \\
+&amp;C(f_0, f_0) + C(f_0, \delta f) + C(\delta f, f_0) + C(\delta f, \delta f)
+\end{aligned}
+\]</span></p>
+<p>Based on the gyrokinetic ordering,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial f_0}{\partial t} \sim \omega_{\text{heat}}f_0 \sim \epsilon^3\Omega f_0 \\
+\frac{\partial \delta f}{\partial t}\sim \omega\delta f\sim \epsilon^2\Omega f_0 \\
+\mathbf{v}_\perp\cdot\frac{\partial \delta f}{\partial\mathbf{x}}\sim v_{\text{th}}k_\perp\delta f\sim\epsilon\Omega f_0 \\
+\mathbf{v}_\parallel\cdot\frac{\partial \delta f}{\partial\mathbf{x}}\sim v_{\text{th}}k_\parallel\delta f\sim\epsilon^2\Omega f_0 \\
+\frac{q}{m}\nabla_\perp\delta\phi\cdot\frac{\partial f_0}{\partial \mathbf{v}}\sim \frac{q}{m}k_\perp \delta\phi\frac{f_0}{v_{\text{th}}} \sim \epsilon\Omega f_0 \\
+\frac{q}{m}\nabla_\parallel\delta\phi\cdot\frac{\partial f_0}{\partial \mathbf{v}}\sim \frac{q}{m}k_\parallel \delta\phi\frac{f_0}{v_{\text{th}}} \sim \epsilon^2\Omega f_0 \\
+\frac{q}{mc}\frac{\partial\delta\mathbf{A}}{\partial t}\cdot\frac{\partial f_0}{\partial\mathbf{v}}\sim\frac{q}{m}\omega\delta A\frac{f_0}{v_{\text{th}}}\sim \epsilon^2\Omega f_0 \\
+\frac{q}{mc}(\mathbf{v}\times\mathbf{B}_0)\cdot\frac{\partial f_0}{\partial \mathbf{v}}\sim\frac{q}{mc}v_{\text{th}}B_0 \frac{f_0}{v_{\text{th}}}\sim \Omega f_0 \\
+\frac{q}{mc}(\mathbf{v}\times\delta\mathbf{B})\cdot\frac{\partial f_0}{\partial \mathbf{v}}\sim\frac{q}{mc}v_{\text{th}}\delta B \frac{f_0}{v_{\text{th}}}\sim \epsilon\Omega f_0 \\
+\frac{q}{m}\nabla_\perp \delta\phi\cdot\frac{\partial\delta f}{\partial\mathbf{v}}\sim\frac{q}{m}k_\perp\delta\phi\frac{\delta f}{v_{\text{th}}}\sim\epsilon^2\Omega f_0 \\
+\frac{q}{m}\nabla_\parallel \delta\phi\cdot\frac{\partial\delta f}{\partial\mathbf{v}}\sim\frac{q}{m}k_\parallel\delta\phi\frac{\delta f}{v_{\text{th}}}\sim\epsilon^3\Omega f_0 \\
+\frac{q}{mc}\frac{\partial\delta\mathbf{A}}{\partial\mathbf{v}}\sim\frac{q}{m}\omega\delta A\frac{\delta f}{v_{\text{th}}}\sim \epsilon^3\Omega f_0 \\
+\frac{q}{mc}(\mathbf{v}\times\mathbf{B}_0)\cdot\frac{\partial \delta f}{\partial\mathbf{v}}\sim\frac{q}{mc}v_{\text{th}}B_0\frac{\delta f}{v_{\text{th}}}\sim\epsilon\Omega f_0 \\
+\frac{q}{mc}(\mathbf{v}\times\delta\mathbf{B})\cdot\frac{\partial \delta f}{\partial\mathbf{v}}\sim\frac{q}{mc}v_{\text{th}}\delta B\frac{\delta f}{v_{\text{th}}}\sim\epsilon^2\Omega f_0
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\omega_{\text{heat}}\)</span> is ???</p>
+<p>The zeroth order equation is</p>
+<p><span class="math display">\[
+\frac{q}{mc}(\mathbf{v}\times\mathbf{B}_0)\cdot\frac{\partial f_0}{\partial\mathbf{v}} = \Omega(\mathbf{v}_\perp\times\hat{b}_0)\cdot\frac{\partial f_0}{\partial\mathbf{v}} = 0
+\]</span></p>
+<p>If we tranform to a cylindrical coordinates in velocity space (<a href="kmhd.html#eq-kmhd_cylindrical_vspace">Equation&nbsp;<span>10.8</span></a>), this can be written as</p>
+<p><span class="math display">\[
+(\mathbf{v}_\perp\times\hat{b}_0)\cdot\frac{\partial f_0}{\partial\mathbf{v}} = -\frac{\partial f_0}{\partial\theta} = 0
+\]</span></p>
+<p>This means that the equilibrium distribution function <span class="math inline">\(f_0\)</span> does not depend on the gyrophase, i.e.&nbsp;is gyrotropic.</p>
+<p>The first order equation is</p>
+<p><span class="math display">\[
+\mathbf{v}_\perp\cdot\frac{\partial \delta f_1}{\partial\mathbf{x}} + \frac{q}{m}\Big( -\nabla_\perp\delta\phi+\frac{\mathbf{v}\times\delta\mathbf{B}}{c} \Big)\cdot\frac{\partial f_0}{\partial\mathbf{v}} + \frac{q}{mc}(\mathbf{v}\times\mathbf{B}_0)\cdot\frac{\partial \delta f_1}{\partial\mathbf{v}} = C(f_0, f_0)
+\]</span></p>
+<p>Muliplying with <span class="math inline">\((1+\ln f_0)\)</span> and integrating over phase space, we get</p>
+<p><span class="math display">\[
+\int \ln(f_0)C(f_0, f_0)\mathrm{d}\mathbf{x}\mathrm{d}\mathbf{v} = 0
+\]</span></p>
+<p>From the proof of Boltzmann’s H-theorem, we conclude:</p>
+<p><span class="math display">\[
+\begin{aligned}
+f_0 = f_{0,M}(v) = \frac{n_0}{\pi^{3/2}v_{\text{th}}^3}e^{-v^2/v_{\text{th}}^2} \\
+C(f_{0,M}, f_{0,M}) = 0 \\
+\frac{\partial f_{0,M}}{\partial\mathbf{v}} = -2f_{0,M}\frac{\mathbf{v}}{v_\text{th}^2} = -f_{0,M}m\frac{\mathbf{v}}{T}
+\end{aligned}
+\]</span></p>
+<p>The equilibrium distribution is Maxwellian. The first order equation thus becomes (???)</p>
+<p><span class="math display">\[
+\mathbf{v}_\perp\cdot\frac{\partial \delta f_1}{\partial\mathbf{x}} - \Omega\frac{\partial\delta f_1}{\partial\theta} = -f_{0,M}\mathbf{v}\cdot\nabla_\perp\Big(\frac{q\delta\phi}{T}\Big)
+\]</span></p>
+<p>The solution to this is a combination of a homogeneous solution and a particular solution. For the homogeneous part,</p>
+<p><span class="math display">\[
+\mathbf{v}_\perp\cdot\frac{\partial h}{\partial\mathbf{x}} - \Omega\frac{\partial h}{\partial\theta}\bigg\rvert_\mathbf{x} = 0,\, \mathbf{x} = \mathbf{X} + \mathbf{r}_L,\quad \Omega\frac{\partial h}{\partial\theta}\bigg\rvert_\mathbf{X}=0
+\]</span></p>
+<p>For the particular part, the solution is</p>
+<p><span class="math display">\[
+-q\delta \phi(\mathbf{x},t)f_0(\mathbf{v})/T
+\]</span></p>
+<p>Thus the complete solution is</p>
+<p><span class="math display">\[
+\delta f_1(\mathbf{x},\mathbf{v},t) = h(\mathbf{X},v_\parallel,v_\perp,t) - q\delta\phi(\mathbf{x},t)f_0(\mathbf{v})/T
+\]</span></p>
+<p>We still need an equation for <span class="math inline">\(h\)</span> for closure. Therefore we have to go to the second order equation</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial\delta f_1}{\partial t}+v_\parallel\hat{b}_0\cdot\nabla\delta f_1 + \frac{q}{m}\Big( -\nabla_\perp \delta\phi + \frac{\mathbf{v}\times\delta\mathbf{B}}{c} \Big)\cdot\frac{\partial\delta f_1}{\partial\mathbf{v}} \\
+- \frac{q}{m}(\nabla_\parallel \delta\phi)\frac{\partial f_0}{\partial v_\parallel} - \frac{q}{mc}\frac{\partial\delta\mathbf{A}}{\partial t}\cdot\frac{\partial f_0}{\partial \mathbf{v}} \\
++ \mathbf{v}_\perp\cdot\nabla\delta f_2 + \frac{q}{mc}(\mathbf{v}\times\mathbf{B}_0)\cdot\frac{\partial\delta f_2}{\partial\mathbf{v}} \\
+= C(\delta f_1, f_0) + C(f_0,\delta f_1)
+\end{aligned}
+\]</span></p>
+<p>From particle coordinates to guiding center coordinates</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial h}{\partial t} + \frac{\mathrm{d}\mathbf{X}}{\mathrm{d}t}\cdot\frac{\partial h}{\partial\mathbf{X}} + \frac{q}{m}\Big( -\nabla_\perp\delta\phi + \frac{\mathbf{v}\times\delta\mathbf{B}}{c} \Big)\cdot\frac{\partial h}{\partial\mathbf{v}} = \\
+C(h,f_0) + C(f_0, h) + \frac{q}{T}f_0\frac{\partial \chi}{\partial t} + \Omega\frac{\partial\delta f_2}{\partial\theta}\bigg\rvert_\mathbf{X}
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\xi\equiv\delta\phi - \mathbf{v}\cdot\delta\mathbf{A}/c\)</span>.</p>
+<p>For any quantity <span class="math inline">\(Q\)</span>, the gyrophase averaging at fixed guiding center position is</p>
+<p><span class="math display">\[
+\left&lt; Q(\mathbf{x},\mathbf{v},t) \right&gt;_\mathbf{X} \equiv \frac{1}{2\pi}\int_0^{2\pi}Q\Big( \mathbf{X}-\frac{\mathbf{v}\times\hat{b}_0}{\Omega},\mathbf{v},t \Big)\mathrm{d}\theta
+\]</span></p>
+<p>We have</p>
+<p><span class="math display">\[
+\begin{aligned}
+\left&lt; h(\mathbf{x},\mathbf{v},t) \right&gt;_\mathbf{X} = h \\
+\left&lt; \mathbf{v}_\perp\cdot\nabla Q \right&gt;_\mathbf{X} = -\Omega \left&lt;  \frac{\partial Q}{\partial\theta}\bigg\rvert_\mathbf{X} \right&gt;_\mathbf{X} = 0
+\end{aligned}
+\]</span></p>
+<p>The equation for the gyrocenter distribution function <span class="math inline">\(h\)</span> is then</p>
+<p><span class="math display">\[
+\frac{\partial h}{\partial t} + v_\parallel\hat{b}_0\cdot\frac{\partial h}{\partial\mathbf{X}} + \frac{c}{B_0}\Big( \hat{b}_0\times\frac{\partial\left&lt;\chi\right&gt;_\mathbf{X}}{\partial \mathbf{X}} \Big)\cdot\frac{\partial h}{\partial\mathbf{X}} = \left&lt; C(h) \right&gt;_\mathbf{X} + \frac{q}{T}f_0\frac{\partial &lt;\chi&gt;_\mathbf{X}}{\partial t}
+\]</span></p>
+<p>The quasi-neutrality <span class="math inline">\(\sum_\alpha q_\alpha\delta n_\alpha = 0\)</span> now becomes</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_\alpha\Big[ -\frac{q_\alpha^2 n_{0\alpha}}{T_{0\alpha}}\delta\phi(\mathbf{x},t) + q_\alpha\int h_\alpha\Big( \mathbf{x}+\frac{\mathbf{v}\times\hat{b}_0}{\Omega_\alpha},\mathbf{v},t \Big)\mathrm{d}\mathbf{v} \Big] = 0 \\
+\sum_\alpha\Big( -\frac{q_\alpha^2 n_{0\alpha}}{T_{0\alpha}}\delta\phi(\mathbf{x},t) + q_\alpha \int &lt;h_\alpha&gt;\mathrm{d}\mathbf{v}\Big) = 0
+\end{aligned}
+\]</span></p>
+<p>Last but not least we need the modified Ampère’s law:</p>
+<p><span class="math display">\[
+\nabla\times\delta\mathbf{B}(\mathbf{x},t) = \frac{4\pi}{c}\sum_\alpha q_\alpha
+\]</span></p>
+<p>The distribution function now depends on 6 variables, <span class="math inline">\(f = f(\mathbf{X},v_\parallel,\mu;t)\)</span>. The Vlasov equation can be written as</p>
+<p><span class="math display">\[
+\frac{\partial f}{\partial t} + \dot{\mathbf{X}}\cdot\frac{\partial f}{\partial \mathbf{X}} + \dot{v_\parallel}\frac{\partial f}{\partial v_\parallel} = 0
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{X}\)</span> is the gyrocenter position, <span class="math inline">\(v_\parallel\)</span> is the parallel velocity, and <span class="math inline">\(\mu\)</span> is the magnetic moment. The appropriate field equations are now</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{n_1}{n_0} &amp;= \frac{\bar{n}_1}{n_0} - (1- |I_0^2|)\frac{e\phi_1}{T} + |eI_0I_1|\frac{B_{1\parallel}}{B} \\
+\nabla_\perp^2 A_{1\parallel} &amp;= -\frac{4\pi}{c}\sum\bar{J}_{1\parallel} \\
+\frac{B_{1\parallel}}{B} &amp;= -\sum \epsilon_\beta\Big( \frac{\bar{p}_{1\perp}}{n_0 T} + |xI_0I_1|\frac{e\phi_1}{T} + |x^2I_1^2|\frac{B_{1\parallel}}{B} \Big)
+\end{aligned}
+\]</span></p>
+<p>These equations remove the irrelevant space-time scales and become nonlinear 5D equations instead 6D.</p>
+</section>
+</section>
+<section id="applications" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="applications"><span class="header-section-number">11.5</span> Applications</h2>
+<p>Gyrokinetics has emerged as the standard approach to plasma turbulence.</p>
+<p>Some issues under investigation where gyrokinetics may shed light on:</p>
+<ul>
+<li>Role of microturbulence in space physics?</li>
+<li>transport across boundary layers</li>
+<li>fast magnetic reconnection</li>
+<li>coronal and solar wind heating</li>
+<li>How does MHD turbulence dissipate energy?</li>
+<li>How do fast particles interact with turbulence?</li>
+</ul>
+</section>
+<section id="limitations" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="limitations"><span class="header-section-number">11.6</span> Limitations</h2>
+<p>What gyrokinetics cannot resolve:</p>
+<ul>
+<li>cyclotron resonance</li>
+<li>gyro-related phenomena</li>
+</ul>
+<p>At least the orginal form of gyrokinetic cannot include EMIC waves and whistler waves.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../contents/kmhd.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../contents/flr.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

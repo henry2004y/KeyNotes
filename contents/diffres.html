@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Key Notes in Plasma Physics - 6&nbsp; Diffusion and Resisvity</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../contents/wave.html" rel="next">
+<link href="../contents/fluid.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Key Notes in Plasma Physics</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/about.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/single.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">Appendix</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#diffusion-and-mobility-in-weakly-ionized-gases" id="toc-diffusion-and-mobility-in-weakly-ionized-gases" class="nav-link active" data-scroll-target="#diffusion-and-mobility-in-weakly-ionized-gases"><span class="toc-section-number">6.1</span>  Diffusion and Mobility in Weakly Ionized Gases</a></li>
+  <li><a href="#collision-parameters" id="toc-collision-parameters" class="nav-link" data-scroll-target="#collision-parameters"><span class="toc-section-number">6.2</span>  Collision Parameters</a></li>
+  <li><a href="#diffusion-parameters" id="toc-diffusion-parameters" class="nav-link" data-scroll-target="#diffusion-parameters"><span class="toc-section-number">6.3</span>  Diffusion Parameters</a></li>
+  <li><a href="#decay-of-a-plasma-by-diffusion" id="toc-decay-of-a-plasma-by-diffusion" class="nav-link" data-scroll-target="#decay-of-a-plasma-by-diffusion"><span class="toc-section-number">6.4</span>  Decay of a Plasma by Diffusion</a>
+  <ul class="collapse">
+  <li><a href="#ambipolar-diffusion" id="toc-ambipolar-diffusion" class="nav-link" data-scroll-target="#ambipolar-diffusion"><span class="toc-section-number">6.4.1</span>  Ambipolar Diffusion</a></li>
+  <li><a href="#diffusion-in-a-slab" id="toc-diffusion-in-a-slab" class="nav-link" data-scroll-target="#diffusion-in-a-slab"><span class="toc-section-number">6.4.2</span>  Diffusion in a Slab</a></li>
+  <li><a href="#diffusion-in-a-cylinder" id="toc-diffusion-in-a-cylinder" class="nav-link" data-scroll-target="#diffusion-in-a-cylinder"><span class="toc-section-number">6.4.3</span>  Diffusion in a Cylinder</a></li>
+  </ul></li>
+  <li><a href="#steady-state-solutions" id="toc-steady-state-solutions" class="nav-link" data-scroll-target="#steady-state-solutions"><span class="toc-section-number">6.5</span>  Steady State Solutions</a>
+  <ul class="collapse">
+  <li><a href="#constant-ionization-function" id="toc-constant-ionization-function" class="nav-link" data-scroll-target="#constant-ionization-function"><span class="toc-section-number">6.5.1</span>  Constant Ionization Function</a></li>
+  <li><a href="#plane-source" id="toc-plane-source" class="nav-link" data-scroll-target="#plane-source"><span class="toc-section-number">6.5.2</span>  Plane Source</a></li>
+  <li><a href="#line-source" id="toc-line-source" class="nav-link" data-scroll-target="#line-source"><span class="toc-section-number">6.5.3</span>  Line Source</a></li>
+  </ul></li>
+  <li><a href="#recombination" id="toc-recombination" class="nav-link" data-scroll-target="#recombination"><span class="toc-section-number">6.6</span>  Recombination</a></li>
+  <li><a href="#diffusion-across-a-magnetic-field" id="toc-diffusion-across-a-magnetic-field" class="nav-link" data-scroll-target="#diffusion-across-a-magnetic-field"><span class="toc-section-number">6.7</span>  Diffusion Across a Magnetic Field</a>
+  <ul class="collapse">
+  <li><a href="#ambipolar-diffusion-across-b" id="toc-ambipolar-diffusion-across-b" class="nav-link" data-scroll-target="#ambipolar-diffusion-across-b"><span class="toc-section-number">6.7.1</span>  Ambipolar Diffusion Across B</a></li>
+  </ul></li>
+  <li><a href="#sec-collision_ionized" id="toc-sec-collision_ionized" class="nav-link" data-scroll-target="#sec-collision_ionized"><span class="toc-section-number">6.8</span>  Collisions in Fully Ionized Plasmas</a>
+  <ul class="collapse">
+  <li><a href="#plasma-resistivity" id="toc-plasma-resistivity" class="nav-link" data-scroll-target="#plasma-resistivity"><span class="toc-section-number">6.8.1</span>  Plasma Resistivity</a></li>
+  <li><a href="#sec-coulomb_collision_mechanics" id="toc-sec-coulomb_collision_mechanics" class="nav-link" data-scroll-target="#sec-coulomb_collision_mechanics"><span class="toc-section-number">6.8.2</span>  Mechanics of Coulomb Collisions</a></li>
+  <li><a href="#physical-meaning-of-η" id="toc-physical-meaning-of-η" class="nav-link" data-scroll-target="#physical-meaning-of-η"><span class="toc-section-number">6.8.3</span>  Physical Meaning of η</a></li>
+  <li><a href="#numerical-values-of-η" id="toc-numerical-values-of-η" class="nav-link" data-scroll-target="#numerical-values-of-η"><span class="toc-section-number">6.8.4</span>  Numerical Values of η</a></li>
+  <li><a href="#pulsed-currents" id="toc-pulsed-currents" class="nav-link" data-scroll-target="#pulsed-currents"><span class="toc-section-number">6.8.5</span>  Pulsed Currents</a></li>
+  <li><a href="#collisions-between-species" id="toc-collisions-between-species" class="nav-link" data-scroll-target="#collisions-between-species"><span class="toc-section-number">6.8.6</span>  Collisions Between Species</a></li>
+  <li><a href="#conductivity-tensor" id="toc-conductivity-tensor" class="nav-link" data-scroll-target="#conductivity-tensor"><span class="toc-section-number">6.8.7</span>  Conductivity Tensor</a></li>
+  </ul></li>
+  <li><a href="#diffusion-of-fully-ionized-plasmas" id="toc-diffusion-of-fully-ionized-plasmas" class="nav-link" data-scroll-target="#diffusion-of-fully-ionized-plasmas"><span class="toc-section-number">6.9</span>  Diffusion of Fully Ionized Plasmas</a>
+  <ul class="collapse">
+  <li><a href="#small-r_m-condition" id="toc-small-r_m-condition" class="nav-link" data-scroll-target="#small-r_m-condition"><span class="toc-section-number">6.9.1</span>  Small <span class="math inline">\(R_m\)</span> condition</a></li>
+  <li><a href="#large-r_m-condition" id="toc-large-r_m-condition" class="nav-link" data-scroll-target="#large-r_m-condition"><span class="toc-section-number">6.9.2</span>  Large <span class="math inline">\(R_m\)</span> condition</a></li>
+  </ul></li>
+  <li><a href="#solutions-of-the-diffusion-equation" id="toc-solutions-of-the-diffusion-equation" class="nav-link" data-scroll-target="#solutions-of-the-diffusion-equation"><span class="toc-section-number">6.10</span>  Solutions of the Diffusion Equation</a>
+  <ul class="collapse">
+  <li><a href="#time-dependence" id="toc-time-dependence" class="nav-link" data-scroll-target="#time-dependence"><span class="toc-section-number">6.10.1</span>  Time Dependence</a></li>
+  <li><a href="#time-independent-solutions" id="toc-time-independent-solutions" class="nav-link" data-scroll-target="#time-independent-solutions"><span class="toc-section-number">6.10.2</span>  Time-Independent Solutions</a></li>
+  </ul></li>
+  <li><a href="#bohm-diffusion-and-neoclassical-diffusion" id="toc-bohm-diffusion-and-neoclassical-diffusion" class="nav-link" data-scroll-target="#bohm-diffusion-and-neoclassical-diffusion"><span class="toc-section-number">6.11</span>  Bohm Diffusion and Neoclassical Diffusion</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/diffres.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-resisvity" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="diffusion-and-mobility-in-weakly-ionized-gases" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="diffusion-and-mobility-in-weakly-ionized-gases"><span class="header-section-number">6.1</span> Diffusion and Mobility in Weakly Ionized Gases</h2>
+<p>The infinite, homogeneous plasmas assumed in the previous chapter for the equilibrium conditions are, of course, highly idealized. Any realistic plasma will have a density gradient, and the plasma will tend to diffuse toward regions of low density. For example, the central problem in controlled thermonuclear reactions is to impede the rate of diffusion by using a magnetic field. Before tackling the magnetic field problem, however, we shall consider the case of diffusion in the absence of magnetic fields. A further simplification results if we assume that the plasma is weakly ionized, so that charge particles collide primarily with neutral atoms rather than with one another. The case of a fully ionized plasma is deferred to a later section, since it results in a nonlinear equation for which there are few simple illustrative solutions. In any case, partially ionized gases are not rare: High-pressure arcs and ionospheric plasmas fall into this category, and most of the early work on gas discharges involved fractional ionizations between <span class="math inline">\(10^3\)</span> and <span class="math inline">\(10^6\)</span>, when collisions with neutral atoms are dominant.</p>
+<p>The picture, then, is of a nonuniform distribution of ions and electrons in a dense background of neutrals (Fig. 5.1 ADD IT!). As the plasma spreads out as a result of pressure-gradient and electric field forces, the individual particles undergo a random walk, colliding frequently with the neutral atoms. We begin with a brief review of definitions from atomic theory.</p>
+</section>
+<section id="collision-parameters" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="collision-parameters"><span class="header-section-number">6.2</span> Collision Parameters</h2>
+<p>When an electron, say, collides with a neutral atom, it may lose any fraction of its initial momentum, depending on the angle at which it rebounds. In a head-on collision with a heavy atom, the electron can lose twice its initial momentum, since its velocity reverses sign after the collision. The probability of momentum loss can be expressed in terms of the equivalent cross section <span class="math inline">\(\sigma\)</span> that the atoms would have if they were perfect absorbers of momentum.</p>
+<p>In Fig. 5.2, electrons are incident upon a slab of area <span class="math inline">\(A\)</span> and thickness <span class="math inline">\(\mathrm{d}x\)</span> containing <span class="math inline">\(n_n\)</span> neutral atoms per <span class="math inline">\(\text{m}^3\)</span>. The atoms are imagined to be opaque spheres of cross-sectional area <span class="math inline">\(\sigma\)</span>; that is, every time an electron comes within the area blocked by the atom, the electron loses all of its momentum. The number of atoms in the slab is <span class="math inline">\(n_n A \mathrm{d}x\)</span>. The fraction of the slab blocked by atoms is <span class="math inline">\(n_n A\sigma \mathrm{d}x / A = n_n \sigma \mathrm{d}x\)</span>. If a flux <span class="math inline">\(\Gamma\)</span> of electrons is incident on the slab, the flux emerging on the other side is <span class="math inline">\(\Gamma^\prime = \Gamma(1-n_n \sigma \mathrm{d}x)\)</span>. Thus the change of <span class="math inline">\(\Gamma\)</span> with distance is <span class="math inline">\(\mathrm{d}\Gamma/\mathrm{d}x = -n_n \sigma\Gamma\)</span>, or</p>
+<p><span class="math display">\[
+\Gamma = \Gamma_0 e^{-n_n\sigma x} \equiv \Gamma_0 e^{-x/\lambda_m}
+\]</span></p>
+<p>In a distance <span class="math inline">\(\lambda_m\)</span>, the flux would be decreased to <span class="math inline">\(1/e\)</span> of its initial value. The quantity <span class="math inline">\(\lambda_m\)</span> is the <em>mean free path</em> for collisions:</p>
+<p><span id="eq-mean_free_path_collision"><span class="math display">\[
+\lambda_m = 1/n_n\sigma
+\tag{6.1}\]</span></span></p>
+<p>After traveling a distance <span class="math inline">\(\lambda_m\)</span>, a particle will have had a good probability of making a collision. The mean time between collisions, for particles of velocity <span class="math inline">\(v\)</span>, is given by</p>
+<p><span class="math display">\[
+\tau = \lambda_m/v
+\]</span></p>
+<p>and the mean frequency of collisions is</p>
+<p><span id="eq-mean_freq_collision"><span class="math display">\[
+\tau^{-1} = v/\lambda_m = n_n \sigma v
+\tag{6.2}\]</span></span></p>
+<p>If we now average over particles of all velocities <span class="math inline">\(v\)</span> in a Maxwellian distribution, we have what is generally called the collision frequency <span class="math inline">\(\nu\)</span>:</p>
+<p><span id="eq-collision_freq"><span class="math display">\[
+\nu = n_n \overline{\sigma v}
+\tag{6.3}\]</span></span></p>
+</section>
+<section id="diffusion-parameters" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="diffusion-parameters"><span class="header-section-number">6.3</span> Diffusion Parameters</h2>
+<p>The fluid equation of motion including collisions is, for any species <span class="math inline">\(s\)</span>,</p>
+<p><span class="math display">\[
+mn\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = mn \Big[ \frac{\partial\mathbf{v}}{\partial t} + (\mathbf{v}\cdot\nabla)\mathbf{v} \Big] = q_sn\mathbf{E} - \nabla p - mn\nu\mathbf{v}
+\]</span></p>
+<p>The averaging process used to compute <span class="math inline">\(\nu\)</span> is such as to make the last equation correct; we need not be concerned with the details of this computation. The quantity <span class="math inline">\(\nu\)</span> must, however, be assumed to be a constant in order for the equation to be useful. We shall consider a steady state in which <span class="math inline">\(\partial\mathbf{v}/\partial t\)</span> = 0. If <span class="math inline">\(\mathbf{v}\)</span> is sufficiently small (or <span class="math inline">\(\nu\)</span> sufficiently large), a fluid element will not move into regions of different <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\nabla p\)</span> in a collision time, and the convective derivative <span class="math inline">\(\mathrm{d}\mathbf{v}/\mathrm{d}t\)</span> will also vanish. Setting the left-hand side to zero, we have, for an isothermal plasma,</p>
+<p><span class="math display">\[
+\mathbf{v} = \frac{1}{mn\nu}(q_sn\mathbf{E} - k_B T \nabla n) = \frac{q_s}{m\nu}\mathbf{E} - \frac{k_B T}{mv}\frac{\nabla n}{n}
+\]</span></p>
+<p>The coefficients above are called the <em>mobility</em> and the <em>diffusion coefficient</em>:</p>
+<p><span id="eq-mobility"><span class="math display">\[
+\mu\equiv |q|/m\nu\quad\text{Mobility}
+\tag{6.4}\]</span></span></p>
+<p><span id="eq-diffusion_coef"><span class="math display">\[
+D\equiv k_B T/ m\nu\quad\text{Diffusion coefficient}
+\tag{6.5}\]</span></span></p>
+<p>These will be different for each species. Note that <span class="math inline">\(D\)</span> is measured in <span class="math inline">\(\text{m}^2/s\)</span>. The transport coefficients <span class="math inline">\(\mu\)</span> and <span class="math inline">\(D\)</span> are connected by the <em>Einstein relation</em>:</p>
+<p><span id="eq-einstein_relation"><span class="math display">\[
+\mu = |q|D/k_B T
+\tag{6.6}\]</span></span></p>
+<p>With the help of these definitions, the flux <span class="math inline">\(\Gamma_s\)</span> of the sth species can be written</p>
+<p><span id="eq-species_flux"><span class="math display">\[
+\Gamma_s = n\mathbf{v}_s = \pm \mu_s n\mathbf{E} - D_s\nabla n
+\tag{6.7}\]</span></span></p>
+<p><em>Fick’s law</em> of diffusion is a special case of this, occurring when either <span class="math inline">\(\mathbf{E}=0\)</span> or the particles are uncharged, so that <span class="math inline">\(\mu=0\)</span>:</p>
+<p><span class="math display">\[
+\Gamma = -D\nabla n\quad\text{Fick's law}
+\]</span></p>
+<p>This equation merely expresses the fact that diffusion is a random-walk process, in which a net flux from dense regions to less dense regions occurs simply because more particles start in the dense region. This flux is obviously proportional to the gradient of the density. In plasmas, Fick’s law is not necessarily obeyed. Because of the possibility of organized motions (plasma waves), a plasma may spread out in a manner which is not truly random.</p>
+</section>
+<section id="decay-of-a-plasma-by-diffusion" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="decay-of-a-plasma-by-diffusion"><span class="header-section-number">6.4</span> Decay of a Plasma by Diffusion</h2>
+<section id="ambipolar-diffusion" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="ambipolar-diffusion"><span class="header-section-number">6.4.1</span> Ambipolar Diffusion</h3>
+<p>We now consider how a plasma created in a container decays by diffusion to the walls. Once ions and electrons reach the wall, they recombine there. The density near the wall, therefore, is essentially zero. The fluid equations of motion and continuity govern the plasma behavior; but if the decay is slow, we need only keep the time derivative in the continuity equation. The time derivative in the equation of motion, will be negligible if the collision frequency <span class="math inline">\(\nu\)</span> is large. We thus have</p>
+<p><span id="eq-diffusion_continuity"><span class="math display">\[
+\frac{\partial n}{\partial t} + \nabla\cdot\Gamma_s = 0
+\tag{6.8}\]</span></span></p>
+<p>with <span class="math inline">\(\Gamma_s\)</span> given by <a href="#eq-species_flux">Equation&nbsp;<span>6.7</span></a>. It is clear that if <span class="math inline">\(\Gamma_i\)</span> and <span class="math inline">\(\Gamma_e\)</span> were not equal, a serious charge imbalance would soon arise. If the plasma is much larger than a Debye length, it must be quasineutral; and one would expect that the rates of diffusion of ions and electrons would somehow adjust themselves so that the two species leave at the same rate. How this happens is easy to see. The electrons, being lighter, have higher thermal velocities and tend to leave the plasma first. A positive charge is left behind, and an electric field is set up of such a polarity as to retard the loss of electrons and accelerate the loss of ions. The required <span class="math inline">\(\mathbf{E}\)</span> field is found by setting <span class="math inline">\(\Gamma_i=\Gamma_e=\Gamma\)</span>. From @<a href="#eq-species_flux">Equation&nbsp;<span>6.7</span></a>, we can write</p>
+<p><span class="math display">\[
+\Gamma = \mu_i n\mathbf{E} - D_i \nabla n = -\mu_e n\mathbf{E} - D_e\nabla n
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{E} = \frac{D_i - D_e}{\mu_i + \mu_e}\frac{\nabla n}{n}
+\]</span></p>
+<p>The common flux <span class="math inline">\(\Gamma\)</span> is then given by</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Gamma &amp;= \mu_i\frac{D_i - D_e}{\mu_i + \mu_e}\nabla n - D_i \nabla n \\
+&amp;=\frac{\mu_iD_i - \mu_iD_e - \mu_iD_i - \mu_eD_i}{\mu_i + \mu_e}\nabla n \\
+&amp;=-\frac{\mu_iD_e + \mu_eD_i}{\mu_i+\mu_e}\nabla n
+\end{aligned}
+\]</span></p>
+<p>This is Fick’s law with a new diffusion coefficient</p>
+<p><span id="eq-ambipolar_diffusion_coef"><span class="math display">\[
+D_a \equiv \frac{\mu_iD_e + \mu_eD_i}{\mu_i+\mu_e}
+\tag{6.9}\]</span></span></p>
+<p>called the <em>ambipolar diffusion coefficient</em>. If this is constant, the continuity equation above becomes simply</p>
+<p><span id="eq-ambipolar_diffusion"><span class="math display">\[
+\frac{\partial n}{\partial t} = D_a \nabla^2 n
+\tag{6.10}\]</span></span></p>
+<p>The magnitude of Da can be estimated if we take <span class="math inline">\(\mu_e\gg\mu_i\)</span>. That this is true can be seen from <a href="#eq-mobility">Equation&nbsp;<span>6.4</span></a>. Since <span class="math inline">\(\nu\)</span> is proportional to the thermal velocity, which is proportional to <span class="math inline">\(m^{-1/2}\)</span>, <span class="math inline">\(\mu\)</span> is proportional to <span class="math inline">\(m^{-1/2}\)</span>. <a href="#eq-mobility">Equation&nbsp;<span>6.4</span></a> and <a href="#eq-ambipolar_diffusion_coef">Equation&nbsp;<span>6.9</span></a> then give</p>
+<p><span class="math display">\[
+D_a \approx D_i + \frac{\mu_i}{\mu_e}D_e = D_i + \frac{T_e}{T_i}D_i
+\]</span></p>
+<p>For <span class="math inline">\(T_e = T_i\)</span>, we have</p>
+<p><span class="math display">\[
+D_a \approx 2D_i
+\]</span></p>
+<p>The effect of the ambipolar electric field is to enhance the diffusion of ions by a factor of two, and the diffusion rate of the two species together is primarily controlled by the slower species.</p>
+</section>
+<section id="diffusion-in-a-slab" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="diffusion-in-a-slab"><span class="header-section-number">6.4.2</span> Diffusion in a Slab</h3>
+<p>The diffusion <a href="#eq-ambipolar_diffusion">Equation&nbsp;<span>6.10</span></a> can easily be solved by the method of separation of variables. We let</p>
+<p><span class="math display">\[
+n(\mathbf{r}, t) = T(t)S(\mathbf{r})
+\]</span></p>
+<p>whereupon <a href="#eq-ambipolar_diffusion">Equation&nbsp;<span>6.10</span></a>, with the subscript on <span class="math inline">\(D_a\)</span> understood, becomes</p>
+<p><span class="math display">\[
+\begin{aligned}
+S\frac{\mathrm{d}T}{\mathrm{d}t} &amp;= DT\nabla^2 S \\
+\frac{1}{T}\frac{\mathrm{d}T}{\mathrm{d}t} &amp;= \frac{D}{S}\nabla^2 S
+\end{aligned}
+\]</span></p>
+<p>Since the left side is a function of time alone and the right side a function of space alone, they must both be equal to the same constant, which we shall call <span class="math inline">\(-1/\tau\)</span>. The function <span class="math inline">\(T\)</span> then obeys the equation</p>
+<p><span id="eq-diffusion_temporal"><span class="math display">\[
+\frac{\mathrm{d}T}{\mathrm{d}t} = -\frac{T}{\tau}
+\tag{6.11}\]</span></span></p>
+<p>with the solution</p>
+<p><span class="math display">\[
+T = T_0 e^{-t/\tau}
+\]</span></p>
+<p>The spatial part <span class="math inline">\(S\)</span> obeys the equation</p>
+<p><span id="eq-diffusion_spatial"><span class="math display">\[
+\nabla^2 S = -\frac{1}{D\tau} S
+\tag{6.12}\]</span></span></p>
+<p>In slab geometry, this becomes</p>
+<p><span id="eq-diffusion_spatial_slab"><span class="math display">\[
+\frac{\mathrm{d}^2 S}{\mathrm{d}x^2} = -\frac{1}{D\tau}S
+\tag{6.13}\]</span></span></p>
+<p>with the solution</p>
+<p><span id="eq-slab_sol"><span class="math display">\[
+S = A\cos\frac{x}{(D\tau)^{1/2}} + B\sin\frac{x}{(D\tau)^{1/2}}
+\tag{6.14}\]</span></span></p>
+<p>We would expect the density to be nearly zero at the walls (Fig. 5.3 ADD IT!) and to have one or more peaks in between. The simplest solution is that with a single maximum. By symmetry, we can reject the odd (sine) term in <a href="#eq-slab_sol">Equation&nbsp;<span>6.14</span></a>. The boundary conditions <span class="math inline">\(S=0\)</span> at <span class="math inline">\(x=\pm L\)</span> then requires</p>
+<p><span class="math display">\[
+\frac{L}{(D\tau)^{1/2}} = \frac{\pi}{2}
+\]</span></p>
+<p>or</p>
+<p><span class="math display">\[
+\tau = \Big( \frac{2L}{\pi} \Big)^2 \frac{1}{D}
+\]</span></p>
+<p>Combining all the equations above, we have</p>
+<p><span class="math display">\[
+n = n_0 e^{-t/\tau} \cos\frac{\pi x}{2L}
+\]</span></p>
+<p>This is called the <em>lowest diffusion mode</em>. The density distribution is a cosine, and the peak density decays exponentially with time. The time constant <span class="math inline">\(\tau\)</span> increases with <span class="math inline">\(L\)</span> and varies inversely with <span class="math inline">\(D\)</span>, as one would expect.</p>
+<p>There are, of course, higher diffusion modes with more than one peak. Suppose the initial density distribution is as shown by the top curve in Fig. 5.4 ADD IT. Such an arbitrary distribution can be expanded in a Fourier series:</p>
+<p><span class="math display">\[
+n = n_0 \Big( \sum_l a_l\cos\frac{(l+\frac{1}{2})\pi x}{L} \sum_m b_m\sin\frac{m\pi x}{L} \Big)
+\]</span></p>
+<p>We have chosen the indices so that the boundary condition at <span class="math inline">\(x=\pm L\)</span> is automatically satisfied. To treat the time dependence, we can try a solution of the form</p>
+<p><span class="math display">\[
+n = n_0 \Big( \sum_l a_l e^{-t/\tau_l}\cos\frac{(l+\frac{1}{2})\pi x}{L} \sum_m b_m e^{-t/\tau_m}\sin\frac{m\pi x}{L} \Big)
+\]</span></p>
+<p>Substituting this into the diffusion <a href="#eq-ambipolar_diffusion">Equation&nbsp;<span>6.10</span></a>, we see that each cosine term yields a relation of the form</p>
+<p><span class="math display">\[
+-\frac{1}{\tau_l} = -D\Big[ \Big(l+\frac{\pi}{2}\Big)\frac{\pi}{L} \Big]^2
+\]</span></p>
+<p>and similarly for the sine terms. Thus the decay time constant for the <span class="math inline">\(l\)</span>th mode is given by</p>
+<p><span class="math display">\[
+\tau_l = \Big[ \frac{L}{(l+\frac{1}{2})\pi} \Big]^2 \frac{1}{D}
+\]</span></p>
+<p>The fine-grained structure of the density distribution, corresponding to large <span class="math inline">\(l\)</span> numbers, decays faster, with a smaller time constant <span class="math inline">\(\tau_l\)</span>. The plasma decay will proceed as indicated in Fig. 5.4 ADD IT. First, the fine structure will be washed out by diffusion. Then the lowest diffusion mode, the simple cosine distribution of Fig. 5.3 ADD IT, will be reached. Finally, the peak density continues to decay while the plasma density profile retains the same shape.</p>
+<p>I WANT TO DO A SIMULATION ON THIS! TRY METHODOFLINES.JL?</p>
+</section>
+<section id="diffusion-in-a-cylinder" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="diffusion-in-a-cylinder"><span class="header-section-number">6.4.3</span> Diffusion in a Cylinder</h3>
+<p>The spatial part of the diffusion equation, eq-diffusion_spatial, reads, in cylindrical geometry,</p>
+<p><span id="eq-diffusion_spatial_cylinder"><span class="math display">\[
+\frac{\mathrm{d}^2 S}{dr^2} + \frac{1}{r}\frac{dS}{dr} + \frac{1}{D\tau}S = 0
+\tag{6.15}\]</span></span></p>
+<p>This differs from <a href="#eq-diffusion_spatial_slab">Equation&nbsp;<span>6.13</span></a> by the addition of the middle term, which merely accouts for the change in coordinates. The need for the extra term is illustrated simply in Fig. 5.5 ADD IT. If a slice of plasma in (a) is moved toward larger x without being allowed to expand, the density would remain constant. On the other hand, if a shell of plasma in (b) is moved toward larger <span class="math inline">\(r\)</span> with the shell thickness kept constant, the density would necessarily decrease as <span class="math inline">\(1/r\)</span>. Consequently, one would expect the solution to <a href="#eq-diffusion_spatial_cylinder">Equation&nbsp;<span>6.15</span></a> to be like a damped cosine (Fig. 5.6 ADD IT). This function is called a <em>Bessel function of order zero</em>, and eq-diffusion_spatial_cylinder is called Bessel’s equation (of order zero). Instead of the symbol cos, it is given the symbol <span class="math inline">\(J_0\)</span>. The function <span class="math inline">\(J0(r/[D\tau]^{1/2})\)</span> is a solution to eq-diffusion_spatial_cylinder, just as <span class="math inline">\(\cos[x/(\mathrm{d}\tau)^{1/2}]\)</span> is a solution to eq-diffusion_spatial. Both <span class="math inline">\(\cos kx\)</span> and <span class="math inline">\(J_0(kr)\)</span> are expressible in terms of infinite series.</p>
+<p>FIGURE: Motion of a plasma slab in rectilinear and cylindrical geometry, illustrating the difference between a cosine and a Bessel function.</p>
+<p>To satisfy the boundary condition <span class="math inline">\(n=0\)</span> at <span class="math inline">\(r=a\)</span>, we must set <span class="math inline">\(a/(D\tau)^{1/2}\)</span> equal to the first zero of <span class="math inline">\(J_0\)</span>; namely, 2.4. This yields the decay time constant <span class="math inline">\(\tau\)</span>. The plasma again decays exponentially, since the temporal part of the diffusion equation, <a href="#eq-diffusion_temporal">Equation&nbsp;<span>6.11</span></a>, is unchanged. We have described the lowest diffusion mode in a cylinder. Higher diffusion modes, with more than one maximum in the cylinder, will be given in terms of Bessel functions of higher order, in direct analogy to the case of slab geometry.</p>
+</section>
+</section>
+<section id="steady-state-solutions" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="steady-state-solutions"><span class="header-section-number">6.5</span> Steady State Solutions</h2>
+<p>In many experiments, a plasma is maintained in a steady state by continuous ionization or injection of plasma to offset the losses. To calculate the density profile in this case, we must add a source term to the equation of continuity:</p>
+<p><span class="math display">\[
+\frac{\partial n}{\partial t} - D\nabla^2 n = Q(\mathbf{r})
+\]</span></p>
+<p>The sign is chosen so that when <span class="math inline">\(Q\)</span> is positive, it represents a source and contributes to positive <span class="math inline">\(\partial n/\partial t\)</span>. In steady state, we set <span class="math inline">\(\partial n/\partial t=0\)</span> and are left with a Poisson-type equation for <span class="math inline">\(n(\mathbf{r})\)</span>.</p>
+<section id="constant-ionization-function" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="constant-ionization-function"><span class="header-section-number">6.5.1</span> Constant Ionization Function</h3>
+<p>In many weakly ionized gases, ionization is produced by energetic electrons in the tail of the Maxwellian distribution. In this case, the source term <span class="math inline">\(Q\)</span> is proportional to the electron density <span class="math inline">\(n\)</span>. Setting <span class="math inline">\(Q=Zn\)</span>, where <span class="math inline">\(Z\)</span> is the “ionization function”, we have</p>
+<p><span class="math display">\[
+\nabla^2 n = -(Z/D)n
+\]</span></p>
+<p>This is the same equation as that for S, <a href="#eq-diffusion_spatial">Equation&nbsp;<span>6.12</span></a>. Consequently, the density profile is a cosine or Bessel function, as in the case of a decaying plasma, only in this case the density remains constant. The plasma is maintained against diffusion losses by whatever heat source keeps the electron temperature at its constant value and by a small influx of neutral atoms to replenish those that are ionized.</p>
+</section>
+<section id="plane-source" class="level3" data-number="6.5.2">
+<h3 data-number="6.5.2" class="anchored" data-anchor-id="plane-source"><span class="header-section-number">6.5.2</span> Plane Source</h3>
+<p>We next consider what profile would be obtained in slab geometry if there is a localized source on the plane <span class="math inline">\(x=0\)</span>. Such a source might be, for instance, a slit-collimated beam of ultraviolet light strong enough to ionize the neutral gas. The steady state diffusion equation is then</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}^n}{\mathrm{d}x^2} = -\frac{Q}{D}\delta(0)
+\]</span></p>
+<p>Except at <span class="math inline">\(x=0\)</span>, the density must satisfy <span class="math inline">\(\partial^2 n/\partial x^2=0\)</span>. This obviously has the solution (Fig. 5.7 ADD IT)</p>
+<p><span class="math display">\[
+n = n_0 \Big( 1-\frac{|x|}{L} \Big)
+\]</span></p>
+<p>The plasma has a linear profile. The discontinuity in slope at the source is characteristic of <span class="math inline">\(\delta\)</span>-function sources.</p>
+</section>
+<section id="line-source" class="level3" data-number="6.5.3">
+<h3 data-number="6.5.3" class="anchored" data-anchor-id="line-source"><span class="header-section-number">6.5.3</span> Line Source</h3>
+<p>Finally, we consider a cylindrical plasma with a source located on the axis. Such a source might, for instance, be a beam of energetic electrons producing ionization along the axis. Except at <span class="math inline">\(r=0\)</span>, the density must satisfy</p>
+<p><span class="math display">\[
+\frac{1}{r}\frac{\partial}{\partial r}\Big(r\frac{\partial n}{\partial r}\Big) = 0
+\]</span></p>
+<p>The solution that vanishes at <span class="math inline">\(r=a\)</span> is</p>
+<p><span class="math display">\[
+n = n_0 \ln(a/r)
+\]</span></p>
+<p>The density becomes infinite at <span class="math inline">\(r=0\)</span> (Fig. 5.8); it is not possible to determine the density near the axis accurately without considering the finite width of the source.</p>
+</section>
+</section>
+<section id="recombination" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="recombination"><span class="header-section-number">6.6</span> Recombination</h2>
+<p>When an ion and an electron collide, particularly at low relative velocity, they have a finite probability of recombining into a neutral atom. To conserve momentum, a third body must be present. If this third body is an emitted photon, the process is called <em>radiative recombination</em>. If it is a particle, the process is called <em>three-body recombination</em>. The loss of plasma by recombination can be represented by a negative source term in the equation of continuity. It is clear that this term will be proportional to <span class="math inline">\(n_en_i=n^2\)</span>. In the absence of the diffusion terms, the equation of continuity then becomes</p>
+<p><span class="math display">\[
+\frac{\partial n}{\partial t} = -\alpha n^2
+\]</span></p>
+<p>The constant of proportionality <span class="math inline">\(\alpha\)</span> is called the recombination coefficient and has units of <span class="math inline">\(\text{m}^3/\text{s}\)</span>. This is a nonlinear equation for <span class="math inline">\(n\)</span>. This means that the straightforward method for satisfying initial and boundary conditions by linear superposition of solutions is not available. Fortunately, it is such a simple nonlinear equation that the solution can be found by inspection. It is</p>
+<p><span class="math display">\[
+\frac{1}{n(\mathbf{r},t)} = \frac{1}{n_0(\mathbf{r})} + \alpha t
+\]</span></p>
+<p>where <span class="math inline">\(n_0(\mathbf{r})\)</span> is the initial density distribution. After the density has fallen far below its initial value, it decays <em>reciprocally</em> with time, <span class="math inline">\(n\propto 1/\alpha t\)</span>. This is a fundamentally different behavior from the case of diffusion, in which the time variation is exponential.</p>
+<p>Figure 5.9 (ADD IT!) shows the results of measurements of the density decay in the afterglow of a weakly ionized H plasma. When the density is high, recombination, which is proportional to <span class="math inline">\(n^2\)</span>, is dominant, and the density decays reciprocally. After the density has reached a low value, diffusion becomes dominant, and the decay is thenceforth exponential.</p>
+</section>
+<section id="diffusion-across-a-magnetic-field" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="diffusion-across-a-magnetic-field"><span class="header-section-number">6.7</span> Diffusion Across a Magnetic Field</h2>
+<p>The rate of plasma loss by diffusion can be decreased by a magnetic field; this is the problem of confinement in controlled fusion research. Consider a weakly ionized plasma in a magnetic field (fig-gyration_collision ADD IT!). Charged particles will move along <span class="math inline">\(\mathbf{B}\)</span> by diffusion and mobility according to <a href="#eq-species_flux">Equation&nbsp;<span>6.7</span></a>, since <span class="math inline">\(\mathbf{B}\)</span> does not affect motion in the parallel direction. Thus we have, for each species,</p>
+<p><span class="math display">\[
+\Gamma_z = \pm\mu n E_z - D\frac{\partial n}{\partial z}
+\]</span></p>
+<p>If there were no collisions, particles would not diffuse at all in the perpendicular direction — they would continue to gyrate about the same magnetic field line. There are, of course, particle drifts across <span class="math inline">\(\mathbf{B}\)</span> because of electric fields or gradients in <span class="math inline">\(\mathbf{B}\)</span>, but these can be arranged to be parallel to the walls. For instance, in a perfectly symmetric cylinder (fig-drift_cylinder ADD IT!), the gradients are all in the radial direction, so that the guiding center drifts are in the azimuthal direction. The drifts would then be harmless.</p>
+<p>FIGURE: A charged particle in a magnetic field will gyrate about the same line of force until it makes a collision. #fig-gyration_collision</p>
+<p>FIGURE: Particle drifts in a cylindrically symmetric plasma column do not lead to losses.#fig-drift_cylinder</p>
+<p>When there are collisions, particles migrate across <span class="math inline">\(\mathbf{B}\)</span> to the walls along the gradients. They do this by a random-walk process (fig-diffusion_collision_neutral ADD IT!). When an ion, say, collides with a neutral atom, the ion leaves the collision traveling in a different direction. It continues to gyrate about the magnetic field in the same direction, but its phase of gyration is changed discontinuously. (The Larmor radius may also change, but let us suppose that the ion does not gain or lose energy on the average.)</p>
+<p>FIGURE: Diffusion of gyrating particles by collisions with neutral atoms.#fig-diffusion_collision_neutral</p>
+<p>The guiding center, therefore, shifts position in a collision and undergoes a random walk. The particles will diffuse in the direction opposite <span class="math inline">\(\nabla n\)</span>. The step length in the random walk is no longer <span class="math inline">\(\lambda_m\)</span>, as in magnetic-field-free diffusion, but has instead the magnitude of the Larmor radius <span class="math inline">\(r_L\)</span>. Diffusion across <span class="math inline">\(\mathbf{B}\)</span> can therefore be slowed down by decreasing <span class="math inline">\(r_L\)</span>; that is, by increasing B.</p>
+<p>To see how this comes about, we write the perpendicular component of the fluid equation of motion for either species as follows:</p>
+<section id="ambipolar-diffusion-across-b" class="level3" data-number="6.7.1">
+<h3 data-number="6.7.1" class="anchored" data-anchor-id="ambipolar-diffusion-across-b"><span class="header-section-number">6.7.1</span> Ambipolar Diffusion Across B</h3>
+<p>Because the diffusion and mobility coefficients are anisotropic in the presence of a magnetic field, the problem of ambipolar diffusion is not as straightforward as in the <span class="math inline">\(B = 0\)</span> case. Consider the particle fluxes perpendicular to <span class="math inline">\(\mathbf{B}\)</span> (Fig. 5.13 ADD IT!). Ordinarily, since <span class="math inline">\(\Gamma_{e\perp}\)</span> is smaller than <span class="math inline">\(\Gamma_{i\perp}\)</span>, a transverse electric field would be set up so as to aid electron diffusion and retard ion diffusion. However, this electric field can be short-circuited by an imbalance of the fluxes along <span class="math inline">\(\mathbf{B}\)</span>. That is, the negative charge resulting from <span class="math inline">\(\Gamma_{e\perp} &lt; \Gamma_{i\perp}\)</span> can be dissipated by electrons escaping along the field lines. Although the total diffusion must be ambipolar, the perpendicular part of the losses need not be ambipolar. The ions can diffuse out primarily radially, while the electrons diffuse out primarily along <span class="math inline">\(\mathbf{B}\)</span>. Whether or not this in fact happens depends on the particular experiment. In short plasma columns with the field lines terminating on conducting plates, one would expect the ambipolar electric field to be short-circuited out. Each species then diffuses radially at a different rate. In long, thin plasma columns terminated by insulating plates, one would expect the radial diffusion to be ambipolar because escape along <span class="math inline">\(\mathbf{B}\)</span> is arduous.</p>
+<p>Mathematically, the problem is to solve simultaneously the continuity <a href="#eq-diffusion_continuity">Equation&nbsp;<span>6.8</span></a> for ions and electrons. It is not the fluxes <span class="math inline">\(\mathbf{\Gamma}_j\)</span>, but the divergence <span class="math inline">\(\nabla\cdot\mathbf{\Gamma}_j\)</span> which must be set equal to each other. Separating <span class="math inline">\(\nabla\cdot\mathbf{\Gamma}_j\)</span> into perpendicular and parallel components, we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+\nabla\cdot\mathbf{\Gamma}_i &amp;= \nabla_\perp\cdot(\mu_i n \mathbf{E}_\perp - D_{i\perp}\nabla n) + \frac{\partial}{\partial z}\Big( \mu_inE_z - D_i\frac{\partial n}{\partial z} \Big) \\
+\nabla\cdot\mathbf{\Gamma}_e &amp;= \nabla_\perp\cdot(\mu_e n \mathbf{E}_\perp - D_{e\perp}\nabla n) + \frac{\partial}{\partial z}\Big( -\mu_enE_z - D_e\frac{\partial n}{\partial z} \Big)
+\end{aligned}
+\]</span></p>
+<p>The equation resulting from setting <span class="math inline">\(\nabla\cdot\mathbf{\Gamma}_i = \nabla\cdot\mathbf{\Gamma}_e\)</span> cannot easily be separated into one-dimensional equations. Furthermore, the answer depends sensitively on the boundary conditions at the ends of the field lines. Unless the plasma is so long that parallel diffusion can be neglected altogether, there is no simple answer to the problem of ambipolar diffusion across a magnetic field.</p>
+</section>
+</section>
+<section id="sec-collision_ionized" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="sec-collision_ionized"><span class="header-section-number">6.8</span> Collisions in Fully Ionized Plasmas</h2>
+<p>When the plasma is composed of ions and electrons alone, all collisions are Coulomb collisions between charged particles. However, there is a distinct difference between</p>
+<ul>
+<li>collisions between like particles (ion–ion or electron–electron collisions) and</li>
+<li>collisions between unlike particles (ion–electron or electron–ion collisions).</li>
+</ul>
+<p>Consider two identical particles colliding (Fig. 5.16 ADD IT!). If it is a head-on collision, the particles emerge with their velocities reversed; they simply interchange their orbits, and the two guiding centers remain in the same places. The result is the same as in a glancing collision, in which the trajectories are hardly disturbed. The worst that can happen is a <span class="math inline">\(90^o\)</span> collision, in which the velocities are changed <span class="math inline">\(90^o\)</span> in direction. The orbits after collision will then be the dashed circles, and the guiding centers will have shifted. However, it is clear that the “center of mass” of the two guiding centers remains stationary. For this reason, collisions between like particles give rise to very little diffusion. This situation is to be contrasted with the case of ions colliding with neutral atoms. In that case, the final velocity of the neutral is of no concern, and the ion random-walks away from its initial position. In the case of ion–ion collisions, however, there is a detailed balance in each collision; for each ion that moves outward, there is another that moves inward as a result of the collision.</p>
+<p>When two particles of opposite charge collide, however, the situation is entirely different (Fig. 5.17 ADD IT!). The worst case is now the <span class="math inline">\(180^o\)</span> collision, in which the particles emerge with their velocities reversed. Since they must continue to gyrate about the magnetic field lines in the proper sense, both guiding centers will move in the same direction. <em>Unlike-particle collisions give rise to diffusion</em>. The physical picture is somewhat different for ions and electrons because of the disparity in mass. The electrons bounce off the nearly stationary ions and random-walk in the usual fashion. The ions are slightly jostled in each collision and move about as a result of frequent bombardment by electrons. Nonetheless, because of the conservation of momentum in each collision, the rates of diffusion are the same for ions and electrons, as we shall show.</p>
+<section id="plasma-resistivity" class="level3" data-number="6.8.1">
+<h3 data-number="6.8.1" class="anchored" data-anchor-id="plasma-resistivity"><span class="header-section-number">6.8.1</span> Plasma Resistivity</h3>
+<p>The fluid equations of motion including the effects of charged-particle collisions may be written as follows</p>
+<p><span id="eq-resistivity_fluid_momentum"><span class="math display">\[
+\begin{aligned}
+m_i n\frac{\mathrm{d}\mathbf{v}_i}{\mathrm{d}t} &amp;= en(\mathbf{E}+\mathbf{v}_i\times\mathbf{B}) - \nabla p_i -\nabla\cdot\pmb{\pi}_i + \mathbf{P}_{ie} \\
+m_e n\frac{\mathrm{d}\mathbf{v}_e}{\mathrm{d}t} &amp;= -en(\mathbf{E}+\mathbf{v}_e\times\mathbf{B}) - \nabla p_e -\nabla\cdot\pmb{\pi}_e + \mathbf{P}_{ei}
+\end{aligned}
+\tag{6.16}\]</span></span></p>
+<p>The terms <span class="math inline">\(\mathbf{P}_{ie}\)</span> and <span class="math inline">\(\mathbf{P}_{ei}\)</span> represent, respectively, the momentum gain of the ion fluid caused by collisions with electrons, and vice versa. The stress tensor <span class="math inline">\(\mathbf{P}_j\)</span> has been split into the isotropic part <span class="math inline">\(p_j\)</span> and the anisotropic viscosity tensor <span class="math inline">\(\pmb{\pi}_j\)</span>. Like-particle collisions, which give rise to stresses within each fluid individually, are contained in <span class="math inline">\(\pmb{\pi}_j\)</span>. Since these collisions do not give rise to much diffusion, we shall ignore the terms <span class="math inline">\(\nabla\cdot\pmb{\pi}_j\)</span>. As for the terms <span class="math inline">\(\mathbf{P}_{ie}\)</span> and <span class="math inline">\(\mathbf{P}_{ei}\)</span>, which represent the friction between the two fluids, the conservation of momentum requires</p>
+<p><span class="math display">\[
+\mathbf{P}_{ie} = -\mathbf{P}_{ei}
+\]</span></p>
+<p>We can write <span class="math inline">\(\mathbf{P}_{ei}\)</span> in terms of the collision frequency in the usual manner:</p>
+<p><span class="math display">\[
+\mathbf{P}_{ei} = mn(\mathbf{v}_i - \mathbf{v}_e)\nu_{ei}
+\]</span></p>
+<p>and similarly for <span class="math inline">\(\mathbf{P}_{ie}\)</span>. Since the collisions are Coulomb collisions, one would expect <span class="math inline">\(\mathbf{P}_{ei}\)</span> to be proportional to the Coulomb force, which is proportional to <span class="math inline">\(e^2\)</span> (for singly-charged ions). Furthermore, <span class="math inline">\(\mathbf{P}_{ei}\)</span> must be proportional to the density of electrons <span class="math inline">\(n_e\)</span> and to the density of scattering centers <span class="math inline">\(n_i\)</span>, which, of course, is equal to <span class="math inline">\(n_e\)</span>. Finally, <span class="math inline">\(\mathbf{P}_{ei}\)</span> should be proportional to the relative velocity of the two fluids. On physical grounds, then, we can write <span class="math inline">\(\mathbf{P}_{ei}\)</span> as</p>
+<p><span id="eq-coulomb_collision_momentum"><span class="math display">\[
+\mathbf{P}_{ei} = \eta e^2n^2(\mathbf{v}_i - \mathbf{v}_e)
+\tag{6.17}\]</span></span></p>
+<p>where <span class="math inline">\(\eta\)</span> is a constant of proportionality. Comparing this with the last equation, we see that</p>
+<p><span id="eq-coulomb_collision_frequency"><span class="math display">\[
+\nu_{ei} = \frac{ne^2}{m}\eta
+\tag{6.18}\]</span></span></p>
+<p>The constant <span class="math inline">\(\eta\)</span> is the <em>specific resistivity</em> of the plasma; that this jibes with the usual meaning of resistivity will become clear shortly.</p>
+</section>
+<section id="sec-coulomb_collision_mechanics" class="level3" data-number="6.8.2">
+<h3 data-number="6.8.2" class="anchored" data-anchor-id="sec-coulomb_collision_mechanics"><span class="header-section-number">6.8.2</span> Mechanics of Coulomb Collisions</h3>
+<p>When an electron collides with a neutral atom, no force is felt until the electron is close to the atom on the scale of atomic dimensions; the collisions are like billiard-ball collisions. When an electron collides with an ion, the electron is gradually deflected by the long-range Coulomb field of the ion. Nonetheless, one can derive an effective cross section for this kind of collision. It will suffice for our purposes to give an order-of-magnitude estimate of the cross section. In Fig. 5.18 ADD IT!, an electron of velocity <span class="math inline">\(\mathbf{v}\)</span> approaches a fixed ion of charge <span class="math inline">\(e\)</span>. In the absence of Coulomb forces, the electron would have a distance of closest approach <span class="math inline">\(r_0\)</span>, called the impact parameter. In the presence of a Coulomb attraction, the electron will be deflected by an angle <span class="math inline">\(\chi\)</span>, which is related to <span class="math inline">\(r_0\)</span>. The Coulomb force is</p>
+<p>FIGURE:Orbit of an electron making a Coulomb collision with an ion.#fig-coulomb_collision}</p>
+<p><span class="math display">\[
+F = -\frac{e^2}{4\pi\epsilon_0 r^2}
+\]</span></p>
+<p>This force is felt during the time the electron is in the vicinity of the ion; this time is roughly</p>
+<p><span class="math display">\[
+T \approx r_0 / v
+\]</span></p>
+<p>The change in the electron’s momentum is therefore approximately</p>
+<p><span class="math display">\[
+\Delta(mv) = |FT| \approx \frac{e^2}{4\pi\epsilon_0r_0v}
+\]</span></p>
+<p>We wish to estimate the cross section for large-angle collisions, in which <span class="math inline">\(\chi \ge 90^o\)</span>. For a <span class="math inline">\(90^o\)</span> collision, the change in <span class="math inline">\(mv\)</span> is of the order of <span class="math inline">\(mv\)</span> itself. Thus</p>
+<p><span id="eq-impact_parameter"><span class="math display">\[
+\Delta(mv) \simeq mv \simeq e^2/4\pi\epsilon_0r_0v,\quad r_0 = e^2/4\pi\epsilon_0 mv^2
+\tag{6.19}\]</span></span></p>
+<p>The cross section is then</p>
+<p><span class="math display">\[
+\sigma = \pi r_0^2 = e^4 / 16\pi\epsilon_0^2 m^2v^4
+\]</span></p>
+<p>The collision frequency is, therefore,</p>
+<p><span id="eq-coulomb_collision_freq"><span class="math display">\[
+\nu_{ei} = n\sigma v = ne^4/16\pi\epsilon_0^2 m^2 v^3
+\tag{6.20}\]</span></span></p>
+<p>and the resistivity is</p>
+<p><span id="eq-coulomb_resistivity"><span class="math display">\[
+\eta = \frac{m}{ne^2}\nu_{ei} = \frac{e^2}{16\pi\epsilon_0^2 mv^3}
+\tag{6.21}\]</span></span></p>
+<p>For a Maxwellian distribution of electrons, we may replace <span class="math inline">\(v^2\)</span> by <span class="math inline">\(k_B T_e/m\)</span> for our order-of-magnitude estimate:</p>
+<p><span id="eq-coulomb_resistivity_maxwellian"><span class="math display">\[
+\eta \approx \frac{\pi e^2m^{1/2}}{(4\pi\epsilon_0)^2 (k_B T_e)^{3/2}}
+\tag{6.22}\]</span></span></p>
+<p>This is the resistivity based on large-angle collisions alone. In practice, because of the long range of the Coulomb force, small-angle collisions are much more frequent, and the cumulative effect of many small-angle deflections turns out to be larger than the effect of large-angle collisions. It was shown by Spitzer that <a href="#eq-coulomb_resistivity_maxwellian">Equation&nbsp;<span>6.22</span></a> should be multiplied by a factor <span class="math inline">\(\ln \Lambda\)</span>:</p>
+<p><span id="eq-coulomb_resistivity_maxwellian_correction"><span class="math display">\[
+\eta\approx\frac{\pi e^2m^{1/2}}{(4\pi\epsilon_0)^2 (k_B T_e)^{3/2}}\ln\Lambda
+\tag{6.23}\]</span></span></p>
+<p>where</p>
+<p><span class="math display">\[
+\Lambda = \overline{\lambda_D/r_0} = 12\pi n\lambda_D^3
+\]</span></p>
+<p>This factor represents the maximum impact parameter, in units of <span class="math inline">\(r_0\)</span> as given by <a href="#eq-impact_parameter">Equation&nbsp;<span>6.19</span></a>, averaged over a Maxwellian distribution. The maximum impact parameter is taken to be <span class="math inline">\(\lambda_D\)</span> because Debye shielding suppresses the Coulomb field at larger distances. Although <span class="math inline">\(\Lambda\)</span> depends on <span class="math inline">\(n\)</span> and <span class="math inline">\(k_BT_e\)</span>, its logarithm is insensitive to the exact values of the plasma parameters. Typical values of <span class="math inline">\(\ln \Lambda\)</span> are given below (<span class="math inline">\(\lambda_D\)</span> defined in <a href="introduction.html#sec-debye"><span>Section&nbsp;2.4</span></a>).</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(k_B T_e\,[\text{eV}]\)</span></th>
+<th><span class="math inline">\(n\,[\text{m}^{-3}]\)</span></th>
+<th><span class="math inline">\(\ln\Lambda\)</span></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0.2\)</span></td>
+<td><span class="math inline">\(10^{15}\)</span></td>
+<td>10.7</td>
+<td>(Q-machine)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(10^{17}\)</span></td>
+<td>11.8</td>
+<td>(lab plasma)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(100\)</span></td>
+<td><span class="math inline">\(10^{19}\)</span></td>
+<td>15.4</td>
+<td>(typical torus)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(10^4\)</span></td>
+<td><span class="math inline">\(10^{21}\)</span></td>
+<td>20.0</td>
+<td>(fusion reactor)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(10^3\)</span></td>
+<td><span class="math inline">\(10^{27}\)</span></td>
+<td>9.6</td>
+<td>(laser plasma)</td>
+</tr>
+</tbody>
+</table>
+<p>It is evident that <span class="math inline">\(\ln \Lambda\)</span> varies only a factor of two as the plasma parameters range over many orders of magnitude. For most purposes, it will be sufficiently accurate to let <span class="math inline">\(\ln \Lambda=10\)</span> regardless of the type of plasma involved.</p>
+</section>
+<section id="physical-meaning-of-η" class="level3" data-number="6.8.3">
+<h3 data-number="6.8.3" class="anchored" data-anchor-id="physical-meaning-of-η"><span class="header-section-number">6.8.3</span> Physical Meaning of η</h3>
+<p>Let us suppose that an electric field <span class="math inline">\(\mathbf{E}\)</span> exists in a plasma and that the current that it drives is all carried by the electrons, which are much more mobile than the ions. Let <span class="math inline">\(B=0\)</span> and <span class="math inline">\(k_BT_e=0\)</span>, so that <span class="math inline">\(\nabla\cdot\mathbf{P}_e=0\)</span>. Then, in steady state, the electron equation of motion from <a href="#eq-resistivity_fluid_momentum">Equation&nbsp;<span>6.16</span></a> reduces to</p>
+<p><span id="eq-resistivity_momentum_steady"><span class="math display">\[
+en\mathbf{E} = \mathbf{P}_{ei}
+\tag{6.24}\]</span></span></p>
+<p>Since <span class="math inline">\(\mathbf{j}=en(\mathbf{v}_i-\mathbf{v}_e)\)</span>, <a href="#eq-coulomb_collision_momentum">Equation&nbsp;<span>6.17</span></a> can be written</p>
+<p><span class="math display">\[
+\mathbf{P}_{ei} = \eta en\mathbf{j}
+\]</span></p>
+<p>so that <a href="#eq-resistivity_momentum_steady">Equation&nbsp;<span>6.24</span></a> becomes</p>
+<p><span id="eq-ohm"><span class="math display">\[
+\mathbf{E} = \eta\mathbf{j}
+\tag{6.25}\]</span></span></p>
+<p>This is simply Ohm’s law, and the constant <span class="math inline">\(\eta\)</span> is just the specific resistivity. The expression for <span class="math inline">\(\eta\)</span> in a plasma, as given by <a href="#eq-coulomb_resistivity_maxwellian">Equation&nbsp;<span>6.22</span></a> or <a href="#eq-coulomb_resistivity_maxwellian_correction">Equation&nbsp;<span>6.23</span></a>, has several features which should be pointed out.</p>
+<ol type="1">
+<li><p>In <a href="#eq-coulomb_resistivity_maxwellian_correction">Equation&nbsp;<span>6.23</span></a>, we see that <span class="math inline">\(\eta\)</span> is <em>independent of density</em> (except for the weak dependence in <span class="math inline">\(\ln\Lambda\)</span>). This is a rather surprising result, since it means that if a field <span class="math inline">\(\mathbf{E}\)</span> is applied to a plasma, the current <span class="math inline">\(\mathbf{j}\)</span>, as given by <a href="#eq-ohm">Equation&nbsp;<span>6.25</span></a>, is independent of the number of charge carriers. The reason is that although <span class="math inline">\(j\)</span> increases with <span class="math inline">\(n_e\)</span>, the frictional drag against the ions increases with <span class="math inline">\(n_i\)</span>. Since <span class="math inline">\(n_e=n_i\)</span> these two effects cancel. This cancellation can be seen in <a href="#eq-coulomb_collision_freq">Equation&nbsp;<span>6.20</span></a> and <a href="#eq-coulomb_resistivity">Equation&nbsp;<span>6.21</span></a>. The collision frequency <span class="math inline">\(\nu_{ei}\)</span> is indeed proportional to <span class="math inline">\(n\)</span>, but the factor <span class="math inline">\(n\)</span> cancels out in <span class="math inline">\(\eta\)</span>. A fully ionized plasma behaves quite differently from a weakly ionized one in this respect. In a weakly ionized plasma, we have <span class="math inline">\(\mathbf{j}=-ne\mathbf{v}_e,\mathbf{v}_e=-\mu_e\mathbf{E}\)</span>, so that <span class="math inline">\(\mathbf{j}=ne\mu_e\mathbf{E}\)</span>. Since the electron mobility <span class="math inline">\(\mu_e\)</span> depends only on the density of <em>neutrals</em>, the current is proportional to the plasma density <span class="math inline">\(n\)</span>.</p></li>
+<li><p><a href="#eq-coulomb_resistivity_maxwellian_correction">Equation&nbsp;<span>6.23</span></a> shows that <span class="math inline">\(\eta\)</span> is proportional to <span class="math inline">\(T_e^{-3/2}\)</span>. As a plasma is heated, the Coulomb cross section decreases, and the resistivity drops rather rapidly with increasing temperature. Plasmas at thermonuclear temperatures (tens of keV) are essentially collisionless; this is the reason so much theoretical research is done on collisionless plasmas. Of course, there must always be some collisions; otherwise, there wouldn’t be any fusion reactions either. An easy way to heat a plasma is simply to pass a current through it. The <span class="math inline">\(I^2R\)</span> or <span class="math inline">\(\eta j^2\)</span> losses then turn up as an increase in electron temperature. This is called <em>ohmic heating</em>. The <span class="math inline">\((k_BT_e)^{-3/2}\)</span> dependence of <span class="math inline">\(\eta\)</span>, however, does not allow this method to be used up to thermonuclear temperatures. The plasma becomes such a good conductor at temperatures above 1 keV that ohmic heating is a very slow process in that range.</p></li>
+<li><p><a href="#eq-coulomb_collision_freq">Equation&nbsp;<span>6.20</span></a> shows that <span class="math inline">\(\nu_{ei}\)</span> varies as <span class="math inline">\(v^{-3}\)</span>. The fast electrons in the tail of the velocity distribution make very few collisions. The current is therefore carried mainly by these electrons rather than by the bulk of the electrons in the main body of the distribution. The strong dependence on <span class="math inline">\(v\)</span> has another interesting consequence. If an electric field is suddenly applied to a plasma, a phenomenon known as <em>electron runaway</em> can occur. A few electrons which happen to be moving fast in the direction of <span class="math inline">\(-\mathbf{E}\)</span> when the field is applied will have gained so much energy before encountering an ion that they can make only a glancing collision. This allows them to pick up more energy from the electric field and decrease their collision cross section even further. If E is large enough, the cross section falls so fast that these runaway electrons never make a collision. They form an accelerated electron beam detached from the main body of the distribution.</p></li>
+</ol>
+</section>
+<section id="numerical-values-of-η" class="level3" data-number="6.8.4">
+<h3 data-number="6.8.4" class="anchored" data-anchor-id="numerical-values-of-η"><span class="header-section-number">6.8.4</span> Numerical Values of η</h3>
+<p>Exact computations of <span class="math inline">\(\eta\)</span> which take into account the ion recoil in each collision and are properly averaged over the electron distribution were first given by Spitzer. The following result for hydrogen is sometimes called the Spitzer resistivity:</p>
+<p><span id="eq-spitzer_resistivity"><span class="math display">\[
+\eta_\parallel = 5.2\times 10^{-5}\frac{Z\ln\Lambda}{T^{3/2}[\text{eV}]}\, [\text{ohm}\cdot\text{m}]
+\tag{6.26}\]</span></span></p>
+<p>Here <span class="math inline">\(Z\)</span> is the ion charge number, which we have taken to be 1 elsewhere. Since the dependence on <span class="math inline">\(m_i\)</span> is weak, these values can also be used for other gases. The subscript <span class="math inline">\(\parallel\)</span> means that this value of <span class="math inline">\(\eta\)</span> is to be used for motions parallel to <span class="math inline">\(\mathbf{B}\)</span>. For motions perpendicular to <span class="math inline">\(\mathbf{B}\)</span>, one should use <span class="math inline">\(\eta_\perp\)</span> given by</p>
+<p><span class="math display">\[
+\eta_\perp = 2.0 \eta_\parallel
+\]</span></p>
+<p>This does not mean that conductivity along <span class="math inline">\(\mathbf{B}\)</span> is only two times better than conductivity across <span class="math inline">\(\mathbf{B}\)</span>. A factor like <span class="math inline">\(\omega_c^2\tau^2\)</span> still has to be taken into account. The factor 2.0 comes from a difference in weighting of the various velocities in the electron distribution. In perpendicular motions, the slow electrons, which have small Larmor radii, contribute more to the resistivity than in parallel motions.</p>
+<p>For <span class="math inline">\(k_BT_e=100\, \text{eV}\)</span>, <a href="#eq-spitzer_resistivity">Equation&nbsp;<span>6.26</span></a> yields</p>
+<p><span class="math display">\[
+\eta = 5\times 10^{-7}\, [\text{ohm}\cdot\text{m}]
+\]</span></p>
+<p>This is to be compared with various metallic conductors:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>material</th>
+<th><span class="math inline">\(\eta\, [\text{ohm}\cdot\text{m}]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>copper</td>
+<td><span class="math inline">\(2\times10^{-8}\)</span></td>
+</tr>
+<tr class="even">
+<td>stainless steel</td>
+<td><span class="math inline">\(7\times10^{-7}\)</span></td>
+</tr>
+<tr class="odd">
+<td>mercury</td>
+<td><span class="math inline">\(1\times10^{6}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>A 100-eV plasma, therefore, has a conductivity like that of stainless steel.</p>
+</section>
+<section id="pulsed-currents" class="level3" data-number="6.8.5">
+<h3 data-number="6.8.5" class="anchored" data-anchor-id="pulsed-currents"><span class="header-section-number">6.8.5</span> Pulsed Currents</h3>
+<p>When a steady-state current is drawn between two electrodes aligned along the magnetic field, electrons are the dominant current carrier, and sheaths are set up at the cathode to limit the current to the set value. When the current is pulsed, however, it takes time to set up the current distribution. It was shown by Stenzel and Urrutia that this time is controlled by whistler waves (R-waves), which must travel the length of the device to communicate the voltage information.</p>
+</section>
+<section id="collisions-between-species" class="level3" data-number="6.8.6">
+<h3 data-number="6.8.6" class="anchored" data-anchor-id="collisions-between-species"><span class="header-section-number">6.8.6</span> Collisions Between Species</h3>
+<p>Y.Y talked about this during his lecture that the collision rate among ions or electrons is much larger than the collision rate between ions and electrons. I need to go back to the notes. See also <a href="https://physics.stackexchange.com/questions/143738/why-are-ions-and-electrons-at-different-temperatures-in-a-plasma">StackExchange Q&amp;A</a>.</p>
+</section>
+<section id="conductivity-tensor" class="level3" data-number="6.8.7">
+<h3 data-number="6.8.7" class="anchored" data-anchor-id="conductivity-tensor"><span class="header-section-number">6.8.7</span> Conductivity Tensor</h3>
+<p>Resistivity is the inverse of conductivity. Consider the effect of collisions as friction in the equation of motion:</p>
+<p><span class="math display">\[
+m\frac{\mathrm{d}\mathbf{u}_e}{\mathrm{d}t} = q(\mathbf{E}+\mathbf{u}_e\times\mathbf{B}) - m\nu_c(\mathbf{u}_e - \mathbf{u}^\prime)
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{u}^\prime\)</span> is the velocity of the collision targets.</p>
+<ul>
+<li>In unmagnetized plasma, let <span class="math inline">\(\mathbf{B}=0\)</span>.</li>
+</ul>
+<p>Assume a steady state with cold electrons (<span class="math inline">\(\mathbf{u}_e = \mathbf{v}_e\)</span>) and non-moving targets <span class="math inline">\(\mathbf{u}^\prime = 0\)</span>, we can easily have</p>
+<p><span class="math display">\[
+\mathbf{E} = -\frac{m_e\nu_c}{e}\mathbf{u}_e
+\]</span></p>
+<p>Since the electron current is defined as</p>
+<p><span class="math display">\[
+\mathbf{j} = -en_e\mathbf{u}_e
+\]</span></p>
+<p>we have from the last two equations</p>
+<p><span id="eq-classical_conductivity"><span class="math display">\[
+\mathbf{j} = \frac{n_e e^2}{m_e\nu_c}\mathbf{E} \equiv \sigma\mathbf{E}
+\tag{6.27}\]</span></span></p>
+<p>where <span class="math inline">\(\sigma\)</span> is the classical conductivity.</p>
+<ul>
+<li>In magnetized plasma, let <span class="math inline">\(\mathbf{B}=b\hat{z}\)</span>.</li>
+</ul>
+<p>Similarly to the unmagnetized case,</p>
+<p><span class="math display">\[
+0 = -e(\mathbf{E} + \mathbf{u}_e\times\mathbf{B}) - \nu_c m_e\mathbf{u}_e
+\]</span></p>
+<p>In order to avoid confusion, let <span class="math inline">\(\sigma_0\)</span> denote the classical conductivity from <a href="#eq-classical_conductivity">Equation&nbsp;<span>6.27</span></a>. Using the definition of current density and writing in scalar forms, we now have</p>
+<p><span class="math display">\[
+\begin{aligned}
+j_x &amp;= \sigma_0 E_x - \frac{\Omega_e}{\nu_c}j_y \\
+j_y &amp;= \sigma_0 E_y - \frac{\Omega_e}{\nu_c}j_x \\
+j_z &amp;= \sigma_0 E_z
+\end{aligned}
+\]</span></p>
+<p>the solution of which gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+j_x &amp;= \frac{\nu_c^2}{\nu_c^2 + \Omega_e^2}\sigma_0 E_x - \frac{\Omega_e \nu_c}{\nu_c^2 + \Omega_e^2}E_y \\
+j_y &amp;= \frac{\nu_c^2}{\nu_c^2 + \Omega_e^2}\sigma_0 E_y - \frac{\Omega_e \nu_c}{\nu_c^2 + \Omega_e^2}E_x \\
+j_z &amp;= \sigma_0 E_z
+\end{aligned}
+\]</span></p>
+<p>or in matrix form,</p>
+<p><span class="math display">\[
+\begin{pmatrix} j_x \\ j_y \\ j_z \end{pmatrix} =
+\begin{pmatrix} \sigma_P &amp; -\sigma_H &amp; 0 \\ \sigma_H &amp; \sigma_P &amp; 0 \\ 0 &amp; 0 &amp; \sigma_\parallel \end{pmatrix}
+\begin{pmatrix} E_x \\ E_y \\ E_z \end{pmatrix}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sigma_P &amp;= \frac{\nu_c^2}{\nu_c^2 + \Omega_e^2}\sigma_0\quad\text{Pedersen conductivity}&amp;(\perp\mathbf{B}\&amp;\parallel\mathbf{E}) \\
+\sigma_H &amp;= \frac{\Omega_e \nu_c}{\nu_c^2 + \Omega_e^2}\sigma_0\quad\text{Hall conductivity}&amp;(\perp\mathbf{B}\&amp;\perp\mathbf{E}) \\
+\sigma_\parallel &amp;= \sigma_0 = \frac{n_e e^2}{m_e\nu_c}\quad\text{parallel conductivity}&amp;(\parallel\mathbf{B})
+\end{aligned}
+\]</span></p>
+<p>Magnetic field-aligned currents (FACs) are very important in plasma physics. From <span class="quarto-unresolved-ref">?fig-conductivity</span>, we see that <span class="math inline">\(\Omega_e \simeq \nu_c\)</span> is the most complicated regime where the three conductivities are comparable, and <span class="math inline">\(\Omega_e \gg \nu_c\)</span> is the most anisotropic regime as particles are tightly bound in the perpendicular direction but free to move along <span class="math inline">\(\mathbf{B}\)</span>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode jl code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>KeyNotes.<span class="fu">plot_conductivity</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The study of conductivity is most relevant in the Earth’s ionosphere, where <span class="math inline">\(\Omega_e \simeq \nu_c\)</span> happens at about 100 km above from the ground, and <span class="math inline">\(\sigma_0\)</span> is on the order of 100 S/m. Ionosphere forms within the atmosphere through the mechanisms of electron impact ionization and photoionization and in turn contribute in a crucial way to the plasma interactions. The ionosphere is electrically conductive and thus carry part of a current system that is continued outside the ionosphere by plasma currents. The properties of the ionospheric currents are usually described in terms of the <em>electrical conductivity</em> of the ionosphere. Because a strong background magnetic field threads the ionosphere, the conductivities are strongly anisotropic. In the direction of the magnetic field, the conductivity is referred to as the <em>parallel</em> or <em>Birkeland</em> conductivity. The Birkeland conductivity <span class="math inline">\(\sigma_\parallel\)</span> is so high that it short-circuits the field-aligned component of the ionospheric electric field, and normally electrical equipotentials align with the ionospheric magnetic field lines for quasi-static (<span class="math inline">\(&gt;1\,\text{min}\)</span>) large-scale electrodynamic conditions. Perpendicular to the magnetic field direction, the conductivity has components parallel to the electric field <span class="math inline">\(\sigma_P\)</span> and perpendicular to the electric field <span class="math inline">\(\sigma_H\)</span>.</p>
+<p>Because the electric field vanishes in the field-aligned direction through the ionosphere (<span class="math inline">\(\mathbf{E}_\parallel = 0\)</span>), it is meaningful to integrate the transverse <span class="math inline">\(\sigma_P\)</span> and <span class="math inline">\(\sigma_H\)</span> along the magnetic field direction to evaluate the Pedersen and Hall conductances <span class="math inline">\(\Sigma_P\)</span> and <span class="math inline">\(\Sigma_H\)</span>, respectively. For any <span class="math inline">\(\mathbf{E}\)</span>,</p>
+<p><span class="math display">\[
+\pmb{\Sigma}\cdot\mathbf{E} = \Sigma_P\mathbf{E} + \Sigma_H\hat{b}\times\mathbf{E}
+\]</span></p>
+<p>The continuity of currents gives</p>
+<p><span id="eq-ionosphere_potential_derivation"><span class="math display">\[
+\begin{aligned}
+\nabla\cdot\mathbf{j} + \frac{\partial \rho^\ast}{\partial t} = 0 \\
+\nabla\cdot(\pmb{\sigma}\cdot\mathbf{E}) = -\frac{\partial \rho^\ast}{\partial t} \\
+\int \nabla\cdot(\pmb{\sigma}\cdot\mathbf{E}) dz = -\int \frac{\partial \rho^\ast}{\partial t} dz \\
+\nabla\cdot(\int\pmb{\sigma}dz\cdot\mathbf{E}) = -\rho^\ast v_\parallel \\
+\nabla\cdot(\pmb{\Sigma}\cdot\mathbf{E}) = - j_\parallel \\
+\nabla\cdot(\pmb{\Sigma}\cdot\nabla\Phi) = j_\parallel
+\end{aligned}
+\tag{6.28}\]</span></span></p>
+<p><span class="math inline">\(\mathbf{E}=-\nabla\Phi\)</span>, and <span class="math inline">\(j_\parallel\)</span> is defined such that upward (<span class="math inline">\(+z\)</span>) is considered positive. Here we assume that <span class="math inline">\(\mathbf{B}\)</span> is aligned with <span class="math inline">\(\hat{z}\)</span>; a more realistic geometry requires the consideration of inclination angle. See <a href="ionosphere.html#eq-ionosphere_potential">Equation&nbsp;<span>19.1</span></a> and note the sign difference between the definitions of <span class="math inline">\(j_\parallel\)</span>.</p>
+<p>The forces that act on a flux tube in the ionosphere can be expressed in terms of these conductances and the force balance expressions can consequently be used to derive other properties of the ionospheric flow such as its velocity. (???)</p>
+<p>Mass loading contributes to the electrodynamics of the plasma interaction in ways that are analogous to the contributions of the ionospheric conductivities. Pickup ionization conserves momentum. An increase of the ion density results in a reduction of the flow velocity and its associated electric field. Thus in developing the theory of the interaction, pickup effects can be directly incorporated into the above conductances and the interaction region extends well above the atmospheric exobase.</p>
+<p>The Pedersen current (aligned with the electric field) exerts forces that slow the flow in the ionosphere. The Hall current flows perpendicular to the electric and magnetic field, thereby breaking the symmetry of the interaction. The Hall current results in a rotation of the flow away from the corotation direction and produces ionospheric asymmetries.</p>
+</section>
+</section>
+<section id="diffusion-of-fully-ionized-plasmas" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="diffusion-of-fully-ionized-plasmas"><span class="header-section-number">6.9</span> Diffusion of Fully Ionized Plasmas</h2>
+<p>The magnetic induction equation can be derived from Faraday’s law and Ohm’s law. If magnetic diffusivity <span class="math inline">\(\eta\)</span> is constant, we can write it in the form</p>
+<p><span class="math display">\[
+\frac{\partial\mathbf{B}}{\partial t}=\nabla\times(\mathbf{u}\times\mathbf{B})+\eta\nabla^2\mathbf{B}
+\]</span></p>
+<p>We define <em>magnetic Reynold number</em> <span class="math inline">\(R_m\)</span> as the ratio of the convection term and the diffusion term:</p>
+<p><span class="math display">\[
+R_m\equiv \frac{\nabla\times(\mathbf{u}\times\mathbf{B})}{\eta\nabla^2\mathbf{B}}\sim \frac{uBL_0^2}{\eta L_0 B}=\frac{u L_0}{\eta}
+\]</span></p>
+<p>There are two extreme cases of <span class="math inline">\(R_m\)</span>. One thing that you should keep in mind is that this is no longer ideal MHD because <span class="math inline">\(\mathbf{E}+\mathbf{u}\times\mathbf{B}\neq0\)</span>.</p>
+<section id="small-r_m-condition" class="level3" data-number="6.9.1">
+<h3 data-number="6.9.1" class="anchored" data-anchor-id="small-r_m-condition"><span class="header-section-number">6.9.1</span> Small <span class="math inline">\(R_m\)</span> condition</h3>
+<p>If <span class="math inline">\(R_m\ll1\)</span>, the convection part can be ignored, (e.g.&nbsp;<span class="math inline">\(\mathbf{u}\approx 0\)</span>)</p>
+<p><span class="math display">\[
+\frac{\partial\mathbf{B}}{\partial t}=\eta\nabla^2\mathbf{B}
+\]</span></p>
+<p>This is a diffusion equation, meaning that unlike in ideal MHD, plasma no longer ties to the magnetic field. The diffusion time scale <span class="math inline">\(\tau_0\)</span> can be derived as follows:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{B}{\tau_0}=\eta\frac{B}{{L_0}^2}\Rightarrow \tau_0=\frac{{L_0}^2}{\eta}=\mu\sigma {L_0}^2
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\sigma\)</span> is the electrical conductivity, which is a derived parameter from Ohm’s law. For fully ionized plasma, <span class="math inline">\(\sigma=\frac{n_i e^2 \tau_{ei}}{m_e}\)</span>.</p>
+<p>The magnetic diffusivity can be written as</p>
+<p><span class="math display">\[
+\eta=\frac{1}{\mu\sigma}=\frac{m_e}{\mu n_i e^2\tau_{ei}}=\frac{m_e n_e \ln\Lambda}{\mu n_i e^2 \cdot 5.45\times10^{5}T^{3/2}} =5.2\times10^7 \frac{\ln\Lambda}{T^{3/2}}
+\]</span></p>
+<p>where <span class="math inline">\(\ln\Lambda\)</span> is the Coulomb logarithm (generally <span class="math inline">\(10\sim20\)</span> which is insensitive to <span class="math inline">\(n\)</span> and <span class="math inline">\(T\)</span>, <a href="#sec-coulomb_collision_mechanics"><span>Section&nbsp;6.8.2</span></a>).</p>
+<p><em>Examples</em>:</p>
+<ol type="1">
+<li>Evolution of solar coronal magnetic field and the energy release of solar flares in solar corona.</li>
+</ol>
+<p><span class="math inline">\(T=10^{7}K\)</span>, <span class="math inline">\(n=10^{14}m^{-3}\)</span>, <span class="math inline">\(\Rightarrow \eta=1\ m^2s^{-1}\)</span></p>
+<p>For supergranules, <span class="math inline">\(L_0=10^7m=10Mm\)</span>, (<span class="math inline">\(R_s=700Mm\)</span>), the diffusion time scale <span class="math inline">\(\tau_d=10^{14}s\approx3\times10^6\text{yr}\)</span>, which is very very long.</p>
+<p>For flare, the observed diffusion time scale is <span class="math inline">\(\tau_d=1s\Rightarrow L_0=1m\)</span>. The magnetic reconnection (in solar corona) diffusion time scale is about <span class="math inline">\(\tau_d=100s\Rightarrow L_0=10m\)</span>. The viewing angle at <span class="math inline">\(1AU\)</span> to the sun is about <span class="math inline">\(2000\ \text{arcsec}\)</span>, where <span class="math inline">\(1\ \text{arcsecond}\)</span> corresponds to <span class="math inline">\(700\text{km}\)</span> on the sun. Right now the best resolution we have is about <span class="math inline">\(0.2\sim0.5\ \text{arcsecond}\)</span>, which is about <span class="math inline">\(100\text{km}\)</span>. This means that we are three orders of magnitude beyond the resolution we need to observe electron diffusion region on the sun!</p>
+<ol start="2" type="1">
+<li>Requirement of dynamo</li>
+</ol>
+<p>If there is no such thing as a magnetic dynamo, the geomagnetic field will have been already gone. In the core of Earth, <span class="math inline">\(\eta\approx 1m^2s^{-1}\)</span>, radius of Earth <span class="math inline">\(L_0=6\times10^6m\Rightarrow \tau_d\approx 4\times10^{12}s\approx10^6\text{yr}\)</span>. However, the age of our Earth is about <span class="math inline">\(10^9\text{yr}\gg 10^6\text{yr}\)</span>. This indicates that somthing is generating magnetic field inside the core.</p>
+<ol start="3" type="1">
+<li>Current sheet</li>
+</ol>
+<p>Consider an ideal configuration of magnetic field,</p>
+<p><span class="math display">\[
+\mathbf{B}=B(x,t)\widehat{y},
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+B(x,0)=\left\{
+\begin{array}{lr}
++B_0 &amp; x&gt;0 \\ -B_0 &amp; x&lt;0
+\end{array}
+\right.
+\]</span></p>
+<p>Then the magnetic diffusion equation can be written as</p>
+<p><span class="math display">\[
+\frac{\partial B}{\partial t}=\eta \frac{\partial^2 B}{\partial x^2}
+\]</span></p>
+<p>There is an analytic solution</p>
+<p><span class="math display">\[
+B(x,t)=B_0\ \text{erf}(\xi)
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\xi=\frac{x}{\sqrt{4\eta t}}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\text{erf}(\xi)=\frac{2}{\sqrt{\pi}}\int_0^\xi e^{-z^2}dz
+\]</span></p>
+<p>is the <em>error function</em>. It has some basic properties as follows:</p>
+<p><span class="math display">\[
+\text{erf}(\xi)\Rightarrow\left\{
+\begin{array}{lr}
+1 &amp; ,\xi\rightarrow +\infty \\ -1 &amp; ,\xi\rightarrow -\infty
+\end{array}
+\right.
+\]</span></p>
+<p><span class="math display">\[
+\text{erf}(\xi)=\frac{2}{\sqrt{\pi}}\Big( \xi-\frac{\xi^3}{3}+\frac{\xi^5}{10}-\frac{\xi^7}{42}+... \Big)\approx \frac{2\xi}{\sqrt{\pi}},\ |\xi|\ll 1
+\]</span></p>
+<p>The shape is shown in <a href="#fig-erf">Figure&nbsp;<span>6.1</span></a>.</p>
+<div id="fig-erf" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/erf_plot.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.1: Error function.</figcaption><p></p>
+</figure>
+</div>
+<p><span class="math display">\[
+|B(x,t)|\approx\left\{
+\begin{array}{lr}
+\frac{x}{\sqrt{\pi\eta t}}B_0 &amp; ,|\xi|\ll1\ \text{or}\ |x|\ll\sqrt{\pi\eta t} \\
+B_0 &amp; ,|\xi|\gg1\ \text{or}\ |x|\gg\sqrt{\pi\eta t} \\
+0.995B_0 &amp; ,|\xi|=2\ \text{or}\ |x|=2\sqrt{\pi\eta t} \\
+\end{array}
+\right.
+\]</span></p>
+<p>If you want to draw this time-variant magnetic field at two different times <span class="math inline">\(t_1\)</span> and <span class="math inline">\(t_2\)</span> (<span class="math inline">\(t_1&lt;t_2\)</span>), you should have less dense lines at <span class="math inline">\(t_2\)</span> than <span class="math inline">\(t_1\)</span>. An example plot is present in <a href="#fig-mag_diff_1d">Figure&nbsp;<span>6.2</span></a>.</p>
+<div id="fig-mag_diff_1d" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/mag_diff_1d.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.2: Magnetic field at <span class="math inline">\(t=0.1,1,10\)</span>, respectively.</figcaption><p></p>
+</figure>
+</div>
+<p>Conclusion:</p>
+<ol type="1">
+<li>In a certain amount of time, B decreases in the near region and stays the same in the far region.</li>
+<li></li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+j_z = \frac{1}{\mu}\frac{\mathrm{d}B}{\mathrm{d}x}, \\
+\delta=2\sqrt{4\eta t},\ (\text{characteristic breadth}) \\
+\frac{\mathrm{d}\delta}{\mathrm{d}t}=2\sqrt{\frac{\eta}{t}}, (\text{characteristic speed})
+\end{aligned}
+\]</span></p>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<p><span class="math display">\[
+j=\int_{-\infty}^{\infty}j_z \mathrm{d}x=\frac{1}{\mu}\int_{-\infty}^{\infty}\mathrm{d}B=\frac{2B_0}{\mu}=\text{const.}
+\]</span></p>
+<p>The current sheet gets thickened with time, but the total current in <span class="math inline">\(z\)</span> remains the same.</p>
+<ol start="4" type="1">
+<li>Dissipation of magnetic energy, <span class="math inline">\(W_B=\frac{B^2}{2\mu}\)</span> ???</li>
+</ol>
+<p><span class="math display">\[
+\frac{\partial}{\partial t}\int_{-\infty}^{\infty}(W_0-W_B)\mathrm{d}x=-\frac{\partial}{\partial t}\int_{-\infty}^{\infty}\frac{B(x)^2}{2\mu}\mathrm{d}x
+\]</span></p>
+</section>
+<section id="large-r_m-condition" class="level3" data-number="6.9.2">
+<h3 data-number="6.9.2" class="anchored" data-anchor-id="large-r_m-condition"><span class="header-section-number">6.9.2</span> Large <span class="math inline">\(R_m\)</span> condition</h3>
+<p>If <span class="math inline">\(R_m\ll1\)</span>, the diffusion part can be ignored,</p>
+<p><span class="math display">\[
+\frac{\partial\mathbf{B}}{\partial t}=\nabla\times(\mathbf{u}\times\mathbf{B})
+\]</span></p>
+<p>When the conductivity is large, the diffusion coefficient becomes very small, and frozen-in flux phenomenon happens.</p>
+<ol type="1">
+<li>Frozen-flux theorem</li>
+</ol>
+<p>The magnetic field lines are frozen in the plasma flow. The magnetic flux through a surface moving with the plasma is conserved, <span class="math display">\[
+\frac{\mathrm{d}\Phi}{\mathrm{d}t}=0,
+\]</span> where <span class="math display">\[
+\Phi=\int\mathbf{B}\cdot \mathrm{d}\mathbf{A}.
+\]</span></p>
+<p>ADD FIGURES!!!</p>
+<p><em>Proof</em>.</p>
+<p>Consider a surface <span class="math inline">\(S\)</span> with boundary <span class="math inline">\(\Gamma\)</span>. the magnetic flux through <span class="math inline">\(S\)</span> is</p>
+<p><span class="math display">\[
+\Phi = \iint_s \mathbf{B}\cdot \mathrm{d}\mathbf{A}
+\]</span></p>
+<p>Then the time derivative of flux can be written as</p>
+<p><span class="math display">\[
+\begin{aligned}
+\dot{\Phi}&amp;=\iint_s \dot{\mathbf{B}}\cdot \mathrm{d}\mathbf{A} + \iint_s \mathbf{B}\cdot \mathrm{d}\dot{\mathbf{A}} \\
+&amp;=\iint_s (-\nabla\times\mathbf{E})\cdot\mathrm{d}\mathbf{A} + \iint_s \mathbf{B}\cdot \mathrm{d}\dot{\mathbf{A}} \\
+&amp;=\iint_s \nabla\times(\mathbf{u}\times\mathbf{B})\cdot\mathrm{d}\mathbf{l} + \iint_s \mathbf{B}\cdot \mathrm{d}\dot{\mathbf{A}} \\
+&amp;=\oint_\Gamma \mathbf{u}\times\mathbf{B}\cdot\mathrm{d}\mathbf{l} + \iint_s \mathbf{B}\cdot \mathrm{d}\dot{\mathbf{A}} \\
+\end{aligned}
+\]</span></p>
+<p>The change of area can be expressed as</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Delta \mathbf{A}&amp;=(\mathbf{u}\Delta t)\times\mathrm{d}\mathbf{l}, \\
+\mathrm{d}\dot{\mathbf{A}}&amp;=\mathbf{u}\times\mathrm{d}\mathbf{l}.
+\end{aligned}
+\]</span></p>
+<p>Substituting into the above equation, we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+\dot{\Phi}&amp;=\oint_\Gamma \mathbf{u}\times\mathbf{B}\cdot\mathrm{d}\mathbf{l} + \oint_\Gamma \mathbf{B}\cdot(\mathbf{u}\times\mathrm{d}\mathbf{l})=0
+\end{aligned}
+\]</span></p>
+<p>Keep in mind we are still under MHD approximation</p>
+<p><span class="math display">\[
+\frac{\partial |\mathbf{B}|}{\partial t} \ll \Omega_i |\mathbf{B}|
+\]</span></p>
+<p>This looks like the conservation of magnetic moment.</p>
+<p>□</p>
+<ol start="2" type="1">
+<li>Stretching of magnetic field lines</li>
+</ol>
+<p><span class="math display">\[
+\frac{d\mathbf{B}}{\mathrm{d}t}=\frac{\partial\mathbf{B}}{\partial t}+(\mathbf{u}\cdot\nabla)\mathbf{B}=\nabla\times(\mathbf{u}\times\mathbf{B})+(\mathbf{u}\cdot\nabla)\mathbf{B}
+=(\mathbf{B}\cdot\nabla)\mathbf{u}-\mathbf{B}(\nabla\cdot\mathbf{u})
+\]</span></p>
+<p>where the first term on the right is the shear motion and the second term is the expansion related change.</p>
+<p>Combined with the continuity equation,</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}\rho}{\mathrm{d}t}+\rho\nabla\cdot\mathbf{u}=0
+\]</span></p>
+<p>we can get</p>
+<p><span id="eq-B_Rho_diff"><span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{\mathbf{B}}{\rho} \Big)=\Big( \frac{\mathbf{B}}{\rho}\cdot\nabla \Big)\mathbf{u}
+\tag{6.29}\]</span></span></p>
+<p><em>Proof</em>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\mathrm{d}\mathbf{B}}{\mathrm{d}t}=(\mathbf{B}\cdot\nabla)\mathbf{u} +\frac{\mathbf{B}}{\rho}\frac{\mathrm{d}\rho}{\mathrm{d}t} \\
+\frac{1}{\rho}\frac{\mathrm{d}\mathbf{B}}{\mathrm{d}t}-\frac{\mathbf{B}}{\rho^2}\frac{\mathrm{d}\rho}{\mathrm{d}t}=\Big( \frac{\mathbf{B}}{\rho} \cdot\nabla\Big)\mathbf{u}
+\end{aligned}
+\]</span> □</p>
+<p>Compare <a href="#eq-B_Rho_diff">Equation&nbsp;<span>6.29</span></a> and <a href="math.html#eq-line_diff">Equation&nbsp;<span>3.1</span></a>, we have</p>
+<p><span class="math display">\[
+\frac{\mathbf{B}}{\rho}\propto \mathbf{l}
+\]</span></p>
+<p>i.e.&nbsp;<span class="math inline">\(\mathbf{B}/\rho\)</span> and <span class="math inline">\(\mathbf{l}\)</span> has the same form of variation. If density does not change much, the magnetic field strength will be proportional to <span class="math inline">\(l\)</span>.</p>
+</section>
+</section>
+<section id="solutions-of-the-diffusion-equation" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="solutions-of-the-diffusion-equation"><span class="header-section-number">6.10</span> Solutions of the Diffusion Equation</h2>
+<section id="time-dependence" class="level3" data-number="6.10.1">
+<h3 data-number="6.10.1" class="anchored" data-anchor-id="time-dependence"><span class="header-section-number">6.10.1</span> Time Dependence</h3>
+</section>
+<section id="time-independent-solutions" class="level3" data-number="6.10.2">
+<h3 data-number="6.10.2" class="anchored" data-anchor-id="time-independent-solutions"><span class="header-section-number">6.10.2</span> Time-Independent Solutions</h3>
+</section>
+</section>
+<section id="bohm-diffusion-and-neoclassical-diffusion" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="bohm-diffusion-and-neoclassical-diffusion"><span class="header-section-number">6.11</span> Bohm Diffusion and Neoclassical Diffusion</h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../contents/fluid.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../contents/wave.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
