@@ -156,7 +156,7 @@ and $\widehat{\mathbf{E}} = \mathbf{E}$ is assumed. The nice feature with this a
 
 ## Low Density Treatment
 
-Apparently new methods are still being proposed because the inclusion of electron inertia term along cannot solve all the issues. [Amano+, 2014](https://doi.org/10.1016/j.jcp.2014.06.048) suggests another way to solve for the electric field
+Apparently new methods are still being proposed because the inclusion of electron inertia term along cannot solve all the issues. [@amano2014robust] suggests another way to solve for the electric field
 
 $$
 (\omega_{pe}^2 - c^2\nabla^2)\mathbf{E} = \frac{e}{m_e}\big( \mathbf{J}_e \times\mathbf{B} - \nabla\cdot\overleftrightarrow{P}_e \big) + (\mathbf{V}_e\cdot\nabla)\mathbf{J}_e + \eta\mathbf{J}

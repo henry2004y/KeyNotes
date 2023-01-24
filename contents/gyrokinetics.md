@@ -336,7 +336,11 @@ $$ {#eq:gk_linear_KAW_governing}
 @eq:gk_linear_KAW_governing can be readily derived from @eq:gk_linear_KAW_kperp_large by letting $\omega_\mathbf{k}=i\partial/\partial t$ and $k_\perp=-i\partial/\partial x$. The spatial profile of $\omega_A^2(x)/\omega^2 = 1/(1+x^2/L^2)$ is shown in
 @fig:gk_KAW_evolution(a), with $L$ indicating the profile length-scale, so that the KAW wave-packet frequency is assumed to be consistent with the SAW frequency at $x=0$. @fig:gk_KAW_evolution(b) shows the propagation of the KAW wave-packet in the direction of radial non-uniformity, consistent with @eq:gk_linear_KAW_group.
 
+::: {.content-visible unless-format="pdf"}
+
 ![(a) Spatial dependence of $\omega_A^2$. (b) Propagation of the KAW wave-packet in the non-uniformity direction.](images/gk_kaw_propagation.png){#fig:gk_KAW_evolution}
+
+:::
 
 That there exists a finite perpendicular group velocity also implies, in the steady state, the removal of "singular" resonance and linear mode conversion process (Hasegawa and Chen 1976, see also @sec:flr). More specifically, the corresponding wave equation is given by:
 
@@ -363,7 +367,11 @@ $$
 
 The corresponding numerical solutions are plotted in @fig:gk_KAW_MHD. (I DON'T UNDERSTAND!!!)
 
+::: {.content-visible unless-format="pdf"}
+
 ![Illustration of ideal MHD (dashed blue line) and KAW (red line) solutions, which asymptotically match @eq:inhomogeneous_by_sol for $|x-x_0|/\Delta_0\gg 1$. The Airy swelling factor is evident from the normalization of the ordinate.](images/gk_kaw_propagation.png){#fig:gk_KAW_MHD}
+
+:::
 
 Both the analytical results and mode conversion process exhibit two important features. One is, instead of being singular, the amplitude at $x=x_0$ (where $\omega_A(x_0) = \omega_0$) is amplified by the Airy swelling factor $(L_A/\hat{r})^{2/3}$. Here, we recall $L_A$ is the scale length of $\omega_A$ and $\hat{r}$, from @eq:gk_linear_KAW_scale, is of $\mathcal{O}(r_{Li})$, and, hence, $|L_A/\hat{r}|\gg 1$. The other is the singularity at $x=x_0$ is being replaced by the Airy scale length $\Delta_0=(\hat{r}^2L_A)^{1/3}$. Recalling, from @eq:mhd_alfven_wavenumber_nonuniform, $|k_x|\simeq |\omega_A^\prime| t\simeq (\omega/L_A)t$, there then exists a KAW formation time scale given by $(\omega_0/L_A)t_0\simeq 1/\Delta_0$; i.e., $\omega_0 t_0\simeq (L_A/\hat{r})^{2/3}$. Taking, for an example, a typical laboratory plasma, $L_A/\hat{r}\simeq\mathcal{O}(10^3)$, we have $\omega_0 t_0\simeq\mathcal{O}(10^2)$, suggesting that it is reasonable to anticipate, in the presence of SAW continuous spectrum, the appearance of KAW in such plasmas.
 

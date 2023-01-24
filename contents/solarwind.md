@@ -145,7 +145,11 @@ As is easily demonstrated, if @eq:corona_dynamic_critical1 is satisfied then $du
 
 These four classes of solutions are illustrated in @fig:parker_sol.
 
+::: {.content-visible unless-format="pdf"}
+
 ![The four classes of Parker outflow solutions for the solar wind.](https://farside.ph.utexas.edu/teaching/plasma/lectures1/img1660.png){#fig:parker_sol}
+
+:::
 
 Each of the classes of solutions described above fits a different set of boundary conditions at $r=a$ and $r\rightarrow\infty$. The physical acceptability of these solutions depends on these boundary conditions. For example, both Class 3 and Class 4 solutions can be ruled out as plausible models for the solar corona since they predict super-sonic flow at the base of the corona, which is not observed, and is also not consistent with a static solar photosphere. Class 1 and Class 2 solutions remain acceptable models for the solar corona on the basis of their properties around $r=a$, since they both predict sub-sonic flow in this region. However, the Class 1 and Class 2 solutions behave quite differently as $r\rightarrow\infty$, and the physical acceptability of these two classes hinges on this difference.
 
@@ -269,11 +273,19 @@ $$
 
 When Parker Solar Probe (PSP) sent back the first observations from its voyage to the Sun, scientists found signs of a wild ocean of currents and waves quite unlike the near-Earth space much closer to our planet. This ocean was spiked with what became known as _switchbacks_: rapid flips in the Sun’s magnetic field that reversed direction like a zig-zagging mountain road. 
 
+::: {.content-visible unless-format="pdf"}
+
 ![Animation of traveling disturbances in the solar wind that caused the magnetic field to bend back on itself known as switchbacks. **Credits: NASA's Goddard Space Flight Center/Conceptual Image Lab/Adriana Manrique Gutierrez**](https://www.nasa.gov/sites/default/files/thumbnails/image/switchbacks-sun-web.gif){#fig:switchbacks}
+
+:::
 
 Our current understanding is that switchbacks may be generated from either magnetic reconnection, turbulence, or plasma velocity shears. There are models for each, but they all requires more testing from future PSP data.
 
+::: {.content-visible unless-format="pdf"}
+
 ![Illustration of five current theories explaining how switchbacks form. **Credits: NASA’s Goddard Space Flight Center/Miles Hatfield/Lina Tran/Mary-Pat Hrybyk Keith**](https://www.nasa.gov/sites/default/files/thumbnails/image/rsz_switchbacks_infographic.png){#fig:switchbacks_mechanisms}
+
+:::
 
 See more in [Switchbacks Science: Explaining Parker Solar Probe's Magnetic Puzzle](https://www.nasa.gov/feature/goddard/2021/switchbacks-science-explaining-parker-solar-probe-s-magnetic-puzzle).
 

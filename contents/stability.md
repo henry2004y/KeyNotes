@@ -937,7 +937,11 @@ $$
 
 where $B_r, B_A$, and $B_T$ are radial, axial and tangential magnetic field components, respectively. The solution is a magnetic _flux rope_ where magnetic field lines form helixes whose pitch angle increases from the axis (@fig:flux_rope). $r$ is the radial distance from the flux rope axis, $r_0$ is the radius of the flux rope and $B_0$ is the maximum magnetic field magnitude at the center of the flux rope $r=0$.
 
+::: {.content-visible unless-format="pdf"}
+
 ![Helical structure of a force-free magnetic field.](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK9UT0Lwv7_BfDT214RFjQJe1MBmMAQ9QShw&usqp=CAU){#fig:flux_rope}
+
+:::
 
 A special case of a force-free magnetic field is the current-free configuration $\nabla\times\mathbf{B}=0$. Now the magnetic field can be expressed as the gradient of a scalar potential $\mathbf{B}=\nabla\Psi$, and since $\nabla\cdot\mathbf{B}=0$ it can be found via the _Laplace equation_
 
@@ -949,7 +953,11 @@ with appropriate boundary conditions and using the methods of potential theory.
 
 For example, the Sun's magnetic field structure is often modeled by the so-called Potential Field Source Surface ([PFSS](https://gong.nso.edu/science/gongpfss/gongpfss.html)) model (@fig:PFSS). The magnetic field is computed from the Laplace equation using spherical coordinates from the photosphere to the "source surface", nominally chosen to be at 2.5 Solar radii. At the source surface the Sun's magnetic field is assumed to be purely radial. The inner boundary conditions are obtained from solar magnetograms. Thus, PFSS assumes that there is no electric current in the corona.
 
+::: {.content-visible unless-format="pdf"}
+
 ![Helical structure of a force-free magnetic field.](https://gong.nso.edu/science/gongpfss/filled_mrmap_2068_dham.fits.magmod.dat240.gif){#fig:PFSS}
+
+:::
 
 ## MHD Modes
 
@@ -1512,7 +1520,11 @@ __Linear Tearing Mode__
 
 Consider the interface between two plasmas containing magnetic fields of different orientations. The simplest imaginable field configuration is that illustrated in @fig:tearing_config_simple. Here, the field varies only in the $x$-direction, and points only in the $y$-direction. The field is directed in the $-y$-direction for $x<0$, and in the $+y-$direction for $x>0$. The interface is situated at $x=0$. The sudden reversal of the field direction across the interface gives rise to a $z$-directional current sheet at $x=0$.
 
+::: {.content-visible unless-format="pdf"}
+
 ![A reconnection magnetic field configuration.](https://farside.ph.utexas.edu/teaching/plasma/Plasmahtml/img1924.png){#fig:tearing_config_simple}
+
+:::
 
 With the neglect of plasma resistivity, the field configuration shown in @fig:tearing_config_simple represents a stable equilibrium state, assuming, of course, that we have normal pressure balance across the interface. But, does the field configuration remain stable when we take resistivity into account? If not, we expect an instability to develop which relaxes the configuration to one possessing lower magnetic energy. As we shall see, this type of relaxation process inevitably entails the breaking and reconnection of magnetic field lines, and is, therefore, termed _magnetic reconnection_. The magnetic energy releases during the reconnection process eventually appears as plasma thermal energy. Thus, magnetic reconnection also involves plasma heating.
 
@@ -1659,7 +1671,11 @@ $$ {#eq:ohms_law_reconnection}
 
 where $\mathbf{R}_\text{col}$ is the collisional force per electron charge. In a fully ionized collisional plasma, $\mathbf{R}_\text{col}\approx \eta\mathbf{j}$ where $\eta$ is the resistivity due to Coulomb collisions. If the terms on the right-hand side of @eq:ohms_law_reconnection are negligible, then $\mathrm{d}\Phi/\mathrm{d}t \approx 0$ and the magnetic flux is "frozen-in" to the electron flow. For the generic reconnection layer illustrated in the middle panel of @fig:reconnection_configurations, deviations from ideal evolution occur within the "diffusion region" (blue), where either finite resistivity or kinetic effects (electron inertia and pressure tensor) are important. Within the diffusion region, field lines converging from opposite sides of the layer can change connectivity.
 
+::: {.content-visible unless-format="pdf"}
+
 ![Magnetic reconnection within a current sheet (depicted at the center) features inflows ($V_\text{in}$) of plasma with density $\rho$ and reconnecting magnetic field $B_0$, outflows ($V_\text{out}$) on order of Alfvén speed $V_A$, and a diffusion region (with a length of $2L$ and a thickness of $2\Delta$) where field lines change connectivity. Magnetic separatrices (red) are field lines marking the topological boundary between the upstream flux and the downstream flow jet. Top panels display reconnection phases that have been confirmed in the laboratory experiments: single X-line collisional, single X-line collisionless, and multiple X-line collisionless. Here R and Z are radial and axial coordinates, respectively, in Magnetic Reconnection Experiment (MRX) where these data were taken. $B_Y$ and $J_Y$ are out-of-the-plane field and current density, respectively. Bottom panels illustrate cartoons of plasmoid mediated and 3D turbulent reconnection, both of which are expected to exhibit some degree of self-similarity. Figure 2 from [@ji2022magnetic].](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs42254-021-00419-x/MediaObjects/42254_2021_419_Fig2_HTML.png){#fig:reconnection_configurations}
+
+:::
 
 The next key element for understanding the physics of magnetic reconnection is to grasp the remarkable global consequences
 of changing field line connectivity within a localized region. In particular, the newly reconnected field lines have a large

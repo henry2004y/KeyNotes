@@ -37,7 +37,11 @@ The wave acceleration, or more specifically, wave-particle interaction, has been
 
 ## Waves in the Radiation Belt
 
+::: {.content-visible unless-format="pdf"}
+
 ![Schematic diagram showing many of the wave modes that affect energetic electrons in the Earth’s radiation belts. Viewing from the north pole.](https://media.springernature.com/lw685/springer-static/image/art%3A10.1186%2Fs40623-021-01508-y/MediaObjects/40623_2021_1508_Figa_HTML.png){#fig:radiation_belt_waves}
+
+:::
 
 * Lower hybrid waves: ???
 
@@ -51,7 +55,11 @@ The wave acceleration, or more specifically, wave-particle interaction, has been
 * Hiss waves
   * broadband structureless signal in the plasmasphere and resembles audible hiss
 
+::: {.content-visible unless-format="pdf"}
+
 ![In-situ observation by the ERG (Arase) spacecraft. The ERG spacecraft observed chorus waves and scattered electrons in the magnetosphere, the origin of pulsation auroras. The scattered electrons precipitated into the atmosphere resulting in auroral illumination. Intermittent occurrence of chorus waves and associated electron scattering lead to auroral pulsation.](https://www.eoportal.org/api/cms/documents/163813/3290385/ERG_Auto6.jpeg){#fig:arase_waves}
+
+:::
 
 Before 1990s, waves in the radiation belts are known for transferring energy from charged particles, which act as a loss process to the particles. Richard Thorne, together with his collegues, proposed that they could also the sources of energetic particles ([Horne & Thorne], 1998, 2003, 2005a,b). If that is the case, _the wave-particle interactions must break the adiabatic invariants_.
 

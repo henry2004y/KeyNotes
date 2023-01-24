@@ -464,3 +464,7 @@ _Gyroradius_: also known as Larmor radius, the scale of gyration around the magn
 $$
 r_L = \frac{mv_{th}}{qB}
 $$
+
+## How to Study Plasma Physics
+
+There is no universal theory for plasma physics due to the multi-scale problems. All useful equations are derived under certain scaling approximations ---

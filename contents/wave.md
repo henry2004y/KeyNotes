@@ -4,7 +4,11 @@
 
 If the electrons in a plasma are displaced from a uniform background of ions, electric fields will be built up in such a direction as to restore the neutrality of the plasma by pulling the electrons back to their original positions. Because of their inertia, the electrons will overshoot and oscillate around their equilibrium positions with a characteristic frequency known as the _plasma frequency_. This oscillation is so fast that the massive ions do not have time to respond to the oscillating field and may be considered as fixed. In Fig. 4.2 (ADD IT!), the open rectangles represent typical elements of the ion fluid, and the darkened rectangles the alternately displaced elements of the electron fluid. The resulting charge bunching causes a spatially periodic $\mathbf{E}$ field, which tends to restore the electrons to their neutral positions.
 
+::: {.content-visible unless-format="pdf"}
+
 ![Plasma oscillation, also known as Langmuir wave.](https://s8.gifyu.com/images/plasma.gif){#fig:langmuir_wave}
+
+:::
 
 We shall derive an expression for the plasma frequency $\omega_p$ in the simplest case, making the following assumptions:
 
@@ -889,7 +893,11 @@ SAW has a wave vector $\mathbf{k}$ in the XZ-plane. $\mathbf{E}$ shall oscillate
 
 $\mathbf{E}$ (or $\mathbf{B}_1$) in @eq:mhd_Alfven_perturbations shows that the Alfvén wave in a uniform plasma is a linearly polarized wave if $\mathbf{v}_1 = (0, v_y, 0)$. If instead we set $\mathbf{k}=(0,0,k)$ ($\theta=0^o$) and $\mathbf{v}_1 = (v_x, v_y, 0)$, then $\mathbf{k}\cdot\mathbf{v}=0\Rightarrow \rho_1=0$ but $\mathbf{E}=-\mathbf{v}\times\mathbf{B}_0 = kv_y\hat{x} - kv_x\hat{y}$ can be a circularly polarized wave or else. Correlated $\mathbf{B}$ and $\mathbf{v}$ corresponds to waves propagating anti-parallel to the $\mathbf{B}_0$, and anti-correlated $\mathbf{B}$ and $\mathbf{v}$ corresponds to waves propagating parallel to the $\mathbf{B}_0$. The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the _shear Alfvén wave_ (SAW). An animation of SAW is shown in @fig:alfven_wave. It is useful to remember that the magnetic perturbation is always parallel to the velocity perturbation.
 
+::: {.content-visible unless-format="pdf"}
+
 ![Alfvén wave.](https://s8.gifyu.com/images/alfven.gif){#fig:alfven_wave}
+
+:::
 
 In a non-uniform plasma, SAW attains the interesting property of a continuous spectrum. To illustrate this feature, let us consider the simplified slab model of a cold plasma with a non-uniform density, $\rho=\rho(x)$, and a uniform $\mathbf{B}_0 = B_0\hat{z}$. Assuming at $t=0$ a localized initial perturbation $\mathbf{B}_{1y}(x,t=0) = \exp(-x^2/\Delta x^2)$, $|k_y\Delta_x|\ll1$, and $\partial\mathbf{B}_{1y}/\partial t=0$, the perturbation then evolves according to the following wave equation (@eq:mhd_cold_b_wave, $B_{1z}=0$ so no coupling between the fast mode and Alfvén mode):
 
@@ -1088,7 +1096,11 @@ $$ {#eq:mhd_fast_wave_T_perturbation}
 
 In the case $v_A\gg v_s$ (e.g. cold, strong B), the phase speed of the fast mode becomes $v_p \approx v_A$. This is often called the _compressional Alfvén wave_. It is also clear that in the cold plasma limit the slow mode ceases to exit.
 
+::: {.content-visible unless-format="pdf"}
+
 ![Fast wave.](https://s8.gifyu.com/images/fast.gif){#fig:fast_wave}
+
+:::
 
 ## Kinetic Alfvén Wave {#sec:kaw}
 
@@ -1693,7 +1705,11 @@ $$
 
 ## Animation of Waves
 
+::: {.content-visible unless-format="pdf"}
+
 ![Lower hybrid wave.](https://s8.gifyu.com/images/lowerhybrid.gif){#fig:lowerhybrid_wave}
+
+:::
 
 ## CMA Diagram
 
@@ -1770,4 +1786,8 @@ $$
 
 The dispersion property of whistler waves makes it a problem for hybrid simulations (@sec:finite_e_mass).
 
+::: {.content-visible unless-format="pdf"}
+
 ![Whistler wave.](https://s8.gifyu.com/images/whistler.gif){#fig:whistler_wave}
+
+:::

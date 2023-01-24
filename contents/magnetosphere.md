@@ -88,7 +88,11 @@ The dominant wave mode in the ion foreshock is produced by the _ion-ion beam rig
 
 An interesting question arises about the transmission of these fast waves through the bow shock into the downstream. A list of possible mechanisms are summarized in @fig:foreshock_wave_transmission. [@turc2022transmission] argued that the earthward magnetosonic disturbances can then propagate to and disturb the magnetopause, whereas shock reformation and mode conversion play only minor roles.
 
+::: {.content-visible unless-format="pdf"}
+
 ![Foreshock waves (purple wavy lines) are generated in the region upstream from the bow shock (left black curve) where the interplanetary magnetic field (IMF) lines (dashed lines) are quasi-parallel to the shock normal $\hat{n}$ (shaded blue). Foreshock waves are convected towards the bow shock by the solar wind (red arrow) and transmit through the magnetosheath via mechanisms indicated in the white boxes along the bow shock: mode conversion, shock reformation, and modulation of shock compression. The transmitted waves propagate away from or towards Earth relative to the magnetosheath plasma (indicated by the wave vector $\mathbf{k}$).](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41567-022-01854-y/MediaObjects/41567_2022_1854_Fig1_HTML.png){#fig:foreshock_wave_transmission}
+
+:::
 
 As usual in plasma physics, accompanying the ion foreshock we have electron foreshock at a much smaller scale.
 

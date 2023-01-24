@@ -44,7 +44,11 @@ the total energy flux density.
 
 Let us move into the rest frame of the shock. For a 1D shock, suppose that the shock front coincides with the $y$-$z$ plane. Furthermore, let the regions of the plasma upstream and downstream of the shock, which are termed regions 1 and 2, respectively, be _spatially uniform_ and _time-static_, i.e. $\partial/\partial t = \partial/\partial x = \partial/\partial y = 0$. Moreover, $\partial/\partial x=0$, except in the immediate vicinity of the shock. Finally, let the velocity and magnetic fields upstream and downstream of the shock all lie in the $x$-$y$ plane. The situation under discussion is illustrated in the figure below.
 
+::: {.content-visible unless-format="pdf"}
+
 ![A planar shock, where the velocity and magnetic fields upstream and downstream of the shock all lie in the $x$-$y$ plane.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img2110.png){#fig:planar_shock}
+
+:::
 
 Here, $\rho_1$, $p_1$, $\mathbf{V}_1$, and $\mathbf{B}_1$ are the downstream mass density, pressure, velocity, and magnetic field, respectively, whereas $\rho_2$, $p_2$, $\mathbf{V}_2$, and $\mathbf{B}_2$ are the corresponding upstream quantities.
 
@@ -310,7 +314,11 @@ $$
 
 In other words, a fast wave travels faster than an intermediate wave, which travels faster than a slow wave. It is reasonable to suppose that the same is true of the associated MHD shocks, at least at relatively low shock strength. It follows from @eq:oblique_shock_relation that $B_{y2}>B_{y1}$ for a fast shock, whereas $B_{y\,2}<B_{y\,1}$ for a slow shock. For the case of an intermediate shock, we can show, after a little algebra, that $B_{y\,2}\rightarrow -B_{y\,1}$ in the limit $r\rightarrow 1$. We can conclude that (in the de Hoffmann-Teller frame) fast shocks refract the magnetic field and plasma flow (recall that they are parallel in our adopted frame of the reference) _away_ from the normal to the shock front, whereas slow shocks refract these quantities _toward_ the normal. Moreover, the tangential magnetic field and plasma flow generally _reverse_ across an intermediate shock front. This is illustrated in @fig:mhd_shock_rest_frame.
 
+::: {.content-visible unless-format="pdf"}
+
 ![Characteristic plasma flow patterns across the three different types of MHD shock in the shock rest frame.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img2229.png){#fig:mhd_shock_rest_frame}
+
+:::
 
 When $r$ is slightly larger than unity it is easily demonstrated that the conditions for the existence of a slow, intermediate, and fast shock are $v_1> V_{-\,1}$, $v_1> \cos\theta_1\,V_{A\,1}$, and $v_1> V_{+\,1}$, respectively.
 
@@ -340,7 +348,11 @@ We recognize the first of these roots as the hydrodynamic shock discussed in @se
 
 There we have "switch-on" and "switch-off" shocks which refer to the generation and elimination of tangential components of the plasma flow and the magnetic field. Incidentally, it is also possible to have a "switch-off" shock which eliminates the tangential components of the plasma flow and the magnetic field. According to @eq:oblique_shock_relation, such a shock propagates at the velocity $v_1=\cos\theta_1\,v_{A\,1}$. Switch-on and switch-off shocks are illustrated in @fig:shock_switch_on_off.
 
+::: {.content-visible unless-format="pdf"}
+
 ![Characteristic plasma flow patterns across switch-on and switch-off shocks in the shock rest frame.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img2247.png){#fig:shock_switch_on_off}
+
+:::
 
 __$\theta_1=\pi/2$__
 
