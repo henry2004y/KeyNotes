@@ -62,7 +62,7 @@ The length of the computational domain is set to be one wavelength. Periodic bou
 $$
 \begin{aligned}
 \epsilon &= || \Delta U || = \sqrt{\sum_k (\Delta U_k)^2} \\
-&= \sqrt{\sum_k (\sum_{i=1}^{N_x} |U_{k,i}^n - U_{k,i}^0| / N_x)^2} 
+&= \sqrt{\sum_k (\sum_{i=1}^{N_x} |U_{k,i}^n - U_{k,i}^0| / N_x)^2}
 \end{aligned}
 $$
 
@@ -84,6 +84,7 @@ This test has proved very useful at detecting coding bugs:
 
 #### 1D Adiabatic Hydrodynamics
 
+Given @eq-ideal-mhd (with $\mathbf{B}=0$),
 $$
 \begin{aligned}
 \rho &= 1 \\
@@ -91,11 +92,33 @@ p &= 1/\gamma
 \end{aligned}
 $$
 
-with $\gamma = 5/3$. If the components of $U$ are ordered $U=[\rho, \rho u_x, \rho u_y, \rho u_z, E]$, then the right-eigenvector for a left-going wave is $R=[1.0, -1.0, 1.0, 1.0, 1.5]$.
+with $\gamma = 5/3$. The conservative variables are
+$$
+U=[\rho, \rho u_x, \rho u_y, \rho u_z, E]
+$$
+
+and the right-eigenvector for a left-going wave is
+$$
+R=[1.0, -1.0, 1.0, 1.0, 1.5]
+$$
+
+The parameters are summarized in @tbl-linear-wave-1d-hd.
+
+| Variable    | Background | Perturbation $\mathbf{R}$ |
+|-------------|------------|-------|
+|$\rho$       | 1          | 1.0   |
+|$\rho u_x$   | 0          | -1.0  |
+|$\rho u_y$   | 0          | 1.0   |
+|$\rho u_z$   | 0          | 1.0   |
+|$\mathcal{E}$| $\frac{1}{\gamma(\gamma-1)}$ | 1.5 |
+
+: 1D adiabatic hydrodynamic linear wave parameters {#tbl-linear-wave-1d-hd}
 
 The absolute error in propagating a sound wave to the left one wavelength as a function of the number of grid points $N_x$
 
 #### 1D Adiabatic MHD
+
+Given @eq-ideal-mhd,
 
 $$
 \begin{aligned}
@@ -103,14 +126,19 @@ $$
 p &= 1/\gamma \\
 B_x &= 1*(4\pi)^{1/2} \\
 B_y &= \sqrt{2}*(4\pi)^{1/2} \\
-B_z &= 0.5*(4\pi)^{1/2} 
+B_z &= 0.5*(4\pi)^{1/2}
 \end{aligned}
 $$
 
 with $\gamma = 5/3$. Thus, the fast magnetosonic speed is 2.0, the Alfvén speed is 1.0, and the slow magnetosonic speed is 0.5.
-If $U = [\rho, \rho*u_x, \rho*u_y, \rho*u_z, E, B_y, B_z]$, then the right eigenvectors for left going waves are as follows:
 
-For a fast magnetosonic wave:
+$$
+U = [\rho, \rho u_x, \rho u_y, \rho u_z, E, B_y, B_z]
+$$
+
+then the right eigenvectors for left going waves are as follows:
+
+* For a fast magnetosonic wave:
 
 ```{julia}
 U = [
@@ -123,7 +151,7 @@ U = [
 2.981423969999720e-01 ]
 ```
 
-For a Alfvén wave:
+* For a Alfvén wave:
 ```{julia}
 U = [
 0.0
@@ -135,7 +163,7 @@ U = [
 9.428090415820634e-01 ]
 ```
 
-For a slow magnetosonic wave:
+* For a slow magnetosonic wave:
 ```{julia}
 U = [
 8.944271909999159e-01
@@ -146,6 +174,51 @@ U = [
 -4.216370213557841e-01
 -1.490711984999860e-01 ]
 ```
+
+The parameters are summarized in @tbl-linear-wave-1d-mhd.
+
+::: {#tbl-linear-wave-1d-mhd layout-nrow=3}
+| Variable    | Background | Perturbation $\mathbf{R}$ |
+|-------------|------------|-------|
+|$\rho$       | 1.0        | 4.472135954999580e-1   |
+|$\rho u_x$   | 0          | -8.944271909999160e-1  |
+|$\rho u_y$   | 0          | 4.216370213557840e-1   |
+|$\rho u_z$   | 0          | 1.490711984999860e-1   |
+|$\mathcal{E}$| $\frac{1}{\gamma(\gamma-1)}+\frac{13}{8}$ | 2.012457825664615 |
+|$B_x / \sqrt{4\pi}$ | 1.0        | 0.0   |
+|$B_y / \sqrt{4\pi}$ | $\sqrt{2}$ | 8.432740427115680e-1   |
+|$B_z / \sqrt{4\pi}$ | 0.5        | 2.981423969999720e-1   |
+
+: fast magnetosonic wave {tbl-colwidths="[30,35,35]"}
+
+| Variable    | Background | Perturbation $\mathbf{R}$ |
+|-------------|------------|-------|
+|$\rho$       | 1.0        | 0.0   |
+|$\rho u_x$   | 0          | 0.0   |
+|$\rho u_y$   | 0          | -3.333333333333333e-1  |
+|$\rho u_z$   | 0          | 9.428090415820634e-1   |
+|$\mathcal{E}$| $\frac{1}{\gamma(\gamma-1)}$ | 0.0 |
+|$B_x / \sqrt{4\pi}$ | 1.0        | 0.0   |
+|$B_y / \sqrt{4\pi}$ | $\sqrt{2}$ | -3.333333333333333e-1   |
+|$B_z / \sqrt{4\pi}$ | 0.5        | 9.428090415820634e-1   |
+
+: Alfvén wave {tbl-colwidths="[30,35,35]"}
+
+| Variable    | Background | Perturbation $\mathbf{R}$ |
+|-------------|------------|-------|
+|$\rho$       | 1.0        | 8.944271909999159e-1   |
+|$\rho u_x$   | 0          | -4.472135954999579e-1  |
+|$\rho u_y$   | 0          | -8.432740427115680e-1   |
+|$\rho u_z$   | 0          | -2.981423969999720e-1   |
+|$\mathcal{E}$| $\frac{1}{\gamma(\gamma-1)}$ | 6.708136850795449e-1 |
+|$B_x / \sqrt{4\pi}$ | 1.0        | 0.0   |
+|$B_y / \sqrt{4\pi}$ | $\sqrt{2}$ | -4.216370213557841e-1   |
+|$B_z / \sqrt{4\pi}$ | 0.5        | -1.490711984999860e-1   |
+
+: slow magnetosonic wave {tbl-colwidths="[30,35,35]"}
+
+1D adiabatic MHD linear wave parameters
+:::
 
 #### 2D Adiabatic MHD
 
@@ -182,8 +255,6 @@ For 2D the computational domain is of size $L_x = 2L_y$, with $N_x = 2N_y$. Thus
 The wave is an exact nonlinear solution to the MHD equations, allowing one to test the algorithm in the nonlinear regime. Although nonlinear amplitude Alfvén waves are subject to a parametric instability which causes them to decay into magnetosonic waves, the instability should not be present for the parameters defined here. Since the problem is smooth, it can be used for convergence testing. Running the test with smaller pressure (higher β) and/or larger amplitudes is a good test of how robust is the algorithm.
 
 See more in [reference](https://www.astro.princeton.edu/~jstone/Athena/tests/cp-alfven-wave/cp-alfven.html) and [@toth2000b].
-
-### Fast wave
 
 ### Light wave
 
