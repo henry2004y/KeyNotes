@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.2.329">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -275,10 +275,9 @@ div.csl-indent {
   <li><a href="#linear-wave" id="toc-linear-wave" class="nav-link" data-scroll-target="#linear-wave"><span class="toc-section-number">25.2.1</span>  Linear wave</a></li>
   <li><a href="#d-adiabatic-mhd-2" id="toc-d-adiabatic-mhd-2" class="nav-link" data-scroll-target="#d-adiabatic-mhd-2"><span class="toc-section-number">25.2.2</span>  3D Adiabatic MHD</a></li>
   <li><a href="#circularly-polarized-alfvén-wave" id="toc-circularly-polarized-alfvén-wave" class="nav-link" data-scroll-target="#circularly-polarized-alfvén-wave"><span class="toc-section-number">25.2.3</span>  Circularly polarized Alfvén wave</a></li>
-  <li><a href="#fast-wave" id="toc-fast-wave" class="nav-link" data-scroll-target="#fast-wave"><span class="toc-section-number">25.2.4</span>  Fast wave</a></li>
-  <li><a href="#light-wave" id="toc-light-wave" class="nav-link" data-scroll-target="#light-wave"><span class="toc-section-number">25.2.5</span>  Light wave</a></li>
-  <li><a href="#firehose-instability" id="toc-firehose-instability" class="nav-link" data-scroll-target="#firehose-instability"><span class="toc-section-number">25.2.6</span>  Firehose instability</a></li>
-  <li><a href="#mirror-mode-instability" id="toc-mirror-mode-instability" class="nav-link" data-scroll-target="#mirror-mode-instability"><span class="toc-section-number">25.2.7</span>  Mirror mode instability</a></li>
+  <li><a href="#light-wave" id="toc-light-wave" class="nav-link" data-scroll-target="#light-wave"><span class="toc-section-number">25.2.4</span>  Light wave</a></li>
+  <li><a href="#firehose-instability" id="toc-firehose-instability" class="nav-link" data-scroll-target="#firehose-instability"><span class="toc-section-number">25.2.5</span>  Firehose instability</a></li>
+  <li><a href="#mirror-mode-instability" id="toc-mirror-mode-instability" class="nav-link" data-scroll-target="#mirror-mode-instability"><span class="toc-section-number">25.2.6</span>  Mirror mode instability</a></li>
   </ul></li>
   <li><a href="#shock-tests" id="toc-shock-tests" class="nav-link" data-scroll-target="#shock-tests"><span class="toc-section-number">25.3</span>  Shock Tests</a>
   <ul class="collapse">
@@ -392,17 +391,63 @@ T_\mathrm{ref} = \frac{p_B \beta}{n k_B} = \frac{B_\mathrm{ref}^2}{2\mu_0}\frac{
 </ul>
 <section id="d-adiabatic-hydrodynamics" class="level4" data-number="25.2.1.1">
 <h4 data-number="25.2.1.1" class="anchored" data-anchor-id="d-adiabatic-hydrodynamics"><span class="header-section-number">25.2.1.1</span> 1D Adiabatic Hydrodynamics</h4>
-<p><span class="math display">\[
+<p>Given <a href="fluid.html#eq-ideal-mhd">Equation&nbsp;<span>5.12</span></a> (with <span class="math inline">\(\mathbf{B}=0\)</span>), <span class="math display">\[
 \begin{aligned}
 \rho &amp;= 1 \\
 p &amp;= 1/\gamma
 \end{aligned}
 \]</span></p>
-<p>with <span class="math inline">\(\gamma = 5/3\)</span>. If the components of <span class="math inline">\(U\)</span> are ordered <span class="math inline">\(U=[\rho, \rho u_x, \rho u_y, \rho u_z, E]\)</span>, then the right-eigenvector for a left-going wave is <span class="math inline">\(R=[1.0, -1.0, 1.0, 1.0, 1.5]\)</span>.</p>
+<p>with <span class="math inline">\(\gamma = 5/3\)</span>. The conservative variables are <span class="math display">\[
+U=[\rho, \rho u_x, \rho u_y, \rho u_z, E]
+\]</span></p>
+<p>and the right-eigenvector for a left-going wave is <span class="math display">\[
+R=[1.0, -1.0, 1.0, 1.0, 1.5]
+\]</span></p>
+<p>The parameters are summarized in <a href="#tbl-linear-wave-1d-hd">Table&nbsp;<span>25.1</span></a>.</p>
+<div id="tbl-linear-wave-1d-hd" class="anchored">
+<table class="table">
+<caption>Table&nbsp;25.1: 1D adiabatic hydrodynamic linear wave parameters</caption>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Background</th>
+<th>Perturbation <span class="math inline">\(\mathbf{R}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\rho\)</span></td>
+<td>1</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\rho u_x\)</span></td>
+<td>0</td>
+<td>-1.0</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\rho u_y\)</span></td>
+<td>0</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\rho u_z\)</span></td>
+<td>0</td>
+<td>1.0</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathcal{E}\)</span></td>
+<td><span class="math inline">\(\frac{1}{\gamma(\gamma-1)}\)</span></td>
+<td>1.5</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>The absolute error in propagating a sound wave to the left one wavelength as a function of the number of grid points <span class="math inline">\(N_x\)</span></p>
 </section>
 <section id="d-adiabatic-mhd" class="level4" data-number="25.2.1.2">
 <h4 data-number="25.2.1.2" class="anchored" data-anchor-id="d-adiabatic-mhd"><span class="header-section-number">25.2.1.2</span> 1D Adiabatic MHD</h4>
+<p>Given <a href="fluid.html#eq-ideal-mhd">Equation&nbsp;<span>5.12</span></a>,</p>
 <p><span class="math display">\[
 \begin{aligned}
 \rho &amp;= 1 \\
@@ -412,8 +457,14 @@ B_y &amp;= \sqrt{2}*(4\pi)^{1/2} \\
 B_z &amp;= 0.5*(4\pi)^{1/2}
 \end{aligned}
 \]</span></p>
-<p>with <span class="math inline">\(\gamma = 5/3\)</span>. Thus, the fast magnetosonic speed is 2.0, the Alfvén speed is 1.0, and the slow magnetosonic speed is 0.5. If <span class="math inline">\(U = [\rho, \rho*u_x, \rho*u_y, \rho*u_z, E, B_y, B_z]\)</span>, then the right eigenvectors for left going waves are as follows:</p>
-<p>For a fast magnetosonic wave:</p>
+<p>with <span class="math inline">\(\gamma = 5/3\)</span>. Thus, the fast magnetosonic speed is 2.0, the Alfvén speed is 1.0, and the slow magnetosonic speed is 0.5.</p>
+<p><span class="math display">\[
+U = [\rho, \rho u_x, \rho u_y, \rho u_z, E, B_y, B_z]
+\]</span></p>
+<p>then the right eigenvectors for left going waves are as follows:</p>
+<ul>
+<li>For a fast magnetosonic wave:</li>
+</ul>
 <pre class="{julia}"><code>U = [
 4.472135954999580e-01
 -8.944271909999160e-01
@@ -422,7 +473,9 @@ B_z &amp;= 0.5*(4\pi)^{1/2}
 2.012457825664615e+00
 8.432740427115680e-01
 2.981423969999720e-01 ]</code></pre>
-<p>For a Alfvén wave:</p>
+<ul>
+<li>For a Alfvén wave:</li>
+</ul>
 <pre class="{julia}"><code>U = [
 0.0
 0.0
@@ -431,7 +484,9 @@ B_z &amp;= 0.5*(4\pi)^{1/2}
 0.0
 -3.333333333333333e-01
 9.428090415820634e-01 ]</code></pre>
-<p>For a slow magnetosonic wave:</p>
+<ul>
+<li>For a slow magnetosonic wave:</li>
+</ul>
 <pre class="{julia}"><code>U = [
 8.944271909999159e-01
 -4.472135954999579e-01
@@ -440,6 +495,195 @@ B_z &amp;= 0.5*(4\pi)^{1/2}
 6.708136850795449e-01
 -4.216370213557841e-01
 -1.490711984999860e-01 ]</code></pre>
+<p>The parameters are summarized in <a href="#tbl-linear-wave-1d-mhd">Table&nbsp;<span>25.2</span></a>.</p>
+<div id="tbl-linear-wave-1d-mhd" class="tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>Table&nbsp;25.2: 1D adiabatic MHD linear wave parameters</p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-linear-wave-1d-mhd-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-linear-wave-1d-mhd" style="flex-basis: 100.0%;justify-content: center;">
+<table class="table">
+<caption>(a) fast magnetosonic wave</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 35%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Background</th>
+<th style="text-align: left;">Perturbation <span class="math inline">\(\mathbf{R}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\rho\)</span></td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">4.472135954999580e-1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\rho u_x\)</span></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">-8.944271909999160e-1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\rho u_y\)</span></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">4.216370213557840e-1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\rho u_z\)</span></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">1.490711984999860e-1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\mathcal{E}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\frac{1}{\gamma(\gamma-1)}+\frac{13}{8}\)</span></td>
+<td style="text-align: left;">2.012457825664615</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(B_x / \sqrt{4\pi}\)</span></td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(B_y / \sqrt{4\pi}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\sqrt{2}\)</span></td>
+<td style="text-align: left;">8.432740427115680e-1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(B_z / \sqrt{4\pi}\)</span></td>
+<td style="text-align: left;">0.5</td>
+<td style="text-align: left;">2.981423969999720e-1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-linear-wave-1d-mhd-2" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-linear-wave-1d-mhd" style="flex-basis: 100.0%;justify-content: center;">
+<table class="table">
+<caption>(b) Alfvén wave</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 35%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Background</th>
+<th style="text-align: left;">Perturbation <span class="math inline">\(\mathbf{R}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\rho\)</span></td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\rho u_x\)</span></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\rho u_y\)</span></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">-3.333333333333333e-1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\rho u_z\)</span></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">9.428090415820634e-1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\mathcal{E}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\frac{1}{\gamma(\gamma-1)}\)</span></td>
+<td style="text-align: left;">0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(B_x / \sqrt{4\pi}\)</span></td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(B_y / \sqrt{4\pi}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\sqrt{2}\)</span></td>
+<td style="text-align: left;">-3.333333333333333e-1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(B_z / \sqrt{4\pi}\)</span></td>
+<td style="text-align: left;">0.5</td>
+<td style="text-align: left;">9.428090415820634e-1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-linear-wave-1d-mhd-3" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-linear-wave-1d-mhd" style="flex-basis: 100.0%;justify-content: center;">
+<table class="table">
+<caption>(c) slow magnetosonic wave</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 35%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Background</th>
+<th style="text-align: left;">Perturbation <span class="math inline">\(\mathbf{R}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\rho\)</span></td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">8.944271909999159e-1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\rho u_x\)</span></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">-4.472135954999579e-1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\rho u_y\)</span></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">-8.432740427115680e-1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\rho u_z\)</span></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">-2.981423969999720e-1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\mathcal{E}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\frac{1}{\gamma(\gamma-1)}\)</span></td>
+<td style="text-align: left;">6.708136850795449e-1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(B_x / \sqrt{4\pi}\)</span></td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(B_y / \sqrt{4\pi}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\sqrt{2}\)</span></td>
+<td style="text-align: left;">-4.216370213557841e-1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(B_z / \sqrt{4\pi}\)</span></td>
+<td style="text-align: left;">0.5</td>
+<td style="text-align: left;">-1.490711984999860e-1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </section>
 <section id="d-adiabatic-mhd-1" class="level4" data-number="25.2.1.3">
 <h4 data-number="25.2.1.3" class="anchored" data-anchor-id="d-adiabatic-mhd-1"><span class="header-section-number">25.2.1.3</span> 2D Adiabatic MHD</h4>
@@ -473,17 +717,14 @@ B_\parallel = B_x\cos\alpha + B_y\sin\alpha
 <p>The wave is an exact nonlinear solution to the MHD equations, allowing one to test the algorithm in the nonlinear regime. Although nonlinear amplitude Alfvén waves are subject to a parametric instability which causes them to decay into magnetosonic waves, the instability should not be present for the parameters defined here. Since the problem is smooth, it can be used for convergence testing. Running the test with smaller pressure (higher β) and/or larger amplitudes is a good test of how robust is the algorithm.</p>
 <p>See more in <a href="https://www.astro.princeton.edu/~jstone/Athena/tests/cp-alfven-wave/cp-alfven.html">reference</a> and <span class="citation" data-cites="toth2000b">(<a href="#ref-toth2000b" role="doc-biblioref">Tóth 2000</a>)</span>.</p>
 </section>
-<section id="fast-wave" class="level3" data-number="25.2.4">
-<h3 data-number="25.2.4" class="anchored" data-anchor-id="fast-wave"><span class="header-section-number">25.2.4</span> Fast wave</h3>
+<section id="light-wave" class="level3" data-number="25.2.4">
+<h3 data-number="25.2.4" class="anchored" data-anchor-id="light-wave"><span class="header-section-number">25.2.4</span> Light wave</h3>
 </section>
-<section id="light-wave" class="level3" data-number="25.2.5">
-<h3 data-number="25.2.5" class="anchored" data-anchor-id="light-wave"><span class="header-section-number">25.2.5</span> Light wave</h3>
+<section id="firehose-instability" class="level3" data-number="25.2.5">
+<h3 data-number="25.2.5" class="anchored" data-anchor-id="firehose-instability"><span class="header-section-number">25.2.5</span> Firehose instability</h3>
 </section>
-<section id="firehose-instability" class="level3" data-number="25.2.6">
-<h3 data-number="25.2.6" class="anchored" data-anchor-id="firehose-instability"><span class="header-section-number">25.2.6</span> Firehose instability</h3>
-</section>
-<section id="mirror-mode-instability" class="level3" data-number="25.2.7">
-<h3 data-number="25.2.7" class="anchored" data-anchor-id="mirror-mode-instability"><span class="header-section-number">25.2.7</span> Mirror mode instability</h3>
+<section id="mirror-mode-instability" class="level3" data-number="25.2.6">
+<h3 data-number="25.2.6" class="anchored" data-anchor-id="mirror-mode-instability"><span class="header-section-number">25.2.6</span> Mirror mode instability</h3>
 </section>
 </section>
 <section id="shock-tests" class="level2" data-number="25.3">
