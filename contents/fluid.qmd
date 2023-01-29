@@ -230,7 +230,7 @@ This means that the electric fields due to the particles in the plasma greatly a
 
 ## The Single-Fluid MHD Equations
 
-In [@chen2016introduction], this is introduced in the diffusion chapter 5.7, which is a bit weird.
+In [@chen2016introduction], this is introduced in the diffusion chapter 5.7, which is a bit weird. In [@bellan2008fundamentals], this is introduced in chapter 2 where Vlasov equation is first derived and then follows the simplifications which lead to 2-fluid and MHD.
 
 There are three basic assumptions in MHD:
 
@@ -252,7 +252,7 @@ $$
 
 where the plasma varies on frequency scales $\omega$ small compared to the gyrofrequency $\Omega_c$, and varies on spatial scales $1/k$ long compared to the gyroradius $\rho$. (Here, $\epsilon$ means a "small" value.) Thus it covers phenomenon related to compressional and shear Alfvén waves and instabilities, ion acoustic waves, and ion and electron kinetic effects such as Landau damping. However, it does not include drift-waves or other micro-instabilities because they result from finite Larmor radius (FLR) effects which vanish in the usual MHD ordering.
 
-Single fluid MHD is somehow inconsistent since there is only one velocity. The definition of current using velocity cannot be applied, and the current can only be given by Ampere's law (without the displacement current), $\mathbf{J}=\nabla\times\mathbf{B}/\mu_0$.
+Single fluid MHD is somehow inconsistent since there is only one velocity. The definition of current using velocity cannot be applied, and the current can only be given by Ampère's law (without the displacement current), $\mathbf{J}=\nabla\times\mathbf{B}/\mu_0$.
 
 ### Equation of Continuity
 
@@ -384,9 +384,9 @@ than could be accounted for by the collision rate. This phenomenon, called _Lang
 
 Another reason the fluid model works for plasmas is that the magnetic field, when there is one, can play the role of collisions in a certain sense. When a particle is accelerated, say by an $\mathbf{E}$ field, it would continuously increase in velocity if it were allowed to free-stream. When there are frequent collisions, the particle comes to a limiting velocity proportional to $\mathbf{E}$. The electrons in a copper wire, for instance, drift together with a velocity $\mathbf{v}=\mu\mathbf{E}$, where $\mu$ is the mobility. A magnetic field also limits free-streaming by forcing particles to gyrate in Larmor orbits. The electrons in a plasma also drift together with a velocity proportional to $\mathbf{E}$, namely, $\mathbf{v}_E=\mathbf{E}\times\mathbf{B}/B^2$. In this sense, a collisionless plasma behaves like a collisional fluid. Of course, particles do free-stream _along_ the magnetic field, and the fluid picture is not particularly suitable for motions in that direction. _For motions perpendicular to $\mathbf{B}$, the fluid theory is a good approximation_.
 
-**Equation of State**
+### Equation of State
 
-One more relation is needed to close the system of equations. For this, the simplest way is to use the thermodynamic equation of state relating $p$ to $n$:
+One more relation is needed to close the system of equations. A complete description requires the equation of energy. However, the simplest way is to use the thermodynamic equation of state relating $p$ to $n$:
 
 $$
 p = C\rho^\gamma
@@ -412,7 +412,7 @@ $$
 
 The validity of the equation of state requires that heat flow be negligible; that is, that thermal conductivity be low. Again, this is more likely to be true in directions perpendicular to $\mathbf{B}$ than parallel to it. Fortunately, most basic phenomena can be described adequately by the crude assumption of the equation of state.
 
-**The Complete Set of Fluid Equations**
+### The Complete Set of Fluid Equations
 
 For simplicity, let the plasma have only two species: ions and electrons; extension to more species is trivial. The charge and current densities are then given by
 
@@ -437,8 +437,36 @@ p_j = C_j n_j^\gamma\quad j=i,e
 \end{aligned}
 $$ {#eq-fluid_set}
 
-There are 16 scalar unknowns: $n_i, n_e, p_i, p_e, \mathbf{u}_i, \mathbf{u}_e, \mathbf{E}$, and $\mathbf{B}$. There are apparently 18 scalar equations if we count each vector equation as three scalar equations. However, two of Maxwell’s equations are superfluous, since the two of the equations can be recovered from the divergences of the other two. The
-simultaneous solution of this set of 16 equations in 16 unknowns gives a self-consistent set of fields and motions in the fluid approximation.
+There are 16 scalar unknowns: $n_i, n_e, p_i, p_e, \mathbf{u}_i, \mathbf{u}_e, \mathbf{E}$, and $\mathbf{B}$. There are apparently 18 scalar equations if we count each vector equation as three scalar equations. However, two of Maxwell’s equations are superfluous, since the two of the equations can be recovered from the divergences of the other two. The simultaneous solution of this set of 16 equations in 16 unknowns gives a self-consistent set of fields and motions in the fluid approximation.
+
+### Ideal MHD {#sec-ideal-mhd}
+
+Ideal MHD only contains one fluid. In the most common sense, ideal MHD involves equations of compressible, adiabatic and inviscid fluid:
+
+$$
+\begin{aligned}
+\frac{\partial \rho}{\partial t} + \nabla\cdot(\rho\mathbf{u}) = 0 \\
+\frac{\partial \rho\mathbf{u}}{\partial t} + \nabla\cdot\left( \rho\mathbf{u}\mathbf{u} - \mathbf{B}\mathbf{B} + p^\ast \right) = 0 \\
+\frac{\partial \mathcal{E}}{\partial t} + \nabla\cdot\left[ (\mathcal{E} + p^\ast)\mathbf{u} - \mathbf{B}(\mathbf{B}\cdot\mathbf{u}) \right] = 0 \\
+\frac{\partial \mathbf{B}}{\partial t} - \nabla\times(\mathbf{u}\times\mathbf{B}) = 0 \\
+p^\ast = p + \frac{\mathbf{B}\cdot\mathbf{B}}{2} \\
+\mathcal{E} = \frac{p}{\gamma - 1} + \frac{\rho \mathbf{u}\cdot\mathbf{u}}{2} + \frac{\mathbf{B}\cdot\mathbf{B}}{2}
+\end{aligned}
+$$ {#eq-ideal-mhd}
+
+where $\rho$ is the mass density, $\mathbf{u}$ the velocity, $\mathcal{E}$ the total energy density, $\mathbf{B}$ the magnetic field, $p$ the thermal pressure, and $\gamma$ the adiabatic index (ratio of specific heats). These equations are written using units in which the magnetic permeability $\mu_0 = 1$:
+
+$$
+\mathbf{B} = \frac{\mathbf{B}_\mathrm{SI}}{\sqrt{\mu_0}}
+$$
+
+This is nice since the coefficient is completely absorbed into the magnetic field in the unit system. With a reference density $\rho_0$ and velocity $u_0=v_A$, the velocity normalization is simply given as
+
+$$
+u_0 = \frac{B_{0,SI}}{\sqrt{\mu_0\rho_0}} = \frac{B_0}{\sqrt{\rho_0}}
+$$
+
+Note that microscopic dissipations of any kind (viscosity, resistivity, or conduction) are not included in the default configuration.
 
 ## Generalized Ohm's Law
 
@@ -452,7 +480,7 @@ $$ {#eq-genearlized_ohm_law}
 
 where the first term on the right-hand side is the _convection term_, the second term is the _resistivity term_ (_conductive term_), the third term is called the _Hall term_, the fourth term is the _electron pressure term_, and the fifth term is called the _electron inertia term_, since it is proportional to the mass of electrons.
 
-Note that both $\mathbf{u}$ and $\mathbf{j}$ are the first-order moments, with $\mathbf{u}$ being the (weighted) sum of the first-order moment of electrons and ions while $\mathbf{j}$ being the difference between them. The generalized Ohm's law is actually the difference between the electrons' and ions' first-order moment equations. _The generalized Ohm's law is an equation that governs the time evolution of $\mathbf{j}$_. Also note that Ampere's law, with the displacement current retained, is an equation governing the time evolution of $\mathbf{E}$. However, in the approximation of the resistive MHD, the time derivative terms $\partial \mathbf{E}/\partial t$ and $\partial \mathbf{j} /\partial t$ are ignored in Ampere's law and Ohm's law, respectively. In this approximation, Ohm's law is directly solved to determine $\mathbf{E}$ and Ampere's law is directly solved to determine $\mathbf{j}$. [Introduction to plasma physics: with space and laboratory applications, D. A. Gurnett and A. Bhattacharjee.]
+Note that both $\mathbf{u}$ and $\mathbf{j}$ are the first-order moments, with $\mathbf{u}$ being the (weighted) sum of the first-order moment of electrons and ions while $\mathbf{j}$ being the difference between them. The generalized Ohm's law is actually the difference between the electrons' and ions' first-order moment equations. _The generalized Ohm's law is an equation that governs the time evolution of $\mathbf{j}$_. Also note that Ampère's law, with the displacement current retained, is an equation governing the time evolution of $\mathbf{E}$. However, in the approximation of the resistive MHD, the time derivative terms $\partial \mathbf{E}/\partial t$ and $\partial \mathbf{j} /\partial t$ are ignored in Ampère's law and Ohm's law, respectively. In this approximation, Ohm's law is directly solved to determine $\mathbf{E}$ and Ampère's law is directly solved to determine $\mathbf{j}$. [Introduction to plasma physics: with space and laboratory applications, D. A. Gurnett and A. Bhattacharjee.]
 
 $$
 \underbrace{\mathbf{E}}_{a} + \underbrace{\mathbf{u}\times\mathbf{B}}_{b} - \underbrace{\frac{1}{\sigma}\mathbf{j}}_{c} - \underbrace{\frac{\mathbf{j}\times\mathbf{B}}{en_e}}_{d} + \underbrace{\frac{1}{n_e e}\nabla(n_e k_B T_e)}_{e} = 0
@@ -620,7 +648,7 @@ The previous example reveals an important characteristic of plasmas that has wid
 
 In a plasma, it is usually possible to assume $n_i=n_e$ and $\nabla\cdot\mathbf{E}\neq 0$ at the same time. We shall call this the _plasma approximation_. It is a fundamental trait of plasmas, one which is difficult for the novice to understand. _Do not use Poisson's equation to obtain $\mathbf{E}$ unless it is unavoidable_! In the set of fluid equations @eq-fluid_set, we may now eliminate Poisson's equation and also eliminate one of the unknowns by setting $n_i = n_e = n$.
 
-The _plasma approximation_ is almost the same as the condition of quasineutrality discussed earlier but has a more exact meaning. Whereas quasineutrality refers to a general tendency for a plasma to be neutral in its state of rest, the plasma approximation is a mathematical shortcut that one can use even for wave motions. As long as these motions are slow enough that both ions and electrons have time to move, it is a good approximation to replace Poisson's equation by the equation $n_i=n_e$. Of course, if only one species can move and the other cannot follow, such as in high-frequency electron waves, then the plasma approximation is not valid, and $\mathbf{E}$ must be found from Maxwell's @eq-maxwell_vacuum rather than from the ion and electron equations of motion. Ampere's law with the displacement current retained gives the time evolution of ${bf E}$:
+The _plasma approximation_ is almost the same as the condition of quasineutrality discussed earlier but has a more exact meaning. Whereas quasineutrality refers to a general tendency for a plasma to be neutral in its state of rest, the plasma approximation is a mathematical shortcut that one can use even for wave motions. As long as these motions are slow enough that both ions and electrons have time to move, it is a good approximation to replace Poisson's equation by the equation $n_i=n_e$. Of course, if only one species can move and the other cannot follow, such as in high-frequency electron waves, then the plasma approximation is not valid, and $\mathbf{E}$ must be found from Maxwell's @eq-maxwell_vacuum rather than from the ion and electron equations of motion. Ampère's law with the displacement current retained gives the time evolution of $\mathbf{E}$:
 
 $$
 \frac{\mathrm{d}\mathbf{E}}{\mathrm{d}t} = \frac{1}{\epsilon_0}\left( \frac{\nabla\times\mathbf{B}}{\mu_0} - \mathbf{j} \right)
