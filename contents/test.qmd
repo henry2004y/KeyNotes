@@ -4,20 +4,18 @@ Verifying the validity of models is critical in performing consistent research. 
 
 ### Unit Conversion
 
-Most test parameters are listed in dimensionless units.
+Most test parameters are listed in dimensionless units. If SI units are required, we need unit conversions. Typically, we need to start with a reference number density, e.g. $n_{ref} = 10\,\mathrm{amu/cc}$, and magnetic field, e.g. $B_{ref} = 10\,\mathrm{nT}$. All the rest conversion factors can be derived from these together with other physical constants.
 
-If SI units are required, we need unit conversions. Typically, we need a reference number density, e.g. $n_{ref} = 10\mathrm{amu/cc}$, and magnetic field, e.g. $B_{ref} = 10\mathrm{nT}$. The dimensionless scale $\beta$ is also used to determine the unit of temperature.
-
-The reference ion frequency in rad/s is
+The reference frequency in rad/s is
 
 $$
-\omega_{i,\mathrm{ref}} = \sqrt{\frac{n_\mathrm{ref}q_i^2}{\epsilon_0 m_i}}
+\omega_{\mathrm{ref}} = \sqrt{\frac{n_\mathrm{ref}e^2}{\epsilon_0 m}}
 $$
 
-and then the reference ion inertial length in m, which is also used as the length scale, is
+and then the reference length scale in m, which is equivalent to the inertial length, is
 
 $$
-d_i = \frac{c}{\omega_{i,\mathrm{ref}}}
+l_\mathrm{ref} = d = \frac{c}{\omega_{\mathrm{ref}}} = \sqrt{\frac{m}{\mu_0 e^2 n_\mathrm{ref}}}
 $$
 
 The time scale in s is the inverse of reference gyrofrequency,
@@ -31,16 +29,68 @@ Actually there is a $2\pi$ factor missing here, since we need to convert from gy
 The velocity scale in m/s is the Alfvén speed
 
 $$
-v_\mathrm{ref} = \frac{B_\mathrm{ref}}{\sqrt{\mu_0 m_i n_\mathrm{ref}}}
+u_\mathrm{ref} = \frac{l_\mathrm{ref}}{t_\mathrm{ref}} = \frac{B_\mathrm{ref}}{\sqrt{\mu_0 m_i n_\mathrm{ref}}}
 $$
 
-The temperature scale can be derived from the magnetic pressure and $\beta$
+The pressure scale can be equivalently derived from the magnetic pressure or dynamic pressure
 
 $$
-T_\mathrm{ref} = \frac{p_B \beta}{n k_B} = \frac{B_\mathrm{ref}^2}{2\mu_0}\frac{\beta}{n k_B}
+P_\mathrm{ref} = \frac{B_\mathrm{ref}^2}{2\mu_0} = \frac{1}{2}\rho_\mathrm{ref}u_\mathrm{ref}^2
 $$
 
-Inserting the initially chosen values, we get a full set of conversion factors from the normalized units to SI units: $n_\mathrm{ref}, B_\mathrm{ref}, v_\mathrm{ref}, l_\mathrm{ref}, t_\mathrm{ref}$, and $T_\mathrm{ref}$.
+The temperature scale is then
+
+$$
+T_\mathrm{ref} = \frac{p_\mathrm{ref}}{n_\mathrm{ref} k_B} = \frac{B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}
+$$
+
+In many normalized units, the factor $1/\sqrt{\mu_0}$ is absorbed into the magnetic field,
+$$
+B^\prime = \frac{B}{\sqrt{\mu_0}}
+$$
+
+If CGS units is used, then this shall be (???)
+$$
+B^\prime = \frac{B}{\sqrt{4\pi}}
+$$
+
+Inserting the initially chosen values, we get a full set of conversion factors from variables in normalized units $n^\prime, B^\prime, u^\prime, p^\prime, T^\prime, \mathcal{E}^\prime$ to SI units $n, B, u, p, T, \mathcal{E}$:
+
+$$
+U_\mathrm{SI} = U^\prime * U_\mathrm{ref}
+$$
+
+where each conversion factor is summarized in @tbl-unit-conversion.
+
+| Variable    | Conversion factor |
+|-------------|-------------------|
+|$\rho$       | $n_\mathrm{ref}*m$|
+|$B$          | $B_\mathrm{ref}$  |
+|$\rho u$     | $\frac{B_\mathrm{ref}}{\sqrt{\mu_0 m n_\mathrm{ref}}}$ |
+|$p$          | $\frac{B_\mathrm{ref}^2}{2\mu_0}$ |
+|$T$          | $\frac{B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}$ |
+|$\mathcal{E}$| $\frac{B_\mathrm{ref}^2}{2\mu_0}$ |
+
+: Unit conversion factors. {#tbl-unit-conversion}
+
+#### Example: dimensionless to $n,u,T$
+
+When dealing with velocity distribution functions, one easy way is to write $f(\mathbf{v})=f(\mathbf{v}; n,\mathbf{u},T)$. For instance, a 3D Maxwellian is given as
+
+$$
+f(\mathbf{v}) = n\left( \frac{m}{2\pi k_B T} \right)^{3/2} \exp\left(-\frac{m(\mathbf{v}-\mathbf{u})^2}{2k_B T}\right)
+$$
+
+From conservative variables $(\rho,\rho\mathbf{u},\mathcal{E},\mathbf{B})$ to $(n,\mathbf{u},T,\mathbf{B})$, we have
+
+$$
+\begin{aligned}
+n_\mathrm{SI} &= \frac{n_\mathrm{ref}}{m}\rho^\prime \\
+u_\mathrm{SI} &= u_\mathrm{ref}\left( \frac{\rho^\prime u^\prime}{\rho^\prime} \right) \\
+T_\mathrm{SI} &= \frac{(\gamma-1)B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}\left[ \frac{\mathcal{E}^\prime - {\rho^\prime}^2 - {B^\prime}^2}{n^\prime} \right] \\
+B_\mathrm{SI} &= B_\mathrm{ref}B^\prime \\
+\end{aligned}
+$$
 
 ## Errors
 
@@ -88,18 +138,25 @@ Given @eq-ideal-mhd (with $\mathbf{B}=0$),
 $$
 \begin{aligned}
 \rho &= 1 \\
+\mathbf{u} &= \mathbf{0} \\
 p &= 1/\gamma
 \end{aligned}
 $$
 
 with $\gamma = 5/3$. The conservative variables are
 $$
-U=[\rho, \rho u_x, \rho u_y, \rho u_z, E]
+\mathbf{U}=[\rho, \rho u_x, \rho u_y, \rho u_z, E]
 $$
 
 and the right-eigenvector for a left-going wave is
 $$
-R=[1.0, -1.0, 1.0, 1.0, 1.5]
+\mathbf{R}=[1.0, -1.0, 1.0, 1.0, 1.5]
+$$
+
+When switching from $\mathcal{E}$ to $p$, we can see from the background and $\mathbf{R}$ that
+
+$$
+\delta p = (\gamma-1)\left( \delta\mathcal{E} - \frac{1}{2}\rho \delta u^2 \right) = 0
 $$
 
 The parameters are summarized in @tbl-linear-wave-1d-hd.
@@ -110,6 +167,7 @@ The parameters are summarized in @tbl-linear-wave-1d-hd.
 |$\rho u_x$   | 0          | -1.0  |
 |$\rho u_y$   | 0          | 1.0   |
 |$\rho u_z$   | 0          | 1.0   |
+|$p$          | $\frac{1}{\gamma}$ | 0.0 |
 |$\mathcal{E}$| $\frac{1}{\gamma(\gamma-1)}$ | 1.5 |
 
 : 1D adiabatic hydrodynamic linear wave parameters {#tbl-linear-wave-1d-hd}
@@ -123,17 +181,16 @@ Given @eq-ideal-mhd,
 $$
 \begin{aligned}
 \rho &= 1 \\
+\mathbf{u} &= \mathbf{0} \\
 p &= 1/\gamma \\
-B_x &= 1*(4\pi)^{1/2} \\
-B_y &= \sqrt{2}*(4\pi)^{1/2} \\
-B_z &= 0.5*(4\pi)^{1/2}
+\mathbf{B} &= [1, \sqrt{2}, 0.5]*(4\pi)^{1/2} \\
 \end{aligned}
 $$
 
 with $\gamma = 5/3$. Thus, the fast magnetosonic speed is 2.0, the Alfvén speed is 1.0, and the slow magnetosonic speed is 0.5.
 
 $$
-U = [\rho, \rho u_x, \rho u_y, \rho u_z, E, B_y, B_z]
+\mathbf{U} = [\rho, \rho u_x, \rho u_y, \rho u_z, E, B_y, B_z]
 $$
 
 then the right eigenvectors for left going waves are as follows:
@@ -219,6 +276,35 @@ The parameters are summarized in @tbl-linear-wave-1d-mhd.
 
 1D adiabatic MHD linear wave parameters
 :::
+
+In some cases, we need to convert from conservative variables to other set of variables, e.g. $(\rho,\mathbf{u},p,\mathbf{B})$. The density perturbation is $\rho_0\sin 2\pi x$. Assuming background $u_0=0$,
+$$
+\delta u = \frac{1}{\rho}\left[ \delta(\rho u) - (\delta \rho) u \right] = \frac{1}{\rho_0}\delta(\rho u)
+$$ {#eq-velocity-momentumflux-conversion}
+Given the perturbation of energy density
+$$
+\begin{aligned}
+\mathcal{E} &= \frac{p}{\gamma-1} + \frac{\rho u^2}{2} + \frac{B^2}{2\mu_0} \\
+\delta\mathcal{E} &= \frac{\delta p}{\gamma-1} + \frac{\rho_0\delta u^2}{2} + \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right)
+\end{aligned}
+$$
+
+the pressure perturbation is then
+
+$$
+\begin{aligned}
+\delta p &= (\gamma-1)\left[ \delta\mathcal{E} - \frac{1}{2}\rho\delta u^2 - \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right) \right] \\
+&= (\gamma-1)\left[ \delta\mathcal{E} - \frac{1}{2\rho_0}\delta(\rho u)^2 - \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right) \right]
+\end{aligned}
+$$ {#eq-pressure-energyflux-conversion}
+
+If the input is $T$ instead of $p$, we have
+$$
+\begin{aligned}
+\delta T &= \frac{1}{k_B\, n}\left[ \delta p - \delta n\, k_B\, T \right] = \frac{m}{k_B\, \rho}\left[ \delta p - \delta \rho\frac{k_B\, T}{m} \right] \\
+&= \frac{m}{k_B\,\rho_0}\delta p - \frac{\delta\rho}{\rho_0}T
+\end{aligned}
+$$ {#eq-temperature-pressure-conversion}
 
 #### 2D Adiabatic MHD
 
