@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.329">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -329,15 +329,14 @@ div.csl-indent {
 <p>Verifying the validity of models is critical in performing consistent research. This chapter goes through the numerical tests we can do in plasma physics, and is heavily influenced by the <a href="https://www.astro.princeton.edu/~jstone/Athena/tests/">tests in the Athena MHD code</a>.</p>
 <section id="unit-conversion" class="level3" data-number="25.0.1">
 <h3 data-number="25.0.1" class="anchored" data-anchor-id="unit-conversion"><span class="header-section-number">25.0.1</span> Unit Conversion</h3>
-<p>Most test parameters are listed in dimensionless units.</p>
-<p>If SI units are required, we need unit conversions. Typically, we need a reference number density, e.g.&nbsp;<span class="math inline">\(n_{ref} = 10\mathrm{amu/cc}\)</span>, and magnetic field, e.g.&nbsp;<span class="math inline">\(B_{ref} = 10\mathrm{nT}\)</span>. The dimensionless scale <span class="math inline">\(\beta\)</span> is also used to determine the unit of temperature.</p>
-<p>The reference ion frequency in rad/s is</p>
+<p>Most test parameters are listed in dimensionless units. If SI units are required, we need unit conversions. Typically, we need to start with a reference number density, e.g.&nbsp;<span class="math inline">\(n_{ref} = 10\,\mathrm{amu/cc}\)</span>, and magnetic field, e.g.&nbsp;<span class="math inline">\(B_{ref} = 10\,\mathrm{nT}\)</span>. All the rest conversion factors can be derived from these together with other physical constants.</p>
+<p>The reference frequency in rad/s is</p>
 <p><span class="math display">\[
-\omega_{i,\mathrm{ref}} = \sqrt{\frac{n_\mathrm{ref}q_i^2}{\epsilon_0 m_i}}
+\omega_{\mathrm{ref}} = \sqrt{\frac{n_\mathrm{ref}e^2}{\epsilon_0 m}}
 \]</span></p>
-<p>and then the reference ion inertial length in m, which is also used as the length scale, is</p>
+<p>and then the reference length scale in m, which is equivalent to the inertial length, is</p>
 <p><span class="math display">\[
-d_i = \frac{c}{\omega_{i,\mathrm{ref}}}
+l_\mathrm{ref} = d = \frac{c}{\omega_{\mathrm{ref}}} = \sqrt{\frac{m}{\mu_0 e^2 n_\mathrm{ref}}}
 \]</span></p>
 <p>The time scale in s is the inverse of reference gyrofrequency,</p>
 <p><span class="math display">\[
@@ -346,13 +345,80 @@ t_\mathrm{ref} = \frac{1}{\Omega_i} = \frac{m_i}{q_i B_\mathrm{ref}}
 <p>Actually there is a <span class="math inline">\(2\pi\)</span> factor missing here, since we need to convert from gyrofrequency to frequency and then take the inverse for the period. However, <em>traditionally no one did that</em>.</p>
 <p>The velocity scale in m/s is the Alfvén speed</p>
 <p><span class="math display">\[
-v_\mathrm{ref} = \frac{B_\mathrm{ref}}{\sqrt{\mu_0 m_i n_\mathrm{ref}}}
+u_\mathrm{ref} = \frac{l_\mathrm{ref}}{t_\mathrm{ref}} = \frac{B_\mathrm{ref}}{\sqrt{\mu_0 m_i n_\mathrm{ref}}}
 \]</span></p>
-<p>The temperature scale can be derived from the magnetic pressure and <span class="math inline">\(\beta\)</span></p>
+<p>The pressure scale can be equivalently derived from the magnetic pressure or dynamic pressure</p>
 <p><span class="math display">\[
-T_\mathrm{ref} = \frac{p_B \beta}{n k_B} = \frac{B_\mathrm{ref}^2}{2\mu_0}\frac{\beta}{n k_B}
+P_\mathrm{ref} = \frac{B_\mathrm{ref}^2}{2\mu_0} = \frac{1}{2}\rho_\mathrm{ref}u_\mathrm{ref}^2
 \]</span></p>
-<p>Inserting the initially chosen values, we get a full set of conversion factors from the normalized units to SI units: <span class="math inline">\(n_\mathrm{ref}, B_\mathrm{ref}, v_\mathrm{ref}, l_\mathrm{ref}, t_\mathrm{ref}\)</span>, and <span class="math inline">\(T_\mathrm{ref}\)</span>.</p>
+<p>The temperature scale is then</p>
+<p><span class="math display">\[
+T_\mathrm{ref} = \frac{p_\mathrm{ref}}{n_\mathrm{ref} k_B} = \frac{B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}
+\]</span></p>
+<p>In many normalized units, the factor <span class="math inline">\(1/\sqrt{\mu_0}\)</span> is absorbed into the magnetic field, <span class="math display">\[
+B^\prime = \frac{B}{\sqrt{\mu_0}}
+\]</span></p>
+<p>If CGS units is used, then this shall be (???) <span class="math display">\[
+B^\prime = \frac{B}{\sqrt{4\pi}}
+\]</span></p>
+<p>Inserting the initially chosen values, we get a full set of conversion factors from variables in normalized units <span class="math inline">\(n^\prime, B^\prime, u^\prime, p^\prime, T^\prime, \mathcal{E}^\prime\)</span> to SI units <span class="math inline">\(n, B, u, p, T, \mathcal{E}\)</span>:</p>
+<p><span class="math display">\[
+U_\mathrm{SI} = U^\prime * U_\mathrm{ref}
+\]</span></p>
+<p>where each conversion factor is summarized in <a href="#tbl-unit-conversion">Table&nbsp;<span>25.1</span></a>.</p>
+<div id="tbl-unit-conversion" class="anchored">
+<table class="table">
+<caption>Table&nbsp;25.1: Unit conversion factors.</caption>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Conversion factor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\rho\)</span></td>
+<td><span class="math inline">\(n_\mathrm{ref}*m\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(B\)</span></td>
+<td><span class="math inline">\(B_\mathrm{ref}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\rho u\)</span></td>
+<td><span class="math inline">\(\frac{B_\mathrm{ref}}{\sqrt{\mu_0 m n_\mathrm{ref}}}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(p\)</span></td>
+<td><span class="math inline">\(\frac{B_\mathrm{ref}^2}{2\mu_0}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(T\)</span></td>
+<td><span class="math inline">\(\frac{B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathcal{E}\)</span></td>
+<td><span class="math inline">\(\frac{B_\mathrm{ref}^2}{2\mu_0}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="example-dimensionless-to-nut" class="level4" data-number="25.0.1.1">
+<h4 data-number="25.0.1.1" class="anchored" data-anchor-id="example-dimensionless-to-nut"><span class="header-section-number">25.0.1.1</span> Example: dimensionless to <span class="math inline">\(n,u,T\)</span></h4>
+<p>When dealing with velocity distribution functions, one easy way is to write <span class="math inline">\(f(\mathbf{v})=f(\mathbf{v}; n,\mathbf{u},T)\)</span>. For instance, a 3D Maxwellian is given as</p>
+<p><span class="math display">\[
+f(\mathbf{v}) = n\left( \frac{m}{2\pi k_B T} \right)^{3/2} \exp\left(-\frac{m(\mathbf{v}-\mathbf{u})^2}{2k_B T}\right)
+\]</span></p>
+<p>From conservative variables <span class="math inline">\((\rho,\rho\mathbf{u},\mathcal{E},\mathbf{B})\)</span> to <span class="math inline">\((n,\mathbf{u},T,\mathbf{B})\)</span>, we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+n_\mathrm{SI} &amp;= \frac{n_\mathrm{ref}}{m}\rho^\prime \\
+u_\mathrm{SI} &amp;= u_\mathrm{ref}\left( \frac{\rho^\prime u^\prime}{\rho^\prime} \right) \\
+T_\mathrm{SI} &amp;= \frac{(\gamma-1)B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}\left[ \frac{\mathcal{E}^\prime - {\rho^\prime}^2 - {B^\prime}^2}{n^\prime} \right] \\
+B_\mathrm{SI} &amp;= B_\mathrm{ref}B^\prime \\
+\end{aligned}
+\]</span></p>
+</section>
 </section>
 <section id="errors" class="level2" data-number="25.1">
 <h2 data-number="25.1" class="anchored" data-anchor-id="errors"><span class="header-section-number">25.1</span> Errors</h2>
@@ -394,19 +460,24 @@ T_\mathrm{ref} = \frac{p_B \beta}{n k_B} = \frac{B_\mathrm{ref}^2}{2\mu_0}\frac{
 <p>Given <a href="fluid.html#eq-ideal-mhd">Equation&nbsp;<span>5.12</span></a> (with <span class="math inline">\(\mathbf{B}=0\)</span>), <span class="math display">\[
 \begin{aligned}
 \rho &amp;= 1 \\
+\mathbf{u} &amp;= \mathbf{0} \\
 p &amp;= 1/\gamma
 \end{aligned}
 \]</span></p>
 <p>with <span class="math inline">\(\gamma = 5/3\)</span>. The conservative variables are <span class="math display">\[
-U=[\rho, \rho u_x, \rho u_y, \rho u_z, E]
+\mathbf{U}=[\rho, \rho u_x, \rho u_y, \rho u_z, E]
 \]</span></p>
 <p>and the right-eigenvector for a left-going wave is <span class="math display">\[
-R=[1.0, -1.0, 1.0, 1.0, 1.5]
+\mathbf{R}=[1.0, -1.0, 1.0, 1.0, 1.5]
 \]</span></p>
-<p>The parameters are summarized in <a href="#tbl-linear-wave-1d-hd">Table&nbsp;<span>25.1</span></a>.</p>
+<p>When switching from <span class="math inline">\(\mathcal{E}\)</span> to <span class="math inline">\(p\)</span>, we can see from the background and <span class="math inline">\(\mathbf{R}\)</span> that</p>
+<p><span class="math display">\[
+\delta p = (\gamma-1)\left( \delta\mathcal{E} - \frac{1}{2}\rho \delta u^2 \right) = 0
+\]</span></p>
+<p>The parameters are summarized in <a href="#tbl-linear-wave-1d-hd">Table&nbsp;<span>25.2</span></a>.</p>
 <div id="tbl-linear-wave-1d-hd" class="anchored">
 <table class="table">
-<caption>Table&nbsp;25.1: 1D adiabatic hydrodynamic linear wave parameters</caption>
+<caption>Table&nbsp;25.2: 1D adiabatic hydrodynamic linear wave parameters</caption>
 <thead>
 <tr class="header">
 <th>Variable</th>
@@ -436,6 +507,11 @@ R=[1.0, -1.0, 1.0, 1.0, 1.5]
 <td>1.0</td>
 </tr>
 <tr class="odd">
+<td><span class="math inline">\(p\)</span></td>
+<td><span class="math inline">\(\frac{1}{\gamma}\)</span></td>
+<td>0.0</td>
+</tr>
+<tr class="even">
 <td><span class="math inline">\(\mathcal{E}\)</span></td>
 <td><span class="math inline">\(\frac{1}{\gamma(\gamma-1)}\)</span></td>
 <td>1.5</td>
@@ -451,15 +527,14 @@ R=[1.0, -1.0, 1.0, 1.0, 1.5]
 <p><span class="math display">\[
 \begin{aligned}
 \rho &amp;= 1 \\
+\mathbf{u} &amp;= \mathbf{0} \\
 p &amp;= 1/\gamma \\
-B_x &amp;= 1*(4\pi)^{1/2} \\
-B_y &amp;= \sqrt{2}*(4\pi)^{1/2} \\
-B_z &amp;= 0.5*(4\pi)^{1/2}
+\mathbf{B} &amp;= [1, \sqrt{2}, 0.5]*(4\pi)^{1/2} \\
 \end{aligned}
 \]</span></p>
 <p>with <span class="math inline">\(\gamma = 5/3\)</span>. Thus, the fast magnetosonic speed is 2.0, the Alfvén speed is 1.0, and the slow magnetosonic speed is 0.5.</p>
 <p><span class="math display">\[
-U = [\rho, \rho u_x, \rho u_y, \rho u_z, E, B_y, B_z]
+\mathbf{U} = [\rho, \rho u_x, \rho u_y, \rho u_z, E, B_y, B_z]
 \]</span></p>
 <p>then the right eigenvectors for left going waves are as follows:</p>
 <ul>
@@ -495,10 +570,10 @@ U = [\rho, \rho u_x, \rho u_y, \rho u_z, E, B_y, B_z]
 6.708136850795449e-01
 -4.216370213557841e-01
 -1.490711984999860e-01 ]</code></pre>
-<p>The parameters are summarized in <a href="#tbl-linear-wave-1d-mhd">Table&nbsp;<span>25.2</span></a>.</p>
+<p>The parameters are summarized in <a href="#tbl-linear-wave-1d-mhd">Table&nbsp;<span>25.3</span></a>.</p>
 <div id="tbl-linear-wave-1d-mhd" class="tbl-parent quarto-layout-panel anchored">
 <div class="panel-caption table-caption">
-<p>Table&nbsp;25.2: 1D adiabatic MHD linear wave parameters</p>
+<p>Table&nbsp;25.3: 1D adiabatic MHD linear wave parameters</p>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div id="tbl-linear-wave-1d-mhd-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-linear-wave-1d-mhd" style="flex-basis: 100.0%;justify-content: center;">
@@ -684,6 +759,27 @@ U = [\rho, \rho u_x, \rho u_y, \rho u_z, E, B_y, B_z]
 </div>
 </div>
 </div>
+<p>In some cases, we need to convert from conservative variables to other set of variables, e.g.&nbsp;<span class="math inline">\((\rho,\mathbf{u},p,\mathbf{B})\)</span>. The density perturbation is <span class="math inline">\(\rho_0\sin 2\pi x\)</span>. Assuming background <span class="math inline">\(u_0=0\)</span>, <span id="eq-velocity-momentumflux-conversion"><span class="math display">\[
+\delta u = \frac{1}{\rho}\left[ \delta(\rho u) - (\delta \rho) u \right] = \frac{1}{\rho_0}\delta(\rho u)
+\tag{25.1}\]</span></span> Given the perturbation of energy density <span class="math display">\[
+\begin{aligned}
+\mathcal{E} &amp;= \frac{p}{\gamma-1} + \frac{\rho u^2}{2} + \frac{B^2}{2\mu_0} \\
+\delta\mathcal{E} &amp;= \frac{\delta p}{\gamma-1} + \frac{\rho_0\delta u^2}{2} + \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right)
+\end{aligned}
+\]</span></p>
+<p>the pressure perturbation is then</p>
+<p><span id="eq-pressure-energyflux-conversion"><span class="math display">\[
+\begin{aligned}
+\delta p &amp;= (\gamma-1)\left[ \delta\mathcal{E} - \frac{1}{2}\rho\delta u^2 - \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right) \right] \\
+&amp;= (\gamma-1)\left[ \delta\mathcal{E} - \frac{1}{2\rho_0}\delta(\rho u)^2 - \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right) \right]
+\end{aligned}
+\tag{25.2}\]</span></span></p>
+<p>If the input is <span class="math inline">\(T\)</span> instead of <span class="math inline">\(p\)</span>, we have <span id="eq-temperature-pressure-conversion"><span class="math display">\[
+\begin{aligned}
+\delta T &amp;= \frac{1}{k_B\, n}\left[ \delta p - \delta n\, k_B\, T \right] = \frac{m}{k_B\, \rho}\left[ \delta p - \delta \rho\frac{k_B\, T}{m} \right] \\
+&amp;= \frac{m}{k_B\,\rho_0}\delta p - \frac{\delta\rho}{\rho_0}T
+\end{aligned}
+\tag{25.3}\]</span></span></p>
 </section>
 <section id="d-adiabatic-mhd-1" class="level4" data-number="25.2.1.3">
 <h4 data-number="25.2.1.3" class="anchored" data-anchor-id="d-adiabatic-mhd-1"><span class="header-section-number">25.2.1.3</span> 2D Adiabatic MHD</h4>
