@@ -64,6 +64,8 @@ where each conversion factor is summarized in @tbl-unit-conversion.
 
 | Variable    | Conversion factor |
 |-------------|-------------------|
+|$x$          | $\sqrt{\frac{m}{\mu_0 e^2 n_\mathrm{ref}}}$|
+|$t$          | $\frac{m}{e\,B_\mathrm{ref}}$|
 |$\rho$       | $n_\mathrm{ref}*m$|
 |$B$          | $B_\mathrm{ref}$  |
 |$\rho u$     | $\frac{B_\mathrm{ref}}{\sqrt{\mu_0 m n_\mathrm{ref}}}$ |
@@ -87,7 +89,7 @@ $$
 \begin{aligned}
 n_\mathrm{SI} &= \frac{n_\mathrm{ref}}{m}\rho^\prime \\
 u_\mathrm{SI} &= u_\mathrm{ref}\left( \frac{\rho^\prime u^\prime}{\rho^\prime} \right) \\
-T_\mathrm{SI} &= \frac{(\gamma-1)B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}\left[ \frac{\mathcal{E}^\prime - {\rho^\prime}^2 - {B^\prime}^2}{n^\prime} \right] \\
+T_\mathrm{SI} &= \frac{(\gamma-1)m\,B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}\left[ \frac{\mathcal{E}^\prime - {\rho^\prime}^2 - {B^\prime}^2}{\rho^\prime} \right] \\
 B_\mathrm{SI} &= B_\mathrm{ref}B^\prime \\
 \end{aligned}
 $$
@@ -283,13 +285,13 @@ $$
 $$ {#eq-number-mass-density-conversion}
 Assuming background $u_0=0$,
 $$
-\delta u = \frac{1}{\rho}\left[ \delta(\rho u) - (\delta \rho) u \right] = \frac{1}{\rho_0}\delta(\rho u)
+\delta u = \frac{1}{\rho}\left[ \delta(\rho u) - (\delta \rho) u \right] = \frac{1}{\rho_0+\delta\rho}\delta(\rho u)
 $$ {#eq-velocity-momentumflux-conversion}
 Given the perturbation of energy density
 $$
 \begin{aligned}
 \mathcal{E} &= \frac{p}{\gamma-1} + \frac{\rho u^2}{2} + \frac{B^2}{2\mu_0} \\
-\delta\mathcal{E} &= \frac{\delta p}{\gamma-1} + \frac{\rho_0\delta u^2}{2} + \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right)
+p &= (\gamma-1)\left[ \mathcal{E} - \frac{\rho u^2}{2} - \frac{B^2}{2\mu_0} \right]
 \end{aligned}
 $$
 
@@ -297,18 +299,18 @@ the pressure perturbation is then
 
 $$
 \begin{aligned}
-\delta p &= (\gamma-1)\left[ \delta\mathcal{E} - \frac{1}{2}\rho\delta u^2 - \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right) \right] \\
-&= (\gamma-1)\left[ \delta\mathcal{E} - \frac{1}{2\rho_0}\delta(\rho u)^2 - \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right) \right]
+\delta p &= (\gamma-1)\left[ \delta\mathcal{E} - \frac{1}{2}(2\rho_0\, u\,\delta u + \rho_0\delta u^2 + \delta\rho\, u_0^2 + 2\delta\rho\,\delta u\, u_0 + \delta\rho\,\delta u^2) - \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right) \right] \\
 \end{aligned}
 $$ {#eq-pressure-energyflux-conversion}
 
 If the input is $T$ instead of $p$, we have
 $$
 \begin{aligned}
-\delta T &= \frac{1}{k_B\, n}\left[ \delta p - \delta n\, k_B\, T \right] = \frac{m}{k_B\, \rho}\left[ \delta p - \delta \rho\frac{k_B\, T}{m} \right] \\
-&= \frac{m}{k_B\,\rho_0}\delta p - \frac{\delta\rho}{\rho_0}T
+\delta T &= \frac{p_0 + \delta p}{k_B\, (n_0+\delta n)} - \frac{p_0}{k_B\, n_0}
 \end{aligned}
 $$ {#eq-temperature-pressure-conversion}
+
+Note that while in the linear perturbation theory we can ignore the high order (>2) terms, we do not need to do so here numerically.
 
 #### 2D Adiabatic MHD
 
