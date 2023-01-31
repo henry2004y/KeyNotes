@@ -377,6 +377,14 @@ U_\mathrm{SI} = U^\prime * U_\mathrm{ref}
 </thead>
 <tbody>
 <tr class="odd">
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(\sqrt{\frac{m}{\mu_0 e^2 n_\mathrm{ref}}}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(t\)</span></td>
+<td><span class="math inline">\(\frac{m}{e\,B_\mathrm{ref}}\)</span></td>
+</tr>
+<tr class="odd">
 <td><span class="math inline">\(\rho\)</span></td>
 <td><span class="math inline">\(n_\mathrm{ref}*m\)</span></td>
 </tr>
@@ -414,7 +422,7 @@ f(\mathbf{v}) = n\left( \frac{m}{2\pi k_B T} \right)^{3/2} \exp\left(-\frac{m(\m
 \begin{aligned}
 n_\mathrm{SI} &amp;= \frac{n_\mathrm{ref}}{m}\rho^\prime \\
 u_\mathrm{SI} &amp;= u_\mathrm{ref}\left( \frac{\rho^\prime u^\prime}{\rho^\prime} \right) \\
-T_\mathrm{SI} &amp;= \frac{(\gamma-1)B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}\left[ \frac{\mathcal{E}^\prime - {\rho^\prime}^2 - {B^\prime}^2}{n^\prime} \right] \\
+T_\mathrm{SI} &amp;= \frac{(\gamma-1)m\,B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}\left[ \frac{\mathcal{E}^\prime - {\rho^\prime}^2 - {B^\prime}^2}{\rho^\prime} \right] \\
 B_\mathrm{SI} &amp;= B_\mathrm{ref}B^\prime \\
 \end{aligned}
 \]</span></p>
@@ -762,26 +770,25 @@ p &amp;= 1/\gamma \\
 <p>In some cases, we need to convert from conservative variables to other set of variables, e.g.&nbsp;<span class="math inline">\((n,\mathbf{u},p,\mathbf{B})\)</span>. The number density perturbation is <span id="eq-number-mass-density-conversion"><span class="math display">\[
 \delta n = \frac{\delta \rho}{m} = \frac{\rho_0}{m}\sin 2\pi x
 \tag{25.1}\]</span></span> Assuming background <span class="math inline">\(u_0=0\)</span>, <span id="eq-velocity-momentumflux-conversion"><span class="math display">\[
-\delta u = \frac{1}{\rho}\left[ \delta(\rho u) - (\delta \rho) u \right] = \frac{1}{\rho_0}\delta(\rho u)
+\delta u = \frac{1}{\rho}\left[ \delta(\rho u) - (\delta \rho) u \right] = \frac{1}{\rho_0+\delta\rho}\delta(\rho u)
 \tag{25.2}\]</span></span> Given the perturbation of energy density <span class="math display">\[
 \begin{aligned}
 \mathcal{E} &amp;= \frac{p}{\gamma-1} + \frac{\rho u^2}{2} + \frac{B^2}{2\mu_0} \\
-\delta\mathcal{E} &amp;= \frac{\delta p}{\gamma-1} + \frac{\rho_0\delta u^2}{2} + \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right)
+p &amp;= (\gamma-1)\left[ \mathcal{E} - \frac{\rho u^2}{2} - \frac{B^2}{2\mu_0} \right]
 \end{aligned}
 \]</span></p>
 <p>the pressure perturbation is then</p>
 <p><span id="eq-pressure-energyflux-conversion"><span class="math display">\[
 \begin{aligned}
-\delta p &amp;= (\gamma-1)\left[ \delta\mathcal{E} - \frac{1}{2}\rho\delta u^2 - \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right) \right] \\
-&amp;= (\gamma-1)\left[ \delta\mathcal{E} - \frac{1}{2\rho_0}\delta(\rho u)^2 - \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right) \right]
+\delta p &amp;= (\gamma-1)\left[ \delta\mathcal{E} - \frac{1}{2}(2\rho_0\, u\,\delta u + \rho_0\delta u^2 + \delta\rho\, u_0^2 + 2\delta\rho\,\delta u\, u_0 + \delta\rho\,\delta u^2) - \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right) \right] \\
 \end{aligned}
 \tag{25.3}\]</span></span></p>
 <p>If the input is <span class="math inline">\(T\)</span> instead of <span class="math inline">\(p\)</span>, we have <span id="eq-temperature-pressure-conversion"><span class="math display">\[
 \begin{aligned}
-\delta T &amp;= \frac{1}{k_B\, n}\left[ \delta p - \delta n\, k_B\, T \right] = \frac{m}{k_B\, \rho}\left[ \delta p - \delta \rho\frac{k_B\, T}{m} \right] \\
-&amp;= \frac{m}{k_B\,\rho_0}\delta p - \frac{\delta\rho}{\rho_0}T
+\delta T &amp;= \frac{p_0 + \delta p}{k_B\, (n_0+\delta n)} - \frac{p_0}{k_B\, n_0}
 \end{aligned}
 \tag{25.4}\]</span></span></p>
+<p>Note that while in the linear perturbation theory we can ignore the high order (&gt;2) terms, we do not need to do so here numerically.</p>
 </section>
 <section id="d-adiabatic-mhd-1" class="level4" data-number="25.2.1.3">
 <h4 data-number="25.2.1.3" class="anchored" data-anchor-id="d-adiabatic-mhd-1"><span class="header-section-number">25.2.1.3</span> 2D Adiabatic MHD</h4>
