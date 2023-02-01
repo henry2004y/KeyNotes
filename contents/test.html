@@ -326,7 +326,7 @@ div.csl-indent {
 
 </header>
 
-<p>Verifying the validity of models is critical in performing consistent research. This chapter goes through the numerical tests we can do in plasma physics, and is heavily influenced by the <a href="https://www.astro.princeton.edu/~jstone/Athena/tests/">tests in the Athena MHD code</a>.</p>
+<p>Verifying the validity of models is critical in performing consistent research. This chapter goes through the numerical tests we can do in plasma physics, and is heavily influenced by the <a href="https://www.astro.princeton.edu/~jstone/Athena/tests/">tests in the Athena MHD code</a>. Detail can be found in <span class="citation" data-cites="stone2008athena">(<a href="#ref-stone2008athena" role="doc-biblioref">Stone et al. 2008</a>)</span>.</p>
 <section id="unit-conversion" class="level3" data-number="25.0.1">
 <h3 data-number="25.0.1" class="anchored" data-anchor-id="unit-conversion"><span class="header-section-number">25.0.1</span> Unit Conversion</h3>
 <p>Most test parameters are listed in dimensionless units. If SI units are required, we need unit conversions. Typically, we need to start with a reference number density, e.g.&nbsp;<span class="math inline">\(n_{ref} = 10\,\mathrm{amu/cc}\)</span>, and magnetic field, e.g.&nbsp;<span class="math inline">\(B_{ref} = 10\,\mathrm{nT}\)</span>. All the rest conversion factors can be derived from these together with other physical constants.</p>
@@ -426,6 +426,7 @@ T_\mathrm{SI} &amp;= \frac{(\gamma-1)m\,B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{r
 B_\mathrm{SI} &amp;= B_\mathrm{ref}B^\prime \\
 \end{aligned}
 \]</span></p>
+<p>When dealing with both unit conversion and perturbations, a recommended way is to first convert the units and then compute the perturbations.</p>
 </section>
 </section>
 <section id="errors" class="level2" data-number="25.1">
@@ -440,6 +441,7 @@ B_\mathrm{SI} &amp;= B_\mathrm{ref}B^\prime \\
 <h2 data-number="25.2" class="anchored" data-anchor-id="wave-tests"><span class="header-section-number">25.2</span> Wave Tests</h2>
 <section id="linear-wave" class="level3" data-number="25.2.1">
 <h3 data-number="25.2.1" class="anchored" data-anchor-id="linear-wave"><span class="header-section-number">25.2.1</span> Linear wave</h3>
+<p>Linearization of <a href="fluid.html#eq-ideal-mhd">Equation&nbsp;<span>5.12</span></a> ends up in a system of equations <span class="math inline">\(\mathbf{W}_t = \mathbf{A}(\mathbf{W})\mathbf{W}_x\)</span>, where <span class="math inline">\(\mathbf{W}\)</span> is composed of either the primitive variables or conservative variables in 1D. The eigenvalues and eigenvectors of ideal MHD can be used to set the characteristic wave perturbations. See the details in Appendix A and B from <span class="citation" data-cites="stone2008athena">(<a href="#ref-stone2008athena" role="doc-biblioref">Stone et al. 2008</a>)</span>.</p>
 <p>The density, velocity, magnetic field, and total energy are all set to constant values initially. These values can be chosen so that the wave speeds are all well separated, and so that (in MHD) the wavevector is at an arbitrary angle to <span class="math inline">\(\mathbf{B}\)</span>. The precise values chosen for the tests described here are given in the appropriate results section below.</p>
 <p>The wave is added to as a perturbation to these constant values of the form <span class="math inline">\(\delta \mathbf{U} = A \mathbf{R} \sin(2\pi x)\)</span>. Here <span class="math inline">\(\mathbf{U}\)</span> is the vector of conserved variables, <span class="math inline">\(A\)</span> is an amplitude, and <span class="math inline">\(\mathbf{R}\)</span> is the right-eigenvector corresponding to the desired wave family. The components of <span class="math inline">\(\mathbf{R}\)</span> for each test are listed in the appropriate results section below. For all the tests shown here, <span class="math inline">\(A = 10^{-6}\)</span>.</p>
 <p>The length of the computational domain is set to be one wavelength. Periodic boundary conditions are used. After the wave has propagated one wavelength, we measure the error in the numerical solution by computing the norm of the vector resulting from summing the absolute value of errors in each variable over the grid,</p>
@@ -476,7 +478,7 @@ p &amp;= 1/\gamma
 \mathbf{U}=[\rho, \rho u_x, \rho u_y, \rho u_z, E]
 \]</span></p>
 <p>and the right-eigenvector for a left-going wave is <span class="math display">\[
-\mathbf{R}=[1.0, -1.0, 1.0, 1.0, 1.5]
+\mathbf{R}=[1.0, -1.0, 0.0, 0.0, 1.5]
 \]</span></p>
 <p>When switching from <span class="math inline">\(\mathcal{E}\)</span> to <span class="math inline">\(p\)</span>, we can see from the background and <span class="math inline">\(\mathbf{R}\)</span> that</p>
 <p><span class="math display">\[
@@ -540,11 +542,18 @@ p &amp;= 1/\gamma \\
 \mathbf{B} &amp;= [1, \sqrt{2}, 0.5]*(4\pi)^{1/2} \\
 \end{aligned}
 \]</span></p>
-<p>with <span class="math inline">\(\gamma = 5/3\)</span>. Thus, the fast magnetosonic speed is 2.0, the Alfvén speed is 1.0, and the slow magnetosonic speed is 0.5.</p>
+<p>with <span class="math inline">\(\gamma = 5/3\)</span>. Thus, the characteristic speeds along x is</p>
 <p><span class="math display">\[
+\begin{aligned}
+v_s &amp;= \sqrt{\frac{\gamma p}{\rho}} = 1.0 \\
+v_A &amp;= \sqrt{\frac{b_x^2+b_y^2+b_z^2}{\rho}} = \frac{\sqrt{13}}{2} \approx 1.8 \\
+v_{xA} &amp;= \sqrt{\frac{b_x^2}{\rho}} = 1.0 \\
+v_{x,\mathrm{fast}} &amp;= \sqrt{\frac{1}{2}\left[v_s^2 + v_A^2 + \sqrt{(v_s^2 + v_A^2)^2 - 4v_s^2 v_{xA}^2}\right]} = 2.0 \\
+v_{x,\mathrm{slow}} &amp;= \sqrt{\frac{1}{2}\left[v_s^2 + v_A^2 - \sqrt{(v_s^2 + v_A^2)^2 - 4v_s^2 v_{xA}^2}\right]} = 0.5
+\end{aligned}
+\]</span> If the conservative variables are ordered as <span class="math display">\[
 \mathbf{U} = [\rho, \rho u_x, \rho u_y, \rho u_z, E, B_y, B_z]
-\]</span></p>
-<p>then the right eigenvectors for left going waves are as follows:</p>
+\]</span> then the right eigenvectors for left going waves are as follows:</p>
 <ul>
 <li>For a fast magnetosonic wave:</li>
 </ul>
@@ -979,6 +988,9 @@ B_{1z} &amp;= \psi_0\Big(\frac{2\pi}{L_x}\Big)\sin(2\pi x/L_x)\cos(\pi z/L_z)
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-birn2001gem" class="csl-entry" role="doc-biblioentry">
 Birn, J, JF Drake, MA Shay, BN Rogers, RE Denton, M Hesse, M Kuznetsova, et al. 2001. <span>“Geospace Environmental Modeling (GEM) Magnetic Reconnection Challenge.”</span> <em>Journal of Geophysical Research: Space Physics</em> 106 (A3): 3715–19. <a href="https://doi.org/10.1029/1999JA900449">https://doi.org/10.1029/1999JA900449</a>.
+</div>
+<div id="ref-stone2008athena" class="csl-entry" role="doc-biblioentry">
+Stone, James M, Thomas A Gardiner, Peter Teuben, John F Hawley, and Jacob B Simon. 2008. <span>“Athena: A New Code for Astrophysical MHD.”</span> <em>The Astrophysical Journal Supplement Series</em> 178 (1): 137. <a href="https://doi.org/10.1086/588755">https://doi.org/10.1086/588755</a>.
 </div>
 <div id="ref-toth2000b" class="csl-entry" role="doc-biblioentry">
 Tóth, Gábor. 2000. <span>“The∇<span></span> b= 0 Constraint in Shock-Capturing Magnetohydrodynamics Codes.”</span> <em>Journal of Computational Physics</em> 161 (2): 605–52. https://doi.org/<a href="https://doi.org/10.1006/jcph.2000.6519">https://doi.org/10.1006/jcph.2000.6519</a>.
