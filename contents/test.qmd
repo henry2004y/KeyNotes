@@ -1,6 +1,6 @@
 # Tests {#sec-test}
 
-Verifying the validity of models is critical in performing consistent research. This chapter goes through the numerical tests we can do in plasma physics, and is heavily influenced by the [tests in the Athena MHD code](https://www.astro.princeton.edu/~jstone/Athena/tests/).
+Verifying the validity of models is critical in performing consistent research. This chapter goes through the numerical tests we can do in plasma physics, and is heavily influenced by the [tests in the Athena MHD code](https://www.astro.princeton.edu/~jstone/Athena/tests/). Detail can be found in [@stone2008athena].
 
 ### Unit Conversion
 
@@ -94,6 +94,8 @@ B_\mathrm{SI} &= B_\mathrm{ref}B^\prime \\
 \end{aligned}
 $$
 
+When dealing with both unit conversion and perturbations, a recommended way is to first convert the units and then compute the perturbations.
+
 ## Errors
 
 1. Diffusion error: the rate at which the amplitude of the wave decreases.
@@ -104,6 +106,8 @@ The error norm usually contains contributions from both. However, one could plot
 ## Wave Tests
 
 ### Linear wave
+
+Linearization of @eq-ideal-mhd ends up in a system of equations $\mathbf{W}_t = \mathbf{A}(\mathbf{W})\mathbf{W}_x$, where $\mathbf{W}$ is composed of either the primitive variables or conservative variables in 1D. The eigenvalues and eigenvectors of ideal MHD can be used to set the characteristic wave perturbations. See the details in Appendix A and B from [@stone2008athena].
 
 The density, velocity, magnetic field, and total energy are all set to constant values initially. These values can be chosen so that the wave speeds are all well separated, and so that (in MHD) the wavevector is at an arbitrary angle to $\mathbf{B}$. The precise values chosen for the tests described here are given in the appropriate results section below.
 
@@ -152,7 +156,7 @@ $$
 
 and the right-eigenvector for a left-going wave is
 $$
-\mathbf{R}=[1.0, -1.0, 1.0, 1.0, 1.5]
+\mathbf{R}=[1.0, -1.0, 0.0, 0.0, 1.5]
 $$
 
 When switching from $\mathcal{E}$ to $p$, we can see from the background and $\mathbf{R}$ that
@@ -189,16 +193,24 @@ p &= 1/\gamma \\
 \end{aligned}
 $$
 
-with $\gamma = 5/3$. Thus, the fast magnetosonic speed is 2.0, the Alfvén speed is 1.0, and the slow magnetosonic speed is 0.5.
+with $\gamma = 5/3$. Thus, the characteristic speeds along x is
 
+$$
+\begin{aligned}
+v_s &= \sqrt{\frac{\gamma p}{\rho}} = 1.0 \\
+v_A &= \sqrt{\frac{b_x^2+b_y^2+b_z^2}{\rho}} = \frac{\sqrt{13}}{2} \approx 1.8 \\
+v_{xA} &= \sqrt{\frac{b_x^2}{\rho}} = 1.0 \\
+v_{x,\mathrm{fast}} &= \sqrt{\frac{1}{2}\left[v_s^2 + v_A^2 + \sqrt{(v_s^2 + v_A^2)^2 - 4v_s^2 v_{xA}^2}\right]} = 2.0 \\
+v_{x,\mathrm{slow}} &= \sqrt{\frac{1}{2}\left[v_s^2 + v_A^2 - \sqrt{(v_s^2 + v_A^2)^2 - 4v_s^2 v_{xA}^2}\right]} = 0.5
+\end{aligned}
+$$
+If the conservative variables are ordered as
 $$
 \mathbf{U} = [\rho, \rho u_x, \rho u_y, \rho u_z, E, B_y, B_z]
 $$
-
 then the right eigenvectors for left going waves are as follows:
 
 * For a fast magnetosonic wave:
-
 ```{julia}
 U = [
 4.472135954999580e-01
