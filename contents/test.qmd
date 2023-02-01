@@ -107,7 +107,7 @@ The error norm usually contains contributions from both. However, one could plot
 
 ### Linear wave
 
-Linearization of @eq-ideal-mhd ends up in a system of equations $\mathbf{W}_t = \mathbf{A}(\mathbf{W})\mathbf{W}_x$, where $\mathbf{W}$ is composed of either the primitive variables or conservative variables in 1D. The eigenvalues and eigenvectors of ideal MHD can be used to set the characteristic wave perturbations. See the details in Appendix A and B from [@stone2008athena].
+Linearization of @eq-ideal-mhd ends up in a system of equations $\mathbf{W}_t = \mathbf{A}(\mathbf{W})\mathbf{W}_x$, where $\mathbf{W}$ is composed of either the primitive variables or conserved variables in 1D, and the subscripts $t$ and $x$ are corresponding partial derivatives. The eigenvalues and eigenvectors of ideal MHD can be used to set the characteristic wave perturbations. See the details in Appendix A and B from [@stone2008athena].
 
 The density, velocity, magnetic field, and total energy are all set to constant values initially. These values can be chosen so that the wave speeds are all well separated, and so that (in MHD) the wavevector is at an arbitrary angle to $\mathbf{B}$. The precise values chosen for the tests described here are given in the appropriate results section below.
 
@@ -122,7 +122,7 @@ $$
 \end{aligned}
 $$
 
-Here, $U_{k,i}$ is the numerical solution for the k-th component of the vector of conserved quantities at grid point $i$ and time level $n$, $U_{k,i}^0$ is the initial numerical solution, and $N_x$ is the number of grid points. Note the initial solution $U_{k,i}^0$ is just the analytic solution which has been discretized to the grid. Since the discretization of the initial condition also introduces error, to measure the error in the integration algorithm it is important to compute errors relative to the initial condition $U_{k,i}^0$ rather than the analytic solution. In 2D (3D), summation over $j (k)$ is required as well.
+Here, $U_{k,i}$ is the numerical solution for the k-th component of the vector of conserved quantities at grid point $i$ and time level $n$, $U_{k,i}^0$ is the initial numerical solution, and $N_x$ is the number of grid points. Note the initial solution $U_{k,i}^0$ is just the analytic solution which has been discretized to the grid. Since the discretization of the initial condition also introduces error, to measure the error in the integration algorithm it is important to compute errors relative to the initial condition $U_{k,i}^0$ rather than the analytic solution. In 2D (3D), summation over $j(k)$ is required as well.
 
 To compare to the results given here, it is important to
 
@@ -162,7 +162,7 @@ $$
 When switching from $\mathcal{E}$ to $p$, we can see from the background and $\mathbf{R}$ that
 
 $$
-\delta p = (\gamma-1)\left( \delta\mathcal{E} - \frac{1}{2}\rho \delta u^2 \right) = 0
+\delta p = (\gamma-1)\left( \delta\mathcal{E} + \rho\, u\delta u + \frac{1}{2}u^2\delta\rho \right) = 0
 $$
 
 The parameters are summarized in @tbl-linear-wave-1d-hd.
@@ -171,9 +171,9 @@ The parameters are summarized in @tbl-linear-wave-1d-hd.
 |-------------|------------|-------|
 |$\rho$       | 1          | 1.0   |
 |$\rho u_x$   | 0          | -1.0  |
-|$\rho u_y$   | 0          | 1.0   |
-|$\rho u_z$   | 0          | 1.0   |
-|$p$          | $\frac{1}{\gamma}$ | 0.0 |
+|$\rho u_y$   | 0          | 0.0   |
+|$\rho u_z$   | 0          | 0.0   |
+|$p$          | $\frac{1}{\gamma}$ | 1.0 |
 |$\mathcal{E}$| $\frac{1}{\gamma(\gamma-1)}$ | 1.5 |
 
 : 1D adiabatic hydrodynamic linear wave parameters {#tbl-linear-wave-1d-hd}
