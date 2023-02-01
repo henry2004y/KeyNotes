@@ -441,7 +441,7 @@ B_\mathrm{SI} &amp;= B_\mathrm{ref}B^\prime \\
 <h2 data-number="25.2" class="anchored" data-anchor-id="wave-tests"><span class="header-section-number">25.2</span> Wave Tests</h2>
 <section id="linear-wave" class="level3" data-number="25.2.1">
 <h3 data-number="25.2.1" class="anchored" data-anchor-id="linear-wave"><span class="header-section-number">25.2.1</span> Linear wave</h3>
-<p>Linearization of <a href="fluid.html#eq-ideal-mhd">Equation&nbsp;<span>5.12</span></a> ends up in a system of equations <span class="math inline">\(\mathbf{W}_t = \mathbf{A}(\mathbf{W})\mathbf{W}_x\)</span>, where <span class="math inline">\(\mathbf{W}\)</span> is composed of either the primitive variables or conservative variables in 1D. The eigenvalues and eigenvectors of ideal MHD can be used to set the characteristic wave perturbations. See the details in Appendix A and B from <span class="citation" data-cites="stone2008athena">(<a href="#ref-stone2008athena" role="doc-biblioref">Stone et al. 2008</a>)</span>.</p>
+<p>Linearization of <a href="fluid.html#eq-ideal-mhd">Equation&nbsp;<span>5.12</span></a> ends up in a system of equations <span class="math inline">\(\mathbf{W}_t = \mathbf{A}(\mathbf{W})\mathbf{W}_x\)</span>, where <span class="math inline">\(\mathbf{W}\)</span> is composed of either the primitive variables or conserved variables in 1D, and the subscripts <span class="math inline">\(t\)</span> and <span class="math inline">\(x\)</span> are corresponding partial derivatives. The eigenvalues and eigenvectors of ideal MHD can be used to set the characteristic wave perturbations. See the details in Appendix A and B from <span class="citation" data-cites="stone2008athena">(<a href="#ref-stone2008athena" role="doc-biblioref">Stone et al. 2008</a>)</span>.</p>
 <p>The density, velocity, magnetic field, and total energy are all set to constant values initially. These values can be chosen so that the wave speeds are all well separated, and so that (in MHD) the wavevector is at an arbitrary angle to <span class="math inline">\(\mathbf{B}\)</span>. The precise values chosen for the tests described here are given in the appropriate results section below.</p>
 <p>The wave is added to as a perturbation to these constant values of the form <span class="math inline">\(\delta \mathbf{U} = A \mathbf{R} \sin(2\pi x)\)</span>. Here <span class="math inline">\(\mathbf{U}\)</span> is the vector of conserved variables, <span class="math inline">\(A\)</span> is an amplitude, and <span class="math inline">\(\mathbf{R}\)</span> is the right-eigenvector corresponding to the desired wave family. The components of <span class="math inline">\(\mathbf{R}\)</span> for each test are listed in the appropriate results section below. For all the tests shown here, <span class="math inline">\(A = 10^{-6}\)</span>.</p>
 <p>The length of the computational domain is set to be one wavelength. Periodic boundary conditions are used. After the wave has propagated one wavelength, we measure the error in the numerical solution by computing the norm of the vector resulting from summing the absolute value of errors in each variable over the grid,</p>
@@ -451,7 +451,7 @@ B_\mathrm{SI} &amp;= B_\mathrm{ref}B^\prime \\
 &amp;= \sqrt{\sum_k (\sum_{i=1}^{N_x} |U_{k,i}^n - U_{k,i}^0| / N_x)^2}
 \end{aligned}
 \]</span></p>
-<p>Here, <span class="math inline">\(U_{k,i}\)</span> is the numerical solution for the k-th component of the vector of conserved quantities at grid point <span class="math inline">\(i\)</span> and time level <span class="math inline">\(n\)</span>, <span class="math inline">\(U_{k,i}^0\)</span> is the initial numerical solution, and <span class="math inline">\(N_x\)</span> is the number of grid points. Note the initial solution <span class="math inline">\(U_{k,i}^0\)</span> is just the analytic solution which has been discretized to the grid. Since the discretization of the initial condition also introduces error, to measure the error in the integration algorithm it is important to compute errors relative to the initial condition <span class="math inline">\(U_{k,i}^0\)</span> rather than the analytic solution. In 2D (3D), summation over <span class="math inline">\(j (k)\)</span> is required as well.</p>
+<p>Here, <span class="math inline">\(U_{k,i}\)</span> is the numerical solution for the k-th component of the vector of conserved quantities at grid point <span class="math inline">\(i\)</span> and time level <span class="math inline">\(n\)</span>, <span class="math inline">\(U_{k,i}^0\)</span> is the initial numerical solution, and <span class="math inline">\(N_x\)</span> is the number of grid points. Note the initial solution <span class="math inline">\(U_{k,i}^0\)</span> is just the analytic solution which has been discretized to the grid. Since the discretization of the initial condition also introduces error, to measure the error in the integration algorithm it is important to compute errors relative to the initial condition <span class="math inline">\(U_{k,i}^0\)</span> rather than the analytic solution. In 2D (3D), summation over <span class="math inline">\(j(k)\)</span> is required as well.</p>
 <p>To compare to the results given here, it is important to</p>
 <ol type="1">
 <li>Use the same amplitude for the wave</li>
@@ -482,7 +482,7 @@ p &amp;= 1/\gamma
 \]</span></p>
 <p>When switching from <span class="math inline">\(\mathcal{E}\)</span> to <span class="math inline">\(p\)</span>, we can see from the background and <span class="math inline">\(\mathbf{R}\)</span> that</p>
 <p><span class="math display">\[
-\delta p = (\gamma-1)\left( \delta\mathcal{E} - \frac{1}{2}\rho \delta u^2 \right) = 0
+\delta p = (\gamma-1)\left( \delta\mathcal{E} + \rho\, u\delta u + \frac{1}{2}u^2\delta\rho \right) = 0
 \]</span></p>
 <p>The parameters are summarized in <a href="#tbl-linear-wave-1d-hd">Table&nbsp;<span>25.2</span></a>.</p>
 <div id="tbl-linear-wave-1d-hd" class="anchored">
@@ -509,17 +509,17 @@ p &amp;= 1/\gamma
 <tr class="odd">
 <td><span class="math inline">\(\rho u_y\)</span></td>
 <td>0</td>
-<td>1.0</td>
+<td>0.0</td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(\rho u_z\)</span></td>
 <td>0</td>
-<td>1.0</td>
+<td>0.0</td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(p\)</span></td>
 <td><span class="math inline">\(\frac{1}{\gamma}\)</span></td>
-<td>0.0</td>
+<td>1.0</td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(\mathcal{E}\)</span></td>
