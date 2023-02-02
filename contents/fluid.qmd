@@ -442,31 +442,34 @@ There are 16 scalar unknowns: $n_i, n_e, p_i, p_e, \mathbf{u}_i, \mathbf{u}_e, \
 ### Ideal MHD {#sec-ideal-mhd}
 
 Ideal MHD only contains one fluid. In the most common sense, ideal MHD involves equations of compressible, adiabatic and inviscid fluid:
-
 $$
 \begin{aligned}
 \frac{\partial \rho}{\partial t} + \nabla\cdot(\rho\mathbf{u}) = 0 \\
-\frac{\partial \rho\mathbf{u}}{\partial t} + \nabla\cdot\left( \rho\mathbf{u}\mathbf{u} - \mathbf{B}\mathbf{B} + p^\ast \right) = 0 \\
-\frac{\partial \mathcal{E}}{\partial t} + \nabla\cdot\left[ (\mathcal{E} + p^\ast)\mathbf{u} - \mathbf{B}(\mathbf{B}\cdot\mathbf{u}) \right] = 0 \\
+\frac{\partial \rho\mathbf{u}}{\partial t} + \nabla\cdot\left( \rho\mathbf{u}\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}\mathbf{B} + p^\ast \right) = 0 \\
+\frac{\partial \mathcal{E}}{\partial t} + \nabla\cdot\left[ (\mathcal{E} + p^\ast)\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}(\mathbf{B}\cdot\mathbf{u}) \right] = 0 \\
 \frac{\partial \mathbf{B}}{\partial t} - \nabla\times(\mathbf{u}\times\mathbf{B}) = 0 \\
-p^\ast = p + \frac{\mathbf{B}\cdot\mathbf{B}}{2} \\
-\mathcal{E} = \frac{p}{\gamma - 1} + \frac{\rho \mathbf{u}\cdot\mathbf{u}}{2} + \frac{\mathbf{B}\cdot\mathbf{B}}{2}
+p^\ast = p + \frac{\mathbf{B}\cdot\mathbf{B}}{2\mu_0} \\
+\mathcal{E} = \frac{p}{\gamma - 1} + \frac{\rho \mathbf{u}\cdot\mathbf{u}}{2} + \frac{\mathbf{B}\cdot\mathbf{B}}{2\mu_0}
 \end{aligned}
 $$ {#eq-ideal-mhd}
+where $\rho$ is the mass density, $\mathbf{u}$ the velocity, $\mathcal{E}$ the total energy density, $\mathbf{B}$ the magnetic field, $p$ the thermal pressure, and $\gamma$ the adiabatic index (ratio of specific heats).
+Note that microscopic dissipations of any kind (viscosity, resistivity, or conduction) are not included in ideal MHD.
 
-where $\rho$ is the mass density, $\mathbf{u}$ the velocity, $\mathcal{E}$ the total energy density, $\mathbf{B}$ the magnetic field, $p$ the thermal pressure, and $\gamma$ the adiabatic index (ratio of specific heats). These equations are written using units in which the magnetic permeability $\mu_0 = 1$:
-
+Many often in simulations, the dimensionless units are applied. @eq-ideal-mhd under the dimensionless units can be written as
 $$
-\mathbf{B} = \frac{\mathbf{B}_\mathrm{SI}}{\sqrt{\mu_0}}
+\begin{aligned}
+\frac{\partial \rho_\ast}{\partial t_\ast} + \nabla_\ast\cdot(\rho_\ast\mathbf{u}_\ast) = 0 \\
+\frac{\partial \rho_\ast\mathbf{u}_\ast}{\partial t_\ast} + \nabla_\ast\cdot\left( \rho_\ast\mathbf{u}_\ast\mathbf{u}_\ast - \mathbf{B}_\ast\mathbf{B}_\ast + p_\ast^\ast \right) = 0 \\
+\frac{\partial \mathcal{E}_\ast}{\partial t_\ast} + \nabla_\ast\cdot\left[ (\mathcal{E}_\ast + p_\ast^\ast)\mathbf{u}_\ast - \mathbf{B}_\ast(\mathbf{B}_\ast\cdot\mathbf{u}_\ast) \right] = 0 \\
+\frac{\partial \mathbf{B}_\ast}{\partial t_\ast} - \nabla_\ast\times(\mathbf{u}_\ast\times\mathbf{B}_\ast) = 0 \\
+p_\ast^\ast = p_\ast + \frac{\mathbf{B}_\ast\cdot\mathbf{B}_\ast}{2} \\
+\mathcal{E}_\ast = \frac{p_\ast}{\gamma - 1} + \frac{\rho_\ast \mathbf{u}_\ast\cdot\mathbf{u}_\ast}{2} + \frac{\mathbf{B}_\ast\cdot\mathbf{B}_\ast}{2}
+\end{aligned}
+$$ {#eq-ideal-mhd-dimensionless}
+where the subscripts $\ast$ denotes the variables in dimensionless units, and the adiabatic equation of state is given as
 $$
-
-This is nice since the coefficient is completely absorbed into the magnetic field in the unit system. With a reference density $\rho_0$ and velocity $u_0=v_A$, the velocity normalization is simply given as
-
+p_\ast = \rho_\ast T_\ast
 $$
-u_0 = \frac{B_{0,SI}}{\sqrt{\mu_0\rho_0}} = \frac{B_0}{\sqrt{\rho_0}}
-$$
-
-Note that microscopic dissipations of any kind (viscosity, resistivity, or conduction) are not included in the default configuration.
 
 ## Generalized Ohm's Law
 

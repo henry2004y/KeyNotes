@@ -4,96 +4,52 @@ Verifying the validity of models is critical in performing consistent research. 
 
 ### Unit Conversion
 
-Most test parameters are listed in dimensionless units. If SI units are required, we need unit conversions. Typically, we need to start with a reference number density, e.g. $n_{ref} = 10\,\mathrm{amu/cc}$, and magnetic field, e.g. $B_{ref} = 10\,\mathrm{nT}$. All the rest conversion factors can be derived from these together with other physical constants.
-
-The reference frequency in rad/s is
+Most test parameters are listed in dimensionless units. If SI units are required, we need unit conversions. Typically, we need to start with 3 reference values: a reference length, e.g. $l_0=1\,\mathrm{R}_\mathrm{E}$, a reference number density, e.g. $\rho_0 = 1.67\times10^{-17}\,\mathrm{kg}\cdot\mathrm{m}^{-3}$, and magnetic field, e.g. $B_0 = 3.12\times 10^{-5}\,\mathrm{T}$ (Earth's magnetic field strength at the equator). All the rest conversion factors can be derived from these together with other physical constants. Inserting the initially chosen values, we get a full set of conversion factors from variables in normalized units $n^\prime, B^\prime, u^\prime, p^\prime, T^\prime, \mathcal{E}^\prime$ to SI units $n, B, u, p, T, \mathcal{E}$:
 
 $$
-\omega_{\mathrm{ref}} = \sqrt{\frac{n_\mathrm{ref}e^2}{\epsilon_0 m}}
+U_\mathrm{SI} = U^\prime * U_0
 $$
 
-and then the reference length scale in m, which is equivalent to the inertial length, is
+where each conversion factor is summarized in @tbl-mhd-unit-conversion. Note that in the definition of number density, the denominator is $m_i$ instead of $m_0$.
 
-$$
-l_\mathrm{ref} = d = \frac{c}{\omega_{\mathrm{ref}}} = \sqrt{\frac{m}{\mu_0 e^2 n_\mathrm{ref}}}
-$$
+::: {#tbl-mhd-unit-conversion layout-nrow=2}
+| Basic variable | Notation | Definition | Value |
+|----------------|----------|------------|-------|
+| Length         | $l_0$    | $l_0=\mathrm{R}_\mathrm{E}$ | $6.371\times10^6\,\mathrm{m}$ |
+| Magnetic field | $B_0$    | $B_0=B_\mathrm{E}$ | $3.12\times10^{-5}\,\mathrm{T}$ |
+| Mass density   | $\rho_0$ | $\rho_0=\rho_\mathrm{E}$ | $1.67\times10^{-17}\,\mathrm{kg}\cdot\mathrm{m}^{-3}$ |
 
-The time scale in s is the inverse of reference gyrofrequency,
+: Example basic quantities in MHD
 
-$$
-t_\mathrm{ref} = \frac{1}{\Omega_i} = \frac{m}{e B_\mathrm{ref}}
-$$
+| Derived variable | Notation      | Definition | Value |
+|------------------|---------------|------------|-------|
+| Mass             |$m_0$          | $m_0=\rho_0 l_0^3$| $4.32\times10^3\,\mathrm{kg}$ |
+| Velocity         |$v_0$          | $v_0=B_0/\sqrt{\mu_0\rho_0}$| $6.81\times10^6\,\mathrm{m}\cdot\mathrm{s}^{-1}$|
+| Number density   |$n_0$          | $n_0=\rho_0/m_i$ | $10^{10}\,\mathrm{m}^{-3}$ |
+| Pressure         |$p_0$          | $p_0=\rho_0v_0^2$ | $7.75\times10^{-4}\,\mathrm{N}\cdot\mathrm{m}^{-2}$ |
+| Temperature      |$T_0$          | $T_0=p_0*m_i/(2k_B\,\rho_0)$ | $2.81\times10^9\,\mathrm{K}$ |
+| Energy density   |$\mathcal{E}_0$| $\mathcal{E}_0=p_0$ | $7.75\times10^{-4}\,\mathrm{J}\cdot\mathrm{m}^{-3}$ |
 
-Actually there is a $2\pi$ factor missing here, since we need to convert from gyrofrequency to frequency and then take the inverse for the period. However, _traditionally no one did that_.
+: Example derived quantities in MHD
 
-The velocity scale in m/s is the Alfvén speed
+MHD unit conversion.
+:::
 
-$$
-u_\mathrm{ref} = \frac{l_\mathrm{ref}}{t_\mathrm{ref}} = \frac{B_\mathrm{ref}}{\sqrt{\mu_0 m n_\mathrm{ref}}}
-$$
-
-The pressure scale can be equivalently derived from the magnetic pressure or dynamic pressure
-
-$$
-P_\mathrm{ref} = \frac{B_\mathrm{ref}^2}{2\mu_0} = \frac{1}{2}\rho_\mathrm{ref}u_\mathrm{ref}^2
-$$
-
-The temperature scale is then
-
-$$
-T_\mathrm{ref} = \frac{p_\mathrm{ref}}{n_\mathrm{ref} k_B} = \frac{B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}
-$$
-
-In many normalized units, the factor $1/\sqrt{\mu_0}$ is absorbed into the magnetic field,
-$$
-B^\prime = \frac{B}{\sqrt{\mu_0}}
-$$
-
-If CGS units is used, then this shall be (???)
-$$
-B^\prime = \frac{B}{\sqrt{4\pi}}
-$$
-
-Inserting the initially chosen values, we get a full set of conversion factors from variables in normalized units $n^\prime, B^\prime, u^\prime, p^\prime, T^\prime, \mathcal{E}^\prime$ to SI units $n, B, u, p, T, \mathcal{E}$:
-
-$$
-U_\mathrm{SI} = U^\prime * U_\mathrm{ref}
-$$
-
-where each conversion factor is summarized in @tbl-unit-conversion.
-
-| Variable    | Conversion factor |
-|-------------|-------------------|
-|$x$          | $\sqrt{\frac{m}{\mu_0 e^2 n_\mathrm{ref}}}$|
-|$t$          | $\frac{m}{e\,B_\mathrm{ref}}$|
-|$\rho$       | $n_\mathrm{ref}*m$|
-|$B$          | $B_\mathrm{ref}$  |
-|$u$          | $\frac{B_\mathrm{ref}}{\sqrt{\mu_0 m n_\mathrm{ref}}}$ |
-|$p$          | $\frac{B_\mathrm{ref}^2}{2\mu_0}$ |
-|$T$          | $\frac{B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}$ |
-|$\mathcal{E}$| $\frac{B_\mathrm{ref}^2}{2\mu_0}$ |
-
-: Unit conversion factors. {#tbl-unit-conversion}
-
-#### Example: dimensionless to $n,u,T$
+#### Example: $\rho,\rho\mathbf{u},\mathcal{E},\mathbf{B}$ to $n,u,T$
 
 When dealing with velocity distribution functions, one easy way is to write $f(\mathbf{v})=f(\mathbf{v}; n,\mathbf{u},T)$. For instance, a 3D Maxwellian is given as
-
 $$
 f(\mathbf{v}) = n\left( \frac{m}{2\pi k_B T} \right)^{3/2} \exp\left(-\frac{m(\mathbf{v}-\mathbf{u})^2}{2k_B T}\right)
 $$
-
-From conserved variables $(\rho,\rho\mathbf{u},\mathcal{E},\mathbf{B})$ to $(n,\mathbf{u},T,\mathbf{B})$, we have
-
+From dimensionless conserved variables $(\rho,\rho\mathbf{u},\mathcal{E},\mathbf{B})$ to SI units $(n,\mathbf{u},T,\mathbf{B})$, we have
 $$
 \begin{aligned}
-n_\mathrm{SI} &= \frac{n_\mathrm{ref}}{m}\rho^\prime \\
-u_\mathrm{SI} &= u_\mathrm{ref}\left( \frac{\rho^\prime u^\prime}{\rho^\prime} \right) \\
-T_\mathrm{SI} &= \frac{(\gamma-1)m\,B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}\left[ \frac{\mathcal{E}^\prime - {\rho^\prime}^2 - {B^\prime}^2}{\rho^\prime} \right] \\
-B_\mathrm{SI} &= B_\mathrm{ref}B^\prime \\
+n_\mathrm{SI} &= n_0\,n = \frac{\rho_0}{m_0}\rho \\
+u_\mathrm{SI} &= u_0\left( \frac{\rho u}{\rho} \right) \\
+T_\mathrm{SI} &= T_0\frac{(\gamma-1)}{\rho}\left[ \mathcal{E} - \frac{1}{2}\rho u^2 - \frac{1}{2}B^2 \right] \\
+B_\mathrm{SI} &= B_0\,B \\
 \end{aligned}
 $$
-
 When dealing with both unit conversion and perturbations, a recommended way is to first convert the units and then compute the perturbations.
 
 ## Errors
@@ -162,7 +118,7 @@ $$
 When switching from $\mathcal{E}$ to $p$, we can see from the background and $\mathbf{R}$ that
 
 $$
-\delta p = (\gamma-1)\left( \delta\mathcal{E} + \rho\, u\delta u + \frac{1}{2}u^2\delta\rho \right) = 0
+\delta p = (\gamma-1)\left( \delta\mathcal{E} + \rho\, u\delta u + \frac{1}{2}u^2\delta\rho \right) = 1.0
 $$
 
 The parameters are summarized in @tbl-linear-wave-1d-hd.
@@ -293,7 +249,7 @@ The parameters are summarized in @tbl-linear-wave-1d-mhd.
 
 In some cases, we need to convert from conserved variables to other set of variables, e.g. $(n,\mathbf{u},p,\mathbf{B})$. The number density perturbation is
 $$
-\delta n = \frac{\delta \rho}{m} = \frac{\rho_0}{m}\sin 2\pi x
+\delta n = \frac{\delta \rho}{m} = \frac{\rho_0}{m}A\sin 2\pi x
 $$ {#eq-number-mass-density-conversion}
 Assuming background $u_0=0$,
 $$
