@@ -329,104 +329,128 @@ div.csl-indent {
 <p>Verifying the validity of models is critical in performing consistent research. This chapter goes through the numerical tests we can do in plasma physics, and is heavily influenced by the <a href="https://www.astro.princeton.edu/~jstone/Athena/tests/">tests in the Athena MHD code</a>. Detail can be found in <span class="citation" data-cites="stone2008athena">(<a href="#ref-stone2008athena" role="doc-biblioref">Stone et al. 2008</a>)</span>.</p>
 <section id="unit-conversion" class="level3" data-number="25.0.1">
 <h3 data-number="25.0.1" class="anchored" data-anchor-id="unit-conversion"><span class="header-section-number">25.0.1</span> Unit Conversion</h3>
-<p>Most test parameters are listed in dimensionless units. If SI units are required, we need unit conversions. Typically, we need to start with a reference number density, e.g.&nbsp;<span class="math inline">\(n_{ref} = 10\,\mathrm{amu/cc}\)</span>, and magnetic field, e.g.&nbsp;<span class="math inline">\(B_{ref} = 10\,\mathrm{nT}\)</span>. All the rest conversion factors can be derived from these together with other physical constants.</p>
-<p>The reference frequency in rad/s is</p>
+<p>Most test parameters are listed in dimensionless units. If SI units are required, we need unit conversions. Typically, we need to start with 3 reference values: a reference length, e.g.&nbsp;<span class="math inline">\(l_0=1\,\mathrm{R}_\mathrm{E}\)</span>, a reference number density, e.g.&nbsp;<span class="math inline">\(\rho_0 = 1.67\times10^{-17}\,\mathrm{kg}\cdot\mathrm{m}^{-3}\)</span>, and magnetic field, e.g.&nbsp;<span class="math inline">\(B_0 = 3.12\times 10^{-5}\,\mathrm{T}\)</span> (Earth’s magnetic field strength at the equator). All the rest conversion factors can be derived from these together with other physical constants. Inserting the initially chosen values, we get a full set of conversion factors from variables in normalized units <span class="math inline">\(n^\prime, B^\prime, u^\prime, p^\prime, T^\prime, \mathcal{E}^\prime\)</span> to SI units <span class="math inline">\(n, B, u, p, T, \mathcal{E}\)</span>:</p>
 <p><span class="math display">\[
-\omega_{\mathrm{ref}} = \sqrt{\frac{n_\mathrm{ref}e^2}{\epsilon_0 m}}
+U_\mathrm{SI} = U^\prime * U_0
 \]</span></p>
-<p>and then the reference length scale in m, which is equivalent to the inertial length, is</p>
-<p><span class="math display">\[
-l_\mathrm{ref} = d = \frac{c}{\omega_{\mathrm{ref}}} = \sqrt{\frac{m}{\mu_0 e^2 n_\mathrm{ref}}}
-\]</span></p>
-<p>The time scale in s is the inverse of reference gyrofrequency,</p>
-<p><span class="math display">\[
-t_\mathrm{ref} = \frac{1}{\Omega_i} = \frac{m}{e B_\mathrm{ref}}
-\]</span></p>
-<p>Actually there is a <span class="math inline">\(2\pi\)</span> factor missing here, since we need to convert from gyrofrequency to frequency and then take the inverse for the period. However, <em>traditionally no one did that</em>.</p>
-<p>The velocity scale in m/s is the Alfvén speed</p>
-<p><span class="math display">\[
-u_\mathrm{ref} = \frac{l_\mathrm{ref}}{t_\mathrm{ref}} = \frac{B_\mathrm{ref}}{\sqrt{\mu_0 m n_\mathrm{ref}}}
-\]</span></p>
-<p>The pressure scale can be equivalently derived from the magnetic pressure or dynamic pressure</p>
-<p><span class="math display">\[
-P_\mathrm{ref} = \frac{B_\mathrm{ref}^2}{2\mu_0} = \frac{1}{2}\rho_\mathrm{ref}u_\mathrm{ref}^2
-\]</span></p>
-<p>The temperature scale is then</p>
-<p><span class="math display">\[
-T_\mathrm{ref} = \frac{p_\mathrm{ref}}{n_\mathrm{ref} k_B} = \frac{B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}
-\]</span></p>
-<p>In many normalized units, the factor <span class="math inline">\(1/\sqrt{\mu_0}\)</span> is absorbed into the magnetic field, <span class="math display">\[
-B^\prime = \frac{B}{\sqrt{\mu_0}}
-\]</span></p>
-<p>If CGS units is used, then this shall be (???) <span class="math display">\[
-B^\prime = \frac{B}{\sqrt{4\pi}}
-\]</span></p>
-<p>Inserting the initially chosen values, we get a full set of conversion factors from variables in normalized units <span class="math inline">\(n^\prime, B^\prime, u^\prime, p^\prime, T^\prime, \mathcal{E}^\prime\)</span> to SI units <span class="math inline">\(n, B, u, p, T, \mathcal{E}\)</span>:</p>
-<p><span class="math display">\[
-U_\mathrm{SI} = U^\prime * U_\mathrm{ref}
-\]</span></p>
-<p>where each conversion factor is summarized in <a href="#tbl-unit-conversion">Table&nbsp;<span>25.1</span></a>.</p>
-<div id="tbl-unit-conversion" class="anchored">
+<p>where each conversion factor is summarized in <a href="#tbl-mhd-unit-conversion">Table&nbsp;<span>25.1</span></a>. Note that in the definition of number density, the denominator is <span class="math inline">\(m_i\)</span> instead of <span class="math inline">\(m_0\)</span>.</p>
+<div id="tbl-mhd-unit-conversion" class="tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>Table&nbsp;25.1: MHD unit conversion.</p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-mhd-unit-conversion-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-mhd-unit-conversion" style="flex-basis: 100.0%;justify-content: center;">
 <table class="table">
-<caption>Table&nbsp;25.1: Unit conversion factors.</caption>
+<caption>(a) Example basic quantities in MHD</caption>
+<colgroup>
+<col style="width: 35%">
+<col style="width: 22%">
+<col style="width: 26%">
+<col style="width: 15%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Variable</th>
-<th>Conversion factor</th>
+<th style="text-align: left;">Basic variable</th>
+<th style="text-align: left;">Notation</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(x\)</span></td>
-<td><span class="math inline">\(\sqrt{\frac{m}{\mu_0 e^2 n_\mathrm{ref}}}\)</span></td>
+<td style="text-align: left;">Length</td>
+<td style="text-align: left;"><span class="math inline">\(l_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(l_0=\mathrm{R}_\mathrm{E}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(6.371\times10^6\,\mathrm{m}\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(t\)</span></td>
-<td><span class="math inline">\(\frac{m}{e\,B_\mathrm{ref}}\)</span></td>
+<td style="text-align: left;">Magnetic field</td>
+<td style="text-align: left;"><span class="math inline">\(B_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(B_0=B_\mathrm{E}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(3.12\times10^{-5}\,\mathrm{T}\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(\rho\)</span></td>
-<td><span class="math inline">\(n_\mathrm{ref}*m\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(B\)</span></td>
-<td><span class="math inline">\(B_\mathrm{ref}\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(u\)</span></td>
-<td><span class="math inline">\(\frac{B_\mathrm{ref}}{\sqrt{\mu_0 m n_\mathrm{ref}}}\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(p\)</span></td>
-<td><span class="math inline">\(\frac{B_\mathrm{ref}^2}{2\mu_0}\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(T\)</span></td>
-<td><span class="math inline">\(\frac{B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\mathcal{E}\)</span></td>
-<td><span class="math inline">\(\frac{B_\mathrm{ref}^2}{2\mu_0}\)</span></td>
+<td style="text-align: left;">Mass density</td>
+<td style="text-align: left;"><span class="math inline">\(\rho_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\rho_0=\rho_\mathrm{E}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.67\times10^{-17}\,\mathrm{kg}\cdot\mathrm{m}^{-3}\)</span></td>
 </tr>
 </tbody>
 </table>
 </div>
-<section id="example-dimensionless-to-nut" class="level4" data-number="25.0.1.1">
-<h4 data-number="25.0.1.1" class="anchored" data-anchor-id="example-dimensionless-to-nut"><span class="header-section-number">25.0.1.1</span> Example: dimensionless to <span class="math inline">\(n,u,T\)</span></h4>
-<p>When dealing with velocity distribution functions, one easy way is to write <span class="math inline">\(f(\mathbf{v})=f(\mathbf{v}; n,\mathbf{u},T)\)</span>. For instance, a 3D Maxwellian is given as</p>
-<p><span class="math display">\[
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-mhd-unit-conversion-2" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-mhd-unit-conversion" style="flex-basis: 100.0%;justify-content: center;">
+<table class="table">
+<caption>(b) Example derived quantities in MHD</caption>
+<colgroup>
+<col style="width: 34%">
+<col style="width: 28%">
+<col style="width: 23%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Derived variable</th>
+<th style="text-align: left;">Notation</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mass</td>
+<td style="text-align: left;"><span class="math inline">\(m_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(m_0=\rho_0 l_0^3\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(4.32\times10^3\,\mathrm{kg}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Velocity</td>
+<td style="text-align: left;"><span class="math inline">\(v_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(v_0=B_0/\sqrt{\mu_0\rho_0}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(6.81\times10^6\,\mathrm{m}\cdot\mathrm{s}^{-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number density</td>
+<td style="text-align: left;"><span class="math inline">\(n_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(n_0=\rho_0/m_i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(10^{10}\,\mathrm{m}^{-3}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pressure</td>
+<td style="text-align: left;"><span class="math inline">\(p_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(p_0=\rho_0v_0^2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(7.75\times10^{-4}\,\mathrm{N}\cdot\mathrm{m}^{-2}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Temperature</td>
+<td style="text-align: left;"><span class="math inline">\(T_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_0=p_0*m_i/(2k_B\,\rho_0)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(2.81\times10^9\,\mathrm{K}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Energy density</td>
+<td style="text-align: left;"><span class="math inline">\(\mathcal{E}_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathcal{E}_0=p_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(7.75\times10^{-4}\,\mathrm{J}\cdot\mathrm{m}^{-3}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="example-rhorhomathbfumathcalemathbfb-to-nut" class="level4" data-number="25.0.1.1">
+<h4 data-number="25.0.1.1" class="anchored" data-anchor-id="example-rhorhomathbfumathcalemathbfb-to-nut"><span class="header-section-number">25.0.1.1</span> Example: <span class="math inline">\(\rho,\rho\mathbf{u},\mathcal{E},\mathbf{B}\)</span> to <span class="math inline">\(n,u,T\)</span></h4>
+<p>When dealing with velocity distribution functions, one easy way is to write <span class="math inline">\(f(\mathbf{v})=f(\mathbf{v}; n,\mathbf{u},T)\)</span>. For instance, a 3D Maxwellian is given as <span class="math display">\[
 f(\mathbf{v}) = n\left( \frac{m}{2\pi k_B T} \right)^{3/2} \exp\left(-\frac{m(\mathbf{v}-\mathbf{u})^2}{2k_B T}\right)
-\]</span></p>
-<p>From conservative variables <span class="math inline">\((\rho,\rho\mathbf{u},\mathcal{E},\mathbf{B})\)</span> to <span class="math inline">\((n,\mathbf{u},T,\mathbf{B})\)</span>, we have</p>
-<p><span class="math display">\[
+\]</span> From dimensionless conserved variables <span class="math inline">\((\rho,\rho\mathbf{u},\mathcal{E},\mathbf{B})\)</span> to SI units <span class="math inline">\((n,\mathbf{u},T,\mathbf{B})\)</span>, we have <span class="math display">\[
 \begin{aligned}
-n_\mathrm{SI} &amp;= \frac{n_\mathrm{ref}}{m}\rho^\prime \\
-u_\mathrm{SI} &amp;= u_\mathrm{ref}\left( \frac{\rho^\prime u^\prime}{\rho^\prime} \right) \\
-T_\mathrm{SI} &amp;= \frac{(\gamma-1)m\,B_\mathrm{ref}^2}{2\mu_0 k_B n_\mathrm{ref}}\left[ \frac{\mathcal{E}^\prime - {\rho^\prime}^2 - {B^\prime}^2}{\rho^\prime} \right] \\
-B_\mathrm{SI} &amp;= B_\mathrm{ref}B^\prime \\
+n_\mathrm{SI} &amp;= n_0\,n = \frac{\rho_0}{m_0}\rho \\
+u_\mathrm{SI} &amp;= u_0\left( \frac{\rho u}{\rho} \right) \\
+T_\mathrm{SI} &amp;= T_0\frac{(\gamma-1)}{\rho}\left[ \mathcal{E} - \frac{1}{2}\rho u^2 - \frac{1}{2}B^2 \right] \\
+B_\mathrm{SI} &amp;= B_0\,B \\
 \end{aligned}
-\]</span></p>
-<p>When dealing with both unit conversion and perturbations, a recommended way is to first convert the units and then compute the perturbations.</p>
+\]</span> When dealing with both unit conversion and perturbations, a recommended way is to first convert the units and then compute the perturbations.</p>
 </section>
 </section>
 <section id="errors" class="level2" data-number="25.1">
@@ -474,7 +498,7 @@ B_\mathrm{SI} &amp;= B_\mathrm{ref}B^\prime \\
 p &amp;= 1/\gamma
 \end{aligned}
 \]</span></p>
-<p>with <span class="math inline">\(\gamma = 5/3\)</span>. The conservative variables are <span class="math display">\[
+<p>with <span class="math inline">\(\gamma = 5/3\)</span>. The conserved variables are <span class="math display">\[
 \mathbf{U}=[\rho, \rho u_x, \rho u_y, \rho u_z, E]
 \]</span></p>
 <p>and the right-eigenvector for a left-going wave is <span class="math display">\[
@@ -482,7 +506,7 @@ p &amp;= 1/\gamma
 \]</span></p>
 <p>When switching from <span class="math inline">\(\mathcal{E}\)</span> to <span class="math inline">\(p\)</span>, we can see from the background and <span class="math inline">\(\mathbf{R}\)</span> that</p>
 <p><span class="math display">\[
-\delta p = (\gamma-1)\left( \delta\mathcal{E} + \rho\, u\delta u + \frac{1}{2}u^2\delta\rho \right) = 0
+\delta p = (\gamma-1)\left( \delta\mathcal{E} + \rho\, u\delta u + \frac{1}{2}u^2\delta\rho \right) = 1.0
 \]</span></p>
 <p>The parameters are summarized in <a href="#tbl-linear-wave-1d-hd">Table&nbsp;<span>25.2</span></a>.</p>
 <div id="tbl-linear-wave-1d-hd" class="anchored">
@@ -551,7 +575,7 @@ v_{xA} &amp;= \sqrt{\frac{b_x^2}{\rho}} = 1.0 \\
 v_{x,\mathrm{fast}} &amp;= \sqrt{\frac{1}{2}\left[v_s^2 + v_A^2 + \sqrt{(v_s^2 + v_A^2)^2 - 4v_s^2 v_{xA}^2}\right]} = 2.0 \\
 v_{x,\mathrm{slow}} &amp;= \sqrt{\frac{1}{2}\left[v_s^2 + v_A^2 - \sqrt{(v_s^2 + v_A^2)^2 - 4v_s^2 v_{xA}^2}\right]} = 0.5
 \end{aligned}
-\]</span> If the conservative variables are ordered as <span class="math display">\[
+\]</span> If the conserved variables are ordered as <span class="math display">\[
 \mathbf{U} = [\rho, \rho u_x, \rho u_y, \rho u_z, E, B_y, B_z]
 \]</span> then the right eigenvectors for left going waves are as follows:</p>
 <ul>
@@ -776,8 +800,8 @@ v_{x,\mathrm{slow}} &amp;= \sqrt{\frac{1}{2}\left[v_s^2 + v_A^2 - \sqrt{(v_s^2 +
 </div>
 </div>
 </div>
-<p>In some cases, we need to convert from conservative variables to other set of variables, e.g.&nbsp;<span class="math inline">\((n,\mathbf{u},p,\mathbf{B})\)</span>. The number density perturbation is <span id="eq-number-mass-density-conversion"><span class="math display">\[
-\delta n = \frac{\delta \rho}{m} = \frac{\rho_0}{m}\sin 2\pi x
+<p>In some cases, we need to convert from conserved variables to other set of variables, e.g.&nbsp;<span class="math inline">\((n,\mathbf{u},p,\mathbf{B})\)</span>. The number density perturbation is <span id="eq-number-mass-density-conversion"><span class="math display">\[
+\delta n = \frac{\delta \rho}{m} = \frac{\rho_0}{m}A\sin 2\pi x
 \tag{25.1}\]</span></span> Assuming background <span class="math inline">\(u_0=0\)</span>, <span id="eq-velocity-momentumflux-conversion"><span class="math display">\[
 \delta u = \frac{1}{\rho}\left[ \delta(\rho u) - (\delta \rho) u \right] = \frac{1}{\rho_0+\delta\rho}\delta(\rho u)
 \tag{25.2}\]</span></span> Given the perturbation of energy density <span class="math display">\[
