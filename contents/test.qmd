@@ -10,7 +10,7 @@ $$
 U_\mathrm{SI} = U^\prime * U_0
 $$
 
-where each conversion factor is summarized in @tbl-mhd-unit-conversion. Note that in the definition of number density, the denominator is $m_i$ instead of $m_0$ and $R=2k_B/m_i$ only appears in temperature. If you need to compare with a hybrid model, an easy way to make self-consistent conversion is to make mass $m_0=m_i$ as a substitute for $\rho_0$ and then the reference mass density would be $\rho_0=m_0/l_0^3$.
+where each conversion factor is summarized in @tbl-mhd-unit-conversion. Note that in the definition of number density, the denominator is $m_i$ instead of $m_0$ and $R=2k_B/m_i$ only appears in temperature. This is because mass does not appear in ideal MHD: for a given $\rho$, the same results are obtained for a heavy species with small number density and a light species with large number density, e.g. $\rho=2m_i n_i = m_i 2n_i$. If you need to compare with a hybrid model, an easy way to make self-consistent conversion is to make mass $m_0=m_i$ as a substitute for any of the basic variables. In this case, the dimensionless $\rho=n$.
 
 ::: {#tbl-mhd-unit-conversion layout-nrow=2}
 | Basic variable | Notation | Definition | Value |
@@ -45,13 +45,12 @@ $$
 From dimensionless conserved variables $(\rho,\rho\mathbf{u},\mathcal{E},\mathbf{B})$ to SI units $(n,\mathbf{u},T,\mathbf{B})$, we have
 $$
 \begin{aligned}
-n_\mathrm{SI} &= n_0\,n = \frac{\rho_0}{m_0}\rho \\
+n_\mathrm{SI} &= n_0\,n = \frac{\rho_0}{m_i}\rho \\
 u_\mathrm{SI} &= u_0\left( \frac{\rho u}{\rho} \right) \\
 T_\mathrm{SI} &= T_0\frac{(\gamma-1)}{\rho}\left[ \mathcal{E} - \frac{1}{2}\rho u^2 - \frac{1}{2}B^2 \right] \\
 B_\mathrm{SI} &= B_0\,B \\
 \end{aligned}
 $$
-When dealing with both unit conversion and perturbations, a recommended way is to first convert the units and then compute the perturbations.
 
 ## Errors
 
