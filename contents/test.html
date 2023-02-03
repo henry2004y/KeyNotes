@@ -333,7 +333,7 @@ div.csl-indent {
 <p><span class="math display">\[
 U_\mathrm{SI} = U^\prime * U_0
 \]</span></p>
-<p>where each conversion factor is summarized in <a href="#tbl-mhd-unit-conversion">Table&nbsp;<span>25.1</span></a>. Note that in the definition of number density, the denominator is <span class="math inline">\(m_i\)</span> instead of <span class="math inline">\(m_0\)</span> and <span class="math inline">\(R=2k_B/m_i\)</span> only appears in temperature. If you need to compare with a hybrid model, an easy way to make self-consistent conversion is to make mass <span class="math inline">\(m_0=m_i\)</span> as a substitute for <span class="math inline">\(\rho_0\)</span> and then the reference mass density would be <span class="math inline">\(\rho_0=m_0/l_0^3\)</span>.</p>
+<p>where each conversion factor is summarized in <a href="#tbl-mhd-unit-conversion">Table&nbsp;<span>25.1</span></a>. Note that in the definition of number density, the denominator is <span class="math inline">\(m_i\)</span> instead of <span class="math inline">\(m_0\)</span> and <span class="math inline">\(R=2k_B/m_i\)</span> only appears in temperature. This is because mass does not appear in ideal MHD: for a given <span class="math inline">\(\rho\)</span>, the same results are obtained for a heavy species with small number density and a light species with large number density, e.g.&nbsp;<span class="math inline">\(\rho=2m_i n_i = m_i 2n_i\)</span>. If you need to compare with a hybrid model, an easy way to make self-consistent conversion is to make mass <span class="math inline">\(m_0=m_i\)</span> as a substitute for any of the basic variables. In this case, the dimensionless <span class="math inline">\(\rho=n\)</span>.</p>
 <div id="tbl-mhd-unit-conversion" class="tbl-parent quarto-layout-panel anchored">
 <div class="panel-caption table-caption">
 <p>Table&nbsp;25.1: MHD unit conversion.</p>
@@ -451,12 +451,12 @@ U_\mathrm{SI} = U^\prime * U_0
 f(\mathbf{v}) = n\left( \frac{m}{2\pi k_B T} \right)^{3/2} \exp\left(-\frac{m(\mathbf{v}-\mathbf{u})^2}{2k_B T}\right)
 \]</span> From dimensionless conserved variables <span class="math inline">\((\rho,\rho\mathbf{u},\mathcal{E},\mathbf{B})\)</span> to SI units <span class="math inline">\((n,\mathbf{u},T,\mathbf{B})\)</span>, we have <span class="math display">\[
 \begin{aligned}
-n_\mathrm{SI} &amp;= n_0\,n = \frac{\rho_0}{m_0}\rho \\
+n_\mathrm{SI} &amp;= n_0\,n = \frac{\rho_0}{m_i}\rho \\
 u_\mathrm{SI} &amp;= u_0\left( \frac{\rho u}{\rho} \right) \\
 T_\mathrm{SI} &amp;= T_0\frac{(\gamma-1)}{\rho}\left[ \mathcal{E} - \frac{1}{2}\rho u^2 - \frac{1}{2}B^2 \right] \\
 B_\mathrm{SI} &amp;= B_0\,B \\
 \end{aligned}
-\]</span> When dealing with both unit conversion and perturbations, a recommended way is to first convert the units and then compute the perturbations.</p>
+\]</span></p>
 </section>
 </section>
 <section id="errors" class="level2" data-number="25.1">
