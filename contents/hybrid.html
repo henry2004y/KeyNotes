@@ -466,42 +466,139 @@ v_{p,max} \simeq \frac{1}{2}\frac{B}{\sqrt{\mu_0 n_e m_e}} = \frac{1}{2}V_{A,i} 
 </section>
 <section id="normalization" class="level2" data-number="24.5">
 <h2 data-number="24.5" class="anchored" data-anchor-id="normalization"><span class="header-section-number">24.5</span> Normalization</h2>
-<p>We need three independent reference scales for normalized ion units in a hybrid model. For instance, We can take a magnetic field scale <span class="math inline">\(B_0\)</span>, number density scale <span class="math inline">\(n_0\)</span>, and mass scale <span class="math inline">\(m_0\)</span>. The general variable transformation from the original units to normalized units is</p>
-<p><span class="math display">\[
+<p>There are five basic quantities in the hybrid model (length, mass, time, current density, and number density???) and three physical constants (<span class="math inline">\(\mu_0,q,m\)</span>). If we add temperature, then correspondingly <span class="math inline">\(k_B\)</span> would appear. Thus we need two independent reference quantities for the normalized units in a hybrid model. For instance, We can take a magnetic field scale <span class="math inline">\(B_0\)</span>, number density scale <span class="math inline">\(n_0\)</span>. The general variable transformation from the original units to normalized units is <span class="math display">\[
 \chi = \chi_0\tilde{\chi}
-\]</span></p>
-<p>where <span class="math inline">\(\tilde{\chi}\)</span> denote the variable in the normalized units and the scale <span class="math inline">\(\chi_0\)</span> shall be in the original units (e.g.&nbsp;SI).</p>
-<p>Typically we use the inverse of gyrofrequency for the time scale</p>
-<p><span class="math display">\[
+\]</span> where <span class="math inline">\(\tilde{\chi}\)</span> denote the variable in the normalized units and the scale <span class="math inline">\(\chi_0\)</span> shall be in the original units (e.g.&nbsp;SI).</p>
+<p>Typically we use the inverse of gyrofrequency for the time scale <span class="math display">\[
 t_0 = \Omega_{c0}^{-1} = \frac{m_0}{e B_0}
 \]</span></p>
-<p>and Alfvén speed for the velocity scale</p>
-<p><span class="math display">\[
+<p>and Alfvén speed for the velocity scale <span class="math display">\[
 v_0 = v_A = \frac{B_0}{\sqrt{\mu_0 n_0 m_0}}
 \]</span></p>
-<p>Then the length scale is taken to be the ion skin-depth, or inertial length</p>
-<p><span class="math display">\[
+<p>Then the length scale is taken to be the ion skin-depth, or inertial length <span class="math display">\[
 L_0 = d_i = \frac{c}{\Omega_{c0}} = \sqrt{\frac{m_0}{\mu_0 e^2 n_0}}
 \]</span></p>
 <p>A common trick we can use to speed up the simulation is to artificially increase the ion mass such that the length scale is increased <span class="math inline">\(\propto \sqrt{m_0}\)</span>. For example, in many global hybrid Earth magnetosphere models, <span class="math inline">\(d_i\)</span> in the upstream solar wind is artificially increased to <span class="math inline">\(0.1\,\text{R}_E\)</span> (by increasing the ion mass), which is 6.8 times the realistic <span class="math inline">\(d_i=0.015\,\text{R}_E\)</span> for <span class="math inline">\(n_{sw}=6\,\text{amu/cc}\)</span>. If our grid resolution is <span class="math inline">\(0.05\,\text{R}_E\approx 300\,\text{km}\)</span> (which is common as of 2020s), we will have about 10 points per ion-scale wave, which is enough to resolve the ion-scale kinetics.</p>
-<p>However, a consequence of this scaling due to computational limitation must be emphasized. The reference Alfvén speed</p>
-<p><span class="math display">\[
+<p>However, a consequence of this scaling due to computational limitation must be emphasized. The reference Alfvén speed <span class="math display">\[
 V_{A0} = d_{i0}\Omega_{i0}
 \]</span></p>
 <p>will also be larger than reality since we artificialy increase <span class="math inline">\(d_{i0}\)</span> but not <span class="math inline">\(\Omega_{i0}\)</span>.</p>
-<p>Note the difference between gyrofrequency and frequency, which differs by a factor of <span class="math inline">\(2\pi\)</span>:</p>
-<p><span class="math display">\[
+<p>Note the difference between gyrofrequency and frequency, which differs by a factor of <span class="math inline">\(2\pi\)</span>: <span class="math display">\[
 \omega = 2\pi f
 \]</span></p>
 <p>I once made a mistake in dealing with a code that uses SI units. You may wonder how come the ion inertial length is defined by speed of light divided by the plasma ion frequency in the unit of <span class="math inline">\([\text{rad}/\text{s}]\)</span>, and time scale in the unit of <span class="math inline">\(\Omega_i^{-1}\)</span> which is <span class="math inline">\([\text{s}/\text{rad}]\)</span>. In practice, we do not include <span class="math inline">\(2\pi\)</span> in neither of them!</p>
-<p>The pressure scale can be equivalently derived from the magnetic pressure or dynamic pressure</p>
-<p><span class="math display">\[
+<p>The pressure scale can be equivalently derived from the magnetic pressure or dynamic pressure <span class="math display">\[
 P_0 = \frac{B_0^2}{2\mu_0} = \frac{1}{2}\rho_0 v_0^2
 \]</span></p>
-<p>The temperature scale is then</p>
-<p><span class="math display">\[
+<p>The temperature scale is then <span class="math display">\[
 T_0 = \frac{p_0}{n_0 k_B} = \frac{B_0^2}{2\mu_0 k_B n_0}
 \]</span></p>
+<p>The unit conversions are summarized in <a href="#tbl-hybrid-unit-conversion">Table&nbsp;<span>24.1</span></a>.</p>
+<div id="tbl-hybrid-unit-conversion" class="tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>Table&nbsp;24.1: hybrid model unit conversion.</p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-hybrid-unit-conversion-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-hybrid-unit-conversion" style="flex-basis: 100.0%;justify-content: center;">
+<table class="table">
+<caption>(a) Example basic quantities in the hybrid model</caption>
+<colgroup>
+<col style="width: 35%">
+<col style="width: 22%">
+<col style="width: 26%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Basic variable</th>
+<th style="text-align: left;">Notation</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Magnetic field</td>
+<td style="text-align: left;"><span class="math inline">\(B_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(B_0=B_\mathrm{ref}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1\times10^{-8}\,\mathrm{T}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number density</td>
+<td style="text-align: left;"><span class="math inline">\(n_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(n_0=n_\mathrm{ref}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1\times10^{7}\,\mathrm{m}^{-3}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-hybrid-unit-conversion-2" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-hybrid-unit-conversion" style="flex-basis: 100.0%;justify-content: center;">
+<table class="table">
+<caption>(b) Example derived quantities in the hybrid model</caption>
+<colgroup>
+<col style="width: 34%">
+<col style="width: 28%">
+<col style="width: 23%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Derived variable</th>
+<th style="text-align: left;">Notation</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Length</td>
+<td style="text-align: left;"><span class="math inline">\(l_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(l_0=\sqrt{m_0/(\mu_0 e^2 n_0)}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(7.2\times10^4\,\mathrm{m}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mass</td>
+<td style="text-align: left;"><span class="math inline">\(m_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(m_0=m_i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.67\times10^{-27}\,\mathrm{kg}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Velocity</td>
+<td style="text-align: left;"><span class="math inline">\(v_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(v_0=B_0/\sqrt{\mu_0m_in_0}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(6.90\times10^4\,\mathrm{m}\cdot\mathrm{s}^{-1}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Time</td>
+<td style="text-align: left;"><span class="math inline">\(t_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(t_0=m_i/(e*B_0)\)</span></td>
+<td style="text-align: left;">1.04 s</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mass density</td>
+<td style="text-align: left;"><span class="math inline">\(\rho_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\rho_0=n_0/m_i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.67\times10^{-20}\,\mathrm{m}^{-3}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pressure</td>
+<td style="text-align: left;"><span class="math inline">\(p_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(p_0=0.5\rho_0v_0^2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(3.98\times10^{-11}\,\mathrm{N}\cdot\mathrm{m}^{-2}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Temperature</td>
+<td style="text-align: left;"><span class="math inline">\(T_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_0=p_0*m_i/(k_B\,\rho_0)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(2.88\times10^5\,\mathrm{K}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </section>
 <section id="numerical-stability" class="level2" data-number="24.6">
 <h2 data-number="24.6" class="anchored" data-anchor-id="numerical-stability"><span class="header-section-number">24.6</span> Numerical Stability</h2>
