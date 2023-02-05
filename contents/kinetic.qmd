@@ -1,8 +1,19 @@
 # Kinetic Theory {#sec-kinetic}
 
-## The Meaning of f(v)
+## Phase Space
 
-The fluid theory we have been using so far is the simplest description of a plasma; it is indeed fortunate that this approximation is sufficiently accurate to describe the majority of observed phenomena. There are some phenomena, however, for which a fluid treatment is inadequate. For these, we need to consider the velocity distribution function $f(\mathbf{v})$ for each species; this treatment is called kinetic theory. In fluid theory, the dependent variables are functions of only four independent variables: $x, y, z,$ and $t$. This is possible because the velocity distribution of each species is assumed to be Maxwellian everywhere and can therefore be uniquely specified by only one number, the temperature $T$. Since collisions can be rare in high-temperature plasmas, deviations from thermal equilibrium can be maintained for relatively long times. As an example, consider two velocity distributions $f_1(v_x)$ and $f_2(v_x)$ in a one-dimensional system. (@fig-distributions_1d) These two distributions will have entirely different behaviors, but as long as the areas under the curves are the same, fluid theory does not distinguish between them.
+Consider a particle moving in a one-dimensional space and let the position of the particle be $x = x(t)$ and the velocity of the particle be $v = v(t)$. A way to visualize the $x$ and $v$ trajectories simultaneously is to plot these trajectories parametrically on a two-dimensional graph, where the horizontal coordinate is given by $x(t)$ and the vertical coordinate is given by $v(t)$. This x-v plane is called _phase-space_. The trajectory (or orbit) of several particles can be represented as a set of curves in phase-space as shown in @fig-phase-space. Examples of a few qualitatively different phase-space orbits are shown in @fig-phase-space.
+
+![Phase-space showing different types of possible particle orbits.](../images/phase_space_trajectories.png){#fig-phase-space}
+
+Particles in the upper half-plane always move to the right, since they have a positive velocity, while those in the lower half-plane always move to the left. Particles having exact periodic motion (e.g., $x = A\cos t,\, v = −A\sint$) alternate between moving to the right and the left and so describe an ellipse in phase-space. Particles with nearly periodic (quasi-periodic) motions will have near-ellipses or spiral orbits. A particle that does not reverse direction is called a
+passing particle, while a particle confined to a certain region of phase-space (e.g., a particle with periodic motion) is called a trapped particle.
+
+## Distribution Function
+
+The fluid theory we have been using so far is the simplest description of a plasma; it is indeed fortunate that this approximation is sufficiently accurate to describe the majority of observed phenomena. There are some phenomena, however, for which a fluid treatment is inadequate. At any given time, each particle has a specific position and velocity. We can therefore characterize the instantaneous configuration of a large number of particles by specifying the density of particles at each point $x, v$ in phase-space. The function prescribing the instantaneous density of particles in phase-space is called the _distribution function_ and is denoted by $f(x, v, t)$. Thus, $f(x, v, t)\mathrm{d}x\mathrm{d}v$ is the number of particles at time $t$ having positions in the range between $x$ and $x+dx$ and velocities in the range between $v$ and $v+dv$. As time progresses, the particle motion and acceleration causes the number of particles in these $x$ and $v$ ranges to change and so $f$ will change. This temporal evolution of $f$ gives a description of the system more detailed than a fluid description, but less detailed than following the trajectory of each individual particle. Using the evolution of $f$ to characterize the system does not keep track of the trajectories of individual particles, but rather characterizes classes of particles having the same $x, v$.
+
+In fluid theory, the dependent variables are functions of only four independent variables: $x, y, z,$ and $t$. This is possible because the velocity distribution of each species is assumed to be Maxwellian everywhere and can therefore be uniquely specified by only one number, the temperature $T$. Since collisions can be rare in high-temperature plasmas, deviations from thermal equilibrium can be maintained for relatively long times. As an example, consider two velocity distributions $f_1(v_x)$ and $f_2(v_x)$ in a one-dimensional system (@fig-distributions_1d). These two distributions will have entirely different behaviors, but as long as the areas under the curves are the same, fluid theory does not distinguish between them.
 
 ::: {.content-visible unless-format="pdf"}
 
@@ -10,50 +21,48 @@ The fluid theory we have been using so far is the simplest description of a plas
 
 :::
 
-The density is a function of four scalar variables: $n=n(\mathbf{r}, t)$. When we consider velocity distributions, we have seven independent variables: $f = f(\mathbf{r}, \mathbf{v}, t)$.
+When we consider velocity distributions in 3D, we have seven independent variables: $f = f(\mathbf{r}, \mathbf{v}, t)$.
 By $f(\mathbf{r}, \mathbf{v}, t)$, we mean that the number of particles per meter cubed at position $\mathbf{r}$ and time $t$ with velocity components between $v_x$ and $v_x + dv_x$, $v_y and $v_y + dv_y$, and $v_z$ and $v_z + dv_z$ is
-
 $$
-f(x, y, z, v_x, v_y, v_z, t) dv_x dv_y dv_z
+f(x, y, z, v_x, v_y, v_z, t) \mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z
 $$
 
-The integral of this is written in several equivalent ways:
+### Moments of the distribution function
 
+The density is a function of four scalar variables, $n=n(\mathbf{r}, t)$, which is the integral of the distribution function over the velocity space:
 $$
 \begin{aligned}
-n(\mathbf{r}, t) = \int_{-\infty}^{\infty} dv_x \int_{-\infty}^{\infty} dv_y \int_{-\infty}^{\infty} dv_z f(\mathbf{r}, \mathbf{v}, t) &= \int_{-\infty}^{\infty}f(\mathbf{r}, \mathbf{v}, t)d^3v \\
-&= \int_{-\infty}^{\infty} f(\mathbf{r}, \mathbf{v}, t) d\mathbf{v}
+n(\mathbf{r}, t) &= \int_{-\infty}^{\infty} \mathrm{d}v_x \int_{-\infty}^{\infty} \mathrm{d}v_y \int_{-\infty}^{\infty} \mathrm{d}v_z f(\mathbf{r}, \mathbf{v}, t) \\
+&= \int_{-\infty}^{\infty}f(\mathbf{r}, \mathbf{v}, t)\mathrm{d}^3v \\
+&= \int_{-\infty}^{\infty}f(\mathbf{r}, \mathbf{v}, t)\mathrm{d}\mathbf{v}
 \end{aligned}
 $$
 
-Note that $d\mathbf{v}$ is not a vector; it stands for a three-dimensional volume element in velocity space. If $f$ is normalized so that
-
+Note that $\mathrm{d}\mathbf{v}$ is not a vector; it stands for a three-dimensional volume element in velocity space. If $f$ is normalized so that
 $$
-\int_{-\infty}^{\infty} \hat{f}(\mathbf{r}, \mathbf{v}, t) d\mathbf{v} = 1
+\int_{-\infty}^{\infty} \hat{f}(\mathbf{r}, \mathbf{v}, t) \mathrm{d}\mathbf{v} = 1
 $$ {#eq-f_normalization}
 
-it is a probability, which we denote by $\hat{f}$. Thus
-
+This $\hat{f}$ is now a probability. Thus
 $$
 f(\mathbf{r}, \mathbf{v}, t) = n(\mathbf{r}, t)\hat{f}(\mathbf{r}, \mathbf{v}, t)
 $$ {#eq-f_normalization_dimensionless}
 
-Note that $\hat{f}$ is still a function of seven variables, since the shape of the distribution, as well as the density, can change with space and time. From @eq-f_normalization, it is clear that $\hat{f}$ has the dimensions $(\text{m}/\text{s})^{-3}$; and consequently, from @eq-f_normalization_dimensionless, f has the dimensions $\text{s}^3 \text{m}^{-6}$.
+Note that $\hat{f}$ is still a function of seven variables, since the shape of the distribution, as well as the density, can change with space and time. From @eq-f_normalization, it is clear that $\hat{f}$ has the dimensions $(\text{m}/\text{s})^{-3}$; and consequently, from @eq-f_normalization_dimensionless, $f$ has the dimensions $\text{s}^3 \text{m}^{-6}$.
+
+### Maxwellian Distribution
 
 A particularly important distribution function is the Maxwellian:
-
 $$
 \hat{f}_m = (m/2\pi k_B T)^{3/2}\exp(-v^2/v_{th}^2)
 $$
 
 where
-
 $$
 v\equiv(v_x^2 + v_y^2 + v_z^2)^{1/2}\quad\text{and}\quad v_{th}\equiv(2k_B T/m)^{1/2}
 $$
 
 By using the definite integral
-
 $$
 \int_{-\infty}^{\infty}\exp(-x^2)dx = \sqrt{\pi}
 $$
@@ -63,13 +72,11 @@ one easily verifies that the integral of $\hat{f}_m$ over $dv_x dv_y dv_z$ is un
 A common question to ask is: why do we see Maxwellian/Gaussian/normal distribution ubiquitously in nature? Well, this is related to the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem): in many situations, when independent random variables are summed up, their properly normalized sum tends toward a normal distribution even if the original variables themselves are not normally distributed (e.g. a biased coin which give 95% head and 5% tail).
 
 There are several average velocities of a Maxwellian distribution that are commonly used. The root-mean-square velocity is given by
-
 $$
 (\overline{v^2})^{1/2} = (3k_B T/m)^{1/2}
 $$
 
 The average magnitude of the velocity $|v|$, or simply $\bar{v}$, is found as follows:
-
 $$
 \bar{v} = \int_{-\infty}^{\infty}v\hat{f}(\mathbf{v})d^3v
 $$
@@ -141,13 +148,11 @@ $$
 * crescent shape
 
 It is often convenient to present the distribution function as a function of energy instead of velocity. If all energy is kinetic, the energy is simply obtained from $W=mv^2/2$. In the case the particles are in the external electric potential field $U=-q\varphi$ the total energy of particles is $W=mv^2/2+U$ and the Maxwellian distribution is
-
 $$
 f(v) = n\Big(\frac{m}{2\pi k_B T}\Big)^{3/2}\exp\Big(-\frac{W}{k_B T}\Big)
 $$
 
 This can be written as the energy distribution (???):
-
 $$
 g(W) = 4\pi\Big[ \frac{2(W-U)}{m^3} \Big]^{1/2} f(v)
 $$
@@ -157,13 +162,11 @@ The normalization factor is determined by requiring that the integration of the 
 Velocity and energy distribution functions cannot be measured directly. Instead, the observed quantity is _the particle flux to the detector_. Particle flux is defined as the number density of particles multiplied by the velocity component normal to the surface. We define the _differential flux_ of particles traversing a unit area per unit time, unit solid angle (in spherical coordinates the differential solid angle is $d\Omega = \sin\theta d\theta d\phi$) and unit energy as $J(W,\Omega, \alpha, \mathbf{r},t)$. ($\alpha$ is species?) The units of $J$ are normally given as $(\text{m}^2\text{sr}\text{s}\text{eV})^{-1}$. Note that in literature $\text{cm}$ is often used instead of $\text{m}$ and, depending on the actual energy range considered, electron volts are often replaced by keV, MeV, or GeV.
 
 Let us next define how differential particle flux and distribution function are related to each other. We can write the number density in a differential velocity element (in spherical coordinates $d^3v=v^2dvd\Omega$) as ($dn=f(\alpha,\mathbf{r},t)v^2dvd\Omega$). By multiplying this with $v$ we obtain another expression for the differential flux $f(\alpha,\mathbf{r},t)v^3dvd\Omega$. Comparing with our eailier definition of the differential flux we obtain
-
 $$
 J(W,\Omega, \alpha, \mathbf{r},t)dWd\Omega = f(\alpha,\mathbf{r},t)v^3dvd\Omega
 $$
 
 Since $\mathrm{d}W=mvdv$ we can write the relationship between the differential flux and the distribution function as
-
 $$
 J(W,\Omega, \alpha, \mathbf{r},t) = \frac{v^2}{m}f
 $$ {#eq-diff_flux_dist}
@@ -184,34 +187,89 @@ Here $W_0$ is the energy at the peak of the particle flux and $\Gamma$ is the ga
 
 ## Equations of Kinetic Theory
 
-The fundamental equation which $f(\mathbf{r}, \mathbf{v}, t)$ has to satisfy is the Boltzmann equation:
+### Vlasov equation
 
+![A box within phase-space having width $\mathrm{d}x$ and height $\mathrm{d}v$.](../images/phase_space_box.png){#fig-phase_space_box}
+
+Now consider the rate of change of the number of particles inside a small box in phase-space, such as is shown in @fig-phase_space_box. Defining $a(x, v, t)$ to be the acceleration of a particle, it is seen that the particle flux in the horizontal direction is $fv$ and the particle flux in the vertical direction is $fa$. Thus, the particle fluxes into the four sides of the box are:
+
+1. flux into left side of box is $f(x, v, t)v\mathrm{d}v$
+2. flux into right side of box is $-f(x+\mathrm{d}x, v, t)v\mathrm{d}v$
+3. flux into bottom of box is $f(x, v, t)a(x, v, t)\mathrm{d}x$
+4. flux into top of box is $-f(x, v+dv, t)a(x, v+dv, t)dx$
+
+The number of particles in the box is $f(x, v, t)\mathrm{d}x\mathrm{d}v$ so that the rate of change of the number of particles in the box is
+$$
+\begin{aligned}
+\frac{\partial f(x,v,t)}{\partial t}\mathrm{d}x\mathrm{d}v &= -f(x+\mathrm{d}x,v,t)v\mathrm{d}v + f(x,v,t)v\mathrm{d}v \\
+& -f(x,v+\mathrm{d}v,t)a(x,v+\mathrm{d}v,t)\mathrm{d}x \\
+& +f(x,v,t)a(x,v,t)\mathrm{d}x
+\end{aligned}
+$$
+or, on Taylor expanding the quantities on the right-hand side, we obtain the one-dimensional _Vlasov equation_,
+$$
+\frac{\partial f}{\partial t} + v\frac{\partial f}{\partial x} + \frac{\partial}{\partial v}(a f) = 0
+$$ {eq-vlasov-1d}
+
+It is straightforward to generalize @eq-vlasov-1d to three dimensions and so obtain the three-dimensional Vlasov equation,
+$$
+\frac{\partial f}{\partial t} + \mathbf{v}\cdot\nabla f +\frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{a}f) = 0
+$$ {#eq-vlasov}
+
+Because $\mathbf{x},\mathbf{v}$ are independent quantities in phase-space, the spatial derivative term has the commutation property,
+$$
+\mathbf{v}\cdot\frac{\partial f}{\partial\mathbf{x}} = \frac{\partial}{\partial\mathbf{x}}\cdot(\mathbf{v}f)
+$$
+
+The particle acceleration is given by the Lorentz force
+$$
+\mathbf{a}=\frac{q}{m}(\mathbf{E}+\mathbf{v}\times\mathbf{B})
+$$
+
+Because $(\mathbf{v}\times\mathbf{B})_i=v_jB_k - v_kB_j$ is independent of $v_i$, the term $\partial(\mathbf{v}\times\mathbf{B})_i/\partial v_i$ vanishes so that even though the Lorentz acceleration $\mathbf{a}$ is velocity-dependent, it nevertheless commutes with the vector velocity derivative as
+$$
+\mathbf{a}\cdot\frac{\partial f}{\partial\mathbf{v}} = \frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{a}f)
+$$
+
+Because of this commutation property the Vlasov equation can also be written as
+$$
+\frac{\partial f}{\partial t} + \mathbf{v}\cdot\frac{\partial f}{\partial\mathbf{x}} + \mathbf{a}\cdot\frac{\partial f}{\partial\mathbf{v}} = 0
+$$ {#eq-vlasov}
+
+If we "sit on top of" a particle that has a phase-space trajectory $\mathbf{x} = \mathbf{x}(t),\, \mathbf{v} = \mathbf{v}(t)$
+and measure the distribution function as we move along with the particle, the observed rate of change of the distribution function will be $\mathrm{d}f(\mathbf{x}(t), \mathbf{v}(t), t)/\mathrm{d}t$, where the $\mathrm{d}/\mathrm{d}t$ means that the derivative is measured in the moving frame. Because $\mathrm{d}\mathbf{x}/\mathrm{d}t = \mathbf{v}$ and $\mathrm{d}\mathbf{v}/\mathrm{d}t = \mathbf{a}$, this observed rate of change is
+$$
+\left( \frac{\mathrm{d}f(\mathbf{x}(t), \mathbf{v}(t), t)}{\mathrm{d}t} \right)_\mathrm{orbit} = \frac{\partial f}{\partial t} + \mathbf{v}\cdot\frac{\partial f}{\partial\mathbf{x}} + \mathbf{a}\cdot\frac{\partial f}{\partial\mathbf{v}} = 0
+$$
+
+Thus, the distribution function $f$ as measured when moving along a particle trajectory (orbit) is constant. This gives a powerful method for finding solutions to the Vlasov equation. Since $f$ is a constant when measured in a frame following
+an orbit, we can choose $f$ to depend on any quantity that is constant along the orbit (Jeans 1915, Watson 1956).
+
+For example, if the energy $E$ of particles is constant along their orbits then $f = f(E)$ is a solution to the Vlasov equation. On the other hand, if both the energy and the momentum $\mathbf{p}$ are constant along particle orbits, then any distribution function with the functional dependence $f = f(E, \mathbf{p})$ is a solution to the Vlasov equation. Depending on the situation at hand, the energy and/or momentum may or may not be constant along an orbit and so whether or not $f = f(E, \mathbf{p})$ is a solution to the Vlasov equation depends on the specific problem under consideration. However, there always exists at least one constant of the motion for any trajectory because, just like every human being has an invariant birthday, the initial conditions of a particle trajectory are invariant along this trajectory. As a simple example, consider a situation where there is no electromagnetic field so that $\mathbf{a}=0$, in which case the particle trajectories are simply $\mathbf{x}(t) = \mathbf{x}_0+ \mathbf{v}_0(t),\, \mathbf{v}(t) = \mathbf{v}_0$, where $\mathbf{x}_0, \mathbf{v}_0$ are the initial position and velocity.
+Let us check to see whether $f(\mathbf{x}_0)$ is a solution to the Vlasov equation. By writing $\mathbf{x}_0 = \mathbf{x}(t) - \mathbf{v}_0 t$ so $f(\mathbf{x}_0) = f(\mathbf{x}(t)-\mathbf{v}_0 t)$ we observe that indeed $f = f(\mathbf{x}_0)$ is a solution, since
+$$
+\frac{\partial f}{\partial t} + \mathbf{v}\cdot\frac{\partial f}{\partial\mathbf{x}} + \mathbf{a}\cdot\frac{\partial f}{\partial\mathbf{v}} = \mathbf{v}_0\cdot\frac{\partial f}{\partial(\mathbf{x}-\mathbf{x}_0)} + \mathbf{v}\cdot\frac{\partial f}{\partial\mathbf{x}} = \mathbf{v}_0\cdot\frac{\partial f}{\partial\mathbf{x}} + \mathbf{v}\cdot\frac{\partial f}{\partial\mathbf{x}} = 0
+$$
+
+### Boltzmann equation
+
+The fundamental equation which $f(\mathbf{r}, \mathbf{v}, t)$ has to satisfy is the Boltzmann equation:
 $$
 \frac{\partial f}{\partial t} + \mathbf{v}\cdot\nabla f +\frac{\mathbf{F}}{m}\cdot\frac{\partial f}{\partial v} = \Big( \frac{\partial f}{\partial t} \Big)_c
 $$ {#eq-boltzmann}
 
 Here $\mathbf{F}$ is the force acting on the particles, and $(\partial f/\partial t)_C$ is the time rate of change of $f$ due to collisions[^numerical_diffusion]. The symbol $\nabla$ stands, as usual, for the gradient in $(x, y, z)$ space. The symbol $\partial/\partial\mathbf{v}$ or $\nabla_v$ stands for the gradient in velocity space:
-
 $$
 \frac{\partial}{\partial \mathbf{v}} = \hat{x}\frac{\partial}{\partial v_x} + \hat{y}\frac{\partial}{\partial v_y} + \hat{z}\frac{\partial}{\partial v_z}
 $$
 
 [^numerical_diffusion]: For simulations, the effect of numerical diffusion may be treated as one type of "collision".
 
-In a sufficiently hot plasma, collisions can be neglected. If, furthermore, the force $\mathbf{F}$ is entirely electromagnetic, @eq-boltzmann takes the special form
-
-$$
-\frac{\partial f}{\partial t} + \mathbf{v}\cdot\nabla f +\frac{\mathbf{F}}{m}\cdot\frac{\partial f}{\partial v} = 0
-$$ {#eq-vlasov}
-
-This is called the _Vlasov equation_. Because of its comparative simplicity, this is the equation most commonly studied in kinetic theory. When there are collisions with neutral atoms, the collision term in @eq-boltzmann can be approximated by
-
+In a sufficiently hot plasma, collisions can be neglected. If, furthermore, the force $\mathbf{F}$ is entirely electromagnetic, @eq-boltzmann takes the special form of @eq-vlasov. Because of its comparative simplicity, this is the equation most commonly studied in kinetic theory. When there are collisions with neutral atoms, the collision term in @eq-boltzmann can be approximated by
 $$
 \Big( \frac{\partial f}{\partial t} \Big)_c = \frac{f_n - f}{\tau}
 $$
-
-where $f_n$ is the distribution function of the neutral atoms, and $\tau$ is a constant collision time. This is called the _Krook collision term_. It is the kinetic generalization of the collision term in Eq. (5.5) in F. F. Chen's book. When there are Coulomb collisions, @eq-boltzmann can be approximated by
-
+where $f_n$ is the distribution function of the neutral atoms, and $\tau$ is a constant collision time. This is called the _Krook collision term_. It is the kinetic generalization of the collision term in Eq. (5.5) in [@chen2016introduction]. When there are Coulomb collisions, @eq-boltzmann can be approximated by
 $$
 \frac{\mathrm{d}f}{\mathrm{d}t} = -\frac{\partial}{\partial\mathbf{v}}\cdot(f\left<\Delta\mathbf{v}\right>)\frac{1}{2}\frac{\partial^2}{\partial\mathbf{v}\partial\mathbf{v}}:(f\left<\Delta\mathbf{v}\Delta\mathbf{v}\right>)
 $$ {#eq-fokker_planck}
@@ -219,8 +277,7 @@ $$ {#eq-fokker_planck}
 This is called the _Fokker-Planck equation_; it takes into account binary Coulomb collisions only. Here, $\Delta\mathbf{v}$ is the change of velocity in a collision, and @eq-fokker_planck is a shorthand way of writing a rather complicated expression.
 The colon operator $\mathbf{a}\mathbf{b}:\mathbf{c}\mathbf{d} = a_ib_jc_id_j$.
 
-The fact that $\mathrm{d}f/\mathrm{d}t$ is constant in the absence of collisions means that particles follow the contours of constant $f$ as they move around in phase space. As an example of how these contours can be used, consider the beam-plasma instability
-of Section ???. In the unperturbed plasma, the electrons all have velocity $v_0$, and the contour of constant $f$ is a straight line. The function $f(x, v_x)$ is a wall rising out of the plane of the paper at $v_x=v_0$. The electrons move along the trajectory shown. When a wave develops, the electric field $\mathbf{E}_1$ causes electrons to suffer changes in $v_x$ as they stream along. The trajectory then develops a sinusoidal ripple (@fig-beam_e_dist_1d B). This ripple travels at the phase velocity, not the particle velocity. Particles stay on the curve as they move relative to the wave. If $\mathbf{E}_1$ becomes very large as the wave grows, and if there are a few collisions, some electrons will be trapped in the electrostatic potential of the wave. In coordinate space, the wave potential appears as in @fig-wave_potential. In phase space, $f(x, v_x)$ will have peaks wherever there is a potential trough (@fig-contour_dist). Since the contours of $f$ are also electron trajectories, one sees that some electrons move in closed orbits in phase space; these are just the trapped electrons.
+The fact that $\mathrm{d}f/\mathrm{d}t$ is constant in the absence of collisions means that particles follow the contours of constant $f$ as they move around in phase space. As an example of how these contours can be used, consider the beam-plasma instability of Section ???. In the unperturbed plasma, the electrons all have velocity $v_0$, and the contour of constant $f$ is a straight line. The function $f(x, v_x)$ is a wall rising out of the plane of the paper at $v_x=v_0$. The electrons move along the trajectory shown. When a wave develops, the electric field $\mathbf{E}_1$ causes electrons to suffer changes in $v_x$ as they stream along. The trajectory then develops a sinusoidal ripple (@fig-beam_e_dist_1d B). This ripple travels at the phase velocity, not the particle velocity. Particles stay on the curve as they move relative to the wave. If $\mathbf{E}_1$ becomes very large as the wave grows, and if there are a few collisions, some electrons will be trapped in the electrostatic potential of the wave. In coordinate space, the wave potential appears as in @fig-wave_potential. In phase space, $f(x, v_x)$ will have peaks wherever there is a potential trough (@fig-contour_dist). Since the contours of $f$ are also electron trajectories, one sees that some electrons move in closed orbits in phase space; these are just the trapped electrons.
 
 ::: {.content-visible unless-format="pdf"}
 
