@@ -29,24 +29,34 @@ $$
 
 ### Moments of the distribution function
 
-The density is a function of four scalar variables, $n=n(\mathbf{r}, t)$, which is the integral of the distribution function over the velocity space:
+![Moments give weighted averages of the particles in the shaded vertical strip.](../images/distribution_moments.png){#fig-distribution_moments}
+
+Let us count the particles in the shaded vertical strip in @fig-distribution_moments. The number of particles in this strip is the number of particles lying between $x$ and $x + \mathrm{d}x$, where $x$ is the location of the left-hand side of the strip and $x + \mathrm{d}x$ is the location of the right-hand side. The number of particles in the strip is equivalently defined as $n(x, t)\mathrm{d}x, where $n(x)$ is the density of particles at $x$. Thus we see that $\int f(x, v)\mathrm{d}v = n(x)$ the transition from a phase-space description (i.e., $x, v$ are independent variables) to a conventional description (i.e., only $x$ is an independent variable) involves “integrating out” the velocity dependence to obtain a quantity (e.g., density) depending only on position. Since the number of particles is finite, and since $f$ is a positive quantity, $f$ must vanish as $v\rightarrow\pm\infty$.
+
+In three-dimension, the density is now a function of four scalar variables, $n=n(\mathbf{r}, t)$, which is the integral of the distribution function over the velocity space:
 $$
 \begin{aligned}
 n(\mathbf{r}, t) &= \int_{-\infty}^{\infty} \mathrm{d}v_x \int_{-\infty}^{\infty} \mathrm{d}v_y \int_{-\infty}^{\infty} \mathrm{d}v_z f(\mathbf{r}, \mathbf{v}, t) \\
 &= \int_{-\infty}^{\infty}f(\mathbf{r}, \mathbf{v}, t)\mathrm{d}^3v \\
 &= \int_{-\infty}^{\infty}f(\mathbf{r}, \mathbf{v}, t)\mathrm{d}\mathbf{v}
 \end{aligned}
-$$
+$$ {#eq-distribution-density}
 
 Note that $\mathrm{d}\mathbf{v}$ is not a vector; it stands for a three-dimensional volume element in velocity space. If $f$ is normalized so that
 $$
 \int_{-\infty}^{\infty} \hat{f}(\mathbf{r}, \mathbf{v}, t) \mathrm{d}\mathbf{v} = 1
 $$ {#eq-f_normalization}
 
-This $\hat{f}$ is now a probability. Thus
+Thus
 $$
-f(\mathbf{r}, \mathbf{v}, t) = n(\mathbf{r}, t)\hat{f}(\mathbf{r}, \mathbf{v}, t)
+\hat{f}(\mathbf{r}, \mathbf{v}, t) = f(\mathbf{r}, \mathbf{v}, t) / n(\mathbf{r}, t)
 $$ {#eq-f_normalization_dimensionless}
+is the probability that a randomly selected particle at position $\mathbf{r}$ has the velocity $\mathbf{v}$ at time $t$. Using this point of view, we see that averaging over the velocities of all particles at $x$ gives the mean velocity
+$$
+u(\mathrm{x},t)=\frac{\int\mathbf{v}f(\mathbf{x},\mathbf{v},t)\mathrm{d}\mathbf{v}}{n(\mathbf{x},t)}
+$$ {#eq-distribution-velocity}
+
+Similarly, multiplying $\hat{f}$ by $mv^2/2$ and integrating over velocity will give an expression for the mean kinetic energy of all the particles. This procedure of multiplying $f$ by various powers of $\mathbf{v}$ and then integrating over velocity is called _taking moments of the distribution function_.
 
 Note that $\hat{f}$ is still a function of seven variables, since the shape of the distribution, as well as the density, can change with space and time. From @eq-f_normalization, it is clear that $\hat{f}$ has the dimensions $(\text{m}/\text{s})^{-3}$; and consequently, from @eq-f_normalization_dimensionless, $f$ has the dimensions $\text{s}^3 \text{m}^{-6}$.
 
@@ -216,6 +226,11 @@ $$
 \frac{\partial f}{\partial t} + \mathbf{v}\cdot\nabla f +\frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{a}f) = 0
 $$ {#eq-vlasov}
 
+The symbol $\nabla$ stands, as usual, for the gradient in $(x, y, z)$ space. The symbol $\partial/\partial\mathbf{v}$ or $\nabla_\mathbf{v}$ stands for the gradient in velocity space:
+$$
+\nabla_\mathbf{v} = \frac{\partial}{\partial \mathbf{v}} = \hat{x}\frac{\partial}{\partial v_x} + \hat{y}\frac{\partial}{\partial v_y} + \hat{z}\frac{\partial}{\partial v_z}
+$$
+
 Because $\mathbf{x},\mathbf{v}$ are independent quantities in phase-space, the spatial derivative term has the commutation property,
 $$
 \mathbf{v}\cdot\frac{\partial f}{\partial\mathbf{x}} = \frac{\partial}{\partial\mathbf{x}}\cdot(\mathbf{v}f)
@@ -253,17 +268,46 @@ $$
 
 ### Boltzmann equation
 
-The fundamental equation which $f(\mathbf{r}, \mathbf{v}, t)$ has to satisfy is the Boltzmann equation:
-$$
-\frac{\partial f}{\partial t} + \mathbf{v}\cdot\nabla f +\frac{\mathbf{F}}{m}\cdot\frac{\partial f}{\partial v} = \Big( \frac{\partial f}{\partial t} \Big)_c
-$$ {#eq-boltzmann}
+It was shown in ??? that the cumulative effect of grazing collisions dominates the cumulative effect of the more infrequently occurring large-angle collisions. In order to see how collisions affect the Vlasov equation, let us now
+temporarily imagine that the grazing collisions are replaced by an equivalent sequence of abrupt large scattering angle encounters as shown in @fig-phase_space_collision. Two particles involved in a collision do not significantly change their positions during the course of a collision, but they do substantially change their velocities. For
+example, a particle making a head-on collision with an equal mass stationary particle will stop after the collision, while the target particle will assume the velocity of the incident particle. If we draw the detailed phase-space trajectories characterized by a collision between two particles we see that each particle has a sudden change in its vertical coordinate (i.e., velocity) but no change in its horizontal coordinate (i.e., position). The collision-induced velocity jump occurs very fast so that if the phase-space trajectories were recorded with a "movie
+camera" having insufficient framing rate to catch the details of the jump, the resulting movie would show particles being spontaneously created or annihilated within given volumes of phase-space (e.g., within the boxes shown in @fig-phase_space_collision).
 
-Here $\mathbf{F}$ is the force acting on the particles, and $(\partial f/\partial t)_C$ is the time rate of change of $f$ due to collisions[^numerical_diffusion]. The symbol $\nabla$ stands, as usual, for the gradient in $(x, y, z)$ space. The symbol $\partial/\partial\mathbf{v}$ or $\nabla_v$ stands for the gradient in velocity space:
+![Detailed view of collisions causing "jumps" in phase-space.](../images/distribution_collision.png){#fig-phase_space_collision}
+
+The details of these individual jumps in phase-space are complicated and yet of little interest since all we really want to know is the cumulative effect of many collisions. It is therefore both efficient and sufficient to follow the trajectories on the slow time scale while accounting for the apparent "creation" or "annihilation" of particles by inserting a collision operator on the right-hand side of the Vlasov equation. In the example shown here it is seen that when a particle is apparently "created" in one box, another particle must be simultaneously "annihilated" in another box at the same $x$ coordinate but a different $v$ coordinate (of course, what is actually happening is that a single particle is suddenly moving from one box to the other). This coupling of the annihilation and creation rates in different boxes constrains the form of the collision operator. We will not attempt to derive collision operators in this chapter but will simply discuss the constraints on these operators. From a more formal point of view, collisions are characterized by constrained sources and sinks for particles in phase-space and inclusion of
+collisions in the Vlasov equation causes the Vlasov equation to assume the form
 $$
-\frac{\partial}{\partial \mathbf{v}} = \hat{x}\frac{\partial}{\partial v_x} + \hat{y}\frac{\partial}{\partial v_y} + \hat{z}\frac{\partial}{\partial v_z}
-$$
+\frac{\partial f_s}{\partial t} + \frac{\partial}{\partial\mathbf{x}}\cdot(\mathbf{v}f_s) + \frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{a}f_s) = \sum_\alpha C_{s\alpha}(f_s)
+$$ {#eq-boltzmann}
+where $C_{s\alpha}(f_s)$ is the rate of change of $f_s$ due to collisions of species $s$ with species $\alpha$[^numerical_diffusion]. This is called the _Boltzmann equation_.
 
 [^numerical_diffusion]: For simulations, the effect of numerical diffusion may be treated as one type of "collision".
+
+The constraints that must be satisfied by the collision operator $C_{s\alpha}(f_s)$ are as follows:
+
+* Conservation of particles - Collisions cannot change the total number of particles at a particular location so
+$$
+\int \mathrm{d}\mathbf{v} C_{s\alpha}(f_s) = 0
+$$ {#eq-distribution_particle_cons}
+
+* Conservation of momentum - Collisions between particles of the same species cannot change the total momentum of that species so
+$$
+\int \mathrm{d}\mathbf{v} m_s\mathbf{v}C_{ss}(f_s) = 0
+$$ {#eq-distribution_momentum_cons_self}
+while collisions between different species must conserve the total momentum of both species together so
+$$
+\int \mathrm{d}\mathbf{v} m_i\mathbf{v}C_{ie}(f_i) + \int \mathrm{d}\mathbf{v} m_e\mathbf{v}C_{ei}(f_e) = 0
+$$ {#eq-distribution_momentum_cons_mutual}
+
+* Conservation of energy - Collisions between particles of the same species cannot change the total energy of that species so
+$$
+\int \mathrm{d}\mathbf{v} m_s\mathbf{v}^2C_{ss}(f_s) = 0
+$$ {#eq-distribution_energy_cons_self}
+while collisions between different species must conserve the total energy of both species together so
+$$
+\int \mathrm{d}\mathbf{v} m_i\mathbf{v}^2C_{ie}(f_i) + \int \mathrm{d}\mathbf{v} m_e\mathbf{v}^2C_{ei}(f_e) = 0
+$$ {#eq-distribution_energy_cons_mutual}
 
 In a sufficiently hot plasma, collisions can be neglected. If, furthermore, the force $\mathbf{F}$ is entirely electromagnetic, @eq-boltzmann takes the special form of @eq-vlasov. Because of its comparative simplicity, this is the equation most commonly studied in kinetic theory. When there are collisions with neutral atoms, the collision term in @eq-boltzmann can be approximated by
 $$
@@ -296,9 +340,70 @@ ADD A TWO STREAM INSTABILITY PHASE ANIMATION!
 
 ## Derivation of the Fluid Equations
 
-Derivations of the zeroth-order mass and first-order momentum equations are given in all textbooks. The energy equation derivation can be found in [An introductory guide to fluid models with anisotropic temperatures](https://arxiv.org/abs/1901.09354).
+Instead of just taking moments of the distribution function $f$ itself, moments will now be taken of the entire Vlasov equation to obtain a set of partial differential equations relating the mean quantities $n(\mathbf{x}),\mathbf{u}(\mathbf{x})$, etc. We begin by integrating the Vlasov equation, @eq-vlasov, over velocity for each species. This first and simplest step in the procedure is called taking the "zeroth" moment, since the operation of multiplying by unity can be considered as multiplying the entire Vlasov equation by $\mathbf{v}$ raised to the power zero. Multiplying the Vlasov equation by unity and then integrating over velocity gives
+$$
+\int\left[ \frac{\partial f_s}{\partial t} + \frac{\partial}{\partial\mathbf{x}}\cdot(\mathbf{v}f_s) + \frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{a}f_s) \right]\mathrm{d}\mathbf{v} = \sum_\alpha \int C_{s\alpha}(f_s)\mathrm{d}\mathbf{v}
+$$
 
-The fluid equations we have been using are simply moments of the Boltzmann equation. One interesting observation from @eq-vlasov is that in order to recover the hydrodynamic equations, the acceleration term $\mathbf{a}\cdot\partial_\mathbf{v}f$ is not required: the pressure gradient that drives the flow arises from the thermal motion embedded in the advection term $\mathbf{v}\cdot\partial_\mathbf{x}f$.
+The velocity integral commutes with both the time and space derivatives on the left-hand side because $\mathbf{x}, \mathbf{v}$ and $t$ are independent variables, while the third term on the left-hand side is the volume integral of a divergence in velocity space. Gauss' theorem (i.e., $\int_V\mathrm{d}\mathbf{x}\nabla\cdot\mathbf{Q}=\int_A\mathrm{d}\mathbf{s}\cdot\mathbf{Q}$) gives $f_s$ evaluated on a surface at $v=\infty$. However, because $f_s\rightarrow 0$ as $v\rightarrow\infty$, this surface integral in velocity space vanishes. Inserting @eq-distribution-density, @eq-distribution-velocity, and @eq-distribution_particle_cons into the above, we have the species continuity equation
+$$
+\frac{\partial n_s}{\partial t} + \nabla\cdot(n_s\mathbf{u}_s)=0
+$$
+
+Now let us multiply @eq-vlasov by $\mathbf{v}$ and integrate over velocity to take the "first moment",
+$$
+\int \mathbf{v}\left[ \frac{\partial f_s}{\partial t} + \frac{\partial}{\partial\mathbf{x}}\cdot(\mathbf{v}f_s) + \frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{a}f_s) \right]\mathrm{d}\mathbf{v} = \sum_\alpha \int \mathbf{v}C_{s\alpha}(f_s)\mathrm{d}\mathbf{v}
+$$
+
+This may be rearranged in a more tractable form by:
+
+1. pulling both the time and space derivatives out of the velocity integral,
+2. writing $\mathbf{v} = \mathbf{v}^\prime(\mathbf{x},t) + \mathbf{u}(\mathbf{x},t)$, where $\mathbf{v}^\prime(\mathbf{x},t)$ is the _random_ part of a given velocity, i.e., that part of the velocity that differes from the mean (note that $\mathbf{v}$ is independent of both $\mathbf{x}$ and $t$ but $\mathbf{v}^\prime$ is not; also $\mathrm{d}\mathbf{v}=\mathrm{d}\mathbf{v}^\prime$ since $\mathbf{u}$ is independent of $\mathbf{v}$),
+3. integrating by parts in 3-D velocity space on the acceleration term and using
+$$
+\partial_i\mathbf{v}_j = \delta_{ij}
+$$
+
+After performing these manipulations, the first moment of the Vlasov equation becomes
+$$
+\begin{aligned}
+\frac{\partial(n_s\mathbf{u}_s)}{\partial t} + \frac{\partial}{\partial\mathbf{x}}\cdot\int\left( \mathbf{v}^\prime\mathbf{v}^\prime + \mathbf{v}^\prime\mathbf{u}_s + \mathbf{u}_s\mathbf{v}^\prime +\mathbf{u}_s\mathbf{u}_s \right)f_s \mathrm{d}\mathbf{v}^\prime \\
+- \frac{q_s}{m_s}\int \left( \mathbf{E}+\mathbf{v}\times\mathbf{B} \right)f_s\mathrm{d}\mathbf{v}^\prime = -\frac{1}{m_s}\mathbf{R}_{s\alpha}
+\end{aligned}
+$$ {#eq-vlasov-1st-moment}
+where $\mathbf{R}_{s\alpha}$ is the net frictional drag force due to collisions of species $s$ with species $\alpha$.
+Note that $\mathbf{R}_{ss} = 0$, since a species cannot exert a net drag force on itself. The frictional terms have the form
+$$
+\begin{aligned}
+\mathbf{R}_{ei} &= \nu_{ei}m_e n_e (\mathbf{u}_e - \mathbf{u}_i) \\
+\mathbf{R}_{ie} &= \nu_{ie}m_i n_i (\mathbf{u}_i - \mathbf{u}_e)
+\end{aligned}
+$$
+so that in the ion frame the drag on electrons is simply the total electron momentum $m_e n_e\mathbf{u}_e$ measured in this frame multiplied by the rate $\nu_{ei}$ at which this momentum is destroyed by collisions with ions. This form for frictional drag force has the following properties: (i) $\mathbf{R}_{ei} + \mathbf{R}_{ie} = 0$, showing that the plasma cannot exert a frictional drag force on itself, (ii) friction causes the faster species to be slowed
+down by the slower species, and (iii) there is no friction between species if both have the same mean velocity.
+
+@eq-vlasov-1st-moment can be further simplified by factoring $\mathbf{u}$ out of the velocity integrals and recalling that by definition $\int \mathbf{v}^\prime f_s \mathrm{d}\mathbf{v}^\prime=0$. Thus @eq-vlasov-1st-moment reduces to
+$$
+m_s\left[ \frac{\partial(n_s\mathbf{u}_s)}{\partial t} + \frac{\partial}{\partial\mathbf{x}}\cdot(n_s\mathbf{u}_s\mathbf{u}_s) \right] = n_s q_s (\mathbf{E} + \mathbf{u}_s\times\mathbf{B}) - \frac{\partial}{\partial\mathbf{x}}\cdot\overleftrightarrow{P}_s - \mathbf{R}_{s\alpha}
+$$
+where the _pressure tensor_ is defined by
+$$
+\overleftrightarrow{P}_s \equiv m_s\int \mathbf{v}^\prime \mathbf{v}^\prime f_s \mathrm{d}\mathbf{v}^\prime
+$$
+
+If $f_s$ is an isotropic function of $\mathbf{v}^\prime$, then the off-diagonal terms in $\overleftrightarrow{P}_s$ vanish and the three diagonal terms are identical. In this case, it is useful to define the diagonal terms to be the _scalar pressure_ $p_\s$, i.e.,
+$$
+\begin{aligned}
+p_s &= m_s \int v_x^\prime v_x^\prime f_s \mathrm{d}\mathbf{v}^\prime = m_s \int v_y^\prime v_y^\prime f_s \mathrm{d}\mathbf{v}^\prime = m_s \int v_z^\prime v_z^\prime f_s \mathrm{d}\mathbf{v}^\prime \\
+&= \frac{m_s}{3} \int \mathbf{v}^\prime\cdot \mathbf{v}^\prime f_s \mathrm{d}\mathbf{v}^\prime
+\end{aligned}
+$$ {#eq-scalar-pressure}
+
+@eq-scalar-pressure defines pressure for a three-dimensional isotropic system.
+
+Derivations of the zeroth- and first-moment equations are given in all textbooks, whereas only part of them list the second-moment equation. The energy equation derivation can be found in [@bellan2008fundamentals] and [An introductory guide to fluid models with anisotropic temperatures](https://arxiv.org/abs/1901.09354).
+
+As a short summary, the fluid equations we have been using are simply moments of the Boltzmann equation. One interesting observation from @eq-vlasov is that in order to recover the hydrodynamic equations, the acceleration term $\mathbf{a}\cdot\partial_\mathbf{v}f$ is not required: the pressure gradient that drives the flow arises from the thermal motion embedded in the advection term $\mathbf{v}\cdot\partial_\mathbf{x}f$.
 
 ## Plasma Oscillations and Landau Damping {#sec-landau}
 
