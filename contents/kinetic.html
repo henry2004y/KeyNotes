@@ -274,13 +274,14 @@ div.csl-indent {
   <li><a href="#moments-of-the-distribution-function" id="toc-moments-of-the-distribution-function" class="nav-link" data-scroll-target="#moments-of-the-distribution-function"><span class="toc-section-number">8.2.1</span>  Moments of the distribution function</a></li>
   <li><a href="#maxwellian-distribution" id="toc-maxwellian-distribution" class="nav-link" data-scroll-target="#maxwellian-distribution"><span class="toc-section-number">8.2.2</span>  Maxwellian Distribution</a></li>
   <li><a href="#kappa-distribution" id="toc-kappa-distribution" class="nav-link" data-scroll-target="#kappa-distribution"><span class="toc-section-number">8.2.3</span>  Kappa Distribution</a></li>
+  <li><a href="#entropy-of-a-distribution" id="toc-entropy-of-a-distribution" class="nav-link" data-scroll-target="#entropy-of-a-distribution"><span class="toc-section-number">8.2.4</span>  Entropy of a distribution</a></li>
   </ul></li>
   <li><a href="#equations-of-kinetic-theory" id="toc-equations-of-kinetic-theory" class="nav-link" data-scroll-target="#equations-of-kinetic-theory"><span class="toc-section-number">8.3</span>  Equations of Kinetic Theory</a>
   <ul class="collapse">
   <li><a href="#vlasov-equation" id="toc-vlasov-equation" class="nav-link" data-scroll-target="#vlasov-equation"><span class="toc-section-number">8.3.1</span>  Vlasov equation</a></li>
   <li><a href="#boltzmann-equation" id="toc-boltzmann-equation" class="nav-link" data-scroll-target="#boltzmann-equation"><span class="toc-section-number">8.3.2</span>  Boltzmann equation</a></li>
   </ul></li>
-  <li><a href="#derivation-of-the-fluid-equations" id="toc-derivation-of-the-fluid-equations" class="nav-link" data-scroll-target="#derivation-of-the-fluid-equations"><span class="toc-section-number">8.4</span>  Derivation of the Fluid Equations</a></li>
+  <li><a href="#sec-kinetic-fluid-moments" id="toc-sec-kinetic-fluid-moments" class="nav-link" data-scroll-target="#sec-kinetic-fluid-moments"><span class="toc-section-number">8.4</span>  Derivation of the Fluid Equations</a></li>
   <li><a href="#sec-landau" id="toc-sec-landau" class="nav-link" data-scroll-target="#sec-landau"><span class="toc-section-number">8.5</span>  Plasma Oscillations and Landau Damping</a></li>
   <li><a href="#sec-landau_damping" id="toc-sec-landau_damping" class="nav-link" data-scroll-target="#sec-landau_damping"><span class="toc-section-number">8.6</span>  The Meaning of Landau Damping</a>
   <ul class="collapse">
@@ -341,13 +342,11 @@ div.csl-indent {
 <h2 data-number="8.2" class="anchored" data-anchor-id="distribution-function"><span class="header-section-number">8.2</span> Distribution Function</h2>
 <p>The fluid theory we have been using so far is the simplest description of a plasma; it is indeed fortunate that this approximation is sufficiently accurate to describe the majority of observed phenomena. There are some phenomena, however, for which a fluid treatment is inadequate. At any given time, each particle has a specific position and velocity. We can therefore characterize the instantaneous configuration of a large number of particles by specifying the density of particles at each point <span class="math inline">\(x, v\)</span> in phase-space. The function prescribing the instantaneous density of particles in phase-space is called the <em>distribution function</em> and is denoted by <span class="math inline">\(f(x, v, t)\)</span>. Thus, <span class="math inline">\(f(x, v, t)\mathrm{d}x\mathrm{d}v\)</span> is the number of particles at time <span class="math inline">\(t\)</span> having positions in the range between <span class="math inline">\(x\)</span> and <span class="math inline">\(x+dx\)</span> and velocities in the range between <span class="math inline">\(v\)</span> and <span class="math inline">\(v+dv\)</span>. As time progresses, the particle motion and acceleration causes the number of particles in these <span class="math inline">\(x\)</span> and <span class="math inline">\(v\)</span> ranges to change and so <span class="math inline">\(f\)</span> will change. This temporal evolution of <span class="math inline">\(f\)</span> gives a description of the system more detailed than a fluid description, but less detailed than following the trajectory of each individual particle. Using the evolution of <span class="math inline">\(f\)</span> to characterize the system does not keep track of the trajectories of individual particles, but rather characterizes classes of particles having the same <span class="math inline">\(x, v\)</span>.</p>
 <p>In fluid theory, the dependent variables are functions of only four independent variables: <span class="math inline">\(x, y, z,\)</span> and <span class="math inline">\(t\)</span>. This is possible because the velocity distribution of each species is assumed to be Maxwellian everywhere and can therefore be uniquely specified by only one number, the temperature <span class="math inline">\(T\)</span>. Since collisions can be rare in high-temperature plasmas, deviations from thermal equilibrium can be maintained for relatively long times. As an example, consider two velocity distributions <span class="math inline">\(f_1(v_x)\)</span> and <span class="math inline">\(f_2(v_x)\)</span> in a one-dimensional system (<a href="#fig-distributions_1d">Figure&nbsp;<span>8.2</span></a>). These two distributions will have entirely different behaviors, but as long as the areas under the curves are the same, fluid theory does not distinguish between them.</p>
-<div>
 <div id="fig-distributions_1d" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="../images/distributions_1d.png" class="img-fluid figure-img"></p>
+<p><img src="../images/distributions_nonmaxwellian_1d.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;8.2: Examples of non-Maxwellian distribution functions</figcaption><p></p>
 </figure>
-</div>
 </div>
 <p>When we consider velocity distributions in 3D, we have seven independent variables: <span class="math inline">\(f = f(\mathbf{r}, \mathbf{v}, t)\)</span>. By <span class="math inline">\(f(\mathbf{r}, \mathbf{v}, t)\)</span>, we mean that the number of particles per meter cubed at position <span class="math inline">\(\mathbf{r}\)</span> and time <span class="math inline">\(t\)</span> with velocity components between <span class="math inline">\(v_x\)</span> and <span class="math inline">\(v_x + dv_x\)</span>, $v_y and <span class="math inline">\(v_y + dv_y\)</span>, and <span class="math inline">\(v_z\)</span> and <span class="math inline">\(v_z + dv_z\)</span> is <span class="math display">\[
 f(x, y, z, v_x, v_y, v_z, t) \mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z
@@ -382,39 +381,33 @@ u(\mathrm{x},t)=\frac{\int\mathbf{v}f(\mathbf{x},\mathbf{v},t)\mathrm{d}\mathbf{
 <section id="maxwellian-distribution" class="level3" data-number="8.2.2">
 <h3 data-number="8.2.2" class="anchored" data-anchor-id="maxwellian-distribution"><span class="header-section-number">8.2.2</span> Maxwellian Distribution</h3>
 <p>A particularly important distribution function is the Maxwellian: <span class="math display">\[
-\hat{f}_m = (m/2\pi k_B T)^{3/2}\exp(-v^2/v_{th}^2)
-\]</span></p>
-<p>where <span class="math display">\[
+\hat{f}_m = \left(\frac{m}{2\pi k_B T}\right)^{3/2}\exp\left(-\frac{v^2}{v_{th}^2}\right)
+\]</span> where <span class="math display">\[
 v\equiv(v_x^2 + v_y^2 + v_z^2)^{1/2}\quad\text{and}\quad v_{th}\equiv(2k_B T/m)^{1/2}
 \]</span></p>
-<p>By using the definite integral <span class="math display">\[
+<p>This is the normalized form where <span class="math inline">\(\hat{f}_m\)</span> is equivalent to probability: by using the definite integral <span class="math display">\[
 \int_{-\infty}^{\infty}\exp(-x^2)dx = \sqrt{\pi}
-\]</span></p>
-<p>one easily verifies that the integral of <span class="math inline">\(\hat{f}_m\)</span> over <span class="math inline">\(dv_x dv_y dv_z\)</span> is unity.</p>
-<p>A common question to ask is: why do we see Maxwellian/Gaussian/normal distribution ubiquitously in nature? Well, this is related to the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">central limit theorem</a>: in many situations, when independent random variables are summed up, their properly normalized sum tends toward a normal distribution even if the original variables themselves are not normally distributed (e.g.&nbsp;a biased coin which give 95% head and 5% tail).</p>
+\]</span> one easily verifies that the integral of <span class="math inline">\(\hat{f}_m\)</span> over <span class="math inline">\(\mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z\)</span> is unity.</p>
+<p>A common question to ask is: why do we see Maxwellian/Gaussian/normal distribution ubiquitously in nature? Well, this is related to the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">central limit theorem</a> in statistics: in many situations, when independent random variables are summed up, their properly normalized sum tends toward a normal distribution even if the original variables themselves are not normally distributed (e.g.&nbsp;a biased coin which give 95% head and 5% tail). In statistical physics, this is related to the fact that a Maxwellian distribution represents the state of a system with the highest entropy under the constraint of energy conservation.</p>
 <p>There are several average velocities of a Maxwellian distribution that are commonly used. The root-mean-square velocity is given by <span class="math display">\[
 (\overline{v^2})^{1/2} = (3k_B T/m)^{1/2}
 \]</span></p>
 <p>The average magnitude of the velocity <span class="math inline">\(|v|\)</span>, or simply <span class="math inline">\(\bar{v}\)</span>, is found as follows: <span class="math display">\[
 \bar{v} = \int_{-\infty}^{\infty}v\hat{f}(\mathbf{v})d^3v
 \]</span></p>
-<p>Since <span class="math inline">\(\hat{f}_m\)</span> is isotropic, the integral is most easily done in spherical coordinates in v space. Since the volume element of each spherical shell is <span class="math inline">\(4\pi v^2 \mathrm{d}v\)</span>, we have</p>
-<p><span class="math display">\[
+<p>Since <span class="math inline">\(\hat{f}_m\)</span> is isotropic, the integral is most easily done in spherical coordinates in v space. Since the volume element of each spherical shell is <span class="math inline">\(4\pi v^2 \mathrm{d}v\)</span>, we have <span class="math display">\[
 \begin{aligned}
 \bar{v} &amp;= (m/2\pi k_B T)^{3/2}\int_0^\infty v[\exp(-v^2/v_{th}^2)]4\pi v^2 \mathrm{d}v \\
 &amp;= (\pi v_{th}^2)^{-3/2} 4\pi v_{th}^4 \int_0^\infty [\exp(-y^2)]y^3 dy
 \end{aligned}
 \]</span></p>
-<p>The definite integral has a value 1/2, found by integration by parts. Thus</p>
-<p><span class="math display">\[
+<p>The definite integral has a value 1/2, found by integration by parts. Thus <span class="math display">\[
 \bar{v} = 2\sqrt{\pi}v_{th} = 2(2k_B T/\pi m)^{1/2}
 \]</span></p>
-<p>The velocity component in a <em>single direction</em>, say <span class="math inline">\(v_x\)</span>, has a different average. Of course, <span class="math inline">\(\bar{v}_x\)</span> vanishes for an isotropic distribution; but <span class="math inline">\(|\bar{v}_x|\)</span> does not:</p>
-<p><span class="math display">\[
+<p>The velocity component in a <em>single direction</em>, say <span class="math inline">\(v_x\)</span>, has a different average. Of course, <span class="math inline">\(\bar{v}_x\)</span> vanishes for an isotropic distribution; but <span class="math inline">\(|\bar{v}_x|\)</span> does not: <span class="math display">\[
 |\bar{v}_x| = \int |v_x|\hat{f}_m(\mathbf{v})\mathrm{d}^3 v = \pi^{-1/2}v_{th} = (2k_B T/\pi m)^{1/2}
 \]</span></p>
-<p>To summarize: for a Maxwellian,</p>
-<p><span class="math display">\[
+<p>To summarize: for a Maxwellian, <span class="math display">\[
 \begin{aligned}
 v_{rms} &amp;= (3k_B T/m)^{1/2} \\
 |\bar{v}| &amp;= 2(2k_B T/\pi m)^{1/2} \\
@@ -422,12 +415,10 @@ v_{rms} &amp;= (3k_B T/m)^{1/2} \\
 \bar{v}_x &amp;= 0
 \end{aligned}
 \]</span></p>
-<p>For an isotropic distribution like a Maxwellian, we can define another function <span class="math inline">\(g(v)\)</span> which is a function of the scalar magnitude of <span class="math inline">\(\mathbf{v}\)</span> such that</p>
-<p><span class="math display">\[
+<p>For an isotropic distribution like a Maxwellian, we can define another function <span class="math inline">\(g(v)\)</span> which is a function of the scalar magnitude of <span class="math inline">\(\mathbf{v}\)</span> such that <span class="math display">\[
 \int_0^\infty g(v) \mathrm{d}v = \int_{-\infty}^{\infty} f(\mathbf{v})\mathrm{d}v
 \]</span></p>
-<p>For a Maxwellian, we see that</p>
-<p><span id="eq-g_dist"><span class="math display">\[
+<p>For a Maxwellian, we see that <span id="eq-g_dist"><span class="math display">\[
 g(v) = 4\pi n (m/2\pi k_B T)^{3/2} v^2 \exp(-v^2/v_{th}^2)
 \tag{8.5}\]</span></span></p>
 <p><a href="#fig-f_g">Figure&nbsp;<span>8.4</span></a> shows the difference between <span class="math inline">\(g(v)\)</span> and a one-dimensional Maxwellian distribution <span class="math inline">\(f(v_x)\)</span>. Although <span class="math inline">\(f(v_x)\)</span> is maximum for <span class="math inline">\(v_x=0\)</span>, <span class="math inline">\(g(v)\)</span> is zero for <span class="math inline">\(v=0\)</span>.</p>
@@ -477,6 +468,10 @@ f_\kappa(W) = n\Big( \frac{m}{2\pi\kappa W_0} \Big)^{3/2}\frac{\Gamma(\kappa + 1
 \]</span></p>
 <p>Here <span class="math inline">\(W_0\)</span> is the energy at the peak of the particle flux and <span class="math inline">\(\Gamma\)</span> is the gamma function. When <span class="math inline">\(\kappa\gg 1\)</span> the kappa distribution approaches the Maxwellian distribution. When <span class="math inline">\(\kappa\)</span> is smaller but <span class="math inline">\(&gt;1\)</span> the distribution has a high-energy tail. A thorough review is given by <span class="citation" data-cites="livadiotis2013">(<a href="#ref-livadiotis2013" role="doc-biblioref">Livadiotis and McComas 2013</a>)</span>.</p>
 </section>
+<section id="entropy-of-a-distribution" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="entropy-of-a-distribution"><span class="header-section-number">8.2.4</span> Entropy of a distribution</h3>
+<p>Collisions cause the distribution function to tend towards a simple final state characterized by having the maximum entropy for the given constraints (e.g.&nbsp;fixed total energy). To see this, we provide a brief discussion of entropy and show how it relates to a distribution function.</p>
+</section>
 </section>
 <section id="equations-of-kinetic-theory" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="equations-of-kinetic-theory"><span class="header-section-number">8.3</span> Equations of Kinetic Theory</h2>
@@ -501,12 +496,12 @@ f_\kappa(W) = n\Big( \frac{m}{2\pi\kappa W_0} \Big)^{3/2}\frac{\Gamma(\kappa + 1
 &amp; -f(x,v+\mathrm{d}v,t)a(x,v+\mathrm{d}v,t)\mathrm{d}x \\
 &amp; +f(x,v,t)a(x,v,t)\mathrm{d}x
 \end{aligned}
-\]</span> or, on Taylor expanding the quantities on the right-hand side, we obtain the one-dimensional <em>Vlasov equation</em>, <span class="math display">\[
+\]</span> or, on Taylor expanding the quantities on the right-hand side, we obtain the one-dimensional <em>Vlasov equation</em>, <span id="eq-vlasov-1d"><span class="math display">\[
 \frac{\partial f}{\partial t} + v\frac{\partial f}{\partial x} + \frac{\partial}{\partial v}(a f) = 0
-\]</span> {eq-vlasov-1d}</p>
-<p>It is straightforward to generalize <span class="quarto-unresolved-ref">?eq-vlasov-1d</span> to three dimensions and so obtain the three-dimensional Vlasov equation, <span id="eq-vlasov"><span class="math display">\[
-\frac{\partial f}{\partial t} + \mathbf{v}\cdot\nabla f +\frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{a}f) = 0
 \tag{8.7}\]</span></span></p>
+<p>It is straightforward to generalize <a href="#eq-vlasov-1d">Equation&nbsp;<span>8.7</span></a> to three dimensions and so obtain the three-dimensional Vlasov equation, <span id="eq-vlasov"><span class="math display">\[
+\frac{\partial f}{\partial t} + \mathbf{v}\cdot\nabla f +\frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{a}f) = 0
+\tag{8.8}\]</span></span></p>
 <p>The symbol <span class="math inline">\(\nabla\)</span> stands, as usual, for the gradient in <span class="math inline">\((x, y, z)\)</span> space. The symbol <span class="math inline">\(\partial/\partial\mathbf{v}\)</span> or <span class="math inline">\(\nabla_\mathbf{v}\)</span> stands for the gradient in velocity space: <span class="math display">\[
 \nabla_\mathbf{v} = \frac{\partial}{\partial \mathbf{v}} = \hat{x}\frac{\partial}{\partial v_x} + \hat{y}\frac{\partial}{\partial v_y} + \hat{z}\frac{\partial}{\partial v_z}
 \]</span></p>
@@ -521,7 +516,7 @@ f_\kappa(W) = n\Big( \frac{m}{2\pi\kappa W_0} \Big)^{3/2}\frac{\Gamma(\kappa + 1
 \]</span></p>
 <p>Because of this commutation property the Vlasov equation can also be written as <span id="eq-vlasov"><span class="math display">\[
 \frac{\partial f}{\partial t} + \mathbf{v}\cdot\frac{\partial f}{\partial\mathbf{x}} + \mathbf{a}\cdot\frac{\partial f}{\partial\mathbf{v}} = 0
-\tag{8.8}\]</span></span></p>
+\tag{8.9}\]</span></span></p>
 <p>If we “sit on top of” a particle that has a phase-space trajectory <span class="math inline">\(\mathbf{x} = \mathbf{x}(t),\, \mathbf{v} = \mathbf{v}(t)\)</span> and measure the distribution function as we move along with the particle, the observed rate of change of the distribution function will be <span class="math inline">\(\mathrm{d}f(\mathbf{x}(t), \mathbf{v}(t), t)/\mathrm{d}t\)</span>, where the <span class="math inline">\(\mathrm{d}/\mathrm{d}t\)</span> means that the derivative is measured in the moving frame. Because <span class="math inline">\(\mathrm{d}\mathbf{x}/\mathrm{d}t = \mathbf{v}\)</span> and <span class="math inline">\(\mathrm{d}\mathbf{v}/\mathrm{d}t = \mathbf{a}\)</span>, this observed rate of change is <span class="math display">\[
 \left( \frac{\mathrm{d}f(\mathbf{x}(t), \mathbf{v}(t), t)}{\mathrm{d}t} \right)_\mathrm{orbit} = \frac{\partial f}{\partial t} + \mathbf{v}\cdot\frac{\partial f}{\partial\mathbf{x}} + \mathbf{a}\cdot\frac{\partial f}{\partial\mathbf{v}} = 0
 \]</span></p>
@@ -541,29 +536,29 @@ f_\kappa(W) = n\Big( \frac{m}{2\pi\kappa W_0} \Big)^{3/2}\frac{\Gamma(\kappa + 1
 </div>
 <p>The details of these individual jumps in phase-space are complicated and yet of little interest since all we really want to know is the cumulative effect of many collisions. It is therefore both efficient and sufficient to follow the trajectories on the slow time scale while accounting for the apparent “creation” or “annihilation” of particles by inserting a collision operator on the right-hand side of the Vlasov equation. In the example shown here it is seen that when a particle is apparently “created” in one box, another particle must be simultaneously “annihilated” in another box at the same <span class="math inline">\(x\)</span> coordinate but a different <span class="math inline">\(v\)</span> coordinate (of course, what is actually happening is that a single particle is suddenly moving from one box to the other). This coupling of the annihilation and creation rates in different boxes constrains the form of the collision operator. We will not attempt to derive collision operators in this chapter but will simply discuss the constraints on these operators. From a more formal point of view, collisions are characterized by constrained sources and sinks for particles in phase-space and inclusion of collisions in the Vlasov equation causes the Vlasov equation to assume the form <span id="eq-boltzmann"><span class="math display">\[
 \frac{\partial f_s}{\partial t} + \frac{\partial}{\partial\mathbf{x}}\cdot(\mathbf{v}f_s) + \frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{a}f_s) = \sum_\alpha C_{s\alpha}(f_s)
-\tag{8.9}\]</span></span> where <span class="math inline">\(C_{s\alpha}(f_s)\)</span> is the rate of change of <span class="math inline">\(f_s\)</span> due to collisions of species <span class="math inline">\(s\)</span> with species <span class="math inline">\(\alpha\)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. This is called the <em>Boltzmann equation</em>.</p>
+\tag{8.10}\]</span></span> where <span class="math inline">\(C_{s\alpha}(f_s)\)</span> is the rate of change of <span class="math inline">\(f_s\)</span> due to collisions of species <span class="math inline">\(s\)</span> with species <span class="math inline">\(\alpha\)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. This is called the <em>Boltzmann equation</em>.</p>
 <p>The constraints that must be satisfied by the collision operator <span class="math inline">\(C_{s\alpha}(f_s)\)</span> are as follows:</p>
 <ul>
 <li><p>Conservation of particles - Collisions cannot change the total number of particles at a particular location so <span id="eq-distribution_particle_cons"><span class="math display">\[
 \int \mathrm{d}\mathbf{v} C_{s\alpha}(f_s) = 0
-\tag{8.10}\]</span></span></p></li>
+\tag{8.11}\]</span></span></p></li>
 <li><p>Conservation of momentum - Collisions between particles of the same species cannot change the total momentum of that species so <span id="eq-distribution_momentum_cons_self"><span class="math display">\[
 \int \mathrm{d}\mathbf{v} m_s\mathbf{v}C_{ss}(f_s) = 0
-\tag{8.11}\]</span></span> while collisions between different species must conserve the total momentum of both species together so <span id="eq-distribution_momentum_cons_mutual"><span class="math display">\[
+\tag{8.12}\]</span></span> while collisions between different species must conserve the total momentum of both species together so <span id="eq-distribution_momentum_cons_mutual"><span class="math display">\[
 \int \mathrm{d}\mathbf{v} m_i\mathbf{v}C_{ie}(f_i) + \int \mathrm{d}\mathbf{v} m_e\mathbf{v}C_{ei}(f_e) = 0
-\tag{8.12}\]</span></span></p></li>
+\tag{8.13}\]</span></span></p></li>
 <li><p>Conservation of energy - Collisions between particles of the same species cannot change the total energy of that species so <span id="eq-distribution_energy_cons_self"><span class="math display">\[
 \int \mathrm{d}\mathbf{v} m_s\mathbf{v}^2C_{ss}(f_s) = 0
-\tag{8.13}\]</span></span> while collisions between different species must conserve the total energy of both species together so <span id="eq-distribution_energy_cons_mutual"><span class="math display">\[
+\tag{8.14}\]</span></span> while collisions between different species must conserve the total energy of both species together so <span id="eq-distribution_energy_cons_mutual"><span class="math display">\[
 \int \mathrm{d}\mathbf{v} m_i\mathbf{v}^2C_{ie}(f_i) + \int \mathrm{d}\mathbf{v} m_e\mathbf{v}^2C_{ei}(f_e) = 0
-\tag{8.14}\]</span></span></p></li>
+\tag{8.15}\]</span></span></p></li>
 </ul>
-<p>In a sufficiently hot plasma, collisions can be neglected. If, furthermore, the force <span class="math inline">\(\mathbf{F}\)</span> is entirely electromagnetic, <a href="#eq-boltzmann">Equation&nbsp;<span>8.9</span></a> takes the special form of <a href="#eq-vlasov">Equation&nbsp;<span>8.8</span></a>. Because of its comparative simplicity, this is the equation most commonly studied in kinetic theory. When there are collisions with neutral atoms, the collision term in <a href="#eq-boltzmann">Equation&nbsp;<span>8.9</span></a> can be approximated by <span class="math display">\[
+<p>In a sufficiently hot plasma, collisions can be neglected. If, furthermore, the force <span class="math inline">\(\mathbf{F}\)</span> is entirely electromagnetic, <a href="#eq-boltzmann">Equation&nbsp;<span>8.10</span></a> takes the special form of <a href="#eq-vlasov">Equation&nbsp;<span>8.9</span></a>. Because of its comparative simplicity, this is the equation most commonly studied in kinetic theory. When there are collisions with neutral atoms, the collision term in <a href="#eq-boltzmann">Equation&nbsp;<span>8.10</span></a> can be approximated by <span class="math display">\[
 \Big( \frac{\partial f}{\partial t} \Big)_c = \frac{f_n - f}{\tau}
-\]</span> where <span class="math inline">\(f_n\)</span> is the distribution function of the neutral atoms, and <span class="math inline">\(\tau\)</span> is a constant collision time. This is called the <em>Krook collision term</em>. It is the kinetic generalization of the collision term in Eq. (5.5) in <span class="citation" data-cites="chen2016introduction">(<a href="#ref-chen2016introduction" role="doc-biblioref">Chen 2016</a>)</span>. When there are Coulomb collisions, <a href="#eq-boltzmann">Equation&nbsp;<span>8.9</span></a> can be approximated by <span id="eq-fokker_planck"><span class="math display">\[
+\]</span> where <span class="math inline">\(f_n\)</span> is the distribution function of the neutral atoms, and <span class="math inline">\(\tau\)</span> is a constant collision time. This is called the <em>Krook collision term</em>. It is the kinetic generalization of the collision term in Eq. (5.5) in <span class="citation" data-cites="chen2016introduction">(<a href="#ref-chen2016introduction" role="doc-biblioref">Chen 2016</a>)</span>. When there are Coulomb collisions, <a href="#eq-boltzmann">Equation&nbsp;<span>8.10</span></a> can be approximated by <span id="eq-fokker_planck"><span class="math display">\[
 \frac{\mathrm{d}f}{\mathrm{d}t} = -\frac{\partial}{\partial\mathbf{v}}\cdot(f\left&lt;\Delta\mathbf{v}\right&gt;)\frac{1}{2}\frac{\partial^2}{\partial\mathbf{v}\partial\mathbf{v}}:(f\left&lt;\Delta\mathbf{v}\Delta\mathbf{v}\right&gt;)
-\tag{8.15}\]</span></span></p>
-<p>This is called the <em>Fokker-Planck equation</em>; it takes into account binary Coulomb collisions only. Here, <span class="math inline">\(\Delta\mathbf{v}\)</span> is the change of velocity in a collision, and <a href="#eq-fokker_planck">Equation&nbsp;<span>8.15</span></a> is a shorthand way of writing a rather complicated expression. The colon operator <span class="math inline">\(\mathbf{a}\mathbf{b}:\mathbf{c}\mathbf{d} = a_ib_jc_id_j\)</span>.</p>
+\tag{8.16}\]</span></span></p>
+<p>This is called the <em>Fokker-Planck equation</em>; it takes into account binary Coulomb collisions only. Here, <span class="math inline">\(\Delta\mathbf{v}\)</span> is the change of velocity in a collision, and <a href="#eq-fokker_planck">Equation&nbsp;<span>8.16</span></a> is a shorthand way of writing a rather complicated expression. The colon operator <span class="math inline">\(\mathbf{a}\mathbf{b}:\mathbf{c}\mathbf{d} = a_ib_jc_id_j\)</span>.</p>
 <p>The fact that <span class="math inline">\(\mathrm{d}f/\mathrm{d}t\)</span> is constant in the absence of collisions means that particles follow the contours of constant <span class="math inline">\(f\)</span> as they move around in phase space. As an example of how these contours can be used, consider the beam-plasma instability of Section ???. In the unperturbed plasma, the electrons all have velocity <span class="math inline">\(v_0\)</span>, and the contour of constant <span class="math inline">\(f\)</span> is a straight line. The function <span class="math inline">\(f(x, v_x)\)</span> is a wall rising out of the plane of the paper at <span class="math inline">\(v_x=v_0\)</span>. The electrons move along the trajectory shown. When a wave develops, the electric field <span class="math inline">\(\mathbf{E}_1\)</span> causes electrons to suffer changes in <span class="math inline">\(v_x\)</span> as they stream along. The trajectory then develops a sinusoidal ripple (<a href="#fig-beam_e_dist_1d">Figure&nbsp;<span>8.7</span></a> B). This ripple travels at the phase velocity, not the particle velocity. Particles stay on the curve as they move relative to the wave. If <span class="math inline">\(\mathbf{E}_1\)</span> becomes very large as the wave grows, and if there are a few collisions, some electrons will be trapped in the electrostatic potential of the wave. In coordinate space, the wave potential appears as in <a href="#fig-wave_potential">Figure&nbsp;<span>8.8</span></a>. In phase space, <span class="math inline">\(f(x, v_x)\)</span> will have peaks wherever there is a potential trough (<a href="#fig-contour_dist">Figure&nbsp;<span>8.9</span></a>). Since the contours of <span class="math inline">\(f\)</span> are also electron trajectories, one sees that some electrons move in closed orbits in phase space; these are just the trapped electrons.</p>
 <div>
 <div id="fig-beam_e_dist_1d" class="quarto-figure quarto-figure-center anchored">
@@ -589,15 +584,15 @@ f_\kappa(W) = n\Big( \frac{m}{2\pi\kappa W_0} \Big)^{3/2}\frac{\Gamma(\kappa + 1
 <p>ADD A TWO STREAM INSTABILITY PHASE ANIMATION!</p>
 </section>
 </section>
-<section id="derivation-of-the-fluid-equations" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="derivation-of-the-fluid-equations"><span class="header-section-number">8.4</span> Derivation of the Fluid Equations</h2>
-<p>Instead of just taking moments of the distribution function <span class="math inline">\(f\)</span> itself, moments will now be taken of the entire Vlasov equation to obtain a set of partial differential equations relating the mean quantities <span class="math inline">\(n(\mathbf{x}),\mathbf{u}(\mathbf{x})\)</span>, etc. We begin by integrating the Vlasov equation, <a href="#eq-vlasov">Equation&nbsp;<span>8.8</span></a>, over velocity for each species. This first and simplest step in the procedure is called taking the “zeroth” moment, since the operation of multiplying by unity can be considered as multiplying the entire Vlasov equation by <span class="math inline">\(\mathbf{v}\)</span> raised to the power zero. Multiplying the Vlasov equation by unity and then integrating over velocity gives <span class="math display">\[
+<section id="sec-kinetic-fluid-moments" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="sec-kinetic-fluid-moments"><span class="header-section-number">8.4</span> Derivation of the Fluid Equations</h2>
+<p>Instead of just taking moments of the distribution function <span class="math inline">\(f\)</span> itself, moments will now be taken of the entire Vlasov equation to obtain a set of partial differential equations relating the mean quantities <span class="math inline">\(n(\mathbf{x}),\mathbf{u}(\mathbf{x})\)</span>, etc. We begin by integrating the Vlasov equation, <a href="#eq-vlasov">Equation&nbsp;<span>8.9</span></a>, over velocity for each species. This first and simplest step in the procedure is called taking the “zeroth” moment, since the operation of multiplying by unity can be considered as multiplying the entire Vlasov equation by <span class="math inline">\(\mathbf{v}\)</span> raised to the power zero. Multiplying the Vlasov equation by unity and then integrating over velocity gives <span class="math display">\[
 \int\left[ \frac{\partial f_s}{\partial t} + \frac{\partial}{\partial\mathbf{x}}\cdot(\mathbf{v}f_s) + \frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{a}f_s) \right]\mathrm{d}\mathbf{v} = \sum_\alpha \int C_{s\alpha}(f_s)\mathrm{d}\mathbf{v}
 \]</span></p>
-<p>The velocity integral commutes with both the time and space derivatives on the left-hand side because <span class="math inline">\(\mathbf{x}, \mathbf{v}\)</span> and <span class="math inline">\(t\)</span> are independent variables, while the third term on the left-hand side is the volume integral of a divergence in velocity space. Gauss’ theorem (i.e., <span class="math inline">\(\int_V\mathrm{d}\mathbf{x}\nabla\cdot\mathbf{Q}=\int_A\mathrm{d}\mathbf{s}\cdot\mathbf{Q}\)</span>) gives <span class="math inline">\(f_s\)</span> evaluated on a surface at <span class="math inline">\(v=\infty\)</span>. However, because <span class="math inline">\(f_s\rightarrow 0\)</span> as <span class="math inline">\(v\rightarrow\infty\)</span>, this surface integral in velocity space vanishes. Inserting <a href="#eq-distribution-density">Equation&nbsp;<span>8.1</span></a>, <a href="#eq-distribution-velocity">Equation&nbsp;<span>8.4</span></a>, and <a href="#eq-distribution_particle_cons">Equation&nbsp;<span>8.10</span></a> into the above, we have the species continuity equation <span class="math display">\[
+<p>The velocity integral commutes with both the time and space derivatives on the left-hand side because <span class="math inline">\(\mathbf{x}, \mathbf{v}\)</span> and <span class="math inline">\(t\)</span> are independent variables, while the third term on the left-hand side is the volume integral of a divergence in velocity space. Gauss’ theorem (i.e., <span class="math inline">\(\int_V\mathrm{d}\mathbf{x}\nabla\cdot\mathbf{Q}=\int_A\mathrm{d}\mathbf{s}\cdot\mathbf{Q}\)</span>) gives <span class="math inline">\(f_s\)</span> evaluated on a surface at <span class="math inline">\(v=\infty\)</span>. However, because <span class="math inline">\(f_s\rightarrow 0\)</span> as <span class="math inline">\(v\rightarrow\infty\)</span>, this surface integral in velocity space vanishes. Inserting <a href="#eq-distribution-density">Equation&nbsp;<span>8.1</span></a>, <a href="#eq-distribution-velocity">Equation&nbsp;<span>8.4</span></a>, and <a href="#eq-distribution_particle_cons">Equation&nbsp;<span>8.11</span></a> into the above, we have the species continuity equation <span id="eq-vlasov-0th-moment"><span class="math display">\[
 \frac{\partial n_s}{\partial t} + \nabla\cdot(n_s\mathbf{u}_s)=0
-\]</span></p>
-<p>Now let us multiply <a href="#eq-vlasov">Equation&nbsp;<span>8.8</span></a> by <span class="math inline">\(\mathbf{v}\)</span> and integrate over velocity to take the “first moment”, <span class="math display">\[
+\tag{8.17}\]</span></span></p>
+<p>Now let us multiply <a href="#eq-vlasov">Equation&nbsp;<span>8.9</span></a> by <span class="math inline">\(\mathbf{v}\)</span> and integrate over velocity to take the “first moment”, <span class="math display">\[
 \int \mathbf{v}\left[ \frac{\partial f_s}{\partial t} + \frac{\partial}{\partial\mathbf{x}}\cdot(\mathbf{v}f_s) + \frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{a}f_s) \right]\mathrm{d}\mathbf{v} = \sum_\alpha \int \mathbf{v}C_{s\alpha}(f_s)\mathrm{d}\mathbf{v}
 \]</span></p>
 <p>This may be rearranged in a more tractable form by:</p>
@@ -613,13 +608,13 @@ f_\kappa(W) = n\Big( \frac{m}{2\pi\kappa W_0} \Big)^{3/2}\frac{\Gamma(\kappa + 1
 \frac{\partial(n_s\mathbf{u}_s)}{\partial t} + \frac{\partial}{\partial\mathbf{x}}\cdot\int\left( \mathbf{v}^\prime\mathbf{v}^\prime + \mathbf{v}^\prime\mathbf{u}_s + \mathbf{u}_s\mathbf{v}^\prime +\mathbf{u}_s\mathbf{u}_s \right)f_s \mathrm{d}\mathbf{v}^\prime \\
 - \frac{q_s}{m_s}\int \left( \mathbf{E}+\mathbf{v}\times\mathbf{B} \right)f_s\mathrm{d}\mathbf{v}^\prime = -\frac{1}{m_s}\mathbf{R}_{s\alpha}
 \end{aligned}
-\tag{8.16}\]</span></span> where <span class="math inline">\(\mathbf{R}_{s\alpha}\)</span> is the net frictional drag force due to collisions of species <span class="math inline">\(s\)</span> with species <span class="math inline">\(\alpha\)</span>. Note that <span class="math inline">\(\mathbf{R}_{ss} = 0\)</span>, since a species cannot exert a net drag force on itself. The frictional terms have the form <span class="math display">\[
+\tag{8.18}\]</span></span> where <span class="math inline">\(\mathbf{R}_{s\alpha}\)</span> is the net frictional drag force due to collisions of species <span class="math inline">\(s\)</span> with species <span class="math inline">\(\alpha\)</span>. Note that <span class="math inline">\(\mathbf{R}_{ss} = 0\)</span>, since a species cannot exert a net drag force on itself. The frictional terms have the form <span class="math display">\[
 \begin{aligned}
 \mathbf{R}_{ei} &amp;= \nu_{ei}m_e n_e (\mathbf{u}_e - \mathbf{u}_i) \\
 \mathbf{R}_{ie} &amp;= \nu_{ie}m_i n_i (\mathbf{u}_i - \mathbf{u}_e)
 \end{aligned}
 \]</span> so that in the ion frame the drag on electrons is simply the total electron momentum <span class="math inline">\(m_e n_e\mathbf{u}_e\)</span> measured in this frame multiplied by the rate <span class="math inline">\(\nu_{ei}\)</span> at which this momentum is destroyed by collisions with ions. This form for frictional drag force has the following properties: (i) <span class="math inline">\(\mathbf{R}_{ei} + \mathbf{R}_{ie} = 0\)</span>, showing that the plasma cannot exert a frictional drag force on itself, (ii) friction causes the faster species to be slowed down by the slower species, and (iii) there is no friction between species if both have the same mean velocity.</p>
-<p><a href="#eq-vlasov-1st-moment">Equation&nbsp;<span>8.16</span></a> can be further simplified by factoring <span class="math inline">\(\mathbf{u}\)</span> out of the velocity integrals and recalling that by definition <span class="math inline">\(\int \mathbf{v}^\prime f_s \mathrm{d}\mathbf{v}^\prime=0\)</span>. Thus <a href="#eq-vlasov-1st-moment">Equation&nbsp;<span>8.16</span></a> reduces to <span class="math display">\[
+<p><a href="#eq-vlasov-1st-moment">Equation&nbsp;<span>8.18</span></a> can be further simplified by factoring <span class="math inline">\(\mathbf{u}\)</span> out of the velocity integrals and recalling that by definition <span class="math inline">\(\int \mathbf{v}^\prime f_s \mathrm{d}\mathbf{v}^\prime=0\)</span>. Thus <a href="#eq-vlasov-1st-moment">Equation&nbsp;<span>8.18</span></a> reduces to <span class="math display">\[
 m_s\left[ \frac{\partial(n_s\mathbf{u}_s)}{\partial t} + \frac{\partial}{\partial\mathbf{x}}\cdot(n_s\mathbf{u}_s\mathbf{u}_s) \right] = n_s q_s (\mathbf{E} + \mathbf{u}_s\times\mathbf{B}) - \frac{\partial}{\partial\mathbf{x}}\cdot\overleftrightarrow{P}_s - \mathbf{R}_{s\alpha}
 \]</span> where the <em>pressure tensor</em> is defined by <span class="math display">\[
 \overleftrightarrow{P}_s \equiv m_s\int \mathbf{v}^\prime \mathbf{v}^\prime f_s \mathrm{d}\mathbf{v}^\prime
@@ -629,10 +624,78 @@ m_s\left[ \frac{\partial(n_s\mathbf{u}_s)}{\partial t} + \frac{\partial}{\partia
 p_s &amp;= m_s \int v_x^\prime v_x^\prime f_s \mathrm{d}\mathbf{v}^\prime = m_s \int v_y^\prime v_y^\prime f_s \mathrm{d}\mathbf{v}^\prime = m_s \int v_z^\prime v_z^\prime f_s \mathrm{d}\mathbf{v}^\prime \\
 &amp;= \frac{m_s}{3} \int \mathbf{v}^\prime\cdot \mathbf{v}^\prime f_s \mathrm{d}\mathbf{v}^\prime
 \end{aligned}
-\tag{8.17}\]</span></span></p>
-<p><a href="#eq-scalar-pressure">Equation&nbsp;<span>8.17</span></a> defines pressure for a three-dimensional isotropic system.</p>
-<p>Derivations of the zeroth- and first-moment equations are given in all textbooks, whereas only part of them list the second-moment equation. The energy equation derivation can be found in <span class="citation" data-cites="bellan2008fundamentals">(<a href="#ref-bellan2008fundamentals" role="doc-biblioref">Bellan 2008</a>)</span> and <a href="https://arxiv.org/abs/1901.09354">An introductory guide to fluid models with anisotropic temperatures</a>.</p>
-<p>As a short summary, the fluid equations we have been using are simply moments of the Boltzmann equation. One interesting observation from <a href="#eq-vlasov">Equation&nbsp;<span>8.8</span></a> is that in order to recover the hydrodynamic equations, the acceleration term <span class="math inline">\(\mathbf{a}\cdot\partial_\mathbf{v}f\)</span> is not required: the pressure gradient that drives the flow arises from the thermal motion embedded in the advection term <span class="math inline">\(\mathbf{v}\cdot\partial_\mathbf{x}f\)</span>.</p>
+\tag{8.19}\]</span></span></p>
+<p><a href="#eq-scalar-pressure">Equation&nbsp;<span>8.19</span></a> defines pressure for a three-dimensional isotropic system. However, we will often deal with systems of reduced dimensionality, i.e., systems with just one or two dimensions. <a href="#eq-scalar-pressure">Equation&nbsp;<span>8.19</span></a> can therefore be generalized to these other cases by introducing the general N-dimensional definition for scalar pressure <span id="eq-pressure-def"><span class="math display">\[
+p_s = \frac{m_s}{N}\int \mathbf{v}^\prime\cdot \mathbf{v}^\prime f_s \mathrm{d}^N\mathbf{v}^\prime
+\tag{8.20}\]</span></span> where <span class="math inline">\(\mathbf{v}^\prime\)</span> is the N-dimensional random velocity.</p>
+<p>It is important to emphasize that assuming isotropy is done largely for mathematical convenience and that in real systems the distribution function is often quite anisotropic. Collisions, being randomizing, drive the distribution function towards isotropy, while competing processes simultaneously drive it towards anisotropy. Thus, each situation must be considered individually in order to determine whether there is sufficient collisionality to make <span class="math inline">\(f\)</span> isotropic. Because fully ionized hot plasmas often have insufficient collisions to make <span class="math inline">\(f\)</span> isotropic, the often-used assumption of isotropy is an oversimplification, which may or may not be acceptable depending on the phenomenon under consideration.</p>
+<p>On expanding the derivatives on the left-hand side of <a href="#eq-vlasov-1st-moment">Equation&nbsp;<span>8.18</span></a>, it is seen that two of the terms combine to give <span class="math inline">\(\mathbf{u}\)</span> times <a href="#eq-vlasov-0th-moment">Equation&nbsp;<span>8.17</span></a>. After removing this embedded continuity equation, E@eq-vlasov-1st-moment reduces to <span class="math display">\[
+n_sm_s\frac{\mathrm{d}\mathbf{u}_s}{\mathrm{d}t} = n_s q_s(\mathbf{E} + \mathbf{u}_s\times\mathbf{B}) - \nabla p_s - \mathbf{R}_{s\alpha}
+\]</span> where the operator <span class="math inline">\(\mathrm{d}/\mathrm{d}t\)</span> is the convective derivative (<a href="math.html#eq-convective-derivative">Equation&nbsp;<span>3.2</span></a>).</p>
+<p>At this point in the procedure it becomes evident that a certain pattern recurs for each successive moment of the Vlasov equation. When we took the zeroth moment, an equation for the density <span class="math inline">\(\int f\mathrm{d}\mathbf{v}\)</span> resulted, but this also introduced a term involving the next higher moment, namely the mean velocity <span class="math inline">\(\sim\int\mathbf{v}f\mathrm{d}\mathbf{v}\)</span>. Then, when we took the first moment to get an equation for the velocity, an equation was obtained containing a term involving the next higher moment, namely the pressure <span class="math inline">\(\sim\int \mathbf{v}\mathbf{v}f\mathrm{d}\mathbf{v}\)</span>. Thus, each time we take a moment of the Vlasov equation, an equation for the moment we want is obtained, but because of the <span class="math inline">\(\mathbf{v}\cdot\nabla f\)</span> term in the Vlasov equation, a next higher moment also appears. Thus, moment-taking never leads to a closed system of equations; there will always be a “loose end”, a highest moment for which there is no determining equation. Some sort of ad hoc closure procedure must always be invoked to terminate this chain (as seen below, typical closures involve invoking adiabatic or isothermal assumptions). Another feature of taking moments is that each higher moment embeds terms that contain complete lower moment equations multiplied by some factor. Algebraic manipulation can identify these lower moment equations and eliminate them to give a simplified higher moment equation.</p>
+<p>Let us now take the second moment of the Vlasov equation. Unlike the zeroth and first moments, the dimensionality of the system now enters explicitly so the more general pressure definition given by <a href="#eq-pressure-def">Equation&nbsp;<span>8.20</span></a> will be used. Multiplying the Vlasov equation by <span class="math inline">\(m_s v^2/2\)</span> and integrating over velocity gives <span id="eq-vlasov-2nd-moment"><span class="math display">\[
+\begin{Bmatrix}
+\frac{\partial}{\partial t}\int \frac{m_s v^2}{2}f_s\mathrm{d}^N\mathbf{v} \\
++\frac{\partial}{\partial\mathbf{x}}\cdot\int\frac{m_s v^2}{2}\mathbf{v}f_s\mathrm{d}^N\mathbf{v} \\
++q_s\int\frac{v^2}{2}\frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{E}+\mathbf{v}\times\mathbf{B})f_s\mathrm{d}^N\mathbf{v}
+\end{Bmatrix} =
+\sum_\alpha \int m_s \frac{v^2}{2}C_{s\alpha}f_s\mathrm{d}^N \mathbf{v}
+\tag{8.21}\]</span></span></p>
+<p>We consider each term of this equation separately as follows:</p>
+<ol type="1">
+<li><p>The time derivative term becomes <span class="math display">\[
+\frac{\partial}{\partial t}\int \frac{m_s v^2}{2}f_s\mathrm{d}^N\mathbf{v} = \frac{\partial}{\partial t}\int \frac{m_s(\mathbf{v}^\prime + \mathbf{u}_s)^2}{2} f_s\mathrm{d}^N\mathbf{v}^\prime = \frac{\partial}{\partial t}\left( \frac{Np_s}{2} + \frac{m_sn_su_s^2}{2} \right)
+\]</span></p></li>
+<li><p>Again using <span class="math inline">\(\mathbf{v}=\mathbf{v}^\prime + \mathbf{u}_s\)</span>, the space derivative term becomes <span class="math display">\[
+\frac{\partial}{\partial\mathbf{x}}\cdot\int\frac{m_s v^2}{2}\mathbf{v}f_s\mathrm{d}^N\mathbf{v} = \nabla\cdot\left( \mathbf{Q}_s + \frac{2+N}{2}p_s\mathbf{u}_s + \frac{m_sn_su_s^2}{2}\mathbf{u}_s \right)
+\]</span> where <span class="math display">\[
+\mathbf{Q}_s = \int\frac{m_s{v^\prime}^2}{2}\mathbf{v}^\prime f_s\mathrm{d}^N\mathbf{v}
+\]</span> is called the <em>heat flux</em>.</p></li>
+<li><p>On integrating by parts, the acceleration term becomes <span class="math display">\[
+q_s\int\frac{v^2}{2}\frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{E}+\mathbf{v}\times\mathbf{B})f_s\mathrm{d}^N\mathbf{v} = -q_s\int\mathbf{v}\cdot\mathbf{E} f_s\mathrm{d}\mathbf{v} = -q_s n_s\mathbf{u}_s\cdot\mathbf{E}
+\]</span></p></li>
+<li><p>The collision term becomes (using <a href="#eq-distribution_energy_cons_self">Equation&nbsp;<span>8.14</span></a>) <span class="math display">\[
+\sum_\alpha \int m_s \frac{v^2}{2}C_{s\alpha}f_s\mathrm{d}^N \mathbf{v} = \int_{s\neq \alpha}m_s\frac{v^2}{2}C_{s\alpha} f_s\mathrm{d}\mathbf{v} = -\left( \frac{\partial W}{\partial t} \right)_\mathrm{Es\alpha}
+\]</span> where <span class="math inline">\((\partial W/\partial t)_\mathrm{Es\alpha}\)</span> is the rate at which species <span class="math inline">\(s\)</span> collisionally transfers energy to species <span class="math inline">\(\alpha\)</span>.</p></li>
+</ol>
+<p>Combining the above four relations, <a href="#eq-vlasov-2nd-moment">Equation&nbsp;<span>8.21</span></a> becomes <span id="eq-vlasov-2nd-moment2"><span class="math display">\[
+\begin{aligned}
+\frac{\partial}{\partial t}\left( \frac{Np_s}{2} + \frac{m_sn_su_s^2}{2} \right) + \nabla\cdot\left( \mathbf{Q}_s +\frac{2+N}{2}p_s\mathbf{u}_s + \frac{m_sn_su_s^2}{2}\mathbf{u}_s \right) - q_s n_s \mathbf{u}_s\cdot\mathbf{E} \\
+= -\left( \frac{\partial W}{\partial t} \right)_\mathrm{E\sigma s}
+\end{aligned}
+\tag{8.22}\]</span></span></p>
+<p>This equation can be simplified by invoking two mathmatical identities, the first being <span class="math display">\[
+\frac{\partial}{\partial t}\left( \frac{m_s n_s u_s^2}{2} \right) + \nabla\cdot\left( \frac{m_sn_su_s^2}{2}\mathbf{u}_s \right) = n_s\left( \frac{\partial}{\partial t} + \mathbf{u}_s\cdot\nabla \right)\frac{m_su_s^2}{2} = n_s\frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{m_su_s^2}{2} \right)
+\]</span></p>
+<p>The second identity is obtained by dotting the equation of motion with <span class="math inline">\(\mathbf{u}_s\)</span>: <span class="math display">\[
+\begin{aligned}
+n_s m_s\left[ \frac{\partial}{\partial t}\left( \frac{u_s^2}{2}\right) + \mathbf{u}_s\cdot\left( \nabla\left( \frac{u_s^2}{2} \right) - \mathbf{u}_s\times\nabla\times\mathbf{u}_s \right) \right] \\
+= n_s q_s \mathbf{u}_s\cdot\mathbf{E} - \mathbf{u}_s\cdot\nabla p_s - \mathbf{R}_{s\alpha}\cdot\mathbf{u}_s
+\end{aligned}
+\]</span> or <span class="math display">\[
+n_s\frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{m_su_s^2}{2} \right) = n_sq_s\mathbf{u}_s\cdot\mathbf{E} - \mathbf{u}_s\cdot\nabla p_s - \mathbf{R}_{s\alpha}\cdot\mathbf{u}_s
+\]</span></p>
+<p>Inserting these two into <a href="#eq-vlasov-2nd-moment2">Equation&nbsp;<span>8.22</span></a> gives the energy evolution equation <span id="eq-vlasov-2nd-moment3"><span class="math display">\[
+\frac{N}{2}\frac{\mathrm{d}p_s}{\mathrm{d}t} + \frac{2+N}{2}p\nabla\cdot\mathbf{u}_s = -\nabla\cdot\mathbf{Q}_s + \mathbf{R}_{s\alpha}\cdot\mathbf{u}_s - \left(\frac{\partial W}{\partial t}\right)_\mathrm{Es\alpha}
+\tag{8.23}\]</span></span></p>
+<p>The first term on the right-hand side represents the heat flux, the second term gives the frictional heating of species <span class="math inline">\(s\)</span> due to frictional drag on species <span class="math inline">\(\alpha\)</span>, while the last term on the right-hand side gives the rate at which species <span class="math inline">\(s\)</span> collisionally transfers energy to other species. Although <a href="#eq-vlasov-2nd-moment3">Equation&nbsp;<span>8.23</span></a> is complicated, two important limiting situations become evident if we let <span class="math inline">\(t_\mathrm{char}\)</span> be the characteristic time scale for a given phenomenon and <span class="math inline">\(l_\mathrm{char}\)</span> be its characteristic length scale. A characteristic velocity <span class="math inline">\(V_\mathrm{ph}\sim l_\mathrm{char}/t_\mathrm{char}\)</span> may then be defined for the phenomenon and so, replacing temporal derivatives by <span class="math inline">\(t_\mathrm{char}^{-1}\)</span> and spatial derivatives by <span class="math inline">\(l_\mathrm{char}^{-1}\)</span> in <a href="#eq-vlasov-2nd-moment3">Equation&nbsp;<span>8.23</span></a>, it is seen that the two limiting situations are:</p>
+<ol type="1">
+<li><p><em>Isothermal limit</em> - The heat flux term dominates all other terms, in which case the temperature becomes spatially uniform. This occurs if (i) <span class="math inline">\(v_{Ts}\gg V_\mathrm{ph}\)</span> since the ratio of the left-hand side terms to the heat flux term is <span class="math inline">\(\sim V_\mathrm{ph}/v_{Ts}\)</span> and (ii) the collisional terms are small enough to be ignored.</p></li>
+<li><p><em>Adiabatic limit</em> - The heat flux terms and the collisional terms are small enough to be ignored compared to the left-hand side terms; this occurs when <span class="math inline">\(V_\mathrm{ph} \gg v_{Ts}\)</span>. Adiabatic is a Greek word meaning “impassable”, and is used here to denote that no heat is flowing, i.e., the volume under consideration is thermally isolated from the outside world.</p></li>
+</ol>
+<p>Both of these limits make it possible to avoid solving for <span class="math inline">\(\mathbf{Q}_s\)</span>, which involves the third moment, and so both the adiabatic and isothermal limit provide a closure to the moment equations.</p>
+<p>The energy equation may be greatly simplified in the adiabatic limit by re-arranging the continuity equation to give <span class="math display">\[
+\nabla\cdot\mathbf{u}_s = -\frac{1}{n_s}\frac{\mathrm{d}n_s}{\mathrm{d}t}
+\]</span> and then substituting this expression into the left-hand side of <a href="#eq-vlasov-2nd-moment3">Equation&nbsp;<span>8.23</span></a> to obtain <span id="eq-adiabatic1"><span class="math display">\[
+\frac{1}{p_s}\frac{\mathrm{d}p_s}{\mathrm{d}t} = \frac{\gamma}{n_s}\frac{\mathrm{d}n_s}{\mathrm{d}t}
+\tag{8.24}\]</span></span> where <span class="math display">\[
+\gamma = \frac{N+2}{N}
+\]</span></p>
+<p><a href="#eq-adiabatic1">Equation&nbsp;<span>8.24</span></a> implies <span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{p_s}{n_s^\gamma} \right) = 0
+\]</span> so <span class="math inline">\(p_s/n_s^\gamma\)</span> is a constant in the frame of the moving plasma. This constitutes a derivation of adiabaticity based on geometry and statistical mechanics rather than on thermodynamic arguments.</p>
+<p>The energy equation derivation can also be found in <a href="https://arxiv.org/abs/1901.09354">An introductory guide to fluid models with anisotropic temperatures</a>.</p>
+<p>As a short summary, the fluid equations we have been using are simply moments of the Boltzmann equation. One interesting observation from <a href="#eq-vlasov">Equation&nbsp;<span>8.9</span></a> is that in order to recover the hydrodynamic equations, the acceleration term <span class="math inline">\(\mathbf{a}\cdot\partial_\mathbf{v}f\)</span> is not required: the pressure gradient that drives the flow arises from the thermal motion embedded in the advection term <span class="math inline">\(\mathbf{v}\cdot\partial_\mathbf{x}f\)</span>.</p>
 </section>
 <section id="sec-landau" class="level2" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="sec-landau"><span class="header-section-number">8.5</span> Plasma Oscillations and Landau Damping</h2>
@@ -644,7 +707,7 @@ f(\mathbf{r},\mathbf{v},t) = f_0(\mathbf{v}) + f_1(\mathbf{r},\mathbf{v},t)
 <p>Since <span class="math inline">\(\mathbf{v}\)</span> is now an independent variable and is not to be linearized, the first-order Vlasov equation for electron is</p>
 <p><span id="eq-vlasov_1st"><span class="math display">\[
 \frac{\partial f_1}{\partial t} + \mathbf{v}\cdot\nabla f_1 - \frac{e}{m}\mathbf{E}_1\cdot\frac{\partial f_0}{\partial \mathbf{v}} = 0
-\tag{8.18}\]</span></span></p>
+\tag{8.25}\]</span></span></p>
 <p>As before, we assume the ions are massive and fixed and that the waves are plane waves in the x direction <span class="math inline">\(f_1 \propto e^{i(kx - \omega t)}\)</span>. Then the linearized Vlasov equation becomes</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -671,7 +734,7 @@ f_1 &amp;= \frac{ieE_x}{m}\frac{\partial f_0/\partial v_x}{\omega - kv_x}
 <p>Since we are dealing with a one-dimensional problem we may drop the subscript x, begin careful not to confuse <span class="math inline">\(v\)</span> (which is really <span class="math inline">\(v_x\)</span>) with the total velocity <span class="math inline">\(v\)</span> used earlier:</p>
 <p><span id="eq-dispersion_0th"><span class="math display">\[
 1 = \frac{\omega_p^2}{k^2}\int_{-\infty}^{\infty}\frac{\partial \hat{f}_0/\partial v}{v - \omega/k}\mathrm{d}v
-\tag{8.19}\]</span></span></p>
+\tag{8.26}\]</span></span></p>
 <p>Here, <span class="math inline">\(\hat{f}_0\)</span> is understood to be a one-dimensional distribution function, the integrations over <span class="math inline">\(v_y\)</span> and <span class="math inline">\(v_z\)</span> having been made. This equation holds for any equilibrium distribution <span class="math inline">\(\hat{f}_0(v)\)</span>.</p>
 <p>The integral in this equation is not straightforward to evaluate because of the singularity at <span class="math inline">\(v=\omega/k\)</span>. One might think that the singularity would be of no concern, because in practice <span class="math inline">\(\omega\)</span> is almost always never real; waves are usually slightly damped by collisions or are amplified by some instability mechanisms. Since the velocity <span class="math inline">\(v\)</span> is a real quantity, the denominator never vanishes. Landau was the first to treat this equation properly. He found that even though the singularity lies off the path of integration, its presence introduces an important modification to the plasma wave dispersion relation — an effect not predicted by the fluid theory.</p>
 <p>Consider an initial value problem in which the plasma is given a sinusoidal perturbation, and therefore <span class="math inline">\(k\)</span> is real. If the perturbation grows or decays, <span class="math inline">\(\omega\)</span> will be complex. This integral must be treated as a contour integral in the complex <span class="math inline">\(v\)</span> plane. Possible contours are shown for (a) an unstable wave, with <span class="math inline">\(\Im(\omega) &gt; 0\)</span>, and (b) a dampled wave, with <span class="math inline">\(\Im(\omega) &lt; 0\)</span>. Normally, one would evaluate the line integral along the real <span class="math inline">\(v\)</span> axis by the residue theorem:</p>
@@ -683,10 +746,10 @@ f_1 &amp;= \frac{ieE_x}{m}\frac{\partial f_0/\partial v_x}{\omega - kv_x}
 \exp(-v^2/v_{th}^2)
 \]</span></p>
 <p>This factor becomes large for <span class="math inline">\(v\rightarrow \pm i \infty\)</span>, and the contribution from <span class="math inline">\(C_2\)</span> cannot be neglected. Landau showed that when the problem is properly treated as an initial value problem the correct contour to use is the curve <span class="math inline">\(C_1\)</span> passing below the singularity. This integral must in general be evaluated numerically.</p>
-<p>Although an exact analysis of this problem is complicated, we can obtain an approximate dispersion relation for the case of large phase velocity and weak damping. In this case, the pole at <span class="math inline">\(\omega/k\)</span> lies near the real <span class="math inline">\(v\)</span> axis. The contour prescribed by Landau is then a straight line along the <span class="math inline">\(\Re(v)\)</span> axis with a small semicircle around the pole. In going around the pole, one obtains <span class="math inline">\(2\pi i\)</span> time half the residue there. Then <a href="#eq-dispersion_0th">Equation&nbsp;<span>8.19</span></a> becomes</p>
+<p>Although an exact analysis of this problem is complicated, we can obtain an approximate dispersion relation for the case of large phase velocity and weak damping. In this case, the pole at <span class="math inline">\(\omega/k\)</span> lies near the real <span class="math inline">\(v\)</span> axis. The contour prescribed by Landau is then a straight line along the <span class="math inline">\(\Re(v)\)</span> axis with a small semicircle around the pole. In going around the pole, one obtains <span class="math inline">\(2\pi i\)</span> time half the residue there. Then <a href="#eq-dispersion_0th">Equation&nbsp;<span>8.26</span></a> becomes</p>
 <p><span id="eq-landau_residue"><span class="math display">\[
 1 = \frac{\omega_p^2}{k^2} \Big[ P\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0/\partial v}{v - (\omega/k)}\mathrm{d}v + i\pi \frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=\omega/k} \Big]
-\tag{8.20}\]</span></span></p>
+\tag{8.27}\]</span></span></p>
 <p>where <span class="math inline">\(P\)</span> stands for the Cauchy principal value. To evaluate this, we integrate along the real <span class="math inline">\(v\)</span> axis but stop just before encountering the pole. If the phase velocity <span class="math inline">\(v_\phi = \omega/k\)</span> is sufficiently large, as we assume, there will not be much contribution from the neglected part of the contour, since both <span class="math inline">\(\hat{f}_0\)</span> and <span class="math inline">\(\partial\hat{f}_0/\partial v\)</span> are very small there. The integral above can be evaluated by integration by parts:</p>
 <p><span class="math display">\[
 \int_{-\infty}^{\infty}\frac{\partial\hat{f}_0}{\partial v}\frac{\mathrm{d}v}{v - v_\phi} = \Big[ \frac{\hat{f}_0}{v-v_\phi} \Big]_{-\infty}^{\infty} - \int_{-\infty}^{\infty}\frac{-\hat{f}_0 \mathrm{d}v}{(v-v_\phi)^2} = \int_{-\infty}^{\infty}\frac{\hat{f}_0 \mathrm{d}v}{(v-v_\phi)^2}
@@ -729,7 +792,7 @@ f_1 &amp;= \frac{ieE_x}{m}\frac{\partial f_0/\partial v_x}{\omega - kv_x}
 <p>Treating the imaginary term as small, we can bring it to the right-hand side and take the square root by Taylar series expansion. We then obtain</p>
 <p><span id="eq-landau"><span class="math display">\[
 \omega = \omega_p\Big( 1 + i\frac{\pi}{2}\frac{\omega_p^2}{k^2}\frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=v_\phi} \Big)
-\tag{8.21}\]</span></span></p>
+\tag{8.28}\]</span></span></p>
 <p>If <span class="math inline">\(\hat{f}_0\)</span> is a one-dimensional Maxwellian, we have</p>
 <p><span class="math display">\[
 \frac{\partial\hat{f}_0}{\partial v} = (\pi v_{th}^2)^{-1/2} \Big( \frac{-2v}{v_{th}^2} \Big) \exp\Big( \frac{-v^2}{v_{th}^2} \Big) = -\frac{2v}{\sqrt{\pi}v_{th}}\exp\Big( \frac{-v^2}{v_{th}^2} \Big)
@@ -757,7 +820,7 @@ m\ddot{x} = qE(x)
 <p><span class="math display">\[
 m\Big[ \frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)\mathbf{v} \Big] = q\mathbf{E}(x)
 \]</span></p>
-<p>Here, <span class="math inline">\(\mathbf{E}(x)\)</span> is to be evaluated in the laboratory frame, which is easy; but to make up for it, there is the <span class="math inline">\((\mathbf{v}\cdot\nabla)\mathbf{v}\)</span> term. The neglect of <span class="math inline">\((\mathbf{v}_1\cdot\nabla)\mathbf{v}_1\)</span> in linear theory amounts to the same thing as using unperturbed orbits. In kinetic theory, the nonlinear term that is neglected is, from the first-order Vlasov <a href="#eq-vlasov_1st">Equation&nbsp;<span>8.18</span></a>,</p>
+<p>Here, <span class="math inline">\(\mathbf{E}(x)\)</span> is to be evaluated in the laboratory frame, which is easy; but to make up for it, there is the <span class="math inline">\((\mathbf{v}\cdot\nabla)\mathbf{v}\)</span> term. The neglect of <span class="math inline">\((\mathbf{v}_1\cdot\nabla)\mathbf{v}_1\)</span> in linear theory amounts to the same thing as using unperturbed orbits. In kinetic theory, the nonlinear term that is neglected is, from the first-order Vlasov <a href="#eq-vlasov_1st">Equation&nbsp;<span>8.25</span></a>,</p>
 <p><span class="math display">\[
 \frac{q}{m}E_1\frac{\partial f_1}{\partial v}
 \]</span></p>
@@ -995,7 +1058,7 @@ n_{1j} = \frac{iq_j E n_{0j}}{km_j v_{thj}^2}\frac{1}{\pi^{1/2}}\int_{-\infty}^{
 <p>We now define the <em>plasma dispersion function</em> <span class="math inline">\(Z(\zeta)\)</span>:</p>
 <p><span id="eq-plasma_dispersion_function"><span class="math display">\[
 Z(\zeta) = \frac{1}{\pi^{1/2}}\int_{-\infty}^{\infty}\frac{e^{-s^2}}{s -\zeta}ds\quad \Im(\zeta)&gt;0
-\tag{8.22}\]</span></span></p>
+\tag{8.29}\]</span></span></p>
 <p>(Why positive imaginary part???)This is a contour integral, as explained in previous sections, and analytic continuation to the lower half plane must be used if <span class="math inline">\(\Im(\zeta)&lt;0\)</span>. <span class="math inline">\(Z(\zeta)\)</span> is a complex function of a complex argument (since <span class="math inline">\(\omega\)</span> or <span class="math inline">\(k\)</span> usually has an imaginary part). In cases where <span class="math inline">\(Z(\zeta)\)</span> cannot be approximated by an asymptotic formula, one can do it numerically.</p>
 <p>To express <span class="math inline">\(n_{1j}\)</span> in terms of <span class="math inline">\(Z(\zeta)\)</span>, we take the derivative with respect to <span class="math inline">\(\zeta\)</span>:</p>
 <p><span class="math display">\[
@@ -1029,7 +1092,7 @@ k_D^2 = 2\omega_p^2/v_{the}^2 = \lambda_D^{-2}
 <p><span class="math display">\[
 k/k_D^2 = \frac{1}{2}Z^\prime(\zeta_e)
 \]</span></p>
-<p>which is the same as <a href="#eq-dispersion_0th">Equation&nbsp;<span>8.19</span></a> when <span class="math inline">\(f_{0e}\)</span> is Maxwellian.</p>
+<p>which is the same as <a href="#eq-dispersion_0th">Equation&nbsp;<span>8.26</span></a> when <span class="math inline">\(f_{0e}\)</span> is Maxwellian.</p>
 </section>
 <section id="ion-waves-and-their-damping" class="level3" data-number="8.9.2">
 <h3 data-number="8.9.2" class="anchored" data-anchor-id="ion-waves-and-their-damping"><span class="header-section-number">8.9.2</span> Ion Waves and Their Damping</h3>
@@ -1215,9 +1278,6 @@ k_\perp^2 + \sum_s k_D^2 e^{-b}\sum_{n=1}^{\infty} I_n(b)\Big[ 2-\frac{\omega}{\
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-bellan2008fundamentals" class="csl-entry" role="doc-biblioentry">
-Bellan, Paul M. 2008. <em>Fundamentals of Plasma Physics</em>. Cambridge University Press.
-</div>
 <div id="ref-chen2016introduction" class="csl-entry" role="doc-biblioentry">
 Chen, Francis F. 2016. <em>Introduction to Plasma Physics and Controlled Fusion</em>. Vol. 1. Springer.
 </div>

@@ -628,7 +628,7 @@ mn\Big[\frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u}
 \rho\Big[ \frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u} \Big] = -\nabla p + \rho\nu\nabla^2\mathbf{u}
 \tag{5.9}\]</span></span></p>
 <p>This is the same as <a href="#eq-momentum_single">Equation&nbsp;<span>5.8</span></a> except for the absence of electromagnetic forces and collisions between species (there being only one species). The viscosity term <span class="math inline">\(\rho\nu\nabla^2\mathbf{u}\)</span>, where <span class="math inline">\(\nu\)</span> is the kinematic viscosity coefficient, is just the collisional part of <span class="math inline">\(\nabla\cdot\overleftrightarrow{P} - \nabla p\)</span> in the absence of magnetic fields. <a href="#eq-navier_stokes">Equation&nbsp;<span>5.9</span></a> describes a fluid in which there are frequent collisions between particles. <a href="#eq-momentum_single">Equation&nbsp;<span>5.8</span></a>, on the other hand, was derived without any explicit statement of the collision rate. Since the two equations are identical except for the <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> terms, can <a href="#eq-momentum_single">Equation&nbsp;<span>5.8</span></a> really describe a plasma species? The answer is a guarded yes, and the reasons for this will tell us the limitations of the fluid theory. This is extremely important to clarify — there are still quite many people think that collision is assumed for the fluid theory, therefore do not believe that MHD can be used to describe plasmas.</p>
-<p>In the derivation of <a href="#eq-momentum_single">Equation&nbsp;<span>5.8</span></a>, we did actually assume implicitly that there were many collisions. This assumption came in the derivation of the pressure tensor (TO BE ADDED!) when we took the velocity distribution to be Maxwellian. Such a distribution generally comes about as the result of frequent collisions. However, this assumption was used only to take the average of <span class="math inline">\(v^2\)</span>. Any other distribution with the same average would give us the same answer. The fluid theory, therefore, is not very sensitive to deviations from the Maxwellian distribution, but there are instances in which these deviations are important. Kinetic theory must then be used.</p>
+<p>In the derivation of <a href="#eq-momentum_single">Equation&nbsp;<span>5.8</span></a>, we did actually assume implicitly that there were many collisions. This assumption came in the derivation of the pressure tensor (<a href="kinetic.html#sec-kinetic-fluid-moments"><span>Section&nbsp;8.4</span></a>) when we took the velocity distribution to be Maxwellian. Such a distribution generally comes about as the result of frequent collisions. However, this assumption was used only to take the average of <span class="math inline">\(v^2\)</span>. Any other distribution with the same average would give us the same answer. The fluid theory, therefore, is not very sensitive to deviations from the Maxwellian distribution, but there are instances in which these deviations are important. Kinetic theory must then be used.</p>
 <p>There is also an empirical observation by Irving Langmuir which helps the fluid theory. In working with the electrostatic probes which bear his name, Langmuir discovered that the electron distribution function was far more nearly Maxwellian than could be accounted for by the collision rate. This phenomenon, called <em>Langmuir’s paradox</em>, has been attributed at times to high-frequency oscillations. There has been no satisfactory resolution of the paradox, but this seems to be one of the few instances in plasma physics where nature works in our favor.</p>
 <p>Another reason the fluid model works for plasmas is that the magnetic field, when there is one, can play the role of collisions in a certain sense. When a particle is accelerated, say by an <span class="math inline">\(\mathbf{E}\)</span> field, it would continuously increase in velocity if it were allowed to free-stream. When there are frequent collisions, the particle comes to a limiting velocity proportional to <span class="math inline">\(\mathbf{E}\)</span>. The electrons in a copper wire, for instance, drift together with a velocity <span class="math inline">\(\mathbf{v}=\mu\mathbf{E}\)</span>, where <span class="math inline">\(\mu\)</span> is the mobility. A magnetic field also limits free-streaming by forcing particles to gyrate in Larmor orbits. The electrons in a plasma also drift together with a velocity proportional to <span class="math inline">\(\mathbf{E}\)</span>, namely, <span class="math inline">\(\mathbf{v}_E=\mathbf{E}\times\mathbf{B}/B^2\)</span>. In this sense, a collisionless plasma behaves like a collisional fluid. Of course, particles do free-stream <em>along</em> the magnetic field, and the fluid picture is not particularly suitable for motions in that direction. <em>For motions perpendicular to <span class="math inline">\(\mathbf{B}\)</span>, the fluid theory is a good approximation</em>.</p>
 </section>
@@ -891,52 +891,36 @@ n = n_0 \exp(e\phi/k_B T_e)
 \frac{\partial(m_s n_s u_{j,s})}{\partial t} + \frac{\partial \mathcal{P}_{ij,s}}{\partial x_j} = n_s q_s (E_i + \epsilon_{ijk}u_{j,s}B_k)
 \end{aligned}
 \]</span></p>
-<p>where <span class="math inline">\(\epsilon_{ijk}\)</span> is the Levi-Civita symbol. The moments are defined as</p>
-<p><span class="math display">\[
+<p>where <span class="math inline">\(\epsilon_{ijk}\)</span> is the Levi-Civita symbol. The moments are defined as <span class="math display">\[
 \begin{aligned}
 n_s(\mathbf{x}) &amp;\equiv \int f_s \mathrm{d}\mathbf{v} \\
 u_{i,s}(\mathbf{x}) &amp;\equiv \frac{1}{n_s(\mathbf{x})}\int v_i f_s \mathrm{d}\mathbf{v} \\
 \mathcal{P}_{ij,s}(\mathbf{x}) &amp;\equiv m_s \int v_i v_j f_s \mathrm{d}\mathbf{v}
 \end{aligned}
 \]</span></p>
-<p>with <span class="math inline">\(f_s(\mathbf{x},\mathbf{v},t)\)</span> being the phase space distribution function. We will neglect the subscript <span class="math inline">\(s\)</span> hereinafter for convenience. For completeness, <span class="math inline">\(\mathcal{P}_{ij}\)</span> relates to the more familiar thermal pressure tensor</p>
-<p><span class="math display">\[
+<p>with <span class="math inline">\(f_s(\mathbf{x},\mathbf{v},t)\)</span> being the phase space distribution function. We will neglect the subscript <span class="math inline">\(s\)</span> hereinafter for convenience. For completeness, <span class="math inline">\(\mathcal{P}_{ij}\)</span> relates to the more familiar thermal pressure tensor <span class="math display">\[
 P_{ij} \equiv m\int(v_i - u_i)(v_i - u_i)f\mathrm{d}\mathbf{v}
-\]</span></p>
-<p>by</p>
-<p><span class="math display">\[
+\]</span> by <span class="math display">\[
 \mathcal{P}_{ij} = P_{ij} + nm u_i u_j
 \]</span></p>
-<p>For simplicity, non-ideal effects like viscous dissipation are neglected. The electric and magnetic fields <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> are evolved using Maxwell equations</p>
-<p><span class="math display">\[
+<p>For simplicity, non-ideal effects like viscous dissipation are neglected. The electric and magnetic fields <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> are evolved using Maxwell equations <span class="math display">\[
 \begin{aligned}
 \frac{\partial\mathbf{B}}{\partial t} + \nabla\times\mathbf{E} = 0 \\
 \frac{\partial\mathbf{E}}{\partial t} - c^2\nabla\times\mathbf{B} = -\frac{1}{\epsilon_0}\sum_s q_s n_s \mathbf{u}_s
 \end{aligned}
 \]</span></p>
 <p>with <span class="math inline">\(c=1/\sqrt(\mu_0\epsilon_0)\)</span> being the speed of light.</p>
-<p>To close the system, the second order moment <span class="math inline">\(\mathcal{P}_{ij}\)</span> or <span class="math inline">\(P_{ij}\)</span> must be specified. For example, a cold fluid closure simply sets <span class="math inline">\(P_{ij}=0\)</span>, while an isothermal equation of state (EOS) assumes that the temperature is constant. Or, assuming zero heat flux and that the pressure tensor is isotropic, we can write an adiabatic EOS for <span class="math inline">\(P_{ij} = p I_{ij}\)</span>,</p>
-<p><span class="math display">\[
+<p>To close the system, the second order moment <span class="math inline">\(\mathcal{P}_{ij}\)</span> or <span class="math inline">\(P_{ij}\)</span> must be specified. For example, a cold fluid closure simply sets <span class="math inline">\(P_{ij}=0\)</span>, while an isothermal equation of state (EOS) assumes that the temperature is constant. Or, assuming zero heat flux and that the pressure tensor is isotropic, we can write an adiabatic EOS for <span class="math inline">\(P_{ij} = p I_{ij}\)</span>, <span class="math display">\[
 \frac{\partial\mathcal{\epsilon}}{\partial t} + \nabla\cdot\left[ (p+\mathcal{\epsilon})\mathbf{u} \right] = nq\mathbf{u}\cdot\mathbf{E}
-\]</span></p>
-<p>where</p>
-<p><span class="math display">\[
+\]</span> where <span class="math display">\[
 \mathcal{\epsilon} \equiv \frac{p}{\gamma-1} + \frac{1}{2}mn\mathbf{u}^2
-\]</span></p>
-<p>is the total fluid (thermal + kinetic) energy and <span class="math inline">\(\gamma\)</span> is the adiabatic index, setting to <span class="math inline">\(5/3\)</span> for a fully ionized plasma. For a plasma with <span class="math inline">\(S\)</span> species (<span class="math inline">\(s=1,...,S\)</span>) this system is closed and has a total of <span class="math inline">\(5S+6\)</span> equations, and are here referred to as the <em>five-moment</em> model. More general models can be obtained by retaining the evolution equations for all six components of the pressure tensor in the so-called <em>ten-moment</em> model</p>
-<p><span id="eq-ten-moment"><span class="math display">\[
+\]</span> is the total fluid (thermal + kinetic) energy and <span class="math inline">\(\gamma\)</span> is the adiabatic index, setting to <span class="math inline">\(5/3\)</span> for a fully ionized plasma. For a plasma with <span class="math inline">\(S\)</span> species (<span class="math inline">\(s=1,...,S\)</span>) this system is closed and has a total of <span class="math inline">\(5S+6\)</span> equations, and are here referred to as the <em>five-moment</em> model. More general models can be obtained by retaining the evolution equations for all six components of the pressure tensor in the so-called <em>ten-moment</em> model <span id="eq-ten-moment"><span class="math display">\[
 \frac{\mathcal{P}_{ij,s}}{\partial t} + \frac{\partial \mathcal{Q}_{ijm,s}}{\partial x_m} = n_sq_su_{i,s}E_j + \frac{q_s}{m_s}\epsilon_{iml}\mathcal{P}_{mj,s}B_l
-\tag{5.26}\]</span></span></p>
-<p>where the third moment</p>
-<p><span class="math display">\[
+\tag{5.26}\]</span></span> where the third moment <span class="math display">\[
 \mathcal{Q}_{ijm,s}(\mathbf{x}) \equiv m_s\int v_i v_j v_m f_s\mathrm{d}\mathbf{v}
-\]</span></p>
-<p>relates to the heat flux tensor defined in the fluid frame</p>
-<p><span class="math display">\[
+\]</span> relates to the heat flux tensor defined in the fluid frame <span class="math display">\[
 Q_{ijm} \equiv m\int (v_i-u_i)(v_j-u_j)(v_m-u_m)\mathrm{d}\mathbf{v}
-\]</span></p>
-<p>by</p>
-<p><span class="math display">\[
+\]</span> by <span class="math display">\[
 \mathcal{Q}_{ijm} = Q_{ijm} + u_i\mathcal{P}_{jm} - 2nm u_i u_j u_m
 \]</span></p>
 <p>Again, the equations here must be closed by some approximation for the heat-flux tensor. Another option is to include evolution equations for even higher order moments, e.g., the ten independent components of the heat-flux tensor.</p>
@@ -1067,13 +1051,11 @@ f(z)=\frac{1}{(z-\lambda)^2}+\frac{{\omega_{pi}}^2/{\omega_{pe}}^2}{z^2}=\frac{z
 </section>
 <section id="hall-mhd" class="level2" data-number="5.9">
 <h2 data-number="5.9" class="anchored" data-anchor-id="hall-mhd"><span class="header-section-number">5.9</span> Hall MHD</h2>
-<p>As an extension to the ideal/resistive MHD model, Hall MHD decouples the electron and ion motions by retrieving the Hall term in the generalized Ohm’s law</p>
-<p><span class="math display">\[
+<p>As an extension to the ideal/resistive MHD model, Hall MHD decouples the electron and ion motions by retrieving the Hall term in the generalized Ohm’s law <span class="math display">\[
 \mathbf{E} = -\mathbf{u}\times\mathbf{B}+\eta\mathbf{J}+\frac{1}{en}\mathbf{J}\times\mathbf{B} - \frac{\nabla p_e}{ne}
 \]</span></p>
 <p>where the first term on the right-hand-side is the convective term, the second is the resistive term, the third is the Hall term, and the fourth is the electron pressure gradient term. The electron pressure scalar is simplified from the electron pressure tensor, which is obtained from an independent electron pressure equation.</p>
-<p>The Hall MHD equations are</p>
-<p><span id="eq-hall_mhd"><span class="math display">\[
+<p>The Hall MHD equations are <span id="eq-hall_mhd"><span class="math display">\[
 \begin{aligned}
 \frac{\partial\rho}{\partial t}&amp;=-\nabla\cdot \left(\rho \mathbf{u} \right) \\
 \frac{\partial (\rho\mathbf{u})}{\partial t}&amp;=-\nabla\cdot \left(\rho\mathbf{u}\mathbf{u}+(p+p_e)\bar{\bar{I}}+\frac{B^2}{2\mu_0}\bar{\bar{I}}-\frac{\mathbf{B}\mathbf{B}}{\mu_0} \right) \\
@@ -1082,16 +1064,13 @@ f(z)=\frac{1}{(z-\lambda)^2}+\frac{{\omega_{pi}}^2/{\omega_{pe}}^2}{z^2}=\frac{z
 \frac{\partial p_e}{\partial t} + \nabla\cdot \left(p_e\mathbf{u}_e \right)&amp;=-(\gamma-1)p_e\nabla\cdot\mathbf{u}_e
 \end{aligned}
 \tag{5.27}\]</span></span></p>
-<p>where <span class="math inline">\(\bar{\bar{I}}\)</span> is the identity matrix, <span class="math inline">\(\rho\)</span> is the mass density, <span class="math inline">\(\mathbf{u}\)</span> is the plasma bulk velocity, <span class="math inline">\(\mathbf{B}\)</span> is the magnetic field, <span class="math inline">\(p_e\)</span> is the electron pressure, <span class="math inline">\(p\)</span> is the ion thermal pressure, <span class="math inline">\(\mathbf{j}=\nabla\times\mathbf{B}/\mu_0\)</span> is the current density, <span class="math inline">\(\epsilon=\rho\mathbf{u}^2/2\)</span> is the hydrodynamic energy density, and <span class="math inline">\(\epsilon_e=\rho\mathbf{u}_e^2/2\)</span> is the electron hydrodynamic energy density. The Hall velocity is defined as</p>
-<p><span class="math display">\[
+<p>where <span class="math inline">\(\bar{\bar{I}}\)</span> is the identity matrix, <span class="math inline">\(\rho\)</span> is the mass density, <span class="math inline">\(\mathbf{u}\)</span> is the plasma bulk velocity, <span class="math inline">\(\mathbf{B}\)</span> is the magnetic field, <span class="math inline">\(p_e\)</span> is the electron pressure, <span class="math inline">\(p\)</span> is the ion thermal pressure, <span class="math inline">\(\mathbf{j}=\nabla\times\mathbf{B}/\mu_0\)</span> is the current density, <span class="math inline">\(\epsilon=\rho\mathbf{u}^2/2\)</span> is the hydrodynamic energy density, and <span class="math inline">\(\epsilon_e=\rho\mathbf{u}_e^2/2\)</span> is the electron hydrodynamic energy density. The Hall velocity is defined as <span class="math display">\[
 \mathbf{v}_H=-\frac{\mathbf{j}}{ne}
 \]</span></p>
-<p>and the electron bulk velocity is given by</p>
-<p><span class="math display">\[
+<p>and the electron bulk velocity is given by <span class="math display">\[
 \mathbf{u}_e = \mathbf{u} + \mathbf{v}_H
 \]</span></p>
-<p>The total energy density is (I may have a coefficient error here for <span class="math inline">\(p_e\)</span>!)</p>
-<p><span class="math display">\[
+<p>The total energy density is (I may have a coefficient error here for <span class="math inline">\(p_e\)</span>!) <span class="math display">\[
 e= \frac{1}{2}\rho \mathbf{u}^2+\frac{1}{\gamma-1}(p+p_e)+\frac{\mathbf{B}^2}{2\mu_0}
 \]</span></p>
 <p>where <span class="math inline">\(\gamma\)</span> is the adiabatic index. Note that in Hall MHD only <span class="math inline">\((\rho,\mathbf{u},\mathbf{B},p,p_e)\)</span> are unknowns; all others are derived quantities.</p>

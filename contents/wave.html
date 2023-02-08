@@ -360,7 +360,12 @@ div.csl-indent {
   <li><a href="#electron-cyclotron-resonance-heating" id="toc-electron-cyclotron-resonance-heating" class="nav-link" data-scroll-target="#electron-cyclotron-resonance-heating"><span class="toc-section-number">7.9.2</span>  Electron Cyclotron Resonance Heating</a></li>
   <li><a href="#o-mode" id="toc-o-mode" class="nav-link" data-scroll-target="#o-mode"><span class="toc-section-number">7.9.3</span>  O-mode</a></li>
   </ul></li>
-  <li><a href="#warm-uniform-plasma" id="toc-warm-uniform-plasma" class="nav-link" data-scroll-target="#warm-uniform-plasma"><span class="toc-section-number">7.10</span>  Warm Uniform Plasma</a></li>
+  <li><a href="#warm-uniform-plasma" id="toc-warm-uniform-plasma" class="nav-link" data-scroll-target="#warm-uniform-plasma"><span class="toc-section-number">7.10</span>  Warm Uniform Plasma</a>
+  <ul class="collapse">
+  <li><a href="#two-fluid-approach" id="toc-two-fluid-approach" class="nav-link" data-scroll-target="#two-fluid-approach"><span class="toc-section-number">7.10.1</span>  Two-fluid approach</a></li>
+  <li><a href="#vlasov-approach" id="toc-vlasov-approach" class="nav-link" data-scroll-target="#vlasov-approach"><span class="toc-section-number">7.10.2</span>  Vlasov approach</a></li>
+  <li><a href="#ion-acoustic-wave" id="toc-ion-acoustic-wave" class="nav-link" data-scroll-target="#ion-acoustic-wave"><span class="toc-section-number">7.10.3</span>  Ion-acoustic wave</a></li>
+  </ul></li>
   <li><a href="#sec-es_wave_magnetized" id="toc-sec-es_wave_magnetized" class="nav-link" data-scroll-target="#sec-es_wave_magnetized"><span class="toc-section-number">7.11</span>  Electrostatic Wave in a Magnetized Plasma</a></li>
   <li><a href="#animation-of-waves" id="toc-animation-of-waves" class="nav-link" data-scroll-target="#animation-of-waves"><span class="toc-section-number">7.12</span>  Animation of Waves</a></li>
   <li><a href="#cma-diagram" id="toc-cma-diagram" class="nav-link" data-scroll-target="#cma-diagram"><span class="toc-section-number">7.13</span>  CMA Diagram</a></li>
@@ -1378,8 +1383,7 @@ cB_x\simeq \mp A\, n^{1/2}\exp\Big(\pm i\,k_0 \int^z n \mathrm{d}z\Big) - \frac{
 </section>
 <section id="electron-cyclotron-resonance-heating" class="level3" data-number="7.9.2">
 <h3 data-number="7.9.2" class="anchored" data-anchor-id="electron-cyclotron-resonance-heating"><span class="header-section-number">7.9.2</span> Electron Cyclotron Resonance Heating</h3>
-<p>Let us look at the problem of electron cyclotron resonance heating. The resonance condition is <span class="math inline">\(R=\infty\)</span>; the governing equation has the form</p>
-<p><span class="math display">\[
+<p>Let us look at the problem of electron cyclotron resonance heating. The resonance condition is <span class="math inline">\(R=\infty\)</span>; the governing equation has the form <span class="math display">\[
 \frac{\mathrm{d}^2 E}{\mathrm{d}z^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(z)}^2}{\omega(\omega-\omega_{ce}(z))} \Big]E = 0
 \]</span></p>
 <div id="fig-ECRH" class="quarto-figure quarto-figure-center anchored">
@@ -1389,20 +1393,17 @@ cB_x\simeq \mp A\, n^{1/2}\exp\Big(\pm i\,k_0 \int^z n \mathrm{d}z\Big) - \frac{
 </figure>
 </div>
 <p>We use <span class="math inline">\(z\)</span> here to remind ourselves of the fact that the wave property changes along the field line. Imagine a wave <span class="math inline">\(\sim e^{i(kz -\omega t)}\)</span> incident into a plasma with fixed density <span class="math inline">\(n_0\)</span> and varying magnetic field <span class="math inline">\(B_0(z)\)</span> as shown in <a href="#fig-ECRH">Figure&nbsp;<span>7.7</span></a>(a). At <span class="math inline">\(z=z_R\)</span>, <span class="math inline">\(\omega_{ce}(z) = \omega_{ce}(z_R) = \omega\)</span>. Then we can draw <span class="math inline">\(k^2(z)\)</span> as a function of <span class="math inline">\(z\)</span> as in <a href="#fig-ECRH">Figure&nbsp;<span>7.7</span></a>(b). There is a pole at <span class="math inline">\(z=z_R\)</span>, which indicates resonance since <span class="math inline">\(k^2\rightarrow\infty\)</span>. There is also a zero on the right of <span class="math inline">\(z_R\)</span>.</p>
-<p>Close to <span class="math inline">\(z=z_R\)</span>, we have <span class="math inline">\(k^2(z)\sim \frac{\text{const}.}{z-z_R}\)</span>. If we write</p>
-<p><span class="math display">\[
+<p>Close to <span class="math inline">\(z=z_R\)</span>, we have <span class="math inline">\(k^2(z)\sim \frac{\text{const}.}{z-z_R}\)</span>. If we write <span class="math display">\[
 \Omega_e(z)=-A^\prime (z-z_R)+\omega,\quad \zeta = z-z_R
 \]</span></p>
-<p>then (ignore the constants)</p>
-<p><span class="math display">\[
+<p>then (ignore the constants) <span class="math display">\[
 \frac{\mathrm{d}^2 E}{\mathrm{d}z^2} - \frac{\text{const.}}{z-z_R}E = 0 \Rightarrow \frac{\mathrm{d}^2 E}{d\zeta^2} - \frac{1}{\zeta}E = 0
 \]</span></p>
 <p>Now let’s stare at <a href="#fig-ECRH">Figure&nbsp;<span>7.7</span></a>(b) for a few seconds. If there is a wave from left to right, there will be a resonance at <span class="math inline">\(z=z_R\)</span>; but if there is a wave from right to left, then the wave will be attenuated before it reaches <span class="math inline">\(z=z_R\)</span> because there is a zero ahead. This means that waves from different origin will have different behaviors!</p>
 </section>
 <section id="o-mode" class="level3" data-number="7.9.3">
 <h3 data-number="7.9.3" class="anchored" data-anchor-id="o-mode"><span class="header-section-number">7.9.3</span> O-mode</h3>
-<p>Next consider EM waves in non-magnetized plasma of ordinary O-mode:</p>
-<p><span class="math display">\[
+<p>Next consider EM waves in non-magnetized plasma of ordinary O-mode: <span class="math display">\[
 k^2(x) = \frac{\omega^2}{c^2}n^2 = \frac{\omega^2}{c^2}\Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2}\Big] \quad \text{if } n \text{ is non-uniform}
 \]</span></p>
 <div id="fig-Omode" class="quarto-figure quarto-figure-center anchored">
@@ -1411,33 +1412,30 @@ k^2(x) = \frac{\omega^2}{c^2}n^2 = \frac{\omega^2}{c^2}\Big[ 1-\frac{{\omega_{pe
 <p></p><figcaption class="figure-caption">Figure&nbsp;7.8: Plasma frequency and wave number as functions of <span class="math inline">\(x\)</span> in a non-uniform plasma for O mode.</figcaption><p></p>
 </figure>
 </div>
-<p>Note that there is no energy dissipation, because it is collisionless. Imagine a wave <span class="math inline">\(\sim e^{i(kx-\omega t)}\)</span> incident into a plasma with density <span class="math inline">\(n_0(x)\)</span> shown in <a href="#fig-Omode">Figure&nbsp;<span>7.8</span></a>. We encounter a cutoff at <span class="math inline">\(x=x_t\)</span>, <span class="math inline">\(\omega_{pe}(x_t) = \omega\)</span>. Therefore we can draw <span class="math inline">\(k^2(x)\)</span> as a function of x as in <a href="#fig-Omode">Figure&nbsp;<span>7.8</span></a>. Then the properties of the wave can be categorized into two regimes:</p>
-<p><span class="math display">\[
+<p>Note that there is no energy dissipation, because it is collisionless. Imagine a wave <span class="math inline">\(\sim e^{i(kx-\omega t)}\)</span> incident into a plasma with density <span class="math inline">\(n_0(x)\)</span> shown in <a href="#fig-Omode">Figure&nbsp;<span>7.8</span></a>. We encounter a cutoff at <span class="math inline">\(x=x_t\)</span>, <span class="math inline">\(\omega_{pe}(x_t) = \omega\)</span>. Therefore we can draw <span class="math inline">\(k^2(x)\)</span> as a function of x as in <a href="#fig-Omode">Figure&nbsp;<span>7.8</span></a>. Then the properties of the wave can be categorized into two regimes: <span class="math display">\[
 \begin{aligned}
 k^2 &lt; 0 \Rightarrow\ E\sim e^{\pm ikx}\ \text{propagating}\\
 k^2 &gt; 0 \Rightarrow\ E\sim e^{\pm|k| x}\ \text{attenuating}
 \end{aligned}
 \]</span></p>
-<p>A natural question comes up from this picture: <em>how does the propagating wave transform into attentuating wave</em>? Stokes solved this during his honey moon, which is now known as the Stokes phenomenon (<a href="math.html#sec-stokes_phenomenon"><span>Section&nbsp;3.9.3</span></a>).</p>
+<p>A natural question comes up from this picture: <em>how does the propagating wave transform into attentuating wave</em>? Stokes solved this during his honey moon, which is now known as the Stokes phenomenon (<a href="math.html#sec-stokes_phenomenon"><span>Section&nbsp;3.10.3</span></a>).</p>
 </section>
 </section>
 <section id="warm-uniform-plasma" class="level2" data-number="7.10">
 <h2 data-number="7.10" class="anchored" data-anchor-id="warm-uniform-plasma"><span class="header-section-number">7.10</span> Warm Uniform Plasma</h2>
-<p>Taking one step forward, we can no longer neglect the kinetic effects, i.e.&nbsp;the cold assumption is no longer valid. For the sake of simplicity, we only consider the 1D case. The approach is very similar to cold plasma situation, except that we have <em>pressure</em> included in the equation, and we also need to specify the relation of pressure and temperature through the equation of state.</p>
-<p><strong>2-fluid approach</strong></p>
-<p>Equilibrium:</p>
-<p><span class="math display">\[
+<p>The analysis of cold plasma waves, although very complicated already, leaves out all of the physics that relates to finite temperature effects. These effects may be included in varying degrees of approximation, and it is intructive to include at this stage only the simplest thermal correction terms through the inclusion of a finite pressure term. For the sake of simplicity, we only consider the 1D case. The approach is very similar to cold plasma situation, except that we have <em>pressure</em> included in the equation, and we also need to specify the relation of pressure and temperature through the equation of state.</p>
+<section id="two-fluid-approach" class="level3" data-number="7.10.1">
+<h3 data-number="7.10.1" class="anchored" data-anchor-id="two-fluid-approach"><span class="header-section-number">7.10.1</span> Two-fluid approach</h3>
+<p>Equilibrium: <span class="math display">\[
 \begin{aligned}
 &amp;m_i=\infty,\ T_i=0,\ v_{i,0}=0,\ n_{e0}=n_{i0}=n_0,\ E_0=0,\ B_0=0 \\
 &amp;P_0=const.,\ v_{e0}=0
 \end{aligned}
 \]</span></p>
-<p>The equation of motion for electron is</p>
-<p><span class="math display">\[
+<p>The equation of motion for electron is <span class="math display">\[
 \frac{\partial \mathbf{v}}{\partial t}+\mathbf{v}\cdot\nabla\mathbf{v}=-\frac{e}{m_e}\mathbf{E}-\frac{\nabla P}{\rho}
 \]</span></p>
-<p>Assume</p>
-<p><span class="math display">\[
+<p>Assume <span class="math display">\[
 \begin{aligned}
 &amp;P=P_0 \Big( \frac{n}{n_0}\Big)^\gamma  &amp;\text{adiabatic}\\
 &amp;P=nk_B T_e  &amp;\text{isothermal}(\gamma=1)
@@ -1451,51 +1449,47 @@ k^2 &gt; 0 \Rightarrow\ E\sim e^{\pm|k| x}\ \text{attenuating}
 &amp;P=P_0+P_1=P_0+\tilde{P}_1e^{-i\omega t+ikx}
 \end{aligned}
 \]</span></p>
-<p>Substituting into the equation of motion and keeping only first order terms, we get</p>
-<p><span class="math display">\[
+<p>Substituting into the equation of motion and keeping only first order terms, we get <span class="math display">\[
 \begin{aligned}
 \frac{\partial v_1}{\partial t}&amp;=-\frac{e}{m_e}(E_1)-\frac{\nabla (P_1)}{n_0m_e} \\
 -i\omega v_1&amp;=-\frac{e}{m_e}E_1-\frac{ik{v_{th}}^2 n_1}{n_0}
 \end{aligned}
 \]</span></p>
-<p>The continuity equation gives</p>
-<p><span class="math display">\[
+<p>The continuity equation gives <span class="math display">\[
 \begin{aligned}
 \frac{\partial n}{\partial t}+\frac{\partial}{\partial x}\Big( nv\Big)=0 \\
 \Rightarrow v_1=\frac{\omega n_1}{kn_0}
 \end{aligned}
 \]</span></p>
-<p>Substituting this into the linearized equation of motion, we get</p>
-<p><span class="math display">\[
+<p>Substituting this into the linearized equation of motion, we get <span class="math display">\[
 n_1=\frac{kn_0eE_1}{im_e(\omega^2-k^2{v_{th}}^2)}
 \]</span></p>
-<p>which is the density perturbation in response to <span class="math inline">\(E_1\)</span>. Following the same approach as before, we can easily get the dielectric function:</p>
-<p><span class="math display">\[
+<p>which is the density perturbation in response to <span class="math inline">\(E_1\)</span>. Following the same approach as before, we can easily get the dielectric function: <span class="math display">\[
 \frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2-k^2{v_{th}}^2}
 \]</span></p>
-<p>Let <span class="math inline">\(\epsilon=0\)</span>, we get the dispersion relation for warm plasma</p>
-<p><span class="math display">\[
+<p>Let <span class="math inline">\(\epsilon=0\)</span>, we get the dispersion relation for warm plasma <span class="math display">\[
 \omega^2=k^2{v_{th}}^2+{\omega_{pe}}^2
 \]</span></p>
-<p>This is called the .</p>
-<p><strong>Vlasov approach</strong></p>
-<p>Assume Maxwellian distribution for electrons:</p>
-<p><span class="math display">\[
+<p>This is called the <em>Bohm-Gross dispersion relation</em> (BGDR). <span class="citation" data-cites="swanson2012plasma">(<a href="#ref-swanson2012plasma" role="doc-biblioref">Swanson 2012</a>)</span> has shown that by keeping higher order terms, <span class="math display">\[
+\omega^2 = \omega_{pe}^2\left[ 1 + \frac{3}{2}\left( \frac{k v_{th}}{\omega_{pe}} \right)^2 + \frac{15}{4}\left( \frac{k v_{th}}{\omega_{pe}} \right)^4 \right]
+\]</span> so it is apparent that <em>the moment expansion is an expansion in the ratio of the thermal velocity to the phase velocity</em>. The BGDR now resolves the ambiguity in cold plasma theory and supports the notion that <span class="math inline">\(P=0\)</span> in cold plasma is a cutoff rather than a resonance, since this dispersion relation describes a wave with a cutoff at <span class="math inline">\(\omega_{pe}\)</span> that propagates near the electron thermal speed for high frequencies.</p>
+<p>We see from this example that the fluid equations which are based on moment expansions are valid as long as the phase velocity is large compared to the thermal speed, <span class="math inline">\(v_p\gg v_{th}\)</span>.</p>
+</section>
+<section id="vlasov-approach" class="level3" data-number="7.10.2">
+<h3 data-number="7.10.2" class="anchored" data-anchor-id="vlasov-approach"><span class="header-section-number">7.10.2</span> Vlasov approach</h3>
+<p>Assume Maxwellian distribution for electrons: <span class="math display">\[
 g_e(v)=\frac{1}{\sqrt{2\pi}}\frac{1}{v_{th,e}}e^{-v^2/2{v_{th,e}}^2}
 \]</span></p>
-<p>Assuming <span class="math inline">\(\frac{\omega}{k}\gg v_{th,e}\)</span>, i.e.&nbsp;the phase speed is much larger than the characteristic thermal speed, we can do Taylor series expansion</p>
-<p><span class="math display">\[
+<p>Assuming <span class="math inline">\(\frac{\omega}{k}\gg v_{th,e}\)</span>, i.e.&nbsp;the phase speed is much larger than the characteristic thermal speed, we can do Taylor series expansion <span class="math display">\[
 \frac{1}{(v-\omega/k)^2}=\frac{1}{(\omega/k)^2}\frac{1}{(1-kv/\omega)^2}\approx \frac{k^2}{\omega^2}\Big[ 1+\frac{2kv}{\omega}+\frac{3k^2v^2}{\omega^2}+...\Big]
 \]</span></p>
-<p>Then the dielectric function is</p>
-<p><span class="math display">\[
+<p>Then the dielectric function is <span class="math display">\[
 \begin{aligned}
 \frac{\epsilon}{\epsilon_0}&amp;=1-\frac{{\omega_{pe}}^2}{k^2}\int_{-\infty}^{\infty}dv g(v)\frac{k^2}{\omega^2}\Big[ 1+\frac{2kv}{\omega}+\frac{3k^2v^2}{\omega^2}+...\Big] \\
 &amp;\doteq 1-\frac{{\omega_{pe}}^2}{\omega^2}\Big[ 1+\frac{3k^2{v_{th}}^2}{\omega^2} \Big] .
 \end{aligned}
 \]</span></p>
-<p>Let <span class="math inline">\(\epsilon=0\)</span>, we can get the dispersion relation for warm plasma,</p>
-<p><span class="math display">\[
+<p>Let <span class="math inline">\(\epsilon=0\)</span>, we can get the dispersion relation for warm plasma, <span class="math display">\[
 \begin{aligned}
 &amp;\text{lowest order: } \omega=\pm \omega_{pe} \\
 &amp;\text{first order:} 1-\frac{{\omega_{pe}}^2}{\omega^2}\Big( 1+\frac{3k^2{v_{th}}^2}{{\omega_{pe}}^2}\Big)=0\Rightarrow \omega^2={\omega_{pe}}^2+3k^2{v_{th,e}}^2
@@ -1520,7 +1514,9 @@ g_e(v)=\frac{1}{\sqrt{2\pi}}\frac{1}{v_{th,e}}e^{-v^2/2{v_{th,e}}^2}
 <p><span class="math display">\[
 \frac{\epsilon}{\epsilon_0}=\underbrace{1}_{\nabla\cdot(\epsilon_0\mathbf{E}_1)}-\underbrace{\frac{{\omega_{pe}}^2}{\omega^2-k^2{v_{th,e}}^2}}_{en_{1e}}-\underbrace{\frac{{\omega_{pi}}^2}{\omega^2-k^2{v_{th,i}}^2}}_{en_{1i}}
 \]</span></p>
-<p><strong>Ion-acoustic wave</strong></p>
+</section>
+<section id="ion-acoustic-wave" class="level3" data-number="7.10.3">
+<h3 data-number="7.10.3" class="anchored" data-anchor-id="ion-acoustic-wave"><span class="header-section-number">7.10.3</span> Ion-acoustic wave</h3>
 <p>Assume <span class="math inline">\(v_{th,e}\gg \frac{\omega}{k}\gg v_{th,i}\)</span>, we have the simplified dielectric function</p>
 <p><span class="math display">\[
 \frac{\epsilon}{\epsilon_0}=1+\frac{{\omega_{pe}}^2}{k^2{v_{th,e}}^2}-\frac{{\omega_{pi}}^2}{\omega^2}
@@ -1558,6 +1554,7 @@ g_e(v)=\frac{1}{\sqrt{2\pi}}\frac{1}{v_{th,e}}e^{-v^2/2{v_{th,e}}^2}
 n_{1e}= \frac{n_0eE_1}{-ikm_e{v_{th,e}}^2}
 \]</span></p>
 <p>Then again we get the dielectric function through Poisson’s equation.</p>
+</section>
 </section>
 <section id="sec-es_wave_magnetized" class="level2" data-number="7.11">
 <h2 data-number="7.11" class="anchored" data-anchor-id="sec-es_wave_magnetized"><span class="header-section-number">7.11</span> Electrostatic Wave in a Magnetized Plasma</h2>
@@ -1777,6 +1774,9 @@ Chen, Liu, Fulvio Zonca, and Yu Lin. 2021. <span>“Physics of Kinetic Alfvén W
 </div>
 <div id="ref-gurram2021shear" class="csl-entry" role="doc-biblioentry">
 Gurram, Harsha, Jan Egedal, and W Daughton. 2021. <span>“Shear Alfv<span>é</span>n Waves Driven by Magnetic Reconnection as an Energy Source for the Aurora Borealis.”</span> <em>Geophysical Research Letters</em> 48 (14): e2021GL094201. <a href="https://doi.org/10.1029/2021GL094201">https://doi.org/10.1029/2021GL094201</a>.
+</div>
+<div id="ref-swanson2012plasma" class="csl-entry" role="doc-biblioentry">
+Swanson, Donald Gary. 2012. <em>Plasma Waves</em>. Elsevier.
 </div>
 </div>
 </section>
