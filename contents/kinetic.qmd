@@ -60,7 +60,7 @@ Note that $\hat{f}$ is still a function of seven variables, since the shape of t
 A particularly important distribution function is the Maxwellian:
 $$
 \hat{f}_m = \left(\frac{m}{2\pi k_B T}\right)^{3/2}\exp\left(-\frac{v^2}{v_{th}^2}\right)
-$$
+$$ {#eq-maxwellian-distribution-normalized}
 where
 $$
 v\equiv(v_x^2 + v_y^2 + v_z^2)^{1/2}\quad\text{and}\quad v_{th}\equiv(2k_B T/m)^{1/2}
@@ -175,7 +175,6 @@ One application of the differential flux is the _particle precipitation flux_. W
 The Maxwellian distribution is probably the most studied one theoretically, but may not be the most commonly observed distribution in a collisionless space plasma system. In recent years, another distribution named [Kappa distribution](https://link.springer.com/article/10.1007/s11214-013-9982-9) has gained more attention.
 
 Distribution functions are often nearly Maxwellian at low energies, but they decrease more slowly at high energies. At higher energies the distribution is described better by a power law than by an exponential decay of the Maxwell distribution. Such a behavior is not surprising if we remember that the Coulomb collision frequency decreases with increasing temperature as $T^{-3/2}$ (@eq-coulomb_resistivity_maxwellian_correction). Hence, it takes longer time for fast particles to reach Maxwellian distirbution than for slow particles. The kappa distribution has the form
-
 $$
 f_\kappa(W) = n\Big( \frac{m}{2\pi\kappa W_0} \Big)^{3/2}\frac{\Gamma(\kappa + 1)}{\Gamma(\kappa-1/2)}\Big( 1+\frac{W}{\kappa W_0} \Big)^{-(\kappa+1)}
 $$
@@ -185,6 +184,141 @@ Here $W_0$ is the energy at the peak of the particle flux and $\Gamma$ is the ga
 ### Entropy of a distribution
 
 Collisions cause the distribution function to tend towards a simple final state characterized by having the maximum entropy for the given constraints (e.g. fixed total energy). To see this, we provide a brief discussion of entropy and show how it relates to a distribution function.
+
+Suppose we throw two dice, labeled $A$ and $B$, and let $R$ denote the result of a throw. Thus $R$ ranges from 2 through 12. The complete set of (A,B) combinations that gives these $R$'s is listed in @tbl-dice:
+
+| $R$ | $(A,B)$ |
+|-----|---------|
+| 2   | (1,1)   |
+| 3   | (1,2),(2,1) |
+| 4   | (1,3),(2,2),(3,1) |
+| 5   | (1,4),(2,3),(3,2),(4,1) |
+| 6   | (1,5),(2,4),(3,3),(4,2),(5,1) |
+| 7   | (1,6),(2,5),(3,4),(4,3),(5,2),(6,1) |
+| 8   | (2,6),(3,5),(4,4),(5,3),(6,2) |
+| 9   | (3,6),(4,5),(5,4),(6,3) |
+| 10  | (4,6),(5,5),(6,4) |
+| 11  | (5,6),(6,5) |
+| 12  | (6,6)   |
+
+: All possible combinations of rolling two dices. {#tbl-dice}
+
+There are six  $(A, B)$ pairs that give $R = 7$, but only one pair for $R = 2$ and only one pair for $R = 12$. Thus, there are six microscopic states (distinct $(A, B)$ pairs) corresponding to $R = 7$ but only one microscopic state corresponding to each of $R = 2$ or $R = 12$. Thus, we know more about the microscopic state of the system if $R=2$ or $R=12$ than if $R=7$. We define the entropy $S$ to be the _natural logarithm of the number of microscopic states corresponding to a given macroscopic state_. Thus, for the dice, the entropy would be the natural logarithm of the number of $(A, B)$ pairs that correspond to a given $R$. The entropy for $R = 2$ or $R = 12$ would be zero since $S = \ln(1) = 0$, while the entropy for $R = 7$ would be $S = \ln(6)$ since there were six different ways of obtaining $R = 7$.
+
+If the dice were to be thrown a statistically large number of times the most likely result for any throw is $R = 7$ this is the macroscopic state with the largest number of microscopic states. Since any of the possible microscopic states is an equally likely outcome, the most likely macroscopic state after a large number of dice throws is the macroscopic state with the highest entropy.
+
+Now consider a situation more closely related to the concept of a distribution function. In order to do this we first pose the following simple problem: suppose we have a pegboard with $\mathcal{N}$ holes, labeled $h_1, h_2, ..., h_\mathcal{N}$ and we also have $\mathcal{N}$ pegs labeled by $p_1, p_2, ..., p_\mathcal{N}$. What is the number of ways of putting all the pegs in all the holes? Starting with hole $h_1$, we have a choice of $\mathcal{N}$ different pegs, but when we get to hole $h_2$ there are now only $\mathcal{N}-1$ pegs remaining so that there are now only $\mathcal{N}-1$ choices. Using this argument for subsequent holes, we see there are $\mathcal{N}!$ ways of putting all the pegs in all the holes.
+
+Let us complicate things further. Suppose that we arrange the holes in $\mathcal{M}$ groups. Say group $G_1$ has the first 10 holes, group $G_2$ has the next 19 holes, group $G_3$ has the next 4 holes and so on, up to group $\mathcal{M}$. We will use $f$ to denote the number holes in a group, thus $f(1)=10, f(2)=19, f(3)=4$, etc. The number of ways arranging pegs within a group is just the factorial of the number of pegs in the group, e.g., the number of ways of arranging the pegs within group 1 is just 10! and so in general the number of ways of arranging the pegs in the jth group is $[f(j)]!$.
+
+Let us denote $C$ as the number of ways of putting all the pegs in all the groups _without_ caring about the internal arrangement within groups. The number of ways of putting the pegs in all the groups caring about the internal arrangements in all the groups is $C\times f(1)!\times f(2)\times f(3)!\times ... f(4)!$, but this is just the number of ways of putting all the pegs in all the holes, i.e.,
+$$
+C\times f(1)!\times f(2)\times f(3)!\times ... f(4)! = \mathcal{N}!
+$$
+or
+$$
+C = \frac{\mathcal{N}!}{C\times f(1)!\times f(2)\times f(3)!\times ... f(4)!}
+$$
+
+Now $C$ is just the number of microscopic states corresponding to the macroscopic state of the prescribed grouping $f(1) = 10, f(2) = 19, f(3) = 4$, etc. so the entropy is just $S = \ln C$ or
+$$
+\begin{aligned}
+S &= \ln\left( \frac{\mathcal{N}!}{C\times f(1)!\times f(2)\times f(3)!\times ... f(4)!} \right) \\
+&= \ln\mathcal{N}! - \ln f(1)! - \ln f(2)! - ... - \ln f(\mathcal{M})!
+\end{aligned}
+$$
+
+Stirling's formula shows that the large-argument asymptotic limit of the factorial function is
+$$
+\lim_{k\rightarrow\infty} \ln k! = k\ln k - k
+$$
+
+Noting that $f(1)+f(2)+...+f(\mathcal{M})=\mathcal{N}$, the entropy becomes
+$$
+\begin{aligned}
+S &= \mathcal{N}\ln\mathcal{N} - f(1)\ln f(1) - f(2)\ln f(2) - ... - f(\mathcal{M})\ln f(\mathcal{M}) \\
+&= \mathcal{N}\ln\mathcal{N} - \sum_{j=1}^\mathcal{M}\ln f(j)
+\end{aligned}
+$$
+
+The constant $\mathcal{N}\ln\mathcal{N}$ is often dropped, giving
+$$
+S = -\sum_{j=1}^\mathcal{M} f(j)\ln f(j)
+$$
+
+If $j$ is made into a continuous variable, say $j \rightarrow v$ so that $f(v)\mathrm{d}v$ is the number of items in the group labeled by $v$ then the entropy can be written as
+$$
+S = -\int\mathrm{d}v f(v)\ln f(v)
+$$
+
+By now, it is obvious that $f$ could be the velocity distribution function, in which case $f(v)\mathrm{d}v$ is just the number of particles in the group having velocity between $v$ and $v+\mathrm{d}v$. Since the peg groups correspond to different velocity range coordinates, having more dimensions just means having more groups and so for three dimensions the entropy generalizes to
+$$
+S = -\int\mathrm{d}\mathbf{v} f(\mathbf{v})\ln f(\mathbf{v})
+$$
+
+If the distribution function depends on position as well, this corresponds to still more peg groups, and so a distribution function that depends on both velocity and position will have the entropy
+$$
+S = -\int\mathrm{d}\mathbf{x}\int\mathrm{d}\mathbf{v} f(\mathbf{x},\mathbf{v})\ln f(\mathbf{x},\mathbf{v})
+$$ {#eq-distribution-entropy}
+
+### Effect of collisions on entropy
+
+The highest entropy state is the most likely state of the system because the highest entropy state has the highest number of microscopic states corresponding to the macroscopic state. Collisions (or other forms of randomization) will take some initial prescribed microscopic state and scramble the phase-space positions of the particles, thereby transforming the system to a different microscopic state. This new state could in principle be any microscopic state, but is most likely to be a member of the class of microscopic states belonging to the highest entropy macroscopic state. Thus, any randomization process such as collisions will cause the system to evolve towards the macroscopic state having the maximum entropy.
+
+An important shortcoming of this argument is that it neglects any conservation relations that have to be satisfied. To see this, note that the expression for entropy could be maximized if all the particles are put in one group, in which case $C = \mathcal{N}!$ which is the largest possible value for $C$. Thus, the maximum entropy configuration of $\mathcal{N}$ plasma particles corresponds to all the particles having the same velocity. However, this would assign a specific energy to the system, which
+would in general differ from the energy of the initial microstate. This maximum entropy state is therefore not accessible in isolated systems, because energy would not be conserved if the system changed from its initial microstate to the maximum
+entropy state.
+
+Thus, a qualification must be added to the argument. Randomizing processes will scramble the system to attain the state of maximum entropy consistent with any constraints placed on the system. Examples of such constraints would be the requirements that the total system energy and the total number of particles must be conserved. We therefore reformulate the problem as: given an isolated system with $\mathcal{N}$ particles in a fixed volume $V$ and initial average energy per particle $\left<E\right>$, what is the maximum entropy state consistent with conservation of energy and conservation of number of particles? This is a variational problem because the goal is to maximize $S$ subject to the constraint that both $\mathcal{N}$ and $\mathcal{N}\left<E\right>$ are fixed. The method of _Lagrange multipliers_ can then be used to take into account these constraints. Using this method the variational problem becomes
+$$
+\delta S - \lambda_1\delta\mathcal{N} - \lambda_2\delta(\mathcal{N}\left<E\right>) = 0
+$$
+where $\lambda_1$ and $\lambda_2$ are as-yet undetermined Lagrange multipliers. The number of particles is
+$$
+\mathcal{N} = V\int f\mathrm{d}v
+$$
+
+The energy of an individual particle is $E = mv^2/2$, where $v$ is the velocity measured in the rest frame of the center of mass of the entire collection of $\mathcal{N}$ particles. Thus, the total kinetic energy of all the particles in this rest frame is
+$$
+\mathcal{N}\left<E\right> = V\int\frac{mv^2}{2}f(v)\mathrm{d}v
+$$
+and so the variational problem becomes
+$$
+\delta\int\mathrm{d}v\left( f\ln f - \lambda_1 Vf - \lambda_2 V\frac{mv^2}{2}f \right) = 0
+$$
+
+Incorporating the volume $V$ into the Lagrange multipliers, and factoring out the coefficient $\delta f$, this becomes
+$$
+\int\mathrm{d}v \delta f \left( 1+\ln f - \lambda_1 - \lambda_2\frac{mv^2}{2} \right) = 0
+$$
+
+Since $\delta f$ is arbitrary, the integrand must vanish, giving
+$$
+\ln f = \lambda_2\frac{mv^2}{2} - \lambda_1
+$$
+where the "1" has been incorporated into $\lambda_1$.
+
+The maximum entropy distribution function of an isolated, energy and particle conserving system is therefore
+$$
+f = \lambda_1\exp\left( -\lambda_2 mv^2/2 \right)
+$$
+which is the Maxwellian distribution function. We will often assume that the plasma is locally Maxwellian so that
+$\lambda_1 = \lambda_1(\mathbf{x},t), \lambda_2 = \lambda_2(\mathbf{x},t)$. We define the temperature to be
+$$
+k_B T_s(\mathbf{x},t) = \frac{1}{\lambda_2(\mathbf{x},t)}
+$$
+
+The normalization factor is set to be
+$$
+\lambda_1(\mathbf{x},t) = n_s(\mathbf{x},t)\left( \frac{m_s}{2\pi k_B T_s(\mathbf{x},t)} \right)^{N/2}
+$$
+where $N$ is the dimensionality (1, 2 or 3) so that $\int f_s(\mathbf{x},\mathbf{v},t)\mathrm{d}^N\mathbf{v}=n_s(\mathbf{x},t)$.
+Because the kinetic energy of individual particles was defined in terms of velocities measured in the rest frame of the center of mass of the complete system of particles, if this center of mass is moving in the lab frame with a velocity $\mathbf{u}_s$, then in the lab frame the Maxwellian will have the form
+$$
+f_s(\mathbf{x},\mathbf{v},t) = n_s\left( \frac{m_s}{2\pi k_B T_s} \right)^{N/2} \exp\left( -\frac{m_s(\mathbf{v}-\mathbf{u}_s)^2}{2k_B T_s} \right)
+$$ {#eq-maxwellian-distribution-N}
+
+@eq-maxwellian-distribution-N is equivalent to @eq-maxwellian-distribution-normalized times number density in 3D.
 
 ## Equations of Kinetic Theory
 
@@ -473,7 +607,7 @@ $$
 
 Inserting these two into @eq-vlasov-2nd-moment2 gives the energy evolution equation
 $$
-\frac{N}{2}\frac{\mathrm{d}p_s}{\mathrm{d}t} + \frac{2+N}{2}p\nabla\cdot\mathbf{u}_s = -\nabla\cdot\mathbf{Q}_s + \mathbf{R}_{s\alpha}\cdot\mathbf{u}_s - \left(\frac{\partial W}{\partial t}\right)_\mathrm{Es\alpha}
+\frac{N}{2}\frac{\mathrm{d}p_s}{\mathrm{d}t} + \frac{2+N}{2}p_s\nabla\cdot\mathbf{u}_s = -\nabla\cdot\mathbf{Q}_s + \mathbf{R}_{s\alpha}\cdot\mathbf{u}_s - \left(\frac{\partial W}{\partial t}\right)_\mathrm{Es\alpha}
 $$ {#eq-vlasov-2nd-moment3}
 
 The first term on the right-hand side represents the heat flux, the second term gives the frictional heating of species $s$ due to frictional drag on species $\alpha$, while the last term on the right-hand side gives the rate at which species $s$ collisionally transfers energy to other species. Although @eq-vlasov-2nd-moment3 is complicated, two important limiting situations become evident if we let $t_\mathrm{char}$ be the characteristic time scale for a given phenomenon and $l_\mathrm{char}$ be its characteristic length scale. A characteristic velocity $V_\mathrm{ph}\sim l_\mathrm{char}/t_\mathrm{char}$ may then be defined for the phenomenon and so, replacing temporal derivatives by $t_\mathrm{char}^{-1}$ and spatial derivatives by $l_\mathrm{char}^{-1}$ in @eq-vlasov-2nd-moment3, it is seen that the two limiting situations are:
