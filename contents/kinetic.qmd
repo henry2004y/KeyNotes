@@ -17,7 +17,7 @@ In fluid theory, the dependent variables are functions of only four independent 
 ![Examples of non-Maxwellian distribution functions](../images/distributions_nonmaxwellian_1d.png){#fig-distributions_1d}
 
 When we consider velocity distributions in 3D, we have seven independent variables: $f = f(\mathbf{r}, \mathbf{v}, t)$.
-By $f(\mathbf{r}, \mathbf{v}, t)$, we mean that the number of particles per meter cubed at position $\mathbf{r}$ and time $t$ with velocity components between $v_x$ and $v_x + dv_x$, $v_y and $v_y + dv_y$, and $v_z$ and $v_z + dv_z$ is
+By $f(\mathbf{r}, \mathbf{v}, t)$, we mean that the number of particles per meter cubed at position $\mathbf{r}$ and time $t$ with velocity components between $v_x$ and $v_x + dv_x$, $v_y$ and $v_y + dv_y$, and $v_z$ and $v_z + dv_z$ is
 $$
 f(x, y, z, v_x, v_y, v_z, t) \mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z
 $$
@@ -203,13 +203,13 @@ Suppose we throw two dice, labeled $A$ and $B$, and let $R$ denote the result of
 
 : All possible combinations of rolling two dices. {#tbl-dice}
 
-There are six  $(A, B)$ pairs that give $R = 7$, but only one pair for $R = 2$ and only one pair for $R = 12$. Thus, there are six microscopic states (distinct $(A, B)$ pairs) corresponding to $R = 7$ but only one microscopic state corresponding to each of $R = 2$ or $R = 12$. Thus, we know more about the microscopic state of the system if $R=2$ or $R=12$ than if $R=7$. We define the entropy $S$ to be the _natural logarithm of the number of microscopic states corresponding to a given macroscopic state_. Thus, for the dice, the entropy would be the natural logarithm of the number of $(A, B)$ pairs that correspond to a given $R$. The entropy for $R = 2$ or $R = 12$ would be zero since $S = \ln(1) = 0$, while the entropy for $R = 7$ would be $S = \ln(6)$ since there were six different ways of obtaining $R = 7$.
+There are six $(A, B)$ pairs that give $R = 7$, but only one pair for $R = 2$ and only one pair for $R = 12$. Thus, there are six microscopic states (distinct $(A, B)$ pairs) corresponding to $R = 7$ but only one microscopic state corresponding to each of $R = 2$ or $R = 12$. Thus, we know more about the microscopic state of the system if $R=2$ or $R=12$ than if $R=7$. We define the entropy $S$ to be the _natural logarithm of the number of microscopic states corresponding to a given macroscopic state_. Thus, for the dice, the entropy would be the natural logarithm of the number of $(A, B)$ pairs that correspond to a given $R$. The entropy for $R = 2$ or $R = 12$ would be zero since $S = \ln(1) = 0$, while the entropy for $R = 7$ would be $S = \ln(6)$ since there were six different ways of obtaining $R = 7$.
 
 If the dice were to be thrown a statistically large number of times the most likely result for any throw is $R = 7$ this is the macroscopic state with the largest number of microscopic states. Since any of the possible microscopic states is an equally likely outcome, the most likely macroscopic state after a large number of dice throws is the macroscopic state with the highest entropy.
 
-Now consider a situation more closely related to the concept of a distribution function. In order to do this we first pose the following simple problem: suppose we have a pegboard with $\mathcal{N}$ holes, labeled $h_1, h_2, ..., h_\mathcal{N}$ and we also have $\mathcal{N}$ pegs labeled by $p_1, p_2, ..., p_\mathcal{N}$. What is the number of ways of putting all the pegs in all the holes? Starting with hole $h_1$, we have a choice of $\mathcal{N}$ different pegs, but when we get to hole $h_2$ there are now only $\mathcal{N}-1$ pegs remaining so that there are now only $\mathcal{N}-1$ choices. Using this argument for subsequent holes, we see there are $\mathcal{N}!$ ways of putting all the pegs in all the holes.
+Now consider a situation more closely related to the concept of a distribution function. In order to do this we first pose the following simple problem: suppose we have a pegboard with $\mathcal{N}$ holes, labeled $h_1$, $h_2$, ..., $h_{\mathcal{N}}$ and we also have $\mathcal{N}$ pegs labeled by $p_1$, $p_2$, ..., $p_{\mathcal{N}}$. What is the number of ways of putting all the pegs in all the holes? Starting with hole $h_1$, we have a choice of $\mathcal{N}$ different pegs, but when we get to hole $h_2$ there are now only $\mathcal{N}-1$ pegs remaining so that there are now only $\mathcal{N}-1$ choices. Using this argument for subsequent holes, we see there are $\mathcal{N}!$ ways of putting all the pegs in all the holes.
 
-Let us complicate things further. Suppose that we arrange the holes in $\mathcal{M}$ groups. Say group $G_1$ has the first 10 holes, group $G_2$ has the next 19 holes, group $G_3$ has the next 4 holes and so on, up to group $\mathcal{M}$. We will use $f$ to denote the number holes in a group, thus $f(1)=10, f(2)=19, f(3)=4$, etc. The number of ways arranging pegs within a group is just the factorial of the number of pegs in the group, e.g., the number of ways of arranging the pegs within group 1 is just 10! and so in general the number of ways of arranging the pegs in the jth group is $[f(j)]!$.
+Let us complicate things further. Suppose that we arrange the holes in $\mathcal{M}$ groups. Say group $G_1$ has the first 10 holes, group $G_2$ has the next 19 holes, group $G_3$ has the next 4 holes and so on, up to group $\mathcal{M}$. We will use $f$ to denote the number holes in a group, thus $f(1)=10$, $f(2)=19$, $f(3)=4$, etc. The number of ways arranging pegs within a group is just the factorial of the number of pegs in the group, e.g., the number of ways of arranging the pegs within group 1 is just 10! and so in general the number of ways of arranging the pegs in the jth group is $[f(j)]!$.
 
 Let us denote $C$ as the number of ways of putting all the pegs in all the groups _without_ caring about the internal arrangement within groups. The number of ways of putting the pegs in all the groups caring about the internal arrangements in all the groups is $C\times f(1)!\times f(2)\times f(3)!\times ... f(4)!$, but this is just the number of ways of putting all the pegs in all the holes, i.e.,
 $$
@@ -220,7 +220,7 @@ $$
 C = \frac{\mathcal{N}!}{C\times f(1)!\times f(2)\times f(3)!\times ... f(4)!}
 $$
 
-Now $C$ is just the number of microscopic states corresponding to the macroscopic state of the prescribed grouping $f(1) = 10, f(2) = 19, f(3) = 4$, etc. so the entropy is just $S = \ln C$ or
+Now $C$ is just the number of microscopic states corresponding to the macroscopic state of the prescribed grouping $f(1) = 10$, $f(2) = 19$, $f(3) = 4$, etc. so the entropy is just $S = \ln C$ or
 $$
 \begin{aligned}
 S &= \ln\left( \frac{\mathcal{N}!}{C\times f(1)!\times f(2)\times f(3)!\times ... f(4)!} \right) \\
@@ -237,13 +237,13 @@ Noting that $f(1)+f(2)+...+f(\mathcal{M})=\mathcal{N}$, the entropy becomes
 $$
 \begin{aligned}
 S &= \mathcal{N}\ln\mathcal{N} - f(1)\ln f(1) - f(2)\ln f(2) - ... - f(\mathcal{M})\ln f(\mathcal{M}) \\
-&= \mathcal{N}\ln\mathcal{N} - \sum_{j=1}^\mathcal{M}\ln f(j)
+&= \mathcal{N}\ln\mathcal{N} - \sum_{j=1}^{\mathcal{M}}\ln f(j)
 \end{aligned}
 $$
 
 The constant $\mathcal{N}\ln\mathcal{N}$ is often dropped, giving
 $$
-S = -\sum_{j=1}^\mathcal{M} f(j)\ln f(j)
+S = -\sum_{j=1}^{\mathcal{M}} f(j)\ln f(j)
 $$
 
 If $j$ is made into a continuous variable, say $j \rightarrow v$ so that $f(v)\mathrm{d}v$ is the number of items in the group labeled by $v$ then the entropy can be written as
