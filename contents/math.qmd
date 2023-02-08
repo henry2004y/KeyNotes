@@ -3,7 +3,6 @@
 ## Vector Identities
 
 Some useful vector identities are listed below:
-
 $$
 \begin{aligned}
 \mathbf{A}\times(\mathbf{B}\times\mathbf{C}) &= \mathbf{B}(\mathbf{A}\cdot\mathbf{C}) + \mathbf{C}(\mathbf{A}\cdot\mathbf{B}) \\
@@ -21,13 +20,11 @@ $$
 $$
 
 In most cases Einsten notation shall be used to derive all the identities:
-
 $$
 y = \sum_{i=1}^3 c_i x^i = c_1 x^1 + c_2 x^2 + c_3 x^3
 $$
 
 is simplified by the convention to
-
 $$
 y = c_i x^i
 $$
@@ -37,7 +34,6 @@ The upper indices are not exponents but are indices of coordinates, coefficients
 A basis gives such a form (via the dual basis), hence when working on $\mathbf{R}^n$ with a Euclidean metric and a fixed orthonormal basis, one has the option to work with only subscripts. However, if one changes coordinates, the way that coefficients change depends on the variance of the object, and one cannot ignore the distinction. (See this [wiki link](https://en.wikipedia.org/wiki/Einstein_notation#Superscripts_and_subscripts_versus_only_subscripts).)
 
 Commonly used identities:
-
 $$
 \begin{aligned}
 \mathbf{A}\cdot\mathbf{B} &= A_i B_i \\
@@ -51,13 +47,11 @@ $$
 ## Differential of Line Segments
 
 The differential of line segments in a fluid is:
-
 $$
 \frac{\mathrm{d}\mathbf{l}}{\mathrm{d}t} = \mathbf{l}\cdot\nabla\mathbf{u}
 $$ {#eq-line_diff}
 
 _Proof_. Let the two line segments $\mathbf{l}_1$ and $\mathbf{l}_2$ be expressed as starting point vectors and end point vectors:
-
 $$
 \begin{aligned}
 \mathbf{l}_1&=\mathbf{r}_2 -\mathbf{r}_1 \\
@@ -65,24 +59,30 @@ $$
 \end{aligned}
 $$
 
-after time $\Delta t$, $\mathbf{l}_1\rightarrow \mathbf{l}_2$,
-
+After time $\Delta t$, $\mathbf{l}_1\rightarrow \mathbf{l}_2$,
 $$
 \mathbf{l}_2=\mathbf{r}_2^\prime -\mathbf{r}_1^\prime=(\mathbf{r}_2 +\mathbf{v}(r_2)\Delta t)-(\mathbf{r}_1+\mathbf{v}(\mathbf{r}_1)\Delta t)=\mathbf{l}_1+(\mathbf{v}(\mathbf{r}_2)-\mathbf{v}(\mathbf{r}_1))\Delta t
 $$
 
 The velocity difference can be written as
-
 $$
 \mathbf{v}(x_2,y_2,z_2)-\mathbf{v}(x_1,y_1,z_1) = \frac{\partial\mathbf{v}}{\partial x}(x_2-x_1) +\frac{\partial\mathbf{v}}{\partial y}(y_2-y_1) +\frac{\partial\mathbf{v}}{\partial z}(z_2-z_1) =(\mathbf{l}\cdot\nabla)\mathbf{v}
 $$
 
 So
-
 $$
 \mathbf{l}_2=\mathbf{l}_1+\mathbf{l}\cdot\nabla\mathbf{v}\cdot\Delta t\Rightarrow \frac{\mathbf{l}_2-\mathbf{l}_1}{\Delta t}=\mathbf{l}\cdot\nabla\mathbf{v}
 $$
 □
+
+## Lagrangian vs Eulerian Descriptions
+
+The Lagrangian operator $\mathrm{d}/\mathrm{d}t$ is defined to be the _convective derivative_
+$$
+\frac{\mathrm{d}}{\mathrm{d}t} = \frac{\partial}{\partial t} + \mathbf{u}\cdot\nabla
+$$ {#eq-convective-derivative}
+which characterizes the temporal rate of change seen by an observer moving with the velocity $\mathbf{u}$. An everyday example of the convective term would be the apparent temporal increase in density of automobiles seen by
+a motorcyclist who enters a traffic jam of stationary vehicles and is not impeded by the traffic jam.
 
 ## Complex Analysis
 

@@ -375,9 +375,7 @@ $$ {#eq-navier_stokes}
 This is the same as @eq-momentum_single except for the absence of electromagnetic forces and collisions between species (there being only one species). The viscosity term $\rho\nu\nabla^2\mathbf{u}$, where $\nu$ is the kinematic viscosity coefficient, is just the collisional part of $\nabla\cdot\overleftrightarrow{P} - \nabla p$ in the absence of magnetic fields.
 @eq-navier_stokes describes a fluid in which there are frequent collisions between particles. @eq-momentum_single, on the other hand, was derived without any explicit statement of the collision rate. Since the two equations are identical except for the $\mathbf{E}$ and $\mathbf{B}$ terms, can @eq-momentum_single really describe a plasma species? The answer is a guarded yes, and the reasons for this will tell us the limitations of the fluid theory. This is extremely important to clarify --- there are still quite many people think that collision is assumed for the fluid theory, therefore do not believe that MHD can be used to describe plasmas.
 
-In the derivation of @eq-momentum_single, we did actually assume implicitly that there were many collisions. This assumption came in the derivation of the pressure tensor (TO BE ADDED!) when we took the velocity distribution to be Maxwellian. Such a distribution generally comes about as the result of frequent collisions. However, this assumption was used only to take the
-average of $v^2$. Any other distribution with the same average would give us the same answer. The fluid theory, therefore, is not very sensitive to deviations from the Maxwellian distribution, but there are instances in which these deviations are
-important. Kinetic theory must then be used.
+In the derivation of @eq-momentum_single, we did actually assume implicitly that there were many collisions. This assumption came in the derivation of the pressure tensor (@sec-kinetic-fluid-moments) when we took the velocity distribution to be Maxwellian. Such a distribution generally comes about as the result of frequent collisions. However, this assumption was used only to take the average of $v^2$. Any other distribution with the same average would give us the same answer. The fluid theory, therefore, is not very sensitive to deviations from the Maxwellian distribution, but there are instances in which these deviations are important. Kinetic theory must then be used.
 
 There is also an empirical observation by Irving Langmuir which helps the fluid theory. In working with the electrostatic probes which bear his name, Langmuir discovered that the electron distribution function was far more nearly Maxwellian
 than could be accounted for by the collision rate. This phenomenon, called _Langmuir’s paradox_, has been attributed at times to high-frequency oscillations. There has been no satisfactory resolution of the paradox, but this seems to be one of the few instances in plasma physics where nature works in our favor.
@@ -720,7 +718,6 @@ $$
 $$
 
 where $\epsilon_{ijk}$ is the Levi-Civita symbol. The moments are defined as
-
 $$
 \begin{aligned}
 n_s(\mathbf{x}) &\equiv \int f_s \mathrm{d}\mathbf{v} \\
@@ -730,19 +727,15 @@ u_{i,s}(\mathbf{x}) &\equiv \frac{1}{n_s(\mathbf{x})}\int v_i f_s \mathrm{d}\mat
 $$
 
 with $f_s(\mathbf{x},\mathbf{v},t)$ being the phase space distribution function. We will neglect the subscript $s$ hereinafter for convenience. For completeness, $\mathcal{P}_{ij}$ relates to the more familiar thermal pressure tensor
-
 $$
 P_{ij} \equiv m\int(v_i - u_i)(v_i - u_i)f\mathrm{d}\mathbf{v}
 $$
-
 by
-
 $$
 \mathcal{P}_{ij} = P_{ij} + nm u_i u_j
 $$
 
 For simplicity, non-ideal effects like viscous dissipation are neglected. The electric and magnetic fields $\mathbf{E}$ and $\mathbf{B}$ are evolved using Maxwell equations
-
 $$
 \begin{aligned}
 \frac{\partial\mathbf{B}}{\partial t} + \nabla\times\mathbf{E} = 0 \\
@@ -753,37 +746,26 @@ $$
 with $c=1/\sqrt(\mu_0\epsilon_0)$ being the speed of light.
 
 To close the system, the second order moment $\mathcal{P}_{ij}$ or $P_{ij}$ must be specified. For example, a cold fluid closure simply sets $P_{ij}=0$, while an isothermal equation of state (EOS) assumes that the temperature is constant. Or, assuming zero heat flux and that the pressure tensor is isotropic, we can write an adiabatic EOS for $P_{ij} = p I_{ij}$,
-
 $$
 \frac{\partial\mathcal{\epsilon}}{\partial t} + \nabla\cdot\left[ (p+\mathcal{\epsilon})\mathbf{u} \right] = nq\mathbf{u}\cdot\mathbf{E}
 $$
-
 where
-
 $$
 \mathcal{\epsilon} \equiv \frac{p}{\gamma-1} + \frac{1}{2}mn\mathbf{u}^2
 $$
-
 is the total fluid (thermal + kinetic) energy and $\gamma$ is the adiabatic index, setting to $5/3$ for a fully ionized plasma. For a plasma with $S$ species ($s=1,...,S$) this system is closed and has a total of $5S+6$ equations, and are here referred to as the _five-moment_ model. More general models can be obtained by retaining the evolution equations for all six components of the pressure tensor in the so-called _ten-moment_ model
-
 $$
 \frac{\mathcal{P}_{ij,s}}{\partial t} + \frac{\partial \mathcal{Q}_{ijm,s}}{\partial x_m} = n_sq_su_{i,s}E_j + \frac{q_s}{m_s}\epsilon_{iml}\mathcal{P}_{mj,s}B_l
 $$ {#eq-ten-moment}
-
 where the third moment
-
 $$
 \mathcal{Q}_{ijm,s}(\mathbf{x}) \equiv m_s\int v_i v_j v_m f_s\mathrm{d}\mathbf{v}
 $$
-
 relates to the heat flux tensor defined in the fluid frame
-
 $$
 Q_{ijm} \equiv m\int (v_i-u_i)(v_j-u_j)(v_m-u_m)\mathrm{d}\mathbf{v}
 $$
-
 by
-
 $$
 \mathcal{Q}_{ijm} = Q_{ijm} + u_i\mathcal{P}_{jm} - 2nm u_i u_j u_m
 $$
@@ -936,7 +918,6 @@ We can plot $f$ to find the threshold of $k$ when the instability will happen. S
 ## Hall MHD
 
 As an extension to the ideal/resistive MHD model, Hall MHD decouples the electron and ion motions by retrieving the Hall term in the generalized Ohm's law
-
 $$
 \mathbf{E} = -\mathbf{u}\times\mathbf{B}+\eta\mathbf{J}+\frac{1}{en}\mathbf{J}\times\mathbf{B} - \frac{\nabla p_e}{ne}
 $$
@@ -944,7 +925,6 @@ $$
 where the first term on the right-hand-side is the convective term, the second is the resistive term, the third is the Hall term, and the fourth is the electron pressure gradient term. The electron pressure scalar is simplified from the electron pressure tensor, which is obtained from an independent electron pressure equation.
 
 The Hall MHD equations are
-
 $$
 \begin{aligned}
 \frac{\partial\rho}{\partial t}&=-\nabla\cdot \left(\rho \mathbf{u} \right) \\
@@ -956,19 +936,16 @@ $$
 $$ {#eq-hall_mhd}
 
 where $\bar{\bar{I}}$ is the identity matrix, $\rho$ is the mass density, $\mathbf{u}$ is the plasma bulk velocity, $\mathbf{B}$ is the magnetic field, $p_e$ is the electron pressure, $p$ is the ion thermal pressure, $\mathbf{j}=\nabla\times\mathbf{B}/\mu_0$ is the current density, $\epsilon=\rho\mathbf{u}^2/2$ is the hydrodynamic energy density, and $\epsilon_e=\rho\mathbf{u}_e^2/2$ is the electron hydrodynamic energy density. The Hall velocity is defined as
-
 $$
 \mathbf{v}_H=-\frac{\mathbf{j}}{ne}
 $$
 
 and the electron bulk velocity is given by
-
 $$
 \mathbf{u}_e = \mathbf{u} + \mathbf{v}_H
 $$
 
 The total energy density is (I may have a coefficient error here for $p_e$!)
-
 $$
 e= \frac{1}{2}\rho \mathbf{u}^2+\frac{1}{\gamma-1}(p+p_e)+\frac{\mathbf{B}^2}{2\mu_0}
 $$

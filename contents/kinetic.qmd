@@ -14,11 +14,7 @@ The fluid theory we have been using so far is the simplest description of a plas
 
 In fluid theory, the dependent variables are functions of only four independent variables: $x, y, z,$ and $t$. This is possible because the velocity distribution of each species is assumed to be Maxwellian everywhere and can therefore be uniquely specified by only one number, the temperature $T$. Since collisions can be rare in high-temperature plasmas, deviations from thermal equilibrium can be maintained for relatively long times. As an example, consider two velocity distributions $f_1(v_x)$ and $f_2(v_x)$ in a one-dimensional system (@fig-distributions_1d). These two distributions will have entirely different behaviors, but as long as the areas under the curves are the same, fluid theory does not distinguish between them.
 
-::: {.content-visible unless-format="pdf"}
-
-![Examples of non-Maxwellian distribution functions](../images/distributions_1d.png){#fig-distributions_1d}
-
-:::
+![Examples of non-Maxwellian distribution functions](../images/distributions_nonmaxwellian_1d.png){#fig-distributions_1d}
 
 When we consider velocity distributions in 3D, we have seven independent variables: $f = f(\mathbf{r}, \mathbf{v}, t)$.
 By $f(\mathbf{r}, \mathbf{v}, t)$, we mean that the number of particles per meter cubed at position $\mathbf{r}$ and time $t$ with velocity components between $v_x$ and $v_x + dv_x$, $v_y and $v_y + dv_y$, and $v_z$ and $v_z + dv_z$ is
@@ -63,22 +59,20 @@ Note that $\hat{f}$ is still a function of seven variables, since the shape of t
 
 A particularly important distribution function is the Maxwellian:
 $$
-\hat{f}_m = (m/2\pi k_B T)^{3/2}\exp(-v^2/v_{th}^2)
+\hat{f}_m = \left(\frac{m}{2\pi k_B T}\right)^{3/2}\exp\left(-\frac{v^2}{v_{th}^2}\right)
 $$
-
 where
 $$
 v\equiv(v_x^2 + v_y^2 + v_z^2)^{1/2}\quad\text{and}\quad v_{th}\equiv(2k_B T/m)^{1/2}
 $$
 
-By using the definite integral
+This is the normalized form where $\hat{f}_m$ is equivalent to probability: by using the definite integral
 $$
 \int_{-\infty}^{\infty}\exp(-x^2)dx = \sqrt{\pi}
 $$
+one easily verifies that the integral of $\hat{f}_m$ over $\mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z$ is unity.
 
-one easily verifies that the integral of $\hat{f}_m$ over $dv_x dv_y dv_z$ is unity.
-
-A common question to ask is: why do we see Maxwellian/Gaussian/normal distribution ubiquitously in nature? Well, this is related to the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem): in many situations, when independent random variables are summed up, their properly normalized sum tends toward a normal distribution even if the original variables themselves are not normally distributed (e.g. a biased coin which give 95% head and 5% tail).
+A common question to ask is: why do we see Maxwellian/Gaussian/normal distribution ubiquitously in nature? Well, this is related to the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) in statistics: in many situations, when independent random variables are summed up, their properly normalized sum tends toward a normal distribution even if the original variables themselves are not normally distributed (e.g. a biased coin which give 95% head and 5% tail). In statistical physics, this is related to the fact that a Maxwellian distribution represents the state of a system with the highest entropy under the constraint of energy conservation.
 
 There are several average velocities of a Maxwellian distribution that are commonly used. The root-mean-square velocity is given by
 $$
@@ -91,7 +85,6 @@ $$
 $$
 
 Since $\hat{f}_m$ is isotropic, the integral is most easily done in spherical coordinates in v space. Since the volume element of each spherical shell is $4\pi v^2 \mathrm{d}v$, we have
-
 $$
 \begin{aligned}
 \bar{v} &= (m/2\pi k_B T)^{3/2}\int_0^\infty v[\exp(-v^2/v_{th}^2)]4\pi v^2 \mathrm{d}v \\
@@ -100,19 +93,16 @@ $$
 $$
 
 The definite integral has a value 1/2, found by integration by parts. Thus
-
 $$
 \bar{v} = 2\sqrt{\pi}v_{th} = 2(2k_B T/\pi m)^{1/2}
 $$
 
 The velocity component in a _single direction_, say $v_x$, has a different average. Of course, $\bar{v}_x$ vanishes for an isotropic distribution; but $|\bar{v}_x|$ does not:
-
 $$
 |\bar{v}_x| = \int |v_x|\hat{f}_m(\mathbf{v})\mathrm{d}^3 v = \pi^{-1/2}v_{th} = (2k_B T/\pi m)^{1/2}
 $$
 
 To summarize: for a Maxwellian,
-
 $$
 \begin{aligned}
 v_{rms} &= (3k_B T/m)^{1/2} \\
@@ -123,13 +113,11 @@ v_{rms} &= (3k_B T/m)^{1/2} \\
 $$
 
 For an isotropic distribution like a Maxwellian, we can define another function $g(v)$ which is a function of the scalar magnitude of $\mathbf{v}$ such that
-
 $$
 \int_0^\infty g(v) \mathrm{d}v = \int_{-\infty}^{\infty} f(\mathbf{v})\mathrm{d}v
 $$
 
 For a Maxwellian, we see that
-
 $$
 g(v) = 4\pi n (m/2\pi k_B T)^{3/2} v^2 \exp(-v^2/v_{th}^2)
 $$ {#eq-g_dist}
@@ -194,6 +182,10 @@ $$
 
 Here $W_0$ is the energy at the peak of the particle flux and $\Gamma$ is the gamma function. When $\kappa\gg 1$ the kappa distribution approaches the Maxwellian distribution. When $\kappa$ is smaller but $>1$ the distribution has a high-energy tail. A thorough review is given by [@livadiotis2013].
 
+### Entropy of a distribution
+
+Collisions cause the distribution function to tend towards a simple final state characterized by having the maximum entropy for the given constraints (e.g. fixed total energy). To see this, we provide a brief discussion of entropy and show how it relates to a distribution function.
+
 ## Equations of Kinetic Theory
 
 ### Vlasov equation
@@ -218,7 +210,7 @@ $$
 or, on Taylor expanding the quantities on the right-hand side, we obtain the one-dimensional _Vlasov equation_,
 $$
 \frac{\partial f}{\partial t} + v\frac{\partial f}{\partial x} + \frac{\partial}{\partial v}(a f) = 0
-$$ {eq-vlasov-1d}
+$$ {#eq-vlasov-1d}
 
 It is straightforward to generalize @eq-vlasov-1d to three dimensions and so obtain the three-dimensional Vlasov equation,
 $$
@@ -337,7 +329,7 @@ of a plot like @fig-contour_dist.
 
 ADD A TWO STREAM INSTABILITY PHASE ANIMATION!
 
-## Derivation of the Fluid Equations
+## Derivation of the Fluid Equations {#sec-kinetic-fluid-moments}
 
 Instead of just taking moments of the distribution function $f$ itself, moments will now be taken of the entire Vlasov equation to obtain a set of partial differential equations relating the mean quantities $n(\mathbf{x}),\mathbf{u}(\mathbf{x})$, etc. We begin by integrating the Vlasov equation, @eq-vlasov, over velocity for each species. This first and simplest step in the procedure is called taking the "zeroth" moment, since the operation of multiplying by unity can be considered as multiplying the entire Vlasov equation by $\mathbf{v}$ raised to the power zero. Multiplying the Vlasov equation by unity and then integrating over velocity gives
 $$
@@ -347,7 +339,7 @@ $$
 The velocity integral commutes with both the time and space derivatives on the left-hand side because $\mathbf{x}, \mathbf{v}$ and $t$ are independent variables, while the third term on the left-hand side is the volume integral of a divergence in velocity space. Gauss' theorem (i.e., $\int_V\mathrm{d}\mathbf{x}\nabla\cdot\mathbf{Q}=\int_A\mathrm{d}\mathbf{s}\cdot\mathbf{Q}$) gives $f_s$ evaluated on a surface at $v=\infty$. However, because $f_s\rightarrow 0$ as $v\rightarrow\infty$, this surface integral in velocity space vanishes. Inserting @eq-distribution-density, @eq-distribution-velocity, and @eq-distribution_particle_cons into the above, we have the species continuity equation
 $$
 \frac{\partial n_s}{\partial t} + \nabla\cdot(n_s\mathbf{u}_s)=0
-$$
+$$ {#eq-vlasov-0th-moment}
 
 Now let us multiply @eq-vlasov by $\mathbf{v}$ and integrate over velocity to take the "first moment",
 $$
@@ -398,9 +390,120 @@ p_s &= m_s \int v_x^\prime v_x^\prime f_s \mathrm{d}\mathbf{v}^\prime = m_s \int
 \end{aligned}
 $$ {#eq-scalar-pressure}
 
-@eq-scalar-pressure defines pressure for a three-dimensional isotropic system.
+@eq-scalar-pressure defines pressure for a three-dimensional isotropic system. However, we will often deal with systems of reduced dimensionality, i.e., systems with just one or two dimensions. @eq-scalar-pressure can therefore be generalized to these other cases by introducing the general N-dimensional definition for scalar pressure
+$$
+p_s = \frac{m_s}{N}\int \mathbf{v}^\prime\cdot \mathbf{v}^\prime f_s \mathrm{d}^N\mathbf{v}^\prime
+$$ {#eq-pressure-def}
+where $\mathbf{v}^\prime$ is the N-dimensional random velocity.
 
-Derivations of the zeroth- and first-moment equations are given in all textbooks, whereas only part of them list the second-moment equation. The energy equation derivation can be found in [@bellan2008fundamentals] and [An introductory guide to fluid models with anisotropic temperatures](https://arxiv.org/abs/1901.09354).
+It is important to emphasize that assuming isotropy is done largely for mathematical convenience and that in real systems the distribution function is often quite anisotropic. Collisions, being randomizing, drive the distribution function towards isotropy, while competing processes simultaneously drive it towards anisotropy. Thus, each situation must be considered individually in order to determine whether there is sufficient collisionality to make $f$ isotropic. Because fully ionized hot plasmas often have insufficient collisions to make $f$ isotropic, the often-used assumption of isotropy is an oversimplification, which may or may not be acceptable depending on the phenomenon under consideration.
+
+On expanding the derivatives on the left-hand side of @eq-vlasov-1st-moment, it is seen that two of the terms combine to give $\mathbf{u}$ times @eq-vlasov-0th-moment. After removing this embedded continuity equation, E@eq-vlasov-1st-moment reduces to
+$$
+n_sm_s\frac{\mathrm{d}\mathbf{u}_s}{\mathrm{d}t} = n_s q_s(\mathbf{E} + \mathbf{u}_s\times\mathbf{B}) - \nabla p_s - \mathbf{R}_{s\alpha}
+$$
+where the operator $\mathrm{d}/\mathrm{d}t$ is the convective derivative (@eq-convective-derivative).
+
+At this point in the procedure it becomes evident that a certain pattern recurs for each successive moment of the Vlasov equation. When we took the zeroth moment, an equation for the density $\int f\mathrm{d}\mathbf{v}$ resulted, but this also introduced a term involving the next higher moment, namely the mean velocity $\sim\int\mathbf{v}f\mathrm{d}\mathbf{v}$. Then, when we took the first moment to get an equation for the velocity, an equation was obtained containing a term involving the next higher moment, namely the pressure $\sim\int \mathbf{v}\mathbf{v}f\mathrm{d}\mathbf{v}$. Thus, each time we take a moment of the Vlasov equation, an equation for the moment we want is obtained, but because of the $\mathbf{v}\cdot\nabla f$ term in the Vlasov equation, a next higher moment also appears. Thus, moment-taking never leads to a closed system of equations; there will always be a "loose end", a highest moment for which there is no determining equation. Some sort of ad hoc closure procedure must always be invoked to terminate this chain (as seen below, typical closures involve invoking adiabatic or isothermal
+assumptions). Another feature of taking moments is that each higher moment embeds terms that contain complete lower moment equations multiplied by some factor. Algebraic manipulation can identify these lower moment equations and
+eliminate them to give a simplified higher moment equation.
+
+Let us now take the second moment of the Vlasov equation. Unlike the zeroth and first moments, the dimensionality of the system now enters explicitly so the more general pressure definition given by @eq-pressure-def will be used. Multiplying the Vlasov equation by $m_s v^2/2$ and integrating over velocity gives
+$$
+\begin{Bmatrix}
+\frac{\partial}{\partial t}\int \frac{m_s v^2}{2}f_s\mathrm{d}^N\mathbf{v} \\
++\frac{\partial}{\partial\mathbf{x}}\cdot\int\frac{m_s v^2}{2}\mathbf{v}f_s\mathrm{d}^N\mathbf{v} \\
++q_s\int\frac{v^2}{2}\frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{E}+\mathbf{v}\times\mathbf{B})f_s\mathrm{d}^N\mathbf{v}
+\end{Bmatrix} =
+\sum_\alpha \int m_s \frac{v^2}{2}C_{s\alpha}f_s\mathrm{d}^N \mathbf{v}
+$$ {#eq-vlasov-2nd-moment}
+
+We consider each term of this equation separately as follows:
+
+1. The time derivative term becomes
+$$
+\frac{\partial}{\partial t}\int \frac{m_s v^2}{2}f_s\mathrm{d}^N\mathbf{v} = \frac{\partial}{\partial t}\int \frac{m_s(\mathbf{v}^\prime + \mathbf{u}_s)^2}{2} f_s\mathrm{d}^N\mathbf{v}^\prime = \frac{\partial}{\partial t}\left( \frac{Np_s}{2} + \frac{m_sn_su_s^2}{2} \right)
+$$
+
+2. Again using $\mathbf{v}=\mathbf{v}^\prime + \mathbf{u}_s$, the space derivative term becomes
+$$
+\frac{\partial}{\partial\mathbf{x}}\cdot\int\frac{m_s v^2}{2}\mathbf{v}f_s\mathrm{d}^N\mathbf{v} = \nabla\cdot\left( \mathbf{Q}_s + \frac{2+N}{2}p_s\mathbf{u}_s + \frac{m_sn_su_s^2}{2}\mathbf{u}_s \right)
+$$
+where
+$$
+\mathbf{Q}_s = \int\frac{m_s{v^\prime}^2}{2}\mathbf{v}^\prime f_s\mathrm{d}^N\mathbf{v}
+$$
+is called the _heat flux_.
+
+3. On integrating by parts, the acceleration term becomes
+$$
+q_s\int\frac{v^2}{2}\frac{\partial}{\partial\mathbf{v}}\cdot(\mathbf{E}+\mathbf{v}\times\mathbf{B})f_s\mathrm{d}^N\mathbf{v} = -q_s\int\mathbf{v}\cdot\mathbf{E} f_s\mathrm{d}\mathbf{v} = -q_s n_s\mathbf{u}_s\cdot\mathbf{E}
+$$
+
+4. The collision term becomes (using @eq-distribution_energy_cons_self)
+$$
+\sum_\alpha \int m_s \frac{v^2}{2}C_{s\alpha}f_s\mathrm{d}^N \mathbf{v} = \int_{s\neq \alpha}m_s\frac{v^2}{2}C_{s\alpha} f_s\mathrm{d}\mathbf{v} = -\left( \frac{\partial W}{\partial t} \right)_\mathrm{Es\alpha}
+$$
+where $(\partial W/\partial t)_\mathrm{Es\alpha}$ is the rate at which species $s$ collisionally transfers energy to species $\alpha$.
+
+Combining the above four relations, @eq-vlasov-2nd-moment becomes
+$$
+\begin{aligned}
+\frac{\partial}{\partial t}\left( \frac{Np_s}{2} + \frac{m_sn_su_s^2}{2} \right) + \nabla\cdot\left( \mathbf{Q}_s +\frac{2+N}{2}p_s\mathbf{u}_s + \frac{m_sn_su_s^2}{2}\mathbf{u}_s \right) - q_s n_s \mathbf{u}_s\cdot\mathbf{E} \\
+= -\left( \frac{\partial W}{\partial t} \right)_\mathrm{E\sigma s}
+\end{aligned}
+$$ {#eq-vlasov-2nd-moment2}
+
+This equation can be simplified by invoking two mathmatical identities, the first being
+$$
+\frac{\partial}{\partial t}\left( \frac{m_s n_s u_s^2}{2} \right) + \nabla\cdot\left( \frac{m_sn_su_s^2}{2}\mathbf{u}_s \right) = n_s\left( \frac{\partial}{\partial t} + \mathbf{u}_s\cdot\nabla \right)\frac{m_su_s^2}{2} = n_s\frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{m_su_s^2}{2} \right)
+$$
+
+The second identity is obtained by dotting the equation of motion with $\mathbf{u}_s$:
+$$
+\begin{aligned}
+n_s m_s\left[ \frac{\partial}{\partial t}\left( \frac{u_s^2}{2}\right) + \mathbf{u}_s\cdot\left( \nabla\left( \frac{u_s^2}{2} \right) - \mathbf{u}_s\times\nabla\times\mathbf{u}_s \right) \right] \\
+= n_s q_s \mathbf{u}_s\cdot\mathbf{E} - \mathbf{u}_s\cdot\nabla p_s - \mathbf{R}_{s\alpha}\cdot\mathbf{u}_s
+\end{aligned}
+$$
+or
+$$
+n_s\frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{m_su_s^2}{2} \right) = n_sq_s\mathbf{u}_s\cdot\mathbf{E} - \mathbf{u}_s\cdot\nabla p_s - \mathbf{R}_{s\alpha}\cdot\mathbf{u}_s
+$$
+
+Inserting these two into @eq-vlasov-2nd-moment2 gives the energy evolution equation
+$$
+\frac{N}{2}\frac{\mathrm{d}p_s}{\mathrm{d}t} + \frac{2+N}{2}p\nabla\cdot\mathbf{u}_s = -\nabla\cdot\mathbf{Q}_s + \mathbf{R}_{s\alpha}\cdot\mathbf{u}_s - \left(\frac{\partial W}{\partial t}\right)_\mathrm{Es\alpha}
+$$ {#eq-vlasov-2nd-moment3}
+
+The first term on the right-hand side represents the heat flux, the second term gives the frictional heating of species $s$ due to frictional drag on species $\alpha$, while the last term on the right-hand side gives the rate at which species $s$ collisionally transfers energy to other species. Although @eq-vlasov-2nd-moment3 is complicated, two important limiting situations become evident if we let $t_\mathrm{char}$ be the characteristic time scale for a given phenomenon and $l_\mathrm{char}$ be its characteristic length scale. A characteristic velocity $V_\mathrm{ph}\sim l_\mathrm{char}/t_\mathrm{char}$ may then be defined for the phenomenon and so, replacing temporal derivatives by $t_\mathrm{char}^{-1}$ and spatial derivatives by $l_\mathrm{char}^{-1}$ in @eq-vlasov-2nd-moment3, it is seen that the two limiting situations are:
+
+1. _Isothermal limit_ - The heat flux term dominates all other terms, in which case the temperature becomes spatially uniform. This occurs if (i) $v_{Ts}\gg V_\mathrm{ph}$ since the ratio of the left-hand side terms to the heat flux term is $\sim V_\mathrm{ph}/v_{Ts}$ and (ii) the collisional terms are small enough to be ignored.
+
+2. _Adiabatic limit_ - The heat flux terms and the collisional terms are small enough to be ignored compared to the left-hand side terms; this occurs when $V_\mathrm{ph} \gg  v_{Ts}$. Adiabatic is a Greek word meaning "impassable", and is used here to denote that no heat is flowing, i.e., the volume under consideration is thermally isolated from the outside world.
+
+Both of these limits make it possible to avoid solving for $\mathbf{Q}_s$, which involves the third moment, and so both the adiabatic and isothermal limit provide a closure to the moment equations.
+
+The energy equation may be greatly simplified in the adiabatic limit by re-arranging the continuity equation to give
+$$
+\nabla\cdot\mathbf{u}_s = -\frac{1}{n_s}\frac{\mathrm{d}n_s}{\mathrm{d}t}
+$$
+and then substituting this expression into the left-hand side of @eq-vlasov-2nd-moment3 to obtain
+$$
+\frac{1}{p_s}\frac{\mathrm{d}p_s}{\mathrm{d}t} = \frac{\gamma}{n_s}\frac{\mathrm{d}n_s}{\mathrm{d}t}
+$$ {#eq-adiabatic1}
+where
+$$
+\gamma = \frac{N+2}{N}
+$$
+
+@eq-adiabatic1 implies
+$$
+\frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{p_s}{n_s^\gamma} \right) = 0
+$$
+so $p_s/n_s^\gamma$ is a constant in the frame of the moving plasma. This constitutes a derivation of adiabaticity based on geometry and statistical mechanics rather than on thermodynamic arguments.
+
+The energy equation derivation can also be found in [An introductory guide to fluid models with anisotropic temperatures](https://arxiv.org/abs/1901.09354).
 
 As a short summary, the fluid equations we have been using are simply moments of the Boltzmann equation. One interesting observation from @eq-vlasov is that in order to recover the hydrodynamic equations, the acceleration term $\mathbf{a}\cdot\partial_\mathbf{v}f$ is not required: the pressure gradient that drives the flow arises from the thermal motion embedded in the advection term $\mathbf{v}\cdot\partial_\mathbf{x}f$.
 

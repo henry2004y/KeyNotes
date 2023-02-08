@@ -1310,7 +1310,6 @@ Of course, the WKB solutions are only approximations. In reality, a wave propaga
 ### Electron Cyclotron Resonance Heating
 
 Let us look at the problem of electron cyclotron resonance heating. The resonance condition is $R=\infty$; the governing equation has the form
-
 $$
 \frac{\mathrm{d}^2 E}{\mathrm{d}z^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(z)}^2}{\omega(\omega-\omega_{ce}(z))} \Big]E = 0
 $$
@@ -1320,13 +1319,11 @@ $$
 We use $z$ here to remind ourselves of the fact that the wave property changes along the field line. Imagine a wave $\sim e^{i(kz -\omega t)}$ incident into a plasma with fixed density $n_0$ and varying magnetic field $B_0(z)$ as shown in @fig-ECRH(a). At $z=z_R$, $\omega_{ce}(z) = \omega_{ce}(z_R) = \omega$. Then we can draw $k^2(z)$ as a function of $z$ as in @fig-ECRH(b). There is a pole at $z=z_R$, which indicates resonance since $k^2\rightarrow\infty$. There is also a zero on the right of $z_R$.
 
 Close to $z=z_R$, we have $k^2(z)\sim \frac{\text{const}.}{z-z_R}$. If we write
-
 $$
 \Omega_e(z)=-A^\prime (z-z_R)+\omega,\quad \zeta = z-z_R
 $$
 
 then (ignore the constants)
-
 $$
 \frac{\mathrm{d}^2 E}{\mathrm{d}z^2} - \frac{\text{const.}}{z-z_R}E = 0 \Rightarrow \frac{\mathrm{d}^2 E}{d\zeta^2} - \frac{1}{\zeta}E = 0
 $$
@@ -1336,7 +1333,6 @@ Now let's stare at @fig-ECRH(b) for a few seconds. If there is a wave from left 
 ### O-mode
 
 Next consider EM waves in non-magnetized plasma of ordinary O-mode:
-
 $$
 k^2(x) = \frac{\omega^2}{c^2}n^2 = \frac{\omega^2}{c^2}\Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2}\Big] \quad \text{if } n \text{ is non-uniform}
 $$
@@ -1344,7 +1340,6 @@ $$
 ![Plasma frequency and wave number as functions of $x$ in a non-uniform plasma for O mode.](../images/Omode.png){#fig-Omode}
 
 Note that there is no energy dissipation, because it is collisionless. Imagine a wave $\sim e^{i(kx-\omega t)}$ incident into a plasma with density $n_0(x)$ shown in @fig-Omode. We encounter a cutoff at $x=x_t$, $\omega_{pe}(x_t) = \omega$. Therefore we can draw $k^2(x)$ as a function of x as in @fig-Omode. Then the properties of the wave can be categorized into two regimes:
-
 $$
 \begin{aligned}
 k^2 < 0 \Rightarrow\ E\sim e^{\pm ikx}\ \text{propagating}\\
@@ -1356,12 +1351,11 @@ A natural question comes up from this picture: _how does the propagating wave tr
 
 ## Warm Uniform Plasma
 
-Taking one step forward, we can no longer neglect the kinetic effects, i.e. the cold assumption is no longer valid. For the sake of simplicity, we only consider the 1D case. The approach is very similar to cold plasma situation, except that we have _pressure_ included in the equation, and we also need to specify the relation of pressure and temperature through the equation of state.
+The analysis of cold plasma waves, although very complicated already, leaves out all of the physics that relates to finite temperature effects. These effects may be included in varying degrees of approximation, and it is intructive to include at this stage only the simplest thermal correction terms through the inclusion of a finite pressure term. For the sake of simplicity, we only consider the 1D case. The approach is very similar to cold plasma situation, except that we have _pressure_ included in the equation, and we also need to specify the relation of pressure and temperature through the equation of state.
 
-__2-fluid approach__
+### Two-fluid approach
 
 Equilibrium:
-
 $$
 \begin{aligned}
 &m_i=\infty,\ T_i=0,\ v_{i,0}=0,\ n_{e0}=n_{i0}=n_0,\ E_0=0,\ B_0=0 \\
@@ -1370,13 +1364,11 @@ $$
 $$
 
 The equation of motion for electron is
-
 $$
 \frac{\partial \mathbf{v}}{\partial t}+\mathbf{v}\cdot\nabla\mathbf{v}=-\frac{e}{m_e}\mathbf{E}-\frac{\nabla P}{\rho}
 $$
 
 Assume
-
 $$
 \begin{aligned}
 &P=P_0 \Big( \frac{n}{n_0}\Big)^\gamma  &\text{adiabatic}\\
@@ -1395,7 +1387,6 @@ $$
 $$
 
 Substituting into the equation of motion and keeping only first order terms, we get
-
 $$
 \begin{aligned}
 \frac{\partial v_1}{\partial t}&=-\frac{e}{m_e}(E_1)-\frac{\nabla (P_1)}{n_0m_e} \\
@@ -1404,7 +1395,6 @@ $$
 $$
 
 The continuity equation gives
-
 $$
 \begin{aligned}
 \frac{\partial n}{\partial t}+\frac{\partial}{\partial x}\Big( nv\Big)=0 \\
@@ -1413,41 +1403,41 @@ $$
 $$
 
 Substituting this into the linearized equation of motion, we get
-
 $$
 n_1=\frac{kn_0eE_1}{im_e(\omega^2-k^2{v_{th}}^2)}
 $$
 
 which is the density perturbation in response to $E_1$. Following the same approach as before, we can easily get the dielectric function:
-
 $$
 \frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2-k^2{v_{th}}^2}
 $$
 
 Let $\epsilon=0$, we get the dispersion relation for warm plasma
-
 $$
 \omega^2=k^2{v_{th}}^2+{\omega_{pe}}^2
 $$
 
-This is called the \emph{Bohm-Gross dispersion relation}.
+This is called the _Bohm-Gross dispersion relation_ (BGDR). [@swanson2012plasma] has shown that by keeping higher order terms,
+$$
+\omega^2 = \omega_{pe}^2\left[ 1 + \frac{3}{2}\left( \frac{k v_{th}}{\omega_{pe}} \right)^2 + \frac{15}{4}\left( \frac{k v_{th}}{\omega_{pe}} \right)^4 \right]
+$$
+so it is apparent that _the moment expansion is an expansion in the ratio of the thermal velocity to the phase velocity_. The BGDR now resolves the ambiguity in cold plasma theory and supports the notion that $P=0$ in cold plasma is a cutoff rather than a resonance, since this dispersion relation describes a wave with a cutoff at $\omega_{pe}$ that propagates near the electron thermal speed for high frequencies.
 
-__Vlasov approach__
+We see from this example that the fluid equations which are based on moment expansions are valid as long as the phase velocity is large compared to the thermal speed, $v_p\gg v_{th}$.
+
+### Vlasov approach
 
 Assume Maxwellian distribution for electrons:
-
 $$
 g_e(v)=\frac{1}{\sqrt{2\pi}}\frac{1}{v_{th,e}}e^{-v^2/2{v_{th,e}}^2}
 $$
 
 Assuming $\frac{\omega}{k}\gg v_{th,e}$, i.e. the phase speed is much larger than the characteristic thermal speed, we can do Taylor series expansion
-
 $$
 \frac{1}{(v-\omega/k)^2}=\frac{1}{(\omega/k)^2}\frac{1}{(1-kv/\omega)^2}\approx \frac{k^2}{\omega^2}\Big[ 1+\frac{2kv}{\omega}+\frac{3k^2v^2}{\omega^2}+...\Big]
 $$
 
 Then the dielectric function is
-
 $$
 \begin{aligned}
 \frac{\epsilon}{\epsilon_0}&=1-\frac{{\omega_{pe}}^2}{k^2}\int_{-\infty}^{\infty}dv g(v)\frac{k^2}{\omega^2}\Big[ 1+\frac{2kv}{\omega}+\frac{3k^2v^2}{\omega^2}+...\Big] \\
@@ -1456,7 +1446,6 @@ $$
 $$
 
 Let $\epsilon=0$, we can get the dispersion relation for warm plasma,
-
 $$
 \begin{aligned}
 &\text{lowest order: } \omega=\pm \omega_{pe} \\
@@ -1491,7 +1480,7 @@ $$
 \frac{\epsilon}{\epsilon_0}=\underbrace{1}_{\nabla\cdot(\epsilon_0\mathbf{E}_1)}-\underbrace{\frac{{\omega_{pe}}^2}{\omega^2-k^2{v_{th,e}}^2}}_{en_{1e}}-\underbrace{\frac{{\omega_{pi}}^2}{\omega^2-k^2{v_{th,i}}^2}}_{en_{1i}}
 $$
 
-__Ion-acoustic wave__
+### Ion-acoustic wave
 
 Assume $v_{th,e}\gg \frac{\omega}{k}\gg v_{th,i}$, we have the simplified dielectric function
 
