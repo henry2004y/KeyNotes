@@ -514,7 +514,7 @@ $$
 where the _pressure tensor_ is defined by
 $$
 \overleftrightarrow{P}_s \equiv m_s\int \mathbf{v}^\prime \mathbf{v}^\prime f_s \mathrm{d}\mathbf{v}^\prime
-$$
+$$ {#eq-tensor-pressure}
 
 If $f_s$ is an isotropic function of $\mathbf{v}^\prime$, then the off-diagonal terms in $\overleftrightarrow{P}_s$ vanish and the three diagonal terms are identical. In this case, it is useful to define the diagonal terms to be the _scalar pressure_ $p_s$, i.e.,
 $$
@@ -530,11 +530,23 @@ p_s = \frac{m_s}{N}\int \mathbf{v}^\prime\cdot \mathbf{v}^\prime f_s \mathrm{d}^
 $$ {#eq-pressure-def}
 where $\mathbf{v}^\prime$ is the N-dimensional random velocity.
 
+The scalar pressure has a simple relation to the generalized Maxwellian as seen by recasting @eq-pressure-def as
+$$
+\begin{aligned}
+p_s &= \frac{m_s}{N}\int \mathbf{v}^\prime\cdot \mathbf{v}^\prime f_s \mathrm{d}^N\mathbf{v}^\prime \\
+&= \frac{n_s m_s}{N}\left( \frac{m_s}{2\pi k_B T_s} \right)^{N/2} \int {\mathbf{v}^\prime}^2 \exp \left( -\frac{m_s {\mathbf{v}^\prime}^2}{2k_B T_s} \right) \mathrm{d}^N\mathbf{v}^\prime \\
+&= -\frac{n_s m_s}{N}\left( \frac{\alpha}{\pi} \right)^{N/2} \frac{\mathrm{d}}{\mathrm{d}\alpha}\int e^{-\alpha {v^\prime}^2}\mathrm{d}^N\mathbf{v}^\prime,\, \alpha \equiv m_s/2k_B T_s \\
+&= -\frac{n_s m_s}{N}\left( \frac{\alpha}{\pi} \right)^{N/2} \frac{\mathrm{d}}{\mathrm{d}\alpha}\left( \frac{\alpha}{\pi} \right)^{-N/2} \\
+&= n_s k_B T_s
+\end{aligned}
+$$
+which is just the ideal gas law. Thus, the definitions that have been proposed for pressure and temperature are consistent with everyday notions for these quantities.
+
 It is important to emphasize that assuming isotropy is done largely for mathematical convenience and that in real systems the distribution function is often quite anisotropic. Collisions, being randomizing, drive the distribution function towards isotropy, while competing processes simultaneously drive it towards anisotropy. Thus, each situation must be considered individually in order to determine whether there is sufficient collisionality to make $f$ isotropic. Because fully ionized hot plasmas often have insufficient collisions to make $f$ isotropic, the often-used assumption of isotropy is an oversimplification, which may or may not be acceptable depending on the phenomenon under consideration.
 
 On expanding the derivatives on the left-hand side of @eq-vlasov-1st-moment, it is seen that two of the terms combine to give $\mathbf{u}$ times @eq-vlasov-0th-moment. After removing this embedded continuity equation, E@eq-vlasov-1st-moment reduces to
 $$
-n_sm_s\frac{\mathrm{d}\mathbf{u}_s}{\mathrm{d}t} = n_s q_s(\mathbf{E} + \mathbf{u}_s\times\mathbf{B}) - \nabla p_s - \mathbf{R}_{s\alpha}
+n_s m_s\frac{\mathrm{d}\mathbf{u}_s}{\mathrm{d}t} = n_s q_s(\mathbf{E} + \mathbf{u}_s\times\mathbf{B}) - \nabla p_s - \mathbf{R}_{s\alpha}
 $$
 where the operator $\mathrm{d}/\mathrm{d}t$ is the convective derivative (@eq-convective-derivative).
 
@@ -640,6 +652,9 @@ so $p_s/n_s^\gamma$ is a constant in the frame of the moving plasma. This consti
 The energy equation derivation can also be found in [An introductory guide to fluid models with anisotropic temperatures](https://arxiv.org/abs/1901.09354).
 
 As a short summary, the fluid equations we have been using are simply moments of the Boltzmann equation. One interesting observation from @eq-vlasov is that in order to recover the hydrodynamic equations, the acceleration term $\mathbf{a}\cdot\partial_\mathbf{v}f$ is not required: the pressure gradient that drives the flow arises from the thermal motion embedded in the advection term $\mathbf{v}\cdot\partial_\mathbf{x}f$.
+
+We must be careful not to become overconfident regarding the descriptive power of the fluid point of view
+because weaknesses exist in this point of view. For example, as discussed above neither the adiabatic nor the isothermal approximation is appropriate when $V_\mathrm{ph}\sim v_{Ts}$. The fluid description breaks down in this situation and the Vlasov description must be used in this situation. Furthermore, the distribution function is Maxwellian only if there are sufficient collisions or some other randomizing process. Because of the weak collisionality of a plasma, this is very often not the case. In particular, since the collision frequency scales as $v^{-3}$ (@eq-coulomb_collision_freq), fast particles take much longer to become Maxwellian than slow particles. It is not at all unusual for a real plasma to be in a state where the low-velocity particles have reached a Maxwellian distribution whereas the fast particles form a non-Maxwellian tail.
 
 ## Plasma Oscillations and Landau Damping {#sec-landau}
 
