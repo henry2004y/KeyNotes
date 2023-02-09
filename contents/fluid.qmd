@@ -735,7 +735,7 @@ so that the magnetic flux linked by any closed material line is constant. Theref
 
 #### Equation of state
 
-* Double adiabatic laws
+**Double adiabatic laws**
 
 A procedure analogous to that which led to @eq-eos_adiabatic or @eq-adiabatic1 gives the MHD adiabatic relation
 $$
@@ -745,7 +745,90 @@ where again $\gamma=(N+2)/N$ and $N$ is the number of dimensions of the system. 
 
 ![Magnetic flux tube with flux $\Phi=BA$.](../images/magnetic_flux_tube.png){#fig-b-flux-tube}
 
-* Single adiabatic law
+Let us define two temperatures for this magnetized plasma, namely $T_\perp$, the temperature corresponding to motions perpendicular to the magnetic field, and $T_\parallel$, the temperature corresponding to motions parallel to the magnetic field. If for some reason (e.g., anisotropic heating or compression) the temperature develops an anisotropy such that $T_\perp \neq T_\parallel$ and if collisions are infrequent, this anisotropy will persist for a long time, since collisions are the means by which the two temperatures equilibrate. Thus, rather than assuming that the MHD pressure is fully isotropic, we consider the less restrictive situation where the MHD pressure tensor is given by
+$$
+\overleftrightarrow{P}^{\mathrm{MHD}} =
+\begin{bmatrix}
+p_\perp & 0 & 0 \\ 0 & p_\perp & 0 \\ 0 & 0 & p_\parallel
+\end{bmatrix} = 
+p_\perp\mathbf{I} + (p_\parallel - p_\perp)\hat{b}\hat{b}
+$$
+
+The first two coordinates ($x, y$-like) in the above matrix refer to the directions perpendicular to the local magnetic field $\mathbf{B}$ and the third coordinate ($z$-like) refers to the direction parallel to $\mathbf{B}$. The tensor expression on the right-hand side is equivalent (here $\mathbf{I}$ is the unit tensor) but allows for arbitrary, curvilinear geometry. We now develop separate adiabatic relations for the perpendicular and parallel directions:
+
+* Parallel direction: here the number of dimensions is $N = 1$ so that $\gamma = 3$ and so the adiabatic law gives
+$$
+\frac{p_\parallel^{1D}}{\rho_{1D}^3}=\mathrm{const.}
+$$ {#eq-parallel-p-rho-1D}
+where $rho_{1D}$ is the _one-dimensional_ mass density; i.e., $rho_{1D}\sim 1/L$, where $L$ is the length along the flux tube in @fig-b-flux-tube. The three-dimensional mass density, which has been used implicitly until now, has the proportionality $\rho\sim 1/LA$, where $A$ is the cross-section of the flux tube; similarly the three-dimensional pressure has the proportionality $p_\parallel \sim \rho T_\parallel$. However, we must be careful to realize that $p_\parallel^{1D}\sim\rho_{1D}T_\parallel$ so, using $BA=\mathrm{const.}$, @eq-parallel-p-rho-1D can be recast as
+$$
+\mathrm{const.} = \frac{p_\parallel^{1D}}{\rho_{1D}^3} \sim \frac{\rho_{1D}T_\parallel}{\rho_{1D}^3} \sim T_\parallel \rho_{1D}^2 \sim \left( \frac{1}{LA} \right) T_\parallel (LA)^3 B^2
+$$
+or
+$$
+\frac{p_\parallel B^2}{\rho^3} = \mathrm{const.}
+$$ {#eq-CGL-par}
+
+* Perpendicular direction: here the number of dimensions is $N = 2$ so that $\gamma = 2$ and the adiabatic law gives
+$$
+\frac{p_\perp^{2D}}{\rho_{2D}^2}=\mathrm{const.}
+$$ {#eq-perpendicular-p-rho-2D}
+where $p_\perp^{2D}$ is the 2-D perpendicular pressure, and has dimensions of energy per unit area, while $\rho_{2D}$ is the 2-D mass density and has dimensions of mass per unit area. Thus, $\rho_{2D}\sim 1/A$ so $p_\perp^{2D}\sim\rho_{2D}T_\perp \sim T_\perp/A$, in which case @eq-perpendicular-p-rho-2D can be recast as
+$$
+\mathrm{const.} = \frac{p_\parallel B^2}{\rho^3} = T_\perp A \sim \left( \frac{1}{LA} \right) T_\perp \frac{LA}{B}
+$$
+or
+$$
+\frac{p_\perp}{\rho B} = \mathrm{const.}
+$$ {#eq-CGL-perp}
+
+@eq-CGL-par and @eq-CGL-perp are called the double adiabatic or CGL laws after Chew, Goldberger, and Low [@cgl1956] who first developed these laws.
+
+**Single adiabatic law**
+
+If collisions are sufficiently frequent to equilibrate the perpendicular and parallel temperatures, then the pressure tensor becomes fully isotropic and the dimensionality of the system is $N = 3$ so that $\gamma = 5/3$. There is now just one pressure and one temperature and the adiabatic relation becomes
+$$
+\frac{p}{\rho^{5/3}} = \mathrm{const.}
+$$ {#eq-single-adiabatic}
+
+#### MHD approximations for Maxwell's equations
+
+The various assumptions contained in MHD lead to a simplifying approximation of Maxwell's equations. In particular, the assumption of charge neutrality in MHD makes Poisson's equation superfluous because Poisson's equation prescribes the relationship between non-neutrality and the electrostatic component of the electric field. The assumption of charge neutrality also has implications for the current density. To see this, the two-fluid continuity equation is multiplied by $q_s$ and then summed over species to obtain the charge conservation equation
+$$
+\frac{\partial}{\partial t}\left( \sum_s n_s q_s \right) + \nabla\cdot\mathbf{j} = 0
+$$ {#eq-charge-conservation}
+
+Thus, charge neutrality implies
+$$
+\nabla\cdot\mathbf{j} = 0
+$$
+
+Let us now consider Ampère's law
+$$
+\nabla\times\mathbf{B} = \mu_0\mathbf{j} + \mu_0\epsilon_0\dot{\mathbf{E}}
+$$
+
+Taking the divergence gives
+$$
+\nabla\cdot
+$$
+which is equivalent to @eq-charge-conservation if Poisson’s equation is invoked.
+
+Finally, MHD is restricted to phenomena having characteristic velocities $V_{\mathrm{ph}}$ slow compared to the speed of light in vacuum, $c=(\mu_0 \epsilon_0)^{-1/2}$. Again, $t_{\mathrm{char}}$ is assumed to represent the characteristic time scale for a given phenomenon and $l_{\mathrm{char}}$ is assumed to represent the corresponding characteristic length scale so that $V_{\mathrm{ph}}\sim l_{\mathrm{char}}/t_{\mathrm{char}}$. Faraday's equation gives the scaling
+$$
+\nabla\times\mathbf{E} = -\dot{\mathbf{B}} \rightarrow E \sim B l_{\mathrm{char}}/t_{\mathrm{char}}
+$$
+On comparing the magnitude of the displacement current term in Ampère's law to the left-hand side it is seen that
+$$
+\frac{\mu_0\epsilon_0|\dot{\mathbf{E}}|}{|\nabla\times\mathbf{B}|} \sim \frac{c^{-2} E/t_{\mathrm{char}}}{B/l_{\mathrm{char}}} \sim \left( \frac{V_{\mathrm{ph}}}{c} \right)^2
+$$
+
+Thus, if $V_{\mathrm{ph}} \ll c$ the displacement current term can be dropped from Amperè's law resulting in the so-called "pre-Maxwell" form
+$$
+\nabla\times\mathbf{B} = \mu_0 \mathbf{j}
+$$ {#eq-ampere-pre-maxwell}
+
+The divergence of @eq-ampere-pre-maxwell gives $\nabla\cdot\mathbf{j}=0$ so it is unnecessary to specify it separately.
 
 #### Complete equation set
 
@@ -781,6 +864,26 @@ where the subscripts $\ast$ denotes the variables in dimensionless units, and th
 $$
 p_\ast = \rho_\ast T_\ast
 $$
+
+In more theoretical derivations, for simplicity the energy equation is substituted with either single adiabatic law @eq-single-adiabatic or double adiabatic law @eq-CGL-par and @eq-CGL-perp.
+
+These equations provide a self-consistent description of phenomena that satisfy all the various assumptions we have made, namely:
+
+1. The plasma is charge-neutral since characteristic lengths are much longer than a Debye length;
+2. The characteristic velocity of the phenomenon under consideration is slow compared to the speed of light;
+3. The pressure and density gradients are parallel, so there is no electrothermal EMF;
+4. The time scale is long compared to both the electron and ion cyclotron periods.
+
+Even though these assumptions are self-consistent, they may not accurately portray a real plasma and so MHD models, while intuitively appealing, must be used with caution.
+
+Finally, it is worth mentioning that MHD plasmas can be categorized yet another way, namely according to the relative importance of the magnetic force $\mathbf{j}\times\mathbf{B}$ compared to the hydrodynamic force $\nabla\cdot\overleftrightarrow{P}$. If the magnetic force is negligible compared to the hydrodynamic force, then there is not much point in using MHD because in this case the system of equations is simply classical hydrodynamics. Thus, the only non-trivial MHD situations are where the magnetic
+and hydrodynamic forces are of comparable importance or where the magnetic force is much more important than the hydrodynamic force. Using @eq-ampere-pre-maxwell, the nominal ratio of the hydrodynamic force to the magnetic force is defined as
+$$
+\beta = \frac{p}{B^2/2\mu_0} \sim \frac{\nabla\cdot\overleftarrow{P}}{\mathbf{j}\times\mathbf{B}} \sim \frac{p/L}{B^2/2\mu_0 L}
+$$
+
+The characteristic gradient scale length $L$ is assumed to be comparable for both types of forces and so cancels out in the comparison. Low-$\beta$ plasmas are those where $B^2/2\mu_0$ is much larger than $p$ so the hydrodynamic force is negligible
+compared to the magnetic force, whereas $\beta = \mathcal{O}(1)$ plasmas are those where the magnetic and hydrodynamic forces are comparable. The different $\beta$ regime has important implications on the validity of many approximations seen in later chapters.
 
 ### Hall MHD
 
