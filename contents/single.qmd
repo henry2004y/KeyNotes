@@ -2,6 +2,16 @@
 
 What makes plasmas particularly difficult to analyze is the fact that the densities fall in an intermediate range. Fluids like water are so dense that the motions of individual molecules do not have to be considered. Collisions dominate, and the simple equations of ordinary fluid dynamics suffice. At the other extreme in very low-density devices, only single-particle trajectories need to be considered; collective effects are often unimportant. Plasma behaves sometimes like fluids, and sometimes like a collection of individual particles. The first step in learning how to deal with this schizophrenic personality is to understand how single particles behave in electric and magnetic fields.
 
+Single particle motion in neutral gases is trivial – particles move in straight lines until they hit other particles or the wall. Because of this simplicity, there is no point in keeping track of the details of single particle motion in a neutral gas and instead a statistical averaging of this motion suffices; this averaging shows that neutral
+gases have Maxwellian velocity distributions and are in a local thermodynamic equilibrium. In contrast, plasma particles are nearly collisionless and typically have complex trajectories that are strongly affected by both electric and magnetic fields.
+
+As what will be shown in @sec-collision-entropy, the velocity distribution in a plasma will become Maxwellian when enough collisions have occurred to maximize the entropy. However, since collisions occur infrequently in hot plasmas, many important phenomena have time scales shorter than the time required for the plasma velocity distribution to become Maxwellian. A collisionless model is thus required to characterize these fast phenomena. In these situations randomization does not occur, entropy is conserved, the distribution function need not be Maxwellian, and the plasma is not in thermodynamic equilibrium. Thermodynamic concepts therefore do not apply, and the plasma is instead characterized by concepts from classical mechanics such as momentum or energy conservation of individual particles. In these collisionless situations the complex details of single particle dynamics are not washed out by collisions but instead persist and influence the macroscopic scale. As an example, the cyclotron resonance of a single particle
+can be important at the macroscopic scale in a collisionless plasma. This chapter examines various aspects of single particle motion and shows how these aspects can influence the macroscopic properties of a plasma.
+
+Furthermore, study of single particle dynamics has a very direct relevance to Vlasov theory because, as shown in @sec-vlasov, any function constructed from constants of single particle motion is a valid solution of the collisionless Vlasov equation. Thus, knowledge of single particle dynamics provides a "repertoire" of constants of the motions from which solutions to the Vlasov equation suitable for various situations can be constructed.
+
+Finally, the study of single particle motion develops valuable intuition regarding wave–particle interactions and identifies certain unusual situations, such as stochastic or non-adiabatic particle motion, that are beyond the descriptive capability of fluid models.
+
 Here we assume that the EM fields are prescribed and not affected by the charged particles. The associated approach is often called _test particle_.
 
 ## Uniform E and B Fields
@@ -658,25 +668,21 @@ This property is used in a method of plasma heating known as *adiabatic compress
 ## Summary of Guiding Center Drifts
 
 General force:
-
 $$
 \mathbf{v}_f = \frac{1}{q}\frac{\mathbf{F}\times\mathbf{B}}{B^2}
 $$
 
 Electric field:
-
 $$
 \mathbf{v}_E = \frac{\mathbf{E}\times\mathbf{B}}{B^2}
 $$
 
 Gravitational field:
-
 $$
 \mathbf{v}_g = \frac{m}{q}\frac{\mathbf{g}\times\mathbf{B}}{B^2}
 $$
 
 Nonuniform electric field:
-
 $$
 \mathbf{v}_E = \Big( 1+\frac{1}{4}r_L^2 \nabla^2 \Big)\frac{\mathbf{E}\times\mathbf{B}}{B^2}
 $$
@@ -684,37 +690,31 @@ $$
 Nonuniform magnetic field:
 
 Grad-B:
-
 $$
 \mathbf{v}_{\nabla B} = \pm \frac{1}{2}v_\perp r_L\frac{\mathbf{B}\times\nabla B}{B^2}
 $$
 
 Curvature drift:
-
 $$
 \mathbf{v}_R = \frac{mv_\parallel^2}{q}\frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2 B^2}
 $$
 
 Curved vacuum field:
-
 $$
 \mathbf{v}_R + \mathbf{v}_{\nabla B} = \frac{m}{q}\Big( v_\parallel^2 + \frac{1}{2}v_\perp^2 \Big) \frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2 B^2}
 $$
 
 Polarization drift:
-
 $$
 \mathbf{v}_p = \pm \frac{1}{\omega_c B}\frac{\mathrm{d}\mathbf{E}}{\mathrm{d}t}
 $$
 
 A non-relativistic equation for the guiding center is given by Northrop in 1963:
-
 $$
 \frac{\mathrm{d}\mathbf{R}}{\mathrm{d}t} = v_\parallel\hat{b} + \frac{\hat{b}}{B}\times \Big[ -\mathbf{E} + \frac{m}{q}\Big( v_\parallel\frac{\mathrm{d}\hat{b}}{\mathrm{d}t} + \frac{\mathrm{d}\mathbf{v}_{E\times B}}{\mathrm{d}t} \Big) + \frac{\mu}{q}\nabla B \Big]
 $$
 
 and the parallel motion can be described by (???)
-
 $$
 \frac{\mathrm{d}(mv_\parallel)}{\mathrm{d}t} = m\mathbf{u}_q E_\parallel - \mu\hat{b}\cdot\nabla B
 $$
@@ -728,13 +728,11 @@ It is well known in classical mechanics that whenever a system has a periodic mo
 ### The First Adiabatic Invariant
 
 We have already met the quantity
-
 $$
 \mu = mv_\perp^2 / 2B
 $$
 
 and have proved its invariance in spatially and temporally varying $\mathbf{B}$ fields. The periodic motion involved, of course, is the Larmor gyration. If we take $p$ to be angular momentum $mv_\perp r$ and $dq$ to be the coordinate $\mathrm{d}\theta$, the action integral becomes
-
 $$
 \oint p dq = \oint mv_\perp r \mathrm{d}\theta = 2\pi r_L m v_\perp = 2\pi \frac{mv_\perp^2}{\omega_c} = 4\pi \frac{m}{|q|}\mu
 $$
@@ -755,7 +753,6 @@ phase.
 ### The Second Adiabatic Invariant
 
 Consider a particle trapped between two magnetic mirrors: it bounces between them and therefore has a periodic motion at the "bounce frequency". A constant of this motion is given by $\oint mv_\parallel ds$, where $ds$ is an element of path length (of the guiding center) along a field line. However, since the guiding center drifts across field lines, the motion is not exactly periodic, and the constant of the motion becomes an adiabatic invariant. This is called the *longitudinal invariant* $J$ and is defined for a half-cycle between the two turning points
-
 $$
 J = \int_a^b v_\parallel ds
 $$
@@ -765,25 +762,20 @@ We shall prove that $J$ is invariant in a static, nonuniform B field; the result
 Before embarking on this somewhat lengthy proof, let us consider an example of the type of problem in which a theorem on the invariance of $J$ would be useful. As we have already seen, the earth's magnetic field mirror-traps charged particles, which slowly drift in longitude around the earth. If the magnetic field were perfectly symmetric, the particle would eventually drift back to the same magnetic field line. However, the actual field is distorted by such effects as the solar wind. In that case, will a particle ever come back to the same magnetic field line? Since the particle's energy is conserved and is equal to $\frac{1}{2} mv_\perp^2$ at the turning point, the invariance of μ indicates that $|B|$ remains the same at the turning point. However, upon drifting back to the same longitude, a particle may find itself on another magnetic field line at a different altitude. This cannot happen if $J$ is conserved. $J$ determines the length of the field lines between turning points, and no two lines have the same length between points with the same $|B|$. Consequently, the particle returns to the same magnetic field line even in a slightly asymmetric field.
 
 To prove the invariance of $J$, we first consider the invariance of $v_\parallel \delta s$, where $\delta s$ is a segment of the path along $\mathbf{B}$. Because of guiding center drifts, a particle on $s$ will find itself on another magnetic field line $\delta s^\prime$ after a time $\Delta t$. The length of $\delta s^\prime$ is defined by passing planes perpendicular to $\mathbf{B}$ through the end points of $\delta s$. The length of $\delta s$ is obviously proportional to the radius of curvature:
-
 $$
 \frac{\delta s}{R_c} = \frac{\delta s^\prime}{R_c^\prime}
 $$
-
 so that
-
 $$
 \frac{\delta s^\prime - \delta s}{\Delta t \delta s} = \frac{R_c^\prime - R_c}{\Delta t R_c}
 $$
 
 The "radial" component of $\mathbf{v}_{gc}$ is just
-
 $$
 \mathbf{v}_{gc}\cdot \frac{\mathbf{R}_c}{R_c} = \frac{R_c^\prime - R_c}{\Delta t}
 $$
 
 The guiding center drift in curved vacuum field is
-
 $$
 \mathbf{v}_{gc} = \mathbf{v}_R + \mathbf{v}_{\nabla B} = \pm \frac{1}{2}v_\perp r_L\frac{\mathbf{B}\times\nabla B}{B^2} + \frac{mv_\parallel^2}{q}\frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2 B^2}
 $$
@@ -801,43 +793,36 @@ W \equiv \frac{1}{2}mv_\parallel^2 + \frac{1}{2}mv_\parallel^2 = \frac{1}{2}mv_\
 $$
 
 Thus $v_\parallel$ can be written
-
 $$
 v_\parallel = \left[ \frac{2}{m}(W - \mu B) \right]^{1/2}
 $$
 
 Here W and μ are constant, and only B varies. Therefore,
-
 $$
 \frac{\dot{v}_\parallel}{v_\parallel} = -\frac{1}{2}\frac{\mu\dot{B}}{W - \mu B} = -\frac{1}{2}\frac{\mu \dot{B}}{W_\parallel} = -\frac{\mu\dot{B}}{mv_\parallel^2}
 $$
 
 Since B was assumed static, $\dot{B}$ is not zero only because of the guiding center motion:
-
 $$
 \dot{B} = \frac{\mathrm{d}B}{\mathrm{d}\mathbf{r}}\cdot\frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = \mathbf{v}_{gc}\cdot\nabla B = \frac{mv_\parallel^2}{q}\frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2 B^2} \cdot\nabla B
 $$
 
 Now we have
-
 $$
 \frac{\dot{v}_\parallel}{v_\parallel} = -\frac{\mu}{q}\frac{(\mathbf{R}_c\times\mathbf{B})\cdot\nabla B}{R_c^2 B^2} = -\frac{1}{2}\frac{m}{q}\frac{v_\perp^2}{B} \frac{(\mathbf{R}_c\times\mathbf{B})\cdot\nabla B}{R_c^2 B^2}
 $$
 
 The fractional change in $v_\parallel \delta s$ is
-
 $$
 \frac{1}{v_\parallel \delta s}\frac{\mathrm{d}}{\mathrm{d}t}(v_\parallel \delta s) = \frac{1}{\delta s}\frac{\mathrm{d}\delta s}{\mathrm{d}t} + \frac{1}{v_\parallel}\frac{\mathrm{d}v_\parallel}{\mathrm{d}t}
 $$
 
 From the previous derivations we see that the these two terms cancel, so that
-
 $$
 v_\parallel \delta s = \textrm{constant}
 $$
 
 This is not exactly the same as saying that $J$ is constant, however. In taking the integral of $v_\parallel \delta s$, between the turning points, it may be that the turning points on $\delta s^\prime$ do not coincide with the intersections of the perpendicular planes. However, any error in $J$ arising from such a discrepancy is negligible because near the turning points, $v_\parallel$ is nearly zero. Consequently, we have proved
-
 $$
 J = \int_a^b v_\parallel ds = \textrm{constant}
 $$
@@ -846,8 +831,7 @@ An example of the violation of J invariance is given by a plasma heating scheme 
 
 ### The Third Adiabatic Invariant
 
-Referring again to the earth dipole case, we see that the slow drift of a guiding center around the earth constitutes a third type of periodic motion. The adiabatic invariant connected with this turns out to be the total magnetic flux $\Phi$ enclosed by the drift surface.
-
+Referring again to the earth dipole case, we see that the slow drift of a guiding center around the earth constitutes a third type of periodic motion. The adiabatic invariant connected with this turns out to be the total magnetic flux $\Phi$ enclosed by the drift surface,
 $$
 \Phi = \int\mathbf{B}\cdot \mathrm{d}\mathbf{S}
 $$ {#eq-magnetic_flux}
@@ -857,7 +841,6 @@ It is almost obvious that, as $\mathbf{B}$ varies, the particle will stay on a s
 Here are some time scales to remember for a 1 MeV proton in the Earth's radiation belt. The drift period is about 16 mins, the bounce period is about 0.22 s, and the gyroperiod is about 0.22 ms. These numbers are from Solène Lejosne's [calculator](https://solenelejosne.com/bounce/).
 
 In radiation belt studies, it is typical to consider a quantity that is inversely proportional to the magnetic flux:
-
 $$
 L^\ast = \frac{2\pi M}{|\phi|R_E} = \frac{2\pi B_{eq}R_E^2}{|\phi|}
 $$ {#eq-Lstar}
@@ -869,48 +852,40 @@ Therefore, the $L$ and $L^\ast$ parameters coincide in a dipole field, but in a 
 ## Ring Current
 
 One typical application of the single particle motion is the study of ring current. Beyond the lowest order of motion (i.e. gyration combined with parallel drift) of charged particles in the magnetosphere, let us examine the higher order corrections. For the case of non-time-varying fields, and a weak electric field, these corrections consist of a combination of $\mathbf{E}\times\mathbf{B}$ drift, grad-$B$ drift, and curvature drift:
-
 $$
 \mathbf{v}_{1\perp} = \frac{\mathbf{E}\times\mathbf{B}}{B^2} + \frac{\mu}{m\Omega}\hat{b}\times\nabla B + \frac{v_\parallel^2}{\Omega}\hat{b}\times(\hat{b}\cdot\nabla)\hat{b}
 $$
 
 Let us neglect $\mathbf{E}\times\mathbf{B}$ drift, since this motion merely gives rise to the convection of plasma within the magnetosphere, without generating a current. By contrast, there is a net current associated with grad-$B$ drift and curvature drift. In the limit in which this current does not strongly modify the ambient magnetic field (i.e., $\nabla\times\mathbf{B} \simeq \mathbf{0}$), which is certainly the situation in the Earth's magnetosphere, we can write
-
 $$
 (\mathbf{B}\cdot\nabla)\,\mathbf{B} =-\mathbf{B}\times(\nabla\times \mathbf{B})\simeq \frac{\nabla_\perp B}{B}
 $$
 
 It follows that the higher order drifts can be combined to give
-
 $$
 \mathbf{v}_{1\perp} = \frac{(v_\perp^{~2}/2+v_\parallel^{~2})}{{\Omega}\,B}\, \mathbf{B}\times\nabla B
 $$
 
 For the dipole field @eq-dipole_spherical, the above expression yields
-
 $$
 \mathbf{v}_{1\perp} \simeq -\mathrm{sgn}({\Omega})\,\frac{6\,\mathcal{E} L^2}{eB_E R_E}(1-B/2B_m)\frac{\cos^5\vartheta(1+\sin^2\vartheta)}{(1+3\sin^2\vartheta)^2}\,\hat{\varphi}
 $$ {#eq-high_order_drifts}
-
 where $\mathcal{E}$ is the energy of the particle, $B_E$ is the equatorial magnetic field-strength on the Earth's surface, and $B_m$ is the magnetic field-strength at the mirror points.
 Note that the drift is in the azimuthal direction. A positive drift velocity corresponds to eastward motion, whereas a negative velocity corresponds to westward motion. It is clear that, in addition to their gyromotion and periodic bouncing motion along field lines, charged particles trapped in the magnetosphere also slowly precess around the Earth. The ions drift westwards and the electrons drift eastwards, giving rise to a net westward current circulating around the Earth. This current is known as the _ring current_.
 
 Although the perturbations to the Earth's magnetic field induced by the ring current are small, they are still detectable. In fact, the ring current causes a slight reduction in the Earth's magnetic field in equatorial regions. The size of this reduction is a good measure of the number of charged particles contained in the Van Allen belts (@sec-radiation_belt). During the development of so-called geomagnetic storms, charged particles are injected into the Van Allen belts from the outer magnetosphere, giving rise to a sharp increase in the ring current, and a corresponding decrease in the Earth's equatorial magnetic field. These particles eventually precipitate out of the magnetosphere into the upper atmosphere at high latitudes, giving rise to intense auroral activity, serious interference in electromagnetic communications, and, in extreme cases, disruption of electric power grids. The ring current induced reduction in the Earth's magnetic field is measured by the so-called _Dst_ index, which is based on hourly averages of the northward horizontal component of the terrestrial magnetic field recorded at four low-latitude observatories; Honolulu (Hawaii), San Juan (Puerto Rico), Hermanus (South Africa), and Kakioka (Japan). A reduction in the Dst index by 600 nT corresponds to a $2\%$ reduction in the terrestrial magnetic field at the equator.
 
 According to @eq-high_order_drifts, the precessional drift velocity of charged particles in the magnetosphere is a rapidly decreasing function of increasing latitude (i.e., most of the ring current is concentrated in the equatorial plane). Since particles typically complete many bounce orbits during a full rotation around the Earth, it is convenient to average @eq-high_order_drifts over a bounce period to obtain the _average_ drift velocity. This averaging can only be performed numerically. The final answer is well approximated by
-
 $$
 \langle v_d\rangle \simeq \frac{6\,\mathcal{E}\,L^2}{e\,B_E\,R_E} \,(0.35 + 0.15\,\sin\alpha_\mathrm{eq})
 $$ {#eq-drift_ring_current}
 
 The average drift period (i.e., the time required to perform a complete rotation around the Earth) is simply
-
 $$
 \langle \tau_d\rangle = \frac{2\pi\,L\,R_E}{\langle v_d\rangle}\simeq\frac{\pi e B_E R_E^2}{3\,\mathcal{E}\,L}\,(0.35 + 0.15\,\sin\alpha_\mathrm{eq})^{-1}
 $$
 
 Thus, the drift period for protons and electrons is
-
 $$
 \langle \tau_d\rangle_p=\langle \tau_d\rangle_e \simeq \frac{1.05}{\mathcal{E}(\text{MeV})L}\,(1+0.43\,\sin\alpha_\mathrm{eq})^{-1}\,\,\,\mathrm{hours}
 $$
