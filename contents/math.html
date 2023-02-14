@@ -355,6 +355,7 @@ div.csl-indent {
   <li><a href="#dalemberts-principle" id="toc-dalemberts-principle" class="nav-link" data-scroll-target="#dalemberts-principle"><span class="toc-section-number">3.12.2</span>  D’Alembert’s Principle</a></li>
   <li><a href="#lagrangian-mechanics" id="toc-lagrangian-mechanics" class="nav-link" data-scroll-target="#lagrangian-mechanics"><span class="toc-section-number">3.12.3</span>  Lagrangian Mechanics</a></li>
   <li><a href="#hamiltonian-mechanics" id="toc-hamiltonian-mechanics" class="nav-link" data-scroll-target="#hamiltonian-mechanics"><span class="toc-section-number">3.12.4</span>  Hamiltonian Mechanics</a></li>
+  <li><a href="#hamilton-lagrange-formalism-vs.-lorentz-equation" id="toc-hamilton-lagrange-formalism-vs.-lorentz-equation" class="nav-link" data-scroll-target="#hamilton-lagrange-formalism-vs.-lorentz-equation"><span class="toc-section-number">3.12.5</span>  Hamilton-Lagrange formalism vs.&nbsp;Lorentz equation</a></li>
   </ul></li>
   <li><a href="#wavelet-analysis" id="toc-wavelet-analysis" class="nav-link" data-scroll-target="#wavelet-analysis"><span class="toc-section-number">3.13</span>  Wavelet Analysis</a></li>
   </ul>
@@ -391,7 +392,7 @@ div.csl-indent {
 \nabla\cdot(f\mathbf{A}) &amp;= (\nabla f)\cdot\mathbf{A} + f\nabla\cdot\mathbf{A} \\
 \nabla\times(f\mathbf{A}) &amp;= (\nabla f)\times\mathbf{A} + f\nabla\times\mathbf{A} \\
 \nabla\cdot(\mathbf{A}\times\mathbf{B}) &amp;= \mathbf{B}\cdot(\nabla\times\mathbf{A}) - \mathbf{A}\cdot(\nabla\times\mathbf{B}) \\
-\nabla\cdot(\mathbf{A}\cdot\mathbf{B}) &amp;= (\mathbf{B}\cdot\nabla)\mathbf{A} + (\mathbf{A}\cdot\nabla)\mathbf{B} + \mathbf\times(\nabla\times\mathbf{A}) + \mathbf{A}\times(\nabla\times\mathbf{B}) \\
+\nabla(\mathbf{A}\cdot\mathbf{B}) &amp;= (\mathbf{B}\cdot\nabla)\mathbf{A} + (\mathbf{A}\cdot\nabla)\mathbf{B} + \mathbf{B}\times(\nabla\times\mathbf{A}) + \mathbf{A}\times(\nabla\times\mathbf{B}) \\
 \nabla\cdot(\mathbf{A}\mathbf{B}) &amp;= (\mathbf{A}\cdot\nabla)\mathbf{B} + \mathbf{B}(\nabla\cdot\mathbf{A}) \\
 \nabla\times(\mathbf{A}\times\mathbf{B}) &amp;= (\mathbf{B}\cdot\nabla)\mathbf{A} - (\mathbf{A}\cdot\nabla)\mathbf{B} - \mathbf{B}(\nabla\cdot\mathbf{A}) + \mathbf{A}(\nabla\cdot\mathbf{B}) \\
 \nabla\times(\nabla\times\mathbf{A}) &amp;= \nabla(\nabla\cdot\mathbf{A}) - \nabla^2\mathbf{A}
@@ -1602,64 +1603,121 @@ k^2(z) = {k_0}^2\Big( \frac{z}{z-a}\Big)
 </section>
 <section id="dalemberts-principle" class="level3" data-number="3.12.2">
 <h3 data-number="3.12.2" class="anchored" data-anchor-id="dalemberts-principle"><span class="header-section-number">3.12.2</span> D’Alembert’s Principle</h3>
-<p>This principle is the analogy of Newton’s second law in theoretical mechanics. It states that infinitesimal virtual work done by a force across reversible displacements is zero, which is the work done by a force consistent with ideal constraints of the system. The idea of a constraint is useful — since this limits what the system can do, and can provide steps to solving for the motion of the system. The equation for D’Alembert’s principle is:</p>
-<p><span class="math display">\[
+<p>This principle is the analogy of Newton’s second law in theoretical mechanics. It states that infinitesimal virtual work done by a force across reversible displacements is zero, which is the work done by a force consistent with ideal constraints of the system. The idea of a constraint is useful — since this limits what the system can do, and can provide steps to solving for the motion of the system. The equation for D’Alembert’s principle is: <span class="math display">\[
 \delta W = \mathbf{Q}\cdot \mathrm{d}\mathbf{q} = 0
-\]</span></p>
-<p>where</p>
-<p><span class="math display">\[
+\]</span> where <span class="math display">\[
 \mathbf{Q} = (Q_1, Q_2, ..., Q_N)
-\]</span></p>
-<p>are the generalized forces (script Q instead of ordinary Q is used here to prevent conflict with canonical transformations below) and <span class="math inline">\(\mathbf{q}\)</span> are the generalized coordinates. This leads to the generalized form of Newton’s laws in the language of theoretical mechanics:</p>
-<p><span class="math display">\[
+\]</span> are the generalized forces (script Q instead of ordinary Q is used here to prevent conflict with canonical transformations below) and <span class="math inline">\(\mathbf{q}\)</span> are the generalized coordinates. This leads to the generalized form of Newton’s laws in the language of theoretical mechanics: <span class="math display">\[
 \mathbf{Q} = \frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{\partial T}{\partial\dot{\mathbf{q}}} \Big) - \frac{\partial T}{\partial\mathbf{q}}
-\]</span></p>
-<p>where T is the total kinetic energy of the system, and the notation</p>
-<p><span class="math display">\[
+\]</span> where T is the total kinetic energy of the system, and the notation <span class="math display">\[
 \frac{\partial}{\partial\mathbf{q}} = \Big( \frac{\partial}{\partial q_1},\frac{\partial}{\partial q_2}, ..., \frac{\partial}{\partial q_N} \Big)
 \]</span></p>
 </section>
 <section id="lagrangian-mechanics" class="level3" data-number="3.12.3">
 <h3 data-number="3.12.3" class="anchored" data-anchor-id="lagrangian-mechanics"><span class="header-section-number">3.12.3</span> Lagrangian Mechanics</h3>
 <p><strong>Lagrangian and Euler–Lagrange equations</strong></p>
-<p>The introduction of generalized coordinates and the fundamental Lagrangian function:</p>
-<p><span class="math display">\[
+<p>The introduction of generalized coordinates and the fundamental Lagrangian function: <span class="math display">\[
 L(\mathbf{q},\dot{\mathbf{q}},t) = T(\mathbf{q},\dot{\mathbf{q}},t) - V(\mathbf{q},\dot{\mathbf{q}},t)
-\]</span></p>
-<p>where <span class="math inline">\(T\)</span> is the total kinetic energy and <span class="math inline">\(V\)</span> is the total potential energy of the entire system, then either following the calculus of variations or using the above formula — lead to the Euler-Lagrange equations;</p>
-<p><span class="math display">\[
+\]</span> where <span class="math inline">\(T\)</span> is the total kinetic energy and <span class="math inline">\(V\)</span> is the total potential energy of the entire system, then either following the calculus of variations or using the above formula — lead to the Euler-Lagrange equations; <span class="math display">\[
 \frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{\partial L}{\partial\dot{\mathbf{q}}} \Big) = \frac{\partial L}{\partial\mathbf{q}}
-\]</span></p>
-<p>which are a set of N second-order ordinary differential equations, one for each <span class="math inline">\(q_i(t)\)</span>. This formulation identifies the actual path followed by the motion as a selection of the path over which the time integral of kinetic energy is least, assuming the total energy to be fixed, and imposing no conditions on the time of transit.</p>
+\]</span> which are a set of N second-order ordinary differential equations, one for each <span class="math inline">\(q_i(t)\)</span>. This formulation identifies the actual path followed by the motion as a selection of the path over which the time integral of kinetic energy is least, assuming the total energy to be fixed, and imposing no conditions on the time of transit.</p>
 </section>
 <section id="hamiltonian-mechanics" class="level3" data-number="3.12.4">
 <h3 data-number="3.12.4" class="anchored" data-anchor-id="hamiltonian-mechanics"><span class="header-section-number">3.12.4</span> Hamiltonian Mechanics</h3>
 <p><strong>Hamiltonian and Hamilton’s equations</strong></p>
-<p>The Legendre transformation of the Lagrangian replaces the generalized coordinates and velocities <span class="math inline">\((\mathbf{q}, \dot{\mathbf{q}})\)</span> with <span class="math inline">\((\mathbf{q}, \mathbf{p})\)</span>; the generalized coordinates and the generalized momenta conjugate to the generalized coordinates:</p>
-<p><span class="math display">\[
+<p>The Legendre transformation of the Lagrangian replaces the generalized coordinates and velocities <span class="math inline">\((\mathbf{q}, \dot{\mathbf{q}})\)</span> with <span class="math inline">\((\mathbf{q}, \mathbf{p})\)</span>; the generalized coordinates and the generalized momenta conjugate to the generalized coordinates: <span class="math display">\[
 \mathbf{p} = \frac{\partial L}{\partial\dot{\mathbf{q}}} = \Big(\frac{\partial L}{\partial\dot{q}_1},\frac{\partial L}{\partial\dot{q}_2},,...,\frac{\partial L}{\partial\dot{q}_N} \Big) = (p_1, p_2, ..., p_N)
-\]</span></p>
-<p>and introduces the Hamiltonian (which is in terms of generalized coordinates and momenta):</p>
-<p><span class="math display">\[
+\]</span> and introduces the Hamiltonian (which is in terms of generalized coordinates and momenta): <span class="math display">\[
 H(\mathbf{q},\mathbf{p},t) = \mathbf{p}\cdot\dot{\mathbf{q}} - L(\mathbf{q},\dot{\mathbf{q}},t)
 \]</span></p>
-<p>This leads to the Hamilton’s equations:</p>
-<p><span class="math display">\[
+<p>This leads to the Hamilton’s equations: <span class="math display">\[
 \dot{\mathbf{p}} = -\frac{\partial H}{\partial\mathbf{q}},\quad\dot{\mathbf{q}} = \frac{\partial H}{\partial \mathbf{p}}
 \]</span></p>
-<p>which are now a set of 2N first-order ordinary differential equations, one for each <span class="math inline">\(q_i(t)\)</span> and <span class="math inline">\(p_i(t)\)</span>. Another result from the Legendre transformation relates the time derivatives of the Lagrangian and Hamiltonian:</p>
-<p><span class="math display">\[
+<p>which are now a set of 2N first-order ordinary differential equations, one for each <span class="math inline">\(q_i(t)\)</span> and <span class="math inline">\(p_i(t)\)</span>. Another result from the Legendre transformation relates the time derivatives of the Lagrangian and Hamiltonian: <span class="math display">\[
 \frac{dH}{\mathrm{d}t} = -\frac{\partial L}{\partial t}
-\]</span></p>
-<p>which is often considered one of Hamilton’s equations of motion additionally to the others. The generalized momenta can be written in terms of the generalized forces in the same way as Newton’s second law:</p>
-<p><span class="math display">\[
+\]</span> which is often considered one of Hamilton’s equations of motion additionally to the others. The generalized momenta can be written in terms of the generalized forces in the same way as Newton’s second law: <span class="math display">\[
 \dot{\mathbf{p}} = \mathbf{Q}
 \]</span></p>
-<p>One interesting application of the Hamilton’s equation in plasma physics is the prove of Vlasov equation (See Giulia’s notes)</p>
-<p><span class="math display">\[
+<p>One interesting application of the Hamilton’s equation in plasma physics is the prove of Vlasov equation (See Giulia’s notes) <span class="math display">\[
 \frac{df(\mathbf{q},\mathbf{p},t)}{\mathrm{d}t} = 0
 \]</span></p>
 <p>You may also find the application in deriving the gyrokinetic equations.</p>
+</section>
+<section id="hamilton-lagrange-formalism-vs.-lorentz-equation" class="level3" data-number="3.12.5">
+<h3 data-number="3.12.5" class="anchored" data-anchor-id="hamilton-lagrange-formalism-vs.-lorentz-equation"><span class="header-section-number">3.12.5</span> Hamilton-Lagrange formalism vs.&nbsp;Lorentz equation</h3>
+<p>Two mathematically equivalent formalisms describe charged particle dynamics, namely</p>
+<ol type="1">
+<li><p>the Lorentz equation <span class="math display">\[
+m\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = q(\mathbf{E} + \mathbf{v}\times\mathbf{B})
+\]</span></p></li>
+<li><p>Hamiltonian-Lagrangian dynamics.</p></li>
+</ol>
+<p>The two formalisms are complementary: the Lorentz equation is intuitive and suitable for approximate methods, whereas the more abstract Hamiltonian-Lagrangian formalism exploits time and space symmetries. A brief review of the Hamiltonian-Lagrangian formalism follows, emphasizing aspects relevant to dynamics of charged particles.</p>
+<p>The starting point is to postulate the existence of a function <span class="math inline">\(L\)</span>, called the Lagrangian, which:</p>
+<ol type="1">
+<li>contains <em>all</em> information about the particle dynamics for a given situation;</li>
+<li>depends only on generalized coordinates <span class="math inline">\(Q_i(t),\dot{Q}_i(t)\)</span> appropriate to the problem;</li>
+<li>possibly has an explicit dependence on time <span class="math inline">\(t\)</span>.</li>
+</ol>
+<p>If such a function <span class="math inline">\(L(Q_i(t), \dot{Q}_i(t), t)\)</span> exists, then information on particle dynamics is retrieved by manipulation of the <em>action integral</em> <span class="math display">\[
+S = \int_{t_1}^{t_2}L(Q_i(t), \dot{Q}_i(t), t) \mathrm{d}t
+\]</span></p>
+<p>This manipulation is based on d’Alembert’s principle of least action. According to this principle, one considers the infinity of possible trajectories a particle could follow to get from its initial position <span class="math inline">\(Q_{i}(t_1)\)</span> to its final position <span class="math inline">\(Q_i(t_2)\)</span>, and postulates that the trajectory actually followed is the one that results in the lowest value of <span class="math inline">\(S\)</span>. Thus, the value of <span class="math inline">\(S\)</span> must be minimized (note that <span class="math inline">\(S\)</span> here is action, and not entropy). Minimizing <span class="math inline">\(S\)</span> does not give the actual trajectory directly, but rather gives equations of motion, which can be solved to give the actual trajectory.</p>
+<p>Minimizing <span class="math inline">\(S\)</span> is accomplished by considering an arbitrary nearby alternative trajectory <span class="math inline">\(Q_i(t)+\delta Q_i(t)\)</span> having the same beginning and end points as the actual trajectory, i.e., <span class="math inline">\(\delta Q_i(t_1)=Q_i(t_2)=0\)</span>. In order to make the variational argument more precise, <span class="math inline">\(\delta Q_i\)</span> is expressed as <span class="math display">\[
+\delta Q_i(t) = \epsilon \eta_i(t)
+\]</span> where <span class="math inline">\(\epsilon\)</span> is an arbitrarily adjustable scalar assumed to be small so that <span class="math inline">\(\epsilon^2 &lt; \epsilon\)</span> and <span class="math inline">\(\eta_i(t)\)</span> is a function of <span class="math inline">\(t\)</span> that vanishes when <span class="math inline">\(t=t_1\)</span> or <span class="math inline">\(t=t_2\)</span> but is otherwise arbitrary. Calculating <span class="math inline">\(\delta S\)</span> to second order in <span class="math inline">\(\epsilon\)</span> gives <span class="math display">\[
+\begin{aligned}
+\delta S &amp;= \int_{t_1}^{t_2}L(Q_i+\delta Q_i, \dot{Q}_i + \delta\dot{Q}_i, t) \mathrm{d}t - \int_{t_1}^{t_2}L(Q_i(t), \dot{Q}_i(t), t) \mathrm{d}t \\
+&amp;= \int_{t_1}^{t_2}L(Q_i+\epsilon\eta_i, \dot{Q}_i + \epsilon \dot{\eta}_i, t) \mathrm{d}t - \int_{t_1}^{t_2}L(Q_i(t), \dot{Q}_i(t), t) \mathrm{d}t \\
+&amp;= \int_{t_1}^{t_2} \left( \epsilon\eta_i\frac{\partial L}{\partial Q_i} + \frac{(\epsilon \eta_i)^2}{2}\frac{\partial^2 L}{\partial Q_i^2} + \epsilon \dot{\eta}_i\frac{\partial L}{\partial\dot{Q}_i} + \frac{(\epsilon\dot{\eta}_i)^2}{2}\frac{\partial^2 L}{\partial\dot{Q}_i^2} \right)\mathrm{d}t
+\end{aligned}
+\]</span></p>
+<p>Suppose the trajectory <span class="math inline">\(Q_i(t)\)</span> is the one that minimizes <span class="math inline">\(S\)</span>. Any other trajectory must lead to a higher value of <span class="math inline">\(S\)</span> and so <span class="math inline">\(\delta S\)</span> must be positive for any finite value of <span class="math inline">\(\epsilon\)</span>. If <span class="math inline">\(\epsilon\)</span> is chosen to be sufficiently small, then the absolute values of the terms of order <span class="math inline">\(\epsilon^2\)</span> above will be smaller than the absolute values of the terms linear in <span class="math inline">\(\epsilon\)</span>. The sign of <span class="math inline">\(\epsilon\)</span> could then be chosen to make <span class="math inline">\(\delta S\)</span> nagative, but this would violate the requirement that <span class="math inline">\(\delta S\)</span> must be positive. The only way out of this dilemma is to insist that the sum of the terms linear in <span class="math inline">\(\epsilon\)</span> vanishes so <span class="math inline">\(\delta S\sim \epsilon^2\)</span> and is therefore always positive as required. Insisting that the sum of terms linera in <span class="math inline">\(\epsilon\)</span> vanishes implies <span class="math display">\[
+0 = \int_{t_1}^{t_2} \left( \eta_i\frac{\partial L}{\partial Q_i} + \dot{\eta}_i\frac{\partial L}{\partial\dot{Q}_i} \right)\mathrm{d}t
+\]</span></p>
+<p>Using <span class="math inline">\(\dot{\eta}_i = \mathrm{d}\eta_i/\mathrm{d}t\)</span> the above expression may be integrated by parts to obtain <span class="math display">\[
+\begin{aligned}
+0 &amp;= \int_{t_1}^{t_2} \left( \eta_i\frac{\partial L}{\partial Q_i} + \dot{\eta}_i\frac{\partial L}{\partial\dot{Q}_i} \right)\mathrm{d}t \\
+&amp;= \left[ \eta_i\frac{\partial L}{\partial \dot{Q}_i} \right]_{t_1}^{t_2} + \int_{t_1}^{t_2}\left[ \eta_i\frac{\partial L}{\partial Q_i} - \eta_i\frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{\partial L}{\partial \dot{Q}_i} \right) \right]\mathrm{d}t
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(\eta_i(t_{1,2})=0\)</span>, the integrated term vanishes and since <span class="math inline">\(\eta_i\)</span> was an arbitrary function of <span class="math inline">\(t\)</span>, the coefficient of i in the integrand must vanish, yielding Lagrange’s equation <span id="eq-lagrange"><span class="math display">\[
+\frac{\mathrm{d}P_i}{\mathrm{d}t} = \frac{\partial L}{\partial Q_i}
+\tag{3.23}\]</span></span> where the <em>canonical momentum</em> <span class="math inline">\(P_i\)</span> is defined as <span id="eq-canonical-momentum"><span class="math display">\[
+P_i \equiv \frac{\partial L}{\partial\dot{Q}_i}
+\tag{3.24}\]</span></span></p>
+<p>Lagrange’s equation shows that if <span class="math inline">\(L\)</span> does not depend on a particular generalized coordinate <span class="math inline">\(Q_j\)</span>, then <span class="math inline">\(\mathrm{d}P_j/\mathrm{d}t=0\)</span>, in which case the canonical momentum <span class="math inline">\(P_j\)</span> is a <em>constant of motion</em>; the coordinate <span class="math inline">\(Q_j\)</span> is called a <em>cyclic</em> or <em>ignorable</em> coordinate. This is a very powerful and profound result. Saying that the Lagrangian function does not depend on a coordinate is equivalent to saying that the system is <em>symmetric</em> in that coordinate or translationally invariant with respect to that coordinate. The quantities <span class="math inline">\(P_j\)</span> and <span class="math inline">\(Q_j\)</span> are called conjugate and action has the dimensions of the product of these quantities.</p>
+<p>Hamilton extended this formalism by introducing a new function related to the Lagrangian. This new function, called the Hamiltonian, provides further useful information and is defined as <span id="eq-hamiltonian"><span class="math display">\[
+H \equiv \left( \sim_i P_i \dot{Q}_i \right) - L
+\tag{3.25}\]</span></span></p>
+<p>Partial derivative of <span class="math inline">\(H\)</span> with respect to <span class="math inline">\(P_i\)</span> and to <span class="math inline">\(Q_i\)</span> give Hamilton’s equations <span class="math display">\[
+\dot{Q}_i = \frac{\partial H}{\partial P_i},\quad \dot{P}_i = -\frac{\partial H}{\partial Q_i}
+\]</span> which are equations of motion having a close relation to phase-space concepts. The time derivative of the Hamiltonian is <span id="eq-hamiltonian-time-derivative"><span class="math display">\[
+\frac{\mathrm{d}H}{\mathrm{d}t} = \sum_i \frac{\mathrm{d}P_i}{\mathrm{d}t}\dot{Q}_i + \sum_i P_i\frac{\mathrm{d}\dot{Q}_i}{\mathrm{d}t} - \left( \sum_i\frac{\partial L}{\partial Q_i}\dot{Q}_i + \sum_i\frac{\partial L}{\partial\dot{Q}_i}\frac{\mathrm{d}\dot{Q}_i}{\mathrm{d}t} + \frac{\partial L}{\partial t} \right) = -\frac{\partial L}{\partial t}
+\tag{3.26}\]</span></span></p>
+<p>This shows that if Ldoes not explicitly depend on time, the Hamiltonian <span class="math inline">\(H\)</span> is a <em>constant of the motion</em>. As will be shown later, <span class="math inline">\(H\)</span> corresponds to the energy of the system, so if <span class="math inline">\(\partial L/\partial t=0\)</span>, the energy is a constant of the motion. Thus, energy is conjugate to time in analogy to canonical momentum being conjugate to position (note that energy <span class="math inline">\(\times\)</span> time also has the units of action). If the Lagrangian does not explicitly depend on time, then the system can be thought of as being “symmetric” with respect to time, or “translationally” invariant with respect to time.</p>
+<p>The Lagrangian for a charged particle in an electromagnetic field is <span id="eq-lagrangian-charged-particle"><span class="math display">\[
+L = \frac{mv^2}{2} + q\mathbf{v}\cdot\mathbf{A}(\mathbf{x},t) - q\phi(\mathbf{x},t)
+\tag{3.27}\]</span></span></p>
+<p>The validity of <a href="#eq-lagrangian-charged-particle">Equation&nbsp;<span>3.27</span></a> will now be established by showing that it generates the Lorentz equation when inserted into Lagrange’s equation. Since no symmetry is assumed, there is no reason to use any special coordinate system and so ordinary Cartesian coordinates will be used as the canonical coordinates, in which case <a href="#eq-canonical-momentum">Equation&nbsp;<span>3.24</span></a> gives the canonical momentum as <span class="math display">\[
+\mathbf{P} = m\mathbf{v} + q\mathbf{A}(\mathbf{x},t)
+\]</span></p>
+<p>The left-hand side of <a href="#eq-lagrange">Equation&nbsp;<span>3.23</span></a> becomes <span class="math display">\[
+\frac{\mathrm{d}\mathbf{P}}{\mathrm{d}t} = m\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} + q\left( \frac{\partial\mathbf{A}}{\partial t} + \mathbf{v}\cdot\nabla\mathbf{A} \right)
+\]</span> while the right-hand side of <a href="#eq-lagrange">Equation&nbsp;<span>3.23</span></a> becomes <span class="math display">\[
+\begin{aligned}
+\frac{\partial L}{\partial\mathbf{x}} &amp;= q\nabla(\mathbf{v}\cdot\mathbf{A}) - q\nabla\phi = q(\mathbf{v}\cdot\nabla\mathbf{A} + \mathbf{v}\times\nabla\times\mathbf{A}) - q\nabla\phi \\
+&amp;= q(\mathbf{v}\cdot\nabla\mathbf{A} + \mathbf{v}\times\mathbf{B}) - q\nabla\phi
+\end{aligned}
+\]</span></p>
+<p>Equating the above two expressions gives the Lorentz equation, where the electric field is defined as <span class="math inline">\(\mathbf{E}=-\partial\mathbf{A}/\partial t - \nabla\phi\)</span> in accordance with Faraday’s law. This proves that <a href="#eq-lagrangian-charged-particle">Equation&nbsp;<span>3.27</span></a> is mathematically equivalent to the Lorentz equation when used with the principle of least action.</p>
+<p>The Hamiltonian associated with this Lagrangian is, in Cartesian coordinates, <span id="eq-hamiltonian-charged-particle"><span class="math display">\[
+\begin{aligned}
+H &amp;= \mathbf{P}\cdot\mathbf{v} - L = \frac{mv^2}{2} + q\phi \\
+&amp;= \frac{\left(\mathbf{P} - q\mathbf{A}(\mathbf{x},t)\right)^2}{2m} + q\phi(\mathbf{x},t)
+\end{aligned}
+\tag{3.28}\]</span></span> where the last line is the form more suitable for use with Hamilton’s equations, i.e., <span class="math inline">\(H=H(\mathbf{x},\mathbf{P},t)\)</span>. <a href="#eq-hamiltonian-charged-particle">Equation&nbsp;<span>3.28</span></a> also shows that <span class="math inline">\(H\)</span> is, as promised, the particle energy. If generalized coordinates are used, the energy can be written in a general form as <span class="math inline">\(E=H(Q,P,t)\)</span>. <a href="#eq-hamiltonian-time-derivative">Equation&nbsp;<span>3.26</span></a> showed that even though both <span class="math inline">\(Q\)</span> and <span class="math inline">\(P\)</span> depend on time, the energy depends on time only if <span class="math inline">\(H\)</span> explicitly depends on time. Thus, in a situation where <span class="math inline">\(H\)</span> does not explicitly depend on time, the energy would have the form <span class="math inline">\(E=H(Q(t),P(t)) = \mathrm{const}\)</span>.</p>
+<p>It is important to realize that both canonical momentum and energy depend on the reference frame. For example, a bullet fired in an airplane in the direction opposite to the airplane motion, and with a speed equal to the airplane’s speed, has a large energy as measured in the airplane frame, but zero energy as measured by an observer on the ground. A more subtle example (of importance to later analysis of waves and Landau damping) occurs when <span class="math inline">\(\mathbf{A}\)</span> and/or <span class="math inline">\(\phi\)</span> has a wave-like dependence, e.g., <span class="math inline">\(\phi(\mathbf{x},t)=\phi(\mathbf{x}-\mathbf{v}_{\mathrm{ph}}t)\)</span>, where <span class="math inline">\(\mathbf{v}_{\mathrm{ph}}\)</span> is the wave phase velocity. This potential is time-dependent in the lab frame and so the associated Lagrangian has an explicit dependence on time in the lab frame, which implies that <em>energy is not a constant of the motion in the lab frame</em>. In contrast, <span class="math inline">\(\phi\)</span> is time-independent in the wave frame and so the energy is a <em>constant of the motion</em> in the wave frame. Existence of a constant of the motion reduces the complexity of the system of equations and typically makes it possible to integrate at least one equation in closed form. Thus, it is advantageous to analyze the system in the frame having the most constants of the motion.</p>
 </section>
 </section>
 <section id="wavelet-analysis" class="level2" data-number="3.13">

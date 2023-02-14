@@ -333,7 +333,7 @@ div.csl-indent {
 <p><span class="math display">\[
 U_\mathrm{SI} = U^\prime * U_0
 \]</span></p>
-<p>where each conversion factor is summarized in <a href="#tbl-mhd-unit-conversion">Table&nbsp;<span>25.1</span></a>. Note that in the definition of number density, the denominator is <span class="math inline">\(m_i\)</span> instead of <span class="math inline">\(m_0\)</span> and <span class="math inline">\(R=2k_B/m_i\)</span> only appears in temperature. This is because mass does not appear in ideal MHD: for a given <span class="math inline">\(\rho\)</span>, the same results are obtained for a heavy species with small number density and a light species with large number density, e.g.&nbsp;<span class="math inline">\(\rho=2m_i n_i = m_i 2n_i\)</span>. In principle we can choose the reference mass arbitrarily, but here in order to make the values in SI units “looks good” we choose <span class="math inline">\(m_i\)</span>. If you need to compare with a hybrid model, an easy way to make self-consistent conversion is to make mass <span class="math inline">\(m_0=m_i\)</span> as a substitute for any of the basic variables. In this case, the dimensionless <span class="math inline">\(\rho=n\)</span>.</p>
+<p>where each conversion factor is summarized in <a href="#tbl-mhd-unit-conversion">Table&nbsp;<span>25.1</span></a>. Note that in the definition of number density, the denominator is <span class="math inline">\(m_i\)</span> instead of <span class="math inline">\(m_0\)</span> and <span class="math inline">\(R=2k_B/m_i\)</span> only appears in temperature. This is because mass does not appear in ideal MHD: for a given <span class="math inline">\(\rho\)</span>, the same results are obtained for a heavy species with small number density and a light species with large number density, e.g.&nbsp;<span class="math inline">\(\rho=2m_i n_i = m_i 2n_i\)</span>. In principle we can choose the reference mass arbitrarily, but here in order to make the values in SI units “look good” we choose <span class="math inline">\(m_i\)</span>. If you need to compare with a hybrid model, an easy way to make self-consistent conversion is to make mass <span class="math inline">\(m_0=m_i\)</span> as a substitute for any of the basic variables. In this case, the dimensionless <span class="math inline">\(\rho=n\)</span>. Also note that in <a href="#tbl-mhd-unit-conversion">Table&nbsp;<span>25.1</span></a> the MHD pressure and temperature are the sum of electron’s and ion’s pressure and temperature, which is the reason a factor of “2” pops out in the definition of temperature. If we are comparing to a hybrid model which assumes massless electrons, a proper modification would be <span class="math inline">\(p_0=\rho_0v_0^2/2\)</span> and <span class="math inline">\(T_0=p_0*m_i/(k_B\,\rho_0)\)</span>.</p>
 <div id="tbl-mhd-unit-conversion" class="tbl-parent quarto-layout-panel anchored">
 <div class="panel-caption table-caption">
 <p>Table&nbsp;25.1: MHD unit conversion.</p>
@@ -846,18 +846,23 @@ p &amp;= (\gamma-1)\left[ \mathcal{E} - \frac{\rho u^2}{2} - \frac{B^2}{2\mu_0} 
 p &amp;= 0.1 \\
 v_\perp &amp;= 0.1\sin(2\pi x_\parallel) \\
 v_z &amp;= 0.1\cos(2\pi x_\parallel) \\
+B_\parallel &amp;= 0 \\
 B_\perp &amp;= 0.1\sin(2\pi x_\parallel) \\
 B_z &amp;= 0.1\cos(2\pi x_\parallel)
 \end{aligned}
-\]</span></p>
-<p>with <span class="math inline">\(\gamma = 5/3\)</span> and <span class="math inline">\(x\parallel = (x \cos\alpha + y\sin\alpha)\)</span> where <span class="math inline">\(\alpha\)</span> is the angle at which the wave propagates with respect to the grid. Here <span class="math inline">\(v_\perp\)</span> and <span class="math inline">\(B_\perp\)</span> are the components of velocity and magnetic field perpendicular to the wavevector. They are related to the components stored on the grid <span class="math inline">\(B_x\)</span> and <span class="math inline">\(B_y\)</span> via</p>
-<p><span class="math display">\[
+\]</span> with <span class="math inline">\(\gamma = 5/3\)</span> and <span class="math inline">\(x_\parallel = (x \cos\alpha + y\sin\alpha)\)</span> where <span class="math inline">\(\alpha\)</span> is the angle at which the wave propagates with respect to the grid. Here <span class="math inline">\(v_\perp\)</span> and <span class="math inline">\(B_\perp\)</span> are the components of velocity and magnetic field (in the x-y plane) perpendicular to the wavevector. They are related to the components stored on the grid <span class="math inline">\(B_x\)</span> and <span class="math inline">\(B_y\)</span> via <span class="math display">\[
 \begin{aligned}
-B_\perp = B_y\cos\alpha - B_x\sin\alpha \\
-B_\parallel = B_x\cos\alpha + B_y\sin\alpha
+B_\perp &amp;= - B_x\sin\alpha + B_y\cos\alpha \\
+B_\parallel &amp;= B_x\cos\alpha + B_y\sin\alpha
 \end{aligned}
 \]</span></p>
-<p>For 2D the computational domain is of size <span class="math inline">\(L_x = 2L_y\)</span>, with <span class="math inline">\(N_x = 2N_y\)</span>. Thus, the grid is rectangular, but each cell is square. The wave propagates along the diagonal of the grid, at an angle <span class="math inline">\(\theta = \tan^{-1}(0.5) \approx 26.6\)</span> degrees with respect to the x-axis. Since the wave does not propagate along the diagonals of the grid cells, we guarantee the x- and y-fluxes are different; that is the problem is truly multi-dimensional.</p>
+<p>By inverting the system, we have <span class="math display">\[
+\begin{aligned}
+B_x &amp;= B_\parallel\cos\alpha - B_\perp\sin\alpha \\
+B_y &amp;= B_\parallel\sin\alpha + B_\perp\cos\alpha
+\end{aligned}
+\]</span></p>
+<p>For 2D the computational domain is of size <span class="math inline">\(L_x = 2L_y\)</span>, with <span class="math inline">\(N_x = 2N_y\)</span>. Thus, the grid is rectangular, but each cell is square. The wave propagates along the diagonal of the grid, at an angle <span class="math inline">\(\alpha = \tan^{-1}(0.5) \approx 26.6\)</span> degrees with respect to the x-axis. Since the wave does not propagate along the diagonals of the grid cells, we guarantee the x- and y-fluxes are different; that is the problem is truly multi-dimensional.</p>
 <p>The wave is an exact nonlinear solution to the MHD equations, allowing one to test the algorithm in the nonlinear regime. Although nonlinear amplitude Alfvén waves are subject to a parametric instability which causes them to decay into magnetosonic waves, the instability should not be present for the parameters defined here. Since the problem is smooth, it can be used for convergence testing. Running the test with smaller pressure (higher β) and/or larger amplitudes is a good test of how robust is the algorithm.</p>
 <p>See more in <a href="https://www.astro.princeton.edu/~jstone/Athena/tests/cp-alfven-wave/cp-alfven.html">reference</a> and <span class="citation" data-cites="toth2000b">(<a href="#ref-toth2000b" role="doc-biblioref">Tóth 2000</a>)</span>.</p>
 </section>
