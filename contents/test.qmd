@@ -5,11 +5,9 @@ Verifying the validity of models is critical in performing consistent research. 
 ### Unit Conversion
 
 Most test parameters are listed in dimensionless units. If SI units are required, we need unit conversions. A rule of thumb is to check the number of constants in the system: making one constant equal to 1 requires to shrink the number of basic variables by 1. In ideal MHD @eq-ideal-mhd, there are 4 basic quantities (length, mass, time, and current density) and 1 physical constant $\mu_0$. If we include temperature, then there will be 5 basic quantities and 2 physical constants $\mu_0$, $R$. This indicates that we need 3 reference quantities in order to make the 2 physical constants equal to 1 in the normalized units. For example, in the Earth's magnetosphere, we select a reference length, e.g. $l_0=1\,\mathrm{R}_\mathrm{E}$, a reference mass density, e.g. $\rho_0 = 1.67\times10^{-17}\,\mathrm{kg}\cdot\mathrm{m}^{-3}$, and a reference magnetic field, e.g. $B_0 = 3.12\times 10^{-5}\,\mathrm{T}$ (Earth's magnetic field strength at the equator). All the rest conversion factors can be derived from these together with the physical constants $\mu_0, R, m_i$ expressed SI units. ($R$ is needed for temperature and $m_i$ is needed for number density.) Inserting the initially chosen values, we get a full set of conversion factors from variables in normalized units $n^\prime, B^\prime, u^\prime, p^\prime, T^\prime, \mathcal{E}^\prime$ to SI units $n, B, u, p, T, \mathcal{E}$:
-
 $$
 U_\mathrm{SI} = U^\prime * U_0
 $$
-
 where each conversion factor is summarized in @tbl-mhd-unit-conversion. Note that in the definition of number density, the denominator is $m_i$ instead of $m_0$ and $R=2k_B/m_i$ only appears in temperature. This is because mass does not appear in ideal MHD: for a given $\rho$, the same results are obtained for a heavy species with small number density and a light species with large number density, e.g. $\rho=2m_i n_i = m_i 2n_i$. In principle we can choose the reference mass arbitrarily, but here in order to make the values in SI units "look good" we choose $m_i$. If you need to compare with a hybrid model, an easy way to make self-consistent conversion is to make mass $m_0=m_i$ as a substitute for any of the basic variables. In this case, the dimensionless $\rho=n$. Also note that in @tbl-mhd-unit-conversion the MHD pressure and temperature are the sum of electron's and ion's pressure and temperature, which is the reason a factor of "2" pops out in the definition of temperature. If we are comparing to a hybrid model which assumes massless electrons, a proper modification would be $p_0=\rho_0v_0^2/2$ and $T_0=p_0*m_i/(k_B\,\rho_0)$.
 
 ::: {#tbl-mhd-unit-conversion layout-nrow=2}
@@ -255,6 +253,7 @@ Assuming background $u_0=0$,
 $$
 \delta u = \frac{1}{\rho}\left[ \delta(\rho u) - (\delta \rho) u \right] = \frac{1}{\rho_0+\delta\rho}\delta(\rho u)
 $$ {#eq-velocity-momentumflux-conversion}
+
 Given the perturbation of energy density
 $$
 \begin{aligned}
@@ -264,18 +263,13 @@ p &= (\gamma-1)\left[ \mathcal{E} - \frac{\rho u^2}{2} - \frac{B^2}{2\mu_0} \rig
 $$
 
 the pressure perturbation is then
-
 $$
-\begin{aligned}
-\delta p &= (\gamma-1)\left[ \delta\mathcal{E} - \frac{1}{2}(2\rho_0\, u\,\delta u + \rho_0\delta u^2 + \delta\rho\, u_0^2 + 2\delta\rho\,\delta u\, u_0 + \delta\rho\,\delta u^2) - \frac{1}{2\mu_0}\left( 2B_0\delta B + \delta B^2 \right) \right] \\
-\end{aligned}
+\delta p = (\gamma-1)\left[ \delta\mathcal{E} - \frac{1}{2}(\rho_0 + \delta\rho)\delta u^2 - \frac{1}{2}\left( 2B_0\delta B + \delta B^2 \right) \right]
 $$ {#eq-pressure-energyflux-conversion}
 
 If the input is $T$ instead of $p$, we have
 $$
-\begin{aligned}
-\delta T &= \frac{p_0 + \delta p}{k_B\, (n_0+\delta n)} - \frac{p_0}{k_B\, n_0}
-\end{aligned}
+\delta T = \frac{p_0 + \delta p}{\rho_0+\delta \rho} - \frac{p_0}{\rho_0}
 $$ {#eq-temperature-pressure-conversion}
 
 Note that while in the linear perturbation theory we can ignore the high order (>2) terms, we do not need to do so here numerically.
