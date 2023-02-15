@@ -466,7 +466,7 @@ v_{p,max} \simeq \frac{1}{2}\frac{B}{\sqrt{\mu_0 n_e m_e}} = \frac{1}{2}V_{A,i} 
 </section>
 <section id="normalization" class="level2" data-number="24.5">
 <h2 data-number="24.5" class="anchored" data-anchor-id="normalization"><span class="header-section-number">24.5</span> Normalization</h2>
-<p>There are five basic quantities in the hybrid model (length, mass, time, current density, and number density???) and three physical constants (<span class="math inline">\(\mu_0,q,m\)</span>). If we add temperature, then correspondingly <span class="math inline">\(k_B\)</span> would appear. Thus we need two independent reference quantities for the normalized units in a hybrid model. For instance, We can take a magnetic field scale <span class="math inline">\(B_0\)</span>, number density scale <span class="math inline">\(n_0\)</span>. The general variable transformation from the original units to normalized units is <span class="math display">\[
+<p>There are five basic quantities in the hybrid model (length, mass, time, current density, and number density???) and three physical constants (<span class="math inline">\(\mu_0,q,m\)</span>). If we add temperature, then correspondingly <span class="math inline">\(k_B\)</span> would appear. Usually even though the particle mass is a constant, we treat it as a parameter to represent a proton system or electron system or other particle system. Thus we need three (<span class="math inline">\(5-2\)</span>) independent reference quantities for the normalized units in a hybrid model. For instance, We can take a magnetic field scale <span class="math inline">\(B_0\)</span>, number density scale <span class="math inline">\(n_0\)</span>, and mass scale <span class="math inline">\(m_0\)</span>. The general variable transformation from the original units to normalized units is <span class="math display">\[
 \chi = \chi_0\tilde{\chi}
 \]</span> where <span class="math inline">\(\tilde{\chi}\)</span> denote the variable in the normalized units and the scale <span class="math inline">\(\chi_0\)</span> shall be in the original units (e.g.&nbsp;SI).</p>
 <p>Typically we use the inverse of gyrofrequency for the time scale <span class="math display">\[
@@ -493,7 +493,7 @@ P_0 = \frac{B_0^2}{2\mu_0} = \frac{1}{2}\rho_0 v_0^2
 <p>The temperature scale is then <span class="math display">\[
 T_0 = \frac{p_0}{n_0 k_B} = \frac{B_0^2}{2\mu_0 k_B n_0}
 \]</span></p>
-<p>The unit conversions are summarized in <a href="#tbl-hybrid-unit-conversion">Table&nbsp;<span>24.1</span></a>.</p>
+<p>Note the factor of 2 appeared in the pressure and temperature scales: this is to make the derivations consistent. The unit conversions are summarized in <a href="#tbl-hybrid-unit-conversion">Table&nbsp;<span>24.1</span></a>.</p>
 <div id="tbl-hybrid-unit-conversion" class="tbl-parent quarto-layout-panel anchored">
 <div class="panel-caption table-caption">
 <p>Table&nbsp;24.1: hybrid model unit conversion.</p>
@@ -521,13 +521,19 @@ T_0 = \frac{p_0}{n_0 k_B} = \frac{B_0^2}{2\mu_0 k_B n_0}
 <td style="text-align: left;">Magnetic field</td>
 <td style="text-align: left;"><span class="math inline">\(B_0\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(B_0=B_\mathrm{ref}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(1\times10^{-8}\,\mathrm{T}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1\times10^{-9}\,\mathrm{T}\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Number density</td>
 <td style="text-align: left;"><span class="math inline">\(n_0\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(n_0=n_\mathrm{ref}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(1\times10^{7}\,\mathrm{m}^{-3}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1\times10^{6}\,\mathrm{m}^{-3}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mass</td>
+<td style="text-align: left;"><span class="math inline">\(m_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(m_0=m_i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.67\times10^{-27}\,\mathrm{kg}\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -556,43 +562,37 @@ T_0 = \frac{p_0}{n_0 k_B} = \frac{B_0^2}{2\mu_0 k_B n_0}
 <td style="text-align: left;">Length</td>
 <td style="text-align: left;"><span class="math inline">\(l_0\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(l_0=\sqrt{m_0/(\mu_0 e^2 n_0)}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(7.2\times10^4\,\mathrm{m}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1\times10^2\,\mathrm{m}\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Mass</td>
-<td style="text-align: left;"><span class="math inline">\(m_0\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(m_0=m_i\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(1.67\times10^{-27}\,\mathrm{kg}\)</span></td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">Velocity</td>
 <td style="text-align: left;"><span class="math inline">\(v_0\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(v_0=B_0/\sqrt{\mu_0m_in_0}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(6.90\times10^4\,\mathrm{m}\cdot\mathrm{s}^{-1}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(2.18\times10^4\,\mathrm{m}\cdot\mathrm{s}^{-1}\)</span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Time</td>
 <td style="text-align: left;"><span class="math inline">\(t_0\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(t_0=m_i/(e*B_0)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(1.04\,\mathrm{s}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(4.59\times 10^{-3}\,\mathrm{s}\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Mass density</td>
 <td style="text-align: left;"><span class="math inline">\(\rho_0\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(\rho_0=n_0/m_i\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(1.67\times10^{-20}\,\mathrm{m}^{-3}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Pressure</td>
-<td style="text-align: left;"><span class="math inline">\(p_0\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(p_0=0.5\rho_0v_0^2\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(3.98\times10^{-11}\,\mathrm{N}\cdot\mathrm{m}^{-2}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.67\times10^{-21}\,\mathrm{m}^{-3}\)</span></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">Pressure</td>
+<td style="text-align: left;"><span class="math inline">\(p_0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(p_0=\rho_0v_0^2/2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(3.98\times10^{-13}\,\mathrm{N}\cdot\mathrm{m}^{-2}\)</span></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Temperature</td>
 <td style="text-align: left;"><span class="math inline">\(T_0\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(T_0=p_0*m_i/(k_B\,\rho_0)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(2.88\times10^5\,\mathrm{K}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(2.88\times10^4\,\mathrm{K}\)</span></td>
 </tr>
 </tbody>
 </table>
