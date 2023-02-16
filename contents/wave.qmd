@@ -768,7 +768,6 @@ Wave propagation at oblique angles is generally more complicated than propagatio
 ### Cold MHD
 
 By ignoring pressure, gravity, viscosity and rotation, we have
-
 $$
 \begin{aligned}
 \rho \frac{\partial \mathbf{u}}{\partial t} = \mathbf{j}\times\mathbf{B}_0 \\
@@ -780,22 +779,18 @@ $$
 $$ {#eq-mhd_cold}
 
 As usual in wave analysis, $\mathbf{u},\mathbf{j},\mathbf{E}$ are treated as perturbations. The MHD wave equation for the electric field can then be obtained,
-
 $$
 \begin{aligned}
 \dot{\mathbf{E}} &= -\dot{\mathbf{u}}\times\mathbf{B}_0 = -\frac{1}{\rho}(\mathbf{j}\times\mathbf{B})\times\mathbf{B}_0 = -\frac{1}{\mu_0\rho}[(\nabla\times\mathbf{B}_1)\times\mathbf{B}_0]\times\mathbf{B}_0 \\
 \ddot{\mathbf{E}} &= [(\nabla\times(\nabla\times\mathbf{E}))\times\mathbf{V}_A]\times\mathbf{V}_A
 \end{aligned}
 $$
-
 where $\mathbf{V}_A = \mathbf{B}_0 /\sqrt{\mu_0 \rho}$ is the Alfvén velocity, or if we mutate the triad cross terms,
-
 $$
 \ddot{\mathbf{E}} = \mathbf{V}_A \times [\mathbf{V}_A\times\nabla\times(\nabla\times\mathbf{E})]
 $$ {#eq-mhd_cold_e_wave}
 
 Alternatively, we can also get the MHD wave equation for the magnetic field:
-
 $$
 \begin{aligned}
 \left\{ \begin{aligned}
@@ -805,9 +800,7 @@ $$
 \Rightarrow \ddot{\mathbf{B}_1} = \nabla\times \Big[ \big( \frac{1}{\mu_0\rho}(\nabla\times\mathbf{B}_1)\times\mathbf{B}_0 \big)\times\mathbf{B}_0 \Big]
 \end{aligned}
 $$
-
 or
-
 $$
 \ddot{\mathbf{B}_1} = \nabla\times \Big[ \big( (\nabla\times\mathbf{B}_1)\times\mathbf{V}_A \big)\times\mathbf{V}_A \Big]
 $$ {#eq-mhd_cold_b_wave}
@@ -828,7 +821,6 @@ $$
 $$
 
 $\dot{\mathbf{E}}$ is ignored because we only consider low frequency waves. We assume no background flow, $\mathbf{u}_0=0$, so the current is purely caused by perturbed velocity $\mathbf{u}_1$. Performing linearization and plane wave decomposition:
-
 $$
 \begin{aligned}
 -i\omega\rho_1+i\rho_0\mathbf{k}\cdot\mathbf{v}=0 \\
@@ -840,28 +832,23 @@ p_1/p_0 -\gamma\rho_1/\rho_0 = 0 \\
 $$
 
 Let $\mathbf{B}_0 = B_0\hat{z}$. The linearized equations can be further simplified:
-
 $$
 \begin{aligned}
 -i\omega\rho_0\mathbf{v}=-i\mathbf{k}\big( \gamma p_0\frac{\mathbf{k}\cdot\mathbf{v}}{\omega} \big) +\Big[ \frac{1}{\mu_0}i\mathbf{k}\times\big( -\frac{\mathbf{k}\times(\mathbf{v}\times\mathbf{B}_0)}{\omega} \big) \Big]\times\mathbf{B}_0 \\
 \omega^2 \mathbf{v}-{V_s}^2 \mathbf{k}(\mathbf{k}\cdot\mathbf{v})-{V_A}^2\big[ \mathbf{k}\times\big( \mathbf{k}\times(\mathbf{v}\times\hat{z})\big) \big]\times\hat{z}=0
 \end{aligned}
 $$
-
 where $V_s=\sqrt{\frac{\gamma p_0}{\rho_0}}$ is the sound speed, and $V_A=\sqrt{\frac{{B_0}^2}{\mu_0\rho_0}}$ is the Alfvén speed. If we write $\mathbf{V}_A = \mathbf{B}_0 / \sqrt{\mu_0 \rho_0}$, this can also be written as
-
 $$
 \omega^2 \mathbf{v} - {V_s}^2 \mathbf{k}(\mathbf{k}\cdot\mathbf{v}) - \mathbf{k}\times \mathbf{k}\times (\mathbf{v}\times\mathbf{V}_A) \times\mathbf{V}_A = 0
 $$
 
 Due to the symmetry in the perpendicular x-y plane, for simplicity, we assume the wave vector $\mathbf{k}$ lies in the x-z plane with an angle w.r.t. the $z$ axis $\theta$:
-
 $$
 \mathbf{k} = k_x\hat{x} + k_z\hat{z} = k_x\hat{x} + k_\parallel\hat{z} = k\sin\theta\hat{x} + k\cos\theta\hat{z}
 $$
 
 Now it can be written as
-
 $$
 \begin{pmatrix}
 -\omega^2/k^2 + v_A^2 + v_s^2\sin^2\theta & 0 & v_s^2\sin\theta\cos\theta \\
@@ -876,13 +863,10 @@ $$ {#eq-mhd_v_perturbation}
 ### Alfvén Wave
 
 For any nonzero $v_y$, the $y$-component of @eq-mhd_v_perturbation gives
-
 $$
 \omega^2 = k^2v_A^2\cos^2\theta = k_\parallel^2 v_A^2
 $$
-
 which is known as the _Alfvén wave_, in a uniform plasma immersed in a uniform background magnetic field with phase speed
-
 $$
 v_p = v_A\cos\theta
 $$
@@ -890,7 +874,6 @@ $$
 The group velocity and hence energy propagation is always parallel to $\mathbf{B}$ regardless of the direction of $\mathbf{k}$, and for this reason this mode is also know as the _guided_ mode. This property, of course, has the direct bearing on the feature of Alfvén wave resonant absorption.
 
 Given the velocity perturbation $\mathbf{v}_1 = (0, v_y, 0)$, $-i\omega\rho_1 + \rho_0 \mathbf{k}\cdot\mathbf{v} = 0$, $\omega\mathbf{B}_1 + \mathbf{k}\times(\mathbf{v}\times\mathbf{B}_0) = 0$, the other perturbations are given as
-
 $$
 \begin{aligned}
 \rho_1 &= 0 \\
@@ -903,7 +886,7 @@ $$ {#eq-mhd_Alfven_perturbations}
 
 SAW has a wave vector $\mathbf{k}$ in the XZ-plane. $\mathbf{E}$ shall oscillate in the X-direction; $\mathbf{B}$ shall oscillate in the Y-direction. The electric current of the wave $\mathbf{j}$ lies in the XZ-plane. The timescale of the variations of the wave fields is much longer than the ion gyroperiod $\Omega_i^{-1}$. In both the perpendicular and parallel directions, the spatial scale of the waves $1/k$ are much larger than ion motion scale $r_{iL}$. The wave carries a Poynting flux $S = \mathbf{E}\times\mathbf{B}_1$ strictly parallel to $\mathbf{B}_0$. The ratio of the wave electric field to the wave magnetic field $|\mathbf{E}|/|\mathbf{B}_1|$ is exactly one Alfvén speed $V_A$.
 
-$\mathbf{E}$ (or $\mathbf{B}_1$) in @eq-mhd_Alfven_perturbations shows that the Alfvén wave in a uniform plasma is a linearly polarized wave if $\mathbf{v}_1 = (0, v_y, 0)$. If instead we set $\mathbf{k}=(0,0,k)$ ($\theta=0^o$) and $\mathbf{v}_1 = (v_x, v_y, 0)$, then $\mathbf{k}\cdot\mathbf{v}=0\Rightarrow \rho_1=0$ but $\mathbf{E}=-\mathbf{v}\times\mathbf{B}_0 = kv_y\hat{x} - kv_x\hat{y}$ can be a circularly polarized wave or else. Correlated $\mathbf{B}$ and $\mathbf{v}$ corresponds to waves propagating anti-parallel to the $\mathbf{B}_0$, and anti-correlated $\mathbf{B}$ and $\mathbf{v}$ corresponds to waves propagating parallel to the $\mathbf{B}_0$. The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the _shear Alfvén wave_ (SAW). An animation of SAW is shown in @fig-alfven_wave. It is useful to remember that the magnetic perturbation is always parallel to the velocity perturbation.
+$\mathbf{E}$ (or $\mathbf{B}_1$) in @eq-mhd_Alfven_perturbations shows that the Alfvén wave in a uniform plasma is a linearly polarized wave if $\mathbf{v}_1 = (0, v_y, 0)$. If instead we set $\mathbf{k}=(0,0,k)$ ($\theta=0^o$) and $\mathbf{v}_1 = (v_x, v_y, 0)$, then $\mathbf{k}\cdot\mathbf{v}=0\Rightarrow \rho_1=0$ but $\mathbf{E}=-\mathbf{v}\times\mathbf{B}_0 = kv_y\hat{x} - kv_x\hat{y}$ can be a circularly polarized wave or else. Correlated $\mathbf{B}$ and $\mathbf{v}$ corresponds to waves propagating anti-parallel to the $\mathbf{B}_0$, and anti-correlated $\mathbf{B}$ and $\mathbf{v}$ corresponds to waves propagating parallel to the $\mathbf{B}_0$. The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the _shear Alfvén wave_ (SAW). An animation of SAW is shown in @fig-alfven_wave. It is useful to remember that the magnetic perturbation is always parallel to the velocity perturbation if $\mathbf{k}$ is parallel to $\mathbf{B}_0$ and antiparallel if $\mathbf{k}$ is antiparallel to $\mathbf{B}_0$.
 
 ::: {.content-visible unless-format="pdf"}
 
@@ -911,14 +894,35 @@ $\mathbf{E}$ (or $\mathbf{B}_1$) in @eq-mhd_Alfven_perturbations shows that the 
 
 :::
 
-In a non-uniform plasma, SAW attains the interesting property of a continuous spectrum. To illustrate this feature, let us consider the simplified slab model of a cold plasma with a non-uniform density, $\rho=\rho(x)$, and a uniform $\mathbf{B}_0 = B_0\hat{z}$. Assuming at $t=0$ a localized initial perturbation $\mathbf{B}_{1y}(x,t=0) = \exp(-x^2/\Delta x^2)$, $|k_y\Delta_x|\ll1$, and $\partial\mathbf{B}_{1y}/\partial t=0$, the perturbation then evolves according to the following wave equation (@eq-mhd_cold_b_wave, $B_{1z}=0$ so no coupling between the fast mode and Alfvén mode):
+To understand what happens physically in an Alfvén wave, recall that this is an electromagnetic wave with a fluctuating magnetic field $\mathbf{B}_1$ given by
+$$
+\nabla\times\mathbf{E}_1 = -\dot{\mathbf{B}}_1\quad E_x=(\omega/k)B_y
+$$ {#eq-alfven-perturb-e-b}
 
+The small component $B_y$, when added to $\mathbf{B}_0$, gives the magnetic field lines a sinuisoidal ripple, shown exaggerated in @fig-alfven_wave_oscillations. At the point shown, $B_y$ is in the positive $y$ direction, so, according to @eq-alfven-perturb-e-b, $E_x$ is in the positive $x$ direction if $\omega/k$ is in the $z$ direction. The electric field $E_x$ gives the plasma an $\mathbf{E}_1\times\mathbf{B}_0$ drift in the negative $y$ direction. Since we have taken the limit $\omega^2\ll\Omega_{c}$, both ions and electrons will have the same drift $v_y$, obtained from @sec-CPDR the component $v_y$ under $T_i=0$:
+$$
+\begin{aligned}
+v_{ix} &= \frac{iq}{m \omega}\left( 1-\frac{\Omega_c^2}{\omega^2} \right)^{-1} E_1 \\
+v_{iy} &= \frac{q}{m\omega}\frac{\Omega_c}{\omega} \left( 1-\frac{\Omega_c^2}{\omega^2} \right)^{-1} E_1
+\end{aligned}
+$$ {#eq-vxy-CPDR}
+
+Thus, the fluid moves up and down in the y direction. The magnitude of this velocity is $|E_x/B_0|$. Since the ripple in the field is moving by at the phase velocity $\omega/k$, the magnetic field is also moving downward at the point indicated in @fig-alfven_wave_oscillations. The downward velocity of the magnetic field lines is $(\omega/k)|B_y/B_0|$, which, according @eq-alfven-perturb-e-b, is just equal to the fluid velocity $|E_x/B_0|$. Thus, the fluid
+and the field lines oscillate together as if the particles were stuck to the lines. The magnetic field lines act as if they were mass-loaded strings under tension, and an Alfvén wave can be regarded as the propagating disturbance occurring when the strings are plucked. This concept of plasma frozen to the field lines and moving with them is a
+useful one for understanding many low-frequency plasma phenomena. It can be shown that this notion is an accurate one as long as there is no electric field along $\mathbf{B}$.
+
+![Relation among the oscillating quantities in an Alfvén wave and the (exaggerated) distortion of the lines of force.](../images/Alfven_V_B_E.png){#fig-alfven_wave_oscillations}
+
+It remains for us to see what sustains the electric field $E_x$ which we presupposed was there. As $\mathbf{E}_1$ fluctuates, the ions' inertia causes them to lag behind the electrons, and there is a polarization drift $\mathbf{v}_p$ in the direction of $\mathbf{E}_1$. This drift $v_{ix}$ is given by @eq-vxy-CPDR and causes a current $\mathbf{j}_1$ to flow in the $x$ direction. The resulting $\mathbf{j}_1\times\mathbf{B}_0$ force on the fluid is in the $y$ direction and is $90^o$ out of phase with the velocity $\mathbf{v}_1$. This force perpetuates the oscillation in the same way as in any oscillator where the force is out of phase with the velocity. It is, of course, always the ion inertia that causes an overshoot and a sustained oscillation, but in a plasma the momentum is transferred in a complicated way via the electromagnetic forces.
+
+In a more realistic geometry for experiments, $\mathbf{E}_1$ would be in the radial direction and $\mathbf{v}_1$ in the azimuthal direction. The motion of the plasma is then incompressible. This is the reason the $\nabla p$ term in the equation of motion could be neglected.
+
+In a non-uniform plasma, SAW attains the interesting property of a continuous spectrum. To illustrate this feature, let us consider the simplified slab model of a cold plasma with a non-uniform density, $\rho=\rho(x)$, and a uniform $\mathbf{B}_0 = B_0\hat{z}$. Assuming at $t=0$ a localized initial perturbation $\mathbf{B}_{1y}(x,t=0) = \exp(-x^2/\Delta x^2)$, $|k_y\Delta_x|\ll1$, and $\partial\mathbf{B}_{1y}/\partial t=0$, the perturbation then evolves according to the following wave equation (@eq-mhd_cold_b_wave, $B_{1z}=0$ so no coupling between the fast mode and Alfvén mode):
 $$
 [\partial_t^2 + \omega_A^2(x)]B_{1y}(x,t) = 0
 $$
 
 Here $\omega_A^2(x) = k_z^2v_A^2(x)$ and the solution is
-
 $$
 B_{1y}(x,t) = \hat{B}_{1y}(x,0)\cos[\omega_A(x)t]
 $$ {#eq-mhd_alfven_slab_by}
@@ -926,7 +930,6 @@ $$ {#eq-mhd_alfven_slab_by}
 @eq-mhd_alfven_slab_by shows that every point in $x$ oscillates at a different frequency, $\omega_A(x)$. With a continuously varying $\omega_A(x)$; the wave frequency, thus, constitutes a continuous spectrum. While the above result is based on a model with a 1D non-uniformity in x, this general feature of SAW continuous spectrum also holds in magnetized plasmas with 2D or 3D non-uniformities. A good example is geomagnetic pulsations in the Earth's magnetosphere observed by Engebretson shown in Figure 1 of [@chen2021physics].
 
 @eq-mhd_alfven_slab_by also indicates an unique and important property of SAW continuous spectrum: the spatial structure evolves with time. Specifically, the wave number in the non-uniformity direction is, time asymptotically, given by:
-
 $$
 |k_x| = \bigg\lvert\frac{\partial \ln B_{1y}}{\partial x}\bigg\rvert \simeq \bigg\lvert\frac{\mathrm{d} \omega_A(x)}{\mathrm{d} x}\bigg\rvert t
 $$ {#eq-mhd_alfven_wavenumber_nonuniform}
@@ -934,7 +937,6 @@ $$ {#eq-mhd_alfven_wavenumber_nonuniform}
 That $|k_x|$ increases with $t$ is significant, since it implies that any initially long-scale perturbations will evolve into short scales. This point is illustrated in Figure ??? (CAN I PERFORM THE SIMULATION?); showing the evolution of a smooth $B_{1y}$ at $t=0$ to a spatially fast varying $B_{1y}$ at a later $t$.
 
 Another consequence of $|k_x|$ increasing with $t$ is the temporal decay of $B_{1x}$. From $\nabla\cdot\mathbf{B}_1 \simeq \nabla_\perp\cdot\mathbf{B}_{1\perp}=0$, we can readily derive that, for $|\omega_A^\prime t|\gg |k_y|$:
-
 $$
 B_{1x}(x, t)\simeq \frac{k_y}{\omega_A^\prime(x)t}\hat{B}_{1y}(x,0)e^{-i\omega_A(x)t}\Big[ 1+\mathcal{O}\Big( \frac{k_y}{|\omega_A^\prime t|+ ...} \Big) \Big]
 $$
@@ -952,25 +954,21 @@ __SAW in a Slab__
 We now look deeper into the properties of Alfvén waves in a nonuniform magnetized plasma slab that carries a current flowing along an externally imposed magnetic field $B_{0z}\hat{z}$, where $B_{0z}$ is assumed to be a constant. First, we formulate the governing equation for the slab geometry, under the ideal MHD condition. Then we show that Alfvén waves are always neutrally stable, with important indication at the end.
 
 The presence of an equilibrium current density $\mathbf{J}_0 = \widehat{z}J_0(x)$ produces a local magnetic field of the form
-
 $$
 \mathbf{B}_0 = \hat{z}B_{0z} + \hat{y}B_{0y}(x)
 $$
 
 The Ampère's law gives
-
 $$
 \nabla\times\mathbf{B}_0 = \mu_0 \mathbf{J}_0 \Rightarrow \frac{\partial B_{0y}}{\partial x}-\frac{\partial B_{0x}}{\partial y} = \frac{\partial B_{0y}}{\partial x} = \mu_0 J_0(x)
 $$ {#eq-ampere_slab}
 
 From the force balance equation,
-
 $$
 \mathbf{J}_0\times\mathbf{B}_0 = \nabla P_0
 $$ {#eq-force_balance_slab}
 
 Substituting @eq-ampere_slab into @eq-force_balance_slab, we get
-
 $$
 \frac{{B_{0y}(x)}^2}{2\mu_0} + P_0(x) = \text{const.}
 $$
@@ -984,38 +982,30 @@ $$
 \mathbf{v}_1 - (\mathbf{v}_1\cdot\nabla)\mathbf{B}_0
 \end{aligned}
 $$
-
 where we have assumed the plasma is incompressible. Replace $\nabla$ with $i\mathbf{k}$, $\mathbf{v}_1=i\omega \pmb{\xi}_1$ and take the $x$-component, we get
-
 $$
 B_{1x} = i(\mathbf{k}\cdot\mathbf{B}_0)\xi_{1x}
 $$ {#eq-mhd_slab_b1x}
-
 where $\mathbf{k}=\hat{y}k_y+\hat{z}k_z$.
 
 The MHD force law can be linearized to
-
 $$
 \rho_0 \frac{\partial \mathbf{v}_1}{\partial t} = -\nabla\Big( p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\Big) + \frac{1}{\mu_0}\big[ (\mathbf{B}_0\cdot\nabla)\mathbf{B}_1 + (\mathbf{B}_1\cdot\nabla)\mathbf{B}_0\big]
 $$ {#eq-mhd_momentum_linearized_slab}
 
 Since the plasma is incompressible, $\nabla\cdot\pmb{v}_1=0,\ \dot{\pmb{\xi}}=\mathbf{v}_1\Rightarrow \nabla\cdot\pmb{\xi}=0$. In addition, $\nabla\cdot\mathbf{B}_1=0$. We then have
-
 $$
 \begin{aligned}
 \mathbf{k}\cdot\pmb{\xi}_{1yz}&=i\frac{\partial \xi_{1x}}{\partial x} \\
 \mathbf{k}\cdot\pmb{B}_{1yz}&=i\frac{\partial B_{1x}}{\partial x}
 \end{aligned}
 $$
-
 where $\pmb{\xi}_{1yz} = (0,\xi_{1y},\xi_{1z})$, $\mathbf{B}_{1yz}=(0,B_{1y},B_{1z})$. The $x$-component of @eq-mhd_momentum_linearized_slab gives
-
 $$
 -\rho_0\omega^2 \xi_{1x} = -\frac{\partial}{\partial x}\Big( p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\Big) +\frac{1}{\mu_0} \big[ (\mathbf{B}_0\cdot\nabla)B_{1x} \big]
 $$ {#eq-mhd_momentum_linearized_slab_x}
 
 The dot product of @eq-mhd_momentum_linearized_slab with $\mathbf{k}$ gives
-
 $$
 \begin{aligned}
 -\rho_0 \omega^2 \mathbf{k}\cdot\pmb{\xi}_{1yz} &= ik^2 \Big( p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\Big) + \frac{1}{\mu_0}\big[ i(\mathbf{k}\cdot\mathbf{B}_0)(\mathbf{k}\cdot\mathbf{B}_{1yz}) + B_{1x}\frac{\partial }{\partial x}(\mathbf{k}\cdot\mathbf{B}_0)\big]\\
@@ -1024,21 +1014,16 @@ $$
 $$ {#eq-mhd_momentum_linearized_slab_k}
 
 Finally, canceling $p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}$ from @eq-mhd_momentum_linearized_slab_x and @eq-mhd_momentum_linearized_slab_k and substituting $B_{1x}$ from @eq-mhd_slab_b1x, we obtain the governing equation
-
 $$
 \frac{\partial}{\partial x}\Big\{ \rho_0 \big[ \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2\big]\frac{\partial \xi_{1x}}{\partial x}\Big\} -k^2\rho_0 \big[ \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2\big]\xi_{1x}=0
 $$ {#eq-mhd_slab_governing}
-
 where $k^2={k_y}^2+ {k_z}^2$, $\mathbf{v}_A = v_A \mathbf{B}_0/B_0$, and $v_A=B_0/\sqrt{\mu_0 \rho_0}$ is the local Alfvén speed. This is the governing equation of shear Alfvén waves in a slab geometry derived by Hasegawa and Liu Chen in the 1970s, which is readily compared with Eq.(10.33) in [@bellan2008fundamentals].
 
 It is easy to show that this governing equation always yields _neutrally stable_ solutions of SAWs, i.e. $\omega_i=\Im(\omega)=0$. Multiply it by $\xi_{1x}^\ast$, and integrate the resultant equation to get
-
 $$
 \int_{-\infty}^{\infty}\mathrm{d}x \rho_0 \big[ \omega^2-(\mathbf{k}\cdot\mathbf{v}_A)^2\big] \Big[ \bigg\lvert \frac{\mathrm{d}\xi_{1x}}{\mathrm{d}x}\bigg\rvert^2 + k^2\lvert\xi_{1x}\rvert^2 \Big] = 0
 $$
-
 where we have assumed that $\xi_{1x}$ vanishes on the boundary. This gives
-
 $$
 \omega^2 = \frac{\int_{-\infty}^{\infty}\mathrm{d}x \rho_0 (\mathbf{k}\cdot\mathbf{v}_A)^2\Big[ \bigg\lvert \frac{\mathrm{d}\xi_{1x}}{\mathrm{d}x}\bigg\rvert^2 + k^2\lvert \xi_{1x}\rvert^2 \Big]}{\int_{-\infty}^{\infty}\rho_0[ \lvert \frac{\mathrm{d}\xi_{1x}}{\mathrm{d}x}\rvert^2 + k^2\lvert \xi_{1x}\rvert^2]\mathrm{d}x} \ge 0
 $$
