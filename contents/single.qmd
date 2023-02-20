@@ -2,11 +2,9 @@
 
 What makes plasmas particularly difficult to analyze is the fact that the densities fall in an intermediate range. Fluids like water are so dense that the motions of individual molecules do not have to be considered. Collisions dominate, and the simple equations of ordinary fluid dynamics suffice. At the other extreme in very low-density devices, only single-particle trajectories need to be considered; collective effects are often unimportant. Plasma behaves sometimes like fluids, and sometimes like a collection of individual particles. The first step in learning how to deal with this schizophrenic personality is to understand how single particles behave in electric and magnetic fields.
 
-Single particle motion in neutral gases is trivial – particles move in straight lines until they hit other particles or the wall. Because of this simplicity, there is no point in keeping track of the details of single particle motion in a neutral gas and instead a statistical averaging of this motion suffices; this averaging shows that neutral
-gases have Maxwellian velocity distributions and are in a local thermodynamic equilibrium. In contrast, plasma particles are nearly collisionless and typically have complex trajectories that are strongly affected by both electric and magnetic fields.
+Single particle motion in neutral gases is trivial – particles move in straight lines until they hit other particles or the wall. Because of this simplicity, there is no point in keeping track of the details of single particle motion in a neutral gas and instead a statistical averaging of this motion suffices; this averaging shows that neutral gases have Maxwellian velocity distributions and are in a local thermodynamic equilibrium. In contrast, plasma particles are nearly collisionless and typically have complex trajectories that are strongly affected by both electric and magnetic fields.
 
-As what will be shown in @sec-collision-entropy, the velocity distribution in a plasma will become Maxwellian when enough collisions have occurred to maximize the entropy. However, since collisions occur infrequently in hot plasmas, many important phenomena have time scales shorter than the time required for the plasma velocity distribution to become Maxwellian. A collisionless model is thus required to characterize these fast phenomena. In these situations randomization does not occur, entropy is conserved, the distribution function need not be Maxwellian, and the plasma is not in thermodynamic equilibrium. Thermodynamic concepts therefore do not apply, and the plasma is instead characterized by concepts from classical mechanics such as momentum or energy conservation of individual particles. In these collisionless situations the complex details of single particle dynamics are not washed out by collisions but instead persist and influence the macroscopic scale. As an example, the cyclotron resonance of a single particle
-can be important at the macroscopic scale in a collisionless plasma. This chapter examines various aspects of single particle motion and shows how these aspects can influence the macroscopic properties of a plasma.
+As what will be shown in @sec-collision-entropy, the velocity distribution in a plasma will become Maxwellian when enough collisions have occurred to maximize the entropy. However, since collisions occur infrequently in hot plasmas, many important phenomena have time scales shorter than the time required for the plasma velocity distribution to become Maxwellian. A collisionless model is thus required to characterize these fast phenomena. In these situations randomization does not occur, entropy is conserved, the distribution function need not be Maxwellian, and the plasma is not in thermodynamic equilibrium. Thermodynamic concepts therefore do not apply, and the plasma is instead characterized by concepts from classical mechanics such as momentum or energy conservation of individual particles. In these collisionless situations the complex details of single particle dynamics are not washed out by collisions but instead persist and influence the macroscopic scale. As an example, the cyclotron resonance of a single particle can be important at the macroscopic scale in a collisionless plasma. This chapter examines various aspects of single particle motion and shows how these aspects can influence the macroscopic properties of a plasma.
 
 Furthermore, study of single particle dynamics has a very direct relevance to Vlasov theory because, as shown in @sec-vlasov, any function constructed from constants of single particle motion is a valid solution of the collisionless Vlasov equation. Thus, knowledge of single particle dynamics provides a "repertoire" of constants of the motions from which solutions to the Vlasov equation suitable for various situations can be constructed.
 
@@ -174,19 +172,16 @@ The three-dimensional orbit in space is therefore a slanted helix with changing 
 ### Gravitational Field {#sec-gravity_field}
 
 The foregoing result can be applied to other forces by replacing $q\mathbf{E}$ in the equation of motion by a general force $\mathbf{F}$. The guiding center drift caused by $\mathbf{F}$ is then
-
 $$
 \mathbf{v}_f = \frac{1}{q}\frac{\mathbf{F}\times\mathbf{B}}{B^2}
 $$
 
 In particular, if $\mathbf{F}$ is the force of gravity $m\mathbf{g}$, there is a drift
-
 $$
 \mathbf{v}_g = \frac{m}{q}\frac{\mathbf{g}\times\mathbf{B}}{B^2}
 $$ {#eq-gravity_drift}
 
 This is similar to the drift $\mathbf{v}_E$ in that it is perpendicular to both the force and $\mathbf{B}$, but it differs in one important respect. The drift $\mathbf{v}_g$ changes sign with the particle’s charge. Under a gravitational force, ions and electrons drift in opposite directions, so there is a net current density in the plasma given by
-
 $$
 \mathbf{j} = n(m_i+m_e)\frac{\mathbf{g}\times\mathbf{B}}{B^2}
 $$
@@ -202,13 +197,11 @@ Now that the concept of a guiding center drift is firmly established, we can dis
 Here the magnetic field lines are straight, but their density increases, say, in the y direction. We can anticipate the result by using our simple physical picture. The gradient in |B| causes the Larmor radius to be larger at the bottom of the orbit than at the top, and this should lead to a drift, in opposite directions for ions and electrons, perpendicular to both B and $\nabla B$. The drift velocity should obviously be proportional to $r_L/L$ and to $v_\perp$.
 
 Consider the Lorentz force $\mathbf{F} = q\mathbf{v}\times\mathbf{B}$, averaged over a gyration. Clearly, $\bar{F}_x = 0$, since the particle spends as much time moving up as down. We wish to calculate $\bar{F}_y$, in an approximate fashion, by using the *undisturbed orbit* of the particle to find the average. The undisturbed orbit is given by the solution in the first section for a uniform $\mathbf{B}$ field. Taking the real part of the solution for $v_x$ and $y$, we have
-
 $$
 F_y = -q v_x B_z(y) = -q v_\perp(\cos \omega_c t) \Big[ B_0 \pm r_L(\cos\omega_c t )\frac{\partial B}{\partial y} \Big]
 $$
 
 where we have made a Taylor expansion of $\mathbf{B}$ field about the point $x_0=0, y_0=0$
-
 $$
 \begin{aligned}
 \mathbf{B} &= \mathbf{B}_0 + (\mathbf{r}\cdot\nabla)\mathbf{B} + ... \\
@@ -217,19 +210,15 @@ Bz &= B_0 + y(\partial B_z/\partial y) + ...
 $$
 
 This expansion of course requires $r_L / L \ll 1$, where L is the length scale of $\partial Bz/\partial y$. The first term above averages to zero in a gyration, and the average of $\cos^2 \omega_c t$ is $1/2$, so that
-
 $$
 \bar{F}_y = \mp q v_\perp r_L \frac{1}{2}\frac{\partial B}{\partial y}
 $$
 
 The guiding center drift velocity is then
-
 $$
 \mathbf{v}_{gc} = \frac{1}{q}\frac{\mathbf{F}\times\mathbf{B}}{B^2} = \frac{1}{q}\frac{\bar{F}_y}{|B|}\widehat{x} = \mp \frac{v_\perp r_L}{B}\frac{1}{2} \frac{\partial B}{\partial y} \widehat{x}
 $$
-
 where we have used the formula shown previously. Since the choice of the y axis was arbitrary, this can be generalized to
-
 $$
 \mathbf{v}_{\nabla B} = \pm \frac{1}{2}v_\perp r_L \frac{\mathbf{B}\times \nabla B}{B^2}
 $$
@@ -239,13 +228,11 @@ This has all the dependences we expected from the physical picture; only the fac
 ### Curved B: Curvature Drift
 
 Here we assume the magnetic field lines to be curved with a constant radius of curvature $R_c$, and we take $|B|$ to be constant. Such a field does not obey Maxwell’s equations in a vacuum, so in practice the grad-B drift will always be added to the effect derived here. A guiding center drift arises from the centrifugal force felt by the particles as they move along the field lines in their thermal motion. If $v_\parallel^2$ denotes the average square of the component of random velocity along $\mathbf{B}$, and $\mathbf{R}_c$ denotes the radius of curvature vector from the center to the curve, the average centrifugal force is
-
 $$
 \mathbf{F}_{cf} = \frac{mv_\parallel^2}{R_c}\widehat{r} = mv_\parallel^2\frac{\mathbf{R}_c}{R_c^2}
 $$
 
 According to the guiding center drift formula, this gives rise to a drift
-
 $$
 \mathbf{v}_{R} = \frac{1}{q}\frac{\mathbf{F}_{cf}\times\mathbf{B}}{B^2} = \frac{mv_\parallel^2}{qB^2}\frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2}
 $$
@@ -253,25 +240,21 @@ $$
 The drift $\mathbf{v}_R$ is called the *curvature drift*.
 
 We must now compute the grad-B drift which accompanies this when the decrease of $|B|$ with radius is taken into account. In a vacuum, we have $\nabla\times\mathbf{B} = 0$. In the cylindrical coordinates, $\nabla\times\mathbf{B}$ only has a $z$ component, since $\mathbf{B}$ has only a $\theta$ component and $\nabla B$ only an $r$ component. We then have
-
 $$
 (\nabla\times\mathbf{B})_z = \frac{1}{r}\frac{\partial}{\partial r}(rB_\theta) = 0,\, B\propto \frac{1}{r}
 $$
 
 Thus
-
 $$
 |B| \propto \frac{1}{R_c},\, \frac{\nabla B}{B} = - \frac{\mathbf{R}_c}{R_c^2}
 $$
 
 Using the expression of the grad-B drift, we have
-
 $$
 \mathbf{v}_{\nabla B} = \mp \frac{1}{2}\frac{v_\perp r_L}{B^2}\mathbf{B}\times\frac{\mathbf{R}_c}{R_c^2} = \pm \frac{1}{2}\frac{v_\perp^2}{\omega_c}\frac{\mathbf{R}_c\times\mathbf{B}}{R_c^2 B} = \frac{1}{2}\frac{m}{q}v_\perp^2\frac{\mathbf{R}_c\times\mathbf{B}}{R_c^2 B^2}
 $$
 
 Adding this to $\mathbf{v}_R$ , we have the total drift in a curved vacuum field:
-
 $$
 \mathbf{v}_R + \mathbf{v}_{\nabla B} = \frac{m}{q}\frac{\mathbf{R}_c\times\mathbf{B}}{R_c^2 B^2}\Big( v_\parallel^2 + \frac{1}{2}v_\perp^2 \Big)
 $$
@@ -279,11 +262,9 @@ $$
 It is unfortunate that these drifts add. This means that if one bends a magnetic field into a torus for the purpose of confining a thermonuclear plasma, the particles will drift out of the torus no matter how one juggles the temperatures and magnetic fields.
 
 For a Maxwellian distribution, $\bar{v_\parallel^2}$ and $\frac{1}{2}\bar{v_\perp^2}$ are each equal to $k_B T/m$, since $v_\perp$ involves two degrees of freedom. Then the average curved-field drift can be written as
-
 $$
 \bar{\mathbf{v}}_{R+\nabla B} = \pm \frac{v_{th}^2}{R_c\omega_c}\widehat{y} = \pm\frac{\bar{r}_L}{R_c}v_{th}\widehat{y}
 $$
-
 where $\widehat{y}$ here is the direction of $\widehat{R}_c\times\mathbf{B}$. This shows that $\bar{\mathbf{v}}_{R+\nabla B}$ depends on the charge of the species but not on its mass.
 
 ### ∇B ∥ B: Magnetic Mirrors
@@ -291,13 +272,11 @@ where $\widehat{y}$ here is the direction of $\widehat{R}_c\times\mathbf{B}$. Th
 Now we consider a magnetic field which is pointed primarily in the z direction and whose magnitude varies in the z direction. Let the field be axisymmetric, with $B_\theta = 0$ and $\partial/\partial\theta = 0$. Since the magnetic field lines converge and diverge, there is necessarily a component $B_r$. We wish to show that this gives rise to a force which can trap a particle in a magnetic field.
 
 We can obtain $B_r$ from $\nabla\cdot\mathbf{B} = 0$:
-
 $$
 \frac{1}{r}\frac{\partial}{\partial r}(rB_r) + \frac{\partial B_z}{\partial z} = 0
 $$
 
 If $\partial \mathbf{B}_z/\partial z$ is given at $r=0$ and does not vary much with r, we have approximately
-
 $$
 \begin{aligned}
 rB_r &= -\int_0^r r\frac{\partial B_z}{\partial z}dr \simeq -\frac{1}{2}r^2 \Big[ \frac{\partial \mathbf{B}_z}{\partial z} \Big]_{r=0} \\
@@ -306,7 +285,6 @@ B_r &= -\frac{1}{2}r \Big[ \frac{\partial \mathbf{B}_z}{\partial z} \Big]_{r=0}
 $$
 
 The variation of $|B|$ with r causes a grad-B drift of guiding centers about the axis of symmetry, but there is no radial grad-B drift, because $\partial B/\partial \theta = 0$. The components of the Lorentz force are
-
 $$
 \begin{aligned}
 F_r &= q(\underbrace{v_\theta B_z}_{\small{1}} - v_z \cancel{B_\theta}) \\
@@ -316,68 +294,54 @@ F_z &= q(v_r \cancel{B}_\theta - \underbrace{v_\theta B_r}_{\small{4}})
 $$
 
 Two terms vanish if $B_\theta = 0$, and terms 1 and 2 give rise to the usual Larmor gyration. Term 3 vanishes on the axis; when it does not vanish, this azimuthal force causes a drift in the radial direction. This drift merely makes the guiding centers follow the magnetic field lines. Term 4 is the one we are interested in. Using the expression of $B_r$, we have
-
 $$
 F_z = \frac{1}{2}q v_\theta r_L \frac{\partial B_z}{\partial z}
 $$
 
 We must now average over one gyration. For simplicity, consider a particle whose guiding center lies on the axis. Then $v_\theta$ is a constant during a gyration; depending on the sign of q, $v_\theta$ is $\mp v_\perp$. Since $r = r_L$ , the average force is
-
 $$
 \bar{F}_z = \mp \frac{1}{2}q v_\perp r_L \frac{\partial B_z}{\partial z} = \mp \frac{1}{2}q\frac{v_\perp^2}{\omega_c} \frac{\partial B_z}{\partial z} = -\frac{1}{2}\frac{mv_\perp^2}{B} \frac{\partial B_z}{\partial z}
 $$
 
 We define the *magnetic moment* of the gyrating particle to be
-
 $$
 \mu \equiv \frac{1}{2}mv_\perp^2 / B
 $$
-
 so that
-
 $$
 \bar{F}_z = -\mu \frac{\partial B_z}{\partial z}
 $$
 
 This is a specific example of the force on a diamagnetic particle, which in general can be written
-
 $$
 \mathbf{F}_\parallel = -\mu\frac{\partial B}{\partial \mathbf{s}} = -\mu\nabla_\parallel B
 $$
-
-where $\mathrm{d}\mathbf{s}$ is a line element along $\mathbf{B}$. Note that the definition of magnetic moment here is the same as the
-usual definition for the magnetic moment of a current loop with area A and current I: $\mu = IA$. In the case of a singly charged ion, I is generated by a charge e coming around $\omega_c / 2\pi$ times a second: $I = e\omega_c/2\pi$. The area A is $\pi r_L^2 = \pi r_L^2/\omega_c^2$. Thus
-
+where $\mathrm{d}\mathbf{s}$ is a line element along $\mathbf{B}$. Note that the definition of magnetic moment here is the same as the usual definition for the magnetic moment of a current loop with area A and current I: $\mu = IA$. In the case of a singly charged ion, I is generated by a charge e coming around $\omega_c / 2\pi$ times a second: $I = e\omega_c/2\pi$. The area A is $\pi r_L^2 = \pi r_L^2/\omega_c^2$. Thus
 $$
 \mu = \frac{e\omega_c}{2\pi}\frac{\pi r_L^2}{\omega_c^2} = \frac{1}{2}\frac{v_\perp^2 e}{\omega_c} = \frac{1}{2}\frac{mv_\perp^2}{B}
 $$
 
 As the particle moves into regions of stronger or weaker B, its Larmor radius changes, but *μ remains invariant*. To prove this, consider the component of the equation of motion along $\mathbf{B}$:
-
 $$
 m\frac{\mathrm{d}v_\parallel}{\mathrm{d}t} = -\mu \frac{\partial B}{\partial s}
 $$
 
 Multiplying by $v_\parallel$ on the left and its equivalent $ds/\mathrm{d}t$ on the right, we have
-
 $$
 mv_\parallel \frac{\mathrm{d}v_\parallel}{\mathrm{d}t} = \frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{1}{2}mv_\parallel^2 \Big) = -\mu\frac{\partial B}{\partial s}\frac{ds}{\mathrm{d}t} = -\mu\frac{\mathrm{d}B}{\mathrm{d}t}
 $$
 
 Here $\mathrm{d}B/\mathrm{d}t$ is the variation of $B$ as seen by the particle; $B$ itself is constant. The particle’s energy must be conserved, so we have
-
 $$
 \frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{1}{2}mv_\parallel^2 + \frac{1}{2}mv_\perp^2 \Big) = \frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{1}{2}mv_\parallel^2 + \mu B \Big) = 0
 $$
 
 With the previous equation this becomes
-
 $$
 -\mu\frac{\mathrm{d}B}{\mathrm{d}t} + \frac{\mathrm{d}}{\mathrm{d}t}(\mu B) = 0
 $$
 
 so that
-
 $$
 \frac{\mathrm{d}\mu}{\mathrm{d}t} = 0
 $$
@@ -385,29 +349,23 @@ $$
 The invariance of $\mu$ is the basis for one of the primary schemes for plasma confinement: the *magnetic mirror*. As a particle moves from a weak-field region to a strong-field region in the course of its thermal motion, it sees an increasing B, and therefore its $v_\perp$ must increase in order to keep μ constant. Since its total energy must remain constant, $v_\parallel$ must necessarily decrease. If B is high enough in the “throat” of the mirror, $v_\parallel$ eventually becomes zero; and the particle is “reflected” back to the weak-field region. It is, of course, the force $\mathbf{F}_\parallel$ which causes the reflection. The nonuniform field of a simple pair of coil form two magnetic mirrors between which a plasma can be trapped. This effect works on both ions and electrons.
 
 The trapping is not perfect, however. For instance, a particle with $v_\perp = 0$ will have no magnetic moment and will not feel any force along $\mathbf{B}$. A particle with small $v_\perp / v_\parallel$ at the midplane ($B = B_0$) will also escape if the maximum field $B_m$ is not large enough. For given $B_0$ and $B_m$, which particles will escape? A particle with $v_\perp = v_{\perp 0}$ and $v_\parallel = v_{\parallel 0}$ at the midplane will have $v_\perp = v_\perp^\prime$ and $v_\parallel = 0$ at its turning point. Let the field be $B^\prime$ there. Then the invariants of $\mu$ yields
-
 $$
 \frac{1}{2}\frac{mv_{\perp 0}^2}{B_0} = \frac{1}{2}\frac{m{v_{\perp 0}^{\prime}}^2}{B^\prime}
 $$
 
 Conservation of energy requires
-
 $$
 {v_{\perp 0}^{\prime}}^2 = v_{\perp 0}^2 + v_{\parallel 0}^2 \equiv v_0^2
 $$
 
 Combining the above two equations, we find
-
 $$
 \frac{B_0}{B^\prime} = \frac{v_{\perp 0}^2}{{v_{\perp}^{\prime}}^2} \equiv \sin^2 \theta
 $$
-
 where $\theta$ is the pitch angle of the orbit in the weak-field region. Particles with smaller θ will mirror in regions of higher B. If θ is too small, $B^\prime$ exceeds $B_m$; and the particles does not mirror at all. Replacing $B^\prime$ by $B_m$, we see that the smallest $\theta$ of a confined particle is given by
-
 $$
 \sin^2 \theta_m = \frac{B_0}{B_m} \equiv \frac{1}{R_m}
 $$
-
 where $R_m$ is the *mirror ratio*. It defines the boundary of a region in velocity space in the shape of a cone, called a *loss cone*. Particles lying within the loss cone are not confined. Consequently, a mirror-confined plasma is never isotropic. Note that the loss cone is independent of q or m. Without collisions, both ions and electrons are equally well confined. When collisions occur, particles are lost when they change their pitch angle in a collision and are scattered into the loss cone. Generally, electrons are lost more easily because they have a higher collision frequency.
 
 The magnetic mirror was first proposed by Enrico Fermi as a mechanism for the acceleration of cosmic rays. Protons bouncing between magnetic mirrors approaching each other at high velocity could gain energy at each bounce. How such mirrors could arise is another story. A further example of the mirror effect is the confinement of particles in the Van Allen belts. The magnetic field of the earth, being strong at the poles and weak at the equator, forms a natural mirror with rather large $R_m$.
@@ -724,6 +682,45 @@ By applying the guiding center approximation, we reduce the number of independen
 ## Adiabatic Invariants
 
 It is well known in classical mechanics that whenever a system has a periodic motion, the action integral $\oint p dq$ taken over a period is a constant of the motion. Here $p$ and $q$ are the generalized momentum and coordinate which repeat themselves in the motion. If a slow change is made in the system, so that the motion is not quite periodic, the constant of the motion does not change and is then called an *adiabatic invariant*. By slow here we mean slow compared with the period of motion, so that the integral $\oint p dq$ is well defined even though it is strictly no longer an integral over a closed path. Adiabatic invariants play an important role in plasma physics; they allow us to obtain simple answers in many instances involving complicated motions. There are three adiabatic invariants, each corresponding to a different type of periodic motion.
+
+### Adiabatic Invariant of a Pendulum
+
+Perfect symmetry is never attained in reality. This leads to the practical question of how constants of the motion behave when space and/or time symmetries are "good", but not perfect. Does the utility of constants of the motion collapse abruptly when the slightest non-symmetrical blemish rears its ugly head, does the utility decay gracefully, or does something completely different happen? To answer these questions, we begin by considering the problem of a small-amplitude pendulum having a time-dependent, but slowly changing resonant frequency $\omega(t)$. Since $\omega^2=g/l$, the time-dependence of the frequency might result from either a slow change in the gravitational acceleration $g$ or else from a slow change in the pendulum length $l$. In both cases the pendulum equation of motion will be
+$$
+\frac{\mathrm{d}^2 x}{\mathrm{d}t^2} + \omega^2(t)x = 0
+$$ {#eq-pendulum}
+
+This equation cannot be solved exactly for arbitrary $\omega(t)$ but if a modest restriction is put on $\omega(t)$ the equation can be solved _approximately_ using the WKB method (Wentzel 1926, Kramers 1926, Brillouin 1926). This method is based on the
+hypothesis that the solution for a time-dependent frequency is likely to be a generalization of the constant-frequency solution
+$$
+x = \mathrm{Re}\left[ A\exp(i\omega t) \right]
+$$
+where this generalization is postulated to be of the form
+$$
+x = \mathrm{Re}\left[ A(t) e^{i\int^t \omega(t^\prime)\mathrm{d}t^\prime} \right]
+$$
+Here $A(t)$ is an amplitude function determined as follows: calculate the first derivative we get
+$$
+\frac{\mathrm{d}x}{\mathrm{d}t} = \mathrm{Re}\left[ i\omega A e^{i\int^t \omega(t^\prime)\mathrm{d}t^\prime} + \frac{\mathrm{d}A}{\mathrm{d}t} e^{i\int^t \omega(t^\prime)\mathrm{d}t^\prime} \right]
+$$
+then the second derivative
+$$
+\frac{\mathrm{d}^2x}{\mathrm{d}t^2} = \mathrm{Re}\left[ \left( i\frac{\mathrm{d}\omega}{\mathrm{d}t}A + 2i\omega\frac{\mathrm{d}A}{\mathrm{d}t} -\omega^2 A + \frac{\mathrm{d}^2A}{\mathrm{d}t^2} \right) e^{i\int^t \omega(t^\prime)\mathrm{d}t^\prime} \right]
+$$
+and insert this last result into @eq-pendulum which reduces to
+$$
+i\frac{\mathrm{d}\omega}{\mathrm{d}t}A + 2i\omega\frac{\mathrm{d}A}{\mathrm{d}t} + \frac{\mathrm{d}^2A}{\mathrm{d}t^2} = 0
+$$ {#eq-pendulum-WKBJ}
+since the terms involving $\omega^2$ cancel exactly. To proceed further, we make an assumption --- the validity of which is to be checked later --- that the time dependence of $\mathrm{d}A/\mathrm{d}t$ is _sufficiently_ slow to allow dropping the last term in @eq-pendulum-WKBJ relative to the middle term. The two terms that remain in @eq-pendulum-WKBJ can then be rearranged as
+$$
+\frac{1}{\omega}\frac{\mathrm{d}\omega}{\mathrm{d}t} = -\frac{2}{A}\frac{\mathrm{d}A}{\mathrm{d}t}
+$$
+which has the exact solution
+$$
+A(t) \sim \frac{1}{\sqrt{\omega(t)}}
+$$ {#eq-WKBJ-A}
+
+The assumption of slowness is thus at least self-consistent, for if $t$ is indeed slowly changing, @eq-WKBJ-A shows that At will also be slowly changing and the dropping of the last term in @eq-pendulum-WKBJ is justified.
 
 ### The First Adiabatic Invariant
 
