@@ -284,8 +284,7 @@ Now we use a 3D grid of size $0 \le x \le 3$ and $0 \le y \le 1.5$, and $0 \le z
 
 ### Anisotropic MHD
 
-The parallel and perpendicular pressures vary differently in the collisionless plasma even if the unperturbed
-plasma has isotropic pressure. The isotropic MHD solutions are not valid in models like anisotropic MHD, hybrid, or PIC.
+This test is taken from [@daldorff2014two]. The parallel and perpendicular pressures vary differently in the collisionless plasma even if the unperturbed plasma has isotropic pressure. The isotropic MHD solutions are not valid in models like anisotropic MHD, hybrid, or PIC.
 
 The following equations are an exact solution of the anisotropic MHD equations (@eq-ideal-mhd but replace the energy equation with two pressure equations as in @eq-6-moment-fluids)
 $$
@@ -342,7 +341,7 @@ See more in [reference](https://www.astro.princeton.edu/~jstone/Athena/tests/cp-
 
 ### Whistler wave
 
-This test involves the propagation of whistler waves. The whistler waves have variations in the transverse components of the magnetic field and the velocity. The longitudinal components, the density and the pressure are not perturbed. The following solution of the Hall MHD equations describes a right-hand polarized whistler wave propagating in the $+x$-direction:
+This test is taken from [@daldorff2014two], and involves the propagation of whistler waves. The whistler waves have variations in the transverse components of the magnetic field and the velocity. The longitudinal components, the density and the pressure are not perturbed. The following solution of the Hall MHD equations describes a right-hand polarized whistler wave propagating in the $+x$-direction:
 $$
 \begin{aligned}
 u_y &= -\delta u\cos(kx-\omega t) \\
@@ -361,7 +360,7 @@ $$
 \frac{\delta u}{\delta B} = \frac{B_x}{v_\mathrm{ph}\rho}
 $$
 
-We set $\rho=1, u_x=0, B_x = 0.2$ and $p=5.12\times 10^-4$. Wavelength $\lambda = 32$, which results in $v_\mathrm{ph}=0.22059$ which is about 10% faster than the Alfvén speed $V_A=0.2$, therefore the Hall term is small but not negligible at this wavelength. The amplitude of the transverse magnetic field perturbation is set to $\delta B = 0.01$ which is 5% of the background field.
+We set $\rho=1, u_x=0, B_x = 0.2$ and $p=5.12\times 10^{-4}$. Wavelength $\lambda = 32$, which results in $v_\mathrm{ph}=0.22059$ which is about 10% faster than the Alfvén speed $V_A=0.2$, therefore the Hall term is small but not negligible at this wavelength. The amplitude of the transverse magnetic field perturbation is set to $\delta B = 0.01$ which is 5% of the background field.
 
 These parameters are chosen to satisfy
 
