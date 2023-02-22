@@ -274,10 +274,12 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#linear-wave" id="toc-linear-wave" class="nav-link" data-scroll-target="#linear-wave"><span class="toc-section-number">25.2.1</span>  Linear wave</a></li>
   <li><a href="#d-adiabatic-mhd-2" id="toc-d-adiabatic-mhd-2" class="nav-link" data-scroll-target="#d-adiabatic-mhd-2"><span class="toc-section-number">25.2.2</span>  3D Adiabatic MHD</a></li>
-  <li><a href="#circularly-polarized-alfvén-wave" id="toc-circularly-polarized-alfvén-wave" class="nav-link" data-scroll-target="#circularly-polarized-alfvén-wave"><span class="toc-section-number">25.2.3</span>  Circularly polarized Alfvén wave</a></li>
-  <li><a href="#light-wave" id="toc-light-wave" class="nav-link" data-scroll-target="#light-wave"><span class="toc-section-number">25.2.4</span>  Light wave</a></li>
-  <li><a href="#firehose-instability" id="toc-firehose-instability" class="nav-link" data-scroll-target="#firehose-instability"><span class="toc-section-number">25.2.5</span>  Firehose instability</a></li>
-  <li><a href="#mirror-mode-instability" id="toc-mirror-mode-instability" class="nav-link" data-scroll-target="#mirror-mode-instability"><span class="toc-section-number">25.2.6</span>  Mirror mode instability</a></li>
+  <li><a href="#anisotropic-mhd" id="toc-anisotropic-mhd" class="nav-link" data-scroll-target="#anisotropic-mhd"><span class="toc-section-number">25.2.3</span>  Anisotropic MHD</a></li>
+  <li><a href="#circularly-polarized-alfvén-wave" id="toc-circularly-polarized-alfvén-wave" class="nav-link" data-scroll-target="#circularly-polarized-alfvén-wave"><span class="toc-section-number">25.2.4</span>  Circularly polarized Alfvén wave</a></li>
+  <li><a href="#whistler-wave" id="toc-whistler-wave" class="nav-link" data-scroll-target="#whistler-wave"><span class="toc-section-number">25.2.5</span>  Whistler wave</a></li>
+  <li><a href="#light-wave" id="toc-light-wave" class="nav-link" data-scroll-target="#light-wave"><span class="toc-section-number">25.2.6</span>  Light wave</a></li>
+  <li><a href="#firehose-instability" id="toc-firehose-instability" class="nav-link" data-scroll-target="#firehose-instability"><span class="toc-section-number">25.2.7</span>  Firehose instability</a></li>
+  <li><a href="#mirror-mode-instability" id="toc-mirror-mode-instability" class="nav-link" data-scroll-target="#mirror-mode-instability"><span class="toc-section-number">25.2.8</span>  Mirror mode instability</a></li>
   </ul></li>
   <li><a href="#shock-tests" id="toc-shock-tests" class="nav-link" data-scroll-target="#shock-tests"><span class="toc-section-number">25.3</span>  Shock Tests</a>
   <ul class="collapse">
@@ -832,8 +834,24 @@ p &amp;= (\gamma-1)\left[ \mathcal{E} - \frac{\rho u^2}{2} - \frac{B^2}{2\mu_0} 
 <h3 data-number="25.2.2" class="anchored" data-anchor-id="d-adiabatic-mhd-2"><span class="header-section-number">25.2.2</span> 3D Adiabatic MHD</h3>
 <p>Now we use a 3D grid of size <span class="math inline">\(0 \le x \le 3\)</span> and <span class="math inline">\(0 \le y \le 1.5\)</span>, and <span class="math inline">\(0 \le z \le 1.5\)</span>. The grid is of size <span class="math inline">\(2N\times N \times N\)</span>. The wave propogates along the grid diagonal, again guaranteeing a truly multidimensional test. The background state is identical to the 1D test values.</p>
 </section>
-<section id="circularly-polarized-alfvén-wave" class="level3" data-number="25.2.3">
-<h3 data-number="25.2.3" class="anchored" data-anchor-id="circularly-polarized-alfvén-wave"><span class="header-section-number">25.2.3</span> Circularly polarized Alfvén wave</h3>
+<section id="anisotropic-mhd" class="level3" data-number="25.2.3">
+<h3 data-number="25.2.3" class="anchored" data-anchor-id="anisotropic-mhd"><span class="header-section-number">25.2.3</span> Anisotropic MHD</h3>
+<p>The parallel and perpendicular pressures vary differently in the collisionless plasma even if the unperturbed plasma has isotropic pressure. The isotropic MHD solutions are not valid in models like anisotropic MHD, hybrid, or PIC.</p>
+<p>The following equations are an exact solution of the anisotropic MHD equations (<a href="fluid.html#eq-ideal-mhd">Equation&nbsp;<span>5.38</span></a> but replace the energy equation with two pressure equations as in <a href="fluid.html#eq-6-moment-fluids">Equation&nbsp;<span>5.14</span></a>) <span class="math display">\[
+\begin{aligned}
+\rho &amp;= \rho_0\left[ 1 + \delta\sin(kx-\omega t) \right] \\
+\mathbf{u} &amp;= \left[ V_f \delta\sin(kx-\omega t), 0, 0 \right] \\
+p &amp;= p_0\left[ 1 + \gamma\delta\sin(kx-\omega t) \right] \\
+p_\parallel &amp;= p_0\left[ 1 + \delta\sin(kx-\omega t) \right] \\
+\mathbf{B} &amp;= \left[0, \delta\sin(kx-\omega t), 0 \right]
+\end{aligned}
+\]</span> where <span class="math inline">\(p = \frac{p_\parallel + 2p_\perp}{3}\)</span> and <span class="math display">\[
+V_f = \frac{\omega}{k} = \sqrt{\frac{B_0^2 + 2 p_0}{\rho_0}}
+\]</span> is the propagation speed of the fast wave moving perpendicular relative to the magnetic field direction. This corresponds to a case where <span class="math inline">\(\theta = 90^o\)</span> in <a href="wave.html#sec-fast_slow"><span>Section&nbsp;7.6.4</span></a>. Note that <span class="math inline">\(p\)</span> and <span class="math inline">\(p_\parallel\)</span> have different wave amplitudes, i.e.&nbsp;this solution is different from the isotropic (collisional) fast wave. Also note the <span class="math inline">\(2p_0\)</span> (actually <span class="math inline">\(2p_\perp\)</span>) term instead of the usual <span class="math inline">\(\gamma p\)</span> term in the phase speed.</p>
+<p>Initially, we set <span class="math inline">\(\rho_0 = 1, p_0 = 4.5\times 10^{-4}\)</span> and <span class="math inline">\(B_0 = 0.04\)</span> which results in <span class="math inline">\(V_f=0.05\)</span>. The wavelength is set to <span class="math inline">\(\lambda=32\)</span> so that <span class="math inline">\(k=2\pi/\lambda\)</span>. The above solution also satisfies the Vlasov-Maxwell equations solved by a kinetic solver if the ion and electron gyro-radii are small relative to the wavelength <span class="math inline">\(\lambda\)</span> and the propagation speed <span class="math inline">\(V_\mathrm{ph}\)</span> is much less than the speed of light <span class="math inline">\(c\)</span>.</p>
+</section>
+<section id="circularly-polarized-alfvén-wave" class="level3" data-number="25.2.4">
+<h3 data-number="25.2.4" class="anchored" data-anchor-id="circularly-polarized-alfvén-wave"><span class="header-section-number">25.2.4</span> Circularly polarized Alfvén wave</h3>
 <p><span class="math display">\[
 \begin{aligned}
 \rho &amp;= 1.0 \\
@@ -860,22 +878,46 @@ B_y &amp;= B_\parallel\sin\alpha + B_\perp\cos\alpha
 <p>The wave is an exact nonlinear solution to the MHD equations, allowing one to test the algorithm in the nonlinear regime. Although nonlinear amplitude Alfvén waves are subject to a parametric instability which causes them to decay into magnetosonic waves, the instability should not be present for the parameters defined here. Since the problem is smooth, it can be used for convergence testing. Running the test with smaller pressure (higher β) and/or larger amplitudes is a good test of how robust is the algorithm.</p>
 <p>See more in <a href="https://www.astro.princeton.edu/~jstone/Athena/tests/cp-alfven-wave/cp-alfven.html">reference</a> and <span class="citation" data-cites="toth2000b">(<a href="#ref-toth2000b" role="doc-biblioref">Tóth 2000</a>)</span>.</p>
 </section>
-<section id="light-wave" class="level3" data-number="25.2.4">
-<h3 data-number="25.2.4" class="anchored" data-anchor-id="light-wave"><span class="header-section-number">25.2.4</span> Light wave</h3>
+<section id="whistler-wave" class="level3" data-number="25.2.5">
+<h3 data-number="25.2.5" class="anchored" data-anchor-id="whistler-wave"><span class="header-section-number">25.2.5</span> Whistler wave</h3>
+<p>This test involves the propagation of whistler waves. The whistler waves have variations in the transverse components of the magnetic field and the velocity. The longitudinal components, the density and the pressure are not perturbed. The following solution of the Hall MHD equations describes a right-hand polarized whistler wave propagating in the <span class="math inline">\(+x\)</span>-direction: <span class="math display">\[
+\begin{aligned}
+u_y &amp;= -\delta u\cos(kx-\omega t) \\
+u_z &amp;= +\delta u\sin(kx-\omega t) \\
+B_y &amp;= +\delta B\cos(kx-\omega t) \\
+B_z &amp;= -\delta B\cos(kx-\omega t)
+\end{aligned}
+\]</span> where the wave speed is <span class="math display">\[
+v_\mathrm{ph} = \frac{\omega}{k} = W + \sqrt{\frac{B_x^2}{\rho} + W^2},\quad W=\frac{m}{e}\frac{kB_x}{2\rho}
+\]</span></p>
+<p>Note that the wave speed depends on the wave number <span class="math inline">\(k\)</span>. The magnetic and velocity perturbations are related as <span class="math display">\[
+\frac{\delta u}{\delta B} = \frac{B_x}{v_\mathrm{ph}\rho}
+\]</span></p>
+<p>We set <span class="math inline">\(\rho=1, u_x=0, B_x = 0.2\)</span> and <span class="math inline">\(p=5.12\times 10^-4\)</span>. Wavelength <span class="math inline">\(\lambda = 32\)</span>, which results in <span class="math inline">\(v_\mathrm{ph}=0.22059\)</span> which is about 10% faster than the Alfvén speed <span class="math inline">\(V_A=0.2\)</span>, therefore the Hall term is small but not negligible at this wavelength. The amplitude of the transverse magnetic field perturbation is set to <span class="math inline">\(\delta B = 0.01\)</span> which is 5% of the background field.</p>
+<p>These parameters are chosen to satisfy</p>
+<ul>
+<li><span class="math inline">\(c \gg v_\mathrm{ph}\)</span></li>
+<li><span class="math inline">\(m_e\ll m_i\)</span></li>
+<li><span class="math inline">\(\beta\ll 1\)</span></li>
+<li><span class="math inline">\(\omega\ll \Omega_e\)</span></li>
+</ul>
+<p>such that the kinetic dispersion relation reduces to the Hall MHD dispersion relation for the right-hand polarized whistler waves.</p>
 </section>
-<section id="firehose-instability" class="level3" data-number="25.2.5">
-<h3 data-number="25.2.5" class="anchored" data-anchor-id="firehose-instability"><span class="header-section-number">25.2.5</span> Firehose instability</h3>
+<section id="light-wave" class="level3" data-number="25.2.6">
+<h3 data-number="25.2.6" class="anchored" data-anchor-id="light-wave"><span class="header-section-number">25.2.6</span> Light wave</h3>
 </section>
-<section id="mirror-mode-instability" class="level3" data-number="25.2.6">
-<h3 data-number="25.2.6" class="anchored" data-anchor-id="mirror-mode-instability"><span class="header-section-number">25.2.6</span> Mirror mode instability</h3>
+<section id="firehose-instability" class="level3" data-number="25.2.7">
+<h3 data-number="25.2.7" class="anchored" data-anchor-id="firehose-instability"><span class="header-section-number">25.2.7</span> Firehose instability</h3>
+</section>
+<section id="mirror-mode-instability" class="level3" data-number="25.2.8">
+<h3 data-number="25.2.8" class="anchored" data-anchor-id="mirror-mode-instability"><span class="header-section-number">25.2.8</span> Mirror mode instability</h3>
 </section>
 </section>
 <section id="shock-tests" class="level2" data-number="25.3">
 <h2 data-number="25.3" class="anchored" data-anchor-id="shock-tests"><span class="header-section-number">25.3</span> Shock Tests</h2>
 <section id="brio-wu-shock-tube" class="level3" data-number="25.3.1">
 <h3 data-number="25.3.1" class="anchored" data-anchor-id="brio-wu-shock-tube"><span class="header-section-number">25.3.1</span> Brio-Wu shock tube</h3>
-<p>This test is an MHD shocktube, where the right and left states are initalized to different values. The initial left/right values are</p>
-<p><span class="math display">\[
+<p>This test is an MHD shocktube, where the right and left states are initalized to different values. The initial left/right values are <span class="math display">\[
 \begin{aligned}
 \rho &amp;= 1.0,\, 0.125 \\
 u_x &amp;= 0.0,\, 0.0 \\
@@ -886,14 +928,12 @@ B_y &amp;= 0.0,\, 0.0 \\
 B_z &amp;= 0.0,\, 0.0 \\
 p &amp;= 1.0,\, 0.1
 \end{aligned}
-\]</span></p>
-<p>and <span class="math inline">\(\gamma = 2\)</span>. The hydrodynamic portion of the initial conditions are the same as for the Sod shock tube problem.</p>
+\]</span> and <span class="math inline">\(\gamma = 2\)</span>. The hydrodynamic portion of the initial conditions are the same as for the Sod shock tube problem.</p>
 <p>This is a standard test for MHD codes for checking whether the code can accurately represent the shocks, rarefactions, contact discontinuities, and the compound structures of MHD.</p>
 </section>
 <section id="ryu-and-jones-test-2a" class="level3" data-number="25.3.2">
 <h3 data-number="25.3.2" class="anchored" data-anchor-id="ryu-and-jones-test-2a"><span class="header-section-number">25.3.2</span> Ryu and Jones Test 2A</h3>
-<p>This test is an MHD shocktube, where the right and left states are initialized to different values. It involves a three-dimensional field and velocity structure and rotation of the plane of the magnetic field. The initial left/right values are</p>
-<p><span class="math display">\[
+<p>This test is an MHD shocktube, where the right and left states are initialized to different values. It involves a three-dimensional field and velocity structure and rotation of the plane of the magnetic field. The initial left/right values are <span class="math display">\[
 \begin{aligned}
 \rho &amp;= 1.08,\, 1.0 \\
 u_x &amp;= 1.2,\, 0.0 \\
@@ -910,15 +950,13 @@ p &amp;= 0.95,\, 1.0
 <section id="spherical-blast-waves" class="level3" data-number="25.3.3">
 <h3 data-number="25.3.3" class="anchored" data-anchor-id="spherical-blast-waves"><span class="header-section-number">25.3.3</span> Spherical blast waves</h3>
 <p>We used a rectangular domain, <span class="math inline">\(-0.5 \le x \le 0.5; -0.75 \le y \le 0.75\)</span>. The boundary conditions are periodic everywhere. This non-square domain and periodic boundary conditions produces complex shock-shock and shock-CD interactions at late times.</p>
-<p>The initial conditions are</p>
-<p><span class="math display">\[
+<p>The initial conditions are <span class="math display">\[
 \begin{aligned}
 \rho &amp;= 1.0 \\
 \mathbf{u} &amp;= [0.0, 0.0, 0.0] \\
 p &amp;= 0.1
 \end{aligned}
-\]</span></p>
-<p>with <span class="math inline">\(\gamma = 5/3\)</span>. Initial velocities are zero everywhere. Within the region <span class="math inline">\(r &lt; 0.1\)</span>, <span class="math inline">\(p = 10.0\)</span> (that is, 100 times the ambient pressure). For the MHD problem, the initial magnetic field is uniform everywhere with <span class="math inline">\(B_x = B_y = 1/\sqrt{2}\)</span>.</p>
+\]</span> with <span class="math inline">\(\gamma = 5/3\)</span>. Initial velocities are zero everywhere. Within the region <span class="math inline">\(r &lt; 0.1\)</span>, <span class="math inline">\(p = 10.0\)</span> (that is, 100 times the ambient pressure). For the MHD problem, the initial magnetic field is uniform everywhere with <span class="math inline">\(B_x = B_y = 1/\sqrt{2}\)</span>.</p>
 <p>Although this test is not very quantitative, it makes great movies!</p>
 <p>At early times, it is important that the out-going blast wave is spherical and shows no grid alignment effects. At late times, the interaction of the blast wave with the CD at the edge of the evacuated bubble in the center produces filaments of dense gas by the Richtmyer-Meshkov instability. It is important these fingers are sharp and not diffused away. Moreover, for the hydrodynamical problem, the pattern of the fingers should be exactly symmetric top-to-bottom and left-to-right. For the MHD problem, the Richtmyer-Meshkov instability is suppressed, and no fingers are evident.</p>
 </section>
@@ -956,22 +994,16 @@ p &amp;= 0.1
 <section id="gem-challenge" class="level3" data-number="25.6.1">
 <h3 data-number="25.6.1" class="anchored" data-anchor-id="gem-challenge"><span class="header-section-number">25.6.1</span> GEM challenge</h3>
 <p>This 2D setup is based on <span class="citation" data-cites="birn2001gem">(<a href="#ref-birn2001gem" role="doc-biblioref">Birn et al. 2001</a>)</span>. The computation is carried out in a rectangular domain <span class="math inline">\(-L_x/2 \le x\le L_x/2\)</span> and <span class="math inline">\(-L_z/2\le z \le L_z/2\)</span>. The system is taken to be periodic in the x direction with ideal conducting boundaries at <span class="math inline">\(z=\pm L_z/2\)</span>. Thus the boundary conditions on the magnetic fields at the z boundaries are <span class="math inline">\(B_z=\partial B_x/\partial z = \partial B_y/\partial z = 0\)</span> with corresponding conditions on the electric fields and particle or fluid quantities. Open boundary conditions are used for all quantities.</p>
-<p>The equilibrium chosen for the reconnection challenge problem is a Harris equilibrium with a floor in the density outside of the current layer. The magnetic field is given by</p>
-<p><span class="math display">\[
+<p>The equilibrium chosen for the reconnection challenge problem is a Harris equilibrium with a floor in the density outside of the current layer. The magnetic field is given by <span class="math display">\[
 B_x(z) = B_0 \tanh(z/\lambda)
-\]</span></p>
-<p>where <span class="math inline">\(\lambda\)</span> is the current sheet scale size, and the density by</p>
-<p><span class="math display">\[
+\]</span> where <span class="math inline">\(\lambda\)</span> is the current sheet scale size, and the density by <span class="math display">\[
 n(z) = n_0 \text{sech}^2(z/\lambda) + n_\infty
 \]</span></p>
 <p>The electron and ion temperatures, <span class="math inline">\(T_e\)</span> and <span class="math inline">\(T_i\)</span>, are taken to be uniform in the initial state. We assume the plasma <span class="math inline">\(\beta = (p_i+p_e)/p_B=1\)</span> initially.</p>
 <p>The normalization of the space and time scales of the system is chosen to be the ion inertial length <span class="math inline">\(d_i=c/\omega_{pi}\)</span> and the ion cyclotron frequency <span class="math inline">\(\Omega_i^{-1}\)</span>, where <span class="math inline">\(\omega_{pi}^2 = n_0e^2/\epsilon_0 m_i\)</span> is evaluated with the density <span class="math inline">\(n_0\)</span> and the ion gyrofrequency <span class="math inline">\(\Omega_i = eB_0/m_i\)</span> is evaluated at the peak magnetic field. The velocities are then normalized to the Alfvén speed <span class="math inline">\(v_A\)</span>. In the normalized units, <span class="math inline">\(B_0 = 1\)</span> and <span class="math inline">\(n_0 = 1\)</span>. Specific parameters for the simulations are <span class="math inline">\(L_x = 25.6, L_z = 12.8, \lambda=0.5, n_\infty/n_0 = 0.2\)</span>, and <span class="math inline">\(T_e/T_i = 0.2\)</span>. <span class="math inline">\(m_i/m_e = 25\)</span> is assumed if required.</p>
-<p>The initial magnetic island is specified through the perturbation in the magnetic flux,</p>
-<p><span class="math display">\[
+<p>The initial magnetic island is specified through the perturbation in the magnetic flux, <span class="math display">\[
 \psi(x,z) = \psi_0 \cos(2\pi x/L_x)\cos(\pi z/L_z)
-\]</span></p>
-<p>where the magnetic perturbation is given by <span class="math inline">\(\mathbf{B} = \hat{y}\times\nabla\psi\)</span>, or more specifically,</p>
-<p><span class="math display">\[
+\]</span> where the magnetic perturbation is given by <span class="math inline">\(\mathbf{B} = \hat{y}\times\nabla\psi\)</span>, or more specifically, <span class="math display">\[
 \begin{aligned}
 B_{1x} &amp;= -\psi_0\Big(\frac{\pi}{L_z}\Big)\cos(2\pi x/L_x)\sin(\pi z/L_z) \\
 B_{1z} &amp;= \psi_0\Big(\frac{2\pi}{L_x}\Big)\sin(2\pi x/L_x)\cos(\pi z/L_z)
