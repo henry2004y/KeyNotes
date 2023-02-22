@@ -1035,7 +1035,6 @@ Note that the governing equation is valid even if $B_{0z}$ is an arbitrary funct
 ### Fast and Slow Wave {#sec-fast_slow}
 
 The $x$-$z$ components of @eq-mhd_v_perturbation give
-
 $$
 \begin{aligned}
 (\omega^2-k^2{v_A}^2-{k_x}^2{v_s}^2)v_x -k_x k_z{v_x}^2v_z = 0 \\
@@ -1044,7 +1043,6 @@ $$
 $$
 
 The dispersion relation is given by the determinant being 0,
-
 $$
 \begin{aligned}
 \omega^4-k^2({v_A}^2+{v_s}^2)\omega^2+{k_z}^2{v_s}^2k^2{v_A}^2=0 \\
@@ -1056,27 +1054,40 @@ $$ {#eq-mhd_fast_slow}
 The Friedrich graph is very useful in interpreting @eq-mhd_fast_slow.
 
 Given the velocity perturbation $\mathbf{v}_1 = (v_x, 0, v_z)$, the other perturbations are given as
-
 $$
 \begin{aligned}
 \rho_1 &= \frac{\rho_0}{\omega}\mathbf{k}\cdot\mathbf{v} \\
 p_1 &= \gamma p_0\frac{\rho_1}{\rho_0} = \frac{\gamma p_0}{\omega}\mathbf{k}\cdot\mathbf{v} \\
 \mathbf{E} &= B_0 v_x\hat{y} \\
-\mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = \frac{B_0v_xk_z}{\omega}\hat{x} + \frac{B_0v_xk_x}{\omega}\hat{z} \\
+\mathbf{B}_1 &= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = \frac{(\mathbf{k}\cdot\mathbf{v})\mathbf{B}_0 - (\mathbf{k}\cdot\mathbf{B}_0)\mathbf{v}}{\omega} = -\frac{B_0 v_x k_z}{\omega}\hat{x} + \frac{B_0v_xk_x}{\omega}\hat{z} \\
 \mathbf{j} &= \frac{1}{\mu_0}\nabla\times\mathbf{B}_1 = \frac{i\mathbf{k}\times\mathbf{B}_1}{\mu_0}
 \end{aligned}
 $$ {#eq-mhd_fast_perturbations}
 
 $\mathbf{E}$ shows that the fast/slow modes in a uniform plasma are also linearly polarized. When we have $\theta=90^o$ (@fig-fast_wave), the magnetic perturbation can be simplified to
-
 $$
 \mathbf{B}_1 = \frac{v}{\omega/k_\perp}\mathbf{B}_0
 $$
-
 which means that the perturbed magnetic field is always aligned with the background magnetic field.
 
-The temperature perturbation, based on the equation of state, can be derived as follows:
+The distinction between the fast and slow waves can be further understood by comparing the signs of the wave induced fluctuations in the plasma and magnetic pressures: $p$ and $\mathbf{B}_0\cdot\mathbf{B}/\mu_0$, respectively. It follows from @eq-mhd_fast_perturbations that
+$$
+\frac{\mathbf{B}_0\cdot\mathbf{B}}{\mu_0} = \frac{\mathbf{k}\cdot\mathbf{B}_0^2 - (\mathbf{k}\cdot\mathbf{B}_0)(\mathbf{B}_0\cdot\mathbf{v})}{\mu_0\,\omega}
+$$
 
+The $z$-component of the perturbed momentum equation yields
+$$
+\omega\rho_0 v_z = k \cos\theta p
+$$
+
+Combining the above, we have
+$$
+\frac{\mathbf{B}_0\cdot\mathbf{B}}{\mu_0} = \frac{V_A^2}{V_s^2}\left( 1 - \frac{k^2 V_s^2\cos^2\theta}{\omega^2} \right) p
+$$ {#eq-mhd-B-P-perturb-relation}
+
+Hence, $p$ and $\mathbf{B}_0\cdot\mathbf{B}/\mu_0$ have the same sign if $V_\mathrm{ph}=\omega/k>V_s \,\cos\theta$, and the opposite sign if $V_\mathrm{ph}<V_S\,\cos\theta$. It is straightforward to show that $V_+> V_s\,\cos\theta$, and $V_-<V_s\,\cos\theta$. Thus, we conclude that in the fast magnetosonic wave the pressure and magnetic energy fluctuations reinforce one another, whereas the fluctuations oppose one another in the slow magnetosonic wave.
+
+The temperature perturbation, based on the equation of state, can be derived as follows:
 $$
 \begin{aligned}
 T_1 &= T - T_0 = \frac{p_0 + p_1}{(n_0 + n_1)k_B} - \frac{p_0}{n_0 k_B} \\
@@ -1091,7 +1102,14 @@ $$ {#eq-mhd_fast_wave_T_perturbation}
 
 @eq-mhd_fast_wave_T_perturbation shows that temperature does not follow the same sinusoidal shape as the perturbed velocity.
 
-In the case $v_A\gg v_s$ (e.g. cold, strong B), the phase speed of the fast mode becomes $v_p \approx v_A$. This is often called the _compressional Alfvén wave_. It is also clear that in the cold plasma limit the slow mode ceases to exit.
+Special attention is required for the extreme cases. When $\theta=90^o$, the fast wave phase speed $v_\mathrm{ph}=\sqrt(V_A^2 + V_s^2)$ while the slow wave phase speed $v_\mathrm{ph}=0$. Slow waves cannot propagate perpendicular to the magnetic field. However, this is still a valid solution with all the slow mode perturbation properties, and you will see in @sec-mirror-instability and @sec-mirror that this is named _mirror mode_. When $\theta=0^o$, the fast wave phase speed $v_\mathrm{ph}=\max(V_A, V_s)$ while the slow wave phase speed $v_\mathrm{ph}=\min(V_A, V_s)$.
+
+It is important to understand the nature of fast and slow waves under the _cold plasma limit_, i.e. in the low-$\beta$ regime where $V_A\gg V_s$ (cold, strong B). If $V_s\rightarrow 0$, the slow mode ceases to exit ($V_\mathrm{ph}\rightarrow 0$) and the phase speed of the fast mode becomes $v_p \approx v_A$. This is often called the _compressional Alfvén wave_, which is actually a fast wave in the low-$\beta$ limit. If $\beta$ is low but we still have a finite sound speed, the dispersion relation for the slow wave reduces to
+$$
+\omega \simeq k\,V_s\,\cos\theta
+$$
+
+Thus, in low-$\beta$ plasmas the slow wave is a sound wave modified by the presence of the magnetic field.
 
 ::: {.content-visible unless-format="pdf"}
 

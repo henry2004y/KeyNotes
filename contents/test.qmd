@@ -282,6 +282,29 @@ In this case, we use the same values as for the 1D adiabatic MHD test, but we us
 
 Now we use a 3D grid of size $0 \le x \le 3$ and $0 \le y \le 1.5$, and $0 \le z \le 1.5$. The grid is of size $2N\times N \times N$. The wave propogates along the grid diagonal, again guaranteeing a truly multidimensional test. The background state is identical to the 1D test values.
 
+### Anisotropic MHD
+
+The parallel and perpendicular pressures vary differently in the collisionless plasma even if the unperturbed
+plasma has isotropic pressure. The isotropic MHD solutions are not valid in models like anisotropic MHD, hybrid, or PIC.
+
+The following equations are an exact solution of the anisotropic MHD equations (@eq-ideal-mhd but replace the energy equation with two pressure equations as in @eq-6-moment-fluids)
+$$
+\begin{aligned}
+\rho &= \rho_0\left[ 1 + \delta\sin(kx-\omega t) \right] \\
+\mathbf{u} &= \left[ V_f \delta\sin(kx-\omega t), 0, 0 \right] \\
+p &= p_0\left[ 1 + \gamma\delta\sin(kx-\omega t) \right] \\
+p_\parallel &= p_0\left[ 1 + \delta\sin(kx-\omega t) \right] \\
+\mathbf{B} &= \left[0, \delta\sin(kx-\omega t), 0 \right]
+\end{aligned}
+$$
+where $p = \frac{p_\parallel + 2p_\perp}{3}$ and
+$$
+V_f = \frac{\omega}{k} = \sqrt{\frac{B_0^2 + 2 p_0}{\rho_0}}
+$$
+is the propagation speed of the fast wave moving perpendicular relative to the magnetic field direction. This corresponds to a case where $\theta = 90^o$ in @sec-fast_slow. Note that $p$ and $p_\parallel$ have different wave amplitudes, i.e. this solution is different from the isotropic (collisional) fast wave. Also note the $2p_0$ (actually $2p_\perp$) term instead of the usual $\gamma p$ term in the phase speed.
+
+Initially, we set $\rho_0 = 1, p_0 = 4.5\times 10^{-4}$ and $B_0 = 0.04$ which results in $V_f=0.05$. The wavelength is set to $\lambda=32$ so that $k=2\pi/\lambda$. The above solution also satisfies the Vlasov-Maxwell equations solved by a kinetic solver if the ion and electron gyro-radii are small relative to the wavelength $\lambda$ and the propagation speed $V_\mathrm{ph}$ is much less than the speed of light $c$.
+
 ### Circularly polarized Alfvén wave
 
 $$
@@ -317,6 +340,38 @@ The wave is an exact nonlinear solution to the MHD equations, allowing one to te
 
 See more in [reference](https://www.astro.princeton.edu/~jstone/Athena/tests/cp-alfven-wave/cp-alfven.html) and [@toth2000b].
 
+### Whistler wave
+
+This test involves the propagation of whistler waves. The whistler waves have variations in the transverse components of the magnetic field and the velocity. The longitudinal components, the density and the pressure are not perturbed. The following solution of the Hall MHD equations describes a right-hand polarized whistler wave propagating in the $+x$-direction:
+$$
+\begin{aligned}
+u_y &= -\delta u\cos(kx-\omega t) \\
+u_z &= +\delta u\sin(kx-\omega t) \\
+B_y &= +\delta B\cos(kx-\omega t) \\
+B_z &= -\delta B\cos(kx-\omega t)
+\end{aligned}
+$$
+where the wave speed is
+$$
+v_\mathrm{ph} = \frac{\omega}{k} = W + \sqrt{\frac{B_x^2}{\rho} + W^2},\quad W=\frac{m}{e}\frac{kB_x}{2\rho}
+$$
+
+Note that the wave speed depends on the wave number $k$. The magnetic and velocity perturbations are related as
+$$
+\frac{\delta u}{\delta B} = \frac{B_x}{v_\mathrm{ph}\rho}
+$$
+
+We set $\rho=1, u_x=0, B_x = 0.2$ and $p=5.12\times 10^-4$. Wavelength $\lambda = 32$, which results in $v_\mathrm{ph}=0.22059$ which is about 10% faster than the Alfvén speed $V_A=0.2$, therefore the Hall term is small but not negligible at this wavelength. The amplitude of the transverse magnetic field perturbation is set to $\delta B = 0.01$ which is 5% of the background field.
+
+These parameters are chosen to satisfy
+
+* $c \gg v_\mathrm{ph}$
+* $m_e\ll m_i$
+* $\beta\ll 1$
+* $\omega\ll \Omega_e$
+
+such that the kinetic dispersion relation reduces to the Hall MHD dispersion relation for the right-hand polarized whistler waves.
+
 ### Light wave
 
 ### Firehose instability
@@ -328,7 +383,6 @@ See more in [reference](https://www.astro.princeton.edu/~jstone/Athena/tests/cp-
 ### Brio-Wu shock tube
 
 This test is an MHD shocktube, where the right and left states are initalized to different values. The initial left/right values are
-
 $$
 \begin{aligned}
 \rho &= 1.0,\, 0.125 \\
@@ -341,7 +395,6 @@ B_z &= 0.0,\, 0.0 \\
 p &= 1.0,\, 0.1
 \end{aligned}
 $$
-
 and $\gamma = 2$. The hydrodynamic portion of the initial conditions are the same as for the Sod shock tube problem.
 
 This is a standard test for MHD codes for checking whether the code can accurately represent the shocks, rarefactions, contact discontinuities, and the compound structures of MHD.
@@ -349,7 +402,6 @@ This is a standard test for MHD codes for checking whether the code can accurate
 ### Ryu and Jones Test 2A
 
 This test is an MHD shocktube, where the right and left states are initialized to different values. It involves a three-dimensional field and velocity structure and rotation of the plane of the magnetic field. The initial left/right values are
-
 $$
 \begin{aligned}
 \rho &= 1.08,\, 1.0 \\
@@ -370,7 +422,6 @@ This test contains fast shocks, slow shocks, and rotational discontinuities whic
 We used a rectangular domain, $-0.5 \le x \le 0.5; -0.75 \le y \le 0.75$. The boundary conditions are periodic everywhere. This non-square domain and periodic boundary conditions produces complex shock-shock and shock-CD interactions at late times.
 
 The initial conditions are
-
 $$
 \begin{aligned}
 \rho &= 1.0 \\
@@ -378,7 +429,6 @@ $$
 p &= 0.1
 \end{aligned}
 $$
-
 with $\gamma = 5/3$. Initial velocities are zero everywhere. Within the region $r < 0.1$, $p = 10.0$ (that is, 100 times the ambient pressure). For the MHD problem, the initial magnetic field is uniform everywhere with $B_x = B_y = 1/\sqrt{2}$.
 
 Although this test is not very quantitative, it makes great movies!
@@ -429,13 +479,10 @@ The Orszag-Tang vertex is a well-known model problem for testing the transition 
 This 2D setup is based on [@birn2001gem]. The computation is carried out in a rectangular domain $-L_x/2 \le x\le L_x/2$ and $-L_z/2\le z \le L_z/2$. The system is taken to be periodic in the x direction with ideal conducting boundaries at $z=\pm L_z/2$. Thus the boundary conditions on the magnetic fields at the z boundaries are $B_z=\partial B_x/\partial z = \partial B_y/\partial z = 0$ with corresponding conditions on the electric fields and particle or fluid quantities. Open boundary conditions are used for all quantities.
 
 The equilibrium chosen for the reconnection challenge problem is a Harris equilibrium with a floor in the density outside of the current layer. The magnetic field is given by
-
 $$
 B_x(z) = B_0 \tanh(z/\lambda)
 $$
-
 where $\lambda$ is the current sheet scale size, and the density by
-
 $$
 n(z) = n_0 \text{sech}^2(z/\lambda) + n_\infty
 $$
@@ -445,13 +492,10 @@ The electron and ion temperatures, $T_e$ and $T_i$, are taken to be uniform in t
 The normalization of the space and time scales of the system is chosen to be the ion inertial length $d_i=c/\omega_{pi}$ and the ion cyclotron frequency $\Omega_i^{-1}$, where $\omega_{pi}^2 = n_0e^2/\epsilon_0 m_i$ is evaluated with the density $n_0$ and the ion gyrofrequency $\Omega_i = eB_0/m_i$ is evaluated at the peak magnetic field. The velocities are then normalized to the Alfvén speed $v_A$. In the normalized units, $B_0 = 1$ and $n_0 = 1$. Specific parameters for the simulations are $L_x = 25.6, L_z = 12.8, \lambda=0.5, n_\infty/n_0 = 0.2$, and $T_e/T_i = 0.2$. $m_i/m_e = 25$ is assumed if required.
 
 The initial magnetic island is specified through the perturbation in the magnetic flux,
-
 $$
 \psi(x,z) = \psi_0 \cos(2\pi x/L_x)\cos(\pi z/L_z)
 $$
-
 where the magnetic perturbation is given by $\mathbf{B} = \hat{y}\times\nabla\psi$, or more specifically,
-
 $$
 \begin{aligned}
 B_{1x} &= -\psi_0\Big(\frac{\pi}{L_z}\Big)\cos(2\pi x/L_x)\sin(\pi z/L_z) \\
