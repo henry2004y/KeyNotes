@@ -946,89 +946,66 @@ A = D = \xi_0
 <h3 data-number="9.4.3" class="anchored" data-anchor-id="fluid-sharp-boundary-model"><span class="header-section-number">9.4.3</span> 2-fluid sharp boundary model</h3>
 <p>Now let’s go back and see if we can treat the sharp boundary problem with 2-fluid model. This is actually not easy: it is first solved by S.Chandraserkhar in the view of particle orbit theory. I believe there is a more `modern’ way of doing exactly the same thing, but here I just list the original derivation.</p>
 <p>We consider a plasma at uniform temperature lying above a horizontal plane in a uniform gravitational field directed vertically downwards. There is a horizontal magnetic field in x direction uniform in each half volumn with a jump in field strength produced by a uniform horizontal current sheet at the boundary plane <span class="math inline">\(z=0\)</span>. The gravitational force is balanced by a pressure gradient in the plasma and by the jump in the magnetic pressure at <span class="math inline">\(z=0\)</span>.</p>
-<p>We now suppose the boundary of the plasam at <span class="math inline">\(z=0\)</span> to be rippled by a sinusoidal disturbance as shown in fig-RT_perturb. We may write for the displacement of the interface (ADD FIGURE!)</p>
-<p><span id="eq-RT_displacement_z"><span class="math display">\[
+<p>We now suppose the boundary of the plasam at <span class="math inline">\(z=0\)</span> to be rippled by a sinusoidal disturbance as shown in fig-RT_perturb. We may write for the displacement of the interface (ADD FIGURE!) <span id="eq-RT_displacement_z"><span class="math display">\[
 \Delta z = a \sin ky
-\tag{9.2}\]</span></span></p>
-<p>where <span class="math inline">\(a\)</span>, the amplitude of the disturbance, is considered small and <span class="math inline">\(k(=2\pi/\lambda)\)</span> is the wave number of the disturbance in the y-direction. The drift resulting from gravity is given by</p>
-<p><span class="math display">\[
+\tag{9.2}\]</span></span> where <span class="math inline">\(a\)</span>, the amplitude of the disturbance, is considered small and <span class="math inline">\(k(=2\pi/\lambda)\)</span> is the wave number of the disturbance in the y-direction. The drift resulting from gravity is given by <span class="math display">\[
 \mathbf{V}_g = \frac{m}{q}\frac{\mathbf{g}\times\mathbf{B}}{B^2}
 \]</span></p>
-<p>Since the magnetic field is in the x-direction, the electrons will drift to the right and the positive ions will drift to the left. The gravity drift, therefore, causes a charge separation in the plasma and the resulting boundary has the form shown in fig-RT_displacement. The surface charge <span class="math inline">\(\delta\sigma\)</span> due to the separation (<span class="math inline">\(\delta\Delta z\)</span>) of ions and electrons is given by</p>
-<p><span class="math display">\[
+<p>Since the magnetic field is in the x-direction, the electrons will drift to the right and the positive ions will drift to the left. The gravity drift, therefore, causes a charge separation in the plasma and the resulting boundary has the form shown in fig-RT_displacement. The surface charge <span class="math inline">\(\delta\sigma\)</span> due to the separation (<span class="math inline">\(\delta\Delta z\)</span>) of ions and electrons is given by <span class="math display">\[
 \begin{aligned}
 \delta\sigma&amp;=Ne\delta\Delta z \\
 &amp;=Ne\frac{\partial \Delta z}{\partial y}\delta y \\
 &amp;=e\frac{\partial \Delta z}{\partial y}V_g \delta t
 \end{aligned}
 \]</span></p>
-<p>Therefore, the time rate of change of the surface charge density is given by</p>
-<p><span id="eq-RT_time_rate_surface_charge"><span class="math display">\[
+<p>Therefore, the time rate of change of the surface charge density is given by <span id="eq-RT_time_rate_surface_charge"><span class="math display">\[
 \begin{aligned}
 \frac{\partial \sigma}{\partial t}&amp;=NeV_g\frac{\partial}{\partial y}\Delta z \\
 &amp;=-Ne\frac{Mg}{eB}ak\cos ky \\
 &amp;=-\frac{NMeg}{B}ak\cos ky
 \end{aligned}
-\tag{9.3}\]</span></span></p>
-<p>where in writing these expressions, we have neglected the electron drift, as being small in the ratio <span class="math inline">\(m/M\)</span> compared to the ion drift. The electric field resulting from the surface charge can be computed in a straight-forward manner. In the region away from the boundary, we must have</p>
-<p><span id="eq-RT_dielectric"><span class="math display">\[
+\tag{9.3}\]</span></span> where in writing these expressions, we have neglected the electron drift, as being small in the ratio <span class="math inline">\(m/M\)</span> compared to the ion drift. The electric field resulting from the surface charge can be computed in a straight-forward manner. In the region away from the boundary, we must have <span id="eq-RT_dielectric"><span class="math display">\[
 \nabla\cdot(\epsilon\mathbf{E})=0
-\tag{9.4}\]</span></span></p>
-<p>where <span class="math inline">\(\epsilon=\epsilon_0\big( 1+\frac{{\omega_{pi}}^2}{{\Omega_i}^2}\big)=...\)</span> is the dielectric constant of the plasma. At the interface the electric field is determined by</p>
-<p><span class="math display">\[
+\tag{9.4}\]</span></span> where <span class="math inline">\(\epsilon=\epsilon_0\big( 1+\frac{{\omega_{pi}}^2}{{\Omega_i}^2}\big)=...\)</span> is the dielectric constant of the plasma. At the interface the electric field is determined by <span class="math display">\[
 \nabla\cdot(\epsilon\mathbf{E})=\frac{1}{\mu_0}\frac{\sigma}{dz}
-\]</span></p>
-<p>where <span class="math inline">\(\sigma\)</span> is the surface charge density and <span class="math inline">\(\mathrm{d}z\)</span> is the infinitesimal thickness of the layer. We now integrate this equation over an element of volumn <span class="math inline">\(\mathrm{d}S\mathrm{d}z\)</span>. The right-hand side gives the charge within the column element (<span class="math inline">\(\sigma\mathrm{d}S\)</span>). Making use of Gauss`s theorem to transform the left-hand side, we obtain</p>
-<p><span class="math display">\[
+\]</span> where <span class="math inline">\(\sigma\)</span> is the surface charge density and <span class="math inline">\(\mathrm{d}z\)</span> is the infinitesimal thickness of the layer. We now integrate this equation over an element of volumn <span class="math inline">\(\mathrm{d}S\mathrm{d}z\)</span>. The right-hand side gives the charge within the column element (<span class="math inline">\(\sigma\mathrm{d}S\)</span>). Making use of Gauss`s theorem to transform the left-hand side, we obtain <span class="math display">\[
 \epsilon E_z dS = \frac{1}{\mu_0}\sigma dS = \frac{1}{\mu_0}\sigma_0 \cos ky dS
 \]</span></p>
-<p>Thus the electric field at the interface is given by</p>
-<p><span id="eq-RT_surface_bc"><span class="math display">\[
+<p>Thus the electric field at the interface is given by <span id="eq-RT_surface_bc"><span class="math display">\[
 \epsilon E_z = \frac{\sigma_0}{\mu_0}\cos ky
 \tag{9.5}\]</span></span></p>
-<p>The electric field which satisfies <a href="#eq-RT_dielectric">Equation&nbsp;<span>9.4</span></a> within the plasma and the boundary condition <a href="#eq-RT_surface_bc">Equation&nbsp;<span>9.5</span></a> at <span class="math inline">\(z=0\)</span> has the components</p>
-<p><span class="math display">\[
+<p>The electric field which satisfies <a href="#eq-RT_dielectric">Equation&nbsp;<span>9.4</span></a> within the plasma and the boundary condition <a href="#eq-RT_surface_bc">Equation&nbsp;<span>9.5</span></a> at <span class="math inline">\(z=0\)</span> has the components <span class="math display">\[
 \begin{aligned}
 E_y &amp;= \frac{\sigma_0}{\mu_0\epsilon}\sin ky\, e^{-kz} \\
 E_z &amp;= \frac{\sigma_0}{\mu_0\epsilon}\cos ky\, e^{-kz}
 \end{aligned}
-\]</span></p>
-<p>with <span class="math inline">\(E_x=0\)</span>. These electric fields give rise to the drifts which can be computed from the equation</p>
-<p><span class="math display">\[
+\]</span> with <span class="math inline">\(E_x=0\)</span>. These electric fields give rise to the drifts which can be computed from the equation <span class="math display">\[
 \mathbf{V}=\frac{\mathbf{E}\times\mathbf{B}}{B^2}
 \]</span></p>
-<p>Remembering that <span class="math inline">\(\mathbf{B}\)</span> is in the x-direction, we obtain</p>
-<p><span class="math display">\[
+<p>Remembering that <span class="math inline">\(\mathbf{B}\)</span> is in the x-direction, we obtain <span class="math display">\[
 V_y = \frac{E_z}{B},\quad V_z = -\frac{E_y}{B}
 \]</span></p>
-<p>From the foregoing equations we obtain</p>
-<p><span class="math display">\[
+<p>From the foregoing equations we obtain <span class="math display">\[
 \begin{aligned}
 V_y &amp;= \frac{\sigma_0}{\mu_0 B}\cos ky\, e^{-kz} \\
 V_z &amp;=-\frac{\sigma_0}{\mu_0 B}\sin ky\, e^{-kz}
 \end{aligned}
 \]</span></p>
-<p>It is clear from the solutions that the velocity field is divergence free and, therefore, does not cause any change in the density of the plasma except at the boundary. We have</p>
-<p><span id="eq-RT_vel_boundary"><span class="math display">\[
+<p>It is clear from the solutions that the velocity field is divergence free and, therefore, does not cause any change in the density of the plasma except at the boundary. We have <span id="eq-RT_vel_boundary"><span class="math display">\[
 \frac{\partial}{\partial t}\Delta z(z=0)=V_z(z=0) = -\frac{\sigma}{\mu_0 B}\sin ky
 \tag{9.6}\]</span></span></p>
-<p>From <a href="#eq-RT_displacement_z">Equation&nbsp;<span>9.2</span></a> and <a href="#eq-RT_vel_boundary">Equation&nbsp;<span>9.6</span></a>, we obtain the equation of motion for the amplitude <span class="math inline">\(a\)</span>:</p>
-<p><span class="math display">\[
+<p>From <a href="#eq-RT_displacement_z">Equation&nbsp;<span>9.2</span></a> and <a href="#eq-RT_vel_boundary">Equation&nbsp;<span>9.6</span></a>, we obtain the equation of motion for the amplitude <span class="math inline">\(a\)</span>: <span class="math display">\[
 \frac{\mathrm{d}a}{\mathrm{d}t}=-\frac{\sigma_0}{\mu_0 B}
 \]</span></p>
-<p><a href="#eq-RT_time_rate_surface_charge">Equation&nbsp;<span>9.3</span></a> and <a href="#eq-RT_surface_bc">Equation&nbsp;<span>9.5</span></a> yield</p>
-<p><span class="math display">\[
+<p><a href="#eq-RT_time_rate_surface_charge">Equation&nbsp;<span>9.3</span></a> and <a href="#eq-RT_surface_bc">Equation&nbsp;<span>9.5</span></a> yield <span class="math display">\[
 \frac{\mathrm{d}\sigma_0}{\mathrm{d}t}=-\frac{NMg}{\mu_0B}ak
 \]</span></p>
-<p>From the above two equations, we obtain</p>
-<p><span class="math display">\[
+<p>From the above two equations, we obtain <span class="math display">\[
 \begin{aligned}
 \frac{\mathrm{d}^2 a}{\mathrm{d}t^2} &amp;= \frac{1}{\mu_0\epsilon B}\frac{NMg}{B}ka \\
 &amp;\approx gka, \quad(\text{for } \epsilon \gg 1)
 \end{aligned}
-\]</span></p>
-<p>(<span class="math inline">\(g=...\)</span> from equilibrium). The solution of this equation is given by</p>
-<p><span class="math display">\[
+\]</span> (<span class="math inline">\(g=...\)</span> from equilibrium). The solution of this equation is given by <span class="math display">\[
 a(t) = a_0e^{\pm\sqrt{gk} t}
 \]</span></p>
 <p>It is interesting to note that the rate of growth of the instability is exactly the same as in the Rayleigh-Taylor instability of a fluid supported against gravity by a second fluid which is weightless. The charge separation is able to overcome exactly the restraining influence of the magnetic field. This exact compensation occurs only in the limit of <span class="math inline">\(\epsilon\gg1\)</span>.</p>
@@ -1038,22 +1015,25 @@ a(t) = a_0e^{\pm\sqrt{gk} t}
 </section>
 <section id="sec-KH" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="sec-KH"><span class="header-section-number">9.5</span> Kelvin-Helmholtz instability</h2>
-<p>Kelvin-Helmholtz (KH) instability happens due to velocity shear. Typical examples are:</p>
+<p>Kelvin-Helmholtz (KH) instability happens due to a velocity shear and produces surface waves at the shear layer that eventually roll up into nonlinear vortices. Typical examples are:</p>
 <ul>
 <li>plane crash</li>
 <li>flapping of flags</li>
 <li>diocotron instability in an electron sheet</li>
 <li>water wave, nonlinear phase</li>
 <li>laser ablation of metal</li>
+<li>low-latitude flanks of the magnetopause during periods of northward interplanetary magnetic field</li>
+<li>accretion discs</li>
+<li>pulsar winds</li>
+<li>jets</li>
 </ul>
-<p>To understand why shear flow can lead to instability, we’ll first introduce the Bernoulli theorem in fluid mechanics. From the MHD momentum equation, take <span class="math inline">\(\partial/\partial t=0,\ \mathbf{J}=0,\ \mathbf{g}=0\)</span>, we obtain</p>
-<p><span class="math display">\[
+<p>It presents a key mechanism for mediating mass, momentum and energy transport at boundary layers with a velocity shear via processes such as viscous interaction, turbulence, mode conversion and magnetic reconnection.</p>
+<p>To understand why shear flow can lead to instability, we’ll first introduce the Bernoulli theorem in fluid mechanics. From the MHD momentum equation, take <span class="math inline">\(\partial/\partial t=0,\ \mathbf{J}=0,\ \mathbf{g}=0\)</span>, we obtain <span class="math display">\[
 \begin{aligned}
 \rho\mathbf{v}\cdot\nabla\mathbf{v}=-\nabla p
 \end{aligned}
 \]</span></p>
-<p>Using the natural coordinates, let <span class="math inline">\(\hat{t}\)</span> be the unit tangent vector on a streamline, <span class="math inline">\(\hat{n}\)</span> be the unit normal vector pointing from concave to convex side, and <span class="math inline">\(ds\)</span> be the infinitisimal distance along streamline, we have</p>
-<p><span class="math display">\[
+<p>Using the natural coordinates, let <span class="math inline">\(\hat{t}\)</span> be the unit tangent vector on a streamline, <span class="math inline">\(\hat{n}\)</span> be the unit normal vector pointing from concave to convex side, and <span class="math inline">\(ds\)</span> be the infinitisimal distance along streamline, we have <span class="math display">\[
 \begin{aligned}
 \rho\mathbf{v}\cdot\nabla\mathbf{v} &amp;= (\rho v\frac{\partial }{\partial s})\mathbf{v} =\rho v_s \frac{\partial }{\partial s}(\hat{t} v) =\rho v \Big( \frac{\partial v}{\partial s}\hat{t} + \frac{\partial \hat{t}}{\partial s}v\Big) \\
 &amp;=-\frac{\partial p}{\partial s}\hat{t}-\nabla_\perp p\\
@@ -1061,8 +1041,7 @@ a(t) = a_0e^{\pm\sqrt{gk} t}
 \end{aligned}
 \]</span></p>
 <p>Therefore, <span class="math inline">\(\frac{1}{2}\rho v^2 + p = \text{const.}\)</span> along a streamline for an incompressible flow. This is the classical Bernoulli equation.</p>
-<p>Now, consider two flow layer with velocity shear at the plane interface in fig-two_layer (ADD FIGURE!). Imaging there’s a ripple on the layer interface pointing upward at <span class="math inline">\(Q\)</span>. If we examine the cross section at <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> for the lower layer respectively, we find</p>
-<p><span class="math display">\[
+<p>Now, consider two flow layer with velocity shear at the plane interface in fig-two_layer (ADD FIGURE!). Imaging there’s a ripple on the layer interface pointing upward at <span class="math inline">\(Q\)</span>. If we examine the cross section at <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> for the lower layer respectively, we find <span class="math display">\[
 \begin{aligned}
 \text{flux at P} = \rho v A|_P = \text{flux at Q} = \rho v A|_Q
 \end{aligned}
@@ -1076,119 +1055,92 @@ a(t) = a_0e^{\pm\sqrt{gk} t}
 </figure>
 </div>
 </div>
-<p>Now we are ready to do more careful derivations. The governing equations are</p>
-<p><span class="math display">\[
+<p>Now we are ready to do more careful derivations. The governing equations are <span class="math display">\[
 \begin{aligned}
 \nabla\cdot\mathbf{v}&amp;=0 \\
 \rho\Big( \frac{\partial\mathbf{v}}{\partial t}+\mathbf{v}\cdot\nabla\mathbf{v}\Big) &amp;= -\nabla p \\
 \end{aligned}
 \]</span></p>
-<p>In equilibrium, suppose there is a velocity shear in the x direction, and the interface lies along the y direction,</p>
-<p><span class="math display">\[
+<p>In equilibrium, suppose there is a velocity shear in the x direction, and the interface lies along the y direction, <span class="math display">\[
 \begin{aligned}
 \rho_0 &amp;= \text{const.} \\
 p_0 &amp;= \text{const.} \\
 \mathbf{v}_0 &amp;= \hat{y}v_{0y}(x)
 \end{aligned}
 \]</span></p>
-<p>Assume linear perturbations of the form</p>
-<p><span class="math display">\[
+<p>Assume linear perturbations of the form <span class="math display">\[
 \begin{aligned}
 v_{1x}(\mathbf{x},t) &amp;= v_{1x}(x)e^{i k_y y-i\omega t} \\
 p_1(\mathbf{x},t) &amp;= p_1(x)e^{i k_y y-i\omega t}
 \end{aligned}
-\]</span></p>
-<p>so the linearized momentum equation is</p>
-<p><span class="math display">\[
+\]</span> so the linearized momentum equation is <span class="math display">\[
 \rho_0\big( \frac{\partial \mathbf{v}_1}{\partial t}+\mathbf{v}_0\cdot\nabla\mathbf{v}_1 +\mathbf{v}_1\cdot\nabla\mathbf{v}_0 \big) = -\nabla p_1
-\]</span></p>
-<p>where</p>
-<p><span class="math display">\[
+\]</span> where <span class="math display">\[
 \begin{aligned}
 \mathbf{v}_0\cdot\nabla\mathbf{v}_1 &amp;= i k_y v_{0y} \mathbf{v}_1 \\
 \mathbf{v}_1\cdot\nabla\mathbf{v}_0 &amp;= v_{1x}\frac{\partial}{\partial x}v_{0y}(x)\hat{y}
 \end{aligned}
 \]</span></p>
-<p>Then the x and y components of the linearized momentum equation give</p>
-<p><span class="math display">\[
+<p>Then the x and y components of the linearized momentum equation give <span class="math display">\[
 \begin{aligned}
 -i\omega \rho_0 v_{1x} +\rho_0 i k_y v_{0y}v_{1x} &amp;= -\frac{\partial p_1}{\partial x} \\
 -i\omega \rho_0 v_{1y} + \rho_0 i k_y v_{0y}v_{1y} + \rho_0 v_{1x}\frac{\partial}{\partial x}v_{0y}(x) &amp;= -ik_y p_1
 \end{aligned}
 \]</span></p>
-<p>Together with the linearized incompressibility condition</p>
-<p><span class="math display">\[
+<p>Together with the linearized incompressibility condition <span class="math display">\[
 \frac{\partial v_{1x}}{\partial x} + ik_y v_{1y}  = 0
-\]</span></p>
-<p>by eliminating <span class="math inline">\(p_1\)</span> and <span class="math inline">\(v_{1y}\)</span> we get</p>
-<p><span id="eq-KH_governing"><span class="math display">\[
+\]</span> by eliminating <span class="math inline">\(p_1\)</span> and <span class="math inline">\(v_{1y}\)</span> we get <span id="eq-KH_governing"><span class="math display">\[
 \frac{\partial^2 v_{1x}}{\partial x^2} - \Big[ {k_y}^2 - \frac{k_y {v_{0y}}^{\prime\prime}(x)}{\omega-k_y v_{0y}(x)} \Big]v_{1x} = 0
 \tag{9.7}\]</span></span></p>
-<p>Now we are half way from obtaining the dispersion relation. For simplicity, let us assume three layer regions with Region I on the left (<span class="math inline">\(x&lt;0\)</span>), Region II in the middle (<span class="math inline">\(x\in(0,\tau)\)</span>), and Region III on the right (<span class="math inline">\(x&gt;\tau\)</span>). Let the shear layer II thickness be <span class="math inline">\(\tau\)</span>. Set the velocity on the two sides <span class="math inline">\(v_1 = 0,\ v_2 = v_1+\Delta v \equiv v\)</span>, and <span class="math inline">\(k_y=k\)</span>. Then</p>
-<p><span class="math display">\[
+<p>Now we are half way from obtaining the dispersion relation. For simplicity, let us assume three layer regions with Region I on the left (<span class="math inline">\(x&lt;0\)</span>), Region II in the middle (<span class="math inline">\(x\in(0,\tau)\)</span>), and Region III on the right (<span class="math inline">\(x&gt;\tau\)</span>). Let the shear layer II thickness be <span class="math inline">\(\tau\)</span>. Set the velocity on the two sides <span class="math inline">\(v_1 = 0,\ v_2 = v_1+\Delta v \equiv v\)</span>, and <span class="math inline">\(k_y=k\)</span>. Then <span class="math display">\[
 v_{0y}^{\prime\prime}(x) = \Big(\frac{v}{\tau}\Big)\big[ \delta(x) - \delta(x-\tau)\big]
-\]</span></p>
-<p>except at <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=\tau\)</span>. <a href="#eq-KH_governing">Equation&nbsp;<span>9.7</span></a> can be simplified to</p>
-<p><span class="math display">\[
+\]</span> except at <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=\tau\)</span>. <a href="#eq-KH_governing">Equation&nbsp;<span>9.7</span></a> can be simplified to <span class="math display">\[
 \frac{\mathrm{d}^2 v_{1x}}{\mathrm{d}x^2}-k^2 v_{1x} = 0
 \]</span></p>
-<p>In region I (<span class="math inline">\(x&lt;0\)</span>),</p>
-<p><span class="math display">\[
+<p>In region I (<span class="math inline">\(x&lt;0\)</span>), <span class="math display">\[
 \begin{aligned}
 v_{1x} &amp;= \xi_0 e^{kx},\quad x&lt;0 \\
 \frac{\partial v_{1x}}{\partial x}\big|_{x=0_-} &amp;= k\xi_0
 \end{aligned}
 \]</span></p>
-<p>In region III (<span class="math inline">\(x&gt;\tau\)</span>),</p>
-<p><span class="math display">\[
+<p>In region III (<span class="math inline">\(x&gt;\tau\)</span>), <span class="math display">\[
 \begin{aligned}
 v_{1x} &amp;= \xi_\tau e^{-k(x-\tau)},\quad x&gt;\tau \\
 \frac{\partial v_{1x}}{\partial x}\big|_{x=\tau^+} &amp;= -k\xi_\tau
 \end{aligned}
 \]</span></p>
-<p>In region II (<span class="math inline">\(x\in(0,\tau)\)</span>), we are looking for a solution which is a superposition of the solutions from both sides and is continuous at the boundaries</p>
-<p><span class="math display">\[
+<p>In region II (<span class="math inline">\(x\in(0,\tau)\)</span>), we are looking for a solution which is a superposition of the solutions from both sides and is continuous at the boundaries <span class="math display">\[
 \begin{aligned}
 v_{1x} &amp;=\xi_\tau \frac{\sinh{kx}}{\sinh{k\tau}} + \xi_0\frac{\sinh{k(x-\tau)}}{\sinh{-k\tau}},\quad 0&lt;x&lt;\tau \\
 \frac{\partial v_{1x}}{\partial x}\big|_{x=\tau^-} &amp;= k\xi_\tau \frac{\cosh{k\tau}}{\sinh{k\tau}} - k\xi_0\frac{1}{\sinh{k\tau}} \\
 \frac{\partial v_{1x}}{\partial x}\big|_{x=0^+} &amp;= k\xi_\tau \frac{1}{\sinh{k\tau}} - k\xi_0\frac{\cosh{k\tau}}{\sinh{k\tau}}
 \end{aligned}
 \]</span></p>
-<p>The continuity at <span class="math inline">\(x = 0\)</span> requires <span class="math inline">\(V_{0y}=0, V_{1x}=\xi_0\)</span>. Integrating the governing <a href="#eq-KH_governing">Equation&nbsp;<span>9.7</span></a> from <span class="math inline">\(x=0^-\)</span> to <span class="math inline">\(x=0^+\)</span> yields</p>
-<p><span class="math display">\[
+<p>The continuity at <span class="math inline">\(x = 0\)</span> requires <span class="math inline">\(V_{0y}=0, V_{1x}=\xi_0\)</span>. Integrating the governing <a href="#eq-KH_governing">Equation&nbsp;<span>9.7</span></a> from <span class="math inline">\(x=0^-\)</span> to <span class="math inline">\(x=0^+\)</span> yields <span class="math display">\[
 -\xi_0 k\frac{\cosh{k\tau}}{\sinh{k\tau}} + \xi_\tau k\frac{1}{\sinh{k\tau}} - k\xi_0 + \frac{kv}{\omega\tau}\xi_0 = 0
 \]</span></p>
-<p>Integrating the governing <a href="#eq-KH_governing">Equation&nbsp;<span>9.7</span></a> from <span class="math inline">\(x=\tau^-\)</span> to <span class="math inline">\(x=\tau^+\)</span> yields</p>
-<p><span class="math display">\[
+<p>Integrating the governing <a href="#eq-KH_governing">Equation&nbsp;<span>9.7</span></a> from <span class="math inline">\(x=\tau^-\)</span> to <span class="math inline">\(x=\tau^+\)</span> yields <span class="math display">\[
 -\xi_\tau k +\xi_0 k\frac{1}{\sinh{k\tau}} - \xi_\tau k\frac{\cosh{k\tau}}{\sinh{k\tau}} - \frac{kv}{\omega\tau}\xi_\tau = 0
 \]</span></p>
-<p>Combining the last two equations, we obtain</p>
-<p><span class="math display">\[
+<p>Combining the last two equations, we obtain <span class="math display">\[
 1 = \Big[ \sinh{k\tau} + \cosh{k\tau} + \frac{kv}{\omega-kv}\frac{\sinh{k\tau}}{k\tau}\Big] \Big[ \cosh{k\tau}+\sinh{k\tau} - \frac{kv}{\omega}\frac{\sinh{k\tau}}{k\tau}\Big]
-\]</span></p>
-<p>which is the dispersion relation.</p>
-<p>With the identity <span class="math inline">\(\sinh{k\tau} + \cosh{k\tau} = e^{k\tau}\)</span>, the dispersion relation can be simplified to</p>
-<p><span class="math display">\[
+\]</span> which is the dispersion relation for the KH instability.</p>
+<p>With the identity <span class="math inline">\(\sinh{k\tau} + \cosh{k\tau} = e^{k\tau}\)</span>, the dispersion relation can be simplified to <span class="math display">\[
 \begin{aligned}
 1 &amp;= \Big[ e^{k\tau} + \frac{kv}{\omega-kv}\frac{\sinh{k\tau}}{k\tau}\Big] \Big[ e^{k\tau} - \frac{kv}{\omega}\frac{\sinh{k\tau}}{k\tau}\Big] \\
 1 &amp;= e^{2k\tau} +e^{k\tau}\frac{(k\tau)^2}{\omega(\omega-kv)}\frac{\sinh{k\tau}}{k\tau} - \frac{(k\tau)^2}{\omega(\omega-k\tau)}\Big(\frac{\sinh{k\tau}}{k\tau}\Big)^2 \\
 1 &amp;= e^{2k\tau} + \frac{(k\tau)^2}{\omega(\omega-kv)} \frac{\sinh{k\tau}}{k\tau} \Big[ e^{k\tau} - \frac{\sinh{k\tau}}{k\tau}\Big]
 \end{aligned}
 \]</span></p>
-<p>Multiplying both sides by <span class="math inline">\(\omega(\omega-kv)\)</span>, we get</p>
-<p><span class="math display">\[
+<p>Multiplying both sides by <span class="math inline">\(\omega(\omega-kv)\)</span>, we get <span class="math display">\[
 \omega(\omega-k\tau)(1-e^{2k\tau}) = (kv)^2  \frac{\sinh{k\tau}}{k\tau} \Big[ e^{k\tau} - \frac{\sinh{k\tau}}{k\tau}\Big]
 \]</span></p>
-<p>Assuming <span class="math inline">\(k\tau\ll 1\)</span> (long wavelength approximation), <span class="math inline">\(e^{k\tau}\approx 1+k\tau\)</span>, we obtain</p>
-<p><span class="math display">\[
+<p>Assuming <span class="math inline">\(k\tau\ll 1\)</span> (long wavelength approximation), <span class="math inline">\(e^{k\tau}\approx 1+k\tau\)</span>, we obtain <span class="math display">\[
 \omega(\omega-kv) + \frac{(kv)^2}{2} \approx 0
-\]</span></p>
-<p>the solution of which is</p>
-<p><span class="math display">\[
+\]</span> the solution of which is <span class="math display">\[
 \omega=\frac{1}{2}kv(1\pm i),\quad k\tau \ll 1
 \]</span></p>
-<p>In general, the growth rate of KH is</p>
-<p><span class="math display">\[
+<p>In general, the growth rate of KH is <span class="math display">\[
 \omega_i = \frac{1}{2}|k_y \Delta v|,\quad k_y\tau\ll 1
 \]</span></p>
 <section id="diocotron-instability-on-electron-sheet" class="level3" data-number="9.5.1">
