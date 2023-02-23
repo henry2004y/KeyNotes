@@ -315,68 +315,49 @@ div.csl-indent {
 <p>A typical time step in a global hybrid magnetosphere model is <span class="math inline">\(0.05\,\Omega_0^{-1}\)</span>, where <span class="math inline">\(\Omega_0\)</span> is the upstream (solar wind) ion gyrofrequency. For IMF <span class="math inline">\(B_0\sim10\,\text{nT}\)</span>, <span class="math inline">\(\Omega_0 \sim 1\,\text{rad/s}\)</span>, which corresponds to <span class="math inline">\(f_0\sim 1/2\pi\,\text{s}^{-1}\)</span>. Based on in-situ observations, the typical ion inertial length in the tail is <span class="math inline">\(\sim 0.2\,\text{R}_\text{E}\)</span>, but smaller near the dayside magnetopause. Therefore usually discrete grid size <span class="math inline">\(\Delta x = 0.1\,d_i\)</span> is barely enough to resolve tail ion kinetic dynamics but not dayside kinetic structures.</p>
 <section id="classical-hybrid-model" class="level2" data-number="24.1">
 <h2 data-number="24.1" class="anchored" data-anchor-id="classical-hybrid-model"><span class="header-section-number">24.1</span> Classical Hybrid Model</h2>
-<p>Define the electric charge density <span class="math inline">\(\rho\)</span> and current density <span class="math inline">\(\mathbf{J}\)</span> as</p>
-<p><span class="math display">\[
+<p>Define the electric charge density <span class="math inline">\(\rho\)</span> and current density <span class="math inline">\(\mathbf{J}\)</span> as <span class="math display">\[
 \rho = \sum_s q_s n_s - en_e
 \]</span></p>
 <p><span class="math display">\[
 \mathbf{J} = \sum_s q_s n_s \mathbf{V}_s - e n_e \mathbf{V}_e
 \]</span></p>
-<p>where <span class="math inline">\(q_s, n_s, \mathbf{V}_s\)</span> are the charge, number density and bulk velocity of ion species s calculated by taking moments of the distribution function</p>
-<p><span class="math display">\[
+<p>where <span class="math inline">\(q_s, n_s, \mathbf{V}_s\)</span> are the charge, number density and bulk velocity of ion species s calculated by taking moments of the distribution function <span class="math display">\[
 n_s = \int \mathrm{d}^3 v f_s(\mathbf{r}_s,\mathbf{v}_s,t)
-\]</span></p>
-<p><span class="math display">\[
+\]</span> <span class="math display">\[
 \mathbf{u}_s = \frac{1}{n_s}\int \mathrm{d}^3 v \mathbf{v}_s f_s(\mathbf{r}_s,\mathbf{v}_s,t)
-\]</span></p>
-<p>or in the corresponding discrete forms where the distribution function is represented as a group of macro-particles with a specific shape function. In this way it behaves more like a particle cloud.</p>
+\]</span> or in the corresponding discrete forms where the distribution function is represented as a group of macro-particles with a specific shape function. In this way it behaves more like a particle cloud.</p>
 <p>The crucial assumption in the hybrid model is the <em>quasi-neutrality</em>, that is, the electrons move fast enough to cancel any charge-density fluctuations and <span class="math inline">\(\rho=0\)</span> is always satisfied. By assuming quasi-neutrality, we can</p>
 <ul>
 <li>avoid solving the conservation equations for electrons</li>
 <li>avoid solving the Maxwell’s equations entirely and instead use the generalized Ohm’s law instead</li>
 </ul>
-<p>The electron density thus can be written by using ion densities <span class="math inline">\(n_e \approx n_i \equiv \sum_s q_s n_s /e\)</span>. In addition, the electron bulk velocity may also be eliminated using Ampère’s law</p>
-<p><span class="math display">\[
+<p>The electron density thus can be written by using ion densities <span class="math inline">\(n_e \approx n_i \equiv \sum_s q_s n_s /e\)</span>. In addition, the electron bulk velocity may also be eliminated using Ampère’s law <span class="math display">\[
 \mathbf{J} = \mu_0\nabla\times\mathbf{B}
-\]</span></p>
-<p>and the relation</p>
-<p><span id="eq-hybrid_Je"><span class="math display">\[
+\]</span> and the relation <span id="eq-hybrid_Je"><span class="math display">\[
 \mathbf{v}_e = \mathbf{v}_i - \mathbf{J}/n_e e
 \tag{24.1}\]</span></span></p>
-<p>The basic equations used in the conventional PIC hybrid model first has a particle pusher for individual ions</p>
-<p><span class="math display">\[
+<p>The basic equations used in the conventional PIC hybrid model first has a particle pusher for individual ions <span class="math display">\[
 \frac{\mathrm{d}\mathbf{x}_j}{\mathrm{d}t} = \mathbf{v}_j
 \]</span></p>
 <p><span class="math display">\[
 \frac{\mathrm{d}\mathbf{v}_j}{\mathrm{d}t} = \frac{q_j}{m_j}\big( \mathbf{E} + \mathbf{v}_j \times \mathbf{B} \big)
-\]</span></p>
-<p>where the subscript <span class="math inline">\(j\)</span> and <span class="math inline">\(e\)</span> indicate the indices for individual ions and the electron fluid and other notations are standard. The lowercase velocities are velocities for each macro-particle.</p>
-<p>Alternatively, if we rely on a Vlasov system, we directly solve for the distribution function <span class="math inline">\(f(\mathbf{r}_s, \mathbf{v}_s, t)\)</span> from the Vlasov equation</p>
-<p><span class="math display">\[
+\]</span> where the subscript <span class="math inline">\(j\)</span> and <span class="math inline">\(e\)</span> indicate the indices for individual ions and the electron fluid and other notations are standard. The lowercase velocities are velocities for each macro-particle.</p>
+<p>Alternatively, if we rely on a Vlasov system, we directly solve for the distribution function <span class="math inline">\(f(\mathbf{r}_s, \mathbf{v}_s, t)\)</span> from the Vlasov equation <span class="math display">\[
 \frac{\partial f_s}{\partial t} + \mathbf{v}_s\frac{\partial f_s}{\partial \mathbf{r}_s} + \mathbf{a}_s\cdot \frac{\partial f_s}{\partial \mathbf{v}_s} = 0
-\]</span></p>
-<p>where</p>
-<p><span class="math display">\[
+\]</span> where <span class="math display">\[
 \mathbf{a}_s = \frac{q_s}{m_s}(\mathbf{E}+\mathbf{v}_s\times\mathbf{B})
 \]</span></p>
-<p>The generalized Ohm’s law is used to determine the time evolution of the electric field, derived from the electron momentum equation assuming <span class="math inline">\(m_e \rightarrow 0\)</span>,</p>
-<p><span id="eq-hybrid_ohm"><span class="math display">\[
+<p>The generalized Ohm’s law is used to determine the time evolution of the electric field, derived from the electron momentum equation assuming <span class="math inline">\(m_e \rightarrow 0\)</span>, <span id="eq-hybrid_ohm"><span class="math display">\[
 \mathbf{E} = - \mathbf{V}_i \times \mathbf{B} + \frac{1}{n_i e}(\nabla\times\mathbf{B})\times\mathbf{B} - \frac{1}{n_i e}\nabla\cdot\overleftrightarrow{P}_e + \eta \mathbf{J}
-\tag{24.2}\]</span></span></p>
-<p>where the current in the Hall term has already been replaced by the curvature of B. The last term can either represent collision/physical resistivity, or artificial resistivity/numerical diffusion.</p>
-<p>The magnetic fields evolve according to Faraday’s law</p>
-<p><span class="math display">\[
+\tag{24.2}\]</span></span> where the current in the Hall term has already been replaced by the curvature of B. The last term can either represent collision/physical resistivity, or artificial resistivity/numerical diffusion.</p>
+<p>The magnetic fields evolve according to Faraday’s law <span class="math display">\[
 \frac{\partial \mathbf{B}}{\partial t} = -\nabla\times\mathbf{E}
 \]</span></p>
-<p>Finally, by determining the electron pressure tensor by using an appropriate equation of state, the evolution of the system can be followed in time. For example, let <span class="math inline">\(\overleftrightarrow{P}_e = P_e \overleftrightarrow{I}\)</span> where <span class="math inline">\(P_e\)</span> is the isotropic scalar electron pressure. In the simplest form</p>
-<p><span class="math display">\[
+<p>Finally, by determining the electron pressure tensor by using an appropriate equation of state, the evolution of the system can be followed in time. For example, let <span class="math inline">\(\overleftrightarrow{P}_e = P_e \overleftrightarrow{I}\)</span> where <span class="math inline">\(P_e\)</span> is the isotropic scalar electron pressure. In the simplest form <span class="math display">\[
 P_e = n_e k_B T_e
-\]</span></p>
-<p>where <span class="math inline">\(n_e \approx n_i\)</span> and <span class="math inline">\(T_e=T_i\)</span>. Note however in a plasma electron pressure is usually higher than ion temperature, so this is a very crude assumption. Another commonly used assumption is an adiabatic process</p>
-<p><span class="math display">\[
+\]</span> where <span class="math inline">\(n_e \approx n_i\)</span> and <span class="math inline">\(T_e=T_i\)</span>. Note however in a plasma electron pressure is usually higher than ion temperature, so this is a very crude assumption. Another commonly used assumption is an adiabatic process <span class="math display">\[
 P_e = n_e^\gamma k_B T_e = n_0(n/n_0)^\gamma k_B T_{e0}
-\]</span></p>
-<p>where <span class="math inline">\(\gamma=5/3\)</span> is the adiabatic index for a monatomic ideal gas.</p>
+\]</span> where <span class="math inline">\(\gamma=5/3\)</span> is the adiabatic index for a monatomic ideal gas.</p>
 <section id="pros-and-cons" class="level3" data-number="24.1.1">
 <h3 data-number="24.1.1" class="anchored" data-anchor-id="pros-and-cons"><span class="header-section-number">24.1.1</span> Pros and Cons</h3>
 <p>Strengths:</p>
@@ -400,66 +381,49 @@ P_e = n_e^\gamma k_B T_e = n_0(n/n_0)^\gamma k_B T_{e0}
 <section id="sec-finite_e_mass" class="level2" data-number="24.2">
 <h2 data-number="24.2" class="anchored" data-anchor-id="sec-finite_e_mass"><span class="header-section-number">24.2</span> Finite Electron Inertia</h2>
 <p>The conventional hybrid simulation model dealing with kinetic ions and a massless charge-neutralizing electron fluid is known to be susceptible to numerical instability due to divergence of the whistler-mode wave dispersion, as well as division-by-density operation in regions of low density. The Alfvén wave at short wavelength comparable to ion inertia length has dispersion due to the decoupling between ion and electron dynamics. There thus appears the whistler mode whose frequency diverges as <span class="math inline">\(\omega \propto k^2\)</span>. This means that the maximum phase velocity in the system increases rapidly without bound, implying numerical difficulty. The division-by-density issue originates from <a href="#eq-hybrid_Je">Equation&nbsp;<span>24.1</span></a> and appears in the Hall and electron pressure gradient terms. Consequently, a pure vacuum region is not allowed to exist in the simulation domain unless some ad hoc technique is used.</p>
-<p>The finite electron inertia correction is proposed to solve the whistler-mode wave dispersion issue. The conventional way to include a finite electron inertia correction into the hybrid model is to introduce the following so-called generalized electromagnetic field <span class="math inline">\(\widehat{\mathbf{E}}, \widehat{\mathbf{B}}\)</span>, defined as</p>
-<p><span class="math display">\[
+<p>The finite electron inertia correction is proposed to solve the whistler-mode wave dispersion issue. The conventional way to include a finite electron inertia correction into the hybrid model is to introduce the following so-called generalized electromagnetic field <span class="math inline">\(\widehat{\mathbf{E}}, \widehat{\mathbf{B}}\)</span>, defined as <span class="math display">\[
 \widehat{\mathbf{E}} = \mathbf{E} - \frac{\partial}{\partial t}\big( \frac{c}{\omega_{pe}^2}\nabla\times\mathbf{B} \big)
 \]</span></p>
 <p><span class="math display">\[
 \widehat{\mathbf{B}} = \mathbf{B} + \nabla\times\big( \frac{c^2}{\omega_{pe}^2}\nabla\times\mathbf{B} \big)
-\]</span></p>
-<p>in which the terms proportional to <span class="math inline">\(\nabla\times\mathbf{B}\)</span> represent electron inertia correction.</p>
-<p>From the equation of motion for the electron fluid, it may be shown that</p>
-<p><span class="math display">\[
+\]</span> in which the terms proportional to <span class="math inline">\(\nabla\times\mathbf{B}\)</span> represent electron inertia correction.</p>
+<p>From the equation of motion for the electron fluid, it may be shown that <span class="math display">\[
 \widehat{\mathbf{E}} = - \mathbf{V}_i \times \mathbf{B} + \frac{1}{n_i e}(\nabla\times\mathbf{B})\times\mathbf{B} - \frac{1}{n_i e}\nabla\cdot\overleftrightarrow{P}_e - \frac{m_e}{e}(\mathbf{V}_e\cdot\nabla)\mathbf{V}_e
-\]</span></p>
-<p>which is similar to the generalized Ohm’s law but now with the last term which also represents the correction. <span class="math inline">\(\mathbf{V}_e\)</span> is obtain from <a href="#eq-hybrid_Je">Equation&nbsp;<span>24.1</span></a>.</p>
-<p>Given the generalized electric field <span class="math inline">\(\widehat{\mathbf{E}}\)</span>, one can advance the generalized magnetic field <span class="math inline">\(\widehat{\mathbf{B}}\)</span> by using Faraday’s law, which can be easily checked to satisfy</p>
-<p><span class="math display">\[
+\]</span> which is similar to the generalized Ohm’s law but now with the last term which also represents the correction. <span class="math inline">\(\mathbf{V}_e\)</span> is obtain from <a href="#eq-hybrid_Je">Equation&nbsp;<span>24.1</span></a>.</p>
+<p>Given the generalized electric field <span class="math inline">\(\widehat{\mathbf{E}}\)</span>, one can advance the generalized magnetic field <span class="math inline">\(\widehat{\mathbf{B}}\)</span> by using Faraday’s law, which can be easily checked to satisfy <span class="math display">\[
 \frac{\partial \widehat{\mathbf{B}}}{\partial t} = -\nabla\times\widehat{\mathbf{E}}
 \]</span></p>
-<p>Further simplifications are commonly adopted; for example, the electric field correction term and electron-scale spatial variation of density are often ignored. In this case, the magnetic field may be recovered by solving the equation</p>
-<p><span class="math display">\[
+<p>Further simplifications are commonly adopted; for example, the electric field correction term and electron-scale spatial variation of density are often ignored. In this case, the magnetic field may be recovered by solving the equation <span class="math display">\[
 \widehat{\mathbf{B}} = \big( 1 - \frac{c^2}{\omega_{pe}^2}\nabla^2 \big)\mathbf{B}
-\]</span></p>
-<p>and <span class="math inline">\(\widehat{\mathbf{E}} = \mathbf{E}\)</span> is assumed. The nice feature with this approach is that the correction can be implemented as a post process to the each integration step of a standard procedure.</p>
+\]</span> and <span class="math inline">\(\widehat{\mathbf{E}} = \mathbf{E}\)</span> is assumed. The nice feature with this approach is that the correction can be implemented as a post process to the each integration step of a standard procedure.</p>
 </section>
 <section id="low-density-treatment" class="level2" data-number="24.3">
 <h2 data-number="24.3" class="anchored" data-anchor-id="low-density-treatment"><span class="header-section-number">24.3</span> Low Density Treatment</h2>
-<p>Apparently new methods are still being proposed because the inclusion of electron inertia term along cannot solve all the issues. <span class="citation" data-cites="amano2014robust">(<a href="#ref-amano2014robust" role="doc-biblioref">Amano, Higashimori, and Shirakawa 2014</a>)</span> suggests another way to solve for the electric field</p>
-<p><span class="math display">\[
+<p>Apparently new methods are still being proposed because the inclusion of electron inertia term along cannot solve all the issues. <span class="citation" data-cites="amano2014robust">(<a href="#ref-amano2014robust" role="doc-biblioref">Amano, Higashimori, and Shirakawa 2014</a>)</span> suggests another way to solve for the electric field <span class="math display">\[
 (\omega_{pe}^2 - c^2\nabla^2)\mathbf{E} = \frac{e}{m_e}\big( \mathbf{J}_e \times\mathbf{B} - \nabla\cdot\overleftrightarrow{P}_e \big) + (\mathbf{V}_e\cdot\nabla)\mathbf{J}_e + \eta\mathbf{J}
-\]</span></p>
-<p>which can be reduced to the Laplace equation in near-vacuum region, presenting no numerical difficulty.</p>
-<p>Besides, the electron velocity is redefined</p>
-<p><span class="math display">\[
+\]</span> which can be reduced to the Laplace equation in near-vacuum region, presenting no numerical difficulty.</p>
+<p>Besides, the electron velocity is redefined <span class="math display">\[
 \mathbf{V}_e = \frac{\mathbf{J}_e}{\text{max}(\rho_e, \rho_{e,min})}
-\]</span></p>
-<p>where the minimum density <span class="math inline">\(\rho_{e,min}\)</span> is an artificially set value.</p>
-<p>In a hybrid system, the maximum phase velocity is the electron Alfvén speed, which goes to infinity when <span class="math inline">\(m_e \approx 0\)</span>. However, when doing calculations we only have ion Alfvén speed</p>
-<p><span class="math display">\[
+\]</span> where the minimum density <span class="math inline">\(\rho_{e,min}\)</span> is an artificially set value.</p>
+<p>In a hybrid system, the maximum phase velocity is the electron Alfvén speed, which goes to infinity when <span class="math inline">\(m_e \approx 0\)</span>. However, when doing calculations we only have ion Alfvén speed <span class="math display">\[
 v_{p,max} \simeq \frac{1}{2}\frac{B}{\sqrt{\mu_0 n_e m_e}} = \frac{1}{2}V_{A,i} \sqrt{\frac{m_i}{m_e}}
 \]</span></p>
-<p>To keep the maximum phase velocity always below the CFL condition, one may use a modified electron mass ratio <span class="math inline">\(m_e^\prime\)</span> defined as</p>
-<p><span class="math display">\[
+<p>To keep the maximum phase velocity always below the CFL condition, one may use a modified electron mass ratio <span class="math inline">\(m_e^\prime\)</span> defined as <span class="math display">\[
 \frac{m_e^\prime}{m_i}=\text{max}\Big( \frac{m_e}{m_i}, V_A^2\big( \frac{\Delta t}{2\alpha \Delta x} \big)^2 \Big)
-\]</span></p>
-<p>instead of the physical electron mass <span class="math inline">\(m_e\)</span>. Here <span class="math inline">\(V_A\)</span> is the Alfvén speed calculated from the local density and magnetic field, and <span class="math inline">\(\alpha\)</span> is the maximum allowed Courant number (<span class="math inline">\(\le 0.5\)</span>).</p>
+\]</span> instead of the physical electron mass <span class="math inline">\(m_e\)</span>. Here <span class="math inline">\(V_A\)</span> is the Alfvén speed calculated from the local density and magnetic field, and <span class="math inline">\(\alpha\)</span> is the maximum allowed Courant number (<span class="math inline">\(\le 0.5\)</span>).</p>
 </section>
 <section id="comparison-with-hall-mhd" class="level2" data-number="24.4">
 <h2 data-number="24.4" class="anchored" data-anchor-id="comparison-with-hall-mhd"><span class="header-section-number">24.4</span> Comparison with Hall MHD</h2>
-<p>The zeroth and first moments of the ion Vlasov equation are</p>
-<p><span class="math display">\[
+<p>The zeroth and first moments of the ion Vlasov equation are <span class="math display">\[
 \begin{aligned}
 \frac{\partial n}{\partial t} + \nabla\cdot(n\mathbf{u}_i) = 0 \\
 \frac{\partial mn\mathbf{u}_i}{\partial t} + \nabla\cdot\Big[ mn\mathbf{u}_i\mathbf{u}_i - \frac{\mathbf{B}\mathbf{B}}{\mu_0} + \frac{B^2}{2\mu_0}\mathbf{I} + \overleftrightarrow{P} \Big] = 0
 \end{aligned}
 \]</span></p>
-<p>The difference between Hall MHD and hybrid model is the treatment of the pressure tensor term. For Hall MHD with constant <span class="math inline">\(T_{i0}/T_{e0}\)</span>,</p>
-<p><span class="math display">\[
+<p>The difference between Hall MHD and hybrid model is the treatment of the pressure tensor term. For Hall MHD with constant <span class="math inline">\(T_{i0}/T_{e0}\)</span>, <span class="math display">\[
 \overleftrightarrow{P} = p_e(1 + T_{i0}/T_{e0})\mathbf{I}
 \]</span></p>
-<p>For hybrid models,</p>
-<p><span class="math display">\[
+<p>For hybrid models, <span class="math display">\[
 \overleftrightarrow{P} = p_e\mathbf{I} + \int m_i f_i \mathbf{w}\mathbf{w}\mathrm{d}\mathbf{w}
 \]</span></p>
 <p>Thus Hall-MHD is a “cold-ion” model in the sense that it does not include ion finite Larmor radius (FLR) or other kinetic effects from warm distribution functions.</p>
@@ -488,8 +452,8 @@ V_{A0} = d_{i0}\Omega_{i0}
 \]</span></p>
 <p>I once made a mistake in dealing with a code that uses SI units. You may wonder how come the ion inertial length is defined by speed of light divided by the plasma ion frequency in the unit of <span class="math inline">\([\text{rad}/\text{s}]\)</span>, and time scale in the unit of <span class="math inline">\(\Omega_i^{-1}\)</span> which is <span class="math inline">\([\text{s}/\text{rad}]\)</span>. In practice, we do not include <span class="math inline">\(2\pi\)</span> in neither of them!</p>
 <p>The pressure scale can be equivalently derived from the magnetic pressure or dynamic pressure <span class="math display">\[
-P_0 = \frac{B_0^2}{2\mu_0} = \frac{1}{2}\rho_0 v_0^2
-\]</span></p>
+P_0 = \frac{B_0^2}{\mu_0} = \rho_0 v_0^2
+\]</span> Note the drop of the factor of 2 here: it is then kept in the dimensionless equations, e.g.&nbsp;<span class="math inline">\(p_B^\prime = {B^\prime}^2/2\)</span>.</p>
 <p>The temperature scale is then <span class="math display">\[
 T_0 = \frac{p_0}{n_0 k_B} = \frac{B_0^2}{2\mu_0 k_B n_0}
 \]</span></p>
@@ -574,7 +538,7 @@ T_0 = \frac{p_0}{n_0 k_B} = \frac{B_0^2}{2\mu_0 k_B n_0}
 <td style="text-align: left;">Time</td>
 <td style="text-align: left;"><span class="math inline">\(t_0\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(t_0=m_i/(e*B_0)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(1.04\times 10^{-3}\,\mathrm{s}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.04\,\mathrm{s}\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Mass density</td>
@@ -607,13 +571,11 @@ T_0 = \frac{p_0}{n_0 k_B} = \frac{B_0^2}{2\mu_0 k_B n_0}
 <li>Explicit terms in equations (“physical dissipation”).</li>
 <li>Upwinding of advective terms (implicit dissipation via discretization)</li>
 </ol>
-<p>Hybrid models usually follow 1) by adding dissipation in Ohm’s law:</p>
-<p><span class="math display">\[
+<p>Hybrid models usually follow 1) by adding dissipation in Ohm’s law: <span class="math display">\[
 \mathbf{E} = \underbrace{\mathbf{E}^\ast}_{\text{frictionless }\mathbf{E}} + \underbrace{\eta\mathbf{j}}_{\text{resistivity}} - \underbrace{\eta_H \nabla^2\mathbf{j}}_{\text{hyper-resistivity}}
 \]</span></p>
 <p>The reason that we need hyper-resistivity is because the Hall term is badly behaved (stiff?). Slide 33 Stainer??? The hyper-resistivity term has a similar form of an electron collisional viscosity <span class="math inline">\(\eta_H\nabla^2\mathbf{u}_e\)</span>. But the coefficient is too large for space, sometimes argued as “anomalous viscosity”.</p>
-<p>Extra care shall be taken for conservation when including the frictional terms. For momentum conservation, we should use <span class="math inline">\(\mathbf{E}^\ast\)</span> for the macro-particle pusher or Vlasov solver, and only use <span class="math inline">\(\mathbf{E}\)</span> for updating <span class="math inline">\(\mathbf{B}\)</span>. For energy conservation, it requires a separate electron pressure equation with frictional heating <span class="math inline">\(H_e = \eta j^2 + \eta_H \nabla \mathbf{j}:\nabla\mathbf{j}\)</span> and heat flux <span class="math inline">\(\mathbf{q}_e\)</span>:</p>
-<p><span class="math display">\[
+<p>Extra care shall be taken for conservation when including the frictional terms. For momentum conservation, we should use <span class="math inline">\(\mathbf{E}^\ast\)</span> for the macro-particle pusher or Vlasov solver, and only use <span class="math inline">\(\mathbf{E}\)</span> for updating <span class="math inline">\(\mathbf{B}\)</span>. For energy conservation, it requires a separate electron pressure equation with frictional heating <span class="math inline">\(H_e = \eta j^2 + \eta_H \nabla \mathbf{j}:\nabla\mathbf{j}\)</span> and heat flux <span class="math inline">\(\mathbf{q}_e\)</span>: <span class="math display">\[
 (\gamma-1)^{-1}\Big[\frac{\partial p_e}{\partial t} + \nabla\cdot(\mathbf{u}_e p_e) \Big] + p_e\nabla\cdot\mathbf{u}_e = H_e - \nabla\cdot\mathbf{q}_e
 \]</span></p>
 <section id="finite-grid-instability" class="level3" data-number="24.6.1">
@@ -623,11 +585,9 @@ T_0 = \frac{p_0}{n_0 k_B} = \frac{B_0^2}{2\mu_0 k_B n_0}
 </section>
 <section id="magnetosphere-inner-boundary-conditions" class="level2" data-number="24.7">
 <h2 data-number="24.7" class="anchored" data-anchor-id="magnetosphere-inner-boundary-conditions"><span class="header-section-number">24.7</span> Magnetosphere Inner Boundary Conditions</h2>
-<p>Inner boundary condition is often the most tricky part in magnetopshere modeling. In Angeo3D [Lin+ 2014], the inner magnetosphere (<span class="math inline">\(r&lt;6\,\text{R}_\text{E}\)</span>) is assumed to be dominated by a cold, incompressible ion fluid, which coexists with particle ions. The number density of the cold ion fluid is assumed to be</p>
-<p><span class="math display">\[
+<p>Inner boundary condition is often the most tricky part in magnetopshere modeling. In Angeo3D [Lin+ 2014], the inner magnetosphere (<span class="math inline">\(r&lt;6\,\text{R}_\text{E}\)</span>) is assumed to be dominated by a cold, incompressible ion fluid, which coexists with particle ions. The number density of the cold ion fluid is assumed to be <span class="math display">\[
 n_f = \frac{n_\text{eq}}{r^3}[1-\tanh(r-6.5)]
-\]</span></p>
-<p>where <span class="math inline">\(r\)</span> is in the unit of <span class="math inline">\(\text{R}_\text{E}\)</span>, and <span class="math inline">\(n_\text{eq}=1000\,\text{cm}^{-3}\)</span>.</p>
+\]</span> where <span class="math inline">\(r\)</span> is in the unit of <span class="math inline">\(\text{R}_\text{E}\)</span>, and <span class="math inline">\(n_\text{eq}=1000\,\text{cm}^{-3}\)</span>.</p>
 <p>The inclusion of the cold ion fluid in the inner magnetosphere simplifies the conditions for the fluid-dominant low-altitude, inner boundary. Ion particles are set to be reflected at the magnetospheric inner boundary (e.g.&nbsp;<span class="math inline">\(r=3.5\,\text{R}_\text{E}\)</span>). This simple reflection of the ion parallel velocity <span class="math inline">\(\mathbf{v}_{i\parallel}\)</span> means that loss cone effects are omitted. For a particle distribution with an isotropic pitch angle distribution in a dipole field, the particles in a full loss cone are only 0.3% of the total, which is reasonably neglected. <span class="math inline">\(\mathbf{B}\)</span> is assumed to maintain the dipole field values at the inner boundary. The ionospheric conditions (1000 km altitude) are incorporated into the hybrid code, as in global MHD models <span class="citation" data-cites="raeder1995">(<a href="#ref-raeder1995" role="doc-biblioref">Raeder, Walker, and Ashour-Abdalla 1995</a>)</span>. See <a href="ionosphere.html#sec-MI_coupling"><span>Section&nbsp;19.2</span></a>.</p>
 </section>
 <section id="tests" class="level2" data-number="24.8">
@@ -663,8 +623,7 @@ n_f = \frac{n_\text{eq}}{r^3}[1-\tanh(r-6.5)]
 <section id="landau-damped-ion-acoustic-wave" class="level3" data-number="24.8.2">
 <h3 data-number="24.8.2" class="anchored" data-anchor-id="landau-damped-ion-acoustic-wave"><span class="header-section-number">24.8.2</span> Landau Damped Ion Acoustic Wave</h3>
 <p>The fundamental electrostatic mode in the hybrid-PIC model is the ion acoustic wave. This is also driven by pressure perturbations. In fluid models (e.g.&nbsp;Hall MHD), this wave is undamped. However, in the hybrid-PIC, Landau resonance damps the wave and locally flattens ion VDF, which is analogous to electron Landau damping of Langmuir oscillations.</p>
-<p>The dispersion relation is</p>
-<p><span class="math display">\[
+<p>The dispersion relation is <span class="math display">\[
 \frac{dZ(\zeta)}{\mathrm{d}\zeta} = 2\frac{T_i}{T_e},\quad \zeta\equiv \frac{\omega-i\gamma}{kv_{\text{th},i}}
 \]</span></p>
 <div>
@@ -675,8 +634,7 @@ n_f = \frac{n_\text{eq}}{r^3}[1-\tanh(r-6.5)]
 </figure>
 </div>
 </div>
-<p>The nominal simulation parameters are:</p>
-<p><span class="math display">\[
+<p>The nominal simulation parameters are: <span class="math display">\[
 T_i = 1/3,\, \gamma=5/3,\, c_s = \sqrt{\gamma T_e/m_i} = 1,\, k_x = \pi/8,\, \delta n = 2\times 10^{-2}
 \]</span></p>
 <p>Results for nominal parameters</p>
@@ -694,23 +652,17 @@ T_i = 1/3,\, \gamma=5/3,\, c_s = \sqrt{\gamma T_e/m_i} = 1,\, k_x = \pi/8,\, \de
 <section id="magnetic-reconnection-island-coalescence" class="level3" data-number="24.8.3">
 <h3 data-number="24.8.3" class="anchored" data-anchor-id="magnetic-reconnection-island-coalescence"><span class="header-section-number">24.8.3</span> Magnetic Reconnection Island Coalescence</h3>
 <p>Magnetic islands are 2D versions of flux-ropes. Here we set a self-driven reconnection problem of coupling of ideal island motion to micro-scale reconnection physics. Ion kinetic effects are crucial in reconnection studies.</p>
-<p>Unstable Fadeev island equilibrium: the magnetic field <span class="math inline">\(\mathbf{B}\)</span> is given by <span class="math inline">\(\nabla\times\mathbf{A}\)</span>, where in this setup we only need</p>
-<p><span class="math display">\[
+<p>Unstable Fadeev island equilibrium: the magnetic field <span class="math inline">\(\mathbf{B}\)</span> is given by <span class="math inline">\(\nabla\times\mathbf{A}\)</span>, where in this setup we only need <span class="math display">\[
 A_y = -\lambda B_0 \ln[\text{cosh}(z/\lambda) + \epsilon\cos(z/\lambda)]
-\]</span></p>
-<p>And the density is given by</p>
-<p><span class="math display">\[
+\]</span> and the density is given by <span class="math display">\[
 n = n_0(1-\epsilon^2)/[\text{cosh}(z/\lambda) + \epsilon\cos(z/\lambda)]^2 + n_b
 \]</span></p>
-<p>The pressure balance gives</p>
-<p><span class="math display">\[
+<p>The pressure balance gives <span class="math display">\[
 \beta = \frac{2\mu_0 n_0 k_B (T_{i0}+ T_{e0})}{B_0^2} = 1
 \]</span></p>
-<p>The nominal simulation parameters are:</p>
-<p><span class="math display">\[
+<p>The nominal simulation parameters are: <span class="math display">\[
 \lambda = 5d_i,\, \epsilon = 0.4,\, n_b = 0.2n_0,\, T_i/T_e = 1,\, \eta = 10^{-3},\, \eta_H = 5\times10^{-3},\, \gamma = 1
-\]</span></p>
-<p>and for the numerical parameters, we have a 2D space with <span class="math inline">\(256\times128\)</span> cells, 50 particles/cell, <span class="math inline">\(\Delta t\Omega_{ci} = 0.005\)</span>.</p>
+\]</span> and for the numerical parameters, we have a 2D space with <span class="math inline">\(256\times128\)</span> cells, 50 particles/cell, <span class="math inline">\(\Delta t\Omega_{ci} = 0.005\)</span>.</p>
 <div>
 <div id="fig-vpic_reconnection2d" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
