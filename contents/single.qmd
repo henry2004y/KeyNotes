@@ -19,13 +19,11 @@ The convention here is that velocity $\mathbf{v}$ represents single particle vel
 ### E=0
 
 In this case, a charged particle has a simple cyclotron gyration. The equation of motion is
-
 $$
 m\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = q\mathbf{v}\times\mathbf{B}
 $$
 
 Taking $\widehat{z}$ to be the direction of $\mathbf{B}$ ($\mathbf{B} = B\widehat{z}$), we have
-
 $$
 \begin{aligned}
 m\dot{v}_x = qB v_y,\quad m\dot{v}_y = -qB v_x,\quad m\dot{v}_z = 0, \\
@@ -35,31 +33,25 @@ m\dot{v}_x = qB v_y,\quad m\dot{v}_y = -qB v_x,\quad m\dot{v}_z = 0, \\
 $$
 
 This describes a simple harmonic oscillator at the *cyclotron frequency*, which we define to be
-
 $$
 \omega_c \equiv \frac{| q | B}{m}
 $$
 
 By the convention we have chosen, $\omega_c$ is always nonnegative. The unit of $\omega_c$ in SI units is rad/s. To convert it to hertz, we need to divide it by $2\pi$. The solution of velocity is then
-
 $$
 v_{x,y} = v_\perp \exp(\pm i \omega_c t + i\delta_{x,y})
 $$
 
 The $\pm$ denote the sign of q. We may choose the phase $\delta$ so that
-
 $$
 v_x = v_\perp e^{i\omega_c t} = \dot{x}
 $$
-
 where $v_\perp$ is a positive constant denoting the speed in the plane perpendicular to $\mathbf{B}$. Then
-
 $$
 v_y  = \frac{m}{qB} \dot{v}_x = \pm \frac{1}{\omega_c}\dot{v}_x = \pm i v_\perp e^{i\omega_c t} = \dot{y}
 $$
 
 Integrating once again, we have
-
 $$
 \begin{aligned}
 x - x_0 &= -i\frac{v_\perp}{\omega_c}e^{i\omega_c t} \\
@@ -68,7 +60,6 @@ y - y_0 &= \pm i\frac{v_\perp}{\omega_c}e^{i\omega_c t}
 $$
 
 We define the *Larmor radius* to be
-
 $$
 r_L \equiv \frac{v_\perp}{\omega_c} = \frac{mv_\perp}{|q| B}
 $$ {#eq-larmor_radius}
@@ -76,7 +67,6 @@ $$ {#eq-larmor_radius}
 Note that $2\pi$ does not appear in @eq-larmor_radius!
 
 Taking the real part of the positions, we have
-
 $$
 \begin{aligned}
 x - x_0 &= r_L\sin\omega_c t \\
@@ -89,25 +79,19 @@ This describes a circular orbit about a *guiding center* ($x_0, y_0$) which is f
 ### Finite E
 
 If now we allow an electric field to be present, the motion will be found to be the sum of two motions: the usual circular Larmor gyration plus a drift of the guiding center. We may choose $\mathbf{E}$ to lie in the x-z plane so that $E_y = 0$. As before, the z component of velocity is unrelated to the transverse components and can be treated separately. The equations of motion is now
-
 $$
 m\dot{\mathbf{v}} = q( \mathbf{E} + \mathbf{v}\times\mathbf{B} )
 $$
-
 whose z component is
-
 $$
 \dot{v_z} = \frac{q}{m}E_z
 $$
-
 or
-
 $$
 v_z = \frac{qE_z}{m}t + v_{z0}
 $$
 
 This is a straightforward acceleration along $\mathbf{B}$. The transverse components are
-
 $$
 \begin{aligned}
 \dot{v_x} &= \frac{q}{m}E_x \pm \omega_c v_y \\
@@ -116,7 +100,6 @@ $$
 $$
 
 Differentiating, we have (for constant $\mathbf{E}$)
-
 $$
 \begin{aligned}
 \ddot{v}_x &= -\omega_c^2 v_x \\
@@ -125,13 +108,10 @@ $$
 $$
 
 We can write this as
-
 $$
 \frac{\mathrm{d}^2}{\mathrm{d}t^2}\Big( v_y + \frac{E_x}{B} \Big) = -\omega_c^2\Big( v_y + \frac{E_x}{B} \Big)
 $$
-
 so that it reduces to the previous case if we replace $v_y$ by $v_y + (E_x/B)$. The velocity solution is then replaced by
-
 $$
 \begin{aligned}
 v_x &= v_\perp e^{i\omega_c t} \\
@@ -142,25 +122,21 @@ $$
 The Larmor motion is the same as before, but there is superimposed a drift $\mathbf{v}_{gc}$ of the guiding center in the $-y$ direction (for $E_x > 0$).
 
 To obtain a general formula for $\mathbf{v}_{gc}$, we can solve the momentum equation in vector form. We may omit the $m \mathrm{d}\mathbf{v}/\mathrm{d}t$ term, since this term gives only the circular motion at $\omega_c$, which we already know about. Then the momentum equation becomes
-
 $$
 \mathbf{E} + \mathbf{v}\times\mathbf{B} = 0
 $$
 
 Taking the cross product with $\mathbf{B}$, we have
-
 $$
 \mathbf{E}\times\mathbf{B} = \mathbf{B}\times(\mathbf{v}\times\mathbf{B}) = \mathbf{v}B^2 - \mathbf{B}(\mathbf{v}\cdot\mathbf{B})
 $$
 
 The transverse components with respect to $\mathbf{B}$ of this equation are
-
 $$
 \mathbf{v}_{gc} = \mathbf{E}\times\mathbf{B}/B^2 \equiv \mathbf{v}_E
 $$
 
 We define this to be $\mathbf{v}_E$, the electric field drift of the guiding center. In magnitude, this drift is
-
 $$
 v_E = \frac{E(\text{V/m})}{B(\text{tesla})}\frac{\text{m}}{\text{sec}}
 $$
@@ -200,7 +176,6 @@ Consider the Lorentz force $\mathbf{F} = q\mathbf{v}\times\mathbf{B}$, averaged 
 $$
 F_y = -q v_x B_z(y) = -q v_\perp(\cos \omega_c t) \Big[ B_0 \pm r_L(\cos\omega_c t )\frac{\partial B}{\partial y} \Big]
 $$
-
 where we have made a Taylor expansion of $\mathbf{B}$ field about the point $x_0=0, y_0=0$
 $$
 \begin{aligned}
@@ -340,7 +315,6 @@ With the previous equation this becomes
 $$
 -\mu\frac{\mathrm{d}B}{\mathrm{d}t} + \frac{\mathrm{d}}{\mathrm{d}t}(\mu B) = 0
 $$
-
 so that
 $$
 \frac{\mathrm{d}\mu}{\mathrm{d}t} = 0
@@ -373,19 +347,15 @@ The magnetic mirror was first proposed by Enrico Fermi as a mechanism for the ac
 ## Nonuniform E Field {#sec-nonuniform_E}
 
 Now we let the magnetic field be uniform and the electric field be nonuniform. For simplicity, we assume $\mathbf{E}$ to be in the x direction and to vary sinusoidally in the x direction:
-
 $$
 \mathbf{E} \equiv E_0 (\cos kx)\widehat{x}
 $$
 
 This field distribution has a wavelength $\lambda = 2\pi / k$, and is the result of a sinusoidal distribution of charges, which we need not specify. In practice, such a charge distribution can arise in a plasma during a wave motion. The equation of motion is
-
 $$
 m\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = q[\mathbf{E}(x) + \mathbf{v}\times\mathbf{B}]
 $$
-
 whose transverse components are
-
 $$
 \begin{aligned}
 \dot{v}_x &= \frac{qB}{m}v_y + \frac{q}{m}E_x(x) \\
@@ -401,13 +371,10 @@ $$
 $$
 
 Here $E_x(x)$ is the electric field at the position of the particle. To evaluate this, we need to know the particle’s orbit, which we are trying to solve for in the first place. If the electric field is weak, we may, as an approximation, use the *undisturbed orbit* to evaluate $E_x(x)$. The orbit in the absence of the E field was given before
-
 $$
 x = x_0 + r_L\sin \omega_c t
 $$
-
 so we have
-
 $$
 \ddot{v}_y = -\omega_c^2 v_y -\omega_c^2\frac{E_0}{B}\cos k (x_0 + r_L \sin\omega_c t)
 $$
@@ -422,32 +389,26 @@ $$
 $$
 
 Expanding the cosine, we have
-
 $$
 \cos k (x_0 + r_L \sin\omega_c t) = \cos(kx_0) \cos(kr_L \sin\omega_c t) - \sin(kx_0) \sin(kr_L \sin\omega_c t)
 $$
 
 It will suffice to treat the small Larmor radius case, $kr_L \ll 1$. The Taylor expansions allow us to write
-
 $$
 \cos k (x_0 + r_L \sin\omega_c t) \approx \cos(kx_0)\big( 1 - \frac{1}{2}k^2r_L^2 \sin^2\omega_c t \big) - \sin(kx_0)k r_L \sin\omega_c t
 $$
 
 The last term vanishes upon averaging over time, and it gives
-
 $$
 \bar{v}_y = -\frac{E_0}{B}\cos(kx_0)\big( 1 - \frac{1}{4}k^2r_L^2 \big) = -\frac{E_x(x_0)}{B}\big( 1 - \frac{1}{4}k^2r_L^2 \big)
 $$
 
 Thus the usual $\mathbf{E}\times\mathbf{B}$ drift is modified by the inhomogeneity to read
-
 $$
 \mathbf{v}_E = \frac{\mathbf{E}\times\mathbf{B}}{B^2}\big( 1 - \frac{1}{4}k^2r_L^2 \big)
 $$
 
-The physical reason for this is easy to see. An ion with its guiding center at a maximum of $\mathbf{E}$ actually spends a good deal of its time in regions of weaker $\mathbf{E}$. Its average drift, therefore, is less than E/B evaluated at the guiding center. In a linearly varying $\mathbf{E}$ field, the ion would be in a stronger field on one side of the orbit and in a
-field weaker by the same amount on the other side; the correction to $\mathbf{v}_E$ then cancels out. From this it is clear that the correction term depends on the *second derivative* of $\mathbf{E}$. For the sinusoidal distribution we assumed, the second derivative is always negative with respect to $\mathbf{E}$. For an arbitrary variation of $\mathbf{E}$, we need only replace $ik$ by $\nabla$ and write the drift as
-
+The physical reason for this is easy to see. An ion with its guiding center at a maximum of $\mathbf{E}$ actually spends a good deal of its time in regions of weaker $\mathbf{E}$. Its average drift, therefore, is less than E/B evaluated at the guiding center. In a linearly varying $\mathbf{E}$ field, the ion would be in a stronger field on one side of the orbit and in a field weaker by the same amount on the other side; the correction to $\mathbf{v}_E$ then cancels out. From this it is clear that the correction term depends on the *second derivative* of $\mathbf{E}$. For the sinusoidal distribution we assumed, the second derivative is always negative with respect to $\mathbf{E}$. For an arbitrary variation of $\mathbf{E}$, we need only replace $ik$ by $\nabla$ and write the drift as
 $$
 \mathbf{v}_E = \Big( 1 + \frac{1}{4}r_L^2\nabla^2 \Big) \frac{\mathbf{E}\times\mathbf{B}}{B^2}
 $$ {#eq-vE}
@@ -457,28 +418,23 @@ The second term is called the *finite-Larmor-radius effect*. What is the signifi
 ## Time-Varying E Field {#sec-time-varying_E}
 
 Let us now take $\mathbf{E}$ and $\mathbf{B}$ to be uniform in space but varying in time. First, consider the case in which $\mathbf{E}$ alone varies sinusoidally in time, and let it lie along the x axis:
-
 $$
 \mathbf{E} = E_0 e^{i\omega t}\widehat{x}
 $$
 
 Since $\dot{E}_x = i\omega E_x$, we can write the velocity x-component equation as
-
 $$
 \ddot{v}_x = -\omega_c^2 \Big( v_x \mp \frac{i\omega}{\omega_c}\frac{\tilde{E}_x}{B} \Big)
 $$
 
 Let us define
-
 $$
 \begin{aligned}
 \tilde{v}_p &\equiv \pm \frac{i\omega}{\omega_c}\frac{\tilde{E}_x}{B} \\
 \tilde{v}_E &\equiv \frac{\tilde{E}_x}{B}
 \end{aligned}
 $$
-
 where the tilde has been added merely to emphasize that the drift is oscillating. The plus (minus) sign, as usual, denotes positive (negative) $q$. Now the x and y velocity component equations can be written as
-
 $$
 \begin{aligned}
 \ddot{v}_x &= -\omega_c^2(v_x - \tilde{v}_p) \\
@@ -488,7 +444,6 @@ $$
 
 By analogy with the derivation in the case of a uniform EM field, we try a solution which is the sum of a drift and a
 gyratory motion:
-
 $$
 \begin{aligned}
 v_x &= v_\perp e^{i\omega_c t} + \tilde{v}_p \\
@@ -497,7 +452,6 @@ v_y &= \pm i v_\perp e^{i\omega_c t} + \tilde{v}_E
 $$
 
 If we now differentiate twice with respect to time, we find
-
 $$
 \begin{aligned}
 \ddot{v}_x &= -\omega_c^2 v_x + (\omega_c^2 - \omega^2)\tilde{v}_p \\
@@ -505,21 +459,17 @@ $$
 \end{aligned}
 $$
 
-This is **not** the same as the previous expressions right above unless $\omega^2 \ll \omega_c^2$. If we now make the assumption
-that $\mathbf{E}$ varies slowly, so that $\omega^2 \ll \omega_c^2$, then there we have the approximate solution.
+This is **not** the same as the previous expressions right above unless $\omega^2 \ll \omega_c^2$. If we now make the assumption that $\mathbf{E}$ varies slowly, so that $\omega^2 \ll \omega_c^2$, then there we have the approximate solution.
 
 The solution of velocities in x and y tells us that the guiding center motion has two components. The y component, perpendicular to $\mathbf{B}$ and $\mathbf{E}$, is the usual $\mathbf{E}\times\mathbf{B}$ drift, except that $v_E$ now oscillates slowly at the frequency $\omega$. The x component, a new drift *along the direction of* $\mathbf{E}$, is called the *polarization drift*. By replacing $i\omega$ with $\partial/\partial t$, we can generalize the expression of $v_p$ and define the polarization drift as
-
 $$
 \mathbf{v}_p = \pm \frac{1}{\omega_c B}\frac{\mathrm{d}\mathbf{E}}{\mathrm{d}t}
 $$
 
 Since $\mathbf{v}_p$ is in opposite directions for ions and electrons, there is a *polarization current*; for Z = 1, this is
-
 $$
 \mathbf{j}_p = ne(v_{ip} - v_{ep}) = \frac{ne}{eB^2}(M+m)\frac{\mathrm{d}\mathbf{E}}{\mathrm{d}t} = \frac{\rho}{B^2}\frac{\mathrm{d}\mathbf{E}}{\mathrm{d}t}
 $$ {#eq-polarization_current}
-
 where $\rho$ is the mass density.
 
 The physical reason for the polarization current is simple. Consider an ion at rest in a magnetic field. If a field $\mathbf{E}$ is suddenly applied, the first thing the ion does is to move in the direction of $\mathbf{E}$. Only after picking up a velocity $\mathbf{v}$ does the ion feel a Lorentz force $e\mathbf{v}\times\mathbf{B}$ and begin to move perpendicular to both fields. If $\mathbf{E}$ is now kept constant, there is no further $\mathbf{v}_p$ drift but only a $\mathbf{v}_E$ drift. However, if $\mathbf{E}$ is reversed, there is again a momentary drift, this time to the left. Thus $\mathbf{v}_p$ is a startup drift due to inertia and occurs only in the first half-cycle of each gyration during which $\mathbf{E}$ changes. Consequently, $\mathbf{v}_p$ goes to zero when $\omega/\omega_c \ll 1$.
@@ -529,37 +479,29 @@ The polarization effect in a plasma is similar to that in a solid dielectric, wh
 It is obvious that in this case the $\mathbf{E}\times\mathbf{B}$ drift speed depends on time and the guiding center coordinate system is non-inertial. The polarization drift arises from the fictuous (inertial) force $-m \mathrm{d}\mathbf{v}_E/\mathrm{d}t$. It means that the guiding center locations will not change due to the polarization drift!
 
 Let us demonstrate this in a single configuration. Assume $\mathbf{B}=B\hat{z}$, $\mathbf{E}=Et\hat{y}$. Let $\theta$ be the angle in the perpendicular plane:
-
 $$
 \mathbf{v}_\perp = v_\perp\hat{e}_\perp = v_\perp(\cos\theta\hat{x}+\sin\theta\hat{y})
 $$
 
 The guiding center is defined as
-
 $$
 \mathbf{X} = \mathbf{x} - \mathbf{r}_L = \mathbf{x} - \mathbf{v}_\perp / \omega_c = \mathbf{x} - \frac{v_\perp}{\omega_c}\hat{\theta}
 $$
-
 where $\hat{\theta} = \mathbf{b}\times\hat{e}_\perp$. The equation of motion
-
 $$
 \begin{aligned}
 m\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} &= q(\mathbf{E} +\mathbf{v}\times\mathbf{B}) \\
 \frac{\mathrm{d}\mathbf{x}}{\mathrm{d}t} &= \mathbf{v}
 \end{aligned}
 $$
-
 in the guiding center coordinates the two selected scalar equations can be written as
-
 $$
 \begin{aligned}
 m\frac{\mathrm{d}v_x}{\mathrm{d}t} &= qE_x + qv_yB \\
 \frac{dX_y}{\mathrm{d}t} &= v_y - \frac{1}{\omega_c}\frac{\mathrm{d}v_x}{\mathrm{d}t}
 \end{aligned}
 $$
-
 such that
-
 $$
 \frac{dX_y}{\mathrm{d}t} = 0
 $$
@@ -567,43 +509,35 @@ $$
 ## Time-Varying B Field
 
 Finally, we allow the magnetic field to vary in time. Since the Lorentz force is always perpendicular to $\mathbf{v}$, a magnetic field itself cannot impart energy to a charged particle. However, associated with $\mathbf{B}$ is an electric field given by
-
 $$
 \nabla\times\mathbf{E} = -\dot{\mathbf{B}}
 $$
-
 and this can accelerate the particles. We can no longer assume the fields to be completely uniform. Let $\mathbf{v}_\perp = \mathrm{d}\mathbf{l}/\mathrm{d}t$ be the transverse velocity, $\mathbf{l}$ being the element of the path along a particle trajectory (with $v_\parallel$ neglected). Taking the scalar product of the equation of motion with $\mathbf{v}_\perp$, we have
-
 $$
 \frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{1}{2}mv_\perp^2 \Big) = q\mathbf{E}\cdot\mathbf{v}_\perp = q\mathbf{E}\cdot\frac{\mathrm{d}\mathbf{l}}{\mathrm{d}t}
 $$
 
 The change in one gyration is obtained by integrating over one period:
-
 $$
 \delta \Big( \frac{1}{2}mv_\perp^2  \Big) = \int_0^{2\pi/\omega_c}q\mathbf{E}\cdot\frac{\mathrm{d}\mathbf{l}}{\mathrm{d}t}\mathrm{d}t
 $$
 
 If the field changes slowly, we can replace the time integral by a line integral over the unperturbed orbit:
-
 $$
 \delta \Big( \frac{1}{2}mv_\perp^2  \Big) = \oint q\mathbf{E}\cdot \mathrm{d}\mathbf{l} = q\int_s (\nabla\times\mathbf{E})\cdot \mathrm{d}\mathbf{S} = -q \int_s\dot{\mathbf{B}}\cdot \mathrm{d}\mathbf{S}
 $$
 
 Here $\mathbf{S}$ is the surface enclosed by the Larmor orbit and has a direction given by the right-hand rule when the fingers point in the direction of $\mathbf{v}$. Since the plasma is diamagnetic, we have $\mathbf{B}\cdot \mathrm{d}\mathbf{S}<0$ for ions and $\mathbf{B}\cdot \mathrm{d}\mathbf{S}>0$ for electrons. Then
-
 $$
 \delta \Big( \frac{1}{2}mv_\perp^2  \Big) = \pm q \dot{B}\pi r_L^2 = \pm q \pi\dot{B}]frac{v_\perp^2}{\omega_c}\frac{m}{\pm qB} = \frac{\frac{1}{2}mv_\perp^2}{B}\cdot \frac{2\pi \dot{B}}{\omega_c}
 $$
 
 The quantity $\frac{2\pi\dot{B}}{\omega_c} = \frac{\dot{B}}{\omega_c}$ is just the change $\delta B$ during one period of gyration. Thus
-
 $$
 \delta \Big( \frac{1}{2}mv_\perp^2  \Big) = \mu \delta B
 $$
 
 Since the left-hand-side is $\delta(\mu B)$, we have the desired result
-
 $$
 \delta \mu = 0
 $$
@@ -614,7 +548,6 @@ As the B field varies in strength, the Larmor orbits expand and contract, and th
 _The magnetic flux through a Larmor orbit is constant_.
 
 The flux $\Phi$ is given by $BS$, with $S = \pi r_L^2$. Thus
-
 $$
 \Phi = B\pi\frac{v_\perp^2}{\omega_c^2} = B\pi\frac{v_\perp^2 m^2}{q^2 B^2} = \frac{2\pi m}{q^2}\frac{\frac{1}{2}mv_\perp^2}{B} = \frac{2\pi m}{q^2}\mu
 $$
@@ -690,15 +623,14 @@ $$
 \frac{\mathrm{d}^2 x}{\mathrm{d}t^2} + \omega^2(t)x = 0
 $$ {#eq-pendulum}
 
-This equation cannot be solved exactly for arbitrary $\omega(t)$ but if a modest restriction is put on $\omega(t)$ the equation can be solved _approximately_ using the WKB method (Wentzel 1926, Kramers 1926, Brillouin 1926). This method is based on the
-hypothesis that the solution for a time-dependent frequency is likely to be a generalization of the constant-frequency solution
+This equation cannot be solved exactly for arbitrary $\omega(t)$ but if a modest restriction is put on $\omega(t)$ the equation can be solved _approximately_ using the WKB method (Wentzel 1926, Kramers 1926, Brillouin 1926). This method is based on the hypothesis that the solution for a time-dependent frequency is likely to be a generalization of the constant-frequency solution
 $$
 x = \mathrm{Re}\left[ A\exp(i\omega t) \right]
 $$
 where this generalization is postulated to be of the form
 $$
 x = \mathrm{Re}\left[ A(t) e^{i\int^t \omega(t^\prime)\mathrm{d}t^\prime} \right]
-$$
+$$ {#eq-pendulum-WKBJ-guess}
 Here $A(t)$ is an amplitude function determined as follows: calculate the first derivative we get
 $$
 \frac{\mathrm{d}x}{\mathrm{d}t} = \mathrm{Re}\left[ i\omega A e^{i\int^t \omega(t^\prime)\mathrm{d}t^\prime} + \frac{\mathrm{d}A}{\mathrm{d}t} e^{i\int^t \omega(t^\prime)\mathrm{d}t^\prime} \right]
@@ -739,20 +671,163 @@ In other words, if @eq-pendulum-wkbj-criterion is satisfied, then the fractional
 @eq-WKBJ-A indicates that when $\omega$ is time-dependent, the pendulum amplitude is not constant and so the pendulum energy is _not_ conserved. It turns out that what is conserved is the _action integral_
 $$
 S = \oint v\mathrm{d}x
-$$ {#eq-action-integral}
+$$ {#eq-pendulum-action-integral}
 where the integration is over one period of oscillation. This integral can also be written in terms of time as
 $$
 S = \int_{t_0}^{t_0+\tau} v\frac{\mathrm{d}x}{\mathrm{d}t}\mathrm{d}t
 $$
-where $t_0$ is a time when $x$ is at an instantaneous maximum and $\tau$, the period of a complete cycle, is defined as the interval between two successive times when $\mathrm{d}x/\mathrm{d}t = 0$ and $\mathrm{d}^2/\mathrm{d}t^2$ has the same sign (e.g., for a pendulum, $t_0$ would be a time when the pendulum has swung all the way to the right and so is reversing its velocity while $\tau$ is the time one has to wait for this to happen again). To show that action is conserved, @eq-action-integral can be integrated by parts as
+where $t_0$ is a time when $x$ is at an instantaneous maximum and $\tau$, the period of a complete cycle, is defined as the interval between two successive times when $\mathrm{d}x/\mathrm{d}t = 0$ and $\mathrm{d}^2/\mathrm{d}t^2$ has the same sign (e.g., for a pendulum, $t_0$ would be a time when the pendulum has swung all the way to the right and so is reversing its velocity while $\tau$ is the time one has to wait for this to happen again). To show that action is conserved, @eq-pendulum-action-integral can be integrated by parts as
 $$
 \begin{aligned}
 S &= \int_{t_0}^{t_0+\tau} \left[ \frac{\mathrm{d}}{\mathrm{d}t}\left( x\frac{\mathrm{d}x}{\mathrm{d}t} \right) - x\frac{\mathrm{d}^2 x}{\mathrm{d}t^2} \right]\mathrm{d}t \\
 &= \left[ x\frac{\mathrm{d}x}{\mathrm{d}t} \right]_{t_0}^{t_0+\tau} - \int_{t_0}^{t_0+\tau}x\frac{\mathrm{d}^2 x}{\mathrm{d}t^2}\mathrm{d}t \\
 &= \int_{t_0}^{t_0+\tau} \omega^2 x^2 \mathrm{d}t
 \end{aligned}
+$$ {#eq-pendulum-action-integral2}
+where the integrated term has vanished by virtue of the definitions of $t_0$ and $\tau$, and @eq-pendulum has been used to substitute $\mathrm{d}^2 x/\mathrm{d}t^2$. @eq-pendulum-WKBJ-guess and @eq-WKBJ-A can be combined to give
 $$
-where the integrated term has vanished by virtue of the definitions of $t_0$ and $\tau$, and @eq-pendulum has been used to substitute $\mathrm{d}^2 x/\mathrm{d}t^2$.
+x(t) = x(t_0)\sqrt{\frac{\omega(t_0)}{\omega(t)}}\cos\left( \int_{t_0}^{t}\omega(t^\prime)\mathrm{d}t^\prime \right)
+$$
+so @eq-pendulum-action-integral2 becomes
+$$
+\begin{aligned}
+S &= \int_{t_0}^{t_0+\tau}\omega(t^\prime)^2 \left[ x(t_0)\sqrt{\frac{\omega(t_0)}{\omega(t^\prime)}}\cos\left( \int_{t_0}^{t^\prime}\omega(t^{\prime\prime})\mathrm{d}t^{\prime\prime} \right) \right]\mathrm{d}t^\prime \\
+&= [x(t_0)]^2 \omega(t_0)\int_{t_0}^{t_0+\tau}\omega(t^\prime)\cos^2\left( \int_{t_0}^{t^\prime}\omega(t^{\prime\prime}\mathrm{d}t^\prime) \right)\mathrm{d}t^\prime \\
+&= [x(t_0)]^2 \omega(t_0)\int_{0}^{2\pi}\mathrm{d}\xi\cos^2\xi = \pi [x(t_0)]^2 \omega(t_0) = \mathrm{const.}
+\end{aligned}
+$$ {#eq-pendulum-action-integral3}
+where $\xi=\int_{t_0}^{t^\prime}\omega(t^{\prime\prime})\mathrm{d}t^{\prime\prime}$ and $\mathrm{d}\xi=\omega(t^\prime)\mathrm{d}t^\prime$. @eq-pendulum-action-integral shows that $S$ is the area in phase-space enclosed by the trajectory $[x(t),v(t)]$ and @eq-pendulum-action-integral3 shows that for a slowly changing pendulum frequency, _this area is a constant of the motion_. Since the average energy of the pendulum scales as $\sim[\omega(t)x(t)]^2$, we see from @eq-WKBJ-A that the ratio
+$$
+\frac{\mathrm{energy}}{\mathrm{frequency}}\sim \omega(t)x^2(t)\sim S\sim\mathrm{const}.
+$$ {#eq-pendulum-action-integral-const}
+
+The ratio in @eq-pendulum-action-integral-const is the classical equivalent of the quantum number $N$ of a simple harmonic oscillator because in quantum mechanics the energy $E$ of a simple harmonic oscillator is related to the frequency by the relation $E/\hbar \omega = N+1/2$.
+
+This analysis clearly applies to any dynamical system having an equation of motion of the form of @eq-pendulum. Hence, if the dynamics of plasma particles happens to be of this form, then $S$ can be added to our repertoire of constants of the motion.
+
+### Extension of WKB method to general adiabatic invariant
+
+Action has the dimensions of (canonical momentum) × (canonical coordinate) so we may anticipate that for general Hamiltonian systems, the action integral given in @eq-pendulum-action-integral is not an invariant because $v$ is not, in general, proportional to $P$. We postulate that the general form for the action integral is
+$$
+S = \oint P\mathrm{d}Q
+$$ {#eq-action-integral}
+where the integral is over one period of the periodic motion and $P, Q$ are the relevant canonical momentum-coordinate conjugate pair. The proof of adiabatic invariance used for @eq-pendulum-action-integral does not work directly for @eq-action-integral; we now present a slightly more involved proof to show that @eq-action-integral is indeed the more general form of adiabatic invariant.
+
+![Canonical coordinate-momentum plane.](../images/canonical_momentum_coordinate_plane.png){#fig-q-p-plane}
+
+Let us define the radius vector in the $Q-P$ plane to be $\mathbf{R}=(Q,P)$ and define unit vectors in the $Q$ and $P$ directions by $\hat{Q}$ and $\hat{P}$; these definitions are shown in @fig-q-p-plane. Furthermore, we define the $z$ direction as being normal to the $Q-P$ plane; thus, the unit vector $\hat{z}=\hat{Q}\times\hat{P}$. Hamilton's equations ($\dot{P} = -\partial H/\partial Q,\dot{Q}=\partial H/\partial P$) may be written in vector form as
+$$
+\frac{\mathrm{d}\mathbf{R}}{\mathrm{d}t} = -\hat{z}\times\nabla H
+$$ {#eq-hamilton-vector-form}
+where
+$$
+\nabla = \hat{Q}\frac{\partial}{\partial Q} + \hat{P}\frac{\partial}{\partial P}
+$$
+is the gradient operator in the $Q-P$ plane. @eq-hamilton-vector-form shows that the phase-space "velocity" $\mathrm{d}\mathbf{R}/\mathrm{d}t$ is _orthogonal_ ot $\nabla H$. Hence, $\mathbf{R}$ _stays on a level contour of $H$_. If $H$ is a constant, then, in order for the motion to be periodic, the path along this level contour must circle around and join itself, like a road of constant elevation around the rim of a mountain (or a crater). If $H$ is not constant, but slowly changing in time, the contour will circle around and nearly join itself.
+
+@eq-hamilton-vector-form can be inverted by crossing it with $\hat{z}$ to give
+$$
+\nabla H = \hat{z}\times\frac{\mathrm{d}\mathbf{R}}{\mathrm{d}t}
+$$ {#eq-hamilton-vector-form2}
+
+For periodic and near-periodic motions, $\mathrm{d}\mathbf{R}/\mathrm{d}t$ is always in the same sense (always clockwise or always counterclockwise). Thus, @eq-hamilton-vector-form2 shows that an observer following the path would always see that $H$ is increasing on the left-hand side of the path and decreasing on the right-hand side (or vice versa). For clarity, the origin of the $Q-P$ plane is redefined to be at a local maximum or minimum of $H$. Hence, near the extremum $H$ must have the Taylor expansion
+$$
+H(P,Q) = H_\mathrm{extremum} + \frac{P^2}{2}\left[ \frac{\partial^2 H}{\partial P^2} \right]_{P=0,Q=0} + \frac{Q^2}{2}\left[ \frac{\partial^2 H}{\partial Q^2} \right]_{P=0,Q=0}
+$$
+where the second order derivatives are either both positive (valley) or both negative (hill). Since $H$ is assumed to have a slow dependence on time, these second derivatives will be time-dependent so that $H$ has the form
+$$
+H = \alpha(t)\frac{P^2}{2} + \beta(t)\frac{Q^2}{2}
+$$ {#eq-hamilton-extremum}
+where $\alpha(t)$ and $\beta(t)$ have the same sign. The term $H_\mathrm{extremum}$ has been dropped because it is just an additive constant to the energy and does not affect Hamilton's equations. From @eq-hamilton-vector-form the direction of rotation of $\mathbf{R}$ is seen to be counterclockwise if the extremum of $H$ is a hill, and clockwise if a valley.
+
+Hamilton's equations operating on @eq-hamilton-extremum give
+$$
+\frac{\mathrm{d}P}{\mathrm{d}t} = -\beta Q,\quad \frac{\mathrm{d}Q}{\mathrm{d}t} = \alpha P
+$$ {#eq-hamilton-extremum2}
+
+These equations do not directly generate the simple harmonic oscillator equation because of the time dependence of $\alpha,\beta$. However, if we define the auxiliary variable
+$$
+\tau = \int^t \beta(t^\prime)\mathrm{d}t^\prime
+$$
+then
+$$
+\frac{\mathrm{d}}{\mathrm{d}t} = \frac{\mathrm{d}\tau}{\mathrm{d}t}\frac{\mathrm{d}}{\mathrm{d}\tau} = \beta\frac{\mathrm{d}}{\mathrm{d}\tau}
+$$
+so @eq-hamilton-extremum2 becomes
+$$
+\frac{\mathrm{d}P}{\mathrm{d}\tau} = -Q,\quad \frac{\mathrm{d}Q}{\mathrm{d}\tau} = \frac{\alpha}{\beta}P
+$$ {#eq-hamilton-extremum3}
+
+Substituting for $Q$ in the right-hand equation using the left-hand equation gives
+$$
+\frac{\mathrm{d}^2P}{\mathrm{d}\tau^2} + \frac{\alpha}{\beta}P = 0
+$$
+which is a simple harmonic oscillator with $\omega^2(\tau) = \alpha(\tau)/\beta(\tau)$. The action integral may be rewritten as
+$$
+S = \oint P\frac{\mathrm{d}Q}{\mathrm{d}\tau}\mathrm{d}\tau
+$$
+where the integral is over one period of the motion. Using @eq-hamilton-extremum3 and following the same procedure as was used with @eq-pendulum-action-integral3, this becomes
+$$
+S = \oint P^2\frac{\alpha}{\beta}\mathrm{d}\tau = \lambda^2\int \left[ \left( \frac{\alpha(\tau^\prime)}{\beta(\tau^\prime)} \right)^{1/2}\cos^2\left( \int^{\tau^\prime} (\alpha/\beta)^{1/2}\mathrm{d}\tau^{\prime\prime} \right) \right]\mathrm{d}\tau^\prime
+$$
+where $\lambda$ is a constant dependent on initial conditions. By introducing the orbit phase $\phi=\int^\tau (\alpha/\beta)^{1/2}\mathrm{d}\tau$, the above becomes
+$$
+S = \lambda^2 \int_0^{2\pi}\mathrm{d}\phi\cos^2\phi = \mathrm{const}.
+$$
+
+Thus, the general action integral is indeed an adiabatic invariant. This proof is of course only valid in the vicinity of an extremum of $H$, i.e., only where $H$ can be adequately represented by @eq-hamilton-extremum.
+
+### Proof for the general adiabatic invariant
+
+We now develop a proof for the general adiabatic invariant. This proof is not restricted to small oscillations (i.e., being near an extremum of $H$) as was the previous discussion. Let the Hamiltonian depend on time via a slowly changing parameter $\lambda(t)$, so that $H=H(P,Q,\lambda(t))$. From @eq-hamiltonian-charged-particle the energy is given by
+$$
+E(t) = H(P,Q,\lambda(t))
+$$ {#eq-hamilton-energy}
+and, in principle, this relation can be inverted to give $P=P(E(t),Q,\lambda(t))$. Suppose a particle is executing nearly periodic motion in the $Q-P$ plane. We define the turning point $Q_{tp}$ as a position where $\mathrm{d}Q/\mathrm{d}t=0$. Since $Q$ is oscillating, there will be a turning point associated with $Q$ having its maximum value and a turning point associated with $Q$ having its minimum value. From now on let us only consider turning points where $Q$ has its maximum value, that is, we only consider the turning points on the right-hand side of the nearly periodic trajectories in the $Q-P$ plane shown in @fig-q-p-nearly-periodic-traj.
+
+![Nearly periodic-phase space trajectory for slowly changing Hamiltonian. The turning point $Q_{tp}(t)$ is where $Q$ is at its maximum.](../images/canonical_plane_nearly_periodic_trajectory.png){#fig-q-p-nearly-periodic-traj}
+
+If the motion is periodic, then the turning point for the $N+1^{\mathrm{th}}$ period will be the same as the turning point for the $N^{\mathrm{th}}$ period, but if the motion is only nearly periodic, there will be a slight difference as shown in @fig-q-p-nearly-periodic-traj. This difference can be characterized by making the turning point a function of time so $Q_{tp}=Q_{tp}(t)$. This function is only defined for the times when $\mathrm{d}Q/\mathrm{d}t = 0$. When the motion is not exactly periodic, this turning point is such that $Q_{tp}(t+\tau)\neq Q_{tp}(t)$, where $\tau$ is the time interval required for the particle to go from the first turning point to the next turning point.
+The action integral is over one entire period of oscillation starting from a right-hand turning point and then going to the next right-hand turning point and so can be written as
+$$
+S = \oint P\mathrm{d}Q = \int_{Q_{tp}(t)}^{Q_{tp}(t+\tau)}P\mathrm{d}Q
+$$
+
+From @eq-hamiltonian-charged-particle it is seen that $P/m$ is not, in general, the velocity and so the
+velocity $\mathrm{d}Q/\mathrm{d}t$ is not, in general, proportional to $P$ (???). Thus, the turning points are
+not necessarily at the locations where $P$ vanishes, and in fact $P$ need not change sign during a period. However, $S$ still corresponds to the area of phase-space enclosed by one period of the phase-space trajectory.
+
+We can now calculate
+$$
+\begin{aligned}
+\frac{\mathrm{d}S}{\mathrm{d}t} &= \frac{\mathrm{d}}{\mathrm{d}t}\int_{Q_{tp}(t)}^{Q_{tp}(t+\tau)}P(E(t),Q,\lambda(t))\mathrm{d}Q \\
+&= \left[ P\frac{\mathrm{d}Q}{\mathrm{d}t} \right]_{Q_{tp}(t)}^{Q_{tp}(t+\tau)} + \int_{Q_{tp}(t)}^{Q_{tp}(t+\tau)} \left( \frac{\partial P}{\partial t}_Q \right)\mathrm{d}Q \\
+&= \int_{Q_{tp}(t)}^{Q_{tp}(t+\tau)} \left[ \left( \frac{\partial P}{\partial E} \right)_{Q,\lambda}\frac{\mathrm{d}E}{\mathrm{d}t} + \left(\frac{\partial P}{\partial \lambda} \right)_{Q,E}\frac{\mathrm{d}\lambda}{\mathrm{d}t} \right]\mathrm{d}Q
+\end{aligned}
+$$ {#eq-action-integral-time-derivative}
+
+Because $\mathrm{d}Q/\mathrm{d}t = 0$ at the turning point, the integrated term vanishes and so there is no contribution from motion of the turning point. From @eq-hamilton-energy we have
+$$
+1 = \frac{\partial H}{\partial P}\left( \frac{\partial P}{\partial E} \right)_{Q,\lambda}
+$$
+and
+$$
+0 = \frac{\partial H}{\partial P}\left( \frac{\partial P}{\partial \lambda} \right)_{Q,E} + \frac{\partial H}{\partial\lambda}
+$$
+so @eq-action-integral-time-derivative becomes
+$$
+\frac{\mathrm{d}S}{\mathrm{d}t} = \oint \left( \frac{\partial H}{\partial P} \right)^{-1} \left[ \frac{\mathrm{d}E}{\mathrm{d}t} - \frac{\partial H}{\partial\lambda}\frac{\mathrm{d}\lambda}{\mathrm{d}t} \right]\mathrm{d}Q
+$$ {#eq-action-integral-time-derivative2}
+
+From @eq-hamilton-energy we have
+$$
+\frac{\mathrm{d}E}{\mathrm{d}t} = \frac{\partial H}{\partial P}\frac{\mathrm{d}P}{\mathrm{d}t} + \frac{\partial H}{\partial Q}\frac{\mathrm{d}Q}{\mathrm{d}t} + \frac{\partial H}{\partial \lambda}\frac{\mathrm{d}\lambda}{\mathrm{d}t} = \frac{\partial H}{\partial\lambda}\frac{\mathrm{d}\lambda}{\mathrm{d}t}
+$$ {#eq-hamilton-time-derivative}
+since the first two terms canceled due to Hamilton's equations. Substitution of @eq-hamilton-time-derivative into
+@eq-action-integral-time-derivative2 gives $\mathrm{d}S/\mathrm{d}t=0$, completing the proof of adiabatic invariance. No assumption has been made here that $P,Q$ are close to the values associated with an extremum of $H$.
+
+This proof seems too neat, because it has established adiabatic invariance simply by careful use of the chain rule, and by taking partial derivatives. However, this observation reveals the underlying essence of adiabaticity, namely it is the differentiability of $H, P$ with respect to $\lambda$ from one period to the next and the Hamilton nature of the system, which together provide the conditions for the adiabatic invariant to exist. If the motion had been such that after one cycle the motion had changed so drastically that taking a derivative of $H$ or $P$ with respect
+to would not make sense, then the adiabatic invariant would not exist.
 
 ### The First Adiabatic Invariant
 
@@ -944,9 +1019,7 @@ where $\mathcal{E}$ is the energy of a particle, $\mathbf{u}_E$ is the $\mathbf{
 ::: {.content-visible unless-format="pdf"}
 
 ![Illustration of particle acceleration mechanisms. The reconnection electric field is along the $y$ direction.
-Acceleration by the reconnection electric field occurs near the X-line, which is associated with the Speiser orbit, and by parallel electric field near separatrices, which are boundaries between upstream (before-reconnection) and downstream
-(after-reconnection) regions. When particles near the X-line interact with the parallel electric field, ions (electrons) are
-accelerated along the (opposite) direction of the field, and the direct acceleration term $qE_\parallel v_\parallel$ (the first term on the right side of @eq-particle_energization_nonrelativistic) is positive. The betatron acceleration mechanism happens when particles flow into the stronger magnetic field regions in the exhaust. In this example trajectory, particles move along the positive z direction by the EEE × BBB motion and $\nabla B$ is also along the positive z direction. As a result, the second term of @eq-particle_energization_nonrelativistic is positive. Fermi acceleration occurs in the regions with high-curvature magnetic field lines. In this example, plasmoids are elongated along the $z$ direction, such that the field lines have the highest curvature at $x = 0$. Inside the plasmoid, particles obtain a large velocity kick along the $y$ direction due to a large curvature drift and obtain a significant energy from the reconnection electric field ($q\mathbf{E}\cdot\mathbf{u}_c > 0$). In the exhaust region, trapped particles gain energy whenever they pass the high curvature regions at $x = 0$. di is ion skin depth. Figure 5 from [@ji2022magnetic]](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs42254-021-00419-x/MediaObjects/42254_2021_419_Fig5_HTML.png){#fig-particle_acceleration_reconnection}
+Acceleration by the reconnection electric field occurs near the X-line, which is associated with the Speiser orbit, and by parallel electric field near separatrices, which are boundaries between upstream (before-reconnection) and downstream (after-reconnection) regions. When particles near the X-line interact with the parallel electric field, ions (electrons) are accelerated along the (opposite) direction of the field, and the direct acceleration term $qE_\parallel v_\parallel$ (the first term on the right side of @eq-particle_energization_nonrelativistic) is positive. The betatron acceleration mechanism happens when particles flow into the stronger magnetic field regions in the exhaust. In this example trajectory, particles move along the positive z direction by the EEE × BBB motion and $\nabla B$ is also along the positive z direction. As a result, the second term of @eq-particle_energization_nonrelativistic is positive. Fermi acceleration occurs in the regions with high-curvature magnetic field lines. In this example, plasmoids are elongated along the $z$ direction, such that the field lines have the highest curvature at $x = 0$. Inside the plasmoid, particles obtain a large velocity kick along the $y$ direction due to a large curvature drift and obtain a significant energy from the reconnection electric field ($q\mathbf{E}\cdot\mathbf{u}_c > 0$). In the exhaust region, trapped particles gain energy whenever they pass the high curvature regions at $x = 0$. di is ion skin depth. Figure 5 from [@ji2022magnetic]](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs42254-021-00419-x/MediaObjects/42254_2021_419_Fig5_HTML.png){#fig-particle_acceleration_reconnection}
 
 :::
 
