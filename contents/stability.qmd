@@ -512,19 +512,15 @@ Now let's go back and see if we can treat the sharp boundary problem with 2-flui
 We consider a plasma at uniform temperature lying above a horizontal plane in a uniform gravitational field directed vertically downwards. There is a horizontal magnetic field in x direction uniform in each half volumn with a jump in field strength produced by a uniform horizontal current sheet at the boundary plane $z=0$.  The gravitational force is balanced by a pressure gradient in the plasma and by the jump in the magnetic pressure at $z=0$.
 
 We now suppose the boundary of the plasam at $z=0$ to be rippled by a sinusoidal disturbance as shown in fig-RT_perturb. We may write for the displacement of the interface (ADD FIGURE!)
-
 $$
 \Delta z = a \sin ky
 $$ {#eq-RT_displacement_z}
-
 where $a$, the amplitude of the disturbance, is considered small and $k(=2\pi/\lambda)$ is the wave number of the disturbance in the y-direction. The drift resulting from gravity is given by
-
 $$
 \mathbf{V}_g = \frac{m}{q}\frac{\mathbf{g}\times\mathbf{B}}{B^2}
 $$
 
 Since the magnetic field is in the x-direction, the electrons will drift to the right and the positive ions will drift to the left. The gravity drift, therefore, causes a charge separation in the plasma and the resulting boundary has the form shown in fig-RT_displacement. The surface charge $\delta\sigma$ due to the separation ($\delta\Delta z$) of ions and electrons is given by
-
 $$
 \begin{aligned}
 \delta\sigma&=Ne\delta\Delta z \\
@@ -534,7 +530,6 @@ $$
 $$
 
 Therefore, the time rate of change of the surface charge density is given by
-
 $$
 \begin{aligned}
 \frac{\partial \sigma}{\partial t}&=NeV_g\frac{\partial}{\partial y}\Delta z \\
@@ -542,54 +537,42 @@ $$
 &=-\frac{NMeg}{B}ak\cos ky
 \end{aligned}
 $$ {#eq-RT_time_rate_surface_charge}
-
 where in writing these expressions, we have neglected the electron drift, as being small in the ratio $m/M$ compared to the ion drift. The electric field resulting from the surface charge can be computed in a straight-forward manner. In the region away from the boundary, we must have
-
 $$
 \nabla\cdot(\epsilon\mathbf{E})=0
 $$ {#eq-RT_dielectric}
-
 where $\epsilon=\epsilon_0\big( 1+\frac{{\omega_{pi}}^2}{{\Omega_i}^2}\big)=...$ is the dielectric constant of the plasma. At the interface the electric field is determined by
-
 $$
 \nabla\cdot(\epsilon\mathbf{E})=\frac{1}{\mu_0}\frac{\sigma}{dz}
 $$
-
 where $\sigma$ is the surface charge density and $\mathrm{d}z$ is the infinitesimal thickness of the layer. We now integrate this equation over an element of volumn $\mathrm{d}S\mathrm{d}z$. The right-hand side gives the charge within the column element ($\sigma\mathrm{d}S$). Making use of Gauss`s theorem to transform the left-hand side, we obtain
-
 $$
 \epsilon E_z dS = \frac{1}{\mu_0}\sigma dS = \frac{1}{\mu_0}\sigma_0 \cos ky dS
 $$
 
 Thus the electric field at the interface is given by
-
 $$
 \epsilon E_z = \frac{\sigma_0}{\mu_0}\cos ky
 $$ {#eq-RT_surface_bc}
 
 The electric field which satisfies @eq-RT_dielectric within the plasma and the boundary condition @eq-RT_surface_bc at $z=0$ has the components
-
 $$
 \begin{aligned}
 E_y &= \frac{\sigma_0}{\mu_0\epsilon}\sin ky\, e^{-kz} \\
 E_z &= \frac{\sigma_0}{\mu_0\epsilon}\cos ky\, e^{-kz}
 \end{aligned}
 $$
-
 with $E_x=0$. These electric fields give rise to the drifts which can be computed from the equation
-
 $$
 \mathbf{V}=\frac{\mathbf{E}\times\mathbf{B}}{B^2}
 $$
 
 Remembering that $\mathbf{B}$ is in the x-direction, we obtain
-
 $$
 V_y = \frac{E_z}{B},\quad V_z = -\frac{E_y}{B}
 $$
 
 From the foregoing equations we obtain
-
 $$
 \begin{aligned}
 V_y &= \frac{\sigma_0}{\mu_0 B}\cos ky\, e^{-kz} \\
@@ -598,34 +581,28 @@ V_z &=-\frac{\sigma_0}{\mu_0 B}\sin ky\, e^{-kz}
 $$
 
 It is clear from the solutions that the velocity field is divergence free and, therefore, does not cause any change in the density of the plasma except at the boundary. We have
-
 $$
 \frac{\partial}{\partial t}\Delta z(z=0)=V_z(z=0) = -\frac{\sigma}{\mu_0 B}\sin ky
 $$ {#eq-RT_vel_boundary}
 
 From @eq-RT_displacement_z and @eq-RT_vel_boundary, we obtain the equation of motion for the amplitude $a$:
-
 $$
 \frac{\mathrm{d}a}{\mathrm{d}t}=-\frac{\sigma_0}{\mu_0 B}
 $$
 
 @eq-RT_time_rate_surface_charge and @eq-RT_surface_bc yield
-
 $$
 \frac{\mathrm{d}\sigma_0}{\mathrm{d}t}=-\frac{NMg}{\mu_0B}ak
 $$
 
 From the above two equations, we obtain
-
 $$
 \begin{aligned}
 \frac{\mathrm{d}^2 a}{\mathrm{d}t^2} &= \frac{1}{\mu_0\epsilon B}\frac{NMg}{B}ka \\
 &\approx gka, \quad(\text{for } \epsilon \gg 1)
 \end{aligned}
 $$
-
 ($g=...$ from equilibrium). The solution of this equation is given by
-
 $$
 a(t) = a_0e^{\pm\sqrt{gk} t}
 $$
@@ -638,16 +615,21 @@ The essential mechanism which gives rise to the instability is the charge separa
 
 ## Kelvin-Helmholtz instability {#sec-KH}
 
-Kelvin-Helmholtz (KH) instability happens due to velocity shear. Typical examples are:
+Kelvin-Helmholtz (KH) instability happens due to a velocity shear and produces surface waves at the shear layer that eventually roll up into nonlinear vortices. Typical examples are:
 
 * plane crash
 * flapping of flags
 * diocotron instability in an electron sheet
 * water wave, nonlinear phase
 * laser ablation of metal
+* low-latitude flanks of the magnetopause during periods of northward interplanetary magnetic field
+* accretion discs
+* pulsar winds
+* jets
+
+It presents a key mechanism for mediating mass, momentum and energy transport at boundary layers with a velocity shear via processes such as viscous interaction, turbulence, mode conversion and magnetic reconnection.
 
 To understand why shear flow can lead to instability, we'll first introduce the Bernoulli theorem in fluid mechanics. From the MHD momentum equation, take $\partial/\partial t=0,\ \mathbf{J}=0,\ \mathbf{g}=0$, we obtain
-
 $$
 \begin{aligned}
 \rho\mathbf{v}\cdot\nabla\mathbf{v}=-\nabla p
@@ -655,7 +637,6 @@ $$
 $$
 
 Using the natural coordinates, let $\hat{t}$ be the unit tangent vector on a streamline, $\hat{n}$ be the unit normal vector pointing from concave to convex side, and $ds$ be the infinitisimal distance along streamline, we have
-
 $$
 \begin{aligned}
 \rho\mathbf{v}\cdot\nabla\mathbf{v} &= (\rho v\frac{\partial }{\partial s})\mathbf{v} =\rho v_s \frac{\partial }{\partial s}(\hat{t} v) =\rho v \Big( \frac{\partial v}{\partial s}\hat{t} + \frac{\partial \hat{t}}{\partial s}v\Big) \\
@@ -667,7 +648,6 @@ $$
 Therefore, $\frac{1}{2}\rho v^2 + p = \text{const.}$ along a streamline for an incompressible flow. This is the classical Bernoulli equation.
 
 Now, consider two flow layer with velocity shear at the plane interface in fig-two_layer (ADD FIGURE!). Imaging there's a ripple on the layer interface pointing upward at $Q$. If we examine the cross section at $P$ and $Q$ for the lower layer respectively, we find
-
 $$
 \begin{aligned}
 \text{flux at P} = \rho v A|_P = \text{flux at Q} = \rho v A|_Q
@@ -683,7 +663,6 @@ Since density along field lines are constant (incompressible) and area $A_P<A_Q$
 :::
 
 Now we are ready to do more careful derivations. The governing equations are
-
 $$
 \begin{aligned}
 \nabla\cdot\mathbf{v}&=0 \\
@@ -692,7 +671,6 @@ $$
 $$
 
 In equilibrium, suppose there is a velocity shear in the x direction, and the interface lies along the y direction,
-
 $$
 \begin{aligned}
 \rho_0 &= \text{const.} \\
@@ -702,22 +680,17 @@ p_0 &= \text{const.} \\
 $$
 
 Assume linear perturbations of the form
-
 $$
 \begin{aligned}
 v_{1x}(\mathbf{x},t) &= v_{1x}(x)e^{i k_y y-i\omega t} \\
 p_1(\mathbf{x},t) &= p_1(x)e^{i k_y y-i\omega t}
 \end{aligned}
 $$
-
 so the linearized momentum equation is
-
 $$
 \rho_0\big( \frac{\partial \mathbf{v}_1}{\partial t}+\mathbf{v}_0\cdot\nabla\mathbf{v}_1 +\mathbf{v}_1\cdot\nabla\mathbf{v}_0 \big) = -\nabla p_1
 $$
-
 where
-
 $$
 \begin{aligned}
 \mathbf{v}_0\cdot\nabla\mathbf{v}_1 &= i k_y v_{0y} \mathbf{v}_1 \\
@@ -726,7 +699,6 @@ $$
 $$
 
 Then the x and y components of the linearized momentum equation give
-
 $$
 \begin{aligned}
 -i\omega \rho_0 v_{1x} +\rho_0 i k_y v_{0y}v_{1x} &= -\frac{\partial p_1}{\partial x} \\
@@ -735,31 +707,24 @@ $$
 $$
 
 Together with the linearized incompressibility condition
-
 $$
 \frac{\partial v_{1x}}{\partial x} + ik_y v_{1y}  = 0
 $$
-
 by eliminating $p_1$ and $v_{1y}$ we get
-
 $$
 \frac{\partial^2 v_{1x}}{\partial x^2} - \Big[ {k_y}^2 - \frac{k_y {v_{0y}}^{\prime\prime}(x)}{\omega-k_y v_{0y}(x)} \Big]v_{1x} = 0
 $$ {#eq-KH_governing}
 
 Now we are half way from obtaining the dispersion relation. For simplicity, let us assume three layer regions with Region I on the left ($x<0$), Region II in the middle ($x\in(0,\tau)$), and Region III on the right ($x>\tau$). Let the shear layer II thickness be $\tau$. Set the velocity on the two sides $v_1 = 0,\ v_2 = v_1+\Delta v \equiv v$, and $k_y=k$. Then
-
 $$
 v_{0y}^{\prime\prime}(x) = \Big(\frac{v}{\tau}\Big)\big[ \delta(x) - \delta(x-\tau)\big]
 $$
-
 except at $x=0$ and $x=\tau$. @eq-KH_governing can be simplified to
-
 $$
 \frac{\mathrm{d}^2 v_{1x}}{\mathrm{d}x^2}-k^2 v_{1x} = 0
 $$
 
 In region I ($x<0$),
-
 $$
 \begin{aligned}
 v_{1x} &= \xi_0 e^{kx},\quad x<0 \\
@@ -768,7 +733,6 @@ v_{1x} &= \xi_0 e^{kx},\quad x<0 \\
 $$
 
 In region III ($x>\tau$),
-
 $$
 \begin{aligned}
 v_{1x} &= \xi_\tau e^{-k(x-\tau)},\quad x>\tau \\
@@ -777,7 +741,6 @@ v_{1x} &= \xi_\tau e^{-k(x-\tau)},\quad x>\tau \\
 $$
 
 In region II ($x\in(0,\tau)$), we are looking for a solution which is a superposition of the solutions from both sides and is continuous at the boundaries
-
 $$
 \begin{aligned}
 v_{1x} &=\xi_\tau \frac{\sinh{kx}}{\sinh{k\tau}} + \xi_0\frac{\sinh{k(x-\tau)}}{\sinh{-k\tau}},\quad 0<x<\tau \\
@@ -787,27 +750,22 @@ v_{1x} &=\xi_\tau \frac{\sinh{kx}}{\sinh{k\tau}} + \xi_0\frac{\sinh{k(x-\tau)}}{
 $$
 
 The continuity at $x = 0$ requires $V_{0y}=0, V_{1x}=\xi_0$. Integrating the governing @eq-KH_governing from $x=0^-$ to $x=0^+$ yields
-
 $$
 -\xi_0 k\frac{\cosh{k\tau}}{\sinh{k\tau}} + \xi_\tau k\frac{1}{\sinh{k\tau}} - k\xi_0 + \frac{kv}{\omega\tau}\xi_0 = 0
 $$
 
 Integrating the governing @eq-KH_governing from $x=\tau^-$ to $x=\tau^+$ yields
-
 $$
 -\xi_\tau k +\xi_0 k\frac{1}{\sinh{k\tau}} - \xi_\tau k\frac{\cosh{k\tau}}{\sinh{k\tau}} - \frac{kv}{\omega\tau}\xi_\tau = 0
 $$
 
 Combining the last two equations, we obtain
-
 $$
 1 = \Big[ \sinh{k\tau} + \cosh{k\tau} + \frac{kv}{\omega-kv}\frac{\sinh{k\tau}}{k\tau}\Big] \Big[ \cosh{k\tau}+\sinh{k\tau} - \frac{kv}{\omega}\frac{\sinh{k\tau}}{k\tau}\Big]
 $$
-
-which is the dispersion relation.
+which is the dispersion relation for the KH instability.
 
 With the identity $\sinh{k\tau} + \cosh{k\tau} = e^{k\tau}$, the dispersion relation can be simplified to
-
 $$
 \begin{aligned}
 1 &= \Big[ e^{k\tau} + \frac{kv}{\omega-kv}\frac{\sinh{k\tau}}{k\tau}\Big] \Big[ e^{k\tau} - \frac{kv}{\omega}\frac{\sinh{k\tau}}{k\tau}\Big] \\
@@ -817,25 +775,20 @@ $$
 $$
 
 Multiplying both sides by $\omega(\omega-kv)$, we get
-
 $$
 \omega(\omega-k\tau)(1-e^{2k\tau}) = (kv)^2  \frac{\sinh{k\tau}}{k\tau} \Big[ e^{k\tau} - \frac{\sinh{k\tau}}{k\tau}\Big]
 $$
 
 Assuming $k\tau\ll 1$ (long wavelength approximation), $e^{k\tau}\approx 1+k\tau$, we obtain
-
 $$
 \omega(\omega-kv) + \frac{(kv)^2}{2} \approx 0
 $$
-
 the solution of which is
-
 $$
 \omega=\frac{1}{2}kv(1\pm i),\quad k\tau \ll 1
 $$
 
 In general, the growth rate of KH is
-
 $$
 \omega_i = \frac{1}{2}|k_y \Delta v|,\quad k_y\tau\ll 1
 $$
