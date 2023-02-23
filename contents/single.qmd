@@ -720,7 +720,39 @@ $$
 A(t) \sim \frac{1}{\sqrt{\omega(t)}}
 $$ {#eq-WKBJ-A}
 
-The assumption of slowness is thus at least self-consistent, for if $t$ is indeed slowly changing, @eq-WKBJ-A shows that At will also be slowly changing and the dropping of the last term in @eq-pendulum-WKBJ is justified.
+The assumption of slowness is thus at least self-consistent, for if $t$ is indeed slowly changing, @eq-WKBJ-A shows that At will also be slowly changing and the dropping of the last term in @eq-pendulum-WKBJ is justified. The slowness requirement can be quantified by assuming that the frequency has an exponential dependence
+$$
+\omega(t) = \omega_0 e^{\alpha t}
+$$
+
+Thus,
+$$
+\alpha = \frac{1}{\omega}\frac{\mathrm{d}\omega}{\mathrm{d}t}
+$$
+is a measure of how fast the frequency is changing compared to the frequency itself. Hence, dropping the last term in @eq-pendulum-WKBJ is legitimate if
+$$
+\alpha = \frac{1}{\omega}\frac{\mathrm{d}\omega}{\mathrm{d}t} \ll 4\omega_0
+$$ {#eq-pendulum-wkbj-criterion}
+
+In other words, if @eq-pendulum-wkbj-criterion is satisfied, then the fractional change of the pendulum period per period is small.
+
+@eq-WKBJ-A indicates that when $\omega$ is time-dependent, the pendulum amplitude is not constant and so the pendulum energy is _not_ conserved. It turns out that what is conserved is the _action integral_
+$$
+S = \oint v\mathrm{d}x
+$$ {#eq-action-integral}
+where the integration is over one period of oscillation. This integral can also be written in terms of time as
+$$
+S = \int_{t_0}^{t_0+\tau} v\frac{\mathrm{d}x}{\mathrm{d}t}\mathrm{d}t
+$$
+where $t_0$ is a time when $x$ is at an instantaneous maximum and $\tau$, the period of a complete cycle, is defined as the interval between two successive times when $\mathrm{d}x/\mathrm{d}t = 0$ and $\mathrm{d}^2/\mathrm{d}t^2$ has the same sign (e.g., for a pendulum, $t_0$ would be a time when the pendulum has swung all the way to the right and so is reversing its velocity while $\tau$ is the time one has to wait for this to happen again). To show that action is conserved, @eq-action-integral can be integrated by parts as
+$$
+\begin{aligned}
+S &= \int_{t_0}^{t_0+\tau} \left[ \frac{\mathrm{d}}{\mathrm{d}t}\left( x\frac{\mathrm{d}x}{\mathrm{d}t} \right) - x\frac{\mathrm{d}^2 x}{\mathrm{d}t^2} \right]\mathrm{d}t \\
+&= \left[ x\frac{\mathrm{d}x}{\mathrm{d}t} \right]_{t_0}^{t_0+\tau} - \int_{t_0}^{t_0+\tau}x\frac{\mathrm{d}^2 x}{\mathrm{d}t^2}\mathrm{d}t \\
+&= \int_{t_0}^{t_0+\tau} \omega^2 x^2 \mathrm{d}t
+\end{aligned}
+$$
+where the integrated term has vanished by virtue of the definitions of $t_0$ and $\tau$, and @eq-pendulum has been used to substitute $\mathrm{d}^2 x/\mathrm{d}t^2$.
 
 ### The First Adiabatic Invariant
 
