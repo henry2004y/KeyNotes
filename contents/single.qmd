@@ -573,6 +573,114 @@ Therefore, $\Phi$ is constant if $\mu$ is constant.
 
 This property is used in a method of plasma heating known as *adiabatic compression*. A plasma is injected into a sequence of magnetic mirrors and by keep increasing the magnetic field in subsequent mirrors we can increase the plasma velocities.
 
+## Drifts in slowly changing arbitrary fields
+
+Most of the drift motion we have considered before can be described under one framework. Consider in arbitrarily complicated but slowly changing fields subject to the following restrictions:
+
+1. The time variation is so slow that the fields can be considered as approximately constant during each cyclotron period of the motion.
+2. The fields vary so _gradually_ in space that they are nearly uniform over the spatial extent of any single complete cyclotron drift.
+3. The electric and magnetic fields are related by Faraday's law $\nabla\times\mathbf{E}=-\dot{\mathbf{B}}$.
+4. $E/B\ll c$ so that relativistic effects are unimportant (otherwise there would be a problem with $v_E$ becoming faster than $c$.)
+
+In this more general situation a charged particle will gyrate about $\mathbf{B}$, stream parallel to $\mathbf{B}$, have $\mathbf{E}\times\mathbf{B}$ drifts across $\mathbf{B}$, and may also have force-based drifts. The analysis is based on the assumption that all these various motions are well-separated; this assumption is closely related to the requirement that the fields vary slowly and also to the concept of adiabatic invariant.
+
+The assumed separation of scales is expressed by decomposing the particle motion into a fast, oscillatory component --- the gyro-motion --- and a slow component obtained by averaging out the gyromotion. As sketched in @fig-drift-decomposition, the particle's position and velocity are each decomposed into two terms
+$$
+\mathbf{x}(t) = \mathbf{x}_\mathrm{gc}(t) + \mathbf{r}_L(t),\quad \mathbf{v}(t) = \frac{\mathrm{d}\mathbf{x}}{\mathrm{d}t} = \mathbf{v}_\mathrm{gc}(t) + \mathbf{v}_L(t)
+$$
+where $\mathbf{r}_L(t), \mathbf{v}_L(t)$ give the _fast_ gyration of the particle in a cyclotron orbit and $\mathbf{x}_\mathrm{gc}(t), \mathbf{v}_\mathrm{gc}(t)$ are the _slowly_ changing motion of the _guiding center_ obtained after averaging out the cyclotron motion. Ignoring any time dependence of the fields for now, the magnetic field seen by the particle can be written as
+$$
+\begin{aligned}
+\mathbf{B}(\mathbf{x}(t)) &= \mathbf{B}(\mathbf{x}_\mathrm{gc}(t)+\mathbf{r}_L(t)) \\
+&= \mathbf{B}(\mathbf{x}_\mathrm{gc}(t)) + (\mathbf{r}_L(t)\cdot\nabla)\mathbf{B}
+\end{aligned}
+$$
+
+Because $\mathbf{B}$ was assumed to be nearly uniform over the cyclotron orbit, it is sufficient to keep only the first term in the Taylor expansion of the magnetic field. The electric field may be expanded in a similar fashion.
+
+![Drift in an arbitrarily complicated field.](../images/drift_decomposition.png){#fig-drift-decomposition}
+
+After insertion of these Taylor expansions for the non-uniform electric and magnetic fields, the Lorentz equation becomes
+$$
+\begin{aligned}
+m\frac{\mathrm{d}\left[ \mathbf{v}_\mathrm{gc}(t) + \mathbf{v}_\mathrm{L}(t) \right]}{\mathrm{d}t} =& q\left[ \mathbf{E}(\mathbf{x}_\mathrm{gc}(t)) + (\mathbf{r}_L(t)\cdot\nabla)\mathbf{E} \right] \\
+& + q[ \mathbf{v}_\mathrm{gc}(t) + \mathbf{v}_\mathrm{L}(t) ] \times \left[ \mathbf{B}(\mathbf{x}_\mathrm{gc}(t)) + (\mathbf{r}_L(t)\cdot\nabla)\mathbf{B} \right]
+\end{aligned}
+$$
+
+The gyromotion (i.e. the fast cyclotron motion) is defined to be the solution of the equation
+$$
+m\frac{\mathrm{d}\mathbf{v}_\mathrm{L}(t)}{\mathrm{d}t} = q\mathbf{v}_\mathrm{L}(t)\times\mathbf{B}(\mathbf{x}_\mathrm{gc}(t))
+$$
+
+Substracting this fast motion equation from the prior one leaves
+$$
+\begin{aligned}
+m\frac{\mathrm{d}\mathbf{v}_\mathrm{gc}(t)}{\mathrm{d}t} =& q\left[ \mathbf{E}(\mathbf{x}_\mathrm{gc}(t)) + (\mathbf{r}_L(t)\cdot\nabla)\mathbf{E} \right] \\
+& + q \left\{ \mathbf{v}_\mathrm{gc}(t)\times\left[ \mathbf{B}(\mathbf{x}_\mathrm{gc}(t)) + (\mathbf{r}_L(t)\cdot\nabla)\mathbf{B} \right] + \mathbf{v}_\mathrm{L}(t)\times(\mathbf{r}_\mathrm{L}(t)\cdot\nabla)\mathbf{B} \right\}
+\end{aligned}
+$$ {#eq-lorentz-avg}
+
+Let us now average @eq-lorentz-avg over one gyroperiod in which case terms _linear_ in gyromotion average to zero. What remains is an equation describing the slow quantities, namely
+$$
+m\frac{\mathrm{d}\mathbf{v}_\mathrm{gc}(t)}{\mathrm{d}t} = q\left\{ \mathbf{E}(\mathbf{x}_\mathrm{gc}(t)) + \mathbf{v}_\mathrm{gc}(t)\times\mathbf{B}(\mathbf{x}_\mathrm{gc}(t)) + \left< \mathbf{v}_\mathrm{L}(t)\times(\mathbf{r}_\mathrm{L}\cdot\nabla)\mathbf{B} \right> \right\}
+$$ {#eq-lorentz-avg2}
+where $<>$ means averaged over a cyclotron period. The guiding center velocity can now be decomposed into components perpendicular and parallel to $\mathbf{B}$,
+$$
+\mathbf{v}_\mathrm{gc}(t) = \mathbf{v}_{\perp gc}(t) + v_{\parallel gc}(t)\hat{b}
+$$
+so that
+$$
+\frac{\mathrm{d}\mathbf{v}_\mathrm{gc}(t)}{\mathrm{d}t} = \frac{\mathrm{d}\mathbf{v}_{\perp\mathrm{gc}}(t)}{\mathrm{d}t} + \frac{\mathrm{d}\left(\mathbf{v}_{\parallel\mathrm{gc}}(t)\hat{b}\right)}{\mathrm{d}t} = \frac{\mathrm{d}\mathbf{v}_{\perp\mathrm{gc}}(t)}{\mathrm{d}t} + \frac{\mathrm{d}\mathbf{v}_{\parallel\mathrm{gc}}(t)}{\mathrm{d}t}\hat{b} + \mathbf{v}_{\parallel\mathrm{gc}}(t)\frac{\mathrm{d}\hat{b}}{\mathrm{d}t}
+$$
+
+Denoting the distance along the magnetic field by $s$, the derivative of the magnetic field unit vector can be written, to lowest order, as (???)
+$$
+\frac{\mathrm{d}\hat{b}}{\mathrm{d}t} = \frac{\partial\hat{b}}{\partial s}\frac{\mathrm{d}s}{\mathrm{d}t} = v_{\parallel gc}\hat{b}\cdot\nabla\hat{b}
+$$
+so @eq-lorentz-avg2 becomes
+$$
+\begin{aligned}
+m\left[ \frac{\mathrm{d}\mathbf{v}_{\perp\mathrm{gc}}(t)}{\mathrm{d}t} + \frac{\mathrm{d}\mathbf{v}_{\parallel\mathrm{gc}}(t)}{\mathrm{d}t}\hat{b} + \mathbf{v}_{\parallel\mathrm{gc}}^2(t)\hat{b}\cdot\nabla\hat{b} \right] =& q\mathbf{E}(\mathbf{x}_\mathrm{gc}(t)) \\
+& + q\mathbf{v}_\mathrm{gc}(t)\times\mathbf{B}(\mathbf{x}_\mathrm{gc}(t)) \\
+& + q\left< \mathbf{v}_\mathrm{L}(t)\times(\mathbf{r}_\mathrm{L}\cdot\nabla)\mathbf{B} \right>
+\end{aligned}
+$$
+
+The component of this equation along $\mathbf{B}$ is
+$$
+m \frac{\mathrm{d}\mathbf{v}_{\parallel\mathrm{gc}}(t)}{\mathrm{d}t} = q\left[ E_\parallel(\mathbf{x}_\mathrm{gc}(t)) + \left< \mathbf{v}_\mathrm{L}(t)\times(\mathbf{r}_\mathrm{L}\cdot\nabla)\mathbf{B} \right>_\parallel \right]
+$$
+while the component perpendicular to $\mathbf{B}$ is
+$$
+\begin{aligned}
+m\left[ \frac{\mathrm{d}\mathbf{v}_{\perp\mathrm{gc}}(t)}{\mathrm{d}t} + \mathbf{v}_{\parallel\mathrm{gc}}^2(t)\hat{b}\cdot\nabla\hat{b} \right] =& q\mathbf{E}_\perp(\mathbf{x}_\mathrm{gc}(t)) \\
+& + q\mathbf{v}_\mathrm{gc}(t)\times\mathbf{B}(\mathbf{x}_\mathrm{gc}(t)) \\
+& + q\left< \mathbf{v}_\mathrm{L}(t)\times(\mathbf{r}_\mathrm{L}\cdot\nabla)\mathbf{B} \right>_\perp
+\end{aligned}
+$$ {#eq-lorentz-perp}
+
+@eq-lorentz-perp is of the generic form
+$$
+m\frac{\mathrm{d}\mathbf{v}_{\perp gc}}{\mathrm{d}t} = \mathbf{F}_\perp + q\mathbf{v}_\mathrm{gc}\times\mathbf{B}
+$$
+where
+$$
+\mathbf{F}_\perp = q\left[ \mathbf{E}_\perp(\mathbf{x}_\mathrm{gc}(t)) + \left< \mathbf{v}_\mathrm{L}(t)\times(\mathbf{r}_\mathrm{L}\cdot\nabla)\mathbf{B} \right>_\perp \right] - m\mathbf{v}_{\parallel\mathrm{gc}}^2(t)\hat{b}\cdot\nabla\hat{b}
+$$
+
+A non-relativistic equation for the guiding center is given by Northrop in 1963:
+$$
+\frac{\mathrm{d}\mathbf{R}}{\mathrm{d}t} = v_\parallel\hat{b} + \frac{\hat{b}}{B}\times \Big[ -\mathbf{E} + \frac{m}{q}\Big( v_\parallel\frac{\mathrm{d}\hat{b}}{\mathrm{d}t} + \frac{\mathrm{d}\mathbf{v}_{E\times B}}{\mathrm{d}t} \Big) + \frac{\mu}{q}\nabla B \Big]
+$$
+
+and the parallel motion can be described by (???)
+$$
+\frac{\mathrm{d}(mv_\parallel)}{\mathrm{d}t} = m\mathbf{u}_q E_\parallel - \mu\hat{b}\cdot\nabla B
+$$
+
+By applying the guiding center approximation, we reduce the number of independent variables from 6 $(x,y,z,v_x,v_y,v_z)$ to 5 $(x,y,z,v_\perp, v_\parallel)$.
+
 ## Summary of Guiding Center Drifts
 
 General force:
@@ -616,18 +724,6 @@ Polarization drift:
 $$
 \mathbf{v}_p = \pm \frac{1}{\omega_c B}\frac{\mathrm{d}\mathbf{E}}{\mathrm{d}t}
 $$
-
-A non-relativistic equation for the guiding center is given by Northrop in 1963:
-$$
-\frac{\mathrm{d}\mathbf{R}}{\mathrm{d}t} = v_\parallel\hat{b} + \frac{\hat{b}}{B}\times \Big[ -\mathbf{E} + \frac{m}{q}\Big( v_\parallel\frac{\mathrm{d}\hat{b}}{\mathrm{d}t} + \frac{\mathrm{d}\mathbf{v}_{E\times B}}{\mathrm{d}t} \Big) + \frac{\mu}{q}\nabla B \Big]
-$$
-
-and the parallel motion can be described by (???)
-$$
-\frac{\mathrm{d}(mv_\parallel)}{\mathrm{d}t} = m\mathbf{u}_q E_\parallel - \mu\hat{b}\cdot\nabla B
-$$
-
-By applying the guiding center approximation, we reduce the number of independent variables from 6 $(x,y,z,v_x,v_y,v_z)$ to 5 $(x,y,z,v_\perp, v_\parallel)$.
 
 ## Adiabatic Invariants {#sec-adiabatic-invariant}
 
