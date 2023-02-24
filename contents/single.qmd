@@ -663,20 +663,38 @@ $$ {#eq-lorentz-perp}
 @eq-lorentz-perp is of the generic form
 $$
 m\frac{\mathrm{d}\mathbf{v}_{\perp gc}}{\mathrm{d}t} = \mathbf{F}_\perp + q\mathbf{v}_\mathrm{gc}\times\mathbf{B}
-$$
+$$ {#eq-lorentz-perp2}
 where
 $$
 \mathbf{F}_\perp = q\left[ \mathbf{E}_\perp(\mathbf{x}_\mathrm{gc}(t)) + \left< \mathbf{v}_\mathrm{L}(t)\times(\mathbf{r}_\mathrm{L}\cdot\nabla)\mathbf{B} \right>_\perp \right] - m\mathbf{v}_{\parallel\mathrm{gc}}^2(t)\hat{b}\cdot\nabla\hat{b}
 $$
 
-A non-relativistic equation for the guiding center is given by Northrop in 1963:
+@eq-lorentz-perp2 is solved iteratively based on the assumption that $\mathbf{v}_\mathrm{gc}$ has a slow time dependence. In the first iteration, the time dependence is neglected altogether so that the left-hand side of @eq-lorentz-perp2 is set to zero to obtain the "first guess" for the perpendicular drift to be
 $$
-\frac{\mathrm{d}\mathbf{R}}{\mathrm{d}t} = v_\parallel\hat{b} + \frac{\hat{b}}{B}\times \Big[ -\mathbf{E} + \frac{m}{q}\Big( v_\parallel\frac{\mathrm{d}\hat{b}}{\mathrm{d}t} + \frac{\mathrm{d}\mathbf{v}_{E\times B}}{\mathrm{d}t} \Big) + \frac{\mu}{q}\nabla B \Big]
+\mathbf{v}_{\perp gc}\simeq \mathbf{v}_\mathrm{F} \equiv \frac{\mathbf{F}_\perp\times\mathbf{B}}{qB^2}
 $$
 
-and the parallel motion can be described by (???)
+Nest, $\mathbf{v}_p$ is defined to be a correction to this first guess, where $\mathbf{v}_p$ is assumed small and incorporates effects due to any time dependence of $\mathbf{v}_{\perp gc}$. To determine $\mathbf{v}_p$, we write $\mathbf{v}_{\perp gc} = \mathbf{v}_F +\mathbf{v}_p$ so, to second order @eq-lorentz-perp2 becomes
 $$
-\frac{\mathrm{d}(mv_\parallel)}{\mathrm{d}t} = m\mathbf{u}_q E_\parallel - \mu\hat{b}\cdot\nabla B
+m\frac{\mathrm{d}(\mathbf{v}_\mathrm{F}+\mathbf{v}_p)}{\mathrm{d}t} = \mathbf{F}_\perp + q(\mathbf{v}_\mathrm{F} + \mathbf{v}_\mathrm{p})\times\mathbf{B}
+$$ {#eq-lorentz-perp3}
+
+In accordance with the slowness condition, it is assumed that $|\mathrm{d}\mathbf{v}_p/\mathrm{d}t| \ll |\mathrm{d}\mathbf{v}_\mathrm{F}/\mathrm{d}t|$ so @eq-lorentz-perp3 becomes
+$$
+0 = -m\frac{\mathrm{d}\mathbf{v}_F}{\mathrm{d}t} + q\mathbf{v}_p \times\mathbf{B}
+$$
+
+Crossing this equation with $\mathbf{B}$ gives the general _polarization drift_
+$$
+\mathbf{v}_p = -\frac{m}{qB^2}\frac{\mathrm{d}\mathbf{v}_F}{\mathrm{d}t}\times\mathbf{B}
+$$
+
+The most important example of the polarization drift is when $\mathbf{v}_F$ is the $\mathbf{E}\times\mathbf{B}$ drift in a uniform, constant magnetic field so that ($\mathbf{E}\perp\mathbf{B}$?)
+$$
+\begin{aligned}
+\mathbf{v}_p &= -\frac{m}{qB^2}\frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{\mathbf{E}\times\mathbf{B}}{B^2} \right)\times\mathbf{B} \\
+&= \frac{m}{qB^2}\frac{\mathrm{d}\mathbf{E}}{\mathrm{d}t}
+\end{aligned}
 $$
 
 By applying the guiding center approximation, we reduce the number of independent variables from 6 $(x,y,z,v_x,v_y,v_z)$ to 5 $(x,y,z,v_\perp, v_\parallel)$.
