@@ -10,7 +10,11 @@ Furthermore, study of single particle dynamics has a very direct relevance to Vl
 
 Finally, the study of single particle motion develops valuable intuition regarding wave–particle interactions and identifies certain unusual situations, such as stochastic or non-adiabatic particle motion, that are beyond the descriptive capability of fluid models.
 
-Here we assume that the EM fields are prescribed and not affected by the charged particles. The associated approach is often called _test particle_.
+Here we assume that the EM fields are prescribed and not affected by the charged particles. The associated approach is often called _test particle_. Alternatively, we can say that it is possible to deduce intuitive and quite accurate analytic solutions for the drift of charged particles in arbitrarily complicated electric and magnetic fields provided the field are _slowly changing in both space and time_(this requirement is essentially the slowness requirement for adiabatic invariance introduced in @sec-adiabatic-invariant). Drift solutions are obtained by solving the Lorentz equation
+$$
+m\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = q\left( \mathbf{E}+\mathbf{v}\times\mathbf{B} \right)
+$$
+iteratively, taking advantage of the assumed separation of scales between fast and slow motions.
 
 ## Uniform E and B Fields
 
@@ -78,7 +82,7 @@ This describes a circular orbit about a *guiding center* ($x_0, y_0$) which is f
 
 ### Finite E
 
-If now we allow an electric field to be present, the motion will be found to be the sum of two motions: the usual circular Larmor gyration plus a drift of the guiding center. We may choose $\mathbf{E}$ to lie in the x-z plane so that $E_y = 0$. As before, the z component of velocity is unrelated to the transverse components and can be treated separately. The equations of motion is now
+If now we allow an electric field to be present, the motion will be found to be the sum of two motions: the usual circular Larmor gyration plus a drift of the guiding center. The assumed spatial uniformity and time-independence of the fields represent the extreme limit of assuming that the fields are slowly changing in space and time. We may choose $\mathbf{E}$ to lie in the x-z plane so that $E_y = 0$. As before, the z component of velocity is unrelated to the transverse components and can be treated separately. The equations of motion is now
 $$
 m\dot{\mathbf{v}} = q( \mathbf{E} + \mathbf{v}\times\mathbf{B} )
 $$
@@ -141,9 +145,9 @@ $$
 v_E = \frac{E(\text{V/m})}{B(\text{tesla})}\frac{\text{m}}{\text{sec}}
 $$
 
-It is important to note that $\mathbf{v}_E$ is independent of q, m, and $v_\perp$. The reason is obvious from the following physical picture. In the first half-cycle of the ion’s orbit, it gains energy from the electric field and increases in $v_\perp$ and, hence, in $r_L$. In the second half-cycle, it loses energy and decreases in $r_L$. This difference in $r_L$ on the left and right sides of the orbit causes the drift $v_E$. A negative electron gyrates in the opposite direction but also gains energy in the opposite direction; it ends up drifting in the same direction as an ion. For particles of the same velocity but different mass, the lighter one will have smaller $r_L$ and hence drift less per cycle. However, its gyration frequency is also larger, and the two effects exactly cancel. Two particles of the same mass but different energy would have the same $\omega_c$. The slower one will have smaller $r_L$ and hence gain less energy from $\mathbf{E}$ in a half-cycle. However, for less energetic particles the fractional change in $r_L$ for a given change in energy is larger, and these two effects cancel.
+It is important to note that $\mathbf{v}_E$ is independent of q, m, and $v_\perp$. The reason is obvious from the following physical picture. In the first half-cycle of the ion's orbit, it gains energy from the electric field and increases in $v_\perp$ and, hence, in $r_L$. In the second half-cycle, it loses energy and decreases in $r_L$. This difference in $r_L$ on the left and right sides of the orbit causes the drift $v_E$. A negative electron gyrates in the opposite direction but also gains energy in the opposite direction; it ends up drifting in the same direction as an ion. For particles of the same velocity but different mass, the lighter one will have smaller $r_L$ and hence drift less per cycle. However, its gyration frequency is also larger, and the two effects exactly cancel. Two particles of the same mass but different energy would have the same $\omega_c$. The slower one will have smaller $r_L$ and hence gain less energy from $\mathbf{E}$ in a half-cycle. However, for less energetic particles the fractional change in $r_L$ for a given change in energy is larger, and these two effects cancel. Another way of interpreting this behavior is to recall that according to the theory of special relativity the electric field $\mathbf{E}^\prime$ observed in a frame moving with velocity $\mathbf{u}$ is $\mathbf{E}^\prime = \mathbf{E}+\mathbf{u}\times\mathbf{B}$ and so $\mathbf{v}_E$ is simply a statement that a particle drifts in such a way to ensure that the electric field seen in its own frame vanishes.
 
-The three-dimensional orbit in space is therefore a slanted helix with changing pitch.
+The three-dimensional orbit in space for a charged particle with a nonzero initial velocity is therefore a slanted helix with changing pitch.
 
 ### Gravitational Field {#sec-gravity_field}
 
@@ -162,7 +166,20 @@ $$
 \mathbf{j} = n(m_i+m_e)\frac{\mathbf{g}\times\mathbf{B}}{B^2}
 $$
 
-The physical reason for this drift is again the change in Larmor radius as the particle gains and loses energy in the gravitational field. Now the electrons gyrate in the opposite sense to the ions, but the force on them is in the same direction, so the drift is in the opposite direction. The magnitude of $\mathbf{v}_g$ is usually negligible, but when the lines of force (i.e. magnetic field lines) are curved, there is an effective gravitational force due to centrifugal force. This force, which is not negligible, is independent of mass; this is why we did not stress the m dependence of the drift here. Centrifugal force is the basis of a plasma instability called the “gravitational” instability, which has nothing to do with real gravity.
+The physical reason for this drift is again the change in Larmor radius as the particle gains and loses energy in the gravitational field. Now the electrons gyrate in the opposite sense to the ions, but the force on them is in the same direction, so the drift is in the opposite direction. The magnitude of $\mathbf{v}_g$ is usually negligible, but when the lines of force (i.e. magnetic field lines) are curved, there is an effective gravitational force due to centrifugal force. This force, which is not negligible, is independent of mass; this is why we did not stress the m dependence of the drift here. Centrifugal force is the basis of a plasma instability called the "gravitational" instability, which has nothing to do with real gravity.
+
+And now it shall be clear that the $\mathbf{E}\times\mathbf{B}$ drift analysis can be easily generalized to describe the effect on a charged particle of any force orthogonal to $\mathbf{B}$ by simply making the replacement $\mathbf{E}\rightarrow\mathbf{F}/q$ in the Lorentz equation. Thus, any spatially uniform, temporally constant force orthogonal to $\mathbf{B}$ will cause a drift
+$$
+\mathbf{v}_F = \frac{\mathbf{F}\times\mathbf{B}}{qB^2}
+$$
+which leads to two counter-intuitive and important conclusions:
+
+1. A steady-state electric field perpendicular to a magnetic field does not drive currents in a plasma, but instead causes a bulk motion of the entire plasma across the magnetic field with the velocity $\mathbf{v}_E$.
+
+2. A steady-state force (e.g., gravity, centrifugal force, etc.) perpendicular to the magnetic field causes oppositely directed motions for electrons and ions and so drives a cross-field current
+$$
+\mathbf{j}_F = \sum_\sigma n_\sigma \frac{\mathbf{F}\times\mathbf{B}}{B^2}
+$$
 
 ## Nonuniform B Field
 
@@ -612,7 +629,7 @@ $$
 
 By applying the guiding center approximation, we reduce the number of independent variables from 6 $(x,y,z,v_x,v_y,v_z)$ to 5 $(x,y,z,v_\perp, v_\parallel)$.
 
-## Adiabatic Invariants
+## Adiabatic Invariants {#sec-adiabatic-invariant}
 
 It is well known in classical mechanics that whenever a system has a periodic motion, the action integral $\oint p dq$ taken over a period is a constant of the motion. Here $p$ and $q$ are the generalized momentum and coordinate which repeat themselves in the motion. If a slow change is made in the system, so that the motion is not quite periodic, the constant of the motion does not change and is then called an *adiabatic invariant*. By slow here we mean slow compared with the period of motion, so that the integral $\oint p dq$ is well defined even though it is strictly no longer an integral over a closed path. Adiabatic invariants play an important role in plasma physics; they allow us to obtain simple answers in many instances involving complicated motions. There are three adiabatic invariants, each corresponding to a different type of periodic motion.
 
@@ -826,8 +843,7 @@ $$ {#eq-hamilton-time-derivative}
 since the first two terms canceled due to Hamilton's equations. Substitution of @eq-hamilton-time-derivative into
 @eq-action-integral-time-derivative2 gives $\mathrm{d}S/\mathrm{d}t=0$, completing the proof of adiabatic invariance. No assumption has been made here that $P,Q$ are close to the values associated with an extremum of $H$.
 
-This proof seems too neat, because it has established adiabatic invariance simply by careful use of the chain rule, and by taking partial derivatives. However, this observation reveals the underlying essence of adiabaticity, namely it is the differentiability of $H, P$ with respect to $\lambda$ from one period to the next and the Hamilton nature of the system, which together provide the conditions for the adiabatic invariant to exist. If the motion had been such that after one cycle the motion had changed so drastically that taking a derivative of $H$ or $P$ with respect
-to would not make sense, then the adiabatic invariant would not exist.
+This proof seems too neat, because it has established adiabatic invariance simply by careful use of the chain rule, and by taking partial derivatives. However, this observation reveals the underlying essence of adiabaticity, namely it is the differentiability of $H, P$ with respect to $\lambda$ from one period to the next and the Hamilton nature of the system, which together provide the conditions for the adiabatic invariant to exist. If the motion had been such that after one cycle the motion had changed so drastically that taking a derivative of $H$ or $P$ with respect to would not make sense, then the adiabatic invariant would not exist.
 
 ### The First Adiabatic Invariant
 
