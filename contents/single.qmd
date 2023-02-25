@@ -667,7 +667,7 @@ $$ {#eq-lorentz-perp2}
 where
 $$
 \mathbf{F}_\perp = q\left[ \mathbf{E}_\perp(\mathbf{x}_\mathrm{gc}(t)) + \left< \mathbf{v}_\mathrm{L}(t)\times(\mathbf{r}_\mathrm{L}\cdot\nabla)\mathbf{B} \right>_\perp \right] - m\mathbf{v}_{\parallel\mathrm{gc}}^2(t)\hat{b}\cdot\nabla\hat{b}
-$$
+$$ {#eq-lorentz-perp3}
 
 @eq-lorentz-perp2 is solved iteratively based on the assumption that $\mathbf{v}_\mathrm{gc}$ has a slow time dependence. In the first iteration, the time dependence is neglected altogether so that the left-hand side of @eq-lorentz-perp2 is set to zero to obtain the "first guess" for the perpendicular drift to be
 $$
@@ -696,6 +696,46 @@ $$
 &= \frac{m}{qB^2}\frac{\mathrm{d}\mathbf{E}}{\mathrm{d}t}
 \end{aligned}
 $$
+
+To calculate the middle term on the RHS of @eq-lorentz-perp3, it is necessary to average over cyclotron orbits. This middle term is defined as the "grad B" force
+$$
+\mathbf{F}_{\nabla B} = q\left< \mathbf{v}_L(t)\times(\mathbf{r}_L(t)\cdot\nabla)\mathbf{B} \right>
+$$ {#eq-grad-B-force}
+
+To simplify the algebra for the averaging, a local Cartesian coordinate system is used with $x$ axis in the direction of the gyrovelocity at $t=0$ and $z$ axis in the direction of the magnetic field at the _gyrocenter_. Thus, the Larmor orbit velocity has the form
+$$
+\mathbf{v}_L(t) = v_{L0}\left[ \hat{x}\cos\omega_c t -\hat{y}\sin\omega_c t \right]
+$$
+where
+$$
+\omega_c = \frac{qB}{m}
+$$
+is the cyclotron frequency we know before and the Larmor orbit position has the form
+$$
+\mathbf{r}_L(t) = \frac{v_{L0}}{\omega_c}\left[ \hat{x}\sin\omega_c t +\hat{y}\cos\omega_c t \right]
+$$
+
+Inserting the above two expressions in @eq-grad-B-force gives
+$$
+\mathbf{F}_{\nabla B} = q\frac{v_{L0}^2}{\omega_c} \left<\left[ \hat{x}\cos\omega_c t -\hat{y}\sin\omega_c t \right]\times(\left[ \hat{x}\sin\omega_c t +\hat{y}\cos\omega_c t \right]\cdot\nabla)\mathbf{B} \right>
+$$
+
+Noting that $\left< \sin^2\omega_c t \right> = \left< \cos^2\omega_c t \right> = 1/2$ while $\left< \sin\omega_c\cos\omega_c \right> = 0$, this reduces to
+$$
+\begin{aligned}
+\mathbf{F}_{\nabla B} &= \frac{qv_{L0}^2}{2\omega_c}\left[ \hat{x}\times\frac{\partial\mathbf{B}}{\partial y} - \hat{y}\times\frac{\partial\mathbf{B}}{\partial x} \right] \\
+&= \frac{mv_{L0}^2}{2B}\left[ \hat{x}\times\frac{\partial(B_y\hat{y}+B_z\hat{z})}{\partial y} - \hat{y}\times\frac{\partial(B_x\hat{x}+B_z\hat{z})}{\partial x} \right] \\
+&= \frac{mv_{L0}^2}{2B}\left[ \hat{z}\left( \frac{\partial B_y}{\partial y} + \frac{\partial B_x}{\partial x} \right) -\hat{y}\frac{\partial B_z}{\partial y} - \hat{x}\frac{\partial B_z}{\partial x} \right]
+\end{aligned}
+$$
+
+But from $\nabla\cdot\mathbf{B}=0$, it is seen that $\frac{\partial B_y}{\partial y} + \frac{\partial B_x}{\partial x} = -\frac{\partial B_z}{\partial z}$ so the "grad B" force is
+$$
+\mathbf{F}_{\nabla B} = -\frac{mv_{L0}^2}{2B}\nabla B
+$$
+where the approximation $B_z\simeq B$ has been used since the magnetic field direction is mainly in the $\hat{z}$ direction.
+
+
 
 By applying the guiding center approximation, we reduce the number of independent variables from 6 $(x,y,z,v_x,v_y,v_z)$ to 5 $(x,y,z,v_\perp, v_\parallel)$.
 
