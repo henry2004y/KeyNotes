@@ -534,53 +534,44 @@ f_{ce}\simeq 28\,\text{GHz/T}
 <section id="es-vs.-em-waves" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="es-vs.-em-waves"><span class="header-section-number">7.4</span> ES vs.&nbsp;EM Waves</h2>
 <p>A practical way to distinguish ES and EM waves is to check <span class="math inline">\(\nabla\times\mathbf{E}\)</span> and <span class="math inline">\(\nabla\cdot\mathbf{E}\)</span>, where <span class="math inline">\(\mathbf{E}\)</span> is the electric field of the wave: * If the curvature is relatively small and the divergence is relatively large, then it is likely to be ES. * Otherwise it is likely to be EM.</p>
-<p>As we will see in <a href="#sec-CPDR"><span>Section&nbsp;7.5</span></a>, the dielectric function is defined in <a href="#eq-d_e_relation">Equation&nbsp;<span>7.4</span></a>. From other perspectives, the dielectric function shows up in the Ampère’s law as well as the Poisson’s equation</p>
-<p><span class="math display">\[
+<p>As we will see in <a href="#sec-CPDR"><span>Section&nbsp;7.5</span></a>, the dielectric function is defined in <a href="#eq-d_e_relation">Equation&nbsp;<span>7.4</span></a>. From other perspectives, the dielectric function shows up in the Ampère’s law as well as the Poisson’s equation <span class="math display">\[
 \begin{aligned}
 \nabla\times\mathbf{B}=\mu_0\mathbf{j}+\mu_0\epsilon_0\frac{\partial\mathbf{E}}{\partial t}&amp;\equiv\mu_0\pmb{\epsilon}\cdot\frac{\partial \mathbf{E}}{\partial t} \\
 \nabla\cdot(\mathbf{\epsilon_0 \mathbf{E}_1}) + q_j n_j \equiv\nabla\cdot(\pmb{\epsilon}\cdot\mathbf{E}_1) &amp;= 0
 \end{aligned}
 \]</span></p>
-<p>Let us consider waves in an <em>isotropic</em> plasma. For isotropic plasmas, the dielectric tensor <span class="math inline">\(\pmb{\epsilon}\)</span> shrinks to a scalar <span class="math inline">\(\epsilon\)</span>. For cold plasma (static ion background), the dielectric function is</p>
-<p><span class="math display">\[
+<p>Let us consider waves in an <em>isotropic</em> plasma. For isotropic plasmas, the dielectric tensor <span class="math inline">\(\pmb{\epsilon}\)</span> shrinks to a scalar <span class="math inline">\(\epsilon\)</span>. For cold plasma (static ion background), the dielectric function is <span class="math display">\[
 \frac{\epsilon}{\epsilon_0}=1-\frac{{\omega_{pe}}^2}{\omega^2}
 \]</span></p>
-<p>For electrostatic (ES) waves, let <span class="math inline">\(\epsilon=0\)</span>, we have</p>
-<p><span class="math display">\[
+<p>For electrostatic (ES) waves, let <span class="math inline">\(\epsilon=0\)</span>, we have <span class="math display">\[
 \omega=\pm\omega_{pe}
 \]</span></p>
-<p>For electromagnetic (EM) waves, from Maxwell’s equations we have</p>
-<p><span class="math display">\[
+<p>For electromagnetic (EM) waves, from Maxwell’s equations we have <span class="math display">\[
 \begin{aligned}
 \nabla\times\mathbf{E}&amp;=-\frac{\partial \mathbf{B}}{\partial t}, \\
 \nabla\times\mathbf{B}&amp;=\mu_0\mathbf{j}+\mu_0\epsilon_0\frac{\partial\mathbf{E}}{\partial t}\equiv\mu_0\epsilon\frac{\partial \mathbf{E}}{\partial t}.
 \end{aligned}
 \]</span></p>
-<p>With <span class="math inline">\(\nabla\rightarrow i\mathbf{k},\ \partial/\partial t\rightarrow -i\omega\)</span>, we can get the dispersion relation</p>
-<p><span class="math display">\[
+<p>With <span class="math inline">\(\nabla\rightarrow i\mathbf{k},\ \partial/\partial t\rightarrow -i\omega\)</span>, we can get the dispersion relation <span class="math display">\[
 \begin{aligned}
 i\mathbf{k}\times\mathbf{E}&amp;=i\omega \mathbf{B} \\
 i\mathbf{k}\times\mathbf{B}&amp;=-i\mu_0\epsilon\omega\mathbf{E} \\
 \Rightarrow k^2\mathbf{E}-\cancel{(\mathbf{k}\cdot\mathbf{E})\mathbf{k}}&amp;=\omega^2 \mu_0\epsilon \mathbf{E}.
 \end{aligned}
 \]</span></p>
-<p>If <span class="math inline">\(\mathbf{k}\perp\mathbf{E}\)</span>, by substituting the dielectric function inside we have</p>
-<p><span class="math display">\[
+<p>If <span class="math inline">\(\mathbf{k}\perp\mathbf{E}\)</span>, by substituting the dielectric function inside we have <span class="math display">\[
 \begin{aligned}
 k^2=\omega^2 \epsilon\mu_0=\omega^2\epsilon_0\mu_0\Big[ 1-\frac{{\omega_{pe}}^2}{\omega^2}\Big] \nonumber \\
 \Rightarrow \omega^2=k^2c^2+{\omega_{pe}}^2.
 \end{aligned}
 \]</span></p>
 <p>For both waves, <span class="math inline">\(\nabla\cdot(\epsilon\mathbf{E}_1)=0\Rightarrow i\epsilon(\mathbf{k}\cdot\mathbf{E}_1)=0\)</span> is always valid. However, for electrostatic wave, <span class="math inline">\(\mathbf{E}_1=-\nabla\phi_1=-i\mathbf{k}\phi_1\Rightarrow \mathbf{k}\parallel \mathbf{E}_1\Rightarrow \epsilon=0\)</span>, while for EM wave, usually <span class="math inline">\(\mathbf{k}\perp\mathbf{E}_1\)</span> (<span class="math inline">\(\mathbf{k}\perp\mathbf{E}_1 \Rightarrow\)</span> EM wave, but EM waves do not necessarily need to be transverse. You can always add a component of <span class="math inline">\(\mathbf{E}_1\)</span> parallel to <span class="math inline">\(\mathbf{k}\)</span> without changing <span class="math inline">\(\mathbf{B}_1\)</span>), <span class="math inline">\(\epsilon\)</span> does not need to be zero. Therefore, <em>getting the dispersion relation by setting <span class="math inline">\(\epsilon\)</span> to 0 is only valid for isotropic ES waves</em>. For EM waves, there’s a systematic way to get all the dispersion relations starting from dielectric function, explained in detail in <a href="#sec-CPDR"><span>Section&nbsp;7.5</span></a>. Here we just have a simple summary of the steps.</p>
-<p>From Maxwell’s equation for the perturbed field,</p>
-<p><span class="math display">\[
+<p>From Maxwell’s equation for the perturbed field, <span class="math display">\[
 \begin{aligned}
 \nabla\times\mathbf{E}_1 &amp;= -\mu_0\frac{\partial \mathbf{H}_1}{\partial t} \\
 \nabla\times\mathbf{H}_1 &amp;= \mathbf{J}_1 +\epsilon_0\frac{\partial \mathbf{E}_1}{\partial t}
 \end{aligned}
-\]</span></p>
-<p>where we have assumed</p>
-<p><span class="math display">\[
+\]</span> where we have assumed <span class="math display">\[
 \begin{Bmatrix}
 \mathbf{E}_1(\mathbf{x},t) \\ \mathbf{H}_1(\mathbf{x},t)
 \end{Bmatrix}  = \Re
@@ -589,26 +580,21 @@ k^2=\omega^2 \epsilon\mu_0=\omega^2\epsilon_0\mu_0\Big[ 1-\frac{{\omega_{pe}}^2}
 \tilde{\mathbf{H}_1}e^{i\mathbf{k}\cdot\mathbf{x}-i\omega t}
 \end{Bmatrix}
 \]</span></p>
-<p>It quickly follows that</p>
-<p><span class="math display">\[
+<p>It quickly follows that <span class="math display">\[
 \begin{aligned}
 \mathbf{k}\times\mathbf{E}_1 &amp;= \mu_0 \omega \mathbf{H}_1 \\
 i\mathbf{k}\times\mathbf{H}_1 &amp;= i\mathbf{k}\times\Big( \frac{\mathbf{k}\times\mathbf{E}_1}{\mu_0 \omega}\Big) = \mathbf{J}_1 - \epsilon_0 i\omega\mathbf{E}_1
 \end{aligned}
 \]</span></p>
-<p>Then there comes the wave equation</p>
-<p><span class="math display">\[
+<p>Then there comes the wave equation <span class="math display">\[
 \mathbf{k}\times(\mathbf{k}\times\mathbf{E}_1) = \mathbf{k}(\mathbf{k}\cdot\mathbf{E}_1) - k^2\mathbf{E}_1 =  -i\omega \mu_0 \mathbf{J}_1 -\frac{\omega^2}{c^2}\mathbf{E}_1 \equiv -\frac{\omega^2}{c^2}\frac{\epsilon}{\epsilon_0}\mathbf{E}_1
 \]</span></p>
-<p>If we can express the total current density as a function of perturbed electric field, <span class="math inline">\(\mathbf{J}_1 = \mathbf{J}_1(\mathbf{E}_1)\)</span>, from MHD, 2-fluid, or Vlasov model combining with the property of the media, we can obtain the expression for the dielectric function <span class="math inline">\(\epsilon\)</span>. With some effort, we get</p>
-<p><span class="math display">\[
+<p>If we can express the total current density as a function of perturbed electric field, <span class="math inline">\(\mathbf{J}_1 = \mathbf{J}_1(\mathbf{E}_1)\)</span>, from MHD, 2-fluid, or Vlasov model combining with the property of the media, we can obtain the expression for the dielectric function <span class="math inline">\(\epsilon\)</span>. With some effort, we get <span class="math display">\[
 \mathbf{A}
 \begin{pmatrix}
 E_{1x} \\ E_{1y} \\ E_{1z}
 \end{pmatrix} = 0
-\]</span></p>
-<p>from which the condition for non-trivial solutions leads to</p>
-<p><span class="math display">\[
+\]</span> from which the condition for non-trivial solutions leads to <span class="math display">\[
 \det{A} = 0 \Rightarrow
 \begin{cases}
 \text{eigenvalue for } \omega = \omega(\mathbf{k}) \\
@@ -619,78 +605,59 @@ E_{1x} \\ E_{1y} \\ E_{1z}
 <section id="sec-CPDR" class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="sec-CPDR"><span class="header-section-number">7.5</span> Cold Uniform Plasma</h2>
 <p>As long as <span class="math inline">\(T_e = T_i = 0\)</span>, the linear plasma waves can easily be generalized to an arbitrary number of charged particle species and an arbitrary angle of propagation <span class="math inline">\(\theta\)</span> relative to the magnetic field. Waves that depend on finite <span class="math inline">\(T\)</span>, such as ion acoustic waves, are not included in this treatment. The derivations go back to late 1920s when Appleton and Wilhelm Altar first calculated the cold plasma dispersion relation (CPDR).</p>
-<p>First, we define the dielectric tensor of a plasma as follows. The fourth Maxwell equation is</p>
-<p><span class="math display">\[
+<p>First, we define the dielectric tensor of a plasma as follows. The fourth Maxwell equation is <span class="math display">\[
 \nabla\times\mathbf{B} = \mu_0(\mathbf{j} + \epsilon_0\dot{\mathbf{E}})
 \]</span></p>
-<p>where <span class="math inline">\(\mathbf{j}\)</span> is the plasma current due to the motion of the various charged particle species <span class="math inline">\(s\)</span>, with density <span class="math inline">\(n_s\)</span>, charge <span class="math inline">\(q_s\)</span>, and velocity <span class="math inline">\(\mathbf{v}_s\)</span>:</p>
-<p><span id="eq-ampere"><span class="math display">\[
+<p>where <span class="math inline">\(\mathbf{j}\)</span> is the plasma current due to the motion of the various charged particle species <span class="math inline">\(s\)</span>, with density <span class="math inline">\(n_s\)</span>, charge <span class="math inline">\(q_s\)</span>, and velocity <span class="math inline">\(\mathbf{v}_s\)</span>: <span id="eq-ampere"><span class="math display">\[
 \mathbf{j} = \sum_s n_s q_s\mathbf{v}_s
 \tag{7.2}\]</span></span></p>
-<p>Considering the plasma to be a dielectric with internal currents <span class="math inline">\(\mathbf{j}\)</span>, we may write <a href="#eq-ampere">Equation&nbsp;<span>7.2</span></a> as</p>
-<p><span class="math display">\[
+<p>Considering the plasma to be a dielectric with internal currents <span class="math inline">\(\mathbf{j}\)</span>, we may write <a href="#eq-ampere">Equation&nbsp;<span>7.2</span></a> as <span class="math display">\[
 \nabla\times\mathbf{B} = \mu_0\dot{\mathbf{D}}
-\]</span></p>
-<p>where</p>
-<p><span id="eq-electric_displacement_field"><span class="math display">\[
+\]</span> where <span id="eq-electric_displacement_field"><span class="math display">\[
 \mathbf{D} = \epsilon_0 \mathbf{E} + \frac{i}{\omega}\mathbf{j}
-\tag{7.3}\]</span></span></p>
-<p>is the <strong>electric displacement field</strong> or <strong>electric induction</strong>. It accounts for the effects of <em>bound charge within materials</em> (i.e.&nbsp;plasma). Here we have assumed an <span class="math inline">\(\exp(-i\omega t)\)</span> dependence for all plasma motions. Let the current <span class="math inline">\(\mathbf{j}\)</span> be proportional to <span class="math inline">\(\mathbf{E}\)</span> but not necessarily in the same direction (because of the magnetic field <span class="math inline">\(B_0\hat{\mathbf{z}}\)</span>); we may then define a conductivity tensor <span class="math inline">\(\pmb{\sigma}\)</span> by the relation</p>
-<p><span class="math display">\[
+\tag{7.3}\]</span></span> is the <strong>electric displacement field</strong> or <strong>electric induction</strong>. It accounts for the effects of <em>bound charge within materials</em> (i.e.&nbsp;plasma). Here we have assumed an <span class="math inline">\(\exp(-i\omega t)\)</span> dependence for all plasma motions. Let the current <span class="math inline">\(\mathbf{j}\)</span> be proportional to <span class="math inline">\(\mathbf{E}\)</span> but not necessarily in the same direction (because of the magnetic field <span class="math inline">\(B_0\hat{\mathbf{z}}\)</span>); we may then define a conductivity tensor <span class="math inline">\(\pmb{\sigma}\)</span> by the relation <span class="math display">\[
 \mathbf{j} = \pmb{\sigma}\cdot\mathbf{E}
 \]</span></p>
-<p><a href="#eq-electric_displacement_field">Equation&nbsp;<span>7.3</span></a> becomes</p>
-<p><span id="eq-d_e_relation"><span class="math display">\[
+<p><a href="#eq-electric_displacement_field">Equation&nbsp;<span>7.3</span></a> becomes <span id="eq-d_e_relation"><span class="math display">\[
 \mathbf{D} = \epsilon\Big( \mathbf{I} + \frac{i}{\epsilon_0\omega}\pmb{\sigma} \Big)\cdot\mathbf{E} = \pmb{\epsilon}\cdot\mathbf{E}
 \tag{7.4}\]</span></span></p>
-<p>Thus the effective dielectric constant of the plasma is the tensor</p>
-<p><span class="math display">\[
+<p>Thus the effective dielectric constant of the plasma is the tensor <span class="math display">\[
 \pmb{\epsilon} = \epsilon_0 (\mathbf{I} + i\pmb{\sigma}/\epsilon_0\omega)
 \]</span></p>
 <p>where <span class="math inline">\(\mathbf{I}\)</span> is the unit tensor. In electromagnetism, a <strong>dielectric</strong> is an electrical insulator that can be polarised by an applied electric field. When a dielectric material is placed in an electric field, electric charges do not flow through the material as they do in an electrical conductor, because they have no loosely bound, or free, electrons that may drift through the material, but instead they shift, only slightly, from their average equilibrium positions, causing dielectric polarisation.</p>
-<p>To evaluate <span class="math inline">\(\pmb{\sigma}\)</span>, we use the linearized fluid equation of motion for species <span class="math inline">\(s\)</span>, neglecting the collision and pressure terms:</p>
-<p><span id="eq-motion_linear"><span class="math display">\[
+<p>To evaluate <span class="math inline">\(\pmb{\sigma}\)</span>, we use the linearized fluid equation of motion for species <span class="math inline">\(s\)</span>, neglecting the collision and pressure terms: <span id="eq-motion_linear"><span class="math display">\[
 m_s\frac{\partial \mathbf{v}_s}{\partial t} = q_s(\mathbf{E}+\mathbf{v}_s\times\mathbf{B}_0)
 \tag{7.5}\]</span></span></p>
-<p>Defining the cyclotron and plasma frequencies for each species as</p>
-<p><span class="math display">\[
+<p>Defining the cyclotron and plasma frequencies for each species as <span class="math display">\[
 \omega_{cs}\equiv\bigg\lvert\frac{q_s B_0}{m_s}\bigg\rvert, \quad \omega_{ps}^2\equiv\bigg\lvert\frac{n_0 q_s^2}{\epsilon_0m_s}\bigg\rvert
 \]</span></p>
-<p>we can separate <a href="#eq-motion_linear">Equation&nbsp;<span>7.5</span></a> into x, y, and z components and solve for <span class="math inline">\(\mathbf{v}_s\)</span>, obtaining</p>
-<p><span id="eq-v"><span class="math display">\[
+<p>We can separate <a href="#eq-motion_linear">Equation&nbsp;<span>7.5</span></a> into x, y, and z components and solve for <span class="math inline">\(\mathbf{v}_s\)</span>, obtaining <span id="eq-v"><span class="math display">\[
 \begin{aligned}
 v_{xs} &amp;= \frac{iq_s}{m_s\omega} \frac{E_x\pm i(\omega_{cs}/\omega)E_y}{1-(\omega_{cs}/\omega)^2} \\
 v_{ys} &amp;= \frac{iq_s}{m_s\omega} \frac{E_y\mp i(\omega_{cs}/\omega)E_x}{1-(\omega_{cs}/\omega)^2} \\
 v_{zs} &amp;= \frac{iq_s}{m_s\omega} E_z
 \end{aligned}
-\tag{7.6}\]</span></span></p>
-<p>where <span class="math inline">\(\pm\)</span> stands for the sign of <span class="math inline">\(q_s\)</span>. The plasma current is</p>
-<p><span class="math display">\[
+\tag{7.6}\]</span></span> where <span class="math inline">\(\pm\)</span> stands for the sign of <span class="math inline">\(q_s\)</span>. The plasma current is <span class="math display">\[
 \mathbf{j} = \sum_s n_{0s}q_s\mathbf{v}_s
-\]</span></p>
-<p>so that</p>
-<p><span id="eq-current_jx"><span class="math display">\[
+\]</span> so that <span id="eq-current_jx"><span class="math display">\[
 \begin{aligned}
 \frac{i}{\epsilon_0\omega}j_x &amp;= \sum_s \frac{in_{0s}}{\epsilon_0 \omega}\frac{iq_s^2}{m_s\omega}\frac{E_x\pm i(\omega_{cs}/\omega)E_y}{1-(\omega_{cs}/\omega)} \\
 &amp;=\sum_s -\frac{\omega_{ps}^2}{\omega^2}\frac{E_x\pm i(\omega_{cs}/\omega)E_y}{1-(\omega_{cs}/\omega)}
 \end{aligned}
 \tag{7.7}\]</span></span></p>
-<p>Using the identities</p>
-<p><span class="math display">\[
+<p>Using the identities <span class="math display">\[
 \begin{aligned}
 \frac{1}{1-(\omega_{cs}/\omega)^2} &amp;= \frac{1}{2}\Big[ \frac{\omega}{\omega\mp\omega_{cs}} + \frac{\omega}{\omega\pm\omega_{cs}} \Big] \\
 \pm\frac{\omega_{cs}/\omega}{1-(\omega_{cs}/\omega)^2} &amp;= \frac{1}{2}\Big[ \frac{\omega}{\omega\mp\omega_{cs}} - \frac{\omega}{\omega\pm\omega_{cs}} \Big],
 \end{aligned}
 \]</span></p>
-<p>we can write <a href="#eq-current_jx">Equation&nbsp;<span>7.7</span></a> as follows:</p>
-<p><span id="eq-jx"><span class="math display">\[
+<p>we can write <a href="#eq-current_jx">Equation&nbsp;<span>7.7</span></a> as follows: <span id="eq-jx"><span class="math display">\[
 \begin{aligned}
 \frac{1}{\epsilon_0\omega}j_x &amp;= -\frac{1}{2}\sum_s \frac{\omega_{ps}^2}{\omega^2}\Big[ \Big( \frac{\omega}{\omega\pm\omega_{cs}} + \frac{\omega}{\omega\mp\omega_{cs}} \Big)E_x \\
 &amp;+ \Big( \frac{\omega}{\omega\mp\omega_{cs}} + \frac{\omega}{\omega\pm\omega_{cs}} \Big)iE_y \Big]
 \end{aligned}
 \tag{7.8}\]</span></span></p>
-<p>Similarly, the <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> components are</p>
-<p><span id="eq-jy"><span class="math display">\[
+<p>Similarly, the <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> components are <span id="eq-jy"><span class="math display">\[
 \begin{aligned}
 \frac{1}{\epsilon_0\omega}j_y &amp;= -\frac{1}{2}\sum_s \frac{\omega_{ps}^2}{\omega^2}\Big[ \Big( \frac{\omega}{\omega\pm\omega_{cs}} + \frac{\omega}{\omega\mp\omega_{cs}} \Big)iE_x \\
 &amp;+ \Big( \frac{\omega}{\omega\mp\omega_{cs}} + \frac{\omega}{\omega\pm\omega_{cs}} \Big)E_y \Big]
@@ -699,15 +666,13 @@ v_{zs} &amp;= \frac{iq_s}{m_s\omega} E_z
 <p><span id="eq-jz"><span class="math display">\[
 \frac{i}{\epsilon_0\omega}j_z = -\sum_s\frac{\omega_{ps}^2}{\omega^2}E_z
 \tag{7.10}\]</span></span></p>
-<p>Use of <a href="#eq-jx">Equation&nbsp;<span>7.8</span></a> in <a href="#eq-electric_displacement_field">Equation&nbsp;<span>7.3</span></a> gives</p>
-<p><span id="eq-dx"><span class="math display">\[
+<p>Use of <a href="#eq-jx">Equation&nbsp;<span>7.8</span></a> in <a href="#eq-electric_displacement_field">Equation&nbsp;<span>7.3</span></a> gives <span id="eq-dx"><span class="math display">\[
 \begin{aligned}
 \frac{1}{\epsilon_0}D_x &amp;= E_x -\frac{1}{2}\sum_s \frac{\omega_{ps}^2}{\omega^2}\Big[ \Big( \frac{\omega}{\omega\pm\omega_{cs}} + \frac{\omega}{\omega\mp\omega_{cs}} )E_x \\
 &amp;+ \Big( \frac{\omega}{\omega\mp\omega_{cs}} + \frac{\omega}{\omega\pm\omega_{cs}} )iE_y \Big] \\
 \end{aligned}
 \tag{7.11}\]</span></span></p>
-<p>We define the convenient abbreviations</p>
-<p><span id="eq-stix_notation"><span class="math display">\[
+<p>We define the convenient abbreviations <span id="eq-stix_notation"><span class="math display">\[
 \begin{aligned}
 R &amp;\equiv 1 - \sum_s\frac{\omega_{ps}^2}{\omega^2}\Big( \frac{\omega}{\omega\pm\omega_{cs}} \Big)\\
 L &amp;\equiv 1 - \sum_s\frac{\omega_{ps}^2}{\omega^2}\Big( \frac{\omega}{\omega\mp\omega_{cs}} \Big)\\
@@ -715,40 +680,33 @@ S &amp;\equiv \frac{1}{2}(R+L)\quad D\equiv \frac{1}{2}(R-L)^\ast \\
 P &amp;\equiv 1-\sum_s\frac{\omega_{ps}^2}{\omega^2}
 \end{aligned}
 \tag{7.12}\]</span></span></p>
-<p>where “R” stands for right, “L” stands for left, “S” stands for sum, “D” stands for difference, and “P” stands for plasma. Do not confuse D with the electric displacement field <span class="math inline">\(\mathbf{D}\)</span>. Using these in <a href="#eq-dx">Equation&nbsp;<span>7.11</span></a> and proceeding similarly with the <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> components, we obtain</p>
-<p><span class="math display">\[
+<p>where “R” stands for right, “L” stands for left, “S” stands for sum, “D” stands for difference, and “P” stands for plasma. Do not confuse D with the electric displacement field <span class="math inline">\(\mathbf{D}\)</span>. Using these in <a href="#eq-dx">Equation&nbsp;<span>7.11</span></a> and proceeding similarly with the <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> components, we obtain <span class="math display">\[
 \begin{aligned}
 \epsilon_0^{-1}D_x &amp;= SE_x -iDE_y \\
 \epsilon_0^{-1}D_y &amp;= iDE_x + SE_y \\
 \epsilon_0^{-1}D_z &amp;= PE_z
 \end{aligned}
 \]</span></p>
-<p>Comparing with <a href="#eq-d_e_relation">Equation&nbsp;<span>7.4</span></a>, we see that</p>
-<p><span id="eq-dielectric_matrix"><span class="math display">\[
+<p>Comparing with <a href="#eq-d_e_relation">Equation&nbsp;<span>7.4</span></a>, we see that <span id="eq-dielectric_matrix"><span class="math display">\[
 \pmb{\epsilon} = \epsilon_0\begin{pmatrix}
 S &amp; -iD &amp; 0 \\
 iD &amp; S &amp; 0 \\
 0 &amp; 0 &amp; P
 \end{pmatrix} \equiv \epsilon_0\pmb{\epsilon}_R
 \tag{7.13}\]</span></span></p>
-<p>We next derive the wave equation by taking the curl of the equation <span class="math inline">\(\nabla\times\mathbf{E} = -\dot{\mathbf{B}}\)</span> and substituting <span class="math inline">\(\nabla\times\mathbf{B}=\mu_0\pmb{\epsilon}\cdot\dot{\mathbf{E}}\)</span>, obtaining</p>
-<p><span id="eq-wave1"><span class="math display">\[
+<p>We next derive the wave equation by taking the curl of the equation <span class="math inline">\(\nabla\times\mathbf{E} = -\dot{\mathbf{B}}\)</span> and substituting <span class="math inline">\(\nabla\times\mathbf{B}=\mu_0\pmb{\epsilon}\cdot\dot{\mathbf{E}}\)</span>, obtaining <span id="eq-wave1"><span class="math display">\[
 \nabla\times\nabla\times\mathbf{E} = -\mu_0\epsilon_0( \pmb{\epsilon}_R \cdot\ddot{\mathbf{E}} ) = -\frac{1}{c^2}\pmb{\epsilon}_R\cdot\ddot{\mathbf{E}}
 \tag{7.14}\]</span></span></p>
-<p>Assuming an <span class="math inline">\(\exp(i\mathbf{k}\cdot\mathbf{r})\)</span> spatial dependence of <span class="math inline">\(\mathbf{E}\)</span> and defining a vector index of refraction</p>
-<p><span class="math display">\[
+<p>Assuming an <span class="math inline">\(\exp(i\mathbf{k}\cdot\mathbf{r})\)</span> spatial dependence of <span class="math inline">\(\mathbf{E}\)</span> and defining a vector index of refraction <span class="math display">\[
 \mathbf{n}=\frac{c}{\omega}\mathbf{k}
 \]</span></p>
-<p>we can write <a href="#eq-wave1">Equation&nbsp;<span>7.14</span></a> as</p>
-<p><span id="eq-wave2"><span class="math display">\[
+<p>We can write <a href="#eq-wave1">Equation&nbsp;<span>7.14</span></a> as <span id="eq-wave2"><span class="math display">\[
 \mathbf{n}\times(\mathbf{n}\times\mathbf{E})+\pmb{\epsilon}_R\cdot\mathbf{E} = 0
 \tag{7.15}\]</span></span></p>
-<p>The uniform plasma is isotropic in the <span class="math inline">\(x-y\)</span> plane, so we may choose the <span class="math inline">\(y\)</span> axis so that <span class="math inline">\(k_y = 0\)</span>, without loss of generality. If <span class="math inline">\(\theta\)</span> is the angle between <span class="math inline">\(\mathbf{k}\)</span> and <span class="math inline">\(\mathbf{B}_0\)</span>, we then have</p>
-<p><span class="math display">\[
+<p>The uniform plasma is isotropic in the <span class="math inline">\(x-y\)</span> plane, so we may choose the <span class="math inline">\(y\)</span> axis so that <span class="math inline">\(k_y = 0\)</span>, without loss of generality. If <span class="math inline">\(\theta\)</span> is the angle between <span class="math inline">\(\mathbf{k}\)</span> and <span class="math inline">\(\mathbf{B}_0\)</span>, we then have <span class="math display">\[
 n_x = n\sin\theta\quad n_z=n\cos\theta\quad n_y = 0
 \]</span></p>
-<p>The next step is to separate <a href="#eq-wave2">Equation&nbsp;<span>7.15</span></a> into components, using the elements of <span class="math inline">\(\pmb{\epsilon}_R\)</span> given in <a href="#eq-dielectric_matrix">Equation&nbsp;<span>7.13</span></a>. This procedure readily yields</p>
-<p><span id="eq-dielectric"><span class="math display">\[
+<p>The next step is to separate <a href="#eq-wave2">Equation&nbsp;<span>7.15</span></a> into components, using the elements of <span class="math inline">\(\pmb{\epsilon}_R\)</span> given in <a href="#eq-dielectric_matrix">Equation&nbsp;<span>7.13</span></a>. This procedure readily yields <span id="eq-dielectric"><span class="math display">\[
 \mathbf{R}\cdot\mathbf{E}\equiv\begin{pmatrix}
 S - n^2\cos\theta &amp; -iD &amp; n^2\sin\theta\cos\theta \\
 iD &amp; S-n^2 &amp; 0 \\
@@ -759,33 +717,27 @@ E_x \\ E_y \\ E_z
 \end{pmatrix} = 0
 \tag{7.16}\]</span></span></p>
 <p>From this it is clear that the <span class="math inline">\(E_x\)</span>, <span class="math inline">\(E_y\)</span> components are coupled to <span class="math inline">\(E_z\)</span> only if one deviates from the principal angles <span class="math inline">\(\theta = 0, 90^o\)</span>.</p>
-<p><a href="#eq-dielectric">Equation&nbsp;<span>7.16</span></a> is a set of three simultaneous, homogeneous equations; the condition for the existence of a solution is that the determinant of <span class="math inline">\(\mathbf{R}\)</span> vanish: <span class="math inline">\(||\mathbf{R}||=0\)</span>. We then obtain</p>
-<p><span id="eq-dispersion_2ndcol"><span class="math display">\[
+<p><a href="#eq-dielectric">Equation&nbsp;<span>7.16</span></a> is a set of three simultaneous, homogeneous equations; the condition for the existence of a solution is that the determinant of <span class="math inline">\(\mathbf{R}\)</span> vanish: <span class="math inline">\(||\mathbf{R}||=0\)</span>. We then obtain <span id="eq-dispersion_2ndcol"><span class="math display">\[
 \begin{aligned}
 (iD)^2&amp;(P-n^2\sin^2\theta) + (S - n^2)  \\
 &amp;\times [(S-n^2\cos^2\theta)(P-n^2\sin^2\theta)-n^4\sin^2\theta\cos^2\theta] = 0
 \end{aligned}
 \tag{7.17}\]</span></span></p>
-<p>By replacing <span class="math inline">\(\cos^2\theta\)</span> by <span class="math inline">\(1-\sin^2\theta\)</span>, we can solve for <span class="math inline">\(\sin^2\theta\)</span>, obtaining</p>
-<p><span class="math display">\[
+<p>By replacing <span class="math inline">\(\cos^2\theta\)</span> by <span class="math inline">\(1-\sin^2\theta\)</span>, we can solve for <span class="math inline">\(\sin^2\theta\)</span>, obtaining <span class="math display">\[
 \sin^2\theta = \frac{-P(n^4-2Sn^2+RL)}{n^4(S-P)+n^2(PS-RL)}
 \]</span></p>
-<p>We have used the identity <span class="math inline">\(S^2 - D^2 = RL\)</span>. Similarly,</p>
-<p><span class="math display">\[
+<p>We have used the identity <span class="math inline">\(S^2 - D^2 = RL\)</span>. Similarly, <span class="math display">\[
 \cos^2\theta = \frac{Sn^4 - (PS + RL)n^2 + PRL}{n^4(S-P)+n^2(PS-RL)}
 \]</span></p>
-<p>Dividing the last two equations, we obtain</p>
-<p><span class="math display">\[
+<p>Dividing the last two equations, we obtain <span class="math display">\[
 \tan^2\theta = \frac{-P(n^4-2Sn^2+RL)}{Sn^4-(PS+RL)n^2+PRL}
 \]</span></p>
-<p>Since <span class="math inline">\(2S = R + L\)</span>, the numerator and denominator can be factored to give the cold-plasma dispersion relation</p>
-<p><span id="eq-cold_plasma_dispersion"><span class="math display">\[
+<p>Since <span class="math inline">\(2S = R + L\)</span>, the numerator and denominator can be factored to give the cold-plasma dispersion relation <span id="eq-cold_plasma_dispersion"><span class="math display">\[
 \tan^2\theta = \frac{-P(n^2-R)(n^2-L)}{(Sn^2-RL)(n^2-P)}
 \tag{7.18}\]</span></span></p>
 <section id="wave-modes" class="level3" data-number="7.5.1">
 <h3 data-number="7.5.1" class="anchored" data-anchor-id="wave-modes"><span class="header-section-number">7.5.1</span> Wave Modes</h3>
-<p>The principal modes of cold plasma waves can be recovered by setting <span class="math inline">\(\theta = 0^0\)</span> and <span class="math inline">\(90^o\)</span>. When <span class="math inline">\(\theta = 0^o\)</span>,</p>
-<p><span class="math display">\[
+<p>The principal modes of cold plasma waves can be recovered by setting <span class="math inline">\(\theta = 0^0\)</span> and <span class="math inline">\(90^o\)</span>. When <span class="math inline">\(\theta = 0^o\)</span>, <span class="math display">\[
 P(n^2-R)(n^2-L) = 0
 \]</span></p>
 <p>There are three roots:</p>
@@ -794,8 +746,7 @@ P(n^2-R)(n^2-L) = 0
 <li><span class="math inline">\(n^2=R\)</span> (R wave)</li>
 <li><span class="math inline">\(n^2=L\)</span> (L wave)</li>
 </ul>
-<p>When <span class="math inline">\(\theta = 90^o\)</span>,</p>
-<p><span class="math display">\[
+<p>When <span class="math inline">\(\theta = 90^o\)</span>, <span class="math display">\[
 (Sn^2-RL)(n^2-P) = 0
 \]</span></p>
 <p>There are two roots:</p>
@@ -807,8 +758,7 @@ P(n^2-R)(n^2-L) = 0
 </section>
 <section id="resonances" class="level3" data-number="7.5.2">
 <h3 data-number="7.5.2" class="anchored" data-anchor-id="resonances"><span class="header-section-number">7.5.2</span> Resonances</h3>
-<p>The resonances can be found by letting <span class="math inline">\(n\)</span> go to <span class="math inline">\(\infty\)</span>. We then have</p>
-<p><span class="math display">\[
+<p>The resonances can be found by letting <span class="math inline">\(n\)</span> go to <span class="math inline">\(\infty\)</span>. We then have <span class="math display">\[
 \tan^2\theta_{res} = -P/S
 \]</span></p>
 <p>This shows that the resonance frequencies depend on angle <span class="math inline">\(\theta\)</span>.</p>
@@ -819,15 +769,13 @@ P(n^2-R)(n^2-L) = 0
 </section>
 <section id="cutoffs" class="level3" data-number="7.5.3">
 <h3 data-number="7.5.3" class="anchored" data-anchor-id="cutoffs"><span class="header-section-number">7.5.3</span> Cutoffs</h3>
-<p>The cutoffs can be found by setting <span class="math inline">\(n = 0\)</span> in <a href="#eq-cold_plasma_dispersion">Equation&nbsp;<span>7.18</span></a>. Again using <span class="math inline">\(S^2-D^2 = RL\)</span>, we find that the condition for cutoff is independent of <span class="math inline">\(\theta\)</span>:</p>
-<p><span class="math display">\[
+<p>The cutoffs can be found by setting <span class="math inline">\(n = 0\)</span> in <a href="#eq-cold_plasma_dispersion">Equation&nbsp;<span>7.18</span></a>. Again using <span class="math inline">\(S^2-D^2 = RL\)</span>, we find that the condition for cutoff is independent of <span class="math inline">\(\theta\)</span>: <span class="math display">\[
 PRL = 0
 \]</span></p>
 <ul>
 <li>The conditions <span class="math inline">\(R = 0\)</span> and <span class="math inline">\(L = 0\)</span> yield the <span class="math inline">\(\omega_R\)</span> and <span class="math inline">\(\omega_L\)</span> cutoff frequencies, with the addition of ion corrections.</li>
 </ul>
-<p>For R-waves, since <span class="math inline">\(\omega_{pi}^2\ll\omega_{pe}^2,\omega_{ci}\ll\omega_{ce}\)</span>, the cutoff frequency can be approximated by</p>
-<p><span class="math display">\[
+<p>For R-waves, since <span class="math inline">\(\omega_{pi}^2\ll\omega_{pe}^2,\omega_{ci}\ll\omega_{ce}\)</span>, the cutoff frequency can be approximated by <span class="math display">\[
 \begin{aligned}
 1-\frac{\omega_{pe}^2}{\omega(\omega-\omega_{ce})} - \frac{\omega_{pi}^2}{\omega(\omega+\omega_{ci})} = 0 \\
 1 = \frac{\omega_{pe}^2\Big[ \omega\Big(1+\cancel{\frac{\omega_{pi}^2}{\omega_{pe}^2}}\Big)+\omega_{ci}-\cancel{\frac{\omega_{pi}^2}{\omega_{pe}^2}}\omega_{ce}\Big]}{\omega_{ce}\omega(\omega-\omega_{ce})\Big( \frac{\omega}{\omega_{ce}}+\cancel{\frac{\omega_{ci}}{\omega_{ce}}}\Big)} \\
@@ -835,28 +783,22 @@ PRL = 0
 \omega^3 - \omega_{ce}\omega^2 - \omega_{pe}^2\omega - \omega_{pe}^2\omega_{ci} = 0
 \end{aligned}
 \]</span></p>
-<p>Here somehow we can ignore <span class="math inline">\(\omega_{pe}^2\omega_{ci}\)</span> (I DON’T KNOW WHY???) and obtain the positive solution</p>
-<p><span id="eq-cutoff_R_freq"><span class="math display">\[
+<p>Here somehow we can ignore <span class="math inline">\(\omega_{pe}^2\omega_{ci}\)</span> (I DON’T KNOW WHY???) and obtain the positive solution <span id="eq-cutoff_R_freq"><span class="math display">\[
 \omega_{R=0} \approx \frac{\omega_{ce}}{2}\Big[ 1 + \sqrt{1+4\omega_{pe}^2/\omega_{ce}^2}\Big]
 \tag{7.19}\]</span></span></p>
-<p>In the low density limit, <span class="math inline">\(\omega_p\ll\omega_c\)</span>, <span class="math inline">\((1+x)^{1/2}\approx 1+x/2\)</span> when <span class="math inline">\(x\rightarrow 0\)</span>,</p>
-<p><span class="math display">\[
+<p>In the low density limit, <span class="math inline">\(\omega_p\ll\omega_c\)</span>, <span class="math inline">\((1+x)^{1/2}\approx 1+x/2\)</span> when <span class="math inline">\(x\rightarrow 0\)</span>, <span class="math display">\[
 \omega_{R=0} \approx \omega_{ce}(1+\omega_{pe}^2/\omega_{ce}^2)
 \]</span></p>
-<p>In the high density limit, <span class="math inline">\(\omega_p\gg\omega_c\)</span>,</p>
-<p><span class="math display">\[
+<p>In the high density limit, <span class="math inline">\(\omega_p\gg\omega_c\)</span>, <span class="math display">\[
 \omega_{R=0} \approx \omega_{pe} + \omega_{ce}/2
 \]</span></p>
-<p>Similarly for L-waves, the cutoff frequency can be approximated by</p>
-<p><span id="eq-cutoff_L_freq"><span class="math display">\[
+<p>Similarly for L-waves, the cutoff frequency can be approximated by <span id="eq-cutoff_L_freq"><span class="math display">\[
 \omega_{L=0} \approx \frac{\omega_{ce}}{2}\Big[ -1 + \sqrt{1+4\omega_{pe}^2/\omega_{ce}^2}\Big]
 \tag{7.20}\]</span></span></p>
-<p>In the low density limit, <span class="math inline">\(\omega_p\ll\omega_c\)</span>,</p>
-<p><span class="math display">\[
+<p>In the low density limit, <span class="math inline">\(\omega_p\ll\omega_c\)</span>, <span class="math display">\[
 \omega_{L=0} \approx \omega_{pe}^2/\omega_{ce}
 \]</span></p>
-<p>In the high density limit, <span class="math inline">\(\omega_p\gg\omega_c\)</span>,</p>
-<p><span class="math display">\[
+<p>In the high density limit, <span class="math inline">\(\omega_p\gg\omega_c\)</span>, <span class="math display">\[
 \omega_{L=0} \approx \omega_{pe} - \omega_{ce}/2
 \]</span></p>
 <ul>
@@ -865,12 +807,10 @@ PRL = 0
 </section>
 <section id="polarizations" class="level3" data-number="7.5.4">
 <h3 data-number="7.5.4" class="anchored" data-anchor-id="polarizations"><span class="header-section-number">7.5.4</span> Polarizations</h3>
-<p>The information contained in <a href="#eq-cold_plasma_dispersion">Equation&nbsp;<span>7.18</span></a> is summarized in the Clemmow–Mullaly–Allis (CMA) diagram. One further result, not in the diagram, can be obtained easily from this formulation. The middle line of <a href="#eq-dielectric">Equation&nbsp;<span>7.16</span></a> reads</p>
-<p><span class="math display">\[
+<p>The information contained in <a href="#eq-cold_plasma_dispersion">Equation&nbsp;<span>7.18</span></a> is summarized in the Clemmow–Mullaly–Allis (CMA) diagram. One further result, not in the diagram, can be obtained easily from this formulation. The middle line of <a href="#eq-dielectric">Equation&nbsp;<span>7.16</span></a> reads <span class="math display">\[
 iDE_x + (S-n^2)E_y = 0
 \]</span></p>
-<p>Thus the polarization in the plane perpendicular to <span class="math inline">\(\mathbf{B}_0\)</span> is given by</p>
-<p><span class="math display">\[
+<p>Thus the polarization in the plane perpendicular to <span class="math inline">\(\mathbf{B}_0\)</span> is given by <span class="math display">\[
 \frac{iE_x}{E_y} = \frac{n^2 - S}{D}
 \]</span></p>
 <p>From this it is easily seen that waves are linearly polarized at resonance (<span class="math inline">\(n^2=\infty\)</span>) and circularly polarized at cutoff (<span class="math inline">\(n^2 = 0\)</span>, <span class="math inline">\(R = 0\)</span> or <span class="math inline">\(L = 0\)</span>; thus <span class="math inline">\(S = \pm D\)</span>).</p>
@@ -878,22 +818,19 @@ iDE_x + (S-n^2)E_y = 0
 <section id="low-frequency-limit" class="level3" data-number="7.5.5">
 <h3 data-number="7.5.5" class="anchored" data-anchor-id="low-frequency-limit"><span class="header-section-number">7.5.5</span> Low Frequency Limit</h3>
 <p>It is very useful to obtain the circularly polarized wave dispersion relation in the MHD regime.</p>
-<p>The R-wave corresponds to electron. When <span class="math inline">\(\omega\ll\omega_{ce}\)</span>,</p>
-<p><span class="math display">\[
+<p>The R-wave corresponds to electron. When <span class="math inline">\(\omega\ll\omega_{ce}\)</span>, <span class="math display">\[
 \begin{aligned}
 n^2 = R = 1 - \frac{\omega_{pi}^2}{\omega(\omega+\omega_{ci})} - \frac{\omega_{pe}^2}{\omega(\omega-\omega_{ce})} \\
 k^2 c^2 = \omega^2\Big( 1+\frac{\omega_{pe}^2}{\omega\omega_{ce}}-\frac{\omega_{pi}^2}{\omega\omega_{ci}}\frac{\omega_{ci}}{\omega_{ci}+\omega} \Big) = \omega^2 \Big[ 1+\frac{\omega_{pe}^2}{\omega_{ce}(\omega_{ci}+\omega)}\Big] \\
 k^2 c^2 = \omega^2\Big( 1+\frac{c^2}{v_A^2}\frac{\omega_{ci}}{\omega_{ci}+\omega}\Big)
 \end{aligned}
 \]</span></p>
-<p>For <span class="math inline">\(\omega_{ci}\ll\omega\ll\omega_{ce}\)</span>, we can make further simplification:</p>
-<p><span class="math display">\[
+<p>For <span class="math inline">\(\omega_{ci}\ll\omega\ll\omega_{ce}\)</span>, we can make further simplification: <span class="math display">\[
 k^2c^2 = \omega^2\Big(1+\frac{\omega_{pe}^2}{\omega\omega_{ce}} \Big)
 \]</span></p>
 <p>This is the whistler wave, with group velocity <span class="math inline">\(v_g=\partial\omega/\partial k\propto\sqrt{\omega}\)</span>. It means that high frequency waves transpose energy faster than low frequency waves. In other words, one will hear high frequency components earlier than low frequency components, creating a “whistler effect”. This was discovered during the first world war, and the theoretical explanation came out in the 1950s. Also note that since whistler wave travels along the field line, in near-Earth space we have signals traveling from the south hemisphere to the north hemisphere within this frequency regime. <a href="https://en.wikipedia.org/wiki/Whistler_(radio)">Here</a> is an observation example from Palmer station, Antarctica. For <span class="math inline">\(\omega\ll\omega_{ci}\)</span>, Alfvén wave is recovered.</p>
 <p>See more in <a href="#sec-whistler"><span>Section&nbsp;7.15</span></a>.</p>
-<p>The L-wave corresponds to ion. When <span class="math inline">\(\omega&lt;\omega_{ci}\)</span>,</p>
-<p><span class="math display">\[
+<p>The L-wave corresponds to ion. When <span class="math inline">\(\omega&lt;\omega_{ci}\)</span>, <span class="math display">\[
 \begin{aligned}
 k^2c^2 &amp;= \omega^2\Big[1+\frac{\omega_{pi}^2}{\omega_{ci}(\omega_{ci}-\omega)} \Big] \\
 &amp;= \omega^2\Big( 1+\frac{c^2}{v_A^2}\frac{\omega_{ci}}{\omega_{ci}-\omega} \Big)
