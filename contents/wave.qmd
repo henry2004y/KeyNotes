@@ -574,10 +574,26 @@ The R-wave corresponds to electron. When $\omega\ll\omega_{ce}$,
 $$
 \begin{aligned}
 n^2 = R = 1 - \frac{\omega_{pi}^2}{\omega(\omega+\omega_{ci})} - \frac{\omega_{pe}^2}{\omega(\omega-\omega_{ce})} \\
-k^2 c^2 = \omega^2\Big( 1+\frac{\omega_{pe}^2}{\omega\omega_{ce}}-\frac{\omega_{pi}^2}{\omega\omega_{ci}}\frac{\omega_{ci}}{\omega_{ci}+\omega} \Big) = \omega^2 \Big[ 1+\frac{\omega_{pe}^2}{\omega_{ce}(\omega_{ci}+\omega)}\Big] \\
-k^2 c^2 = \omega^2\Big( 1+\frac{c^2}{v_A^2}\frac{\omega_{ci}}{\omega_{ci}+\omega}\Big)
+\frac{k_\parallel^2 c^2}{\omega^2} = 1+\frac{\omega_{pe}^2}{\omega\omega_{ce}}-\frac{\omega_{pi}^2}{\omega\omega_{ci}}\frac{\omega_{ci}}{\omega_{ci}+\omega} \\
+\frac{k_\parallel^2 c^2}{\omega^2} = 1+\frac{\omega_{pi}^2}{\omega\omega_{ci}}-\frac{\omega_{pi}^2}{\omega\omega_{ci}}\frac{1}{1+\omega/\omega_{ci}} \\
+\frac{k_\parallel^2 c^2}{\omega^2} = 1+\frac{\omega_{pi}^2}{\omega\omega_{ci}}\left( 1 - \frac{1}{1+\omega/\omega_{ci}}\right) \\
+\frac{k_\parallel^2 c^2}{\omega^2} = 1+\frac{\omega_{pi}^2}{\omega_{ci}^2}\frac{1}{1+\omega/\omega_{ci}} \\
+\frac{k_\parallel^2 c^2}{\omega^2} = 1+\frac{c^2}{V_A^2}\frac{1}{1+\omega/\omega_{ci}} \\
+\frac{k_\parallel^2 c^2}{\omega^2} \simeq \frac{c^2}{V_A^2}\frac{1}{1+\omega/\omega_{ci}} \\
+\frac{k_\parallel^2}{\omega^2} = \frac{1}{V_A^2}\frac{1}{1+\omega/\omega_{ci}}
 \end{aligned}
+$$ {#eq-R-wave-dispersion-1}
+
+@eq-R-wave-dispersion-1 can be arranged into a quasi-quadratic equation for $v_\mathrm{ph}=\omega/k_\parallel$
 $$
+\frac{\omega^2}{k_\parallel^2} = V_A^2 + V_A^2\frac{\omega}{\omega_{ci}} = V_A^2 + W\frac{\omega}{k_\parallel}
+$$
+where we denote $W=\frac{v_A^2 k_\parallel}{\omega_{ci}}$. The solution is then
+$$
+v_w = \frac{W}{2} \pm\sqrt{\frac{W^2}{4}+v_A^2}
+$$
+
+When $v_A\ll W$, i.e. $\frac{\omega_{ci}}{k_\parallel}\ll v_A$, we have $v_w = W$.
 
 For $\omega_{ci}\ll\omega\ll\omega_{ce}$, we can make further simplification:
 $$
@@ -588,15 +604,15 @@ This is the whistler wave, with group velocity $v_g=\partial\omega/\partial k\pr
 
 See more in @sec-whistler.
 
-The L-wave corresponds to ion. When $\omega<\omega_{ci}$,
+The L-wave corresponds to ion. When $\omega<\omega_{ci}, c\gg V_A$,
 $$
 \begin{aligned}
-k^2c^2 &= \omega^2\Big[1+\frac{\omega_{pi}^2}{\omega_{ci}(\omega_{ci}-\omega)} \Big] \\
-&= \omega^2\Big( 1+\frac{c^2}{v_A^2}\frac{\omega_{ci}}{\omega_{ci}-\omega} \Big)
+\frac{k^2c^2}{\omega^2} = \omega^2\left( 1+\frac{c^2}{v_A^2}\frac{\omega_{ci}}{\omega_{ci}-\omega} \right) \\
+\frac{\omega^2}{k^2} = V_A^2\left( 1-\frac{\omega}{\omega_{ci}} \right)
 \end{aligned}
 $$
 
-For $\omega\lesssim\omega_{ci}$, we get the ion-cyclotron wave; for $\omega\ll\omega_{ci}$, Alfvén wave is recovered.
+For $\omega\lesssim\omega_{ci}$, we get the ion cyclotron wave; for $\omega\ll\omega_{ci}$, Alfvén wave is recovered.
 
 @fig-dispersion_parallel shows the dispersion relations for L/R waves in a rough scale (ACTUALLY THE SCALES ARE SO BAD...). Above the cut-off frequencies ($\omega_{R=0}$ and $\omega_{L=0}$) the solution to the wave dispersion equation is called the _free-space mode_. Below electron and ion cyclotron frequencies the waves are called the _cyclotron modes_. At low frequencies ($\omega\rightarrow 0$) L- and R-modes merge and the dispersion becomes that of the shear Alfvén wave $n^2\rightarrow c^2/v_A^2$.
 
@@ -625,29 +641,23 @@ As before, the lower branch in @fig-dispersion_L_wave describes a wave that can 
 ### Faraday Rotation
 
 A linearly polarized plane wave can be expressed as a sum of left- and right-hand circularly polarized waves (R- and L-modes having equal amplitudes, $E_0$). If we assume that at $z=0$, the wave is linearly polarized along the $x$-axis, and that the wave vector $\mathbf{k}$ and the background magnetic field $\mathbf{B}_0$ are along the $z$-axis, we can write
-
 $$
 \mathbf{E} = E_0 [(e^{ik_Rz}+e^{ik_Lz})\hat{x} + (e^{ik_Rz}-e^{ik_Lz})\hat{y}] e^{-i\omega t}
 $$
 
 The ratio of the $E_x$ and $E_y$ components is
-
 $$
 \frac{E_x}{E_y} = \cot\Big( \frac{k_L-k_R}{2}z\Big)
 $$
 
 Hence, due to different phase speeds of R- and L-modes the linrealy polarized wave that is travelling along a magnetic field will experience the rotation of its plane of polarization. This is called _Faraday rotation_. The magnitude of the rotation depends on the density and magnetic field of the plasma. Considering frequencies above the plasma frequency one can show that the rate of change in the rotation angle $\phi$ with the distance travelled (assumed here to be in the $z$-direction) is
-
 $$
 \frac{\mathrm{d}\phi}{\mathrm{d}z} = \frac{-e^3}{2m_e^2\epsilon_0 c\omega^2}n_e B_0
 $$
-
 and the total rotation from the source to the observer is
-
 $$
 \phi=\frac{-e^3}{2m_e^2\epsilon_0 c\omega^2}\int_0^d n_e\mathbf{B}\cdot \mathrm{d}\mathbf{s}
 $$
-
 where $\mathrm{d}\mathbf{s}$ is along the wave propagation path. The total rotation thus depends on both the dnesity and magnetic field of the medium.
 
 Faraday rotation is an important diagnostic tool both in laboratories and in astronomy. It can be used to obtain information of the magnetic field of the cosmic plasma. Note that density has to be known using other methods. On the other hand, if the magnetic field is known, Faraday rotation can give information of the density.
@@ -659,25 +669,21 @@ Let us now consider wave propagation, at arbitrary frequencies, perpendicular to
 The cutoff frequencies, at which $n^2$ goes to zero, are the roots of $R=0$ and $L=0$ according to $n^2=LR/S$. In fact, we have already solved these equations in the previous sections (recall that cutoff frequencies do not depend on $\theta$). There are two cutoff frequencies, $\omega_{R=0}$ and $\omega_{L=0}$, which are specified by @eq-cutoff_R_freq and @eq-cutoff_L_freq, respectively.
 
 Let us, next, search for the resonant frequencies, at which $n^2$ goes to infinity. According to the previous discussions, the resonant frequencies are solutions of
-
 $$
 S = 1 - \frac{\omega_{pe}^2}{\omega^2 - \Omega_e^2} - \frac{\omega_{pi}^2}{\omega^2 - \Omega_i^2} = 0
 $$ {#eq-resonance_perp_wave}
 
 The roots of this equation can be obtained as follows. First, we note that if the first two terms are equated to zero, we obtain $\omega=\omega_\mathrm{UH}$, where
-
 $$
 \omega_\mathrm{UH} \equiv \sqrt{\omega_{pe}^2 + \Omega_e^2}
 $$ {#eq-upper_hybrid_freq}
 
 If this frequency is substituted into the third term, the result is far less than unity. We conclude that $\omega_\mathrm{UH}$ is a good approximation to one of the roots of @eq-resonance_perp_wave. To obtain the second root, we make use of the fact that the product of the square of the roots is
-
 $$
 \Omega_e^2\,\Omega_i^2 + \omega_{pe}^2\,\Omega_i^2 + \omega_{pi}^2\Omega_e^2 \simeq \Omega_e^2 \Omega_i^2 + \omega_{pi}^2\,\Omega_e^2
 $$
 
 We, thus, obtain $\omega= \omega_\mathrm{LH}$, where
-
 $$
 \omega_\mathrm{LH} \equiv \sqrt{\frac{\Omega_e^2\Omega_i^2 + \omega_{pi}^2\Omega_e^2}{\omega_{pe}^2 + \Omega_e^2}}
 $$
@@ -685,7 +691,6 @@ $$
 The first resonant frequency, $\omega_\mathrm{UH}$, is greater than the electron cyclotron or plasma frequencies, and is called the _upper hybrid frequency_. The second resonant frequency, $\omega_\mathrm{LH}$, lies between the electron and ion cyclotron frequencies, and is called the _lower hybrid frequency_. [@chen2016introduction] gave some nice explanations of the physical origins of these frequencies by looking at the electrostatic electron/ion waves perpendicular to $\mathbf{B}$. At low frequencies, the mode in question reverts to the compressional-Alfvén wave discussed previously. Note that the shear-Alfvén wave does not propagate perpendicular to the magnetic field.
 
 Using the above information, and the easily demonstrated fact that
-
 $$
 \omega_\mathrm{LH} < \omega_{L=0} < \omega_\mathrm{UH} < \omega_{R=0}
 $$
@@ -694,7 +699,7 @@ we can deduce that the dispersion curve for the mode in question takes the form 
 
 ::: {.content-visible unless-format="pdf"}
 
-![Dispersion relation for a left-handed wave propagating parallel to the magnetic field in a magnetized plasma.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img1270.png){#fig-dispersion_perp_wave}
+![Dispersion relation for a left-handed wave propagating perpendicular to the magnetic field in a magnetized plasma.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img1270.png){#fig-dispersion_perp_wave}
 
 :::
 
@@ -1056,7 +1061,7 @@ Thus, in low-$\beta$ plasmas the slow wave is a sound wave modified by the prese
 
 ## Kinetic Alfvén Wave {#sec-kaw}
 
-The solution of @eq-mhd_alfven_wavenumber_nonuniform exhibits singularities as $t\rightarrow\infty$ naturally suggests that the microscopic length-scale physics neglected in the ideal MHD fluid description should be included in the long-time-scale dynamics of SAWs. For low-frequency SAWs, one can readily recognize the relevant perpendicular (to $\mathbf{B}_0$) microscopic scales are either the ion Larmor radius, $r_{iL}=v_{ti}/\omega_{ci}$ with $v_{ti}$ and $\omega_{ci}$ being, respectively, the ion thermal speed and ion cyclotron frequency, and/or $r_{eL}=v_{te}/\omega_{ce}$ with $v_{te}$ being the electron thermal speed. Including the effects of finite $r_{iL}$ and/or $r_{eL}$ in the SAW dynamics then led to the discovery of the so-called _kinetic Alfvén wave_ (KAW) [Hasegawa and Chen].
+The solution of @eq-mhd_alfven_wavenumber_nonuniform exhibits singularities as $t\rightarrow\infty$ naturally suggests that the microscopic length-scale physics neglected in the ideal MHD fluid description should be included in the long-time-scale dynamics of SAWs. For low-frequency SAWs, one can readily recognize the relevant perpendicular (to $\mathbf{B}_0$) microscopic scales are either the ion Larmor radius, $r_{iL}=v_{ti}/\omega_{ci}$ with $v_{ti}$ and $\omega_{ci}$ being, respectively, the ion thermal speed and ion cyclotron frequency, and/or $r_{eL}=v_{te}/\omega_{ce}$ with $v_{te}$ being the electron thermal speed. Including the effects of finite $r_{iL}$, $r_{eL}$ and/or $T_e$ in the SAW dynamics then led to the discovery of the so-called _kinetic Alfvén wave_ (KAW) [Hasegawa and Chen].
 
 In KAWs, parallel electric field $E_\parallel$ can be developed and facilitate particle heating, acceleration, and transport.
 It has been found in the plasma sheet, at the plasma sheet boundary layer (PSBL), and in the inner magnetosphere.
@@ -1074,29 +1079,22 @@ Electrons are still frozen-in in the presence of the wave field. The difference 
 In principle, the KAW eigenmode solution can be obtained from the linearized two-fluid equations (Dai 2009).
 
 While SAW satisfy $\omega=k_\parallel v_A$, the dispersion relation of KAW can be written as (Johnson & Cheng, 1997)
-
 $$
 \omega^2 = k_\parallel^2 v_A^2 \Big[ \frac{1}{1-I_0(k_\perp^2 r_{iL}^2)e^{-k_\perp^2 r_{iL}^2}} + \frac{T_e}{T_i} \Big]k_\perp^2 r_{iL}^2
 $$ {#eq-kaw_dispersion}
-
 where $I_0$ is the modified Bessel function. Using a Padé approximation $I_0(x)e^{-x}\approx 1/(1+x)$ when $x=k_\perp^2r_{iL}^2\sim\mathcal{O}(1)$, the relation can be simplified to
-
 $$
 \omega^2 = k_\parallel^2 v_A^2\Big[1+\Big(1+\frac{T_e}{T_i}k_\perp^2r_{iL}^2\Big) \Big] =  k_\parallel^2 v_A^2 [1+k_\perp^2(r_{iL}^2+r_{sL}^2)]
 $$ {#eq-kaw_dispersion_ion_approxi}
-
 where $r_{sL}=\sqrt{T_e/m_i}/\omega_{ci}$. This term is kind of strange, because it looks like a Larmor radius for ion with electron temperature. We can see from @eq-kaw_dispersion_ion_approxi that the phase speed for KAW is larger than $v_A$.
 
 While SAWs do not have ion density perturbations, KAWs do (???).
 
 The polarizations of KAW can be expressed as
-
 $$
 \bigg\lvert \frac{\delta \mathbf{E}_\perp}{\delta \mathbf{B}_\perp} \bigg\rvert = v_A(1+k_\perp^2r_{iL}^2)[1+k_\perp^2(r_{iL}^2+r_{sL}^2)]^{-1/2}
 $$
-
 where $\delta\mathbf{E}_\perp \perp \delta\mathbf{B}_\perp$. The parallel electric field is
-
 $$
 \bigg\lvert \frac{\delta E_\parallel}{\delta E_\perp} \bigg\rvert = k_\parallel k_\perp\frac{r_{sL}^2}{1+k_\perp^2r_{iL}^2}
 $$
@@ -1115,6 +1113,8 @@ It would be very intuitive to compare animations between [MHD Alfvén waves](htt
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7RB_kD9aSqo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Almost half a century after the discovery of KAW, [@chen2021physics] demonstrated that the proper treatment of this wave requires gyrokinetics (@sec-gyrokinetics). However, under some circumstances ($\beta\gg 1$?) the two-fluid theory can recover most if not all of the KAW physics. I need to go over the derivations!
+
+I am not the only person who is confused by so many different names assigned to Alfvén waves. [The Alfvén Wave Zoo](https://www.scirp.org/html/101254_101254.htm#txtF6) is a nice review of all the existence names related to Alfvén waves.
 
 ## Particle Motions
 
@@ -1396,13 +1396,11 @@ $$
 Note here we insert $0^{th}$ order solution to $1^{st}$ order equation to get the next level approximation. Comparing with the results from 2-fluid theory, we see that the expression is very similar except a discrepancy in the coefficient. This is owing to the fact that we do not specify $\gamma$ in the equation of state. Actually, there are still ambiguities and debates about the exact equation of state. I wonder if I can get the exact coefficient under some assumption.
 
 The opposite limit case: $\frac{\omega}{k}\ll v_{th}$. From 2-fluid theory,
-
 $$
 \frac{\epsilon}{\epsilon_0}\approxeq1+\frac{{\omega_{pe}}^2}{k^2{v_{th,e}}^2}
 $$
 
 From Vlasov theory,
-
 $$
 \begin{aligned}
 \frac{\epsilon}{\epsilon_0}&=1-\frac{{\omega_{pe}}^2}{k^2}\int_{-\infty}^{\infty}dv\frac{\partial g/\partial v}{v-\omega/k}=
@@ -1423,19 +1421,15 @@ $$
 ### Ion-acoustic wave
 
 Assume $v_{th,e}\gg \frac{\omega}{k}\gg v_{th,i}$, we have the simplified dielectric function
-
 $$
 \frac{\epsilon}{\epsilon_0}=1+\frac{{\omega_{pe}}^2}{k^2{v_{th,e}}^2}-\frac{{\omega_{pi}}^2}{\omega^2}
 $$
 
 Assume quasi-neutrality condition: $n_{1e}\approx n_{1i}$, s.t.
-
 $$
 \nabla\cdot(\epsilon_0\mathbf{E}_1)=e(n_{1e}-n_{1i})\approx 0
 $$
-
 so we can ignore the "1" in the dielectric function. Let $\epsilon=0$, we get
-
 $$
 \begin{aligned}
 \frac{{\omega_{pe}}^2}{k^2{v_{th,e}}^2}-\frac{{\omega_{pi}}^2}{\omega^2}=0 \\
@@ -1446,7 +1440,6 @@ $$
 Physically, electron sees the electric field created by ions due to ion plasma oscillation. Since electrons move much faster than ions, this electric field is nearly electrostatic for electrons. As a result, electron just follows the ion motion.
 
 There are some other ways to get the ion-acoustic wave. If $\omega\ll \omega_{pe}$, we can treat this wave as electrostatic wave for electron. The distribution for electron number density is
-
 $$
 \begin{aligned}
 &n_{e}=n_0e^{e\phi/k_B T_e}\approxeq n_{0e}+n_{1e} \approxeq n_0[1+\frac{e\phi}{k_BT_e}+...] \\
@@ -1459,7 +1452,6 @@ Note that here the tilde signs $\sim$ of the variables are neglected for conveni
 Do we need to calculate $n_{1i}$??? Yes. MORE to do here!
 
 Also, from the linearized equation of motion for electron,
-
 $$
 \begin{aligned}
 \frac{\partial v_{e1}}{\partial t}=-\frac{e}{m_e}E_1-\frac{\nabla P_1}{n_0m_e} \\
@@ -1468,7 +1460,6 @@ $$
 $$
 
 In the $\omega\rightarrow 0$ limit, $LHS\doteq0$, we get
-
 $$
 n_{1e}= \frac{n_0eE_1}{-ikm_e{v_{th,e}}^2}
 $$
@@ -1672,7 +1663,6 @@ $$
 $$ {#eq-cyclotron_resonance}
 
 Here the frequency $\omega$ is measured in the plasma rest frame. $\Omega_s$ denotes the cyclotron frequency of particle species $s$ (ion species and electrons), $k_\parallel$ the parallel component of the wavevector, and $v_{\text{th},s}$ the particle thermal speed of species $s$. In general, the resonance parameter can be defined for arbitrary harmonics of the cyclotron frequency $m=0,\pm 1,\pm 2,...$:
-
 $$
 \xi^{(m)} = \frac{\omega - m\Omega_s}{k_\parallel v_{\text{th},s}}
 $$ {#eq-harmonic_resonance}
