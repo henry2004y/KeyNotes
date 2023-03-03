@@ -856,7 +856,7 @@ V_f = \frac{\omega}{k} = \sqrt{\frac{B_0^2 + 2 p_0}{\rho_0}}
 </section>
 <section id="circularly-polarized-alfvén-wave" class="level3" data-number="25.2.4">
 <h3 data-number="25.2.4" class="anchored" data-anchor-id="circularly-polarized-alfvén-wave"><span class="header-section-number">25.2.4</span> Circularly polarized Alfvén wave</h3>
-<p><span class="math display">\[
+<p>The following relations describe a right-hand polarized Alfvén wave <span class="math display">\[
 \begin{aligned}
 \rho &amp;= 1.0 \\
 p &amp;= 0.1 \\
@@ -879,13 +879,16 @@ B_x &amp;= B_\parallel\cos\alpha - B_\perp\sin\alpha \\
 B_y &amp;= B_\parallel\sin\alpha + B_\perp\cos\alpha
 \end{aligned}
 \]</span></p>
+<p>Generally the velocity and magnetic perturbation amplitudes are related by <span class="math display">\[
+\frac{v_1}{B_1} = \frac{V_A}{B_0}
+\]</span></p>
 <p>For 2D the computational domain is of size <span class="math inline">\(L_x = 2L_y\)</span>, with <span class="math inline">\(N_x = 2N_y\)</span>. Thus, the grid is rectangular, but each cell is square. The wave propagates along the diagonal of the grid, at an angle <span class="math inline">\(\alpha = \tan^{-1}(0.5) \approx 26.6\)</span> degrees with respect to the x-axis. Since the wave does not propagate along the diagonals of the grid cells, we guarantee the x- and y-fluxes are different; that is the problem is truly multi-dimensional.</p>
 <p>The wave is an exact nonlinear solution to the MHD equations, allowing one to test the algorithm in the nonlinear regime. Although nonlinear amplitude Alfvén waves are subject to a parametric instability which causes them to decay into magnetosonic waves, the instability should not be present for the parameters defined here. Since the problem is smooth, it can be used for convergence testing. Running the test with smaller pressure (higher β) and/or larger amplitudes is a good test of how robust is the algorithm.</p>
 <p>See more in <a href="https://www.astro.princeton.edu/~jstone/Athena/tests/cp-alfven-wave/cp-alfven.html">reference</a> and <span class="citation" data-cites="toth2000b">(<a href="#ref-toth2000b" role="doc-biblioref">Tóth 2000</a>)</span>.</p>
 </section>
 <section id="whistler-wave" class="level3" data-number="25.2.5">
 <h3 data-number="25.2.5" class="anchored" data-anchor-id="whistler-wave"><span class="header-section-number">25.2.5</span> Whistler wave</h3>
-<p>This test involves the propagation of whistler waves. It is taken from <span class="citation" data-cites="daldorff2014two">(<a href="#ref-daldorff2014two" role="doc-biblioref">Daldorff et al. 2014</a>)</span>, and is based on the circularly polarized Alfvén wave test described in the previous section. The whistler waves have variations in the transverse components of the magnetic field and the velocity. The longitudinal components, the density and the pressure are not perturbed. The following solution of the Hall MHD equations describes a right-hand polarized whistler wave propagating in the <span class="math inline">\(+x\)</span>-direction: <span class="math display">\[
+<p>This test involves the propagation of whistler waves taken from <span class="citation" data-cites="daldorff2014two">(<a href="#ref-daldorff2014two" role="doc-biblioref">Daldorff et al. 2014</a>)</span>. This is an extension of the circularly polarized Alfvén wave with the Hall term. The whistler waves have variations in the transverse components of the magnetic field and the velocity. The longitudinal components, the density and the pressure are not perturbed. The following solution of the Hall MHD equations describes a right-hand polarized whistler wave propagating in the <span class="math inline">\(+x\)</span>-direction: <span class="math display">\[
 \begin{aligned}
 u_y &amp;= -\delta u\cos(kx-\omega t) \\
 u_z &amp;= +\delta u\sin(kx-\omega t) \\
