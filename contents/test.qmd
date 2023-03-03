@@ -310,6 +310,7 @@ Initially, we set $\rho_0 = 1, p_0 = 4.5\times 10^{-4}$ and $B_0 = 0.04$ which r
 
 ### Circularly polarized Alfvén wave
 
+The following relations describe a right-hand polarized Alfvén wave
 $$
 \begin{aligned}
 \rho &= 1.0 \\
@@ -338,6 +339,11 @@ B_y &= B_\parallel\sin\alpha + B_\perp\cos\alpha
 \end{aligned}
 $$
 
+Generally the velocity and magnetic perturbation amplitudes are related by
+$$
+\frac{v_1}{B_1} = \frac{V_A}{B_0}
+$$
+
 For 2D the computational domain is of size $L_x = 2L_y$, with $N_x = 2N_y$. Thus, the grid is rectangular, but each cell is square. The wave propagates along the diagonal of the grid, at an angle $\alpha = \tan^{-1}(0.5) \approx 26.6$ degrees with respect to the x-axis. Since the wave does not propagate along the diagonals of the grid cells, we guarantee the x- and y-fluxes are different; that is the problem is truly multi-dimensional.
 
 The wave is an exact nonlinear solution to the MHD equations, allowing one to test the algorithm in the nonlinear regime. Although nonlinear amplitude Alfvén waves are subject to a parametric instability which causes them to decay into magnetosonic waves, the instability should not be present for the parameters defined here. Since the problem is smooth, it can be used for convergence testing. Running the test with smaller pressure (higher β) and/or larger amplitudes is a good test of how robust is the algorithm.
@@ -346,7 +352,7 @@ See more in [reference](https://www.astro.princeton.edu/~jstone/Athena/tests/cp-
 
 ### Whistler wave
 
-This test involves the propagation of whistler waves. It is taken from [@daldorff2014two], and is based on the circularly polarized Alfvén wave test described in the previous section. The whistler waves have variations in the transverse components of the magnetic field and the velocity. The longitudinal components, the density and the pressure are not perturbed. The following solution of the Hall MHD equations describes a right-hand polarized whistler wave propagating in the $+x$-direction:
+This test involves the propagation of whistler waves taken from [@daldorff2014two]. This is an extension of the circularly polarized Alfvén wave with the Hall term. The whistler waves have variations in the transverse components of the magnetic field and the velocity. The longitudinal components, the density and the pressure are not perturbed. The following solution of the Hall MHD equations describes a right-hand polarized whistler wave propagating in the $+x$-direction:
 $$
 \begin{aligned}
 u_y &= -\delta u\cos(kx-\omega t) \\
