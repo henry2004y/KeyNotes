@@ -360,16 +360,16 @@ u_z &= +\delta u\sin(kx-\omega t) \\
 B_y &= +\delta B\cos(kx-\omega t) \\
 B_z &= -\delta B\sin(kx-\omega t)
 \end{aligned}
-$$
+$$ {#eq-R-whistler-x}
 where the wave speed is (@eq-R-wave-phase-speed)
 $$
 v_\mathrm{ph} = \frac{\omega}{k} = \frac{W}{2} + \sqrt{\frac{B_x^2}{\rho} + \frac{W^2}{4}},\quad W=\frac{m}{e}\frac{kB_x}{\rho}
 $$
 
-Note that the wave speed depends on the wave number $k$. The magnetic and velocity perturbations are related as
+Note that the wave speed depends on the wave number $k$. The magnetic and velocity perturbations are related as (This is different from the usual Alfvénicity @eq-Alfvenity??? But it reduces to the Alfvénicity condition if $v_\mathrm{ph}=v_A=B_x/\sqrt{rho}$.)
 $$
 \frac{\delta u}{\delta B} = \frac{B_x}{v_\mathrm{ph}\rho}
-$$
+$$ {#eq-R-whistler-B-v}
 
 We set $\rho=1, u_x=0, B_x = 0.2$ and $p=5.12\times 10^{-4}$, and wavelength $\lambda = 32$. This results in $v_\mathrm{ph}=0.22059$ that is about 10% faster than the Alfvén speed $V_A=0.2$, so the Hall term is small but not negligible at this wavelength. The amplitude of the transverse magnetic field perturbation is set to $\delta B = 0.01$ which is 5% of the background field.
 
@@ -381,6 +381,10 @@ These parameters are chosen to satisfy
 * $\omega\ll \Omega_e$
 
 such that the kinetic dispersion relation reduces to the Hall MHD dispersion relation for the right-hand polarized whistler waves.
+
+[@tenerani2023dispersive] shows the Alfvénic wave dispersion and damping relations with respect to $\lambda/d_i$. When we get close to  but not necessarily below the ion inertial length (for $\beta\sim 1$, $d_i$ and $r_{iL}$ are on the same order), these effects already take place from both Hall MHD and hybrid simulations.
+
+What I observe while doing this low-$\beta$ test with the hybrid-Vlasov code Vlasiator is that without the Hall term the wave profile will be quickly distorted starting from the trailing edge of the peaks and troughs of all quantities; with the Hall term the wave profile can be maintained much longer, and of course the phase speed is $v_W$ which is faster than $v_A$ as in the ideal MHD case. In @sec-mhd-ohm, we learned that the Hall term in the Ohm's law can be neglected under two cases, neither of which apply in this test as shown by the comparison of $V_A$ and $v_W$ above. This implies an important fact that in certain parameter spaces the classical Alfvén waves never exist; we may observe Alfvénic fluctuations (i.e. correlations between $\delta\mathbf{u}$ and $\delta\mathbf{B}$), but they may belong to whistler waves (R-waves), EMIC waves (L-waves), or KAWs.
 
 ### Light wave
 
