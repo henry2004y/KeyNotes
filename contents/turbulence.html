@@ -324,16 +324,13 @@ div.csl-indent {
 </section>
 <section id="coupling-between-charged-fluid-and-magnetic-field" class="level3" data-number="14.1.2">
 <h3 data-number="14.1.2" class="anchored" data-anchor-id="coupling-between-charged-fluid-and-magnetic-field"><span class="header-section-number">14.1.2</span> Coupling between charged fluid and magnetic field</h3>
-<p>Elsässer variables are used to extract the Alfvénic component from MHD. They are defined as</p>
-<p><span class="math display">\[
+<p>Elsässer variables are used to extract the Alfvénic component from MHD. They are defined as <span id="eq-Elsässer-vars"><span class="math display">\[
 \begin{aligned}
 \mathbf{z}^+ &amp;= \mathbf{v} + \mathbf{b} \\
 \mathbf{z}^- &amp;= \mathbf{v} - \mathbf{b}
 \end{aligned}
-\]</span></p>
-<p>where <span class="math inline">\(\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}\)</span>.</p>
-<p>The perturbations are written as</p>
-<p><span class="math display">\[
+\tag{14.1}\]</span></span> where <span class="math inline">\(\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}\)</span>.</p>
+<p>The perturbations are written as <span class="math display">\[
 \begin{aligned}
 \delta\mathbf{z}^+ &amp;= \delta\mathbf{v} + \delta\mathbf{b} \\
 \delta\mathbf{z}^- &amp;= \delta\mathbf{v} - \delta\mathbf{b}
@@ -344,15 +341,17 @@ div.csl-indent {
 <li>Parallel wave: <span class="math inline">\(\delta\mathbf{v}=-\delta\mathbf{b}\Rightarrow \delta\mathbf{z}^+=0, \delta\mathbf{z}^-=2\delta\mathbf{v}\)</span></li>
 <li>Anti-parallel wave: <span class="math inline">\(\delta\mathbf{v}=\delta\mathbf{b}\Rightarrow \delta\mathbf{z}^+=2\delta\mathbf{v}, \delta\mathbf{z}^-=0\)</span></li>
 </ul>
-<p>The incompressible MHD wave equation in fluctuating Elsässer form is:</p>
-<p><span id="eq-mhd_elsassar"><span class="math display">\[
+<p>The Alfvénicity condition <span id="eq-Alfvenity"><span class="math display">\[
+\delta\mathbf{v}=\pm\delta\mathbf{b}=\pm\delta\mathbf{B}/\sqrt{\mu_0\rho_0}
+\tag{14.2}\]</span></span> often appears in the context of discussing Alfvén waves.</p>
+<p>The incompressible MHD wave equation in fluctuating Elsässer form is: <span id="eq-mhd_elsassar"><span class="math display">\[
 \frac{\partial\delta\mathbf{z}^\pm}{\partial t} \mp v_A\nabla_\parallel\delta\mathbf{z}^\pm + \delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm = -\nabla p
-\tag{14.1}\]</span></span></p>
+\tag{14.3}\]</span></span></p>
 <p><span id="eq-elsassar_divergence"><span class="math display">\[
 \nabla\cdot\delta\mathbf{z}^\pm = 0
-\tag{14.2}\]</span></span></p>
+\tag{14.4}\]</span></span></p>
 <p>The zero divergence means that there are no forcing or dissipation terms.</p>
-<p><a href="#eq-mhd_elsassar">Equation&nbsp;<span>14.1</span></a> unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term (<span class="math inline">\(v_A\)</span> constant?) that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence.</p>
+<p><a href="#eq-mhd_elsassar">Equation&nbsp;<span>14.3</span></a> unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term (<span class="math inline">\(v_A\)</span> constant?) that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence.</p>
 </section>
 <section id="critical-balance" class="level3" data-number="14.1.3">
 <h3 data-number="14.1.3" class="anchored" data-anchor-id="critical-balance"><span class="header-section-number">14.1.3</span> Critical balance</h3>
@@ -374,7 +373,7 @@ E(k_\parallel) &amp;\propto k_\parallel^{-2}
 <p>Residual energy is the difference in energy between magnetic and velocity fluctuations. The normalized residual energy is</p>
 <p><span id="eq-residual_energy_normalized"><span class="math display">\[
 \sigma_r = \frac{|\delta\mathbf{v}|^2 - |\delta\mathbf{b}|^2}{|\delta\mathbf{v}|^2 + |\delta\mathbf{b}|^2}
-\tag{14.3}\]</span></span></p>
+\tag{14.5}\]</span></span></p>
 <p><span class="math inline">\(\sigma_r\)</span> is zero for an Alfvén wave but is generally negative (<span class="math inline">\(|\delta\mathbf{b}|^2 &gt; |\delta\mathbf{v}|^2\)</span>) at MHD scales for solar wind observations, meaning that they are mostly likely turbulence but not waves.</p>
 </section>
 <section id="sec-turbulence_cross_helicity" class="level3" data-number="14.1.5">
@@ -382,13 +381,13 @@ E(k_\parallel) &amp;\propto k_\parallel^{-2}
 <p>Cross helicity is the difference in energy between <span class="math inline">\(\mathbf{z}^+\)</span> and <span class="math inline">\(\mathbf{z}^-\)</span> fluctuations (<a href="geometry.html#sec-cross_helicity"><span>Section&nbsp;15.3</span></a>). The normalized cross helicity is</p>
 <p><span id="eq-cross_helicity_normalized"><span class="math display">\[
 \sigma_c = \frac{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2}{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2} = \frac{2\delta\mathbf{v}\cdot\delta\mathbf{b}}{|\delta\mathbf{v}|^2 + |\delta\mathbf{b}|^2}
-\tag{14.4}\]</span></span></p>
+\tag{14.6}\]</span></span></p>
 <ul>
 <li><span class="math inline">\(|\sigma_c|=1\)</span>: unidirectional Alfvén waves (no turbulence)</li>
 <li><span class="math inline">\(|\sigma_c|\lesssim 1\)</span>: imbalanced turbulence</li>
 <li><span class="math inline">\(|\sigma_c|=0\)</span>: balanced turbulence (or non-Alfvénic fluctuations)</li>
 </ul>
-<p>The solar wind is typically imbalanced towards the anti-sunward direction. From <a href="#eq-residual_energy_normalized">Equation&nbsp;<span>14.3</span></a> and <a href="#eq-cross_helicity_normalized">Equation&nbsp;<span>14.4</span></a> we can easily see that</p>
+<p>The solar wind is typically imbalanced towards the anti-sunward direction. From <a href="#eq-residual_energy_normalized">Equation&nbsp;<span>14.5</span></a> and <a href="#eq-cross_helicity_normalized">Equation&nbsp;<span>14.6</span></a> we can easily see that</p>
 <p><span class="math display">\[
 \sqrt{\sigma_r^2 + \sigma_c^2} \le 1
 \]</span></p>
