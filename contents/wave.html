@@ -1137,7 +1137,7 @@ p_1 &amp;= \gamma p_0\frac{\rho_1}{\rho_0} = \frac{\gamma p_0}{\omega}\mathbf{k}
 \mathbf{B}_1 = \frac{v}{\omega/k_\perp}\mathbf{B}_0
 \]</span> which means that the perturbed magnetic field is always aligned with the background magnetic field.</p>
 <p>The distinction between the fast and slow waves can be further understood by comparing the signs of the wave induced fluctuations in the plasma and magnetic pressures: <span class="math inline">\(p\)</span> and <span class="math inline">\(\mathbf{B}_0\cdot\mathbf{B}/\mu_0\)</span>, respectively. It follows from <a href="#eq-mhd_fast_perturbations">Equation&nbsp;<span>7.42</span></a> that <span class="math display">\[
-\frac{\mathbf{B}_0\cdot\mathbf{B}}{\mu_0} = \frac{\mathbf{k}\cdot\mathbf{B}_0^2 - (\mathbf{k}\cdot\mathbf{B}_0)(\mathbf{B}_0\cdot\mathbf{v})}{\mu_0\,\omega}
+\frac{\mathbf{B}_0\cdot\mathbf{B}}{\mu_0} = \frac{\mathbf{k}\cdot\mathbf{v}B_0^2 - (\mathbf{k}\cdot\mathbf{B}_0)(\mathbf{B}_0\cdot\mathbf{v})}{\mu_0\,\omega}
 \]</span></p>
 <p>The <span class="math inline">\(z\)</span>-component of the perturbed momentum equation yields <span class="math display">\[
 \omega\rho_0 v_z = k \cos\theta p
@@ -1158,7 +1158,7 @@ T_1 &amp;= T - T_0 = \frac{p_0 + p_1}{(n_0 + n_1)k_B} - \frac{p_0}{n_0 k_B} \\
 \end{aligned}
 \tag{7.44}\]</span></span></p>
 <p><a href="#eq-mhd_fast_wave_T_perturbation">Equation&nbsp;<span>7.44</span></a> shows that temperature does not follow the same sinusoidal shape as the perturbed velocity.</p>
-<p>Special attention is required for the extreme cases. When <span class="math inline">\(\theta=90^o\)</span>, the fast wave phase speed <span class="math inline">\(v_\mathrm{ph}=\sqrt(V_A^2 + V_s^2)\)</span> while the slow wave phase speed <span class="math inline">\(v_\mathrm{ph}=0\)</span>. Slow waves cannot propagate perpendicular to the magnetic field. However, this is still a valid solution with all the slow mode perturbation properties, and you will see in <a href="stability.html#sec-mirror-instability"><span>Section&nbsp;9.11.2</span></a> and <a href="kmhd.html#sec-mirror"><span>Section&nbsp;10.2</span></a> that this is named <em>mirror mode</em>. When <span class="math inline">\(\theta=0^o\)</span>, the fast wave phase speed <span class="math inline">\(v_\mathrm{ph}=\max(V_A, V_s)\)</span> while the slow wave phase speed <span class="math inline">\(v_\mathrm{ph}=\min(V_A, V_s)\)</span>.</p>
+<p>Special attention is required for the extreme cases. When <span class="math inline">\(\theta=90^o\)</span>, the fast wave phase speed <span class="math inline">\(v_\mathrm{ph}=\sqrt{V_A^2 + V_s^2}\)</span> while the slow wave phase speed <span class="math inline">\(v_\mathrm{ph}=0\)</span>. Slow waves cannot propagate perpendicular to the magnetic field. However, this is still a valid solution with all the slow mode perturbation properties, and you will see in <a href="stability.html#sec-mirror-instability"><span>Section&nbsp;9.11.2</span></a> and <a href="kmhd.html#sec-mirror"><span>Section&nbsp;10.2</span></a> that this is named <em>mirror mode</em>. When <span class="math inline">\(\theta=0^o\)</span>, the fast wave phase speed <span class="math inline">\(v_\mathrm{ph}=\max(V_A, V_s)\)</span> while the slow wave phase speed <span class="math inline">\(v_\mathrm{ph}=\min(V_A, V_s)\)</span>.</p>
 <p>It is important to understand the nature of fast and slow waves under the <em>cold plasma limit</em>, i.e.&nbsp;in the low-<span class="math inline">\(\beta\)</span> regime where <span class="math inline">\(V_A\gg V_s\)</span> (cold, strong B). If <span class="math inline">\(V_s\rightarrow 0\)</span>, the slow mode ceases to exit (<span class="math inline">\(V_\mathrm{ph}\rightarrow 0\)</span>) and the phase speed of the fast mode becomes <span class="math inline">\(v_p \approx v_A\)</span>. This is often called the <em>compressional Alfvén wave</em>, which is actually a fast wave in the low-<span class="math inline">\(\beta\)</span> limit. If <span class="math inline">\(\beta\)</span> is low but we still have a finite sound speed, the dispersion relation for the slow wave reduces to <span class="math display">\[
 \omega \simeq k\,V_s\,\cos\theta
 \]</span></p>
@@ -1171,6 +1171,14 @@ T_1 &amp;= T - T_0 = \frac{p_0 + p_1}{(n_0 + n_1)k_B} - \frac{p_0}{n_0 k_B} \\
 </figure>
 </div>
 </div>
+<p>Sometimes the fast wave dispersion relation is written in alternative ways. Let <span class="math inline">\(a=\omega/(k_\parallel v_A)=\omega \cos\theta/(k v_A)\)</span>. From <a href="#eq-mhd_fast_slow">Equation&nbsp;<span>7.41</span></a>, we have <span id="eq-mhd-fast-angle"><span class="math display">\[
+\cos^2\theta = \frac{a^2\left( v_s^2/v_A^2 + 1 \right)-v_s^2/v_A^2}{a^4}
+\tag{7.45}\]</span></span></p>
+<p>This expression is useful when considering the wave resonance and mode conversions. For example, Alfvén resonance occurs when <span id="eq-mhd-alfven-resonance"><span class="math display">\[
+\omega^2 = k_\parallel^2 v_A^2
+\tag{7.46}\]</span></span> i.e.&nbsp;<span class="math inline">\(a=1\)</span> under the low frequency approximation. In higher frequency cases, the Alfvén resonance condition is modified as <span id="eq-mhd-alfven-resonance-flr"><span class="math display">\[
+a = \frac{1}{\left( 1-\omega^2/\Omega_i^2 \right)^2}
+\tag{7.47}\]</span></span> because of the finite ion Larmor radius effects. (The Alfvén resonance singularity can be removed by including non‐MHD effects such as electron inertia or ion Larmor radius corrections.)</p>
 </section>
 </section>
 <section id="sec-kaw" class="level2" data-number="7.7">
@@ -1188,9 +1196,9 @@ T_1 &amp;= T - T_0 = \frac{p_0 + p_1}{(n_0 + n_1)k_B} - \frac{p_0}{n_0 k_B} \\
 <p>In principle, the KAW eigenmode solution can be obtained from the linearized two-fluid equations (Dai 2009).</p>
 <p>While SAW satisfy <span class="math inline">\(\omega=k_\parallel v_A\)</span>, the dispersion relation of KAW can be written as (Johnson &amp; Cheng, 1997) <span id="eq-kaw_dispersion"><span class="math display">\[
 \omega^2 = k_\parallel^2 v_A^2 \Big[ \frac{1}{1-I_0(k_\perp^2 r_{iL}^2)e^{-k_\perp^2 r_{iL}^2}} + \frac{T_e}{T_i} \Big]k_\perp^2 r_{iL}^2
-\tag{7.45}\]</span></span> where <span class="math inline">\(I_0\)</span> is the modified Bessel function. Using a Padé approximation <span class="math inline">\(I_0(x)e^{-x}\approx 1/(1+x)\)</span> when <span class="math inline">\(x=k_\perp^2r_{iL}^2\sim\mathcal{O}(1)\)</span>, the relation can be simplified to <span id="eq-kaw_dispersion_ion_approxi"><span class="math display">\[
+\tag{7.48}\]</span></span> where <span class="math inline">\(I_0\)</span> is the modified Bessel function. Using a Padé approximation <span class="math inline">\(I_0(x)e^{-x}\approx 1/(1+x)\)</span> when <span class="math inline">\(x=k_\perp^2r_{iL}^2\sim\mathcal{O}(1)\)</span>, the relation can be simplified to <span id="eq-kaw_dispersion_ion_approxi"><span class="math display">\[
 \omega^2 = k_\parallel^2 v_A^2\Big[1+\Big(1+\frac{T_e}{T_i}k_\perp^2r_{iL}^2\Big) \Big] =  k_\parallel^2 v_A^2 [1+k_\perp^2(r_{iL}^2+r_{sL}^2)]
-\tag{7.46}\]</span></span> where <span class="math inline">\(r_{sL}=\sqrt{T_e/m_i}/\omega_{ci}\)</span>. This term is kind of strange, because it looks like a Larmor radius for ion with electron temperature. We can see from <a href="#eq-kaw_dispersion_ion_approxi">Equation&nbsp;<span>7.46</span></a> that the phase speed for KAW is larger than <span class="math inline">\(v_A\)</span>.</p>
+\tag{7.49}\]</span></span> where <span class="math inline">\(r_{sL}=\sqrt{T_e/m_i}/\omega_{ci}\)</span>. This term is kind of strange, because it looks like a Larmor radius for ion with electron temperature. We can see from <a href="#eq-kaw_dispersion_ion_approxi">Equation&nbsp;<span>7.49</span></a> that the phase speed for KAW is larger than <span class="math inline">\(v_A\)</span>.</p>
 <p>While SAWs do not have ion density perturbations, KAWs do (???).</p>
 <p>The polarizations of KAW can be expressed as <span class="math display">\[
 \bigg\lvert \frac{\delta \mathbf{E}_\perp}{\delta \mathbf{B}_\perp} \bigg\rvert = v_A(1+k_\perp^2r_{iL}^2)[1+k_\perp^2(r_{iL}^2+r_{sL}^2)]^{-1/2}
@@ -1239,35 +1247,35 @@ B_x(z,t) \equiv B_x(z)\,\exp(-i\omega t)
 <p>It can easily be shown (???) that <span class="math inline">\(E_y(z)\)</span> and <span class="math inline">\(B_x(z)\)</span> satisfy the differential equations</p>
 <p><span id="eq-wave_nonuniform_e"><span class="math display">\[
 \frac{\mathrm{d}^2 E_y}{\mathrm{d}z^2} + k_0^{~2}\,n^2\,E_y = 0
-\tag{7.47}\]</span></span></p>
+\tag{7.50}\]</span></span></p>
 <p>and</p>
 <p><span id="eq-wave_nonuniform_b"><span class="math display">\[
 \frac{\mathrm{d}\,cB_x}{\mathrm{d}z} = -i\,k_0\,n^2\,E_y
-\tag{7.48}\]</span></span></p>
+\tag{7.51}\]</span></span></p>
 <p>respectively. Here, <span class="math inline">\(k_0=\omega/c\)</span> is the wave-number in free space. Of course, the actual wave-number is <span class="math inline">\(k=k_0\,n\)</span>.</p>
-<p>The solution to <a href="#eq-wave_nonuniform_e">Equation&nbsp;<span>7.47</span></a> for the case of a homogeneous plasma, for which <span class="math inline">\(n\)</span> is constant, is straightforward:</p>
+<p>The solution to <a href="#eq-wave_nonuniform_e">Equation&nbsp;<span>7.50</span></a> for the case of a homogeneous plasma, for which <span class="math inline">\(n\)</span> is constant, is straightforward:</p>
 <p><span id="eq-wave_uniform_sol"><span class="math display">\[
 E_y = A\,e^{\,i\,\phi(z)}
-\tag{7.49}\]</span></span></p>
+\tag{7.52}\]</span></span></p>
 <p>where <span class="math inline">\(A\)</span> is a constant, and</p>
 <p><span id="eq-wave_uniform_phase"><span class="math display">\[
 \phi = \pm k_0\,n\,z
-\tag{7.50}\]</span></span></p>
-<p>The solution <a href="#eq-wave_uniform_sol">Equation&nbsp;<span>7.49</span></a> represents a wave of constant amplitude, <span class="math inline">\(A\)</span>, and phase, <span class="math inline">\(\phi(z)\)</span>. According to <a href="#eq-wave_uniform_phase">Equation&nbsp;<span>7.50</span></a>, there are, in fact, two independent waves which can propagate through the plasma. The upper sign corresponds to a wave which propagates in the <span class="math inline">\(+z\)</span>-direction, whereas the lower sign corresponds to a wave which propagates in the <span class="math inline">\(-z\)</span>-direction. Both waves propagate with the constant phase velocity <span class="math inline">\(c/n\)</span>.</p>
-<p>In general, if <span class="math inline">\(n=n(z)\)</span> then the solution of <a href="#eq-wave_nonuniform_e">Equation&nbsp;<span>7.47</span></a> does not remotely resemble the wave-like solution <a href="#eq-wave_uniform_sol">Equation&nbsp;<span>7.49</span></a>. However, in the limit in which <span class="math inline">\(n(z)\)</span> is a “slowly varying” function of <span class="math inline">\(z\)</span> (exactly how slowly varying is something which will be established later on), we expect to recover wave-like solutions. Let us suppose that <span class="math inline">\(n(z)\)</span> is indeed a “slowly varying” function, and let us try substituting the wave solution <a href="#eq-wave_uniform_sol">Equation&nbsp;<span>7.49</span></a> into <a href="#eq-wave_nonuniform_e">Equation&nbsp;<span>7.47</span></a>. We obtain</p>
+\tag{7.53}\]</span></span></p>
+<p>The solution <a href="#eq-wave_uniform_sol">Equation&nbsp;<span>7.52</span></a> represents a wave of constant amplitude, <span class="math inline">\(A\)</span>, and phase, <span class="math inline">\(\phi(z)\)</span>. According to <a href="#eq-wave_uniform_phase">Equation&nbsp;<span>7.53</span></a>, there are, in fact, two independent waves which can propagate through the plasma. The upper sign corresponds to a wave which propagates in the <span class="math inline">\(+z\)</span>-direction, whereas the lower sign corresponds to a wave which propagates in the <span class="math inline">\(-z\)</span>-direction. Both waves propagate with the constant phase velocity <span class="math inline">\(c/n\)</span>.</p>
+<p>In general, if <span class="math inline">\(n=n(z)\)</span> then the solution of <a href="#eq-wave_nonuniform_e">Equation&nbsp;<span>7.50</span></a> does not remotely resemble the wave-like solution <a href="#eq-wave_uniform_sol">Equation&nbsp;<span>7.52</span></a>. However, in the limit in which <span class="math inline">\(n(z)\)</span> is a “slowly varying” function of <span class="math inline">\(z\)</span> (exactly how slowly varying is something which will be established later on), we expect to recover wave-like solutions. Let us suppose that <span class="math inline">\(n(z)\)</span> is indeed a “slowly varying” function, and let us try substituting the wave solution <a href="#eq-wave_uniform_sol">Equation&nbsp;<span>7.52</span></a> into <a href="#eq-wave_nonuniform_e">Equation&nbsp;<span>7.50</span></a>. We obtain</p>
 <p><span id="eq-wave_nonuniform_phase"><span class="math display">\[
 \left(\frac{\mathrm{d}\phi}{\mathrm{d}z}\right)^2 = k_0^{~2} n^2 +i\,\frac{\mathrm{d}^2\phi} {\mathrm{d}z^2}
-\tag{7.51}\]</span></span></p>
-<p>This is a non-linear differential equation which, in general, is very difficult to solve. However, we note that if <span class="math inline">\(n\)</span> is a constant then <span class="math inline">\(\mathrm{d}^2\phi/\mathrm{d}z^2=0\)</span>. It is, therefore, reasonable to suppose that if <span class="math inline">\(n(z)\)</span> is a “slowly varying” function then the last term on the right-hand side of the above equation can be regarded as being small. Thus, to a first approximation <a href="#eq-wave_nonuniform_phase">Equation&nbsp;<span>7.51</span></a> yields</p>
+\tag{7.54}\]</span></span></p>
+<p>This is a non-linear differential equation which, in general, is very difficult to solve. However, we note that if <span class="math inline">\(n\)</span> is a constant then <span class="math inline">\(\mathrm{d}^2\phi/\mathrm{d}z^2=0\)</span>. It is, therefore, reasonable to suppose that if <span class="math inline">\(n(z)\)</span> is a “slowly varying” function then the last term on the right-hand side of the above equation can be regarded as being small. Thus, to a first approximation <a href="#eq-wave_nonuniform_phase">Equation&nbsp;<span>7.54</span></a> yields</p>
 <p><span class="math display">\[
 \frac{\mathrm{d}\phi}{\mathrm{d}z} \simeq \pm k_0\,n
 \]</span></p>
 <p>and</p>
 <p><span id="eq-wave_nonuniform_phase_approxi"><span class="math display">\[
 \frac{\mathrm{d}^2 \phi}{\mathrm{d}z^2} \simeq \pm k_0\frac{dn}{\mathrm{d}z}
-\tag{7.52}\]</span></span></p>
-<p>It is clear from a comparison of <a href="#eq-wave_nonuniform_phase">Equation&nbsp;<span>7.51</span></a> and <a href="#eq-wave_nonuniform_phase_approxi">Equation&nbsp;<span>7.52</span></a> that <span class="math inline">\(n(z)\)</span> can be regarded as a “slowly varying” function of <span class="math inline">\(z\)</span> as long as its variation length-scale is far longer than the wavelength of the wave. In other words, provided that <span class="math inline">\((dn/\mathrm{d}z)/(k_0\,n^2)\ll 1\)</span>.</p>
-<p>The second approximation to the solution is obtained by substituting <a href="#eq-wave_nonuniform_phase_approxi">Equation&nbsp;<span>7.52</span></a> into the right-hand side of <a href="#eq-wave_nonuniform_phase">Equation&nbsp;<span>7.51</span></a>:</p>
+\tag{7.55}\]</span></span></p>
+<p>It is clear from a comparison of <a href="#eq-wave_nonuniform_phase">Equation&nbsp;<span>7.54</span></a> and <a href="#eq-wave_nonuniform_phase_approxi">Equation&nbsp;<span>7.55</span></a> that <span class="math inline">\(n(z)\)</span> can be regarded as a “slowly varying” function of <span class="math inline">\(z\)</span> as long as its variation length-scale is far longer than the wavelength of the wave. In other words, provided that <span class="math inline">\((dn/\mathrm{d}z)/(k_0\,n^2)\ll 1\)</span>.</p>
+<p>The second approximation to the solution is obtained by substituting <a href="#eq-wave_nonuniform_phase_approxi">Equation&nbsp;<span>7.55</span></a> into the right-hand side of <a href="#eq-wave_nonuniform_phase">Equation&nbsp;<span>7.54</span></a>:</p>
 <p><span class="math display">\[
 \frac{\mathrm{d}\phi}{\mathrm{d}z} \simeq \pm \Big(k_0^{~2} n^2 \pm i\,k_0 \frac{dn}{\mathrm{d}z}\Big)^{1/2}
 \]</span></p>
@@ -1278,27 +1286,27 @@ E_y = A\,e^{\,i\,\phi(z)}
 <p>where a binomial expansion has been used. The above expression can be integrated to give</p>
 <p><span id="eq-wave_phase_approxi"><span class="math display">\[
 \phi \sim \pm k_0\! \int^z \!n\,\mathrm{d}z +i\,\log(n^{1/2})
-\tag{7.53}\]</span></span></p>
-<p>Substitution of <a href="#eq-wave_phase_approxi">Equation&nbsp;<span>7.53</span></a> into <a href="#eq-wave_uniform_sol">Equation&nbsp;<span>7.49</span></a> yields the final result</p>
+\tag{7.56}\]</span></span></p>
+<p>Substitution of <a href="#eq-wave_phase_approxi">Equation&nbsp;<span>7.56</span></a> into <a href="#eq-wave_uniform_sol">Equation&nbsp;<span>7.52</span></a> yields the final result</p>
 <p><span id="eq-wave_nonuniform_sol_e"><span class="math display">\[
 E_y \simeq A\,n^{-1/2}\,\exp (\pm i\, k_0\! \int^z \!n\,\mathrm{d}z )
-\tag{7.54}\]</span></span></p>
-<p>It follows from <a href="#eq-wave_nonuniform_b">Equation&nbsp;<span>7.48</span></a> that</p>
+\tag{7.57}\]</span></span></p>
+<p>It follows from <a href="#eq-wave_nonuniform_b">Equation&nbsp;<span>7.51</span></a> that</p>
 <p><span id="eq-wave_nonuniform_sol_b"><span class="math display">\[
 cB_x\simeq \mp A\, n^{1/2}\exp\Big(\pm i\,k_0 \int^z n \mathrm{d}z\Big) - \frac{iA}{2k_0 n^{3/2}}\frac{dn}{\mathrm{d}z}\exp\Big(\pm i\,k_0 \int^z n \mathrm{d}z\Big)
-\tag{7.55}\]</span></span></p>
+\tag{7.58}\]</span></span></p>
 <p>Note that the second term is small compared to the first, and can usually be neglected.</p>
-<p>Let us test to what extent <a href="#eq-wave_nonuniform_sol_e">Equation&nbsp;<span>7.54</span></a> is a good solution of <a href="#eq-wave_nonuniform_e">Equation&nbsp;<span>7.47</span></a> by substituting this expression into the left-hand side of the equation. The result is</p>
+<p>Let us test to what extent <a href="#eq-wave_nonuniform_sol_e">Equation&nbsp;<span>7.57</span></a> is a good solution of <a href="#eq-wave_nonuniform_e">Equation&nbsp;<span>7.50</span></a> by substituting this expression into the left-hand side of the equation. The result is</p>
 <p><span class="math display">\[
 \frac{A}{n^{1/2}}\Big[ \frac{3}{4}\Big(\frac{1}{n}\frac{dn}{\mathrm{d}z}\Big)^2 - \frac{1}{2n}\frac{\mathrm{d}^2n}{\mathrm{d}z^2} \Big]\exp\Big( \pm i\,k_0\int^z n\,\mathrm{d}z\Big)
 \]</span></p>
-<p>This must be small compared with either term on the left-hand side of <a href="#eq-wave_nonuniform_e">Equation&nbsp;<span>7.47</span></a>. Hence, the condition for <a href="#eq-wave_nonuniform_sol_e">Equation&nbsp;<span>7.54</span></a> to be a good solution of <a href="#eq-wave_nonuniform_e">Equation&nbsp;<span>7.47</span></a> becomes</p>
+<p>This must be small compared with either term on the left-hand side of <a href="#eq-wave_nonuniform_e">Equation&nbsp;<span>7.50</span></a>. Hence, the condition for <a href="#eq-wave_nonuniform_sol_e">Equation&nbsp;<span>7.57</span></a> to be a good solution of <a href="#eq-wave_nonuniform_e">Equation&nbsp;<span>7.50</span></a> becomes</p>
 <p><span id="eq-wave_wkb_condition"><span class="math display">\[
 \frac{1}{k_0^2}\bigg\lvert \frac{3}{4}\Big(\frac{1}{n^2} \frac{dn}{\mathrm{d}z}\Big)^2 -\frac{1}{2n^3}\frac{\mathrm{d}^2 n}{\mathrm{d}z^2}\bigg\rvert \ll 1
-\tag{7.56}\]</span></span></p>
-<p>The solutions <a href="#eq-wave_nonuniform_sol_e">Equation&nbsp;<span>7.54</span></a> and <a href="#eq-wave_nonuniform_sol_b">Equation&nbsp;<span>7.55</span></a> (without the second term) are most commonly referred to as the <em>WKB</em> solutions, in honour of G. Wentzel, H.A. Kramers, and L. Brillouin, who are credited with independently discovering these solutions (in a quantum mechanical context) in 1926. Actually, H. Jeffries wrote a paper on the WKB solutions (in a wave propagation context) in 1923. Hence, some people call them the WKBJ solutions (or even the JWKB solutions). To be strictly accurate, the WKB solutions were first discussed by Liouville and Green in 1837, and again by Rayleigh in 1912. The advance in science discovery is always a collective achievement.</p>
+\tag{7.59}\]</span></span></p>
+<p>The solutions <a href="#eq-wave_nonuniform_sol_e">Equation&nbsp;<span>7.57</span></a> and <a href="#eq-wave_nonuniform_sol_b">Equation&nbsp;<span>7.58</span></a> (without the second term) are most commonly referred to as the <em>WKB</em> solutions, in honour of G. Wentzel, H.A. Kramers, and L. Brillouin, who are credited with independently discovering these solutions (in a quantum mechanical context) in 1926. Actually, H. Jeffries wrote a paper on the WKB solutions (in a wave propagation context) in 1923. Hence, some people call them the WKBJ solutions (or even the JWKB solutions). To be strictly accurate, the WKB solutions were first discussed by Liouville and Green in 1837, and again by Rayleigh in 1912. The advance in science discovery is always a collective achievement.</p>
 <p>Recall, that when a propagating wave is normally incident on an interface, where the refractive index suddenly changes (for instance, when a light wave propagating through air is normally incident on a glass slab), there is generally significant reflection of the wave. However, according to the WKB solutions, when a propagating wave is normally incident on a medium in which the refractive index changes slowly along the direction of propagation of the wave then the wave is not reflected at all. This is true even if the refractive index varies very substantially along the path of propagation of the wave, as long as it varies slowly. The WKB solutions imply that as the wave propagates through the medium its wave-length gradually changes. In fact, the wave-length at position <span class="math inline">\(z\)</span> is approximately <span class="math inline">\(\lambda(z)= 2\pi/ k_0\,n(z)\)</span>. The WKB solutions also imply that the amplitude of the wave gradually changes as it propagates. The amplitude of the electric field component is inversely proportional to <span class="math inline">\(n^{1/2}\)</span>, whereas the amplitude of the magnetic field component is directly proportional to <span class="math inline">\(n^{1/2}\)</span>. Note, however, that the energy flux in the <span class="math inline">\(z\)</span>-direction, given by the the Poynting vector <span class="math inline">\(-(E_y B_x^\ast +E_y^\ast B_x)/(4\mu_0)\)</span>, remains constant (assuming that <span class="math inline">\(n\)</span> is predominately real).</p>
-<p>Of course, the WKB solutions are only approximations. In reality, a wave propagating into a medium in which the refractive index is a slowly varying function of position is subject to a small amount of reflection. However, it is easily demonstrated that the ratio of the reflected amplitude to the incident amplitude is of order <span class="math inline">\((dn/\mathrm{d}z)/(k_0\,n^2)\)</span>. Thus, as long as the refractive index varies on a much longer length-scale than the wavelength of the radiation, the reflected wave is negligibly small. This conclusion remains valid as long as the inequality <a href="#eq-wave_wkb_condition">Equation&nbsp;<span>7.56</span></a> is satisfied. This inequality obviously breaks down in the vicinity of a point where <span class="math inline">\(n^2=0\)</span>. We would, therefore, expect strong reflection of the incident wave from such a point. Furthermore, the WKB solutions also break down at a point where <span class="math inline">\(n^2\rightarrow\infty\)</span>, since the amplitude of <span class="math inline">\(B_x\)</span> becomes infinite.</p>
+<p>Of course, the WKB solutions are only approximations. In reality, a wave propagating into a medium in which the refractive index is a slowly varying function of position is subject to a small amount of reflection. However, it is easily demonstrated that the ratio of the reflected amplitude to the incident amplitude is of order <span class="math inline">\((dn/\mathrm{d}z)/(k_0\,n^2)\)</span>. Thus, as long as the refractive index varies on a much longer length-scale than the wavelength of the radiation, the reflected wave is negligibly small. This conclusion remains valid as long as the inequality <a href="#eq-wave_wkb_condition">Equation&nbsp;<span>7.59</span></a> is satisfied. This inequality obviously breaks down in the vicinity of a point where <span class="math inline">\(n^2=0\)</span>. We would, therefore, expect strong reflection of the incident wave from such a point. Furthermore, the WKB solutions also break down at a point where <span class="math inline">\(n^2\rightarrow\infty\)</span>, since the amplitude of <span class="math inline">\(B_x\)</span> becomes infinite.</p>
 </section>
 <section id="electron-cyclotron-resonance-heating" class="level3" data-number="7.9.2">
 <h3 data-number="7.9.2" class="anchored" data-anchor-id="electron-cyclotron-resonance-heating"><span class="header-section-number">7.9.2</span> Electron Cyclotron Resonance Heating</h3>
@@ -1615,13 +1623,13 @@ v_{1ix}=\frac{1}{\Omega_i}\frac{\partial}{\partial t}\Big( \frac{E_{1x}}{B_0}\Bi
 <p>Charged particles can exchange the energy with the wave electric field both parallel and perpendicular to the mean magnetic field (<em>Landau resonance</em>). <a href="#fig-wave_particle">Figure&nbsp;<span>7.11</span></a> left and middle panels show these resonance types and the associated parts of the distribution function schematically. The resonance parameters for the Landau and cyclotron resonances are</p>
 <p><span id="eq-landau_resonance"><span class="math display">\[
 \xi_\text{L} = \frac{\omega}{k_\parallel v_{\text{th},s}}
-\tag{7.57}\]</span></span></p>
+\tag{7.60}\]</span></span></p>
 <p><span id="eq-cyclotron_resonance"><span class="math display">\[
 \xi_\text{C} = \frac{\omega-\Omega_s}{k_\parallel v_(\text{th},s)}
-\tag{7.58}\]</span></span></p>
+\tag{7.61}\]</span></span></p>
 <p>Here the frequency <span class="math inline">\(\omega\)</span> is measured in the plasma rest frame. <span class="math inline">\(\Omega_s\)</span> denotes the cyclotron frequency of particle species <span class="math inline">\(s\)</span> (ion species and electrons), <span class="math inline">\(k_\parallel\)</span> the parallel component of the wavevector, and <span class="math inline">\(v_{\text{th},s}\)</span> the particle thermal speed of species <span class="math inline">\(s\)</span>. In general, the resonance parameter can be defined for arbitrary harmonics of the cyclotron frequency <span class="math inline">\(m=0,\pm 1,\pm 2,...\)</span>: <span id="eq-harmonic_resonance"><span class="math display">\[
 \xi^{(m)} = \frac{\omega - m\Omega_s}{k_\parallel v_{\text{th},s}}
-\tag{7.59}\]</span></span></p>
+\tag{7.62}\]</span></span></p>
 <div id="fig-wave_particle" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/wave_particle_interactions.png" class="img-fluid figure-img"></p>
