@@ -1014,7 +1014,7 @@ which means that the perturbed magnetic field is always aligned with the backgro
 
 The distinction between the fast and slow waves can be further understood by comparing the signs of the wave induced fluctuations in the plasma and magnetic pressures: $p$ and $\mathbf{B}_0\cdot\mathbf{B}/\mu_0$, respectively. It follows from @eq-mhd_fast_perturbations that
 $$
-\frac{\mathbf{B}_0\cdot\mathbf{B}}{\mu_0} = \frac{\mathbf{k}\cdot\mathbf{B}_0^2 - (\mathbf{k}\cdot\mathbf{B}_0)(\mathbf{B}_0\cdot\mathbf{v})}{\mu_0\,\omega}
+\frac{\mathbf{B}_0\cdot\mathbf{B}}{\mu_0} = \frac{\mathbf{k}\cdot\mathbf{v}B_0^2 - (\mathbf{k}\cdot\mathbf{B}_0)(\mathbf{B}_0\cdot\mathbf{v})}{\mu_0\,\omega}
 $$
 
 The $z$-component of the perturbed momentum equation yields
@@ -1044,7 +1044,7 @@ $$ {#eq-mhd_fast_wave_T_perturbation}
 
 @eq-mhd_fast_wave_T_perturbation shows that temperature does not follow the same sinusoidal shape as the perturbed velocity.
 
-Special attention is required for the extreme cases. When $\theta=90^o$, the fast wave phase speed $v_\mathrm{ph}=\sqrt(V_A^2 + V_s^2)$ while the slow wave phase speed $v_\mathrm{ph}=0$. Slow waves cannot propagate perpendicular to the magnetic field. However, this is still a valid solution with all the slow mode perturbation properties, and you will see in @sec-mirror-instability and @sec-mirror that this is named _mirror mode_. When $\theta=0^o$, the fast wave phase speed $v_\mathrm{ph}=\max(V_A, V_s)$ while the slow wave phase speed $v_\mathrm{ph}=\min(V_A, V_s)$.
+Special attention is required for the extreme cases. When $\theta=90^o$, the fast wave phase speed $v_\mathrm{ph}=\sqrt{V_A^2 + V_s^2}$ while the slow wave phase speed $v_\mathrm{ph}=0$. Slow waves cannot propagate perpendicular to the magnetic field. However, this is still a valid solution with all the slow mode perturbation properties, and you will see in @sec-mirror-instability and @sec-mirror that this is named _mirror mode_. When $\theta=0^o$, the fast wave phase speed $v_\mathrm{ph}=\max(V_A, V_s)$ while the slow wave phase speed $v_\mathrm{ph}=\min(V_A, V_s)$.
 
 It is important to understand the nature of fast and slow waves under the _cold plasma limit_, i.e. in the low-$\beta$ regime where $V_A\gg V_s$ (cold, strong B). If $V_s\rightarrow 0$, the slow mode ceases to exit ($V_\mathrm{ph}\rightarrow 0$) and the phase speed of the fast mode becomes $v_p \approx v_A$. This is often called the _compressional Alfvén wave_, which is actually a fast wave in the low-$\beta$ limit. If $\beta$ is low but we still have a finite sound speed, the dispersion relation for the slow wave reduces to
 $$
@@ -1058,6 +1058,21 @@ Thus, in low-$\beta$ plasmas the slow wave is a sound wave modified by the prese
 ![Fast wave.](https://s8.gifyu.com/images/fast.gif){#fig-fast_wave}
 
 :::
+
+Sometimes the fast wave dispersion relation is written in alternative ways. Let $a=\omega/(k_\parallel v_A)=\omega \cos\theta/(k v_A)$. From @eq-mhd_fast_slow, we have
+$$
+\cos^2\theta = \frac{a^2\left( v_s^2/v_A^2 + 1 \right)-v_s^2/v_A^2}{a^4}
+$$ {#eq-mhd-fast-angle}
+
+This expression is useful when considering the wave resonance and mode conversions. For example, Alfvén resonance occurs when
+$$
+\omega^2 = k_\parallel^2 v_A^2
+$$ {#eq-mhd-alfven-resonance}
+i.e. $a=1$ under the low frequency approximation. In higher frequency cases, the Alfvén resonance condition is modified as
+$$
+a = \frac{1}{\left( 1-\omega^2/\Omega_i^2 \right)^2}
+$$ {#eq-mhd-alfven-resonance-flr}
+because of the finite ion Larmor radius effects. (The Alfvén resonance singularity can be removed by including non‐MHD effects such as electron inertia or ion Larmor radius corrections.)
 
 ## Kinetic Alfvén Wave {#sec-kaw}
 
