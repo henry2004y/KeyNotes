@@ -277,6 +277,7 @@ div.csl-indent {
   <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d"><span class="toc-section-number">15.5.1</span>  2D</a></li>
   <li><a href="#d-1" id="toc-d-1" class="nav-link" data-scroll-target="#d-1"><span class="toc-section-number">15.5.2</span>  3D</a></li>
   <li><a href="#critical-points" id="toc-critical-points" class="nav-link" data-scroll-target="#critical-points"><span class="toc-section-number">15.5.3</span>  Critical Points</a></li>
+  <li><a href="#separatrix" id="toc-separatrix" class="nav-link" data-scroll-target="#separatrix"><span class="toc-section-number">15.5.4</span>  Separatrix</a></li>
   </ul></li>
   <li><a href="#magnetospause-identification" id="toc-magnetospause-identification" class="nav-link" data-scroll-target="#magnetospause-identification"><span class="toc-section-number">15.6</span>  Magnetospause Identification</a></li>
   </ul>
@@ -393,11 +394,11 @@ H_C = \int_V \mathbf{v}\cdot\mathbf{B} dV
 <h3 data-number="15.5.2" class="anchored" data-anchor-id="d-1"><span class="header-section-number">15.5.2</span> 3D</h3>
 <p>Identification of 3D reconnection sites is not easy.</p>
 <p>Implement Lapenta’s method.</p>
-<p>The four-field junction (FFJ) method is proposed by Finnish researchers (???). It works decently on steady reconnection cases, but not when things change drastically.</p>
+<p>The four-field junction (FFJ) method is proposed by Laitinen+ 2006. It works decently on steady reconnection cases, but not when things change drastically.</p>
 </section>
 <section id="critical-points" class="level3" data-number="15.5.3">
 <h3 data-number="15.5.3" class="anchored" data-anchor-id="critical-points"><span class="header-section-number">15.5.3</span> Critical Points</h3>
-<p>Let us discuss the problem with topological definitions (following Kenneth Rohde Christiansen and Aard Keimpema). Critical points are points where the vector vanishes (i.e.&nbsp;<span class="math inline">\(\mathbf{v}=0\)</span>). There are 6 different types of critical points, characterized by the behavior of nearby tangent curves. The position of these critical points can be found by searching all cells in the flow field. Critical points only occur in cells whree all components of the vector pass through zero. In order to find the exact location of the critical point we will have to do interpolations.</p>
+<p>Let us discuss the problem with topological definitions (following Kenneth Rohde Christiansen and Aard Keimpema). Critical points are points where the vector vanishes (i.e.&nbsp;<span class="math inline">\(\mathbf{v}=0\)</span>). More rigidly speaking, critical points are stationary points that have a non-singular (i.e.&nbsp;no zero eigenvalues) Jacobian or vector gradient <span class="math inline">\(\nabla\mathbf{v}\)</span>. There are 6 different types of critical points, characterized by the behavior of nearby tangent curves. The position of these critical points can be found by searching all cells in the flow field. Critical points only occur in cells whree all components of the vector pass through zero. In order to find the exact location of the critical point we will have to do interpolations.</p>
 <p>We can then classify these by looking at the eigenvalues of the Jacobian matrix. The Jacobian matrix for a 2D vector <span class="math inline">\((u,v)\)</span> is given by <span id="eq-Jacobian-2d"><span class="math display">\[
 \frac{\partial(u,v)}{\partial(x,y)}\Bigg\rvert_{x_0, y_0} =
 \begin{pmatrix}
@@ -412,8 +413,8 @@ H_C = \int_V \mathbf{v}\cdot\mathbf{B} dV
 </figure>
 </div>
 <p>The most important critical point is the <em>saddle point</em> here we have a combination of attraction in one direction and repulsion in the other. The importance of saddle points as we shall see in the next section is that the tangent curves near a critical point determine the global structure of the flow.</p>
+<p>A critical point is called <em>hyperbolic</em> if it does not have any eigenvalues with zero real part. Hyperbolic critical points are structurally stable, i.e., a small perturbation does not change their topology.</p>
 <p>Besides critical points there are also so-called attachment/detachment nodes. These are points on the wall of an object where tangent curves terminate or begin.</p>
-<p>A skeleton of a flow field is a figure containing the critical points of the flow field and the so-called integral curves connecting them. An integral curve can be thought of as the path a test particle takes when released infinitesimally close to a critical point. By adding e.g.&nbsp;an arrow the direction of the integral curves can be displayed; giving a global image of the flow. In the magnetic reconnection context, the skeleton is known as the <a href="https://en.wikipedia.org/wiki/Separatrix_(mathematics)">separatrix</a>.</p>
 <p>In 3D, the most common (i.e., nondegenerate) types of critical points are sources, sinks, repelling saddles, and attracting saddles, visualized in <a href="#fig-critical-pts-3d">Figure&nbsp;<span>15.3</span></a> (<span class="citation" data-cites="bujack2021open">(<a href="#ref-bujack2021open" role="doc-biblioref">Bujack et al. 2021</a>)</span>). Each of these types may imply a rotating pattern in a certain plane depending on the presence of eigenvalues with nonzero imaginary part. This gives rise to the eight cases shown in the figure. A 2D separatrix and two 1D separatrices originate or terminate at a saddle (if the 2D separatrix originates at the saddle, then the 1D separatrices terminate at the saddle, and vice-versa). The directions along which the separatrices approach the saddle are given by the eigenvectors of <span class="math inline">\(\nabla v\)</span>. The 1D separatrices are computed by placing two seeds at a small user-defined offset of the saddle in the direction of the eigenvectors of <span class="math inline">\(\nabla v\)</span> corresponding to the eigenvalue whose sign appears only once. The trajectories from these seeds are integrated as explained above. The 2D separatrix is computed by placing eight seeds at a small user-defined offset of the saddle in the plane spanned by the eigenvectors of ∇v corresponding to the eigenvalues whose signs appear twice. These seeds are the base for integrating a surface — the separatrix.</p>
 <div id="fig-critical-pts-3d" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -422,6 +423,24 @@ H_C = \int_V \mathbf{v}\cdot\mathbf{B} dV
 </figure>
 </div>
 <p>The most important input parameters are the distance in which the separatrices are seeded away from the saddles and the parameters that are handed off to the streamline and streamsurface integrators, like step sizes and maximum number of steps.</p>
+</section>
+<section id="separatrix" class="level3" data-number="15.5.4">
+<h3 data-number="15.5.4" class="anchored" data-anchor-id="separatrix"><span class="header-section-number">15.5.4</span> Separatrix</h3>
+<p>In scientific visualization, we treat vector fields defined on a discrete set of points in a grid and interpolate linearly or multilinearly within the cells. Since piecewise linear or multilinear functions are Lipschitz continuous, streamlines always exist uniquely.</p>
+<p>A skeleton of a flow field is a figure containing the critical points of the flow field and the so-called integral curves connecting them. An integral curve can be thought of as the path a test particle takes when released infinitesimally close to a critical point. By adding e.g.&nbsp;an arrow the direction of the integral curves can be displayed; giving a global image of the flow. In the topology context, the skeleton is known as the <a href="https://en.wikipedia.org/wiki/Separatrix_(mathematics)">separatrix</a>. Separatrices are solutions which differ from their neighbors in their limit sets (?) or in their behavior in the large (?). Separatrices include critical points, periodic orbits, and invariant manifolds of saddles.</p>
+<p>In practice, separatrices are constructed by</p>
+<ul>
+<li>Detecting critical points analytically in each cell</li>
+<li>Classifying them based on the eigenvalues of their Jacobian</li>
+<li>Seeding separatrices in a small offset of the saddles in the direction of their eigenvectors</li>
+</ul>
+<div id="fig-separatrices-2d" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/separatries_identification.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;15.4: Identification of separatrices in 2D.</figcaption><p></p>
+</figure>
+</div>
+<p>In 3D, instead of lines we may have separatrix surfaces.</p>
 </section>
 </section>
 <section id="magnetospause-identification" class="level2" data-number="15.6">
