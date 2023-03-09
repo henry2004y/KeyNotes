@@ -15,7 +15,6 @@ Let $\mathbf{u}(x,t)$ be the velocity field and $\nabla\times\mathbf{u}$ the cor
 3. any body forces acting on the fluid are conservative. Under these conditions, any closed surface $S$ on which $n\cdot(\nabla\times\mathbf{u})=0$ is, like vorticity, transported with the flow.
 
 Let $V$ be the volume inside such a surface. Then the helicity in $V$ is defined by
-
 $$
 H=\int_{{V}}{\mathbf{u}}\cdot\left(\nabla\times\mathbf{u}\right)\,dV
 $$ {#eq-helicity}
@@ -31,7 +30,6 @@ The helicity of a smooth vector field defined on a domain in 3D space is the sta
 If magnetic field lines follow the strands of a twisted rope, this configuration would have nonzero magnetic helicity; left-handed ropes would have negative values and right-handed ropes would have positive values.
 
 Formally,
-
 $$
 H=\int\mathbf{A}\cdot\mathbf{B}\mathrm{d}\mathbf{r}^3
 $$ {#eq-magnetic_helicity}
@@ -47,7 +45,6 @@ Magnetic helicity has units of $\text{Wb}^2$ in SI units and $\text{Mx}^2$ in Ga
 It is a conserved quantity in electromagnetic fields, even when magnetic reconnection dissipates energy. The concept is useful in solar dynamics and in dynamo theory. Helicity is approximately conserved during magnetic reconnection and topology changes. Helicity can be injected into a system such as the solar corona. When too much builds up, it ends up being expelled through coronal mass ejections. The simple proof in ideal MHD can be found on Wikipedia.
 
 Magnetic helicity is a gauge-dependent quantity, because $\mathbf{A}$ can be redefined by adding a gradient to it (gauge transformation):
-
 $$
 \mathbf{A}^\prime = \mathbf{A} + \nabla\phi
 $$
@@ -63,33 +60,27 @@ Simple examples:
 3. Two interlinked untwisted flux loops with fluxes $\phi_1$ and $\phi_2$ have $H=\pm2\phi_1\phi_2$ where the sign depends on the sense of the linkedness.
 
 There are generalizations to allow for gauge-invariant definitions of helicity. [Berger & Field (1984)] defined the relative magnetic helicity to be
-
 $$
 H = \int_V \mathbf{A}\cdot\mathbf{B} - \mathbf{A}_0\cdot\mathbf{B}_0 dV
 $$ {#eq-relative_magnetic_helicity}
-
 where $\mathbf{B}_0=\nabla\times\mathbf{A}_0$ is the potential field inside $V$ with the same field outside of $V$ (see also Finn & Antonsen 1985).
 
 In toroidal laboratory experiments, it is natural to consider the volume contained within conducting wall boundaries that are coincident with closed flux surfaces (i.e., the magnetic field along the wall is parallel to the boundary).
 
 The time evolution of magnetic helicity is given by
-
 $$
 \frac{\mathrm{d}H}{\mathrm{d}t} = -2c\int_V \mathbf{E}\cdot\mathbf{B}dV + 2c\int_S \mathbf{A}_p\times\mathbf{E}\cdot \mathrm{d}\mathbf{S}
 $$
-
 where we choose $\nabla\times\mathbf{A}_p=0$ and $\mathbf{A}_p\cdot \mathrm{d}\mathbf{S}=0$ on $S$. The first term represents helicity dissipation when $E_\parallel\neq 0$, which is always zero in ideal MHD. The second term represents helicity fluxes in and out of the system, for example, flux emergence from the solar photosphere corresponds to helicity injection in the corona.
 
 ## Cross Helicity {#sec-cross_helicity}
 
 The cross helicity measures the imbalance between interacting waves, which is important in MHD turbulence (@sec-turbulence_cross_helicity). It is given by
-
 $$
 H_C = \int_V \mathbf{v}\cdot\mathbf{B} dV
 $$ {#eq-cross_helicity}
 
 In ideal MHD, the rate of change of $H_C$ is
-
 $$
 \frac{\mathrm{d}H_C}{\mathrm{d}t} = -\oint_S \mathrm{d}\mathbf{S}\cdot \Big[ \Big(\frac{1}{2}v^2 + \frac{\gamma}{\gamma-1} \frac{p}{\rho}\Big)\mathbf{B} - \mathbf{v}\times(\mathbf{v}\times\mathbf{B}) \Big]
 $$
@@ -101,7 +92,6 @@ There are discretized forms of cross helicity from the observation point of view
 ## Flux Rope Identification
 
 Using turbulence parameters to find flux ropes [@zhao2020identification]:
-
 $$
 \begin{aligned}
 \sigma_r &< -0.5 \\
@@ -109,13 +99,10 @@ $$
 |\sigma_m| &> 0.7
 \end{aligned}
 $$
-
 where $\sigma_m$ is the _normalized reduced magnetic helicity_, which is a measure of $\mathbf{B}$ rotation. Strictly speaking, the magnetic helicity depends on the spatial properties of the magnetic field topology, and thus cannot be directly evaluated from single spacecraft measurements. However, Matthaeus+ (1982) described a reduced form of magnetic helicity that can be estimated with measurements from a single spacecraft based on the magnetic power spectrum. The normalized reduced magnetic helicity can be estimated by
-
 $$
 \sigma_m(\nu, t) = \frac{2\Im[W_T^\ast(\nu, t)\cdot W_N(\nu, t)]}{|W_R(\nu, t)|^2 + |W_T(\nu, t)|^2 + |W_N(\nu, t)|^2}
 $$ {#eq-reduced_magnetic_helicity}
-
 where $\nu$ is the frequency associated with the Wavelet function and the sampling period of the measured magnetic field in the radial tangential normal (RTN) coordinate system. The spectra $W_R(\nu, t)$, $W_T(\nu, t)$, and $W_N(\nu, t)$ are the wavelet transforms of time series of $\mathbf{B}_{1R}$, $\mathbf{B}_{1T}$, and $\mathbf{B}_{1N}$, respectively; and $W_T^\ast(\nu,t)$ is the conjugate of $W_T(\nu,t)$. From the resulting spectrogram of the magnetic helicity, $\sigma_m$, one can determine both the magnitude and the handedness (chirality) of underlying fluctuations at a specific scale. A positive value of $\sigma_m$ corresponds to right-handed chirality and a negative value to left-handed chirality.
 
 ## Reconnection Identification
@@ -134,14 +121,40 @@ Identification of 3D reconnection sites is not easy.
 
 Implement Lapenta's method.
 
-The four-field junction (FFJ) method is proposed by Finnish researchers (???).
+The four-field junction (FFJ) method is proposed by Finnish researchers (???). It works decently on steady reconnection cases, but not when things change drastically.
 
-BBF
+### Critical Points
+
+Let us discuss the problem with topological definitions (following Kenneth Rohde Christiansen and Aard Keimpema). Critical points are points where the vector vanishes (i.e. $\mathbf{v}=0$). There are 6 different types of critical points, characterized by the behavior of nearby tangent curves. The position of these critical points can be found by searching all cells in the flow field. Critical points only occur in cells whree all components of the vector pass through zero. In order to find the exact location of the critical point we will have to do interpolations.
+
+We can then classify these by looking at the eigenvalues of the Jacobian matrix. The Jacobian matrix for a 2D vector $(u,v)$ is given by
+$$
+\frac{\partial(u,v)}{\partial(x,y)}\Bigg\rvert_{x_0, y_0} =
+\begin{pmatrix}
+\partial_x u & \partial_y u \\ \partial_x v & \partial_y v
+\end{pmatrix}\Bigg\rvert_{x_0, y_0}
+$$ {#eq-Jacobian-2d}
+
+As seen in @fig-critical-pts-2d these 6 different types are classified by the sign of the real and imaginary part of the eigenvalues. The real part of the eigenvalue gives rise to an attraction (if $RE < 0$) or a repulsion (if $RE > 0$). The imaginary part of the eigenvalue give rise to a rotation of vector field around the critical point. When we have an imaginary eigenvalue we are left with an entirely rotational vector field around the critical point.
+
+![Classification of critical points, here Re1/Re2 is the real part of the first/second eigenvalue and Im1/Im2 is the imaginary part of the first/second eigenvalue.](../images/critical_points_2d.png){#fig-critical-pts-2d}
+
+The most important critical point is the _saddle point_ here we have a combination of attraction in one direction and repulsion in the other. The importance of saddle points as we shall see in the next section is that the tangent curves near a critical point determine the global structure of the flow.
+
+Besides critical points there are also so-called attachment/detachment nodes. These are points on the wall of an object where tangent curves terminate or begin.
+
+A skeleton of a flow field is a figure containing the critical points of the flow field and the so-called integral curves connecting them. An integral curve can be thought of as the path a test particle takes when released infinitesimally close to a critical point. By adding e.g. an arrow the direction of the integral curves can be displayed; giving a global image of the flow. In the magnetic reconnection context, the skeleton is known as the [separatrix](https://en.wikipedia.org/wiki/Separatrix_(mathematics)).
+
+In 3D, the most common (i.e., nondegenerate) types of critical points are sources, sinks, repelling saddles, and attracting saddles, visualized in @fig-critical-pts-3d ([@bujack2021open]). Each of these types may imply a rotating pattern in a certain plane depending on the presence of eigenvalues with nonzero imaginary part. This gives rise to the eight cases shown in the figure. A 2D separatrix and two 1D separatrices originate or terminate at a saddle (if the 2D separatrix originates at the saddle, then the 1D separatrices terminate at the saddle, and vice-versa). The directions along which the separatrices approach the saddle are given by the eigenvectors of $\nabla v$. The 1D separatrices are computed by placing two seeds at a small user-defined offset of the saddle in the direction of
+the eigenvectors of $\nabla v$ corresponding to the eigenvalue whose sign appears only once. The trajectories from these seeds are integrated as explained above. The 2D separatrix is computed by placing eight seeds at a small user-defined offset of the saddle in the plane spanned by the eigenvectors of ∇v corresponding to the eigenvalues whose signs appear twice. These seeds are the base for integrating a surface --- the separatrix.
+
+![The different types of nondegenerate 3D critical points visualized with streamlines color coded in red/blue for forward/backward integration and line integral convolution in the plane of the common sign. Here the presence of the subscript $i$ means all $i \in (1, 2, 3)$, and the order of the eigenvalues does not matter.](../images/critical_points_3d.png){#fig-critical-pts-3d}
+
+The most important input parameters are the distance in which the separatrices are seeded away from the saddles and the parameters that are handed off to the streamline and streamsurface integrators, like step sizes and maximum number of steps.
 
 ## Magnetospause Identification
 
 From pressure balance argument, let $\beta^\ast = (p_\text{th}+p_\text{dyn})/p_B$, we can have a simple criterion:
-
 $$
 \beta^\ast\simeq 1
 $$
