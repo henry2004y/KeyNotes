@@ -817,7 +817,7 @@ iDE_x + (S-n^2)E_y = 0
 </section>
 <section id="low-frequency-limit" class="level3" data-number="7.5.5">
 <h3 data-number="7.5.5" class="anchored" data-anchor-id="low-frequency-limit"><span class="header-section-number">7.5.5</span> Low Frequency Limit</h3>
-<p>It is very useful to obtain the circularly polarized wave dispersion relation in the MHD regime.</p>
+<p>It is very useful to obtain the circularly polarized wave dispersion relation in the low frequency regime.</p>
 <p>The R-wave corresponds to electron. When <span class="math inline">\(\omega\ll\omega_{ce}\)</span>, <span id="eq-R-wave-dispersion-1"><span class="math display">\[
 \begin{aligned}
 n^2 = R = 1 - \frac{\omega_{pi}^2}{\omega(\omega+\omega_{ci})} - \frac{\omega_{pe}^2}{\omega(\omega-\omega_{ce})} \\
@@ -839,7 +839,7 @@ v_w = \frac{W}{2} \pm\sqrt{\frac{W^2}{4}+v_A^2}
 <p>For <span class="math inline">\(\omega_{ci}\ll\omega\ll\omega_{ce}\)</span>, we can make further simplification: <span class="math display">\[
 k^2c^2 = \omega^2\Big(1+\frac{\omega_{pe}^2}{\omega\omega_{ce}} \Big)
 \]</span></p>
-<p>This is the whistler wave, with group velocity <span class="math inline">\(v_g=\partial\omega/\partial k\propto\sqrt{\omega}\)</span>. It means that high frequency waves transpose energy faster than low frequency waves. In other words, one will hear high frequency components earlier than low frequency components, creating a “whistler effect”. This was discovered during the first world war, and the theoretical explanation came out in the 1950s. Also note that since whistler wave travels along the field line, in near-Earth space we have signals traveling from the south hemisphere to the north hemisphere within this frequency regime. <a href="https://en.wikipedia.org/wiki/Whistler_(radio)">Here</a> is an observation example from Palmer station, Antarctica. For <span class="math inline">\(\omega\ll\omega_{ci}\)</span>, Alfvén wave is recovered.</p>
+<p>This is the <em>whistler wave</em>, with group velocity <span class="math inline">\(v_g=\partial\omega/\partial k\propto\sqrt{\omega}\)</span>. It means that high frequency waves transpose energy faster than low frequency waves. In other words, one will hear high frequency components earlier than low frequency components, creating a “whistler effect”. This was discovered during the first world war, and the theoretical explanation came out in the 1950s. Also note that since whistler wave travels along the field line, in near-Earth space we have signals traveling from the south hemisphere to the north hemisphere within this frequency regime. <a href="https://en.wikipedia.org/wiki/Whistler_(radio)">Here</a> is an observation example from Palmer station, Antarctica. For <span class="math inline">\(\omega\ll\omega_{ci}\)</span>, Alfvén wave is recovered.</p>
 <p>See more in <a href="#sec-whistler"><span>Section&nbsp;7.15</span></a>.</p>
 <p>The L-wave corresponds to ion. When <span class="math inline">\(\omega&lt;\omega_{ci}, c\gg V_A\)</span>, <span class="math display">\[
 \begin{aligned}
@@ -1660,24 +1660,19 @@ K_{wv} = \frac{1}{2}\left[ v_\perp^2 + \left( v_\parallel - \frac{\omega}{k_\par
 </section>
 <section id="sec-whistler" class="level2" data-number="7.15">
 <h2 data-number="7.15" class="anchored" data-anchor-id="sec-whistler"><span class="header-section-number">7.15</span> Whistler Wave</h2>
-<p>Whistler waves are a type of electron-scale plasma waves that contribute to electron scattering, acceleration, and energy transport. They are excited by the electron temperature anisotropy (<span class="math inline">\(T_{e\perp}/T_{e\parallel}&gt;1\)</span> ???) and shape the electron velocity distribution function through wave-particle interactions. (Ren+ 2020) Therefore, properties of whistler waves relate closely to electron-scale physics in magnetic reconnection. According to (Zhao 2017), the whistler wave can be described by <em>electron magnetohydrodynamics (EMHD?)</em> on timescales of <span class="math inline">\(2\pi/\Omega_{ce}&lt;t&lt;2\pi/\Omega{LH}\)</span> and spatial scales of <span class="math inline">\(L&lt;\lambda_i\)</span>, where the ions are assumed as a motionless neutralizing background. When magnetic field lines are fully frozen into the electron fluid, the whistler wave follows the dispersion relation <span class="math inline">\(\omega=\Omega_{ce}\lambda_e^2 k^2\cos\theta\)</span>. The dispersion relation becomes <span class="math inline">\(\omega=\Omega_{ce}\lambda_e^2 k^2\cos\theta/(1+\lambda_e^2 k^2)\)</span> as the electron inertia is contained in Ohm’s law. Zhao further extended the model by taking the electron thermal pressure and the displacement current into the EMHD model.</p>
-<p>We first see the derivations of whistler wave dispersion relation in <a href="#sec-CPDR"><span>Section&nbsp;7.5</span></a> at the low frequency MHD limit. Another way to derive the whistler mode dispersion relation, which is probably easier, is to include the Hall term from the generalized Ohm’s law:</p>
-<p><span class="math display">\[
+<p>Whistler waves are a type of electron-scale plasma waves that contribute to electron scattering, acceleration, and energy transport. They are excited by the electron temperature anisotropy (<span class="math inline">\(T_{e\perp}/T_{e\parallel}&gt;1\)</span>) and shape the electron velocity distribution function through wave-particle interactions. (???If this is the case, then why do we have whistler waves in the Hall MHD???) (Ren+ 2020) Therefore, properties of whistler waves relate closely to electron-scale physics in magnetic reconnection (e.g. <span class="citation" data-cites="wang2023situ">(<a href="#ref-wang2023situ" role="doc-biblioref">Wang et al. 2023</a>)</span> at Mars). According to (Zhao 2017), the whistler wave can be described by <em>electron magnetohydrodynamics (EMHD?)</em> on timescales of <span class="math inline">\(2\pi/\Omega_{ce}&lt;t&lt;2\pi/\Omega{LH}\)</span> and spatial scales of <span class="math inline">\(L&lt;\lambda_i\)</span>, where the ions are assumed as a motionless neutralizing background. When magnetic field lines are fully frozen into the electron fluid, the whistler wave follows the dispersion relation <span class="math inline">\(\omega=\Omega_{ce}\lambda_e^2 k^2\cos\theta\)</span>. The dispersion relation becomes <span class="math inline">\(\omega=\Omega_{ce}\lambda_e^2 k^2\cos\theta/(1+\lambda_e^2 k^2)\)</span> as the electron inertia is contained in Ohm’s law. Jinsong Zhao further extended the model by taking the electron thermal pressure and the displacement current into the EMHD model.</p>
+<p>We first see the derivations of whistler wave dispersion relation in <a href="#sec-CPDR"><span>Section&nbsp;7.5</span></a> at the low frequency MHD limit. Another way to derive the whistler mode dispersion relation, which is probably easier, is to include the Hall term from the generalized Ohm’s law: <span class="math display">\[
 \mathbf{E} = -\mathbf{U}\times\mathbf{B} + \frac{1}{ne}\mathbf{J}\times\mathbf{B}
 \]</span></p>
-<p>Using Ampère’s law and retaining only the Hall term leads to the equation</p>
-<p><span class="math display">\[
+<p>Using Ampère’s law and retaining only the Hall term leads to the equation <span class="math display">\[
 \dot{\mathbf{B}} = -\frac{1}{\mu_0 ne}\nabla\times[(\nabla\times\mathbf{B})\times\mathbf{B}]
 \]</span></p>
-<p>Performing linearization and assuming that the magnetic field is parallel to the z-axis and its perturbation is only in x and y, the last equation becomes</p>
-<p><span class="math display">\[
+<p>Performing linearization and assuming that the magnetic field is parallel to the z-axis and its perturbation is only in x and y, the last equation becomes <span class="math display">\[
 \begin{aligned}
 \omega B_{1x} &amp;= -i\frac{k_z^2 B_0}{\mu_0 ne} B_{1y} \\
 \omega B_{1y} &amp;=  i\frac{k_z^2 B_0}{\mu_0 ne} B_{1x}
 \end{aligned}
-\]</span></p>
-<p>which easily yields</p>
-<p><span class="math display">\[
+\]</span> which easily yields <span class="math display">\[
 \omega = \frac{B_0}{\mu_0 ne} k_z^2
 \]</span></p>
 <p>The dispersion property of whistler waves makes it a problem for hybrid simulations (<a href="hybrid.html#sec-finite_e_mass"><span>Section&nbsp;24.2</span></a>).</p>
@@ -1706,6 +1701,9 @@ Gurram, Harsha, Jan Egedal, and W Daughton. 2021. <span>“Shear Alfv<span>é</s
 </div>
 <div id="ref-swanson2012plasma" class="csl-entry" role="doc-biblioentry">
 Swanson, Donald Gary. 2012. <em>Plasma Waves</em>. Elsevier.
+</div>
+<div id="ref-wang2023situ" class="csl-entry" role="doc-biblioentry">
+Wang, Jing, Jiang Yu, Aojun Ren, Zuzheng Chen, Xiaojun Xu, Jun Cui, and Jinbin Cao. 2023. <span>“In Situ Observations of Whistler-Mode Waves in Magnetic Reconnection at Mars.”</span> <em>The Astrophysical Journal</em> 944 (1): 85. <a href="https://doi.org/10.3847/1538-4357/acb152">https://doi.org/10.3847/1538-4357/acb152</a>.
 </div>
 </div>
 </section>
