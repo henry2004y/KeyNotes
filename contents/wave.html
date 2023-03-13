@@ -831,7 +831,7 @@ n^2 = R = 1 - \frac{\omega_{pi}^2}{\omega(\omega+\omega_{ci})} - \frac{\omega_{p
 \end{aligned}
 \tag{7.21}\]</span></span></p>
 <p><a href="#eq-R-wave-dispersion-1">Equation&nbsp;<span>7.21</span></a> can be arranged into a quasi-quadratic equation for <span class="math inline">\(v_\mathrm{ph}=\omega/k_\parallel\)</span> <span class="math display">\[
-\frac{\omega^2}{k_\parallel^2} = V_A^2 + V_A^2\frac{\omega}{\omega_{ci}} = V_A^2 + W\frac{\omega}{k_\parallel}
+\frac{\omega^2}{k_\parallel^2} = v_A^2 + v_A^2\frac{\omega}{\omega_{ci}} = v_A^2 + W\frac{\omega}{k_\parallel}
 \]</span> where we denote <span class="math inline">\(W=\frac{v_A^2 k_\parallel}{\omega_{ci}}\)</span>. The solution is then <span id="eq-R-wave-phase-speed"><span class="math display">\[
 v_w = \frac{W}{2} \pm\sqrt{\frac{W^2}{4}+v_A^2}
 \tag{7.22}\]</span></span></p>
@@ -1660,7 +1660,7 @@ K_{wv} = \frac{1}{2}\left[ v_\perp^2 + \left( v_\parallel - \frac{\omega}{k_\par
 </section>
 <section id="sec-whistler" class="level2" data-number="7.15">
 <h2 data-number="7.15" class="anchored" data-anchor-id="sec-whistler"><span class="header-section-number">7.15</span> Whistler Wave</h2>
-<p>Whistler waves are a type of electron-scale plasma waves that contribute to electron scattering, acceleration, and energy transport. They are excited by the electron temperature anisotropy (<span class="math inline">\(T_{e\perp}/T_{e\parallel}&gt;1\)</span>) and shape the electron velocity distribution function through wave-particle interactions. (???If this is the case, then why do we have whistler waves in the Hall MHD???) (Ren+ 2020) Therefore, properties of whistler waves relate closely to electron-scale physics in magnetic reconnection (e.g. <span class="citation" data-cites="wang2023situ">(<a href="#ref-wang2023situ" role="doc-biblioref">Wang et al. 2023</a>)</span> at Mars). According to (Zhao 2017), the whistler wave can be described by <em>electron magnetohydrodynamics (EMHD?)</em> on timescales of <span class="math inline">\(2\pi/\Omega_{ce}&lt;t&lt;2\pi/\Omega{LH}\)</span> and spatial scales of <span class="math inline">\(L&lt;\lambda_i\)</span>, where the ions are assumed as a motionless neutralizing background. When magnetic field lines are fully frozen into the electron fluid, the whistler wave follows the dispersion relation <span class="math inline">\(\omega=\Omega_{ce}\lambda_e^2 k^2\cos\theta\)</span>. The dispersion relation becomes <span class="math inline">\(\omega=\Omega_{ce}\lambda_e^2 k^2\cos\theta/(1+\lambda_e^2 k^2)\)</span> as the electron inertia is contained in Ohm’s law. Jinsong Zhao further extended the model by taking the electron thermal pressure and the displacement current into the EMHD model.</p>
+<p>Whistler waves are a type of electron-scale plasma waves that contribute to electron scattering, acceleration, and energy transport.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> They are excited by the electron temperature anisotropy (<span class="math inline">\(T_{e\perp}/T_{e\parallel}&gt;1\)</span>) and shape the electron velocity distribution function through wave-particle interactions. (Ren+ 2020) (???Why???) Therefore, properties of whistler waves relate closely to electron-scale physics in magnetic reconnection (e.g. <span class="citation" data-cites="wang2023situ">(<a href="#ref-wang2023situ" role="doc-biblioref">Wang et al. 2023</a>)</span> at Mars). According to (Zhao 2017), the whistler wave can be described by <em>electron magnetohydrodynamics (EMHD?)</em> on timescales of <span class="math inline">\(2\pi/\Omega_{ce}&lt;t&lt;2\pi/\Omega{LH}\)</span> and spatial scales of <span class="math inline">\(L&lt;\lambda_i\)</span>, where the ions are assumed as a motionless neutralizing background. When magnetic field lines are fully frozen into the electron fluid, the whistler wave follows the dispersion relation <span class="math inline">\(\omega=\Omega_{ce}\lambda_e^2 k^2\cos\theta\)</span>. The dispersion relation becomes <span class="math inline">\(\omega=\Omega_{ce}\lambda_e^2 k^2\cos\theta/(1+\lambda_e^2 k^2)\)</span> as the electron inertia is contained in Ohm’s law. Jinsong Zhao further extended the model by taking the electron thermal pressure and the displacement current into the EMHD model.</p>
 <p>We first see the derivations of whistler wave dispersion relation in <a href="#sec-CPDR"><span>Section&nbsp;7.5</span></a> at the low frequency MHD limit. Another way to derive the whistler mode dispersion relation, which is probably easier, is to include the Hall term from the generalized Ohm’s law: <span class="math display">\[
 \mathbf{E} = -\mathbf{U}\times\mathbf{B} + \frac{1}{ne}\mathbf{J}\times\mathbf{B}
 \]</span></p>
@@ -1675,6 +1675,7 @@ K_{wv} = \frac{1}{2}\left[ v_\perp^2 + \left( v_\parallel - \frac{\omega}{k_\par
 \]</span> which easily yields <span class="math display">\[
 \omega = \frac{B_0}{\mu_0 ne} k_z^2
 \]</span></p>
+<p>This is the <span class="math inline">\(v_A\ll W\)</span> case in <a href="#eq-R-wave-phase-speed">Equation&nbsp;<span>7.22</span></a> where <span class="math inline">\(v_w = W\)</span>.</p>
 <p>The dispersion property of whistler waves makes it a problem for hybrid simulations (<a href="hybrid.html#sec-finite_e_mass"><span>Section&nbsp;24.2</span></a>).</p>
 <div>
 <div id="fig-whistler_wave" class="quarto-figure quarto-figure-center anchored">
@@ -1706,6 +1707,12 @@ Swanson, Donald Gary. 2012. <em>Plasma Waves</em>. Elsevier.
 Wang, Jing, Jiang Yu, Aojun Ren, Zuzheng Chen, Xiaojun Xu, Jun Cui, and Jinbin Cao. 2023. <span>“In Situ Observations of Whistler-Mode Waves in Magnetic Reconnection at Mars.”</span> <em>The Astrophysical Journal</em> 944 (1): 85. <a href="https://doi.org/10.3847/1538-4357/acb152">https://doi.org/10.3847/1538-4357/acb152</a>.
 </div>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>From <a href="#eq-R-wave-dispersion-1">Equation&nbsp;<span>7.21</span></a> we see the contribution of electron physics in the dispersion relation.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
