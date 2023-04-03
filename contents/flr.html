@@ -385,8 +385,7 @@ div.csl-indent {
 <section id="axisymmetric-spherical-coordinates" class="level3" data-number="12.2.1">
 <h3 data-number="12.2.1" class="anchored" data-anchor-id="axisymmetric-spherical-coordinates"><span class="header-section-number">12.2.1</span> Axisymmetric Spherical Coordinates</h3>
 <p>First, let’s treat the problem in spherical coordinates <span class="math inline">\((r,\theta,\phi)\)</span>, as done by <span class="citation" data-cites="radoski1966">(<a href="#ref-radoski1966" role="doc-biblioref">Radoski and Carovillano 1966</a>)</span>.</p>
-<p>The background density is taken to be only a function of the radial distance, <span class="math inline">\(\rho = \rho(r)\)</span>. In the analysis below the perturbed variables, <span class="math inline">\(\mathbf{B}_1\)</span>, <span class="math inline">\(\mathbf{E}\)</span>, <span class="math inline">\(\mathbf{j}\)</span> and <span class="math inline">\(\mathbf{u}\)</span> are treated as axisymmetric, i.e.&nbsp;in spherical coordinates any perturbed function has the form</p>
-<p><span class="math display">\[
+<p>The background density is taken to be only a function of the radial distance, <span class="math inline">\(\rho = \rho(r)\)</span>. In the analysis below the perturbed variables, <span class="math inline">\(\mathbf{B}_1\)</span>, <span class="math inline">\(\mathbf{E}\)</span>, <span class="math inline">\(\mathbf{j}\)</span> and <span class="math inline">\(\mathbf{u}\)</span> are treated as axisymmetric, i.e.&nbsp;in spherical coordinates any perturbed function has the form <span class="math display">\[
 \mathbf{\delta} = \delta_r(r,\theta)\hat{r} + \delta_\theta(r,\theta)\hat{\theta} + \delta_\phi(r,\theta)\hat{\phi}
 \]</span></p>
 <p>Under this symmetry, the variables can be separated into two independent sets referred to as the <em>toroidal</em> and <em>poloidal</em> variables:</p>
@@ -398,33 +397,61 @@ div.csl-indent {
 <li>Poloidal variables</li>
 </ul>
 <p><span class="math inline">\(B_{1r}, B_{1\theta}, E_\phi, u_r, u_\theta, j_\phi ;\, \nabla\cdot\mathbf{E} = \frac{1}{r\sin\theta}\frac{\partial E_\phi}{\partial \phi}\equiv 0\)</span></p>
-<p>The name of the set were originally based on the magnetic field perturbation directions. One insight into these two sets of variables can be gained from the Poynting vector <span class="math inline">\(\mathbf{S}\)</span>. The simplest MHD Ohm’s law constrains the electric field <span class="math inline">\(\mathbf{E}\)</span> to be perpendicular to the background magnetic field <span class="math inline">\(\mathbf{B}_0\)</span>. For the toroidal mode, <span class="math inline">\(\mathbf{E}\)</span> lies in a meridional plane and <span class="math inline">\(B_{1\phi}\)</span> is out of plane, so <span class="math inline">\(\mathbf{S}\)</span> is directed along the field lines. For the poloidal mode, <span class="math inline">\(\mathbf{S}\)</span> is in a meridional plane and parallel to the wave vector <span class="math inline">\(\mathbf{k}\)</span>, because</p>
-<p><span class="math display">\[\mathbf{B}_1 = -i\mathbf{k}\times\mathbf{E}\Rightarrow \mathbf{S}\parallel\mathbf{E}\times\mathbf{B}_1 \parallel \mathbf{E}\times(\mathbf{k}\times\mathbf{E})=E^2\mathbf{k} - \cancel{(\mathbf{E}\cdot\mathbf{k})}\mathbf{E} \parallel \mathbf{k}
-\]</span></p>
-<p>for a transverse EM wave (<span class="math inline">\(\mathbf{E}\perp\mathbf{k}\)</span>). Thus the toroidal mode is an Alfvén mode with dispersion relation <span class="math inline">\(\omega = V_A k \cos\theta\)</span>, <span class="math inline">\(\mathbf{S} \parallel \mathbf{B}_0\)</span>, while poloidal mode is a fast mode with dispersion relation <span class="math inline">\(\omega = V_A k\)</span>, <span class="math inline">\(\mathbf{S} \parallel \mathbf{k}\)</span>.</p>
-<p>To clarify my early misunderstanding: <em>a toroidal mode is not propagating in the toroidal direction</em>! Similarly, <em>a poloidal mode does not propagate in the poloidal direction</em>. In fact, it is more common to have a fast poloidal mode propagating in the azimuthal direction, then coupling to the Alfvén toroidal mode along the ambient magnetic field direction, then being observed on the ground.</p>
-<p>For the axisymmetric poloidal electric field <span class="math inline">\(E_\phi \sim e^{i\omega t}\)</span>, <a href="wave.html#eq-mhd_cold_e_wave">Equation&nbsp;<span>7.26</span></a> becomes (I HAVEN‘T DERIVED THIS!)</p>
-<p><span class="math display">\[
+<p>The name of the set were originally based on the magnetic field perturbation directions. One insight into these two sets of variables can be gained from the Poynting vector <span class="math inline">\(\mathbf{S}\)</span>. The simplest MHD Ohm’s law constrains the electric field <span class="math inline">\(\mathbf{E}\)</span> to be perpendicular to the background magnetic field <span class="math inline">\(\mathbf{B}_0\)</span>. For the toroidal mode, <span class="math inline">\(\mathbf{E}\)</span> lies in a meridional plane and <span class="math inline">\(B_{1\phi}\)</span> is out of plane, so <span class="math inline">\(\mathbf{S}\)</span> is directed along the field lines. For the poloidal mode, <span class="math inline">\(\mathbf{S}\)</span> is in a meridional plane and parallel to the wave vector <span class="math inline">\(\mathbf{k}\)</span>, because <span class="math display">\[\mathbf{B}_1 = -i\mathbf{k}\times\mathbf{E}\Rightarrow \mathbf{S}\parallel\mathbf{E}\times\mathbf{B}_1 \parallel \mathbf{E}\times(\mathbf{k}\times\mathbf{E})=E^2\mathbf{k} - \cancel{(\mathbf{E}\cdot\mathbf{k})}\mathbf{E} \parallel \mathbf{k}
+\]</span> for a transverse EM wave (<span class="math inline">\(\mathbf{E}\perp\mathbf{k}\)</span>). Thus the toroidal mode is an Alfvén mode with dispersion relation <span class="math inline">\(\omega = V_A k \cos\theta\)</span>, <span class="math inline">\(\mathbf{S} \parallel \mathbf{B}_0\)</span>, while poloidal mode is a fast mode with dispersion relation <span class="math inline">\(\omega = V_A k\)</span>, <span class="math inline">\(\mathbf{S} \parallel \mathbf{k}\)</span>.</p>
+<p>To clarify my early misunderstanding: <em>a toroidal mode is not propagating in the toroidal direction</em>! Similarly, <em>a poloidal mode does not propagate in the poloidal direction</em>. In fact, it is more common to have a fast poloidal mode propagating in the azimuthal direction, then coupling to the Alfvén toroidal mode along the ambient magnetic field direction, then being observed on the ground. <a href="#tbl-toroidal-poloidal-ULF">Table&nbsp;<span>12.1</span></a> from <span class="citation" data-cites="zong2017interaction">(<a href="#ref-zong2017interaction" role="doc-biblioref">Zong, Rankin, and Zhou 2017</a>)</span> summarizes properties of toroidal and poloidal mode standing ULF waves.</p>
+<div id="tbl-toroidal-poloidal-ULF" class="anchored">
+<table class="table">
+<caption>Table&nbsp;12.1: Properties of toroidal and poloidal mode standing ULF wave</caption>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 29%">
+<col style="width: 29%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">ULF mode</th>
+<th style="text-align: center;">Magnetic field</th>
+<th style="text-align: center;">Electric field</th>
+<th style="text-align: center;">Wave number</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Toroidal waves</td>
+<td style="text-align: center;">B_azimuthal (<span class="math inline">\(B_\phi\)</span>)</td>
+<td style="text-align: center;">E_radial (<span class="math inline">\(E_r\)</span>)</td>
+<td style="text-align: center;">Small wave number m</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Poloidal waves</td>
+<td style="text-align: center;">B_radial (<span class="math inline">\(B_r\)</span>)</td>
+<td style="text-align: center;">E_azimuthal (<span class="math inline">\(E_\phi\)</span>)</td>
+<td style="text-align: center;">Large wave number m</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Compressional poloidal waves</td>
+<td style="text-align: center;">B_parallel (<span class="math inline">\(B_\parallel\)</span>)</td>
+<td style="text-align: center;">E_azimuthal (<span class="math inline">\(E_\phi\)</span>)</td>
+<td style="text-align: center;">Large wave number m</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For the axisymmetric poloidal electric field <span class="math inline">\(E_\phi \sim e^{i\omega t}\)</span>, <a href="wave.html#eq-mhd_cold_e_wave">Equation&nbsp;<span>7.26</span></a> becomes (I HAVEN‘T DERIVED THIS!) <span class="math display">\[
 B_0^2[\nabla^2 - (r^2 \sin^2\theta)^{-1}] E_\phi = -\mu_0 \rho \omega^2 E_\phi
 \]</span></p>
-<p>This is the decoupled poloidal wave equation. For a dipole field, <span class="math inline">\(B_0^2 = \frac{M^2(1+3\mu^2)}{r^6}\)</span>, where <span class="math inline">\(M\)</span> is the magnetic moment and <span class="math inline">\(\mu = \cos\theta\)</span> is the colatitude. A solution for <span class="math inline">\(E_\phi\)</span> is sought after a separation of the unknowns of the form</p>
-<p><span class="math display">\[
+<p>This is the decoupled poloidal wave equation. For a dipole field, <span class="math inline">\(B_0^2 = \frac{M^2(1+3\mu^2)}{r^6}\)</span>, where <span class="math inline">\(M\)</span> is the magnetic moment and <span class="math inline">\(\mu = \cos\theta\)</span> is the colatitude. A solution for <span class="math inline">\(E_\phi\)</span> is sought after a separation of the unknowns of the form <span class="math display">\[
 E_\phi = \sum_{l=1}^{\infty} f_l(r) P_l^m(\mu)
-\]</span></p>
-<p>where <span class="math inline">\(P_l^m\)</span> is the associated Legendre function with integer indices <span class="math inline">\(l\)</span> and <span class="math inline">\(m\)</span>. Why this form you may ask? It’s a mathematical hypothesis based on experience and talents. With this representation the poloidal wave equation becomes</p>
-<p><span id="eq-poloidal_spherical_assump"><span class="math display">\[
+\]</span> where <span class="math inline">\(P_l^m\)</span> is the associated Legendre function with integer indices <span class="math inline">\(l\)</span> and <span class="math inline">\(m\)</span>. Why this form you may ask? It’s a mathematical hypothesis based on experience and talents. With this representation the poloidal wave equation becomes <span id="eq-poloidal_spherical_assump"><span class="math display">\[
 \sum_{l=1}^{\infty}[(1+3\mu^2)O_l + 2K^2] f_l P_l^m = 0
-\tag{12.1}\]</span></span></p>
-<p>where <span class="math inline">\(K^2 = \frac{\mu_0 \rho}{2}\big( \frac{\omega^2 r^2}{M^2}\big)^2\)</span> (maybe the coefficient is wrong) and <span class="math inline">\(O_l\)</span> is the spherical Bessel operator</p>
-<p><span class="math display">\[
+\tag{12.1}\]</span></span> where <span class="math inline">\(K^2 = \frac{\mu_0 \rho}{2}\big( \frac{\omega^2 r^2}{M^2}\big)^2\)</span> (maybe the coefficient is wrong) and <span class="math inline">\(O_l\)</span> is the spherical Bessel operator <span class="math display">\[
 O_l = \frac{1}{r}\frac{\partial^2}{\partial r^2}r - \frac{l(l+1)}{r^2}
 \]</span></p>
-<p>(This is almost out of my control now. If I want to fully understand this, I need to go back to math equations for physics!!!) The special property of Legendre polynomials allows us to write the solution to the wave equation as</p>
-<p><span id="eq-poloidal_spherical_sol"><span class="math display">\[
+<p>(This is almost out of my control now. If I want to fully understand this, I need to go back to math equations for physics!!!) The special property of Legendre polynomials allows us to write the solution to the wave equation as <span id="eq-poloidal_spherical_sol"><span class="math display">\[
 \sum_{s = 0,\pm 2} a_{l+s} O_{l+s} f_{l+s} + K^2 f_l = 0
-\tag{12.2}\]</span></span></p>
-<p>where the constants coefficients are</p>
-<p><span class="math display">\[
+\tag{12.2}\]</span></span> where the constants coefficients are <span class="math display">\[
 \begin{aligned}
 a_{l+2} &amp;= \frac{3(l+2)(l+3)}{2(2l+3)(2l+5)} \\
 a_{l} &amp;= \frac{5l(l+1)-6}{(2l-1)(2l+3)} \\
@@ -440,19 +467,16 @@ a_{l-2} &amp;= \frac{3(l-2)(l-1)}{2(2l-3)(2l-1)}
 <p></p><figcaption class="figure-caption">Figure&nbsp;12.1: Cartoons showing the oscillation of a field line in the two lowest frequency toroidal modes (left) and poloidal modes (right). On the left the field line is drawn stretched out from north to south, and we look towards the Earth as the field line is displaced east and west. On the right, the dipolar field line is displaced within its meridian plane so all magnetic perturbations are radial. Note that for the toroidal mode, the magnetic perturbations (AD) have the opposite sense north and south in the fundamental and the same sense in the second harmonic. The opposite is true of the AH perturbation in the poloidal mode.</figcaption><p></p>
 </figure>
 </div>
-<p>From the boundary condition, the length <span class="math inline">\(l\)</span> of the field line between two reflection point must be a multiple of half the wavelength <span class="math inline">\(\lambda\)</span>, implying</p>
-<p><span class="math display">\[
+<p>From the boundary condition, the length <span class="math inline">\(l\)</span> of the field line between two reflection point must be a multiple of half the wavelength <span class="math inline">\(\lambda\)</span>, implying <span class="math display">\[
 n\lambda = 2l,\quad n = 1,2,3,...
 \]</span></p>
-<p>From the dispersion relation, with the average Alfvén speed <span class="math inline">\(&lt;V_A&gt;\)</span>, one finds:</p>
-<p><span class="math display">\[
+<p>From the dispersion relation, with the average Alfvén speed <span class="math inline">\(&lt;V_A&gt;\)</span>, one finds: <span class="math display">\[
 \omega_n = &lt;V_A&gt; k = &lt;V_A&gt;\frac{2\pi}{\lambda} = \frac{n\pi&lt;V_A&gt;}{l}
 \]</span></p>
 </section>
 <section id="cylindrical-coordinates" class="level3" data-number="12.2.2">
 <h3 data-number="12.2.2" class="anchored" data-anchor-id="cylindrical-coordinates"><span class="header-section-number">12.2.2</span> Cylindrical Coordinates</h3>
-<p>In cylindrical coordinates <span class="math inline">\((r,\phi,z)\)</span>, assuming perturbations of the form <span class="math inline">\(e^{i(m\phi - \omega t)}\)</span>, we can separate the linearized equations (<span class="citation" data-cites="hughes1994">(<a href="#ref-hughes1994" role="doc-biblioref">Hughes 1994</a>)</span> I HAVEN’T DERIVED THIS!),</p>
-<p><span id="eq-cylindrical_mhd_toroidal"><span class="math display">\[
+<p>In cylindrical coordinates <span class="math inline">\((r,\phi,z)\)</span>, assuming perturbations of the form <span class="math inline">\(e^{i(m\phi - \omega t)}\)</span>, we can separate the linearized equations (<span class="citation" data-cites="hughes1994">(<a href="#ref-hughes1994" role="doc-biblioref">Hughes 1994</a>)</span> I HAVEN’T DERIVED THIS!), <span id="eq-cylindrical_mhd_toroidal"><span class="math display">\[
 \Big[ \omega^2 \mu_0 \rho - \frac{1}{r}(\mathbf{B}_0\cdot\nabla)r^2(\mathbf{B}_0\cdot\nabla) \Big]\frac{u_\phi}{r} = \omega m \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{r}
 \tag{12.3}\]</span></span></p>
 <p><span id="eq-cylindrical_mhd_poloidal"><span class="math display">\[
@@ -823,6 +847,9 @@ Walker, ADM, Jo M Ruohoniemi, KB Baker, RA Greenwald, and JC Samson. 1992. <span
 </div>
 <div id="ref-wright1994" class="csl-entry" role="doc-biblioentry">
 Wright, Andrew N. 1994. <span>“Dispersion and Wave Coupling in Inhomogeneous MHD Waveguides.”</span> <em>Journal of Geophysical Research: Space Physics</em> 99 (A1): 159–67. <a href="https://doi.org/10.1029/93JA02206">https://doi.org/10.1029/93JA02206</a>.
+</div>
+<div id="ref-zong2017interaction" class="csl-entry" role="doc-biblioentry">
+Zong, Qiugang, Robert Rankin, and Xuzhi Zhou. 2017. <span>“The Interaction of Ultra-Low-Frequency Pc3-5 Waves with Charged Particles in Earth’s Magnetosphere.”</span> <em>Reviews of Modern Plasma Physics</em> 1: 1–90. <a href="https://doi.org/10.1007/s41614-017-0011-4">https://doi.org/10.1007/s41614-017-0011-4</a>.
 </div>
 </div>
 </section>
