@@ -1077,10 +1077,71 @@ because of the finite ion Larmor radius effects. (The Alfvén resonance singular
 
 ## Kinetic Alfvén Wave {#sec-kaw}
 
+### Limitations of the MHD model
+
+The MHD model ignores parallel electron dynamics and so has a shear mode dispersion $\omega^2=k_z^2 v_A^2$ that has no dependence on $k_\perp$. Some researchers interpret this as a license to allow arbitrarily large $k_\perp$ in which case a shear mode could be localized to a single field line. However, the two-fluid model of the shear mode does have a dependence on $k_\perp$ which becomes important when either $k_\perp c/\omega_{pe}$ or $k_\perp r_{Ls}$ become of order unity (whether to use $c\omega_{pe}$ or $r_{Ls}$ depends on whether $\beta m_i/m_e$ is small or large compared to unity). Since $c\omega_{pe}$ and $r_{Ls}$ are typically small lengths, the MHD point of view is acceptable provided the characteristic length of perpendicular localization is much larger than $c\omega_{pe}$ or $r_{Ls}$.
+
+MHD also predicts a sound wave which is identical to the ordinary hydrodynamic sound wave of an unmagnetized gas. The perpendicular behavior of this sound wave is consistent with the two-fluid model because both two-fluid and MHD perpendicular motions involve compressional behavior associated with having finite $B_{z1}$. However, the parallel behavior of the MHD sound wave is problematical because $E_{z1}$ is assumed to be identically zero in MHD. According to the two-fluid model, any parallel acceleration requires a parallel electric field. The two-fluid $B_{z1}$ mode is decoupled from the two-fluid $E_{z1}$ mode so that the two-fluid $B_{z1}$ mode is both compressional and has no parallel motion associated with it.
+
+The MHD analysis makes no restriction on the electron to ion temperature ratio and predicts that a sound wave would exist for $T_e = T_i$. In contrast, the two-fluid model shows that sound waves can only exist when $T_e \gg T_i$ because only in this regime is it possible to have $k_B T_i /m_i \ll \omega^2 / k_z^2 \ll k_B T_e /m_e$ and so have inertial behavior for ions and kinetic behavior for electrons.
+
+Various paradoxes develop in the MHD treatment of the shear mode but not in the two-fluid description. These paradoxes illustrate the limitations of the MHD description of a plasma and shows that MHD results must be treated with caution for the shear (slow) mode. MHD provides an adequate description of the fast (compressional) mode.
+
+### Two-fluid model of Alfvén modes
+
+We now examine these modes from a two-fluid point of view. The two-fluid point of view shows that the shear mode occurs as one of two distinct modes, only one of which can exist for given plasma parameters. Which of these shear modes occurs depends upon the ratio of hydrodynamic pressure to magnetic pressure. This ratio is defined for each species s as
+$$
+\beta_s = \frac{n k_B T_s}{B^2/\mu_0}
+$$
+The subscript s is not used if electrons and ions have the same temperature. $\beta_i$ measures the ratio of ion thermal velocity to the Alfvén velocity since
+$$
+\frac{v_{Ti}^2}{v_A^2} = \frac{k_B T_i/m_i}{B^2/nm_i\mu_0} = \beta_i
+$$
+
+Thus, $v_{Ti}\ll v_A$ corresponds to $\beta_i\ll 1$. Magnetic forces dominate hydrodynamic forces in a low $\beta$ plasma, whereas in a high $\beta$ plasma the opposite is true.
+
+The ratio of electron thermal velocity to Alfvén velocity is also of interest and is
+$$
+\frac{v_{Te}^2}{v_A^2} = \frac{k_B T_e/m_e}{B^2/nm_i\mu_0} = \frac{m_i}{m_e}\beta_e
+$$
+
+Thus, $v_{Te}^2\gg v_A^2$ when $\beta_e\gg m_e/m_i$ and $v_{Te}^2\ll v_A^2$ when $\beta_e\ll m_e/m_i$. Shear Alfvén wave physics is different in the $\beta_e\gg m_e/m_i$ and $\beta_e\ll m_e/m_i$ regimes which therefore must be investigated separately. MHD ignores this $\beta_e$ dependence, an oversimplification which leads to the paradoxes.
+
+Both Faraday's law and the pre-Maxwell Ampere's law (no displacement current) are fundamental to Alfvén wave dynamics. The system of linearized equations thus is
+$$
+\begin{aligned}
+\nabla\times\mathbf{E}_1 = -\frac{\partial\mathbf{B}_1}{\partial t} \\
+\nabla\times\mathbf{B}_1 = \mu_0 \mathbf{j}_1
+\end{aligned}
+$$ {#eq-maxwell-linearized}
+
+If the dependence of $\mathbf{j}_1$ on $\mathbf{E}_1$ can be determined, then the combination of Ampere's
+law and Faraday's law provides a complete self-consistent description of the coupled fields $\mathbf{E}_1, \mathbf{B}_1$ and hence describes the normal modes. From a mathematical point of view, specifying $\mathbf{j}_1(\mathbf{E}_1)$ means that there are as many equations as dependent variables in the pair of @eq-maxwell-linearized. The relationship between $\mathbf{j}_1$ and $\mathbf{E}_1$ is determined by the Lorentz equation or some generalization thereof (e.g., drift equations, Vlasov equation, fluid equation of motion). The MHD derivation used the polarization drift to give a relationship between $j_{1\perp}$ and $E_{1\perp}$ but leaves ambiguous the relationship between $j_{1\parallel}$ and $E_{1\parallel}$.
+
+The two-fluid equations provide a definite description of the relationship between $j_{1\parallel}$ and $E_{1\parallel}$. At frequencies well below the cyclotron frequency, decoupling of modes also occurs in the two-fluid description, and this decoupling is more clearly defined and more symmetric than in MHD. The decoupling in a uniform plasma results because the dependence of $\mathbf{j}_1$ on $\mathbf{E}_1$ has the property that $j_{1z}\sim E_{1z}$ and $\mathbf{j}_{1\perp}\sim\mathbf{E}_{1\perp}$. Thus, for $\omega\ll\omega_{ci}$ there is a simple linear relation between parallel electric field and parallel current and another distinct simple linear relation between perpendicular electric field and perpendicular current; these two linear relations mean that the tensor relating $\mathbf{j}_1$ to $\mathbf{E}_1$ is diagonal (at higher frequencies this is not the case). The decoupling can be seen by supposing that all first order quantities have the dependence $\exp(i\mathbf{k}_\perp\cdot\mathbf{x}+ik_z z)$ where $\mathbf{k}_\perp = k_x\hat{x}+k_y\hat{y}$. Mode decoupling can be seen by examining @tbl-par-perp-mode-decoupling which lists the electric and magnetic field components:
+
+| $\mathbf{E}$ components | $\mathbf{B}$ components |
+|:-----------------------:|:-----------------------:|
+| *$\hat{k}_\perp\cdot\mathbf{E}_1$* | $\hat{k}_\perp\cdot\mathbf{B}_1$ |
+| $\hat{z}\times\hat{k}_\perp\cdot\mathbf{E}_1$ | *$\hat{z}\times\hat{k}_\perp\cdot\mathbf{B}_1$* |
+| *$\hat{z}\cdot\mathbf{E}_1$* | $\hat{z}\cdot\mathbf{B}_1$ |
+
+: Parallel and perpendicular mode decoupling {#tbl-par-perp-mode-decoupling}
+
+Because of the property that $j_{1z}\sim E_{1z}$ and $\mathbf{j}_{1\perp}\sim\mathbf{E}_{1\perp}$ the terms in italic are decoupled from the terms not in italic. Hence, one mode consists of solely interrelationships between the italic terms (this mode is called $E_z$ mode since it has finite $E_z$) and the other distinct mode consists solely of interrelationships between the non-italic terms (this mode is called the $B_z$ mode since it has finite $B_z$). Since the modes are decoupled, it is possible to "turn off" the $E_z$ mode when considering the $B_z$ mode and vice versa. If the plasma is non-uniform, the $E_z$ and $B_z$ modes can become coupled.
+
+The ideal MHD formalism sidesteps discussion of the $E_z$ mode. Instead, two disconnected assumptions are invoked in ideal MHD, namely
+
+1. it is assumed that $E_{z1} = 0$ and
+2. the parallel current $j_{z1}$ is assumed to arrange itself spontaneously in such a way as to always satisfy $\nabla\cdot\mathbf{j}_1=0$.
+
+This pair of assumptions completes the system of equations, but omits the parallel dynamics associated with the $E_z$ mode and instead replaces this dynamics with an assumption that $j_{z1}$ is determined by some unspecified automatic feedback mechanism. In contrast, the two-fluid equations describe how particle dynamics determines the relationship between $j_{z1}$ and $E_{z1}$. Thus, while MHD is both simpler and self-consistent, it omits some vital physics.
+
+### KAW properties
+
 The solution of @eq-mhd_alfven_wavenumber_nonuniform exhibits singularities as $t\rightarrow\infty$ naturally suggests that the microscopic length-scale physics neglected in the ideal MHD fluid description should be included in the long-time-scale dynamics of SAWs. For low-frequency SAWs, one can readily recognize the relevant perpendicular (to $\mathbf{B}_0$) microscopic scales are either the ion Larmor radius, $r_{iL}=v_{ti}/\omega_{ci}$ with $v_{ti}$ and $\omega_{ci}$ being, respectively, the ion thermal speed and ion cyclotron frequency, and/or $r_{eL}=v_{te}/\omega_{ce}$ with $v_{te}$ being the electron thermal speed. Including the effects of finite $r_{iL}$, $r_{eL}$ and/or $T_e$ in the SAW dynamics then led to the discovery of the so-called _kinetic Alfvén wave_ (KAW) [Hasegawa and Chen].
 
-In KAWs, parallel electric field $E_\parallel$ can be developed and facilitate particle heating, acceleration, and transport.
-It has been found in the plasma sheet, at the plasma sheet boundary layer (PSBL), and in the inner magnetosphere.
+In KAWs, parallel electric field $E_\parallel$ can be developed and facilitate particle heating, acceleration, and transport. It has been found in the plasma sheet, at the plasma sheet boundary layer (PSBL), and in the inner magnetosphere.
 
 KAW differ from SAW because the short wavelength requires a significant $E_\parallel$ to maintain charge neutrality due to ion density perturbations caused by the ion polarization drift. When $v_{te}>v_A$, the parallel electric field counteracts electron pressure that would push the electrons away from the ion density perturbations. When $v_{te}<v_A$, the electric field must overcome the electron inertia that prevents the electrons from responding rapidly to the ion density perturbations. $E_\parallel$ associated with small-scale KAWs may efficiently accelerate particles on the magnetic field lines. (Chaston+ 2009) presented observations in the magnetotail from the Cluster spacecraft showing that KAWs radiate outward from the X-line with outward energy fluxes equivalent to that contained in the outstreaming ions. Wave-particle energy exchange between KAWs and plasmas near the dayside magnetopause has been confirmed by MMS observations (Gershman+ 2017).
 
@@ -1135,14 +1196,12 @@ I am not the only person who is confused by so many different names assigned to 
 ## Particle Motions
 
 In Fourier transform space, integrating the velocity equations to obtain the coordinates is done by simply dividing by $-i\omega$. For a simple case where $E_y = E_z = 0$ so that E has only an x-component, we find from @eq-v
-
 $$
 \begin{aligned}
 x_s &= -\frac{q_sE_x}{m_s(\omega^2 - \omega_j^2)} \\
 y_s &= \frac{\pm\omega_{cs}}{i\omega}x_s
 \end{aligned}
 $$
-
 so that in general, the trajectory is elliptical. For $\omega\ll \omega_{cs}$, we find $x_s \ll y_s$, so the motion is principally across both the $\mathbf{E}$ and $\mathbf{B}_0$ directions. However, for $\omega\gg\omega_{cj},x_j\gg y_j$ the motion is principally parallel to the electric field. In this latter case, we would call the particles _unmagnetized_, since the magnetic influence is small. Since it is possible for the wave frequency to be well above the ion cyclotron frequency at the same time it is well below the electron cyclotron frequency, it is possible for ions to be effectively unmagnetized while electrons are magnetized. From the discussion here, it is also clear that in the MHD low frequency regime the $\mathbf{E}\times\mathbf{B}$ drift is important, whereas for high frequency regimes (i.e. unmagnetized), the electric field influence is more important.
 
 When $\omega\simeq\omega_{cs}$, then the linear solutions exhibit resonance effects with large amplitudes, and at resonance, the radius increases uniformly in time and no steady-state solution exists. In this vicinity, we expect the cold plasma approximation to fail and either thermal, inhomogeneous, or nonlinear effects to dominate the dynamics.
