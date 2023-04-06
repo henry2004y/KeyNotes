@@ -1121,13 +1121,13 @@ The two-fluid equations provide a definite description of the relationship betwe
 
 | $\mathbf{E}$ components | $\mathbf{B}$ components |
 |:-----------------------:|:-----------------------:|
-| *$\hat{k}_\perp\cdot\mathbf{E}_1$* | $\hat{k}_\perp\cdot\mathbf{B}_1$ |
-| $\hat{z}\times\hat{k}_\perp\cdot\mathbf{E}_1$ | *$\hat{z}\times\hat{k}_\perp\cdot\mathbf{B}_1$* |
-| *$\hat{z}\cdot\mathbf{E}_1$* | $\hat{z}\cdot\mathbf{B}_1$ |
+| * $\hat{k}_\perp\cdot\mathbf{E}_1$ | $\hat{k}_\perp\cdot\mathbf{B}_1$ |
+| $\hat{z}\times\hat{k}_\perp\cdot\mathbf{E}_1$ | * $\hat{z}\times\hat{k}_\perp\cdot\mathbf{B}_1$ |
+| * $\hat{z}\cdot\mathbf{E}_1$ | $\hat{z}\cdot\mathbf{B}_1$ |
 
 : Parallel and perpendicular mode decoupling {#tbl-par-perp-mode-decoupling}
 
-Because of the property that $j_{1z}\sim E_{1z}$ and $\mathbf{j}_{1\perp}\sim\mathbf{E}_{1\perp}$ the terms in italic are decoupled from the terms not in italic. Hence, one mode consists of solely interrelationships between the italic terms (this mode is called $E_z$ mode since it has finite $E_z$) and the other distinct mode consists solely of interrelationships between the non-italic terms (this mode is called the $B_z$ mode since it has finite $B_z$). Since the modes are decoupled, it is possible to "turn off" the $E_z$ mode when considering the $B_z$ mode and vice versa. If the plasma is non-uniform, the $E_z$ and $B_z$ modes can become coupled.
+Because of the property that $j_{1z}\sim E_{1z}$ and $\mathbf{j}_{1\perp}\sim\mathbf{E}_{1\perp}$ the terms starting with an asterisk are decoupled from the rest. Hence, one mode consists of solely interrelationships between the starred terms (this mode is called $E_z$ mode since it has finite $E_z$) and the other distinct mode consists solely of interrelationships between the non-starred terms (this mode is called the $B_z$ mode since it has finite $B_z$). Since the modes are decoupled, it is possible to "turn off" the $E_z$ mode when considering the $B_z$ mode and vice versa. If the plasma is non-uniform, the $E_z$ and $B_z$ modes can become coupled.
 
 The ideal MHD formalism sidesteps discussion of the $E_z$ mode. Instead, two disconnected assumptions are invoked in ideal MHD, namely
 
@@ -1177,7 +1177,7 @@ $$
 An important issue for the perpendicular motion is _whether $\mathbf{u}_{s\perp 1}$ is compressible or incompressible_. Let us temporarily ignore parallel motion and consider the continuity equation
 $$
 \frac{\partial n_1}{\partial t} + n\nabla\cdot\mathbf{u}_{s\perp 1} = 0
-$$ {#@eq-kaw-2fluid-6}
+$$ {#eq-kaw-2fluid-6}
 
 If $\nabla\cdot\mathbf{u}_{s\perp 1}=0$, the mode does not involve any density perturbation, i.e. $n_1=0$, and is said to be an incompressible mode. On the other hand, if $\nabla\cdot\mathbf{u}_{s\perp 1}\neq 0$ then there are fluctuations in density and the mode is said to be compressible.
 
@@ -1400,19 +1400,19 @@ $$
 $$ {#eq-kaw_dispersion}
 where $I_0$ is the modified Bessel function. Using a Padé approximation $I_0(x)e^{-x}\approx 1/(1+x)$ when $x=k_\perp^2r_{iL}^2\sim\mathcal{O}(1)$, the relation can be simplified to
 $$
-\omega^2 = k_\parallel^2 v_A^2\Big[1+\Big(1+\frac{T_e}{T_i}k_\perp^2r_{iL}^2\Big) \Big] =  k_\parallel^2 v_A^2 [1+k_\perp^2(r_{iL}^2+r_{sL}^2)]
+\omega^2 = k_\parallel^2 v_A^2\Big[1+\Big(1+\frac{T_e}{T_i}k_\perp^2r_{iL}^2\Big) \Big] =  k_\parallel^2 v_A^2 [1+k_\perp^2(r_{iL}^2+r_{fL}^2)]
 $$ {#eq-kaw_dispersion_ion_approxi}
-where $r_{sL}=\sqrt{T_e/m_i}/\omega_{ci}$. So we recover the two-fluid dispersion relation of KAW @eq-kaw-2. We can see from @eq-kaw_dispersion_ion_approxi that the phase speed for KAW is always larger than $v_A$.
+where $r_{fL}=\sqrt{T_e/m_i}/\omega_{ci}$. So we recover the two-fluid dispersion relation of KAW @eq-kaw-2. We can see from @eq-kaw_dispersion_ion_approxi that the phase speed for KAW is always larger than $v_A$.
 
 While SAWs do not have ion density perturbations, KAWs do. In compressibility is only required in the perpendicular direction, but not in the parallel direction w.r.t. the magnetic field.
 
 The polarizations of KAW can be expressed as
 $$
-\bigg\lvert \frac{\delta \mathbf{E}_\perp}{\delta \mathbf{B}_\perp} \bigg\rvert = v_A(1+k_\perp^2r_{iL}^2)[1+k_\perp^2(r_{iL}^2+r_{sL}^2)]^{-1/2}
+\bigg\lvert \frac{\delta \mathbf{E}_\perp}{\delta \mathbf{B}_\perp} \bigg\rvert = v_A(1+k_\perp^2r_{iL}^2)[1+k_\perp^2(r_{iL}^2+r_{fL}^2)]^{-1/2}
 $$
 where $\delta\mathbf{E}_\perp \perp \delta\mathbf{B}_\perp$. The parallel electric field is
 $$
-\bigg\lvert \frac{\delta E_\parallel}{\delta E_\perp} \bigg\rvert = k_\parallel k_\perp\frac{r_{sL}^2}{1+k_\perp^2r_{iL}^2}
+\bigg\lvert \frac{\delta E_\parallel}{\delta E_\perp} \bigg\rvert = k_\parallel k_\perp\frac{r_{fL}^2}{1+k_\perp^2r_{iL}^2}
 $$
 
 It has been shown that KAWs can be generated via magnetic reconnection, mode conversion, and phase mixing.
