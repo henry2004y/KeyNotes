@@ -426,9 +426,11 @@ A direct effect of $\mathbf{F}_{NL}$ is the [self-focusing of laser light in a p
 
 :::
 
-## Parametric Instabilities
+## Parametric Instabilities {#sec-parametric}
 
-The most thoroughly investigated nonlinear wave-wave interactions are the "parametric instabilities", so called because of an analogy with parametric amplifiers, well-known devices in electrical engineering. A reason for the relatively advanced state of understanding of this subject is that the theory is basically a linear one, but linear about anoscillating equilibirum.
+The most thoroughly investigated nonlinear wave-wave interactions are the "parametric instabilities", so called because of an analogy with parametric amplifiers, well-known devices in electrical engineering. A reason for the relatively advanced state of understanding of this subject is that the theory is basically a linear one, but linear about a non-oscillating equilibirum.
+
+An intuitive way to understand the parametric decay instability is that one Alfvén mode with wave vector $\mathbf{k}_1$ will decay into a smaller $\mathbf{k}_2$ and a sound wave $\mathbf{k}_s$. The sound wave will trigger density perturbations.
 
 ### Coupled Oscillators
 
@@ -439,7 +441,6 @@ The most thoroughly investigated nonlinear wave-wave interactions are the "param
 :::
 
 Consider the mechanical model of @fig-parametric_amplifier, in which two oscillators M1 and M2 are coupled to a bar resting on a pivot. The pivot P is made to slide back and forth at a frequency $\omega_0$, while the natural frequencies of the oscillators are $\omega_1$ and $\omega_2$. It is clear that, in the absence of friction, the pivot encounters no resistance as long as M1 and M2 are not moving. Furthermore, if P is not moving and M2 is put into motion, M1 will move; but as long as ω2 is not the natural frequency of M1, the amplitude will be small. Suppose now that both P and M2 are set into motion. The displacement of M1 is proportional to the product of the displacement of M2 and the length of the lever arm and, hence, will vary in time as
-
 $$
 \cos\omega_2 t \cos\omega_0 t = \frac{1}{2}\cos[(\omega_2 + \omega_0)t] + \frac{1}{2}\cos[(\omega_2 - \omega_0)t]
 $$
@@ -449,25 +450,20 @@ If $\omega_1$ is equal to either $\omega_2+\omega_0$ or $\omega_2-\omega_0$, M1 
 ### Frequency Matching
 
 The equation of motion for a simple harmonic oscillator $x_1$ is
-
 $$
 \ddot{x}_1 + \omega_1^2 x_1 = 0
 $$ {#eq-oscillator}
 
 where $\omega_1$ is its resonant frequency. If it is driven by a time-dependent force which is proportional to the product of the amplitude $E_0$ of the driver, or pump, and the amplitude $x_2$ of a second oscillator, the equation of motion becomes
-
 $$
 \ddot{x}_1 + \omega_1^2 x_1 = c_1x_2E_0
 $$ {#eq-oscillator_x1}
-
 where $c_1$ is a constant indicating the strength of the coupling. A similar equation holds for $x_2$:
-
 $$
 \ddot{x}_2 + \omega_1^2 x_2 = c_2x_1E_0
 $$ {#eq-oscillator_x2}
 
 Let $x_1=\bar{x}_1 \cos\omega t$, $x_2=\bar{x}_2 \cos\omega^\prime t$, and $E_0=\bar{E}_0 \cos\omega_0 t$. @eq-oscillator_x2 becomes
-
 $$
 \begin{aligned}
 (\omega_2^2 - {\omega^\prime}^2)\bar{x}_2\cos\omega^\prime t &= c_2\bar{E}_0\bar{x}_1\cos\omega_0 t\cos\omega t \\
@@ -476,7 +472,6 @@ $$
 $$
 
 The driving terms on the right can excite oscillators $x_2$ with frequencies
-
 $$
 \omega^\prime = \omega_0\pm\omega
 $$ {#eq-oscillator_frequency_matching}
@@ -484,7 +479,6 @@ $$ {#eq-oscillator_frequency_matching}
 In the absence of nonlinear interactions, $x_2$ can only have the frequency $\omega_2$, so we must have $ω^\prime = \omega_2$. However, the driving terms can cause a frequency shift so that $ω^\prime$ is only approximately equal to $\omega_2$. Furthermore, $\omega^\prime$ can be complex, since there is damping (which has been neglected so far for simplicity), or there can be growth (if there is an instability). In either case, $x_2$ is an oscillator with finite Q and can respond to a range of frequencies about $\omega_2$. If $\omega$ is small, one can see from that both choices for $\omega^\prime$ may lie within the bandwidth of $x_2$, and one must allow for the existence of two oscillators, $x_2(\omega_0+\omega)$ and $x_2(\omega_0 - \omega)$.
 
 Now let $x_1 = \bar{x}_1\cos\omega^{\prime\prime}t$ and $x_2 = \bar{x}_2\cos[(\omega_0\pm \omega)t]$ and insert into @eq-oscillator_x1:
-
 $$
 \begin{aligned}
 &(\omega_1^2 - {\omega^{\prime\prime}}^2)\bar{x}_1\cos\omega^{\prime\prime} t \\
@@ -494,7 +488,6 @@ $$
 $$ {#eq-oscillator_momentum}
 
 The driving terms can excite not only the original oscillation $x_1(\omega)$, but also new frequencies $\omega^{\prime\prime} = 2\omega_0\pm\omega$. We shall consider the case $|\omega_0| \gg |\omega_1|$, so that $2\omega_0\pm\omega$ lies outside the range of frequencies to which $x_1$ can respond, and $x_1(2\omega_0\pm\omega)$ can be neglected. We therefore have three oscillators, $x_1(\omega)$, $x_2(\omega_0-\omega)$, and $x_2(\omega_0+\omega)$, which are coupled by @eq-oscillator_x1 and @eq-oscillator_x2:
-
 $$
 \begin{aligned}
 (\omega_1^2 - \omega^2)x_1(\omega) - c_1E_0(\omega_0)[ x_2(\omega_0-\omega) + x_2(\omega_0 + \omega) ] &= 0 \\
@@ -504,7 +497,6 @@ $$
 $$ {#eq-oscillator_energy}
 
 The dispersion relation is given by setting the determinant of the coefficients equal to zero:
-
 $$
 \begin{vmatrix}
 \omega^2 - \omega_1^2 & c_1E_0 & c_1 E_0 \\
@@ -516,19 +508,15 @@ $$ {#eq-oscillator_dispersion}
 A solution with $\Im(\omega)>0$ would indicate an instability.
 
 For small frequency shifts and small damping or growth rates, we can set $\omega$ and $\omega^\prime$ approximately equal to the undisturbed frequencies $\omega_1$ and $\omega_2$. @eq-oscillator_frequency_matching then gives a frequency matching condition:
-
 $$
 \omega_0 \approx \omega_2 \pm \omega_1
 $$ {#eq-oscillator_frequency_matching2}
 
 When the oscillators are waves in a plasma, $\omega t$ must be replaced by $\omega t - \mathbf{k}\cdot\mathbf{r}$. There is then also a wavelength matching condition
-
 $$
 \mathbf{k}_0 \approx \mathbf{k}_2 \pm \mathbf{k}_1
 $$ {#eq-oscillator_frequency_matching3}
-
 describing spatial beats; that is, the periodicity of points of constructive and destructive interference in space. The two conditions @eq-oscillator_frequency_matching2 and @eq-oscillator_frequency_matching3 are easily understood by analogy with quantum mechanics. Multiplying the former by Planck’s constant $\hbar$, we have
-
 $$
 \hbar\omega_0 = \hbar\omega_2 \pm \hbar\omega_1
 $$
@@ -553,13 +541,11 @@ D represents the two-plasmon decay instability of an electromagnetic wave. Note 
 ### Instability Threshold
 
 Parametric instabilities will occur at any amplitude if there is no damping, but in practice even a small amount of either collisional or Landau damping will prevent the instability unless the pump wave is rather strong. To calculate the threshold, one must introduce the damping rates $\Gamma_1$ and $\Gamma_2$ of the oscillators $x_1$ and $x_2$. @eq-oscillator then becomes
-
 $$
 \ddot{x_1} + \omega_1^2 x_1 + 2\Gamma_1 \dot{x_1} = 0
 $$
 
 For instance, if $x_1$ is the displacement of a spring damped by friction, the last term represents a force proportional to the velocity. If $x_1$ is the electron density in a plasma wave damped by electron–neutral collisions, $\Gamma_1$ is $v_c/2$ (???) Examination of @eq-oscillator_x1, @eq-oscillator_x2, and @eq-oscillator_dispersion will show that it is all right to use exponential notation and let $\mathrm{d}/\mathrm{d}t \rightarrow i\omega$ for $x_1$ and $x_2$, as long as we keep $E_0$ real and allow $\bar{x}_1$ and $\bar{x}_2$ to be complex. @eq-oscillator_x1 and @eq-oscillator_x2 become
-
 $$
 \begin{aligned}
 (\omega_1^2 - \omega^2 - 2i\omega\Gamma_1)x_1(\omega) &= c_1 x_2 E_0 \\
@@ -568,13 +554,11 @@ $$
 $$ {#eq-parametric_damping}
 
 We further restrict ourselves to the simple case of two waves --- that is, when $\omega\simeq\omega_1$ and $\omega_0 - \omega\simeq\omega_2$ but $\omega_0+\omega$ is far enough from $\omega_2$ to be nonresonant --- in which case the third row and column of @eq-oscillator_dispersion can be ignored. If we now express $x_1, x_2$, and $E_0$ in terms of their peak values, as in @eq-oscillator_momentum, a factor of 1/2 appears on the right-hand sides of @eq-parametric_damping. Discarding the nonresonant terms and eliminating $x_1$ and $x_2$ from @eq-parametric_damping, we obtain
-
 $$
 (\omega^2 - \omega_1^2 +2i\omega\Gamma_1)[(\omega_0-\omega)^2 - \omega_2^2 - 2i(\omega_0-\omega)\Gamma_2] = \frac{1}{4}c_1c_2\bar{E}_0^2
 $$
 
 At threshold, we may set $\Im(\omega)=0$. The lowest threshold will occur at exact frequency matching; i.e., $\omega=\omega_1,\omega_0-\omega=\omega_2$. Then the last equation gives
-
 $$
 c_1c_2(\bar{E}_0^2)_{\text{threshold}} = 16\omega_1\omega_2\Gamma_1\Gamma_2
 $$
@@ -592,13 +576,11 @@ The parametric excitation of waves can be understood very simply in terms of the
 :::
 
 Suppose there is a density perturbation in the plasma of the form $n_1\cos k_1 x$; this perturbation can occur spontaneously as one component of the thermal noise. Let the pump wave have an electric field $E_0\cos\omega_0 t$ in the $x$ direction, as shown in @fig-oscillating_2stream. In the absence of a dc field $\mathbf{B}_0$, the pump wave follows the relation $\omega_0^2 = \omega_p^2 + c^2k_0^2$, so that $k_0\approx 0$ for $\omega_0\approx\omega_p$. We may therefore regard $E_0$ as spatially uniform. If $\omega_0$ is less than $\omega_p$ (HOW IS THIS POSSIBLE???), which is the resonant frequency of the cold electron fluid, the electrons will move in the direction opposite to $E_0$, while the ions do not move on the time scale of $\omega_0$. The density ripple then causes a charge separation, as shown in @fig-oscillating_2stream. The electrostatic charges create a field $E_1$, which oscillates at the frequency $\omega_0$. The ponderomotive force due to the total field is given by @eq-ponderomotive:
-
 $$
 \mathbf{F}_{NL} = -\frac{\omega_p^2}{\omega^2}\nabla\frac{\left< (E_0 + E_1)^2\right>}{2}\epsilon_0
 $$
 
 Since E0 is uniform and much larger than $E_1$, only the cross term is important:
-
 $$
 \mathbf{F}_{NL} = -\frac{\omega_p^2}{\omega^2}\frac{\partial}{\partial x}\frac{\left<2E_0E_1\right>}{2}\epsilon_0
 $$

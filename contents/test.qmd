@@ -346,9 +346,11 @@ $$
 
 For 2D the computational domain is of size $L_x = 2L_y$, with $N_x = 2N_y$. Thus, the grid is rectangular, but each cell is square. The wave propagates along the diagonal of the grid, at an angle $\alpha = \tan^{-1}(0.5) \approx 26.6$ degrees with respect to the x-axis. Since the wave does not propagate along the diagonals of the grid cells, we guarantee the x- and y-fluxes are different; that is the problem is truly multi-dimensional.
 
-The wave is an exact nonlinear solution to the MHD equations, allowing one to test the algorithm in the nonlinear regime. Although nonlinear amplitude Alfvén waves are subject to a parametric instability which causes them to decay into magnetosonic waves, the instability should not be present for the parameters defined here. Since the problem is smooth, it can be used for convergence testing. Running the test with smaller pressure (higher β) and/or larger amplitudes is a good test of how robust is the algorithm.
+The wave is an exact nonlinear solution to the MHD equations, allowing one to test the algorithm in the nonlinear regime.[^circular_alfven] Although nonlinear amplitude Alfvén waves are subject to a parametric instability (@sec-parametric) which causes them to decay into magnetosonic waves, the instability should not be present for the circularly polarized Alfvén waves. Since the problem is smooth, it can be used for convergence testing. Running the test with smaller pressure (higher β) and/or larger amplitudes is a good test of how robust is the algorithm.
 
 See more in [reference](https://www.astro.princeton.edu/~jstone/Athena/tests/cp-alfven-wave/cp-alfven.html) and [@toth2000b].
+
+[^circular_alfven]: As opposed to linearly polarized Alfvén wave, which is not an exact solution to the nonlinear MHD equations! Polarization affects decay. Ask Chaitanya for more about this point.
 
 ### Whistler wave
 
