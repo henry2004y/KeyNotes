@@ -878,7 +878,7 @@ That is, $B_{1x}$ decays temporally due to the phase mixing of increasingly more
 
 Noting that, as $t\rightarrow\infty$, $|k_x|\rightarrow\infty$, it thus suggests that the perturbation will develop singular structures toward the steady state. As we will see in the field line resonance @sec-flr, the singularity is reached at the Alfvén resonant point $x_r$, where $\omega^2=\omega_A^2(x_r)$ along with a finite resonant wave-energy absorption rate. Note that at the isolated extrema of the SAW continuum, $|\omega_A^\prime|=0$, phase mixing vanishes; consequently, perturbation remains regular and experiences no damping via resonant absorption. This feature has important implications to Alfvén instabilities in laboratory plasmas.
 
-Space plasmas support a variety of waves, but for heating the plasma and accelerating the electrons and ions, Alfvén waves are a predominant source. Near the Sun, Alfvén waves are excited and propagate outward. They exchange their energy with particles to accelerate them in the form of solar wind and heat the electrons. When perpendicular wavelength of the wave becomes comparable to the ion gyro-radius ($k_\perp r_{Li}\sim 1$) or inertial length ($k_\perp d_i \sim 1$) in the case of kinetic Alfvén waves (KAWs, @sec-kaw) or inertial Alfvén waves (IAWs), respectively, then the wave in both the limits has a _nonzero parallel electric field_ component which is responsible for the acceleration of the particles via the Landau mechanism. This is also consistent with the generalized Ohm's law @eq-genearlized_ohm_law: only when we go beyond Hall MHD can $\mathbf{E}_\parallel$ be nonzero. (WHAT ABOUT $\eta\mathbf{j}$?) KAW relates to $\frac{\nabla P_e}{ne}$ term, while IAW relates to $\frac{\partial \mathbf{j}}{\partial t}$ term. The key interest is in $E_\parallel$. KAWs and IAWs have significance not only in space plasmas but also in laboratory plasma such as in fusion reactors.
+Space plasmas support a variety of waves, but for heating the plasma and accelerating the electrons and ions, Alfvén waves are a predominant source. Near the Sun, Alfvén waves are excited and propagate outward. They exchange their energy with particles to accelerate them in the form of solar wind and heat the electrons. When perpendicular wavelength of the wave becomes comparable to the ion gyro-radius ($k_\perp r_{Li}\sim 1$) or inertial length ($k_\perp d_i \sim 1$) in the case of kinetic Alfvén waves (KAWs, @sec-kaw) or inertial Alfvén waves (IAWs, @eq-iaw), respectively, then the wave in both the limits has a _nonzero parallel electric field_ component which is responsible for the acceleration of the particles via the Landau mechanism. This is also consistent with the generalized Ohm's law @eq-genearlized_ohm_law: only when we go beyond Hall MHD can $\mathbf{E}_\parallel$ be nonzero. (WHAT ABOUT $\eta\mathbf{j}$?) KAW relates to $\frac{\nabla P_e}{ne}$ term, while IAW relates to $\frac{\partial \mathbf{j}}{\partial t}$ term. The key interest is in $E_\parallel$. KAWs and IAWs have significance not only in space plasmas but also in laboratory plasma such as in fusion reactors.
 
 Alfvén wave has very high saturation level, meaning that it takes a long time for the wave to reach the nonlinear phase. (???)
 
@@ -1075,8 +1075,6 @@ a = \frac{1}{\left( 1-\omega^2/\Omega_i^2 \right)^2}
 $$ {#eq-mhd-alfven-resonance-flr}
 because of the finite ion Larmor radius effects. (The Alfvén resonance singularity can be removed by including non‐MHD effects such as electron inertia or ion Larmor radius corrections.)
 
-## Kinetic Alfvén Wave {#sec-kaw}
-
 ### Limitations of the MHD model
 
 The MHD model ignores parallel electron dynamics and so has a shear mode dispersion $\omega^2=k_z^2 v_A^2$ that has no dependence on $k_\perp$. Some researchers interpret this as a license to allow arbitrarily large $k_\perp$ in which case a shear mode could be localized to a single field line. However, the two-fluid model of the shear mode does have a dependence on $k_\perp$ which becomes important when either $k_\perp c/\omega_{pe}$ or $k_\perp r_{Ls}$ become of order unity (whether to use $c\omega_{pe}$ or $r_{Ls}$ depends on whether $\beta m_i/m_e$ is small or large compared to unity). Since $c\omega_{pe}$ and $r_{Ls}$ are typically small lengths, the MHD point of view is acceptable provided the characteristic length of perpendicular localization is much larger than $c\omega_{pe}$ or $r_{Ls}$.
@@ -1087,9 +1085,9 @@ The MHD analysis makes no restriction on the electron to ion temperature ratio a
 
 Various paradoxes develop in the MHD treatment of the shear mode but not in the two-fluid description. These paradoxes illustrate the limitations of the MHD description of a plasma and shows that MHD results must be treated with caution for the shear (slow) mode. MHD provides an adequate description of the fast (compressional) mode.
 
-### Two-fluid model of Alfvén modes
+## Two-fluid model of Alfvén modes
 
-We now examine these modes from a two-fluid point of view. The two-fluid point of view shows that the shear mode occurs as one of two distinct modes, only one of which can exist for given plasma parameters. Which of these shear modes occurs depends upon the ratio of hydrodynamic pressure to magnetic pressure. This ratio is defined for each species s as
+We now examine the MHD modes from a two-fluid point of view. The two-fluid point of view shows that the shear mode occurs as one of two distinct modes, only one of which can exist for given plasma parameters. Which of these shear modes occurs depends upon the ratio of hydrodynamic pressure to magnetic pressure. This ratio is defined for each species s as
 $$
 \beta_s = \frac{n k_B T_s}{B^2/\mu_0}
 $$
@@ -1248,7 +1246,7 @@ $$ {#eq-kaw-E-perp}
 
 The shear and compressional modes are now considered separately.
 
-#### Two-fluid shear modes
+### Two-fluid shear modes
 
 As discussed above these modes have $B_{z1}=0, \mathbf{E}_{\perp 1}=-\nabla_\perp\phi_1$, and $\nabla\cdot\mathbf{u}_{s\perp 1}=0$. We first consider the parallel component of the linearized equation of motion, namely
 $$
@@ -1376,9 +1374,61 @@ This situation would describe shear modes in a high $\beta$ plasma (ion thermal 
 To summarize: the shear mode has $B_{z1} = 0, E_{z1} \neq 0, j_{z1} \neq 0, E_{\perp 1} = −\nabla \phi_1$
 and exists in the form of the inertial Alfvén wave for $\beta_e \ll m_e/m_i$ and in the form of the kinetic Alfvén wave for $\beta_e \gg m_e/m_i$. The shear mode involves incompressible perpendicular motion, i.e., $\nabla\cdot\mathbf{u}_{s\perp 1} = i\mathbf{k}_\perp \cdot \mathbf{u}_{s\perp 1} = 0$, which means that $\mathbf{k}_\perp$ is orthogonal to $\mathbf{u}_{s\perp 1}$. For example, in Cartesian geometry, this means that if $\mathbf{u}_{s\perp 1}$ is in the $x$ direction, then $\mathbf{k}_\perp$ must be in the $y$ direction while in cylindrical geometry, this means that if $\mathbf{u}_{s\perp 1}$ is in the $\theta$ direction, then $\mathbf{k}_\perp$ must be in the $r$ direction. The inertial Alfvén wave is known as a cold plasma wave because its dispersion relation does not depend on temperature (such a mode would exist even in the limit of a cold plasma). The kinetic Alfvén wave depends on the plasma having finite temperature and is therefore called a warm plasma wave. The shear mode can be coupled to ion acoustic modes since both shear and ion acoustic modes involve finite $E_{\parallel 1}$.
 
-#### Two-fluid compressional modes
+### Two-fluid compressional modes
 
-### KAW properties
+The compressional mode involves assuming that $B_{z1}$ is finite and $E_{z1}=0$. Having $E_{z1}=0$ means that there is no parallel motion and, in particular, implies that $j_{z1}=0$. Thus, for the compressional mode Faraday's law has the form
+$$
+\begin{aligned}
+\nabla_\perp\cdot(\mathbf{E}_{\perp 1}\times\hat{z}) &= i\omega B_{z1} \\
+-ik_z\mathbf{E}_{\perp 1}\times\hat{z} &= i\omega \mathbf{B}_{\perp 1}
+\end{aligned}
+$$ {#eq-2fluid-faraday-compressional}
+
+Using @eq-2fluid-faraday-compressional to substitute for $\mathbf{B}_{\perp 1}$ in @eq-kaw-E-perp and then solving for $\mathbf{E}_{\perp 1}$ gives
+$$
+\mathbf{E}_{\perp 1} = \frac{i\omega v_A^2}{\omega^2-k_z^2 v_A^2} \nabla_\perp\left( B_{z1} + \frac{\mu_0 p_{\perp 1}}{B} \right) \times\hat{z}
+$$
+
+Since
+$$
+\mathbf{E}_{\perp 1}\times\hat{z} = -\frac{i\omega v_A^2}{\omega^2-k_z^2 v_A^2} \nabla_\perp\left( B_{z1} + \frac{\mu_0 p_{\perp 1}}{B} \right)
+$$
+
+@eq-2fluid-faraday-compressional becomes
+$$
+\nabla_\perp\cdot\left( \frac{v_A^2}{\omega^2-k_z^2 v_A^2} \nabla_\perp\left( B_{z1} + \frac{\mu_0 p_{\perp 1}}{B} \right) \right) + B_{z1} = 0
+$$ {#eq-2fluid-faraday-compressional2}
+
+If we assume that the perpendicular motion is adiabatic, then
+$$
+\frac{p_{\perp 1}}{p} = \gamma\frac{n_1}{n} = \gamma\frac{B_{z1}}{B}
+$$
+
+Substitute for $p_{\perp 1}$ in @eq-2fluid-faraday-compressional2 gives (???)
+$$
+\nabla_\perp\cdot\left( \frac{v_A^2+c_s^2}{\omega^2-k_z^2 v_A^2} \nabla_\perp B_{z1}\right) + B_{z1} = 0
+$$ {#eq-2fluid-faraday-compressional3}
+where
+$$
+c_s^2 = \gamma k_B\frac{T_e + T_i}{m_i}
+$$
+
+On replacing $\nabla_\perp\rightarrow i\mathbf{k}_\perp$, @eq-2fluid-faraday-compressional3 becomes the dispersion relation
+$$
+\frac{-k_\perp^2(v_A^2+c_s^2)}{\omega^2 - k_z^2v_A^2} + 1 = 0
+$$
+or
+$$
+\omega^2 = k^2v_A^2 + k_\perp^2 c_s^2
+$$
+where $k^2=k_z^2+k+\perp^2$. Since $\nabla\cdot\mathbf{u}_{s\perp 1}=i\mathbf{k}_\perp\cdot\mathbf{u}_{s\perp 1}\neq 0$, the perpendicular wave vector $\mathbf{k}_\perp$ is at least partially co-aligned with the perpendicular velocity.
+
+### Differences betwen the two-fluid and MHD descriptions
+
+The two-fluid description shows that the Alfvén mode (finite $E_z$) appears as either an inertial or a kinetic Alfvén wave depending on the plasma $\beta$; the MHD description assumes that $E_z = 0$ for this mode and does not distinguish between inertial and kinetic modes. The two-fluid description also shows that finite $E_z$ will give ion acoustic modes in the parallel direction which are decoupled. The MHD description predicts a so-called sound wave
+which differs from the ion acoustic wave because the MHD sound wave does not have the requirement that $T_e \gg T_i$; the MHD sound wave is an artifact for parallel propagation in a plasma with low collisionality (if the collisions are sufficiently large, then the plasma would behave like a neutral gas). Then MHD description predicts a coupling between oblique sound waves via a square root relation (@eq-mhd_fast_slow) which does not exist in the two-fluid model.
+
+### KAW properties {#sec-kaw}
 
 The solution of @eq-mhd_alfven_wavenumber_nonuniform exhibits singularities as $t\rightarrow\infty$ naturally suggests that the microscopic length-scale physics neglected in the ideal MHD fluid description should be included in the long-time-scale dynamics of SAWs. For low-frequency SAWs, one can readily recognize the relevant perpendicular (to $\mathbf{B}_0$) microscopic scales are either the ion Larmor radius, $r_{iL}=v_{ti}/\omega_{ci}$ with $v_{ti}$ and $\omega_{ci}$ being, respectively, the ion thermal speed and ion cyclotron frequency, and/or $r_{eL}=v_{te}/\omega_{ce}$ with $v_{te}$ being the electron thermal speed. Including the effects of finite $r_{iL}$, $r_{eL}$ and/or $T_e$ in the SAW dynamics then led to the discovery of the so-called _kinetic Alfvén wave_ (KAW) [Hasegawa and Chen].
 
