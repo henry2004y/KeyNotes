@@ -1107,7 +1107,7 @@ $$
 
 Thus, $v_{Te}^2\gg v_A^2$ when $\beta_e\gg m_e/m_i$ and $v_{Te}^2\ll v_A^2$ when $\beta_e\ll m_e/m_i$. Shear Alfvén wave physics is different in the $\beta_e\gg m_e/m_i$ and $\beta_e\ll m_e/m_i$ regimes which therefore must be investigated separately. MHD ignores this $\beta_e$ dependence, an oversimplification which leads to the paradoxes.
 
-Both Faraday's law and the pre-Maxwell Ampere's law (no displacement current) are fundamental to Alfvén wave dynamics. The system of linearized equations thus is
+Both Faraday's law and the pre-Maxwell Ampère's law (no displacement current) are fundamental to Alfvén wave dynamics. The system of linearized equations thus is
 $$
 \begin{aligned}
 \nabla\times\mathbf{E}_1 = -\frac{\partial\mathbf{B}_1}{\partial t} \\
@@ -1115,8 +1115,7 @@ $$
 \end{aligned}
 $$ {#eq-maxwell-linearized}
 
-If the dependence of $\mathbf{j}_1$ on $\mathbf{E}_1$ can be determined, then the combination of Ampere's
-law and Faraday's law provides a complete self-consistent description of the coupled fields $\mathbf{E}_1, \mathbf{B}_1$ and hence describes the normal modes. From a mathematical point of view, specifying $\mathbf{j}_1(\mathbf{E}_1)$ means that there are as many equations as dependent variables in the pair of @eq-maxwell-linearized. The relationship between $\mathbf{j}_1$ and $\mathbf{E}_1$ is determined by the Lorentz equation or some generalization thereof (e.g., drift equations, Vlasov equation, fluid equation of motion). The MHD derivation used the polarization drift to give a relationship between $j_{1\perp}$ and $E_{1\perp}$ but leaves ambiguous the relationship between $j_{1\parallel}$ and $E_{1\parallel}$.
+If the dependence of $\mathbf{j}_1$ on $\mathbf{E}_1$ can be determined, then the combination of Ampère's law and Faraday's law provides a complete self-consistent description of the coupled fields $\mathbf{E}_1, \mathbf{B}_1$ and hence describes the normal modes. From a mathematical point of view, specifying $\mathbf{j}_1(\mathbf{E}_1)$ means that there are as many equations as dependent variables in the pair of @eq-maxwell-linearized. The relationship between $\mathbf{j}_1$ and $\mathbf{E}_1$ is determined by the Lorentz equation or some generalization thereof (e.g., drift equations, Vlasov equation, fluid equation of motion). The MHD derivation used the polarization drift to give a relationship between $j_{1\perp}$ and $E_{1\perp}$ but leaves ambiguous the relationship between $j_{1\parallel}$ and $E_{1\parallel}$.
 
 The two-fluid equations provide a definite description of the relationship between $j_{1\parallel}$ and $E_{1\parallel}$. At frequencies well below the cyclotron frequency, decoupling of modes also occurs in the two-fluid description, and this decoupling is more clearly defined and more symmetric than in MHD. The decoupling in a uniform plasma results because the dependence of $\mathbf{j}_1$ on $\mathbf{E}_1$ has the property that $j_{1z}\sim E_{1z}$ and $\mathbf{j}_{1\perp}\sim\mathbf{E}_{1\perp}$. Thus, for $\omega\ll\omega_{ci}$ there is a simple linear relation between parallel electric field and parallel current and another distinct simple linear relation between perpendicular electric field and perpendicular current; these two linear relations mean that the tensor relating $\mathbf{j}_1$ to $\mathbf{E}_1$ is diagonal (at higher frequencies this is not the case). The decoupling can be seen by supposing that all first order quantities have the dependence $\exp(i\mathbf{k}_\perp\cdot\mathbf{x}+ik_z z)$ where $\mathbf{k}_\perp = k_x\hat{x}+k_y\hat{y}$. Mode decoupling can be seen by examining @tbl-par-perp-mode-decoupling which lists the electric and magnetic field components:
 
@@ -1137,6 +1136,248 @@ The ideal MHD formalism sidesteps discussion of the $E_z$ mode. Instead, two dis
 
 This pair of assumptions completes the system of equations, but omits the parallel dynamics associated with the $E_z$ mode and instead replaces this dynamics with an assumption that $j_{z1}$ is determined by some unspecified automatic feedback mechanism. In contrast, the two-fluid equations describe how particle dynamics determines the relationship between $j_{z1}$ and $E_{z1}$. Thus, while MHD is both simpler and self-consistent, it omits some vital physics.
 
+The two-fluid model is based on the linearized equations of motion
+$$
+m_s n \frac{\partial\mathbf{u}_{s1}}{\partial t} = nq_s\left( \mathbf{E}_1 + \mathbf{u}_{\sigma 1}\times\mathbf{B} \right) - \nabla\cdot\overleftrightarrow{P}_{s1}
+$$ {#eq-kaw-2fluid-1}
+
+Charge neutrality is assumed so that $n_i=n_e=n$. Also, the pressure terms is
+$$
+\nabla\cdot\overleftrightarrow{P}_{s1} = \nabla\cdot
+\begin{bmatrix}
+p_{s\perp 1} && 0 && 0 \\ 0 && p_{s\perp 1} && 0 \\ 0 && 0 && p_{sz1}
+\end{bmatrix} = \nabla_\perp p_{s\perp 1} + \hat{z}\frac{\partial p_{sz1}}{\partial z}
+$$ {#eq-kaw-2fluid-2}
+
+Assuming $\omega\ll \omega_{ci}$ implies $\omega\ll \omega_{ce}$ also and so perpendicular motion can be described by drift theory for both ions and electrons. However, here the drift approximation is used for the fluid equations, rather than for a single particle. Following the drift method of analysis, the left hand side of @eq-kaw-2fluid-1 is neglected to first approximation, resulting in
+$$
+\mathbf{u}_{s1}\times\mathbf{B} \simeq -\mathbf{E}_{1\perp} + \nabla_\perp p_{s\perp 1}/nq_s
+$$ {#eq-kaw-2fluid-3}
+which may be solved for $\mathbf{u}_{s1}$ to give
+$$
+\mathbf{u}_{s\perp 1} = \frac{\mathbf{E}_1\times\mathbf{B}}{B^2} - \frac{\nabla p_{s\perp 1}\times\mathbf{B}}{nq_s B^2}
+$$ {#eq-kaw-2fluid-4}
+
+The first term is the single-particle $\mathbf{E}\times\mathbf{B}$ drift and the second term is called the diamagnetic drift, a fluid effect that does not exist for single-particle motion (@sec-fluid-drift-perp). Because $\mathbf{u}_{s\perp 1}$ is time-dependent there is also a polarization drift. Recalling that the form of the single-particle polarization drift for electric field only is $\mathbf{v}_p=m\dot{\mathbf{E}}_{1\perp}/qB^2$ and using $\mathbf{E}_{1\perp}-\nabla_\perp p_{s\perp 1}/nq_s$ for the fluid model instead of just $\mathbf{E}_{1\perp}$ for single particles (@eq-kaw-2fluid-3) the fluid polarization drift is obtained. Withe the inclusion of this higher order correction, the perpendicular fluid motion becomes
+$$
+\mathbf{u}_{s\perp 1} = \frac{\mathbf{E}_1\times\mathbf{B}}{B^2} - \frac{\nabla p_{s\perp 1}\times\mathbf{B}}{nq_s B^2} + \frac{m_s}{q_s B^2}\dot{\mathbf{E}}_{1\perp} - \frac{m_s}{n q_s^2 B^2}\nabla_\perp \dot{p}_{s\sigma 1}
+$$ {#eq-kaw-2fluid-5}
+
+The last two terms are smaller than the first two terms by the ratio $\omega/\omega_{cs}$ and so may be ignored when the electron and ion fluid velocities are considered separately. However, when the perpendicular current, i.e. $\mathbf{j}_{1\perp} = \sum n q_s \mathbf{u}_{s\perp 1}$ is considered, the electron and ion $\mathbf{E}\times\mathbf{B}$ drift terms cancel so that the polarization terms becomes the leading terms involving the electric field. Because of the mass in the numerator, the ion polarization drift is much larger than the electron polarization drift. Thus, the perpendicular current comes form ion polarization drift and diamagnetic current
+$$
+\mu_0\mathbf{j}_{\perp 1} = \frac{\mu_0 nm_i\dot{\mathbf{E}}_{1\perp}}{B^2} - \sum_s \frac{\nabla p_{s\perp 1}\times\mathbf{B}}{B^2} = \frac{1}{v_A^2}\dot{\mathbf{E}}_{\perp 1} - \frac{\mu_0\nabla p_{\perp 1}\times\mathbf{B}}{B^2}
+$$ {#eq-kaw-2fluid-current}
+where $p_{\perp 1}=\sum p_{s\perp 1}$. The terms involving $\dot{p}_{\perp 1}$ has been dropped because it is small by $\omega/\omega_c$ compared to the $p_{\perp 1}$ term.
+
+The center of mass perpendicular motions is
+$$
+\mathbf{U}_{\perp 1} = \frac{\sum m_s n \mathbf{u}_{s\perp 1}}{\sum m_s n}\approx \mathbf{u}_{i\perp 1}
+$$
+
+An important issue for the perpendicular motion is _whether $\mathbf{u}_{s\perp 1}$ is compressible or incompressible_. Let us temporarily ignore parallel motion and consider the continuity equation
+$$
+\frac{\partial n_1}{\partial t} + n\nabla\cdot\mathbf{u}_{s\perp 1} = 0
+$$ {#@eq-kaw-2fluid-6}
+
+If $\nabla\cdot\mathbf{u}_{s\perp 1}=0$, the mode does not involve any density perturbation, i.e. $n_1=0$, and is said to be an incompressible mode. On the other hand, if $\nabla\cdot\mathbf{u}_{s\perp 1}\neq 0$ then there are fluctuations in density and the mode is said to be compressible.
+
+To proceed further, consider the vector identity
+$$
+\nabla\cdot(\mathbf{F}\times\mathbf{G}) = \mathbf{G}\cdot\nabla\times\mathbf{F} - \mathbf{F}\cdot\nabla\times\mathbf{G}
+$$
+
+If $\mathbf{G}$ is spatially uniform, this identity reduces to $\nabla\cdot(\mathbf{F}\times\mathbf{G}) = \mathbf{G}\cdot\nabla\times\mathbf{F}$ which in turn vanishes if $\mathbf{F}$ is the gradient of a scalar. Taking the divergence of @eq-kaw-2fluid-5 and ignoring the polarization terms (they are of order $\omega/\omega_{ci}$ and are only important when calculating the current which we are not interested in right now) gives
+$$
+\nabla\cdot\mathbf{u}_{s\perp 1} = \frac{1}{B^2}\mathbf{B}\cdot\nabla\times\mathbf{E}_1 = \frac{1}{B}\hat{z}\cdot\nabla\times\mathbf{E}_1
+$$ {#eq-kaw-2fluid-7}
+to lowest order. Setting $\mathbf{E}_1=-\nabla\phi$ (i.e. assuming that the electric field is electrostatic) would cause the right hand side of @eq-kaw-2fluid-7 to vanish, but such an assumption is overly restrictive because all that matters here is the $z$-component of $\nabla\times\mathbf{E}_1$. The $z$-component of $\nabla\times\mathbf{E}_1$ involves only the perpendicular component of the electric field (i.e. only the $x$ and $y$ components of the electric field) and so the least restrictive assumption for the right hand side of @eq-kaw-2fluid-7 to vanish is to have $\mathbf{E}_{1\perp} = -\nabla_\perp \phi$. Thus, one possibility is to have $\mathbf{E}_{1\perp}=-\nabla_\perp \phi$ in which case the perpendicular electric field is electrostatic in nature and the mode is incompressible.
+
+The other possibility is to have $\hat{z}\cdot\nabla\times\mathbf{E}_1\neq 0$. In this case, invoking Faraday's law reduces @eq-kaw-2fluid-7 to
+$$
+\nabla\cdot\mathbf{u}_{s\perp 1} = -\frac{1}{B}\hat{z}\cdot\frac{\partial\mathbf{B}_1}{\partial t} = -\frac{1}{B}\frac{\partial B_{z1}}{\partial t}
+$$ {#eq-kaw-2fluid-8}
+
+Combining @eq-kaw-2fluid-6 and @eq-kaw-2fluid-8 and then integrating in time gives
+$$
+\frac{n_1}{n} = \frac{B_{z1}}{B}
+$$
+which shows that compression/rarefaction is associated with having finite $B_{z1}$ (similar to the argument in @eq-kmhd_B_perturb).
+
+In summary, there are two general kinds of behavior:
+
+| Quantity | _Shear modes_ | _Compressible modes_ |
+|:--------:|:-------------:|:--------------------:|
+| $n_1$    | 0             | $\neq 0$             |
+| $\nabla\cdot\mathbf{u}_{s\perp 1}$ | 0                   | $\neq 0$ |
+| $\nabla\times\mathbf{E}_{1\perp}$  | $-\nabla_\perp\phi$ | $\neq 0$ |
+| $B_{z1}$ | 0             | $\neq 0$             |
+
+: Incompressible and compressible modes from two-fluid theory. {#tbl-2fluid-shear-incompressible-modes}
+
+@eq-kaw-2fluid-current provides a relationship between the perpendicular electric field and the perpendicular current. A relationship between the parallel electric field and the parallel
+current is now required. To obtain this, all vectors are decomposed into components parallel and perpendicular to the equilibrium magnetic field, i.e. $\mathbf{E}_1 = \mathbf{E}_{\perp 1}+E_{z1}\hat{z}, \nabla=\nabla_\perp + \hat{z}\partial_z$ etc. All quantities are assumed to be proportional to $f(x,y)\exp(ik_z z-i\omega t)$. Thus, Faraday's law can be written as
+$$
+\nabla_\perp\times\mathbf{E}_{\perp 1} + \nabla_\perp\times E_{z1}\hat{z} + \hat{z}\frac{\partial}{\partial z}\times\mathbf{E}_{\perp 1} = -\frac{\partial}{\partial t}\left( \mathbf{B}_{\perp 1} + B_{z1}\hat{z} \right)
+$$
+which has a parallel component
+$$
+\hat{z}\cdot\nabla_\perp\times\mathbf{E}_{\perp 1} = i\omega B_{z1}
+$$
+and a perpendicular component
+$$
+\left( \nabla_\perp E_{z1} - ik_z\mathbf{E}_{\perp 1} \right)\times\hat{z} = i\omega\mathbf{B}_{\perp 1}
+$$ {#eq-kaw-faraday-perp}
+
+Similarly Ampère's law can be decomposed into
+$$
+\hat{z}\cdot\nabla_\perp\times\mathbf{B}_{\perp 1} = \mu_0\mathbf{j}_{z1}
+$$
+and
+$$
+\left( \nabla_\perp B_{z1} - ik_z\mathbf{B}_{\perp 1} \right)\times\hat{z} = \mu_0\mathbf{j}_{\perp 1}
+$$ {#eq-kaw-ampere-perp}
+
+Substituting @eq-kaw-2fluid-current into @eq-kaw-ampere-perp gives
+$$
+\left( \nabla_\perp B_{z1} - ik_z\mathbf{B}_{\perp 1} \right)\times\hat{z} = \frac{i\omega}{v_A^2}\mathbf{E}_{\perp 1} - \frac{\mu_0 \nabla p_1\times\hat{z}}{B}
+$$
+or, after re-arrangement,
+$$
+\nabla_\perp\left( B_{z1} + \frac{\mu_0 p_{\perp 1}}{B} \right)\times\hat{z} - ik_z\mathbf{B}_{\perp 1}\times\hat{z} = -\frac{i\omega}{v_A^2}\mathbf{E}_{\perp 1}
+$$ {#eq-kaw-E-perp}
+
+The shear and compressional modes are now considered separately.
+
+#### Two-fluid shear modes
+
+As discussed above these modes have $B_{z1}=0, \mathbf{E}_{\perp 1}=-\nabla_\perp\phi_1$, and $\nabla\cdot\mathbf{u}_{s\perp 1}=0$. We first consider the parallel component of the linearized equation of motion, namely
+$$
+nm_s\frac{\partial u_{sz1}}{\partial t} = nq_sE_{z1} - \frac{\partial p_{s1}}{\partial z}
+$$ {#eq-kaw-2fluid-linearized-par-motion}
+where $p_{s1} = \gamma_s n_{s1} k_B T_s$ and $\gamma=1$ if the motion is isothermal and $\gamma_s=3$ if the motion is adiabatic and the compression is one-dimensional. The isothermal case corresponds to $\omega^2/k_z^2\ll k_B T_s/m_s$ and vice versa for the adiabatic case.
+
+The continuity equation is
+$$
+\frac{\partial n_1}{\partial t} + \nabla\cdot(n\mathbf{u}_{s1}) = 0
+$$
+
+Because the shear mode is incompressible in the perpendicular direction, the continuity equation reduces to
+$$
+\frac{\partial n_1}{\partial t} + \frac{\partial}{\partial z}(n_0 u_{sz1}) = 0
+$$
+
+Taking the time derivative of @eq-kaw-2fluid-linearized-par-motion gives (isothermal?)
+$$
+\frac{\partial^2 u_{sz1}}{\partial t^2} - \gamma_s\frac{k_B T_s}{m_s}\frac{\partial^2 u_{s z1}}{\partial z^2} = \frac{q_s}{m_s}\frac{\partial E_{z1}}{\partial t}
+$$ {#eq-kaw-shear-2ndorder-par-motion}
+which is similar to electron plasma wave and ion acoustic wave dynamics except it has _not_ been assumed that $E_{z1}$ is electrostatic.
+
+Invoking the assumption that all quantities are of the form $f(x,y)\exp(ik_z z-i\omega t)$ @eq-kaw-shear-2ndorder-par-motion can be solved to give
+$$
+u_{sz1} = \frac{i\omega q_s}{m_s}\frac{E_{z1}}{\omega^2 - \gamma_s k_z^2 k_B T_s /m_s}
+$$
+and so the relation between parallel current and parallel electric field is
+$$
+\mu_0 j_{z1} = \frac{i\omega}{c^2}E_{z1}\sum_s \frac{\omega_{ps}^2}{\omega^2 - \gamma_s k_z^2 k_B T_s/m_s}
+$$
+
+Using $\hat{z}\cdot\nabla\times\mathbf{B}_1=\nabla\cdot(\mathbf{B}_1\times\hat{z})=\nabla\cdot(\mathbf{B}_{\perp 1}\times\hat{z})$ the parallel component of Ampère's law becomes for the shear wave
+$$
+\nabla_\perp\cdot(\mathbf{B}_{\perp 1}\times\hat{z}) = \frac{i\omega}{c^2}E_{z1}\sum_s \frac{\omega_{ps}^2}{\omega^2 - \gamma_s k_z^2 k_B T_s/m_s}
+$$ {#eq-kaw-shear-par-ampere}
+
+Ion acoustic wave physics is embedded in @eq-kaw-shear-par-ampere as well as shear Alfvén physics. The ion acoustic mode can be retrieved by assuming that the electric field is electrostatic in which case $\mathbf{B}_{\perp 1}$ vanishes (???Why???). For the special case where the electric field is just in the $z$ direction, and assuming that $k_BT_i/m_i\ll \omega^2/k_z^2\ll k_B T_e/m_e$ the right hand side of @eq-kaw-shear-par-ampere becomes
+$$
+\left( \frac{\omega_{pi}^2}{\omega^2} - \frac{1}{k_z^2\lambda_{De}^2} \right)E_{z1} = 0
+$$
+which gives the ion acoustic wave $\omega^2=k_z^2 k_B T_e/m_i$ (see [@chen2016introduction] and [@bellan2008fundamentals] Sec.4.2.1). This shows that the acoustic wave is associated with having finite $E_{z1}$ and also requires $T_e\gg T_i$ in order to exist.
+
+Returning to shear waves, we now assume that the electric field is not electrostatic so $\mathbf{B}_{\perp 1}$ does not vanish and @eq-kaw-shear-par-ampere has to be considered in its entirety. For shear waves the character of the parallel current changes depending on whether the wave parallel phase velocity is faster or slower than the electron thermal velocity:
+
+1. The $\omega^2/k_z^2\gg k_B T_e/m_e$ case is called the _inertial limit_ while
+2. The $\omega^2/k_z^2\ll k_B T_e/m_e$ case is called the _kinetic limit_.
+
+The perpendicular component of Faraday's law is (@eq-kaw-faraday-perp)
+$$
+\nabla_\perp E_{z1}\times\hat{z} - ik_z\mathbf{E}_{\perp 1}\times\hat{z} = i\omega\mathbf{B}_{\perp 1}
+$$ {#eq-kaw-faraay-perp2}
+
+Substitution of $\mathbf{E}_{\perp 1}$ as determined from @eq-kaw-E-perp into @eq-kaw-faraay-perp2 gives
+$$
+-\frac{i\omega}{v_A^2}\nabla_\perp E_{z1}\times\hat{z} - ik_z\left( \frac{\mu_0\nabla p_{\perp 1}}{B}\times\hat{z} - ik_z\mathbf{B}_{\perp 1}\times\hat{z} \right)\times\hat{z} = \frac{\omega^2}{v_A^2}\mathbf{B}_{\perp 1}
+$$
+which may be solved for $\mathbf{B}_{\perp 1}$ to give
+$$
+\mathbf{B}_{\perp 1} = \frac{1}{\omega^2 - k_z^2v_A^2}\left( -i\omega\nabla_\perp E_{z1}\times\hat{z} + ik_zv_A^2\frac{\mu_0\nabla_\perp p_{\perp 1}}{B} \right)
+$$
+and
+$$
+\mathbf{B}_{\perp 1}\times\hat{z} = \frac{1}{\omega^2 - k_z^2v_A^2}\left( i\omega\nabla_\perp E_{z1} + ik_zv_A^2\frac{\mu_0\nabla_\perp p_{\perp 1}}{B}\times\hat{z} \right)
+$$
+
+Substitution of $\mathbf{B}_{\perp 1}\times\hat{z}$ into @eq-kaw-shear-par-ampere gives
+$$
+\nabla_\perp\cdot\left( \frac{1}{\omega^2 - k_z^2v_A^2}\left( \nabla_\perp E_{z1} + k_zv_A^2\frac{\mu_0\nabla_\perp p_{\perp 1}}{\omega B}\times\hat{z} \right) \right) = E_{z1}\sum_s \frac{\omega_{ps}^2/c^2}{\omega^2 - \gamma_s k_z^2 k_B T_s/m_s}
+$$
+
+However, because $\nabla_\perp\cdot(\nabla_\perp p_{\perp 1}\times\hat{z})=\nabla\cdot(\nabla p_{\perp 1}\times\hat{z})=0$ (divergence of a curl) the term involving pressure vanishes, leaving an equation involving $E_{z1}$ only, namely
+$$
+\nabla_\perp\cdot\left( \frac{1}{\omega^2 - k_z^2v_A^2} \nabla_\perp E_{z1}\right) - E_{z1}\sum_s \frac{\omega_{ps}^2/c^2}{\omega^2 - \gamma_s k_z^2 k_B T_s/m_s} = 0
+$$ {#eq-kaw-shear-fundamental}
+
+This is the fundamental equation for shear waves. On replacing $\nabla_\perp\rightarrow i\mathbf{k}_\perp$, @eq-kaw-shear-fundamental becomes
+$$
+\frac{k_\perp^2}{\omega^2 - k_z^2v_A^2} + \frac{\omega_{pe}^2}{c^2}\frac{1}{\omega^2 - \gamma_ek_z^2 k_B T_e/m_e} + \frac{\omega_{pi}^2}{c^2}\frac{1}{\omega^2 - \gamma_i k_z^2 k_B T_i/m_i} = 0
+$$ {#eq-kaw-shear-linerized}
+
+In the situation where $\omega^2/k_z^2\gg k_B T_e/m_e$, the second term dominates the third term since $\omega_{pe}^2\gg\omega_{pi}^2$ and so @eq-kaw-shear-linerized can be recast as
+$$
+\omega^2 = \frac{k_z^2 v_A^2}{1+k_\perp^2c^2/\omega_{pe}^2}
+$$ {#eq-iaw}
+which is called the _inertial Alfvén wave_ (IAW). If $k_\perp^2c^2/\omega_{pe}^2$ is not too large, then $\omega/k_z$ is of the order of the Alfvén velocity and the condition $\omega^2\gg k_z^2 k_B T_e/m_e$ corresponds to $v_A^2\gg k_B T_e/m_e$ or
+$$
+\beta_e = \frac{nk_B T_e}{B^2/2\mu_0}\ll \frac{m_e}{m_i}
+$$
+
+Thus, inertial Alfvén wave shear modes exist only in the ultra-low $\beta$ regime where $\beta_e\ll m_e/m_i$.
+
+In the situation where $k_B T_i/m_i \ll \omega^2/k_z^2 \ll k_B T_e/m_e$, @eq-kaw-shear-fundamental can be recast as
+$$
+\frac{k_\perp^2}{\omega^2 - k_z^2v_A^2} - \frac{\omega_{pe}^2}{c^2}\frac{1}{k_z^2 k_B T_e/m_e} + \frac{\omega_{pi}^2}{c^2}\frac{1}{\omega^2} = 0
+$$ {#eq-kaw-1}
+
+Because $\omega^2$ appears in the respective denominators of two distinct terms, @eq-kaw-1 is fourth order in $\omega^2$ and so describes in two distinct modes. Let us suppose that the mode in question is much faster than the acoustic velocity, i.e. $\omega^2/k_z^2\gg k_B T_e/m_i$. In this case the ion term can be dropped and the remaining terms can be re-arranged to give
+$$
+\omega^2 = k_z^2 v_A^2 \left( 1+\frac{k_\perp^2}{v_A^2}\frac{k_B T_e}{m_e}\frac{c^2}{\omega_{pe}^2} \right)
+$$
+
+This is called the _kinetic Alfvén wave_ (KAW). Using
+$$
+r_{fL}^2 = \frac{1}{v_A^2}\frac{k_B T_e}{m_e}\frac{c^2}{\omega_{pe}^2} = \frac{1}{\omega_{ci}^2}\frac{k_B T_e}{m_i}
+$$ {#eq-kaw-fictitious-larmor}
+as a fictitious ion Larmor radius calculated using the electron temperature instead of the ion temperature, the KAW dispersion relation can be expressed more succinctly as
+$$
+\omega^2 = k_z^2 v_A^2\left( 1+k_\perp^2r_{fL}^2 \right)
+$$ {#eq-kaw-2}
+
+If $k_\perp^2r_{Ls}^2$ is not too large, then $\omega/k_z$ is again of the order of $v_A$ and so the condition $\omega^2\ll k_z^2k_B T_e/m_e$ corresponds to having $\beta_e\gg m_e/m_i$. The condition $\omega^2/k_z^2\gg k_B T_e/m_i$ which was also assumed corresponds to assuming that $\beta_e\ll 1$. Thus, the KAW dispersion relation @eq-kaw-2 is valid in the regime $m_e/m_i\ll \beta_e\ll 1$.
+
+Let us now consider the situation where $\omega^2/k_z^2\ll k_B T_i/m_i, k_B T_e/m_e$. In this case @eq-kaw-1 again reduces to
+$$
+\omega^2 = k_z^2 v_A^2\left( 1+k_\perp^2r_{fL}^2 \right)
+$$ {#eq-kaw-3}
+but this time
+$$
+r_{fL}^2 = \frac{1}{\omega_{ci}^2}\frac{k_B (T_e+T_i)}{m_i}
+$$ {#eq-kaw-fictitious-larmor2}
+
+This situation would describe shear modes in a high $\beta$ plasma (ion thermal velocity faster than Alfvén velocity).
+
+To summarize: the shear mode has $B_{z1} = 0, E_{z1} \neq 0, j_{z1} \neq 0, E_{\perp 1} = −\nabla \phi_1$
+and exists in the form of the inertial Alfvén wave for $\beta_e \ll m_e/m_i$ and in the form of the kinetic Alfvén wave for $\beta_e \gg m_e/m_i$. The shear mode involves incompressible perpendicular motion, i.e., $\nabla\cdot\mathbf{u}_{s\perp 1} = i\mathbf{k}_\perp \cdot \mathbf{u}_{s\perp 1} = 0$, which means that $\mathbf{k}_\perp$ is orthogonal to $\mathbf{u}_{s\perp 1}$. For example, in Cartesian geometry, this means that if $\mathbf{u}_{s\perp 1}$ is in the $x$ direction, then $\mathbf{k}_\perp$ must be in the $y$ direction while in cylindrical geometry, this means that if $\mathbf{u}_{s\perp 1}$ is in the $\theta$ direction, then $\mathbf{k}_\perp$ must be in the $r$ direction. The inertial Alfvén wave is known as a cold plasma wave because its dispersion relation does not depend on temperature (such a mode would exist even in the limit of a cold plasma). The kinetic Alfvén wave depends on the plasma having finite temperature and is therefore called a warm plasma wave. The shear mode can be coupled to ion acoustic modes since both shear and ion acoustic modes involve finite $E_{\parallel 1}$.
+
+#### Two-fluid compressional modes
+
 ### KAW properties
 
 The solution of @eq-mhd_alfven_wavenumber_nonuniform exhibits singularities as $t\rightarrow\infty$ naturally suggests that the microscopic length-scale physics neglected in the ideal MHD fluid description should be included in the long-time-scale dynamics of SAWs. For low-frequency SAWs, one can readily recognize the relevant perpendicular (to $\mathbf{B}_0$) microscopic scales are either the ion Larmor radius, $r_{iL}=v_{ti}/\omega_{ci}$ with $v_{ti}$ and $\omega_{ci}$ being, respectively, the ion thermal speed and ion cyclotron frequency, and/or $r_{eL}=v_{te}/\omega_{ce}$ with $v_{te}$ being the electron thermal speed. Including the effects of finite $r_{iL}$, $r_{eL}$ and/or $T_e$ in the SAW dynamics then led to the discovery of the so-called _kinetic Alfvén wave_ (KAW) [Hasegawa and Chen].
@@ -1153,8 +1394,6 @@ We consider a KAW with a wave vector $\mathbf{k}$ in the XZ-plane, same as in th
 Electrons are still frozen-in in the presence of the wave field. The difference in the ion and electron motion in the perpendicular direction introduces charge separation and coupling to the electrostatic mode. Because the wave electric field $E_x$ is mainly parallel to the $\mathbf{k}$, $\nabla\times\mathbf{E}=i\mathbf{k}\times\mathbf{E}$ is small and $\nabla\cdot\mathbf{E}=i\mathbf{k}\cdot\mathbf{E}$ is relatively large for KAW. Accordingly, the perpendicular wave electric field $E_x$ is mostly electrostatic in KAW.
 * Because of charge separation in KAW, electrons need to move along the magnetic field to preserve the charge neutrality. Associated with the parallel motion of electron, a small wave electric field $E_\parallel$ is established, the existence of which is a distinct feature of KAW. The parallel motion of electrons creates a field-aligned current $j_\parallel$ of KAW. From Ampère's law $i\mathbf{k}\times\mathbf{B}_1=\mu_0 \mathbf{j}$, the field-aligned current $\mathbf{j}_z$ produces a wave magnetic field $\mathbf{B}_{1y}$. As a result, KAW is in fact an EM wave. The ratio of the wave electric field to the wave magnetic field is $V_A\sqrt{1+k_x^2 r_{iL}^2}$ (Stasiewicz et al. 2000). The kinetic correction $k_x^2 r_{iL}^2$ introduces a deviation of the ratio $E_x/B_y$ from one $V_A$ as in the SAWs.
 
-In principle, the KAW eigenmode solution can be obtained from the linearized two-fluid equations (Dai 2009).
-
 While SAW satisfy $\omega=k_\parallel v_A$, the dispersion relation of KAW can be written as (Johnson & Cheng, 1997)
 $$
 \omega^2 = k_\parallel^2 v_A^2 \Big[ \frac{1}{1-I_0(k_\perp^2 r_{iL}^2)e^{-k_\perp^2 r_{iL}^2}} + \frac{T_e}{T_i} \Big]k_\perp^2 r_{iL}^2
@@ -1163,9 +1402,9 @@ where $I_0$ is the modified Bessel function. Using a Padé approximation $I_0(x)
 $$
 \omega^2 = k_\parallel^2 v_A^2\Big[1+\Big(1+\frac{T_e}{T_i}k_\perp^2r_{iL}^2\Big) \Big] =  k_\parallel^2 v_A^2 [1+k_\perp^2(r_{iL}^2+r_{sL}^2)]
 $$ {#eq-kaw_dispersion_ion_approxi}
-where $r_{sL}=\sqrt{T_e/m_i}/\omega_{ci}$. This term is kind of strange, because it looks like a Larmor radius for ion with electron temperature. We can see from @eq-kaw_dispersion_ion_approxi that the phase speed for KAW is larger than $v_A$.
+where $r_{sL}=\sqrt{T_e/m_i}/\omega_{ci}$. So we recover the two-fluid dispersion relation of KAW @eq-kaw-2. We can see from @eq-kaw_dispersion_ion_approxi that the phase speed for KAW is always larger than $v_A$.
 
-While SAWs do not have ion density perturbations, KAWs do (???).
+While SAWs do not have ion density perturbations, KAWs do. In compressibility is only required in the perpendicular direction, but not in the parallel direction w.r.t. the magnetic field.
 
 The polarizations of KAW can be expressed as
 $$
