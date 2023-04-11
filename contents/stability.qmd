@@ -1573,13 +1573,10 @@ With the neglect of plasma resistivity, the field configuration shown in @fig-te
 In the following, we shall outline the standard method for determining the linear stability of the type of magnetic field configuration shown in @fig-tearing_config_simple, taking into account the effect of plasma resistivity. We are particularly interested in plasma instabilities which are stable in the absence of resistivity, and only grow when the resistivity is non-zero. Such instabilities are conventionally termed _tearing modes_. Since magnetic reconnection is, in fact, a nonlinear process, we shall then proceed to investigate the nonlinear development of tearing modes.
 
 The equilibrium magnetic field is written
-
 $$
 \mathbf{B}_0=B_{0y}(x)\hat{y}
 $$
-
 where $B_{0y}(-x)=-B_{0y}(x)$. There is assumed to be non-equilibrium plasma flow. The linearized equations of resistive-MHD, assuming incompressible flow, take the form
-
 $$
 \frac{\partial \mathbf{B}}{\partial t}=\nabla\times(\mathbf{v}\times\mathbf{B}_0)+\frac{\eta}{\mu_0}\nabla^2\mathbf{B}
 $$ {#eq-linear_induction_B}
@@ -1599,47 +1596,37 @@ $$ {#eq-linear_divV}
 Here, $\rho_0$ is the equilibrium plasma density, $\mathbf{B}$ is the perturbed magnetic field, $\mathbf{v}$ the perturbed plasma velocity, and $p$ the perturbed plasma pressure. The assumption of incompressible plasma flow is valid provided that the plasma velocity associated with the instability remains significantly smaller than both the Alfvén velocity and the sonic velocity.
 
 Suppose that all perturbed quantities vary like
-
 $$
 A(x,y,z,t)=A(x)e^{iky+\gamma t}
 $$ {#eq-linear_tearing_pert}
 
 where $\gamma$ is the instability growth rate. The $x$-component of @eq-linear_induction_B and the $z$-component of the curl of @eq-linear_moment reduce to ???
-
 $$
 \gamma B_x = ikB_{0y}v_x + \frac{\eta}{\mu_0}\Big( \frac{\mathrm{d}^2}{\mathrm{d}x^2}-k^2\Big)B_x
 $$ {#eq-pert_induction_B}
-
 $$
 \gamma \rho_0 \Big( \frac{\mathrm{d}^2}{\mathrm{d}x^2}-k^2 \Big)v_x=\frac{ikB_{0y}}{\mu_0}\Big( \frac{\mathrm{d}^2}{\mathrm{d}x^2}-k^2-\frac{B_{0y}^{\prime\prime}}{B_{0y}}\Big)B_x
 $$ {#eq-pert_momentum}
-
 respectively, where use has been made of @eq-linear_divB and @eq-linear_divV. Here, $\prime$ denotes $\mathrm{d}/\mathrm{d}x$.
 
 It is convenient to normalize @eq-pert_induction_B and @eq-pert_momentum using a typical magnetic field-strength, $B_0$, and a typical scale-length, $a$. Let us define the _Alfvén time-scale_
-
 $$
 \tau_A=\frac{a}{V_A}
 $$
-
 where $V_A=B_0/\sqrt{\mu_0 \rho_0}$ is the Alfvén velocity, and the resistive diffusion time-scale
-
 $$
 \tau_R=\frac{\mu_0 a^2}{\eta}
 $$
 
 The ratio of these two time-scale is the _Lundquist number_:
-
 $$
 S=\frac{\tau_R}{\tau_A}
 $$
 
 Let $\psi= B_x/B_0$, $\phi = i\,k\,V_y/\gamma$, $\bar{x}=x/a$, $F=B_{0y}/B_0$, $F'\equiv dF/\mathrm{d}\bar{x}$, $\bar{\gamma} = \gamma\,\tau_A$, and $\bar{k} = k\,a$. It follows that
-
 $$
 \bar{\gamma}\,(\psi-F\,\phi) = S^{-1}\left(\frac{\mathrm{d}^2}{\mathrm{d}\bar{x}^2}-\bar{k}^2\right) \psi
 $$ {#eq-tearing_normalized_induction_B}
-
 $$
 \bar{\gamma}^2\left(\frac{\mathrm{d}^2}{\mathrm{d}\bar{x}^2} -\bar{k}^2\right)\phi = -\bar{k}^2\, F \left( \frac{\mathrm{d}^2}{\mathrm{d}\bar{x}^2} -\bar{k}^2 - \frac{F''}{F}\right) \psi
 $$ {#eq-tearing_normalized_momentum}
@@ -1647,7 +1634,6 @@ $$ {#eq-tearing_normalized_momentum}
 The term on the right-hand side of @eq-tearing_normalized_induction_B represents plasma resistivty, whilst the term on the left-hand side of @eq-tearing_normalized_momentum represents plasma inertia.
 
 It is assumed that _the tearing instability grows on a hybrid time-scale which is much less than $\tau_R$ but much greater than $\tau_A$_. It follows that
-
 $$
 \begin{aligned}
 \tau_A \ll \gamma^{-1} \ll \tau_R \\
@@ -1657,11 +1643,9 @@ $$
 $$
 
 Thus, throughout most of the plasma we can neglect the right-hand side of @eq-tearing_normalized_induction_B and the left-hand side of @eq-tearing_normalized_momentum, which is equivalent to the neglect of plasma resistivity and inertia. In this case, the two equations reduce to
-
 $$
 \phi = \frac{\psi}{F}
 $$ {#eq-tearing_normalized_induction_ideal}
-
 $$
 \frac{\mathrm{d}^2\psi}{\mathrm{d}\bar{x}^2} - \bar{k}^2\psi - \frac{F''}{F}\psi = 0
 $$ {#eq-tearing_normalized_momentum_ideal}
@@ -1669,31 +1653,24 @@ $$ {#eq-tearing_normalized_momentum_ideal}
 @eq-tearing_normalized_induction_ideal is simply the flux freezing constraint, which requires the plasma to move with the magnetic field. @eq-tearing_normalized_momentum_ideal is the linearized, static force balance criterion $\nabla\times(\mathbf{j}\times\mathbf{B})=0$. These two equations are known collectively as the equations of ideal-MHD, and are valid throughout virtually the whole plasma. However, it is clear that these equations _break down_ in the immediate vicinity of the interface, where $F=0$ (i.e. where the magnetic field reverses direction). Witness, for instance, the fact that the normalized "radial" velocity, $\phi$, becomes infinite as $F\rightarrow 0$, according to @eq-tearing_normalized_induction_ideal.
 
 The ideal-MHD equations break down close to the interface because the neglect of plasma resistivity and inertia becomes untenable as $F\rightarrow 0$. Thus, there is a thin layer, in the immediate vicinity of the interface, $\bar{x}=0$, where  the behaviour of the plasma is governed by the full MHD equations, @eq-tearing_normalized_induction_B and @eq-tearing_normalized_momentum. We can simplify these equations, making use of the fact that $\bar{x}\ll 1$ and $\mathrm{d}/\mathrm{d}\bar{x} \gg 1$ in a thin layer, to obtain the following layer equations:
-
 $$
 \bar{\gamma}\,(\psi - \bar{x}\,\phi) = S^{-1}\frac{\mathrm{d}^2\psi}{\mathrm{d}\bar{x}^2}
 $$ {#eq-tearing_layer_induction}
-
 $$
 \bar{\gamma}^2\,\frac{\mathrm{d}^2\phi}{\mathrm{d}\bar{x}^2} = - \bar{x}\,\frac{\mathrm{d}^2\psi}{\mathrm{d}\bar{x}^2}
 $$ {#eq-tearing_layer_momentum}
 
 Note that we have redefined the variables $\phi$, $\bar{\gamma}$, and $S$, such that $\phi\rightarrow F'(0)\,\phi$, $\bar{\gamma}\rightarrow \gamma\,\tau_H$, and $S\rightarrow \tau_R/\tau_H$. Here,
-
 $$
 \tau_H = \frac{\tau_A}{k\,a\,F'(0)}
 $$
-
 is the _hydromagnetic time-scale_.
 
 The tearing mode stability problem reduces to solving the non-ideal-MHD layer equations, @eq-tearing_layer_induction and @eq-tearing_layer_momentum, in the immediate vicinity of the interface, $\bar{x}=0$, solving the ideal-MHD equations, @@eq-tearing_normalized_induction_ideal and @eq-tearing_normalized_momentum_ideal, everywhere else in the plasma, matching the two solutions at the edge of the layer, and applying physical boundary conditions as $\vert\bar{x}\vert\rightarrow\infty$. This method of solution was first described in a classic paper [@furth1963finite]. The steps are listed in the [farside note](https://farside.ph.utexas.edu/teaching/plasma/Plasmahtml/node76.html). The procedure is similar to the 3 layer solution of the K-H instability. After some maths, tearing mode dispersion relation is given as
-
 $$
 \gamma = \left[\frac{{\Gamma}(1/4)}{2\pi\,{\Gamma}(3/4)}\right]^{4/5}\, \frac{({\Delta}')^{4/5}}{\tau_H^{2/5}\,\tau_R^{3/5}}
 $$
-
 where
-
 $$
 \begin{aligned}
 {\Delta} &= 2\pi\,\frac{{\Gamma}(3/4)}{{\Gamma}(1/4)}\,S^{1/3}\, Q^{5/4} \\
@@ -1706,11 +1683,9 @@ The tearing mode is unstable whenever ${\Delta}'>0$, and grows on the hybrid tim
 ## Magnetic Reconnection {#sec-reconnection}
 
 There are several key elements for understanding the physics of reconnection at a deeper level [@ji2022magnetic]. First, the frozen-in properties in an electron-ion plasma are associated with the electron fluid due to its light weight. This is expressed in terms of the time changing rate of magnetic flux (@eq-magnetic_flux) through an arbitrary area, $\mathbf{S}$ (enclosed by loop $l$), convecting with the electron flow as $\mathrm{d}\Phi/\mathrm{d}t = \oint(\mathbf{E}+\mathbf{u}_e\times\mathbf{B})\cdot\mathrm{d}l = 0$. Thus, the frozen-in condition is regulated by the electron momentum equation (i.e. the generalized Ohm's law)
-
 $$
 \underbrace{\mathbf{E} + \mathbf{V}_e\times\mathbf{B}}_{\text{Ideal}} = \underbrace{\mathbf{R}_\text{col}}_{\text{Collisional}} - \underbrace{\frac{\nabla\cdot\mathbf{P}_e}{en} - \frac{m_e}{e}\frac{\mathrm{d}\mathbf{u}_e}{\mathrm{d}t}}_{\text{Kinetic}}
 $$ {#eq-ohms_law_reconnection}
-
 where $\mathbf{R}_\text{col}$ is the collisional force per electron charge. In a fully ionized collisional plasma, $\mathbf{R}_\text{col}\approx \eta\mathbf{j}$ where $\eta$ is the resistivity due to Coulomb collisions. If the terms on the right-hand side of @eq-ohms_law_reconnection are negligible, then $\mathrm{d}\Phi/\mathrm{d}t \approx 0$ and the magnetic flux is "frozen-in" to the electron flow. For the generic reconnection layer illustrated in the middle panel of @fig-reconnection_configurations, deviations from ideal evolution occur within the "diffusion region" (blue), where either finite resistivity or kinetic effects (electron inertia and pressure tensor) are important. Within the diffusion region, field lines converging from opposite sides of the layer can change connectivity.
 
 ::: {.content-visible unless-format="pdf"}
@@ -1719,14 +1694,10 @@ where $\mathbf{R}_\text{col}$ is the collisional force per electron charge. In a
 
 :::
 
-The next key element for understanding the physics of magnetic reconnection is to grasp the remarkable global consequences
-of changing field line connectivity within a localized region. In particular, the newly reconnected field lines have a large
-curvature $\mathbf{B}\cdot\nabla\mathbf{B}$ which produces a tension force --- closely analogous to a stretched rubber band.  Allowing for the possibility of pressure anisotropy, the MHD momentum equation perpendicular to magnetic field is
-
+The next key element for understanding the physics of magnetic reconnection is to grasp the remarkable global consequences of changing field line connectivity within a localized region. In particular, the newly reconnected field lines have a large curvature $\mathbf{B}\cdot\nabla\mathbf{B}$ which produces a tension force --- closely analogous to a stretched rubber band. Allowing for the possibility of pressure anisotropy, the MHD momentum equation perpendicular to magnetic field is
 $$
 \rho\frac{\mathrm{d}\mathbf{u}_\perp}{\mathrm{d}t} = -\nabla_\perp\left( p_\perp + \frac{B^2}{2\mu_0}\right) + \left( 1+\frac{p_\perp - p_\parallel}{B^2/\mu_0}\right)\mathbf{B}\cdot\nabla\mathbf{B} - \mathbf{F}_{\text{col}\perp}
 $$ {#eq-mhd_force_perp_anisotropic}
-
 where $\mathbf{F}_\text{col}$ is due to collisions between ions (viscous force) and between ions and neutral particles (frictional force). For newly reconnected field lines, the magnetic tension in @eq-mhd_force_perp_anisotropic drives an outflow jet approaching the Alfvén speed $V_\text{out} \approx V_A \equiv B_0/\sqrt{\mu_0 \rho}$ ($B_0$ is the reconnecting field component). The resulting deficit in magnetic pressure pushes new field lines into the diffusion region with a maximum inflow velocity $V_\text{in}\sim (0.01 \rightarrow 0.1) V_A$. As this process continues, the larger stressed region is relaxed, leading to a reconfiguration of the global magnetic field on fast Alfvénic time scales $\sim L/V_A$. Assuming the diffusion regions remain small in comparison to the global scales, most plasma enters the flow jet across the magnetic separatrices as illustrated in @fig-reconnection_configurations. This inflow is a consequence of changing the field line connectivity within the diffusion region, which causes the entire extent of the reconnected field lines to join the outflow. In this limit, the majority of the energy release is associated with the relaxation of field-line tension within outflow jets over long distances. Since the spatial extent of these jets is limited only by the macroscopic configuration, they are one of the most prominent signatures of reconnection in both in-situ and remote-sensing observations. Our primary focus is on situations where the available magnetic energy to drive reconnection is comparable or larger than the initial plasma thermal energy, corresponding to $\beta\equiv p/(B_0^2/2\mu_0)\lesssim 1$. In these regimes, global relaxation of field-line tension is the ultimate "engine" for reconnection and is essentially "ideal", thus operating in a similar manner for most applications, but with a few important exceptions. Plasma heating preferentially along the magnetic field ($p_\parallel\gg p_\perp$) can weaken the magnetic tension force in @eq-mhd_force_perp_anisotropic, whereas in partially ionized regimes the jet formation is more complicated due to interactions with neutrals. In addition, non-ideal kinetic physics may persist along magnetic separatrices (see red lines in @fig-reconnection_configurations) to larger distances, while in very large systems shocks may form along these boundaries and play a role in the energy conversion.
 
 In contrast to the ideal physics driving the jet, the non-ideal terms within the diffusion region are intimately dependent upon the plasma conditions and spatial scales, and thus, a variety of different regimes are possible, as illustrated in the various panels of @fig-reconnection_configurations. Since the outflow is always energetically limited to $V_A$ in a quasi-steady state, mass conservation implies that the geometry of the diffusion region determines the dimensionless reconnection rate, $R \equiv u_\mathrm{in}/V_A \approx \Delta/L$ where $\Delta$ is the diffusion region thickness. The current understanding of the diffusion region physics has evolved over more than 60 years in three main stages, yet a full understanding remains elusive for large space and astrophysical problems.

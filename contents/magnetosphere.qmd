@@ -244,6 +244,90 @@ The formation of magnetosheath jets may be related to both external and internal
 
 :::
 
+### Magnetopause {#sec-magnetopause}
+
+The magnetopause is the abrupt boundary between a magnetosphere and the surrounding plasma.
+The collision frequency of particles in the plasma in the interplanetary medium is very low and the electrical conductivity is so high that it could be approximated to an infinite conductor. A magnetic field in a vacuum cannot penetrate a volume with infinite conductivity. Chapman and Bartels (1940) illustrated this concept by postulating a plate with infinite conductivity placed on the dayside of a planet's dipole as shown in @fig-magnetopause-schematic.
+The field lines on the dayside are bent. At low latitudes, the magnetic field lines are pushed inward. At high latitudes, the magnetic field lines are pushed backwards and over the polar regions. _The boundary between the region dominated by the planet's magnetic field (i.e., the magnetosphere) and the plasma in the interplanetary medium is the magnetopause_. Since the solar wind is continuously flowing outward, the magnetopause above, below and to the sides of the planet are swept backward into the geomagnetic tail as shown in the artist's concept. The region (shown in pink in the schematic) which separates field lines from the planet which are pushed inward from those which are pushed backward over the poles is an area of weak magnetic field or day-side cusp. Solar wind particles can enter the planet's magnetosphere through the cusp region. Because the solar wind exists at all times and not just times of solar flares, the magnetopause is a permanent feature of the space near any planet with a magnetic field.
+
+::: {.content-visible unless-format="pdf"}
+
+![Schematic representation of a planetary dipole magnetic field in a vacuum (right side) deformed by a region of plasma with infinite conductivity. The Sun is to the left. The configuration is equivalent to an image dipole (green arrow) being placed at twice the distance from the planetary dipole to the interaction boundary.](https://upload.wikimedia.org/wikipedia/en/a/ae/Dipole-and-image-dipole.png){#fig-magnetopause-schematic}
+
+:::
+
+If one assumed that magnetopause was just a boundary between a magnetic field in a vacuum and a plasma with a weak magnetic field embedded in it, then the magnetopause would be defined by _electrons and ions penetrating one gyroradius into the magnetic field domain_. Since the gyro-motion of electrons and ions is in opposite directions, an electric current flows along the boundary.
+
+#### Estimation of the standoff distance
+
+The location of the magnetopause is determined by the pressure balance between the internal magnetic field and external solar wind. As a first order estimation of the standoff distance to the magnetopause, we neglect the internal magnetospheric thermal pressure and let the dynamic ram pressure from the solar wind being equal to the magnetic pressure from the Earth's magnetic field:[^factor4]
+$$
+\left( \rho v^2 \right)_\textrm{sw} \approx \left( \frac{4B(r)^2}{2\mu_0} \right)_\textrm{m}
+$$
+where $\rho$ and $v$ are the density and velocity of the solar wind, and $B(r)$ is the magnetic field strength of the planet in SI units.
+
+[^factor4]: The reason for the factor of 4 is because the magnetic field strength just inside the magnetopause is twice the dipole value for a planar magnetopause.
+
+Since the dipole magnetic field strength varies with distance as $1/r^3$ the magnetic field strength can be written as $B(r)=B_0/r^3$, where $B_0$ is the planet's magnetic moment, expressed in $[\textrm{T}\cdot \textrm{m}^3].
+$$
+\begin{aligned}
+\rho v^2 \approx \frac{2B_0^2}{r^6 \mu_0} \\
+r \approx \left( \frac{2B_0^2}{\mu_0 \rho v^2} \right)^{1/6}
+\end{aligned}
+$$
+
+The distance from Earth to the subsolar magnetopause varies over time due to solar activity, but typical distances range from $6-15 R_{\oplus}$. Empirical models (e.g. [@shue1997new]) using real-time solar wind data can provide a real-time estimate of the magnetopause location.
+
+### Transport of mass, momentum, and energy
+
+Transport of mass, momentum, and energy at the magnetopause boundary drives much of the magnetospheric dynamics and is thus an important topic in magnetospheric physics. The amount of solar wind plasma and energy that enters the magnetosphere is regulated by the orientation of the interplanetary magnetic field (IMF): during southward IMFs, the major process is considered to be magnetic reconnections (@sec-reconnection), while during northward IMFs, the processes include cusp reconnection, plasma mixing/reconnection in Kelvin-Helmholtz vortices, and wave-particle diffusive processes in large-amplitude ULF waves at the magnetopause boundary (@sec-klr).
+
+One of the more common spectral features at the magnetopause boundary is the sharp transition in wave polarization from compressional, e.g., because of foreshock waves of the quasi‐parallel bow shock, to transverse (Alfvén) waves from the magnetosheath to the boundary layers. Mode conversion from compressional to Alfvén modes through the magnetopause can efficiently transport and heat plasma across the boundary. Multipoint measurements have verified that the dispersion of the broadband waves is consistent with the kinetic Alfvén waves (KAWs) [Chaston+,2007, 2008].
+KAWs also provide a natural explanation for the observed dawn‐dusk asymmetry in plasma entry during northward IMF because they result from mode conversion of compressional foreshock waves, which typically bathe the dawn flank for the typical Parker spiral configuration.
+
+According to linear theory, when an MHD fast mode compressional wave propagates across in an inhomogeneous plasma, it is coupled with the shear Alfvén wave at the local Alfvén resonance $\omega=k_\parallel V_A$, with $\omega$ being the wave frequency. This process can be very efficient when the fast wave propagates into a region where there is a sharp increase in the Alfvén velocity such as at the magnetopause boundary where the magnetic field increases and density decreases. Typically, the Alfvén velocity across the magnetopause increases by a factor of 10 such that an entire decade (in frequency) of wave power can be captured and localized in the boundary layer leading to massive particle transport. In the MHD description, the coupling occurs where the frequency matches the continuous spectrum and the wave becomes singular corresponding to a pileup of compressional wave energy.
+
+In a plasma with a 1‐D inhomogeneity in the background plasma parameters along the direction perpendicular to the magnetic field, the linearized MHD equations can be expressed in terms of $\delta p_1 = B_0\delta B_\parallel + \delta p$ and $\delta B_\perp$ by a coupled system of equations
+$$
+-i k_\parallel\left( 1-\frac{k_\parallel^2 c_s^2}{\omega^2} \right) \delta p_1 = \left( 1+\frac{c_s^2}{v_A^2}-\frac{k_\parallel^2 c_s^2}{\omega^2} \right) B_0^2 \nabla_\perp\cdot\left( \frac{\delta \mathbf{B}_\perp}{B_0} \right)
+$$ {#eq-mhd-1d-inhomogeneous-P-Bperp1}
+and
+$$
+\left( \omega^2 - k_\parallel^2 V_A^2 \right) B_0 \delta\mathbf{B}_\perp = ik_\parallel v_A^2 \nabla_\perp \delta p_1
+$$ {#eq-mhd-1d-inhomogeneous-P-Bperp2}
+
+Singular behavior occurs at either the Alfvén resonance, $\omega^2=k_\parallel^2 v_A^2$, or at the sound resonance, where the compressional wave couples with the Alfvén or soud wave that propagates only along the magnetic field. In higher frequency cases, the Alfvén resonance condition is modified as
+$$
+\omega^2=k_\parallel^2 v_A^2 (1 - \omega^2/\Omega_i^2)^2
+$$
+because of the finite ion Larmor radius effects [Stix, 1992], where $\Omega_i$ is the ion gyrofrequency. The Alfvén resonance singularity can be removed by including non‐MHD effects such as electron inertia or ion Larmor radius corrections in @eq-mhd-1d-inhomogeneous-P-Bperp2.
+
+Using the two-fluid theory, @eq-mhd-1d-inhomogeneous-P-Bperp2 can be replaced by
+$$
+\left[ \omega^2(1-\lambda_e^2\nabla_\perp^2) -k_\parallel^2 v_A^2(1-r_{Ls}^2\nabla_\perp^2) \right] B_0\delta B_\perp = ik_\parallel v_A^2\nabla_\perp \delta p_1
+$$ {#eq-2fluid-1d-inhomogeneous-P-Bperp3}
+which includes electron inertial effects $\lambda_e = c/\omega_{pe}$ and electron pressure effects on the _ion acoustic Larmor radius scale_ $r_{Ls}^2= k_B T_E/m_i\Omega_i^2$. The relative importance of electron pressure versus electron inertial effects is determined by $r_{Ls}/\lambda_e$: the pressure effect is dominant if $r_{Ls}/\lambda_e = nk_B T_e/\mu_0 B^2 \sqrt{m_i/m_e} > 1$, which occurs when $\beta_e / 2 > \sqrt{m_e/m_i} = 0.02$. Near the magnetopause, electron inertial effects are typically not important except at locations where $k_\parallel \rightarrow 0$ such as in a sheared field or reconnection geometry.
+
+Ion kinetic effects may also resolve the singularity. Using the kinetic theory @eq-mhd-1d-inhomogeneous-P-Bperp2 can be modified as
+$$
+\left[ \omega^2 \hat{K}_1 - k_\parallel^2 v_A^2\left( 1+\frac{T_e}{T_i}\hat{K}_2 \right) \right] B_0\delta B_\perp = ik_\parallel v_A^2\nabla_\perp \delta p_1
+$$ {#eq-kinetic-1d-inhomogeneous-P-Bperp}
+where
+$$
+\begin{aligned}
+\hat{K}_1 = ??? \\
+\hat{K}_2 = ???
+$$
+
+It can shown that under certain approximations (Pade approximation and $\zeta_e\ll 1$), the left hand side of @eq-mhd-1d-inhomogeneous-P-Bperp4 becomes the kinetic Alfvén wave
+$$
+k_\parallel^2 v_A^2 \left[ 1 + \left(1+\frac{T_e}{T_i}\right)k_\perp^2 r_{iL}^2 \right] = ik_\parallel v_A^2\nabla_\perp \delta p_1
+$$ {#eq-1d-kaw}
+
+Ion Landau damping may be important when $\zeta_i = \omega/\sqrt{2}k_\parallel v_{i,th} \sim 1$ (I can feel this from Bellan, but how exactly???).
+
+At the resonance point, the fast wave solution is coupled to the KAW solution, and transversely polarized Alfvén waves are expected to be generated and radiate away from the mode conversion location. Because the group velocity of these waves is much smaller than the compressional wave, the amplitude of the transverse fluctuations is typically much larger than the amplitude of the compressional driver, consistent with magnetopause observations.
+
 ### Dungey Cycle
 
 Dungey (1961) was the first to propose a cycle of magnetospheric convection driven by magnetic reconnection at the dayside magnetosphere. Magnetic field connected on the dayside of Earth is transported by the solar wind to the night side where it forms a long tail behind the Earth. This transfer of flux to the nightside forces the magnetosphere to undergo systematic changes in configuration that eventually lead to nightside magnetic reconnection, which returns flux to the dayside along the flanks of the magnetosphere via the different response modes.
