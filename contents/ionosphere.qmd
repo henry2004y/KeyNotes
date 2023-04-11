@@ -26,7 +26,6 @@ $$
 \nabla\cdot(\pmb{\Sigma}\cdot\nabla\Phi) = -j_\parallel\sin I
 $$ {#eq-ionosphere_potential}
 where $\pmb{\Sigma}$ is the conductance tensor, $\Phi$ is the electric potential, $j_\parallel$ is the mapped FAC density with the downward considered positive and corrected for flux tube convergence, and $I$ is the inclination of the dipole field at the ionosphere, $\sin I=\cos(\frac{\pi}{2}-I)=\hat{b}\cdot\hat{r}$.
-
 There is another form derived by [Wolf 1983]:
 $$
 \nabla_\perp\cdot
@@ -73,6 +72,7 @@ the plasma to move across the magnetosphere inner boundary. (???) @eq-ionosphere
 
 * The mapping assumes conservation, which is not perfect. In practice $r_\text{in}\sim 4\,\text{R}_\text{E}$ is a minimum requirement for reasonable FACs.
 * Most numerical codes couples a Cartesian grid to a spherical ionosphere grid, while some couples a spherical grid to a spherical grid. For magnetosphere simulations we need a relatively simple but super fast electric potential solver, therefore structured mesh is often adopted. If a spherical grid is used, care must be taken near the pole since it is a singular from the grid but not physics. @eq-ionosphere_potential2 under spherical coordinates is written as
+
 $$
 \begin{aligned}
 \frac{1}{\sin\theta}&\frac{\partial}{\partial\theta}\Big[ \sin\theta\frac{\Sigma_P}{\cos^2\delta}\frac{\partial\Phi}{\partial\theta} - \frac{\Sigma_H}{\cos\delta}\frac{\partial\Phi}{\partial\phi} \Big] \\
