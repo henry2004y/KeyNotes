@@ -396,13 +396,10 @@ Note that $(x,y,z)$ and $r$ are all normalized to the radius of the planet $R$.
 ## Green's Function
 
 The Vlasov theory and the 2-fluid theory only tell us when instability will happen, but neither tell us the severity of instability. To know the magnitude of instability mathematically, we can introduce Green's function
-
 $$
 G(x,t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx-i\omega(k) t}dk
 $$
-
 where $t$ is the beam's pulse length and $x$ is the propagation distance. At $t=0$, we have
-
 $$
 \begin{aligned}
 G(x,0)&=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}dk=\frac{1}{2i\pi x}e^{ikx}\bigg|_{k=-\infty}^{k=\infty} \\
@@ -410,11 +407,9 @@ G(x,0)&=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}dk=\frac{1}{2i\pi x}e^{ikx}\
 &=\lim_{k\rightarrow\infty}\frac{1}{\pi}\frac{\sin{kx}}{x}=\delta(x)
 \end{aligned}
 $$
-
 where $\delta(x)$ is the $\delta$-function.
 
 The integral $\int_0^{\infty}\frac{\sin x}{x}\mathrm{d}x$ is called the Dirichlet integral. It is a very famous and important generalized improper integral. Here at least you can see that
-
 $$
 \int_{-\infty}^{\infty}G(x,0)=\frac{1}{\pi}\int_0^\infty \frac{\sin kx}{x}\mathrm{d}x=1\quad \textrm{and}\quad G(0,0)=\infty
 $$
@@ -422,27 +417,23 @@ $$
 ## Linearization
 
 In linear wave analysis, we need to check how small perturbations evolve in the PDEs. For plasma physics, it is usually very useful to transform into a magnetic field guided coordinates, with the notation $\parallel$ being parallel to the background magnetic field and $\perp$ being perpendicular to the background magnetic field $\mathbf{B}$. Besides the perturbation of plasma moments (i.e. density, velocity, pressure, etc.), we also need the perturbations to the magnitude of the magnetic field B and the unit vector $\hat{\mathbf{b}}$. Linearzing $B^2 = \mathbf{B}\cdot\mathbf{B}$, we find
-
 $$
 \delta B = \hat{\mathbf{b}}\cdot\delta\mathbf{B} = \delta B_\parallel
 $$ {#eq-perturb_b}
 
 Linearzing $\hat{\mathbf{b}} = \mathbf{B}/B$, we obtain
-
 $$
 \begin{aligned}
-\delta\hat{\mathbf{b}} = \delta\Big(\frac{\mathbf{B}}{B}\Big) = \frac{\delta\mathbf{B}B - \delta B\mathbf{B}}{B^2} = \frac{\delta\mathbf{B}}{B} - \frac{\delta \mathbf{B}_\parallel}{B} = \frac{\delta \mathbf{B}_\perp}{B}
+\delta\hat{\mathbf{b}} = \delta\left(\frac{\mathbf{B}}{B}\right) = \frac{\delta\mathbf{B}B - \delta B\mathbf{B}}{B^2} = \frac{\delta\mathbf{B}}{B} - \frac{\delta \mathbf{B}_\parallel}{B} = \frac{\delta \mathbf{B}_\perp}{B}
 \end{aligned}
 $$ {#eq-perturb_bhat}
 
 The divergence-free of magnetic field gives
-
 $$
 \mathbf{k}\cdot\delta\mathbf{B} = k_\parallel \delta B_\parallel + k_\perp \delta B_\perp = 0
 $$
 
 Thus
-
 $$
 \mathbf{k}\cdot\hat{\mathbf{b}} = \mathbf{k}\cdot\frac{\delta \mathbf{B}_\perp}{B} = \frac{k_\perp \delta B_\perp}{B} = -k_\parallel\frac{\delta B_\parallel}{B} = -k_\parallel\frac{\delta B}{B}
 $$ {#eq-perturb_k_bhat}

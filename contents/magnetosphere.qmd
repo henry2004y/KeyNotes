@@ -287,47 +287,11 @@ KAWs also provide a natural explanation for the observed dawn‐dusk asymmetry i
 
 According to linear theory, when an MHD fast mode compressional wave propagates across in an inhomogeneous plasma, it is coupled with the shear Alfvén wave at the local Alfvén resonance $\omega=k_\parallel V_A$, with $\omega$ being the wave frequency. This process can be very efficient when the fast wave propagates into a region where there is a sharp increase in the Alfvén velocity such as at the magnetopause boundary where the magnetic field increases and density decreases. Typically, the Alfvén velocity across the magnetopause increases by a factor of 10 such that an entire decade (in frequency) of wave power can be captured and localized in the boundary layer leading to massive particle transport. In the MHD description, the coupling occurs where the frequency matches the continuous spectrum and the wave becomes singular corresponding to a pileup of compressional wave energy.
 
-In a plasma with a 1‐D inhomogeneity in the background plasma parameters along the direction perpendicular to the magnetic field, the linearized MHD equations can be expressed in terms of $\delta p_1 = B_0\delta B_\parallel + \delta p$ and $\delta B_\perp$ by a coupled system of equations
-$$
--i k_\parallel\left( 1-\frac{k_\parallel^2 c_s^2}{\omega^2} \right) \delta p_1 = \left( 1+\frac{c_s^2}{v_A^2}-\frac{k_\parallel^2 c_s^2}{\omega^2} \right) B_0^2 \nabla_\perp\cdot\left( \frac{\delta \mathbf{B}_\perp}{B_0} \right)
-$$ {#eq-mhd-1d-inhomogeneous-P-Bperp1}
-and
-$$
-\left( \omega^2 - k_\parallel^2 V_A^2 \right) B_0 \delta\mathbf{B}_\perp = ik_\parallel v_A^2 \nabla_\perp \delta p_1
-$$ {#eq-mhd-1d-inhomogeneous-P-Bperp2}
-
-Singular behavior occurs at either the Alfvén resonance, $\omega^2=k_\parallel^2 v_A^2$, or at the sound resonance, where the compressional wave couples with the Alfvén or soud wave that propagates only along the magnetic field. In higher frequency cases, the Alfvén resonance condition is modified as
-$$
-\omega^2=k_\parallel^2 v_A^2 (1 - \omega^2/\Omega_i^2)^2
-$$
-because of the finite ion Larmor radius effects [Stix, 1992], where $\Omega_i$ is the ion gyrofrequency. The Alfvén resonance singularity can be removed by including non‐MHD effects such as electron inertia or ion Larmor radius corrections in @eq-mhd-1d-inhomogeneous-P-Bperp2.
-
-Using the two-fluid theory, @eq-mhd-1d-inhomogeneous-P-Bperp2 can be replaced by
-$$
-\left[ \omega^2(1-\lambda_e^2\nabla_\perp^2) -k_\parallel^2 v_A^2(1-r_{Ls}^2\nabla_\perp^2) \right] B_0\delta B_\perp = ik_\parallel v_A^2\nabla_\perp \delta p_1
-$$ {#eq-2fluid-1d-inhomogeneous-P-Bperp3}
-which includes electron inertial effects $\lambda_e = c/\omega_{pe}$ and electron pressure effects on the _ion acoustic Larmor radius scale_ $r_{Ls}^2= k_B T_E/m_i\Omega_i^2$. The relative importance of electron pressure versus electron inertial effects is determined by $r_{Ls}/\lambda_e$: the pressure effect is dominant if $r_{Ls}/\lambda_e = nk_B T_e/\mu_0 B^2 \sqrt{m_i/m_e} > 1$, which occurs when $\beta_e / 2 > \sqrt{m_e/m_i} = 0.02$. Near the magnetopause, electron inertial effects are typically not important except at locations where $k_\parallel \rightarrow 0$ such as in a sheared field or reconnection geometry.
-
-Ion kinetic effects may also resolve the singularity. Using the kinetic theory @eq-mhd-1d-inhomogeneous-P-Bperp2 can be modified as
-$$
-\left[ \omega^2 \hat{K}_1 - k_\parallel^2 v_A^2\left( 1+\frac{T_e}{T_i}\hat{K}_2 \right) \right] B_0\delta B_\perp = ik_\parallel v_A^2\nabla_\perp \delta p_1
-$$ {#eq-kinetic-1d-inhomogeneous-P-Bperp}
-where
-$$
-\begin{aligned}
-\hat{K}_1 = ??? \\
-\hat{K}_2 = ???
-\end{aligned}
-$$
-
-It can shown that under certain approximations (Pade approximation and $\zeta_e\ll 1$), the left hand side of @eq-mhd-1d-inhomogeneous-P-Bperp4 becomes the kinetic Alfvén wave
-$$
-k_\parallel^2 v_A^2 \left[ 1 + \left(1+\frac{T_e}{T_i}\right)k_\perp^2 r_{iL}^2 \right] = ik_\parallel v_A^2\nabla_\perp \delta p_1
-$$ {#eq-1d-kaw}
-
-Ion Landau damping may be important when $\zeta_i = \omega/\sqrt{2}k_\parallel v_{i,th} \sim 1$ (I can feel this from Bellan, but how exactly???).
+Singular behavior occurs at either the Alfvén resonance, $\omega^2=k_\parallel^2 v_A^2$, or at the sound resonance, where the compressional wave couples with the Alfvén or sound wave that propagates only along the magnetic field. In higher frequency cases, the Alfvén resonance condition is modified because of the finite ion Larmor radius effects (@eq-alfven-resonance-2fluid), where the Alfvén resonance singularity can be removed by including non‐MHD effects such as electron inertia or ion Larmor radius corrections in @eq-mhd-1d-inhomogeneous-P-Bperp2. It can be shown that kinetic effects naturally arises from the two-fluid/kinetic theory, including the coupling to KAWs. For more equations, see @sec-flr-nonMHD.
 
 At the resonance point, the fast wave solution is coupled to the KAW solution, and transversely polarized Alfvén waves are expected to be generated and radiate away from the mode conversion location. Because the group velocity of these waves is much smaller than the compressional wave, the amplitude of the transverse fluctuations is typically much larger than the amplitude of the compressional driver, consistent with magnetopause observations.
+
+As been discussed in @sec-flr, when the azimuthal wave number $m$, or $k_y$ in the box model is zero, there should be no mode coupling. However, this is not true if the finite temporal frequency $\omega$ is considered, as first noted by [Karney+ 1979].
 
 ### Dungey Cycle
 
