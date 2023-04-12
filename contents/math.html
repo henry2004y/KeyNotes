@@ -662,42 +662,33 @@ B = \frac{B_E}{L^3} \frac{(1+3\,\sin^2\vartheta)^{1/2}}{\cos^6\vartheta}
 </section>
 <section id="greens-function" class="level2" data-number="3.8">
 <h2 data-number="3.8" class="anchored" data-anchor-id="greens-function"><span class="header-section-number">3.8</span> Green’s Function</h2>
-<p>The Vlasov theory and the 2-fluid theory only tell us when instability will happen, but neither tell us the severity of instability. To know the magnitude of instability mathematically, we can introduce Green’s function</p>
-<p><span class="math display">\[
+<p>The Vlasov theory and the 2-fluid theory only tell us when instability will happen, but neither tell us the severity of instability. To know the magnitude of instability mathematically, we can introduce Green’s function <span class="math display">\[
 G(x,t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx-i\omega(k) t}dk
-\]</span></p>
-<p>where <span class="math inline">\(t\)</span> is the beam’s pulse length and <span class="math inline">\(x\)</span> is the propagation distance. At <span class="math inline">\(t=0\)</span>, we have</p>
-<p><span class="math display">\[
+\]</span> where <span class="math inline">\(t\)</span> is the beam’s pulse length and <span class="math inline">\(x\)</span> is the propagation distance. At <span class="math inline">\(t=0\)</span>, we have <span class="math display">\[
 \begin{aligned}
 G(x,0)&amp;=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}dk=\frac{1}{2i\pi x}e^{ikx}\bigg|_{k=-\infty}^{k=\infty} \\
 &amp;=\lim_{k\rightarrow\infty}\frac{1}{2i\pi x}\big[ \cos{kx}+i\sin{kx}-\cos{kx}+i\sin{kx} \big] \\
 &amp;=\lim_{k\rightarrow\infty}\frac{1}{\pi}\frac{\sin{kx}}{x}=\delta(x)
 \end{aligned}
-\]</span></p>
-<p>where <span class="math inline">\(\delta(x)\)</span> is the <span class="math inline">\(\delta\)</span>-function.</p>
-<p>The integral <span class="math inline">\(\int_0^{\infty}\frac{\sin x}{x}\mathrm{d}x\)</span> is called the Dirichlet integral. It is a very famous and important generalized improper integral. Here at least you can see that</p>
-<p><span class="math display">\[
+\]</span> where <span class="math inline">\(\delta(x)\)</span> is the <span class="math inline">\(\delta\)</span>-function.</p>
+<p>The integral <span class="math inline">\(\int_0^{\infty}\frac{\sin x}{x}\mathrm{d}x\)</span> is called the Dirichlet integral. It is a very famous and important generalized improper integral. Here at least you can see that <span class="math display">\[
 \int_{-\infty}^{\infty}G(x,0)=\frac{1}{\pi}\int_0^\infty \frac{\sin kx}{x}\mathrm{d}x=1\quad \textrm{and}\quad G(0,0)=\infty
 \]</span></p>
 </section>
 <section id="linearization" class="level2" data-number="3.9">
 <h2 data-number="3.9" class="anchored" data-anchor-id="linearization"><span class="header-section-number">3.9</span> Linearization</h2>
-<p>In linear wave analysis, we need to check how small perturbations evolve in the PDEs. For plasma physics, it is usually very useful to transform into a magnetic field guided coordinates, with the notation <span class="math inline">\(\parallel\)</span> being parallel to the background magnetic field and <span class="math inline">\(\perp\)</span> being perpendicular to the background magnetic field <span class="math inline">\(\mathbf{B}\)</span>. Besides the perturbation of plasma moments (i.e.&nbsp;density, velocity, pressure, etc.), we also need the perturbations to the magnitude of the magnetic field B and the unit vector <span class="math inline">\(\hat{\mathbf{b}}\)</span>. Linearzing <span class="math inline">\(B^2 = \mathbf{B}\cdot\mathbf{B}\)</span>, we find</p>
-<p><span id="eq-perturb_b"><span class="math display">\[
+<p>In linear wave analysis, we need to check how small perturbations evolve in the PDEs. For plasma physics, it is usually very useful to transform into a magnetic field guided coordinates, with the notation <span class="math inline">\(\parallel\)</span> being parallel to the background magnetic field and <span class="math inline">\(\perp\)</span> being perpendicular to the background magnetic field <span class="math inline">\(\mathbf{B}\)</span>. Besides the perturbation of plasma moments (i.e.&nbsp;density, velocity, pressure, etc.), we also need the perturbations to the magnitude of the magnetic field B and the unit vector <span class="math inline">\(\hat{\mathbf{b}}\)</span>. Linearzing <span class="math inline">\(B^2 = \mathbf{B}\cdot\mathbf{B}\)</span>, we find <span id="eq-perturb_b"><span class="math display">\[
 \delta B = \hat{\mathbf{b}}\cdot\delta\mathbf{B} = \delta B_\parallel
 \tag{3.6}\]</span></span></p>
-<p>Linearzing <span class="math inline">\(\hat{\mathbf{b}} = \mathbf{B}/B\)</span>, we obtain</p>
-<p><span id="eq-perturb_bhat"><span class="math display">\[
+<p>Linearzing <span class="math inline">\(\hat{\mathbf{b}} = \mathbf{B}/B\)</span>, we obtain <span id="eq-perturb_bhat"><span class="math display">\[
 \begin{aligned}
-\delta\hat{\mathbf{b}} = \delta\Big(\frac{\mathbf{B}}{B}\Big) = \frac{\delta\mathbf{B}B - \delta B\mathbf{B}}{B^2} = \frac{\delta\mathbf{B}}{B} - \frac{\delta \mathbf{B}_\parallel}{B} = \frac{\delta \mathbf{B}_\perp}{B}
+\delta\hat{\mathbf{b}} = \delta\left(\frac{\mathbf{B}}{B}\right) = \frac{\delta\mathbf{B}B - \delta B\mathbf{B}}{B^2} = \frac{\delta\mathbf{B}}{B} - \frac{\delta \mathbf{B}_\parallel}{B} = \frac{\delta \mathbf{B}_\perp}{B}
 \end{aligned}
 \tag{3.7}\]</span></span></p>
-<p>The divergence-free of magnetic field gives</p>
-<p><span class="math display">\[
+<p>The divergence-free of magnetic field gives <span class="math display">\[
 \mathbf{k}\cdot\delta\mathbf{B} = k_\parallel \delta B_\parallel + k_\perp \delta B_\perp = 0
 \]</span></p>
-<p>Thus</p>
-<p><span id="eq-perturb_k_bhat"><span class="math display">\[
+<p>Thus <span id="eq-perturb_k_bhat"><span class="math display">\[
 \mathbf{k}\cdot\hat{\mathbf{b}} = \mathbf{k}\cdot\frac{\delta \mathbf{B}_\perp}{B} = \frac{k_\perp \delta B_\perp}{B} = -k_\parallel\frac{\delta B_\parallel}{B} = -k_\parallel\frac{\delta B}{B}
 \tag{3.8}\]</span></span></p>
 <p>These seemingly trivial relations have profound implications in physics. <a href="#eq-perturb_b">Equation&nbsp;<span>3.6</span></a> tells us that the perturbation of magnetic field magnitude has only contribution from the parallel component, which is why in satellite observations people only look at parallel perturbations for compressional wave modes. <a href="#eq-perturb_bhat">Equation&nbsp;<span>3.7</span></a> tells us that the perturbation in the unit vector is only related to the perpendicular fluctuations.</p>
