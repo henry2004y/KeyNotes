@@ -246,7 +246,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/test.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Tests</span></a>
+  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/test.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -256,7 +261,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">References</span></a>
+  <a href="../contents/references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></a>
   </div>
 </li>
     </ul>
@@ -661,7 +666,7 @@ m\frac{\mathrm{d}v_x}{\mathrm{d}t} &amp;= qE_x + qv_yB \\
 </section>
 <section id="time-varying-b-field" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="time-varying-b-field"><span class="header-section-number">4.5</span> Time-Varying B Field</h2>
-<p>Finally, we allow the magnetic field to vary in time. Since the Lorentz force is always perpendicular to <span class="math inline">\(\mathbf{v}\)</span>, a magnetic field itself cannot impart energy to a charged particle. However, associated with <span class="math inline">\(\mathbf{B}\)</span> is an electric field given by <span class="math display">\[
+<p>Finally, we allow the magnetic field to vary in time. Since the Lorentz force is always perpendicular to <span class="math inline">\(\mathbf{v}\)</span>, a magnetic field itself cannot impart energy to a charged particle. However, associated with the time-varying <span class="math inline">\(\mathbf{B}\)</span> is an electric field given by <span class="math display">\[
 \nabla\times\mathbf{E} = -\dot{\mathbf{B}}
 \]</span> and this can accelerate the particles. We can no longer assume the fields to be completely uniform. Let <span class="math inline">\(\mathbf{v}_\perp = \mathrm{d}\mathbf{l}/\mathrm{d}t\)</span> be the transverse velocity, <span class="math inline">\(\mathbf{l}\)</span> being the element of the path along a particle trajectory (with <span class="math inline">\(v_\parallel\)</span> neglected). Taking the scalar product of the equation of motion with <span class="math inline">\(\mathbf{v}_\perp\)</span>, we have <span class="math display">\[
 \frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{1}{2}mv_\perp^2 \Big) = q\mathbf{E}\cdot\mathbf{v}_\perp = q\mathbf{E}\cdot\frac{\mathrm{d}\mathbf{l}}{\mathrm{d}t}
@@ -673,7 +678,7 @@ m\frac{\mathrm{d}v_x}{\mathrm{d}t} &amp;= qE_x + qv_yB \\
 \delta \Big( \frac{1}{2}mv_\perp^2  \Big) = \oint q\mathbf{E}\cdot \mathrm{d}\mathbf{l} = q\int_s (\nabla\times\mathbf{E})\cdot \mathrm{d}\mathbf{S} = -q \int_s\dot{\mathbf{B}}\cdot \mathrm{d}\mathbf{S}
 \]</span></p>
 <p>Here <span class="math inline">\(\mathbf{S}\)</span> is the surface enclosed by the Larmor orbit and has a direction given by the right-hand rule when the fingers point in the direction of <span class="math inline">\(\mathbf{v}\)</span>. Since the plasma is diamagnetic, we have <span class="math inline">\(\mathbf{B}\cdot \mathrm{d}\mathbf{S}&lt;0\)</span> for ions and <span class="math inline">\(\mathbf{B}\cdot \mathrm{d}\mathbf{S}&gt;0\)</span> for electrons. Then <span class="math display">\[
-\delta \Big( \frac{1}{2}mv_\perp^2  \Big) = \pm q \dot{B}\pi r_L^2 = \pm q \pi\dot{B}]frac{v_\perp^2}{\omega_c}\frac{m}{\pm qB} = \frac{\frac{1}{2}mv_\perp^2}{B}\cdot \frac{2\pi \dot{B}}{\omega_c}
+\delta \Big( \frac{1}{2}mv_\perp^2  \Big) = \pm q \dot{B}\pi r_L^2 = \pm q \pi\dot{B}\frac{v_\perp^2}{\omega_c}\frac{m}{\pm qB} = \frac{\frac{1}{2}mv_\perp^2}{B}\cdot \frac{2\pi \dot{B}}{\omega_c}
 \]</span></p>
 <p>The quantity <span class="math inline">\(\frac{2\pi\dot{B}}{\omega_c} = \frac{\dot{B}}{\omega_c}\)</span> is just the change <span class="math inline">\(\delta B\)</span> during one period of gyration. Thus <span class="math display">\[
 \delta \Big( \frac{1}{2}mv_\perp^2  \Big) = \mu \delta B
@@ -762,7 +767,7 @@ m\frac{\mathrm{d}\mathbf{v}_{\perp gc}}{\mathrm{d}t} = \mathbf{F}_\perp + q\math
 <p><a href="#eq-lorentz-perp2">Equation&nbsp;<span>4.8</span></a> is solved iteratively based on the assumption that <span class="math inline">\(\mathbf{v}_\mathrm{gc}\)</span> has a slow time dependence. In the first iteration, the time dependence is neglected altogether so that the left-hand side of <a href="#eq-lorentz-perp2">Equation&nbsp;<span>4.8</span></a> is set to zero to obtain the “first guess” for the perpendicular drift to be <span class="math display">\[
 \mathbf{v}_{\perp gc}\simeq \mathbf{v}_\mathrm{F} \equiv \frac{\mathbf{F}_\perp\times\mathbf{B}}{qB^2}
 \]</span></p>
-<p>Nest, <span class="math inline">\(\mathbf{v}_p\)</span> is defined to be a correction to this first guess, where <span class="math inline">\(\mathbf{v}_p\)</span> is assumed small and incorporates effects due to any time dependence of <span class="math inline">\(\mathbf{v}_{\perp gc}\)</span>. To determine <span class="math inline">\(\mathbf{v}_p\)</span>, we write <span class="math inline">\(\mathbf{v}_{\perp gc} = \mathbf{v}_F +\mathbf{v}_p\)</span> so, to second order <a href="#eq-lorentz-perp2">Equation&nbsp;<span>4.8</span></a> becomes <span id="eq-lorentz-perp3"><span class="math display">\[
+<p>Next, <span class="math inline">\(\mathbf{v}_p\)</span> is defined to be a correction to this first guess, where <span class="math inline">\(\mathbf{v}_p\)</span> is assumed small and incorporates effects due to any time dependence of <span class="math inline">\(\mathbf{v}_{\perp gc}\)</span>. To determine <span class="math inline">\(\mathbf{v}_p\)</span>, we write <span class="math inline">\(\mathbf{v}_{\perp gc} = \mathbf{v}_F +\mathbf{v}_p\)</span> so, to second order <a href="#eq-lorentz-perp2">Equation&nbsp;<span>4.8</span></a> becomes <span id="eq-lorentz-perp3"><span class="math display">\[
 m\frac{\mathrm{d}(\mathbf{v}_\mathrm{F}+\mathbf{v}_p)}{\mathrm{d}t} = \mathbf{F}_\perp + q(\mathbf{v}_\mathrm{F} + \mathbf{v}_\mathrm{p})\times\mathbf{B}
 \tag{4.10}\]</span></span></p>
 <p>In accordance with the slowness condition, it is assumed that <span class="math inline">\(|\mathrm{d}\mathbf{v}_p/\mathrm{d}t| \ll |\mathrm{d}\mathbf{v}_\mathrm{F}/\mathrm{d}t|\)</span> so <a href="#eq-lorentz-perp3">Equation&nbsp;<span>4.10</span></a> becomes <span class="math display">\[
@@ -973,7 +978,7 @@ S = \oint P\mathrm{d}Q = \int_{Q_{tp}(t)}^{Q_{tp}(t+\tau)}P\mathrm{d}Q
 <p>and have proved its invariance in spatially and temporally varying <span class="math inline">\(\mathbf{B}\)</span> fields. The periodic motion involved, of course, is the Larmor gyration. If we take <span class="math inline">\(p\)</span> to be angular momentum <span class="math inline">\(mv_\perp r\)</span> and <span class="math inline">\(dq\)</span> to be the coordinate <span class="math inline">\(\mathrm{d}\theta\)</span>, the action integral becomes <span class="math display">\[
 \oint p dq = \oint mv_\perp r \mathrm{d}\theta = 2\pi r_L m v_\perp = 2\pi \frac{mv_\perp^2}{\omega_c} = 4\pi \frac{m}{|q|}\mu
 \]</span></p>
-<p>Thus μ is a constant of the motion as long as <span class="math inline">\(q/m\)</span> is not changed. We have proved the invariance of μ only with the implicit assumption <span class="math inline">\(\omega/\omega_c \ll 1\)</span>, where <span class="math inline">\(\omega\)</span> is a frequency characterizing the rate of change of <span class="math inline">\(\mathbf{B}\)</span> as seen by the particle. A proof exists, however, that μ is invariant even when <span class="math inline">\(\omega/\omega_c \le q\)</span>. In theorists’ language, μ is invariant “to all orders in an expansion in ω/ω c .” What this means in practice is that μ remains much more nearly constant than <span class="math inline">\(\mathbf{B}\)</span> does during one period of gyration.</p>
+<p>Thus <span class="math inline">\(\mu\)</span> is a constant of the motion as long as <span class="math inline">\(q/m\)</span> is not changed. We have proved the invariance of <span class="math inline">\(\mu\)</span> only with the implicit assumption <span class="math inline">\(\omega/\omega_c \ll 1\)</span>, where <span class="math inline">\(\omega\)</span> is a frequency characterizing the rate of change of <span class="math inline">\(\mathbf{B}\)</span> as seen by the particle. A proof exists, however, that <span class="math inline">\(\mu\)</span> is invariant even when <span class="math inline">\(\omega/\omega_c \le q\)</span>. In theorists’ language, <span class="math inline">\(\mu\)</span> is invariant “to all orders in an expansion in <span class="math inline">\(\omega/\omega_c\)</span>.” What this means in practice is that <span class="math inline">\(\mu\)</span> remains much more nearly constant than <span class="math inline">\(\mathbf{B}\)</span> does during one period of gyration.</p>
 <p>It is just as important to know when an adiabatic invariant does <em>not</em> exist as to know when it does. Adiabatic invariance of μ is violated when ω is not small compared with <span class="math inline">\(\omega_c\)</span> . We give three examples of this.</p>
 <ul>
 <li><p><em>Magnetic Pumping</em>. If the strength of <span class="math inline">\(\mathbf{B}\)</span> in a mirror confinement system is varied sinusoidally, the particles’ <span class="math inline">\(v_\perp\)</span> would oscillate; but there would be no gain of energy in the long run. However, if the particles make collisions, the invariance of μ is violated, and the plasma can be heated. In particular, a particle making a collision during the compression phase can transfer part of its gyration energy into <span class="math inline">\(v_\parallel\)</span> energy, and this is not taken out again in the expansion phase.</p></li>
