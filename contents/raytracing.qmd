@@ -1,0 +1,57 @@
+# Ray Tracing {#sec-ray-tracing}
+
+Wave heating is one of the most important approach to heating the plasma to high temperature. In magnetic confined plasmas, the usually used waves from high frequency (∼100 GHz) to low frequency (<1 MHz) include electron cyclotron wave (ECW), lower hybrid wave (LHW), ion cyclotron wave (ICW) and Alfvén wave (AW). There are also terminologies such as fast wave (FW), slow wave (SW), helicon wave, etc. A simple but still accurate way to study the wave propagation and heating is using the _geometrical optics approximation_, which yields the _ray tracing equations_.
+
+## Backgrounds
+
+In optics, the refractive index is a measure of how much a material bends or refracts light as it passes through it. It is defined as the ratio of the speed of light in a vacuum to the speed of light in the material:
+$$
+n = \frac{c}{n}
+$$
+where $c$ is the speed of light in a vacuum, and $v$ is the speed of light in the material.
+
+In a plasma, the refractive index depends on the plasma parameters, such as the density, temperature, and magnetic field. The plasma refractive index is given by:
+$$
+n = 1 - \frac{\omega_p^2}{\omega^2 - \omega_{ce}^2 - i\omega_{en} \omega}
+$$ {#eq-plasma-refractive-index}
+where $\omega_p$ is the plasma frequency (@eq-plasma_frequency), $\omega_{ce}=eB/m_e$ is the electron cyclotron frequency, $\omega_{en}$ is the electron-neutral collision frequency, $\omega$ is the frequency of the incident wave, and $i$ is the imaginary unit. The plasma refractive index can be complex, meaning that it has both real and imaginary parts:
+
+* The real part of the refractive index determines the speed of light in the plasma, while
+* The imaginary part determines the attenuation or absorption of the wave as it passes through the plasma.
+
+The refractive index plays an important role in determining the behavior of electromagnetic waves in plasmas, and is therefore a key parameter in plasma ray tracing simulations.
+
+## How it Works
+
+In plasma ray tracing, the refractive index of the plasma is calculated based on the plasma parameters, such as the density, temperature, and magnetic field, and the ray is then traced through the plasma using the calculated refractive index in the Snell's law:
+$$
+n_1 \sin(\theta_1) = n_2 \sin(\theta_2)
+$$ {#eq-snell-law}
+where $n_1$ and $n_2$ are the refractive indices of the media on either side of the interface, $theta_1$ is the angle of incidence, and $theta_2$ is the angle of refraction. This allows us to study how waves interact with plasma and how they can be used to probe and manipulate the properties of the plasma.
+
+The ray tracing equations in Cartesian coordinates are
+$$
+\begin{aligned}
+\frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = \frac{\partial \omega}{\partial \mathbf{k}} = -\frac{\partial D/\partial \mathbf{k}}{\partial D/\partial \omega} = \mathbf{v}_g \\
+\frac{\mathrm{d}\mathbf{k}}{\mathrm{d}t} = -\frac{\partial \omega}{\partial \mathbf{r}} = \frac{\partial D/\partial \mathbf{r}}{\partial D/\partial \omega}
+\end{aligned}
+$$
+with the dispersion relation
+$$
+D(\omega,\mathbf{k},\mathbf{r}) = 0
+$$
+where $\mathbf{r}=(x,y,z)$ is the spatial location, $\mathbf{k}=(k_x, k_y, k_z)$ is the wave vector, $\omega$ is the wave frequency, and $\mathbf{v}_g$ is the group velocity. The geometrical optics approximation is valid in cases where _the wave length is much smaller than the system nonuniform length_, which is usually well satisfied for high frequency waves such as ECW and LHW, but should be used with caution for low frequency waves such as ICW and AW.
+
+Written in a more explicit way, The three first-order differential equations that relate the position of the ray to its direction and the properties of the medium are:
+$$
+\begin{aligned}
+\frac{\mathrm{d}x}{\mathrm{d}t} &= v_g \cos(\theta) \\
+\frac{\mathrm{d}y}{\mathrm{d}t} &= v_g \sin(\theta) \\
+\frac{\mathrm{d}z}{\mathrm{d}t} &= \frac{v_g}{k} \frac{\mathrm{d}k}{\mathrm{d}z}
+\end{aligned}
+$$
+where $\theta$ is the angle between the ray and the z-axis.[^1]
+
+[^1]: These are given by Chat-GPT 3.5, which I don't understand. There must be some assumption for this choice of the coordinate system!
+
+For more thorough introduction, check out [@tracy2014ray].
