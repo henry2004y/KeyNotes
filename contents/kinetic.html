@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,14 +17,15 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -38,8 +39,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -82,6 +82,7 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -90,11 +91,16 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/kinetic.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -102,213 +108,243 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/about.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></a>
+  <a href="../contents/about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></a>
+  <a href="../contents/math.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/single.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></a>
+  <a href="../contents/single.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></a>
+  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></a>
+  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></a>
+  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></a>
+  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></a>
+  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></a>
+  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></a>
+  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></a>
+  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></a>
+  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></a>
+  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></a>
+  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></a>
+  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></a>
+  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></a>
+  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></a>
+  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></a>
+  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></a>
+  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></a>
+  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></a>
+  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></a>
+  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></a>
+  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/test.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></a>
+  <a href="../contents/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">Appendix</a>
+  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></a>
+  <a href="../contents/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#phase-space" id="toc-phase-space" class="nav-link active" data-scroll-target="#phase-space"><span class="toc-section-number">8.1</span>  Phase Space</a></li>
-  <li><a href="#distribution-function" id="toc-distribution-function" class="nav-link" data-scroll-target="#distribution-function"><span class="toc-section-number">8.2</span>  Distribution Function</a>
+  <li><a href="#phase-space" id="toc-phase-space" class="nav-link active" data-scroll-target="#phase-space"><span class="header-section-number">8.1</span> Phase Space</a></li>
+  <li><a href="#distribution-function" id="toc-distribution-function" class="nav-link" data-scroll-target="#distribution-function"><span class="header-section-number">8.2</span> Distribution Function</a>
   <ul class="collapse">
-  <li><a href="#moments-of-the-distribution-function" id="toc-moments-of-the-distribution-function" class="nav-link" data-scroll-target="#moments-of-the-distribution-function"><span class="toc-section-number">8.2.1</span>  Moments of the distribution function</a></li>
-  <li><a href="#maxwellian-distribution" id="toc-maxwellian-distribution" class="nav-link" data-scroll-target="#maxwellian-distribution"><span class="toc-section-number">8.2.2</span>  Maxwellian Distribution</a></li>
-  <li><a href="#kappa-distribution" id="toc-kappa-distribution" class="nav-link" data-scroll-target="#kappa-distribution"><span class="toc-section-number">8.2.3</span>  Kappa Distribution</a></li>
-  <li><a href="#entropy-of-a-distribution" id="toc-entropy-of-a-distribution" class="nav-link" data-scroll-target="#entropy-of-a-distribution"><span class="toc-section-number">8.2.4</span>  Entropy of a distribution</a></li>
-  <li><a href="#sec-collision-entropy" id="toc-sec-collision-entropy" class="nav-link" data-scroll-target="#sec-collision-entropy"><span class="toc-section-number">8.2.5</span>  Effect of collisions on entropy</a></li>
+  <li><a href="#moments-of-the-distribution-function" id="toc-moments-of-the-distribution-function" class="nav-link" data-scroll-target="#moments-of-the-distribution-function"><span class="header-section-number">8.2.1</span> Moments of the distribution function</a></li>
+  <li><a href="#maxwellian-distribution" id="toc-maxwellian-distribution" class="nav-link" data-scroll-target="#maxwellian-distribution"><span class="header-section-number">8.2.2</span> Maxwellian Distribution</a></li>
+  <li><a href="#kappa-distribution" id="toc-kappa-distribution" class="nav-link" data-scroll-target="#kappa-distribution"><span class="header-section-number">8.2.3</span> Kappa Distribution</a></li>
+  <li><a href="#entropy-of-a-distribution" id="toc-entropy-of-a-distribution" class="nav-link" data-scroll-target="#entropy-of-a-distribution"><span class="header-section-number">8.2.4</span> Entropy of a distribution</a></li>
+  <li><a href="#sec-collision-entropy" id="toc-sec-collision-entropy" class="nav-link" data-scroll-target="#sec-collision-entropy"><span class="header-section-number">8.2.5</span> Effect of collisions on entropy</a></li>
   </ul></li>
-  <li><a href="#equations-of-kinetic-theory" id="toc-equations-of-kinetic-theory" class="nav-link" data-scroll-target="#equations-of-kinetic-theory"><span class="toc-section-number">8.3</span>  Equations of Kinetic Theory</a>
+  <li><a href="#equations-of-kinetic-theory" id="toc-equations-of-kinetic-theory" class="nav-link" data-scroll-target="#equations-of-kinetic-theory"><span class="header-section-number">8.3</span> Equations of Kinetic Theory</a>
   <ul class="collapse">
-  <li><a href="#sec-vlasov" id="toc-sec-vlasov" class="nav-link" data-scroll-target="#sec-vlasov"><span class="toc-section-number">8.3.1</span>  Vlasov equation</a></li>
-  <li><a href="#boltzmann-equation" id="toc-boltzmann-equation" class="nav-link" data-scroll-target="#boltzmann-equation"><span class="toc-section-number">8.3.2</span>  Boltzmann equation</a></li>
+  <li><a href="#sec-vlasov" id="toc-sec-vlasov" class="nav-link" data-scroll-target="#sec-vlasov"><span class="header-section-number">8.3.1</span> Vlasov equation</a></li>
+  <li><a href="#boltzmann-equation" id="toc-boltzmann-equation" class="nav-link" data-scroll-target="#boltzmann-equation"><span class="header-section-number">8.3.2</span> Boltzmann equation</a></li>
   </ul></li>
-  <li><a href="#sec-kinetic-fluid-moments" id="toc-sec-kinetic-fluid-moments" class="nav-link" data-scroll-target="#sec-kinetic-fluid-moments"><span class="toc-section-number">8.4</span>  Derivation of the Fluid Equations</a></li>
-  <li><a href="#sec-landau" id="toc-sec-landau" class="nav-link" data-scroll-target="#sec-landau"><span class="toc-section-number">8.5</span>  Plasma Oscillations and Landau Damping</a></li>
-  <li><a href="#sec-landau_damping" id="toc-sec-landau_damping" class="nav-link" data-scroll-target="#sec-landau_damping"><span class="toc-section-number">8.6</span>  The Meaning of Landau Damping</a>
+  <li><a href="#sec-kinetic-fluid-moments" id="toc-sec-kinetic-fluid-moments" class="nav-link" data-scroll-target="#sec-kinetic-fluid-moments"><span class="header-section-number">8.4</span> Derivation of the Fluid Equations</a></li>
+  <li><a href="#sec-landau" id="toc-sec-landau" class="nav-link" data-scroll-target="#sec-landau"><span class="header-section-number">8.5</span> Plasma Oscillations and Landau Damping</a></li>
+  <li><a href="#sec-landau_damping" id="toc-sec-landau_damping" class="nav-link" data-scroll-target="#sec-landau_damping"><span class="header-section-number">8.6</span> The Meaning of Landau Damping</a>
   <ul class="collapse">
-  <li><a href="#the-kinetic-energy-of-a-beam-of-electrons" id="toc-the-kinetic-energy-of-a-beam-of-electrons" class="nav-link" data-scroll-target="#the-kinetic-energy-of-a-beam-of-electrons"><span class="toc-section-number">8.6.1</span>  The Kinetic Energy of a Beam of Electrons</a></li>
-  <li><a href="#the-effect-of-initial-conditions" id="toc-the-effect-of-initial-conditions" class="nav-link" data-scroll-target="#the-effect-of-initial-conditions"><span class="toc-section-number">8.6.2</span>  The Effect of Initial Conditions</a></li>
+  <li><a href="#the-kinetic-energy-of-a-beam-of-electrons" id="toc-the-kinetic-energy-of-a-beam-of-electrons" class="nav-link" data-scroll-target="#the-kinetic-energy-of-a-beam-of-electrons"><span class="header-section-number">8.6.1</span> The Kinetic Energy of a Beam of Electrons</a></li>
+  <li><a href="#the-effect-of-initial-conditions" id="toc-the-effect-of-initial-conditions" class="nav-link" data-scroll-target="#the-effect-of-initial-conditions"><span class="header-section-number">8.6.2</span> The Effect of Initial Conditions</a></li>
   </ul></li>
-  <li><a href="#a-physical-derivation-of-landau-damping" id="toc-a-physical-derivation-of-landau-damping" class="nav-link" data-scroll-target="#a-physical-derivation-of-landau-damping"><span class="toc-section-number">8.7</span>  A Physical Derivation of Landau Damping</a>
+  <li><a href="#a-physical-derivation-of-landau-damping" id="toc-a-physical-derivation-of-landau-damping" class="nav-link" data-scroll-target="#a-physical-derivation-of-landau-damping"><span class="header-section-number">8.7</span> A Physical Derivation of Landau Damping</a>
   <ul class="collapse">
-  <li><a href="#the-resonant-particles" id="toc-the-resonant-particles" class="nav-link" data-scroll-target="#the-resonant-particles"><span class="toc-section-number">8.7.1</span>  The Resonant Particles</a></li>
-  <li><a href="#two-paradoxes-resolved" id="toc-two-paradoxes-resolved" class="nav-link" data-scroll-target="#two-paradoxes-resolved"><span class="toc-section-number">8.7.2</span>  Two Paradoxes Resolved</a></li>
+  <li><a href="#the-resonant-particles" id="toc-the-resonant-particles" class="nav-link" data-scroll-target="#the-resonant-particles"><span class="header-section-number">8.7.1</span> The Resonant Particles</a></li>
+  <li><a href="#two-paradoxes-resolved" id="toc-two-paradoxes-resolved" class="nav-link" data-scroll-target="#two-paradoxes-resolved"><span class="header-section-number">8.7.2</span> Two Paradoxes Resolved</a></li>
   </ul></li>
-  <li><a href="#bgk-and-van-kampen-modes" id="toc-bgk-and-van-kampen-modes" class="nav-link" data-scroll-target="#bgk-and-van-kampen-modes"><span class="toc-section-number">8.8</span>  BGK and Van Kampen Modes</a></li>
-  <li><a href="#ion-landau-damping" id="toc-ion-landau-damping" class="nav-link" data-scroll-target="#ion-landau-damping"><span class="toc-section-number">8.9</span>  Ion Landau Damping</a>
+  <li><a href="#bgk-and-van-kampen-modes" id="toc-bgk-and-van-kampen-modes" class="nav-link" data-scroll-target="#bgk-and-van-kampen-modes"><span class="header-section-number">8.8</span> BGK and Van Kampen Modes</a></li>
+  <li><a href="#ion-landau-damping" id="toc-ion-landau-damping" class="nav-link" data-scroll-target="#ion-landau-damping"><span class="header-section-number">8.9</span> Ion Landau Damping</a>
   <ul class="collapse">
-  <li><a href="#the-plasma-dispersion-function" id="toc-the-plasma-dispersion-function" class="nav-link" data-scroll-target="#the-plasma-dispersion-function"><span class="toc-section-number">8.9.1</span>  The Plasma Dispersion Function</a></li>
-  <li><a href="#ion-waves-and-their-damping" id="toc-ion-waves-and-their-damping" class="nav-link" data-scroll-target="#ion-waves-and-their-damping"><span class="toc-section-number">8.9.2</span>  Ion Waves and Their Damping</a></li>
+  <li><a href="#the-plasma-dispersion-function" id="toc-the-plasma-dispersion-function" class="nav-link" data-scroll-target="#the-plasma-dispersion-function"><span class="header-section-number">8.9.1</span> The Plasma Dispersion Function</a></li>
+  <li><a href="#ion-waves-and-their-damping" id="toc-ion-waves-and-their-damping" class="nav-link" data-scroll-target="#ion-waves-and-their-damping"><span class="header-section-number">8.9.2</span> Ion Waves and Their Damping</a></li>
   </ul></li>
-  <li><a href="#kinetic-effects-in-a-magnetic-field" id="toc-kinetic-effects-in-a-magnetic-field" class="nav-link" data-scroll-target="#kinetic-effects-in-a-magnetic-field"><span class="toc-section-number">8.10</span>  Kinetic Effects in a Magnetic Field</a>
+  <li><a href="#kinetic-effects-in-a-magnetic-field" id="toc-kinetic-effects-in-a-magnetic-field" class="nav-link" data-scroll-target="#kinetic-effects-in-a-magnetic-field"><span class="header-section-number">8.10</span> Kinetic Effects in a Magnetic Field</a>
   <ul class="collapse">
-  <li><a href="#sec-HPDR" id="toc-sec-HPDR" class="nav-link" data-scroll-target="#sec-HPDR"><span class="toc-section-number">8.10.1</span>  The Hot Plasma Dielectric Tensor</a></li>
-  <li><a href="#bernstein-waves" id="toc-bernstein-waves" class="nav-link" data-scroll-target="#bernstein-waves"><span class="toc-section-number">8.10.2</span>  Bernstein Waves</a></li>
+  <li><a href="#sec-HPDR" id="toc-sec-HPDR" class="nav-link" data-scroll-target="#sec-HPDR"><span class="header-section-number">8.10.1</span> The Hot Plasma Dielectric Tensor</a></li>
+  <li><a href="#bernstein-waves" id="toc-bernstein-waves" class="nav-link" data-scroll-target="#bernstein-waves"><span class="header-section-number">8.10.2</span> Bernstein Waves</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/kinetic.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
@@ -318,7 +354,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-kinetic" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></h1>
+<h1 class="title"><span id="sec-kinetic" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></h1>
 </div>
 
 
@@ -339,7 +375,7 @@ div.csl-indent {
 <div id="fig-phase-space" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/phase_space_trajectories.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;8.1: Phase-space showing different types of possible particle orbits.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;8.1: Phase-space showing different types of possible particle orbits.</figcaption>
 </figure>
 </div>
 <p>Particles in the upper half-plane always move to the right, since they have a positive velocity, while those in the lower half-plane always move to the left. Particles having exact periodic motion (e.g., <span class="math inline">\(x = A\cos t,\, v = −A\sin t\)</span>) alternate between moving to the right and the left and so describe an ellipse in phase-space. Particles with nearly periodic (quasi-periodic) motions will have near-ellipses or spiral orbits. A particle that does not reverse direction is called a passing particle, while a particle confined to a certain region of phase-space (e.g., a particle with periodic motion) is called a trapped particle.</p>
@@ -351,7 +387,7 @@ div.csl-indent {
 <div id="fig-distributions_1d" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/distributions_nonmaxwellian_1d.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;8.2: Examples of non-Maxwellian distribution functions</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;8.2: Examples of non-Maxwellian distribution functions</figcaption>
 </figure>
 </div>
 <p>When we consider velocity distributions in 3D, we have seven independent variables: <span class="math inline">\(f = f(\mathbf{r}, \mathbf{v}, t)\)</span>. By <span class="math inline">\(f(\mathbf{r}, \mathbf{v}, t)\)</span>, we mean that the number of particles per meter cubed at position <span class="math inline">\(\mathbf{r}\)</span> and time <span class="math inline">\(t\)</span> with velocity components between <span class="math inline">\(v_x\)</span> and <span class="math inline">\(v_x + dv_x\)</span>, <span class="math inline">\(v_y\)</span> and <span class="math inline">\(v_y + dv_y\)</span>, and <span class="math inline">\(v_z\)</span> and <span class="math inline">\(v_z + dv_z\)</span> is <span class="math display">\[
@@ -362,7 +398,7 @@ f(x, y, z, v_x, v_y, v_z, t) \mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z
 <div id="fig-distribution_moments" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/distribution_moments.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;8.3: Moments give weighted averages of the particles in the shaded vertical strip.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;8.3: Moments give weighted averages of the particles in the shaded vertical strip.</figcaption>
 </figure>
 </div>
 <p>Let us count the particles in the shaded vertical strip in <a href="#fig-distribution_moments">Figure&nbsp;<span>8.3</span></a>. The number of particles in this strip is the number of particles lying between <span class="math inline">\(x\)</span> and <span class="math inline">\(x + \mathrm{d}x\)</span>, where <span class="math inline">\(x\)</span> is the location of the left-hand side of the strip and <span class="math inline">\(x + \mathrm{d}x\)</span> is the location of the right-hand side. The number of particles in the strip is equivalently defined as <span class="math inline">\(n(x, t)\mathrm{d}x\)</span>, where <span class="math inline">\(n(x)\)</span> is the density of particles at <span class="math inline">\(x\)</span>. Thus we see that <span class="math inline">\(\int f(x, v)\mathrm{d}v = n(x)\)</span> the transition from a phase-space description (i.e., <span class="math inline">\(x, v\)</span> are independent variables) to a conventional description (i.e., only <span class="math inline">\(x\)</span> is an independent variable) involves “integrating out” the velocity dependence to obtain a quantity (e.g., density) depending only on position. Since the number of particles is finite, and since <span class="math inline">\(f\)</span> is a positive quantity, <span class="math inline">\(f\)</span> must vanish as <span class="math inline">\(v\rightarrow\pm\infty\)</span>.</p>
@@ -428,13 +464,11 @@ v_{rms} &amp;= (3k_B T/m)^{1/2} \\
 g(v) = 4\pi n (m/2\pi k_B T)^{3/2} v^2 \exp(-v^2/v_{th}^2)
 \tag{8.6}\]</span></span></p>
 <p><a href="#fig-f_g">Figure&nbsp;<span>8.4</span></a> shows the difference between <span class="math inline">\(g(v)\)</span> and a one-dimensional Maxwellian distribution <span class="math inline">\(f(v_x)\)</span>. Although <span class="math inline">\(f(v_x)\)</span> is maximum for <span class="math inline">\(v_x=0\)</span>, <span class="math inline">\(g(v)\)</span> is zero for <span class="math inline">\(v=0\)</span>.</p>
-<div>
 <div id="fig-f_g" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/f_g.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;8.4: One- and three-dimensional Maxwellian velocity distributions.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;8.4: One- and three-dimensional Maxwellian velocity distributions.</figcaption>
 </figure>
-</div>
 </div>
 <p>This is just a consequence of the vanishing of the volume in phase space for <span class="math inline">\(v=0\)</span>. Sometimes <span class="math inline">\(g(v)\)</span> is carelessly denoted by <span class="math inline">\(f(v)\)</span>, as distinct from <span class="math inline">\(f(\mathbf{v})\)</span>; but <span class="math inline">\(g(v)\)</span> is a different function of its argument than <span class="math inline">\(f(\mathbf{v})\)</span> is of its argument. From eq-g_dist, it is clear that <span class="math inline">\(g(v)\)</span> has dimensions <span class="math inline">\(\text{s}/\text{m}^4\)</span>.</p>
 <p>ADD EXAMPLE DISTRIBUTIONS!</p>
@@ -611,7 +645,7 @@ f_s(\mathbf{x},\mathbf{v},t) = n_s\left( \frac{m_s}{2\pi k_B T_s} \right)^{N/2} 
 <div id="fig-phase_space_box" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/phase_space_box.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;8.5: A box within phase-space having width <span class="math inline">\(\mathrm{d}x\)</span> and height <span class="math inline">\(\mathrm{d}v\)</span>.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;8.5: A box within phase-space having width <span class="math inline">\(\mathrm{d}x\)</span> and height <span class="math inline">\(\mathrm{d}v\)</span>.</figcaption>
 </figure>
 </div>
 <p>Now consider the rate of change of the number of particles inside a small box in phase-space, such as is shown in <a href="#fig-phase_space_box">Figure&nbsp;<span>8.5</span></a>. Defining <span class="math inline">\(a(x, v, t)\)</span> to be the acceleration of a particle, it is seen that the particle flux in the horizontal direction is <span class="math inline">\(fv\)</span> and the particle flux in the vertical direction is <span class="math inline">\(fa\)</span>. Thus, the particle fluxes into the four sides of the box are:</p>
@@ -662,7 +696,7 @@ f_s(\mathbf{x},\mathbf{v},t) = n_s\left( \frac{m_s}{2\pi k_B T_s} \right)^{N/2} 
 <div id="fig-phase_space_collision" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/distribution_collision.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;8.6: Detailed view of collisions causing “jumps” in phase-space.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;8.6: Detailed view of collisions causing “jumps” in phase-space.</figcaption>
 </figure>
 </div>
 <p>The details of these individual jumps in phase-space are complicated and yet of little interest since all we really want to know is the cumulative effect of many collisions. It is therefore both efficient and sufficient to follow the trajectories on the slow time scale while accounting for the apparent “creation” or “annihilation” of particles by inserting a collision operator on the right-hand side of the Vlasov equation. In the example shown here it is seen that when a particle is apparently “created” in one box, another particle must be simultaneously “annihilated” in another box at the same <span class="math inline">\(x\)</span> coordinate but a different <span class="math inline">\(v\)</span> coordinate (of course, what is actually happening is that a single particle is suddenly moving from one box to the other). This coupling of the annihilation and creation rates in different boxes constrains the form of the collision operator. We will not attempt to derive collision operators in this chapter but will simply discuss the constraints on these operators. From a more formal point of view, collisions are characterized by constrained sources and sinks for particles in phase-space and inclusion of collisions in the Vlasov equation causes the Vlasov equation to assume the form <span id="eq-boltzmann"><span class="math display">\[
@@ -691,25 +725,23 @@ f_s(\mathbf{x},\mathbf{v},t) = n_s\left( \frac{m_s}{2\pi k_B T_s} \right)^{N/2} 
 \tag{8.19}\]</span></span></p>
 <p>This is called the <em>Fokker-Planck equation</em>; it takes into account binary Coulomb collisions only. Here, <span class="math inline">\(\Delta\mathbf{v}\)</span> is the change of velocity in a collision, and <a href="#eq-fokker_planck">Equation&nbsp;<span>8.19</span></a> is a shorthand way of writing a rather complicated expression. The colon operator <span class="math inline">\(\mathbf{a}\mathbf{b}:\mathbf{c}\mathbf{d} = a_ib_jc_id_j\)</span>.</p>
 <p>The fact that <span class="math inline">\(\mathrm{d}f/\mathrm{d}t\)</span> is constant in the absence of collisions means that particles follow the contours of constant <span class="math inline">\(f\)</span> as they move around in phase space. As an example of how these contours can be used, consider the beam-plasma instability of Section ???. In the unperturbed plasma, the electrons all have velocity <span class="math inline">\(v_0\)</span>, and the contour of constant <span class="math inline">\(f\)</span> is a straight line. The function <span class="math inline">\(f(x, v_x)\)</span> is a wall rising out of the plane of the paper at <span class="math inline">\(v_x=v_0\)</span>. The electrons move along the trajectory shown. When a wave develops, the electric field <span class="math inline">\(\mathbf{E}_1\)</span> causes electrons to suffer changes in <span class="math inline">\(v_x\)</span> as they stream along. The trajectory then develops a sinusoidal ripple (<a href="#fig-beam_e_dist_1d">Figure&nbsp;<span>8.7</span></a> B). This ripple travels at the phase velocity, not the particle velocity. Particles stay on the curve as they move relative to the wave. If <span class="math inline">\(\mathbf{E}_1\)</span> becomes very large as the wave grows, and if there are a few collisions, some electrons will be trapped in the electrostatic potential of the wave. In coordinate space, the wave potential appears as in <a href="#fig-wave_potential">Figure&nbsp;<span>8.8</span></a>. In phase space, <span class="math inline">\(f(x, v_x)\)</span> will have peaks wherever there is a potential trough (<a href="#fig-contour_dist">Figure&nbsp;<span>8.9</span></a>). Since the contours of <span class="math inline">\(f\)</span> are also electron trajectories, one sees that some electrons move in closed orbits in phase space; these are just the trapped electrons.</p>
-<div>
 <div id="fig-beam_e_dist_1d" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/beam_e_dist_1d.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;8.7: (A) Representation in one-dimensional phase space of a beam of electrons all with the same velocity <span class="math inline">\(v_0\)</span>. The distribution function <span class="math inline">\(f(x, v_x)\)</span> is infinite along the line and zero elsewhere. The line is also the trajectory of individual electrons, which move in the direction of the arrow. (B) when a plasma wave exists in the electron beam. The entire pattern moves to the right with the phase velocity of the wave. If the observer goes to the frame of the wave, the pattern would stand still, and electrons would be seen to trace the curve with the velocity <span class="math inline">\(v_0-v_\phi\)</span>.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;8.7: (A) Representation in one-dimensional phase space of a beam of electrons all with the same velocity <span class="math inline">\(v_0\)</span>. The distribution function <span class="math inline">\(f(x, v_x)\)</span> is infinite along the line and zero elsewhere. The line is also the trajectory of individual electrons, which move in the direction of the arrow. (B) when a plasma wave exists in the electron beam. The entire pattern moves to the right with the phase velocity of the wave. If the observer goes to the frame of the wave, the pattern would stand still, and electrons would be seen to trace the curve with the velocity <span class="math inline">\(v_0-v_\phi\)</span>.</figcaption>
 </figure>
 </div>
 <div id="fig-wave_potential" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/wave_potential.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;8.8: The potential of a plasma wave, as seen by an electron. The pattern moves with the velocity <span class="math inline">\(v_\phi\)</span>. An electron with small velocity relative to the wave would be trapped in a potential trough and be carried along with the wave.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;8.8: The potential of a plasma wave, as seen by an electron. The pattern moves with the velocity <span class="math inline">\(v_\phi\)</span>. An electron with small velocity relative to the wave would be trapped in a potential trough and be carried along with the wave.</figcaption>
 </figure>
 </div>
 <div id="fig-contour_dist" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/contour_dist.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;8.9: Electron trajectories, or contours of constant <span class="math inline">\(f\)</span>, as seen in the wave frame, in which the pattern is stationary. This type of diagram, appropriate for finite distributions <span class="math inline">\(f(v)\)</span>, is easier to understand than the <span class="math inline">\(\delta\)</span>-function distribution of <a href="#fig-beam_e_dist_1d">Figure&nbsp;<span>8.7</span></a>.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;8.9: Electron trajectories, or contours of constant <span class="math inline">\(f\)</span>, as seen in the wave frame, in which the pattern is stationary. This type of diagram, appropriate for finite distributions <span class="math inline">\(f(v)\)</span>, is easier to understand than the <span class="math inline">\(\delta\)</span>-function distribution of <a href="#fig-beam_e_dist_1d">Figure&nbsp;<span>8.7</span></a>.</figcaption>
 </figure>
-</div>
 </div>
 <p>Electron trapping is a nonlinear phenomenon which cannot be treated by straightforward solution of the Vlasov equation. However, electron trajectories can be followed on a computer, and the results are often presented in the form of a plot like <a href="#fig-contour_dist">Figure&nbsp;<span>8.9</span></a>.</p>
 <p>ADD A TWO STREAM INSTABILITY PHASE ANIMATION!</p>
@@ -1418,11 +1450,11 @@ k_\perp^2 + \sum_s k_D^2 e^{-b}\sum_{n=1}^{\infty} I_n(b)\Big[ 2-\frac{\omega}{\
 </ol>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-chen2016introduction" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-chen2016introduction" class="csl-entry" role="listitem">
 Chen, Francis F. 2016. <em>Introduction to Plasma Physics and Controlled Fusion</em>. Vol. 1. Springer.
 </div>
-<div id="ref-livadiotis2013" class="csl-entry" role="doc-biblioentry">
+<div id="ref-livadiotis2013" class="csl-entry" role="listitem">
 Livadiotis, G, and DJ McComas. 2013. <span>“Understanding Kappa Distributions: A Toolbox for Space Science and Astrophysics.”</span> <em>Space Science Reviews</em> 175 (1): 183–214. <a href="https://doi.org/10.1007/s11214-013-9982-9">https://doi.org/10.1007/s11214-013-9982-9</a>.
 </div>
 </div>
@@ -1578,9 +1610,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1645,6 +1691,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

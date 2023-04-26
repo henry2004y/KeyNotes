@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,14 +17,15 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -38,8 +39,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -82,6 +82,7 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -90,11 +91,16 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/single.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -102,206 +108,236 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/about.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></a>
+  <a href="../contents/about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></a>
+  <a href="../contents/math.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/single.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></a>
+  <a href="../contents/single.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></a>
+  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></a>
+  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></a>
+  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></a>
+  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></a>
+  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></a>
+  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></a>
+  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></a>
+  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></a>
+  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></a>
+  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></a>
+  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></a>
+  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></a>
+  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></a>
+  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></a>
+  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></a>
+  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></a>
+  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></a>
+  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></a>
+  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></a>
+  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></a>
+  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/test.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></a>
+  <a href="../contents/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">Appendix</a>
+  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></a>
+  <a href="../contents/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#uniform-e-and-b-fields" id="toc-uniform-e-and-b-fields" class="nav-link active" data-scroll-target="#uniform-e-and-b-fields"><span class="toc-section-number">4.1</span>  Uniform E and B Fields</a>
+  <li><a href="#uniform-e-and-b-fields" id="toc-uniform-e-and-b-fields" class="nav-link active" data-scroll-target="#uniform-e-and-b-fields"><span class="header-section-number">4.1</span> Uniform E and B Fields</a>
   <ul class="collapse">
-  <li><a href="#e0" id="toc-e0" class="nav-link" data-scroll-target="#e0"><span class="toc-section-number">4.1.1</span>  E=0</a></li>
-  <li><a href="#finite-e" id="toc-finite-e" class="nav-link" data-scroll-target="#finite-e"><span class="toc-section-number">4.1.2</span>  Finite E</a></li>
-  <li><a href="#sec-gravity_field" id="toc-sec-gravity_field" class="nav-link" data-scroll-target="#sec-gravity_field"><span class="toc-section-number">4.1.3</span>  Gravitational Field</a></li>
+  <li><a href="#e0" id="toc-e0" class="nav-link" data-scroll-target="#e0"><span class="header-section-number">4.1.1</span> E=0</a></li>
+  <li><a href="#finite-e" id="toc-finite-e" class="nav-link" data-scroll-target="#finite-e"><span class="header-section-number">4.1.2</span> Finite E</a></li>
+  <li><a href="#sec-gravity_field" id="toc-sec-gravity_field" class="nav-link" data-scroll-target="#sec-gravity_field"><span class="header-section-number">4.1.3</span> Gravitational Field</a></li>
   </ul></li>
-  <li><a href="#nonuniform-b-field" id="toc-nonuniform-b-field" class="nav-link" data-scroll-target="#nonuniform-b-field"><span class="toc-section-number">4.2</span>  Nonuniform B Field</a>
+  <li><a href="#nonuniform-b-field" id="toc-nonuniform-b-field" class="nav-link" data-scroll-target="#nonuniform-b-field"><span class="header-section-number">4.2</span> Nonuniform B Field</a>
   <ul class="collapse">
-  <li><a href="#b-b-grad-b-drift" id="toc-b-b-grad-b-drift" class="nav-link" data-scroll-target="#b-b-grad-b-drift"><span class="toc-section-number">4.2.1</span>  ∇B ⊥ B: Grad-B Drift</a></li>
-  <li><a href="#curved-b-curvature-drift" id="toc-curved-b-curvature-drift" class="nav-link" data-scroll-target="#curved-b-curvature-drift"><span class="toc-section-number">4.2.2</span>  Curved B: Curvature Drift</a></li>
-  <li><a href="#b-b-magnetic-mirrors" id="toc-b-b-magnetic-mirrors" class="nav-link" data-scroll-target="#b-b-magnetic-mirrors"><span class="toc-section-number">4.2.3</span>  ∇B ∥ B: Magnetic Mirrors</a></li>
+  <li><a href="#b-b-grad-b-drift" id="toc-b-b-grad-b-drift" class="nav-link" data-scroll-target="#b-b-grad-b-drift"><span class="header-section-number">4.2.1</span> ∇B ⊥ B: Grad-B Drift</a></li>
+  <li><a href="#curved-b-curvature-drift" id="toc-curved-b-curvature-drift" class="nav-link" data-scroll-target="#curved-b-curvature-drift"><span class="header-section-number">4.2.2</span> Curved B: Curvature Drift</a></li>
+  <li><a href="#b-b-magnetic-mirrors" id="toc-b-b-magnetic-mirrors" class="nav-link" data-scroll-target="#b-b-magnetic-mirrors"><span class="header-section-number">4.2.3</span> ∇B ∥ B: Magnetic Mirrors</a></li>
   </ul></li>
-  <li><a href="#sec-nonuniform_E" id="toc-sec-nonuniform_E" class="nav-link" data-scroll-target="#sec-nonuniform_E"><span class="toc-section-number">4.3</span>  Nonuniform E Field</a></li>
-  <li><a href="#sec-time-varying_E" id="toc-sec-time-varying_E" class="nav-link" data-scroll-target="#sec-time-varying_E"><span class="toc-section-number">4.4</span>  Time-Varying E Field</a></li>
-  <li><a href="#time-varying-b-field" id="toc-time-varying-b-field" class="nav-link" data-scroll-target="#time-varying-b-field"><span class="toc-section-number">4.5</span>  Time-Varying B Field</a></li>
-  <li><a href="#drifts-in-slowly-changing-arbitrary-fields" id="toc-drifts-in-slowly-changing-arbitrary-fields" class="nav-link" data-scroll-target="#drifts-in-slowly-changing-arbitrary-fields"><span class="toc-section-number">4.6</span>  Drifts in slowly changing arbitrary fields</a></li>
-  <li><a href="#summary-of-guiding-center-drifts" id="toc-summary-of-guiding-center-drifts" class="nav-link" data-scroll-target="#summary-of-guiding-center-drifts"><span class="toc-section-number">4.7</span>  Summary of Guiding Center Drifts</a></li>
-  <li><a href="#sec-adiabatic-invariant" id="toc-sec-adiabatic-invariant" class="nav-link" data-scroll-target="#sec-adiabatic-invariant"><span class="toc-section-number">4.8</span>  Adiabatic Invariants</a>
+  <li><a href="#sec-nonuniform_E" id="toc-sec-nonuniform_E" class="nav-link" data-scroll-target="#sec-nonuniform_E"><span class="header-section-number">4.3</span> Nonuniform E Field</a></li>
+  <li><a href="#sec-time-varying_E" id="toc-sec-time-varying_E" class="nav-link" data-scroll-target="#sec-time-varying_E"><span class="header-section-number">4.4</span> Time-Varying E Field</a></li>
+  <li><a href="#time-varying-b-field" id="toc-time-varying-b-field" class="nav-link" data-scroll-target="#time-varying-b-field"><span class="header-section-number">4.5</span> Time-Varying B Field</a></li>
+  <li><a href="#drifts-in-slowly-changing-arbitrary-fields" id="toc-drifts-in-slowly-changing-arbitrary-fields" class="nav-link" data-scroll-target="#drifts-in-slowly-changing-arbitrary-fields"><span class="header-section-number">4.6</span> Drifts in slowly changing arbitrary fields</a></li>
+  <li><a href="#summary-of-guiding-center-drifts" id="toc-summary-of-guiding-center-drifts" class="nav-link" data-scroll-target="#summary-of-guiding-center-drifts"><span class="header-section-number">4.7</span> Summary of Guiding Center Drifts</a></li>
+  <li><a href="#sec-adiabatic-invariant" id="toc-sec-adiabatic-invariant" class="nav-link" data-scroll-target="#sec-adiabatic-invariant"><span class="header-section-number">4.8</span> Adiabatic Invariants</a>
   <ul class="collapse">
-  <li><a href="#adiabatic-invariant-of-a-pendulum" id="toc-adiabatic-invariant-of-a-pendulum" class="nav-link" data-scroll-target="#adiabatic-invariant-of-a-pendulum"><span class="toc-section-number">4.8.1</span>  Adiabatic Invariant of a Pendulum</a></li>
-  <li><a href="#extension-of-wkb-method-to-general-adiabatic-invariant" id="toc-extension-of-wkb-method-to-general-adiabatic-invariant" class="nav-link" data-scroll-target="#extension-of-wkb-method-to-general-adiabatic-invariant"><span class="toc-section-number">4.8.2</span>  Extension of WKB method to general adiabatic invariant</a></li>
-  <li><a href="#proof-for-the-general-adiabatic-invariant" id="toc-proof-for-the-general-adiabatic-invariant" class="nav-link" data-scroll-target="#proof-for-the-general-adiabatic-invariant"><span class="toc-section-number">4.8.3</span>  Proof for the general adiabatic invariant</a></li>
-  <li><a href="#the-first-adiabatic-invariant" id="toc-the-first-adiabatic-invariant" class="nav-link" data-scroll-target="#the-first-adiabatic-invariant"><span class="toc-section-number">4.8.4</span>  The First Adiabatic Invariant</a></li>
-  <li><a href="#the-second-adiabatic-invariant" id="toc-the-second-adiabatic-invariant" class="nav-link" data-scroll-target="#the-second-adiabatic-invariant"><span class="toc-section-number">4.8.5</span>  The Second Adiabatic Invariant</a></li>
-  <li><a href="#the-third-adiabatic-invariant" id="toc-the-third-adiabatic-invariant" class="nav-link" data-scroll-target="#the-third-adiabatic-invariant"><span class="toc-section-number">4.8.6</span>  The Third Adiabatic Invariant</a></li>
+  <li><a href="#adiabatic-invariant-of-a-pendulum" id="toc-adiabatic-invariant-of-a-pendulum" class="nav-link" data-scroll-target="#adiabatic-invariant-of-a-pendulum"><span class="header-section-number">4.8.1</span> Adiabatic Invariant of a Pendulum</a></li>
+  <li><a href="#extension-of-wkb-method-to-general-adiabatic-invariant" id="toc-extension-of-wkb-method-to-general-adiabatic-invariant" class="nav-link" data-scroll-target="#extension-of-wkb-method-to-general-adiabatic-invariant"><span class="header-section-number">4.8.2</span> Extension of WKB method to general adiabatic invariant</a></li>
+  <li><a href="#proof-for-the-general-adiabatic-invariant" id="toc-proof-for-the-general-adiabatic-invariant" class="nav-link" data-scroll-target="#proof-for-the-general-adiabatic-invariant"><span class="header-section-number">4.8.3</span> Proof for the general adiabatic invariant</a></li>
+  <li><a href="#the-first-adiabatic-invariant" id="toc-the-first-adiabatic-invariant" class="nav-link" data-scroll-target="#the-first-adiabatic-invariant"><span class="header-section-number">4.8.4</span> The First Adiabatic Invariant</a></li>
+  <li><a href="#the-second-adiabatic-invariant" id="toc-the-second-adiabatic-invariant" class="nav-link" data-scroll-target="#the-second-adiabatic-invariant"><span class="header-section-number">4.8.5</span> The Second Adiabatic Invariant</a></li>
+  <li><a href="#the-third-adiabatic-invariant" id="toc-the-third-adiabatic-invariant" class="nav-link" data-scroll-target="#the-third-adiabatic-invariant"><span class="header-section-number">4.8.6</span> The Third Adiabatic Invariant</a></li>
   </ul></li>
-  <li><a href="#ring-current" id="toc-ring-current" class="nav-link" data-scroll-target="#ring-current"><span class="toc-section-number">4.9</span>  Ring Current</a></li>
-  <li><a href="#particle-acceleration" id="toc-particle-acceleration" class="nav-link" data-scroll-target="#particle-acceleration"><span class="toc-section-number">4.10</span>  Particle Acceleration</a></li>
-  <li><a href="#test-particle-model" id="toc-test-particle-model" class="nav-link" data-scroll-target="#test-particle-model"><span class="toc-section-number">4.11</span>  Test Particle Model</a></li>
+  <li><a href="#ring-current" id="toc-ring-current" class="nav-link" data-scroll-target="#ring-current"><span class="header-section-number">4.9</span> Ring Current</a></li>
+  <li><a href="#particle-acceleration" id="toc-particle-acceleration" class="nav-link" data-scroll-target="#particle-acceleration"><span class="header-section-number">4.10</span> Particle Acceleration</a></li>
+  <li><a href="#test-particle-model" id="toc-test-particle-model" class="nav-link" data-scroll-target="#test-particle-model"><span class="header-section-number">4.11</span> Test Particle Model</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/single.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -310,7 +346,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-single" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></span></h1>
+<h1 class="title"><span id="sec-single" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></span></h1>
 </div>
 
 
@@ -716,7 +752,7 @@ m\frac{\mathrm{d}v_x}{\mathrm{d}t} &amp;= qE_x + qv_yB \\
 <div id="fig-drift-decomposition" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/drift_decomposition.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4.1: Drift in an arbitrarily complicated field.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;4.1: Drift in an arbitrarily complicated field.</figcaption>
 </figure>
 </div>
 <p>After insertion of these Taylor expansions for the non-uniform electric and magnetic fields, the Lorentz equation becomes <span class="math display">\[
@@ -899,7 +935,7 @@ S = \oint P\mathrm{d}Q
 <div id="fig-q-p-plane" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/canonical_momentum_coordinate_plane.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4.2: Canonical coordinate-momentum plane.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;4.2: Canonical coordinate-momentum plane.</figcaption>
 </figure>
 </div>
 <p>Let us define the radius vector in the <span class="math inline">\(Q-P\)</span> plane to be <span class="math inline">\(\mathbf{R}=(Q,P)\)</span> and define unit vectors in the <span class="math inline">\(Q\)</span> and <span class="math inline">\(P\)</span> directions by <span class="math inline">\(\hat{Q}\)</span> and <span class="math inline">\(\hat{P}\)</span>; these definitions are shown in <a href="#fig-q-p-plane">Figure&nbsp;<span>4.2</span></a>. Furthermore, we define the <span class="math inline">\(z\)</span> direction as being normal to the <span class="math inline">\(Q-P\)</span> plane; thus, the unit vector <span class="math inline">\(\hat{z}=\hat{Q}\times\hat{P}\)</span>. Hamilton’s equations (<span class="math inline">\(\dot{P} = -\partial H/\partial Q,\dot{Q}=\partial H/\partial P\)</span>) may be written in vector form as <span id="eq-hamilton-vector-form"><span class="math display">\[
@@ -944,7 +980,7 @@ E(t) = H(P,Q,\lambda(t))
 <div id="fig-q-p-nearly-periodic-traj" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/canonical_plane_nearly_periodic_trajectory.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4.3: Nearly periodic-phase space trajectory for slowly changing Hamiltonian. The turning point <span class="math inline">\(Q_{tp}(t)\)</span> is where <span class="math inline">\(Q\)</span> is at its maximum.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;4.3: Nearly periodic-phase space trajectory for slowly changing Hamiltonian. The turning point <span class="math inline">\(Q_{tp}(t)\)</span> is where <span class="math inline">\(Q\)</span> is at its maximum.</figcaption>
 </figure>
 </div>
 <p>If the motion is periodic, then the turning point for the <span class="math inline">\(N+1^{\mathrm{th}}\)</span> period will be the same as the turning point for the <span class="math inline">\(N^{\mathrm{th}}\)</span> period, but if the motion is only nearly periodic, there will be a slight difference as shown in <a href="#fig-q-p-nearly-periodic-traj">Figure&nbsp;<span>4.3</span></a>. This difference can be characterized by making the turning point a function of time so <span class="math inline">\(Q_{tp}=Q_{tp}(t)\)</span>. This function is only defined for the times when <span class="math inline">\(\mathrm{d}Q/\mathrm{d}t = 0\)</span>. When the motion is not exactly periodic, this turning point is such that <span class="math inline">\(Q_{tp}(t+\tau)\neq Q_{tp}(t)\)</span>, where <span class="math inline">\(\tau\)</span> is the time interval required for the particle to go from the first turning point to the next turning point. The action integral is over one entire period of oscillation starting from a right-hand turning point and then going to the next right-hand turning point and so can be written as <span class="math display">\[
@@ -1107,18 +1143,14 @@ L^\ast = \frac{2\pi M}{|\phi|R_E} = \frac{2\pi B_{eq}R_E^2}{|\phi|}
 <li><p><em>Betatron acceleration</em> refers to situations in which the magnetic field strength increases slowly in time (compared with a gyroperiod), so that <span class="math inline">\(\mu\)</span> remains constant, but the particle kinetic energy is not constant due to the presence of electric fields (associated with the time-varying magnetic field). Then, the perpendicular energy is increased due to constancy of <span class="math inline">\(\mu\)</span>.</p></li>
 </ul>
 <p>Particle accelerations are important consequences of magnetic reconnection and shocks. In magnetic reconnection processes, the energy is rapidly converted from magnetic field to particles in the forms of flows, bulk (“thermal”) heating, and high-energy (“nonthermal”) tails. <span class="citation" data-cites="ji2022magnetic">(<a href="#ref-ji2022magnetic" role="doc-biblioref">Ji et al. 2022</a>)</span> describes the current understanding of electron acceleration during magnetic reconnection in the non-relativistic and relativistic regimes. First-principles numerical simulations suggest power-law nonthermal particle populations are more prevalent in systems with low <span class="math inline">\(\beta\)</span> and moderate guide (perpendicular to the reconnection plane) magnetic fields, with acceleration efficiency enhanced in 3D compared to simplified 2D calculations. Multiple acceleration mechanisms have been studied. In the localized diffusion region near an X-line without a guide field, particles may become demagnetized, prone to be directly accelerated by the reconnection electric field as they undergo so-called <em>Speiser</em> or <em>meandering orbits</em>. There is recent laboratory evidence for electron acceleration by this mechanism in action during magnetically driven reconnection at low-<span class="math inline">\(\beta\)</span> using laser-powered capacitor coils. There is also numerical evidence that a substantial fraction of dissipated magnetic energy is carried by particles accelerated by this mechanism when they are demagnetized and escape from plasmoids in 3D.</p>
-<p>Over larger scales when the particles remain magnetized, there are three basic particle acceleration processes that dominate in collisionless reconnection: <em>Fermi acceleration</em> which takes place as particles stream along and drift in relaxing curved magnetic field lines, relatively <em>localized electric fields</em> <span class="math inline">\(E_\parallel\)</span> parallel to the magnetic field directly accelerate particles, and <em>betatron heating</em> which occurs as particles drift into regions of stronger magnetic field while conserving the first adiabatic moment <span class="math inline">\(\mu=mv_\perp^2/B\)</span>. These mechanisms are described by guiding center equations of motion for the particles, and the energization rate in the non-relativistic limit is given approximately by the following equation:</p>
-<p><span id="eq-particle_energization_nonrelativistic"><span class="math display">\[
+<p>Over larger scales when the particles remain magnetized, there are three basic particle acceleration processes that dominate in collisionless reconnection: <em>Fermi acceleration</em> which takes place as particles stream along and drift in relaxing curved magnetic field lines, relatively <em>localized electric fields</em> <span class="math inline">\(E_\parallel\)</span> parallel to the magnetic field directly accelerate particles, and <em>betatron heating</em> which occurs as particles drift into regions of stronger magnetic field while conserving the first adiabatic moment <span class="math inline">\(\mu=mv_\perp^2/B\)</span>. These mechanisms are described by guiding center equations of motion for the particles, and the energization rate in the non-relativistic limit is given approximately by the following equation: <span id="eq-particle_energization_nonrelativistic"><span class="math display">\[
 \frac{\mathrm{d}\mathcal{E}}{dt} = qE_\parallel v_\parallel + \mu\frac{\mathrm{d}B}{\mathrm{d}t} + q\mathbf{E}\cdot\mathbf{u}_c + \frac{1}{2}m\frac{\mathrm{d}}{\mathrm{d}t}|\mathbf{u}_E|^2
-\tag{4.35}\]</span></span></p>
-<p>where <span class="math inline">\(\mathcal{E}\)</span> is the energy of a particle, <span class="math inline">\(\mathbf{u}_E\)</span> is the <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift velocity, <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}=\frac{\partial}{\partial t} + \mathbf{u}_E\cdot\nabla\)</span>, <span class="math inline">\(E_\parallel\)</span> is the parallel electric field, and <span class="math inline">\(v_\parallel\)</span> is the drift-corrected guiding center parallel velocity. For slowly varying fields, <span class="math inline">\(\mathbf{u}_c\)</span> is the curvature drift of particles and reduces to <span class="math inline">\(\mathbf{u}_c \sim(mv_\parallel^2/qB)(\hat{b}\times\pmb{\kappa})\)</span>, where <span class="math inline">\(\pmb{\kappa}=\hat{b}\cdot\nabla\hat{b}\)</span> is the magnetic field curvature and <span class="math inline">\(\hat{b}\)</span> is the unit vector in the direction of <span class="math inline">\(\mathbf{B}\)</span>. The terms on the right-hand side represent energy gain by the parallel electric field, betatron heating, Fermi acceleration, and the polarization drift respectively. The first three mechanisms are sketched in <a href="#fig-particle_acceleration_reconnection">Figure&nbsp;<span>4.4</span></a>. The polarization drift is particularly important for lower-energy ions, and this terms accounts for the kinetic ennergy gain in the large-scale reconnection outflow jets. Although <a href="#eq-particle_energization_nonrelativistic">Equation&nbsp;<span>4.35</span></a> is valid in the non-relativistic limit, the same basic acceleration mechanisms are responsible for energizing particles in more extreme relativistic contexts relevant to astrophysical systems.</p>
-<div>
+\tag{4.35}\]</span></span> where <span class="math inline">\(\mathcal{E}\)</span> is the energy of a particle, <span class="math inline">\(\mathbf{u}_E\)</span> is the <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift velocity, <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}=\frac{\partial}{\partial t} + \mathbf{u}_E\cdot\nabla\)</span>, <span class="math inline">\(E_\parallel\)</span> is the parallel electric field, and <span class="math inline">\(v_\parallel\)</span> is the drift-corrected guiding center parallel velocity. For slowly varying fields, <span class="math inline">\(\mathbf{u}_c\)</span> is the curvature drift of particles and reduces to <span class="math inline">\(\mathbf{u}_c \sim(mv_\parallel^2/qB)(\hat{b}\times\pmb{\kappa})\)</span>, where <span class="math inline">\(\pmb{\kappa}=\hat{b}\cdot\nabla\hat{b}\)</span> is the magnetic field curvature and <span class="math inline">\(\hat{b}\)</span> is the unit vector in the direction of <span class="math inline">\(\mathbf{B}\)</span>. The terms on the right-hand side represent energy gain by the parallel electric field, betatron heating, Fermi acceleration, and the polarization drift respectively. The first three mechanisms are sketched in <a href="#fig-particle_acceleration_reconnection">Figure&nbsp;<span>4.4</span></a>. The polarization drift is particularly important for lower-energy ions, and this terms accounts for the kinetic ennergy gain in the large-scale reconnection outflow jets. Although <a href="#eq-particle_energization_nonrelativistic">Equation&nbsp;<span>4.35</span></a> is valid in the non-relativistic limit, the same basic acceleration mechanisms are responsible for energizing particles in more extreme relativistic contexts relevant to astrophysical systems.</p>
 <div id="fig-particle_acceleration_reconnection" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs42254-021-00419-x/MediaObjects/42254_2021_419_Fig5_HTML.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4.4: Illustration of particle acceleration mechanisms. The reconnection electric field is along the <span class="math inline">\(y\)</span> direction. Acceleration by the reconnection electric field occurs near the X-line, which is associated with the Speiser orbit, and by parallel electric field near separatrices, which are boundaries between upstream (before-reconnection) and downstream (after-reconnection) regions. When particles near the X-line interact with the parallel electric field, ions (electrons) are accelerated along the (opposite) direction of the field, and the direct acceleration term <span class="math inline">\(qE_\parallel v_\parallel\)</span> (the first term on the right side of <a href="#eq-particle_energization_nonrelativistic">Equation&nbsp;<span>4.35</span></a>) is positive. The betatron acceleration mechanism happens when particles flow into the stronger magnetic field regions in the exhaust. In this example trajectory, particles move along the positive z direction by the EEE × BBB motion and <span class="math inline">\(\nabla B\)</span> is also along the positive z direction. As a result, the second term of <a href="#eq-particle_energization_nonrelativistic">Equation&nbsp;<span>4.35</span></a> is positive. Fermi acceleration occurs in the regions with high-curvature magnetic field lines. In this example, plasmoids are elongated along the <span class="math inline">\(z\)</span> direction, such that the field lines have the highest curvature at <span class="math inline">\(x = 0\)</span>. Inside the plasmoid, particles obtain a large velocity kick along the <span class="math inline">\(y\)</span> direction due to a large curvature drift and obtain a significant energy from the reconnection electric field (<span class="math inline">\(q\mathbf{E}\cdot\mathbf{u}_c &gt; 0\)</span>). In the exhaust region, trapped particles gain energy whenever they pass the high curvature regions at <span class="math inline">\(x = 0\)</span>. di is ion skin depth. Figure 5 from <span class="citation" data-cites="ji2022magnetic">(<a href="#ref-ji2022magnetic" role="doc-biblioref">Ji et al. 2022</a>)</span></figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;4.4: Illustration of particle acceleration mechanisms. The reconnection electric field is along the <span class="math inline">\(y\)</span> direction. Acceleration by the reconnection electric field occurs near the X-line, which is associated with the Speiser orbit, and by parallel electric field near separatrices, which are boundaries between upstream (before-reconnection) and downstream (after-reconnection) regions. When particles near the X-line interact with the parallel electric field, ions (electrons) are accelerated along the (opposite) direction of the field, and the direct acceleration term <span class="math inline">\(qE_\parallel v_\parallel\)</span> (the first term on the right side of <a href="#eq-particle_energization_nonrelativistic">Equation&nbsp;<span>4.35</span></a>) is positive. The betatron acceleration mechanism happens when particles flow into the stronger magnetic field regions in the exhaust. In this example trajectory, particles move along the positive z direction by the EEE × BBB motion and <span class="math inline">\(\nabla B\)</span> is also along the positive z direction. As a result, the second term of <a href="#eq-particle_energization_nonrelativistic">Equation&nbsp;<span>4.35</span></a> is positive. Fermi acceleration occurs in the regions with high-curvature magnetic field lines. In this example, plasmoids are elongated along the <span class="math inline">\(z\)</span> direction, such that the field lines have the highest curvature at <span class="math inline">\(x = 0\)</span>. Inside the plasmoid, particles obtain a large velocity kick along the <span class="math inline">\(y\)</span> direction due to a large curvature drift and obtain a significant energy from the reconnection electric field (<span class="math inline">\(q\mathbf{E}\cdot\mathbf{u}_c &gt; 0\)</span>). In the exhaust region, trapped particles gain energy whenever they pass the high curvature regions at <span class="math inline">\(x = 0\)</span>. di is ion skin depth. Figure 5 from <span class="citation" data-cites="ji2022magnetic">(<a href="#ref-ji2022magnetic" role="doc-biblioref">Ji et al. 2022</a>)</span></figcaption>
 </figure>
-</div>
 </div>
 <p>Particles gain energy when their drift induced by the curvature of the magnetic field lines is aligned with the reconnection electric field, which is a form of Fermi heating. Fermi acceleration may resolve two major challenges for heating models. First, it may operate over large volumes in the presence of many magnetic islands or plasmoids, which may be sampled by electrons in the presence of 3D ergodic field lines. There are several space observations of energetic electrons near magnetic islands or plasmoids. Second, the Fermi process naturally generates power laws because a particle undergoing Fermi acceleration gains energy at a rate proportional to its energy, <span class="math inline">\(\delta\mathcal{E}\propto \mathcal{E}\)</span>. In the non-relativistic limit, adiabatic particle energization by Fermi acceleration along with the other heating mechanisms for magnetized particles leads to a Parker-like transport equation for the distribution <span class="math inline">\(f(v_\parallel, v_\perp)\)</span> of particles within a magnetic flux tube including time-varying plasma density <span class="math inline">\(n\)</span> and magnetic field <span class="math inline">\(\mathbf{B}\)</span>:</p>
 <p><span id="eq-parker_transport"><span class="math display">\[
@@ -1138,8 +1170,8 @@ L^\ast = \frac{2\pi M}{|\phi|R_E} = \frac{2\pi B_{eq}R_E^2}{|\phi|}
 </ol>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-ji2022magnetic" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-ji2022magnetic" class="csl-entry" role="listitem">
 Ji, Hantao, William Daughton, Jonathan Jara-Almonte, Ari Le, Adam Stanier, and Jongsoo Yoo. 2022. <span>“Magnetic Reconnection in the Era of Exascale Computing and Multiscale Experiments.”</span> <em>Nature Reviews Physics</em> 4 (4): 263–82. <a href="https://doi.org/10.1038/s42254-021-00419-x">https://doi.org/10.1038/s42254-021-00419-x</a>.
 </div>
 </div>
@@ -1295,9 +1327,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1362,6 +1408,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

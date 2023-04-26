@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,48 +47,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -101,8 +73,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -145,6 +116,7 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -153,11 +125,16 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/flr.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -165,188 +142,218 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/about.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></a>
+  <a href="../contents/about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></a>
+  <a href="../contents/math.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/single.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></a>
+  <a href="../contents/single.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></a>
+  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></a>
+  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></a>
+  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></a>
+  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></a>
+  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></a>
+  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></a>
+  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></a>
+  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></a>
+  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></a>
+  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></a>
+  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></a>
+  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></a>
+  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></a>
+  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></a>
+  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></a>
+  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></a>
+  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></a>
+  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></a>
+  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></a>
+  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></a>
+  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/test.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></a>
+  <a href="../contents/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">Appendix</a>
+  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></a>
+  <a href="../contents/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#historial-review" id="toc-historial-review" class="nav-link active" data-scroll-target="#historial-review"><span class="toc-section-number">12.1</span>  Historial Review</a></li>
-  <li><a href="#theory" id="toc-theory" class="nav-link" data-scroll-target="#theory"><span class="toc-section-number">12.2</span>  Theory</a>
+  <li><a href="#historial-review" id="toc-historial-review" class="nav-link active" data-scroll-target="#historial-review"><span class="header-section-number">12.1</span> Historial Review</a></li>
+  <li><a href="#theory" id="toc-theory" class="nav-link" data-scroll-target="#theory"><span class="header-section-number">12.2</span> Theory</a>
   <ul class="collapse">
-  <li><a href="#axisymmetric-spherical-coordinates" id="toc-axisymmetric-spherical-coordinates" class="nav-link" data-scroll-target="#axisymmetric-spherical-coordinates"><span class="toc-section-number">12.2.1</span>  Axisymmetric Spherical Coordinates</a></li>
-  <li><a href="#cylindrical-coordinates" id="toc-cylindrical-coordinates" class="nav-link" data-scroll-target="#cylindrical-coordinates"><span class="toc-section-number">12.2.2</span>  Cylindrical Coordinates</a></li>
-  <li><a href="#cartesian-box-model" id="toc-cartesian-box-model" class="nav-link" data-scroll-target="#cartesian-box-model"><span class="toc-section-number">12.2.3</span>  Cartesian Box Model</a></li>
+  <li><a href="#axisymmetric-spherical-coordinates" id="toc-axisymmetric-spherical-coordinates" class="nav-link" data-scroll-target="#axisymmetric-spherical-coordinates"><span class="header-section-number">12.2.1</span> Axisymmetric Spherical Coordinates</a></li>
+  <li><a href="#cylindrical-coordinates" id="toc-cylindrical-coordinates" class="nav-link" data-scroll-target="#cylindrical-coordinates"><span class="header-section-number">12.2.2</span> Cylindrical Coordinates</a></li>
+  <li><a href="#cartesian-box-model" id="toc-cartesian-box-model" class="nav-link" data-scroll-target="#cartesian-box-model"><span class="header-section-number">12.2.3</span> Cartesian Box Model</a></li>
   </ul></li>
-  <li><a href="#energy-consideration" id="toc-energy-consideration" class="nav-link" data-scroll-target="#energy-consideration"><span class="toc-section-number">12.3</span>  Energy Consideration</a></li>
-  <li><a href="#sec-flr-nonMHD" id="toc-sec-flr-nonMHD" class="nav-link" data-scroll-target="#sec-flr-nonMHD"><span class="toc-section-number">12.4</span>  Non-MHD Effects</a></li>
-  <li><a href="#nonlinear-effects" id="toc-nonlinear-effects" class="nav-link" data-scroll-target="#nonlinear-effects"><span class="toc-section-number">12.5</span>  Nonlinear Effects</a></li>
-  <li><a href="#d-flr" id="toc-d-flr" class="nav-link" data-scroll-target="#d-flr"><span class="toc-section-number">12.6</span>  3D FLR</a></li>
+  <li><a href="#energy-consideration" id="toc-energy-consideration" class="nav-link" data-scroll-target="#energy-consideration"><span class="header-section-number">12.3</span> Energy Consideration</a></li>
+  <li><a href="#sec-flr-nonMHD" id="toc-sec-flr-nonMHD" class="nav-link" data-scroll-target="#sec-flr-nonMHD"><span class="header-section-number">12.4</span> Non-MHD Effects</a></li>
+  <li><a href="#nonlinear-effects" id="toc-nonlinear-effects" class="nav-link" data-scroll-target="#nonlinear-effects"><span class="header-section-number">12.5</span> Nonlinear Effects</a></li>
+  <li><a href="#d-flr" id="toc-d-flr" class="nav-link" data-scroll-target="#d-flr"><span class="header-section-number">12.6</span> 3D FLR</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/flr.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -355,7 +362,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-flr" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></h1>
+<h1 class="title"><span id="sec-flr" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></h1>
 </div>
 
 
@@ -470,7 +477,7 @@ a_{l-2} &amp;= \frac{3(l-2)(l-1)}{2(2l-3)(2l-1)}
 <div id="fig-flr_harmonics" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/FLR_toroidal_poloidal_harmonics.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;12.1: Cartoons showing the oscillation of a field line in the two lowest frequency toroidal modes (left) and poloidal modes (right). On the left the field line is drawn stretched out from north to south, and we look towards the Earth as the field line is displaced east and west. On the right, the dipolar field line is displaced within its meridian plane so all magnetic perturbations are radial. Note that for the toroidal mode, the magnetic perturbations (AD) have the opposite sense north and south in the fundamental and the same sense in the second harmonic. The opposite is true of the AH perturbation in the poloidal mode.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;12.1: Cartoons showing the oscillation of a field line in the two lowest frequency toroidal modes (left) and poloidal modes (right). On the left the field line is drawn stretched out from north to south, and we look towards the Earth as the field line is displaced east and west. On the right, the dipolar field line is displaced within its meridian plane so all magnetic perturbations are radial. Note that for the toroidal mode, the magnetic perturbations (AD) have the opposite sense north and south in the fundamental and the same sense in the second harmonic. The opposite is true of the AH perturbation in the poloidal mode.</figcaption>
 </figure>
 </div>
 <p>From the boundary condition, the length <span class="math inline">\(l\)</span> of the field line between two reflection point must be a multiple of half the wavelength <span class="math inline">\(\lambda\)</span>, implying <span class="math display">\[
@@ -500,13 +507,13 @@ i\omega \mathbf{B}_0\cdot\mathbf{B}_1 = \frac{1}{r}(\mathbf{B}\times\nabla)_\phi
 <div id="fig-box_mapping" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/box_model_mapping.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;12.2: From one of Southwood &amp; Kivelson’s paper.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;12.2: From one of Southwood &amp; Kivelson’s paper.</figcaption>
 </figure>
 </div>
 <div id="fig-box_config" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/box_model_config.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;12.3: From one of Southwood &amp; Kivelson’s paper.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;12.3: From one of Southwood &amp; Kivelson’s paper.</figcaption>
 </figure>
 </div>
 <p>Along the <span class="math inline">\(z\)</span>-direction, we impose the ionospheric boundary for closed field lines <span class="math inline">\(u_x = u_y = B_{1z} = 0\)</span>. Because of the ideal MHD assumption, the electric field along the field lines <span class="math inline">\(E_z = 0\)</span>. In the <span class="math inline">\(y\)</span>-direction, we impose either a periodic boundary condition for the cavity model that leads to a quantized wavenumber <span class="math inline">\(k_y\)</span>, or a infinite boundary. In the <span class="math inline">\(x\)</span> direction, the boundaries are provided by large <span class="math inline">\(V_A\)</span> gradients at both the outer boundary <span class="math inline">\(x_m\)</span> (magnetopause) and the inner boundary <span class="math inline">\(x_t\)</span> (plasmapause). We impose a reflective boundary <span class="math inline">\(u_x = 0\)</span> at <span class="math inline">\(x = x_t, x_m\)</span>. <em>The inhomogeity in <span class="math inline">\(x\)</span> means that we can only consider Fourier components in the <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> directions</em>. Therefore, we seek wave modes of the form <span class="math inline">\(\propto \exp[i(k_y y + k_z z - \omega t)]\)</span> with the ansatz</p>
@@ -602,7 +609,7 @@ B_{1z} &amp;= \frac{1}{\omega}\Big(-i\frac{\partial E_y}{\partial x} - k_y E_x\B
 <div id="fig-flr_polarization" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/FLR_ground_Pc5_1974.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;12.4: The variation of amplitude and the sense of polarization of Pc5’s seen at high latitudes with latitude and magnetic local time. (After [Samson +, 1974].)</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;12.4: The variation of amplitude and the sense of polarization of Pc5’s seen at high latitudes with latitude and magnetic local time. (After [Samson +, 1974].)</figcaption>
 </figure>
 </div>
 <p><a href="#eq-flr_wave_ey">Equation&nbsp;<span>12.8</span></a> can also be written as a second order differential equation of <span class="math inline">\(B_{1z}\)</span>, the compressional component of the magnetic field (see <a href="math.html#eq-perturb_b">Equation&nbsp;<span>3.6</span></a>), as <span class="citation" data-cites="kivelson1985resonant">(<a href="#ref-kivelson1985resonant" role="doc-biblioref">Kivelson and Southwood 1985</a>)</span> did in proposing the idea of cavity modes: <span class="math display">\[
@@ -649,7 +656,7 @@ s_t(x) = 1 + \frac{1}{2}R_t(x)\ln(x_r - x) + \mathcal{O}[(x-x_r)^2]
 <div id="fig-flr_b1z_solutions" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/b1z_solutions.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;12.5: Two independent solutions of <a href="#eq-flr_bz_perturbation">Equation&nbsp;<span>12.13</span></a> for <span class="math inline">\(x &gt; x_r\)</span>. The particular pair illustrated are solutions for the case <span class="math inline">\(\lambda^2/\alpha^{4/3}=1\)</span> for which <span class="math inline">\(x_t/x_r = 2\)</span>. The dashed curve is the solution that is analytic at the singular point (cf. <a href="#eq-flr_bz_analytic">Equation&nbsp;<span>12.14</span></a>). The solution plotted as a solid curve is finite at the singularity with infinite derivatives as evident from <a href="#eq-flr_bz_singular">Equation&nbsp;<span>12.15</span></a>. Amplitudes have been selected to match at large <span class="math inline">\(x\)</span> where the oscillating solutions are in spatial quadrature.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;12.5: Two independent solutions of <a href="#eq-flr_bz_perturbation">Equation&nbsp;<span>12.13</span></a> for <span class="math inline">\(x &gt; x_r\)</span>. The particular pair illustrated are solutions for the case <span class="math inline">\(\lambda^2/\alpha^{4/3}=1\)</span> for which <span class="math inline">\(x_t/x_r = 2\)</span>. The dashed curve is the solution that is analytic at the singular point (cf. <a href="#eq-flr_bz_analytic">Equation&nbsp;<span>12.14</span></a>). The solution plotted as a solid curve is finite at the singularity with infinite derivatives as evident from <a href="#eq-flr_bz_singular">Equation&nbsp;<span>12.15</span></a>. Amplitudes have been selected to match at large <span class="math inline">\(x\)</span> where the oscillating solutions are in spatial quadrature.</figcaption>
 </figure>
 </div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode jl code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@sco</span> KeyNotes.<span class="fu">plot_b1z_ode</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -657,7 +664,7 @@ s_t(x) = 1 + \frac{1}{2}R_t(x)\ln(x_r - x) + \mathcal{O}[(x-x_r)^2]
 <div id="fig-flr_schematic" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/FLR_schematic.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;12.6: Schematic view of the field line resonance, driven by unstable surface wave.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;12.6: Schematic view of the field line resonance, driven by unstable surface wave.</figcaption>
 </figure>
 </div>
 <p><a href="#eq-flr_wave_bz">Equation&nbsp;<span>12.10</span></a> has a long history that appeared first in the context of a radio wave obliquely incident on a region of increasing electron density, all the way back to 1951, as mentioned in <span class="citation" data-cites="kivelson1986coupling">(<a href="#ref-kivelson1986coupling" role="doc-biblioref">Kivelson and Southwood 1986</a>)</span>. It also appears in calculating the absorption of laser energy by a plasma and heating a plasma by radio wave injection to excite internal Alfvén waves. Energy is absorbed at the location in the plasma corresponding to the singular point of the governing differential <a href="#eq-flr_wave_bz">Equation&nbsp;<span>12.10</span></a> or its equivalent. Without the introduction of additional effects such as dissipation or dispersion near resonance, the singularity in the differential equation implies that the amplitude of the Alfvén wave grows secularly.</p>
@@ -724,13 +731,13 @@ B_{1z}(x) = A k_x^{-1/2} e^{i\int k_x dx} + B k_x^{-1/2}e^{-i\int k_x dx}
 <div id="fig-flr_wright" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/FLR_waveguides_Wright.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;12.7: From Wright 1992.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;12.7: From Wright 1992.</figcaption>
 </figure>
 </div>
 <div id="fig-flr_samson" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/FLR_waveguides_Samson.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;12.8: From <span class="citation" data-cites="samson1992field">(<a href="#ref-samson1992field" role="doc-biblioref">Samson et al. 1992</a>)</span>.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;12.8: From <span class="citation" data-cites="samson1992field">(<a href="#ref-samson1992field" role="doc-biblioref">Samson et al. 1992</a>)</span>.</figcaption>
 </figure>
 </div>
 <p><strong>Driven FLR vs Cavity Modes vs Waveguide Modes</strong></p>
@@ -809,35 +816,35 @@ k_\parallel^2 v_A^2 \left[ 1 + \left(1+\frac{T_e}{T_i}\right)k_\perp^2 r_{iL}^2 
 <h2 data-number="12.6" class="anchored" data-anchor-id="d-flr"><span class="header-section-number">12.6</span> 3D FLR</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-glassmeier1999" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-glassmeier1999" class="csl-entry" role="listitem">
 Glassmeier, Karl-Heinz, Carsten Othmer, Rüdiger Cramm, Martin Stellmacher, and Mark Engebretson. 1999. <span>“Magnetospheric Field Line Resonances: A Comparative Planetology Approach.”</span> <em>Surveys in Geophysics</em> 20 (1): 61–109. <a href="https://doi.org/10.1023/A:1006659717963">https://doi.org/10.1023/A:1006659717963</a>.
 </div>
-<div id="ref-hughes1994" class="csl-entry" role="doc-biblioentry">
+<div id="ref-hughes1994" class="csl-entry" role="listitem">
 Hughes, W Jeffrey. 1994. <span>“Magnetospheric ULF Waves: A Tutorial with a Historical Perspective.”</span> <em>Solar Wind Sources of Magnetospheric Ultra-Low-Frequency Waves</em> 81: 1–11. <a href="https://doi.org/10.1029/GM081p0001">https://doi.org/10.1029/GM081p0001</a>.
 </div>
-<div id="ref-karney1979alfven" class="csl-entry" role="doc-biblioentry">
+<div id="ref-karney1979alfven" class="csl-entry" role="listitem">
 Karney, CFF, FW Perkins, and Y-C Sun. 1979. <span>“Alfven Resonance Effects on Magnetosonic Modes in Large Tokamaks.”</span> <em>Physical Review Letters</em> 42 (24): 1621. <a href="https://doi.org/10.1103/PhysRevLett.42.1621">https://doi.org/10.1103/PhysRevLett.42.1621</a>.
 </div>
-<div id="ref-kivelson1985resonant" class="csl-entry" role="doc-biblioentry">
+<div id="ref-kivelson1985resonant" class="csl-entry" role="listitem">
 Kivelson, Margaret G, and David J Southwood. 1985. <span>“Resonant ULF Waves: A New Interpretation.”</span> <em>Geophysical Research Letters</em> 12 (1): 49–52. <a href="https://doi.org/10.1029/GL012i001p00049">https://doi.org/10.1029/GL012i001p00049</a>.
 </div>
-<div id="ref-kivelson1986coupling" class="csl-entry" role="doc-biblioentry">
+<div id="ref-kivelson1986coupling" class="csl-entry" role="listitem">
 ———. 1986. <span>“Coupling of Global Magnetospheric MHD Eigenmodes to Field Line Resonances.”</span> <em>Journal of Geophysical Research: Space Physics</em> 91 (A4): 4345–51. <a href="https://doi.org/10.1029/JA091iA04p04345">https://doi.org/10.1029/JA091iA04p04345</a>.
 </div>
-<div id="ref-radoski1966" class="csl-entry" role="doc-biblioentry">
+<div id="ref-radoski1966" class="csl-entry" role="listitem">
 Radoski, Henry R, and Robert L Carovillano. 1966. <span>“Axisymmetric Plasmasphere Resonances: Toroidal Mode.”</span> <em>The Physics of Fluids</em> 9 (2): 285–91. <a href="https://doi.org/10.1063/1.1761671">https://doi.org/10.1063/1.1761671</a>.
 </div>
-<div id="ref-samson1992field" class="csl-entry" role="doc-biblioentry">
+<div id="ref-samson1992field" class="csl-entry" role="listitem">
 Samson, JC, BG Harrold, JM Ruohoniemi, RA Greenwald, and ADM Walker. 1992. <span>“Field Line Resonances Associated with MHD Waveguides in the Magnetosphere.”</span> <em>Geophysical Research Letters</em> 19 (5): 441–44. <a href="https://doi.org/10.1029/92GL00116">https://doi.org/10.1029/92GL00116</a>.
 </div>
-<div id="ref-walker1992spatial" class="csl-entry" role="doc-biblioentry">
+<div id="ref-walker1992spatial" class="csl-entry" role="listitem">
 Walker, ADM, Jo M Ruohoniemi, KB Baker, RA Greenwald, and JC Samson. 1992. <span>“Spatial and Temporal Behavior of ULF Pulsations Observed by the Goose Bay HF Radar.”</span> <em>Journal of Geophysical Research: Space Physics</em> 97 (A8): 12187–202. <a href="https://doi.org/10.1029/92JA00329">https://doi.org/10.1029/92JA00329</a>.
 </div>
-<div id="ref-wright1994" class="csl-entry" role="doc-biblioentry">
+<div id="ref-wright1994" class="csl-entry" role="listitem">
 Wright, Andrew N. 1994. <span>“Dispersion and Wave Coupling in Inhomogeneous MHD Waveguides.”</span> <em>Journal of Geophysical Research: Space Physics</em> 99 (A1): 159–67. <a href="https://doi.org/10.1029/93JA02206">https://doi.org/10.1029/93JA02206</a>.
 </div>
-<div id="ref-zong2017interaction" class="csl-entry" role="doc-biblioentry">
+<div id="ref-zong2017interaction" class="csl-entry" role="listitem">
 Zong, Qiugang, Robert Rankin, and Xuzhi Zhou. 2017. <span>“The Interaction of Ultra-Low-Frequency Pc3-5 Waves with Charged Particles in Earth’s Magnetosphere.”</span> <em>Reviews of Modern Plasma Physics</em> 1: 1–90. <a href="https://doi.org/10.1007/s41614-017-0011-4">https://doi.org/10.1007/s41614-017-0011-4</a>.
 </div>
 </div>
@@ -992,9 +999,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1059,6 +1080,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

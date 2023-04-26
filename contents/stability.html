@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,48 +47,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -101,8 +73,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -145,6 +116,7 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -153,11 +125,16 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/stability.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -165,232 +142,262 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/about.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></a>
+  <a href="../contents/about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></a>
+  <a href="../contents/math.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/single.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></a>
+  <a href="../contents/single.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></a>
+  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></a>
+  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></a>
+  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></a>
+  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></a>
+  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></a>
+  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></a>
+  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></a>
+  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></a>
+  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></a>
+  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></a>
+  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></a>
+  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></a>
+  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></a>
+  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></a>
+  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></a>
+  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></a>
+  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></a>
+  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></a>
+  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></a>
+  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></a>
+  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/test.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></a>
+  <a href="../contents/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">Appendix</a>
+  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></a>
+  <a href="../contents/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#analogy-of-the-energy-principle" id="toc-analogy-of-the-energy-principle" class="nav-link active" data-scroll-target="#analogy-of-the-energy-principle"><span class="toc-section-number">9.1</span>  Analogy of the Energy Principle</a></li>
-  <li><a href="#sec-particle_motion_instability" id="toc-sec-particle_motion_instability" class="nav-link" data-scroll-target="#sec-particle_motion_instability"><span class="toc-section-number">9.2</span>  Implication of Single Particle Motion on Instabilities</a>
+  <li><a href="#analogy-of-the-energy-principle" id="toc-analogy-of-the-energy-principle" class="nav-link active" data-scroll-target="#analogy-of-the-energy-principle"><span class="header-section-number">9.1</span> Analogy of the Energy Principle</a></li>
+  <li><a href="#sec-particle_motion_instability" id="toc-sec-particle_motion_instability" class="nav-link" data-scroll-target="#sec-particle_motion_instability"><span class="header-section-number">9.2</span> Implication of Single Particle Motion on Instabilities</a>
   <ul class="collapse">
-  <li><a href="#equilibrium-stability-of-a-plasma-from-drifts" id="toc-equilibrium-stability-of-a-plasma-from-drifts" class="nav-link" data-scroll-target="#equilibrium-stability-of-a-plasma-from-drifts"><span class="toc-section-number">9.2.1</span>  Equilibrium stability of a plasma from drifts</a></li>
-  <li><a href="#sec-single_particle_instability" id="toc-sec-single_particle_instability" class="nav-link" data-scroll-target="#sec-single_particle_instability"><span class="toc-section-number">9.2.2</span>  Stability of magnetic mirror in the scope of single particle motion</a></li>
-  <li><a href="#stability-in-the-tokamak" id="toc-stability-in-the-tokamak" class="nav-link" data-scroll-target="#stability-in-the-tokamak"><span class="toc-section-number">9.2.3</span>  Stability in the Tokamak</a></li>
+  <li><a href="#equilibrium-stability-of-a-plasma-from-drifts" id="toc-equilibrium-stability-of-a-plasma-from-drifts" class="nav-link" data-scroll-target="#equilibrium-stability-of-a-plasma-from-drifts"><span class="header-section-number">9.2.1</span> Equilibrium stability of a plasma from drifts</a></li>
+  <li><a href="#sec-single_particle_instability" id="toc-sec-single_particle_instability" class="nav-link" data-scroll-target="#sec-single_particle_instability"><span class="header-section-number">9.2.2</span> Stability of magnetic mirror in the scope of single particle motion</a></li>
+  <li><a href="#stability-in-the-tokamak" id="toc-stability-in-the-tokamak" class="nav-link" data-scroll-target="#stability-in-the-tokamak"><span class="header-section-number">9.2.3</span> Stability in the Tokamak</a></li>
   </ul></li>
-  <li><a href="#two-stream-instability" id="toc-two-stream-instability" class="nav-link" data-scroll-target="#two-stream-instability"><span class="toc-section-number">9.3</span>  Two-Stream Instability</a></li>
-  <li><a href="#sec-RT" id="toc-sec-RT" class="nav-link" data-scroll-target="#sec-RT"><span class="toc-section-number">9.4</span>  Rayleigh-Taylor Instability</a>
+  <li><a href="#two-stream-instability" id="toc-two-stream-instability" class="nav-link" data-scroll-target="#two-stream-instability"><span class="header-section-number">9.3</span> Two-Stream Instability</a></li>
+  <li><a href="#sec-RT" id="toc-sec-RT" class="nav-link" data-scroll-target="#sec-RT"><span class="header-section-number">9.4</span> Rayleigh-Taylor Instability</a>
   <ul class="collapse">
-  <li><a href="#fluid-diffuse-boundary-model" id="toc-fluid-diffuse-boundary-model" class="nav-link" data-scroll-target="#fluid-diffuse-boundary-model"><span class="toc-section-number">9.4.1</span>  2-Fluid Diffuse Boundary Model</a></li>
-  <li><a href="#single-fluid-mhd-method" id="toc-single-fluid-mhd-method" class="nav-link" data-scroll-target="#single-fluid-mhd-method"><span class="toc-section-number">9.4.2</span>  Single fluid MHD method</a></li>
-  <li><a href="#fluid-sharp-boundary-model" id="toc-fluid-sharp-boundary-model" class="nav-link" data-scroll-target="#fluid-sharp-boundary-model"><span class="toc-section-number">9.4.3</span>  2-fluid sharp boundary model</a></li>
+  <li><a href="#fluid-diffuse-boundary-model" id="toc-fluid-diffuse-boundary-model" class="nav-link" data-scroll-target="#fluid-diffuse-boundary-model"><span class="header-section-number">9.4.1</span> 2-Fluid Diffuse Boundary Model</a></li>
+  <li><a href="#single-fluid-mhd-method" id="toc-single-fluid-mhd-method" class="nav-link" data-scroll-target="#single-fluid-mhd-method"><span class="header-section-number">9.4.2</span> Single fluid MHD method</a></li>
+  <li><a href="#fluid-sharp-boundary-model" id="toc-fluid-sharp-boundary-model" class="nav-link" data-scroll-target="#fluid-sharp-boundary-model"><span class="header-section-number">9.4.3</span> 2-fluid sharp boundary model</a></li>
   </ul></li>
-  <li><a href="#sec-KH" id="toc-sec-KH" class="nav-link" data-scroll-target="#sec-KH"><span class="toc-section-number">9.5</span>  Kelvin-Helmholtz instability</a>
+  <li><a href="#sec-KH" id="toc-sec-KH" class="nav-link" data-scroll-target="#sec-KH"><span class="header-section-number">9.5</span> Kelvin-Helmholtz instability</a>
   <ul class="collapse">
-  <li><a href="#diocotron-instability-on-electron-sheet" id="toc-diocotron-instability-on-electron-sheet" class="nav-link" data-scroll-target="#diocotron-instability-on-electron-sheet"><span class="toc-section-number">9.5.1</span>  Diocotron instability on electron sheet</a></li>
+  <li><a href="#diocotron-instability-on-electron-sheet" id="toc-diocotron-instability-on-electron-sheet" class="nav-link" data-scroll-target="#diocotron-instability-on-electron-sheet"><span class="header-section-number">9.5.1</span> Diocotron instability on electron sheet</a></li>
   </ul></li>
-  <li><a href="#mhd-stability" id="toc-mhd-stability" class="nav-link" data-scroll-target="#mhd-stability"><span class="toc-section-number">9.6</span>  MHD Stability</a>
+  <li><a href="#mhd-stability" id="toc-mhd-stability" class="nav-link" data-scroll-target="#mhd-stability"><span class="header-section-number">9.6</span> MHD Stability</a>
   <ul class="collapse">
-  <li><a href="#sec-harris_cs" id="toc-sec-harris_cs" class="nav-link" data-scroll-target="#sec-harris_cs"><span class="toc-section-number">9.6.1</span>  Harris Current Sheet</a></li>
-  <li><a href="#θ-pinch-and-z-pinch" id="toc-θ-pinch-and-z-pinch" class="nav-link" data-scroll-target="#θ-pinch-and-z-pinch"><span class="toc-section-number">9.6.2</span>  θ-Pinch and Z-Pinch</a></li>
-  <li><a href="#force-free-field" id="toc-force-free-field" class="nav-link" data-scroll-target="#force-free-field"><span class="toc-section-number">9.6.3</span>  Force-Free Field</a></li>
+  <li><a href="#sec-harris_cs" id="toc-sec-harris_cs" class="nav-link" data-scroll-target="#sec-harris_cs"><span class="header-section-number">9.6.1</span> Harris Current Sheet</a></li>
+  <li><a href="#θ-pinch-and-z-pinch" id="toc-θ-pinch-and-z-pinch" class="nav-link" data-scroll-target="#θ-pinch-and-z-pinch"><span class="header-section-number">9.6.2</span> θ-Pinch and Z-Pinch</a></li>
+  <li><a href="#force-free-field" id="toc-force-free-field" class="nav-link" data-scroll-target="#force-free-field"><span class="header-section-number">9.6.3</span> Force-Free Field</a></li>
   </ul></li>
-  <li><a href="#mhd-modes" id="toc-mhd-modes" class="nav-link" data-scroll-target="#mhd-modes"><span class="toc-section-number">9.7</span>  MHD Modes</a>
+  <li><a href="#mhd-modes" id="toc-mhd-modes" class="nav-link" data-scroll-target="#mhd-modes"><span class="header-section-number">9.7</span> MHD Modes</a>
   <ul class="collapse">
-  <li><a href="#kink-mode" id="toc-kink-mode" class="nav-link" data-scroll-target="#kink-mode"><span class="toc-section-number">9.7.1</span>  Kink Mode</a></li>
-  <li><a href="#sausage-mode" id="toc-sausage-mode" class="nav-link" data-scroll-target="#sausage-mode"><span class="toc-section-number">9.7.2</span>  Sausage Mode</a></li>
-  <li><a href="#kink-mode-1" id="toc-kink-mode-1" class="nav-link" data-scroll-target="#kink-mode-1"><span class="toc-section-number">9.7.3</span>  Kink Mode</a></li>
-  <li><a href="#sec-ballooning" id="toc-sec-ballooning" class="nav-link" data-scroll-target="#sec-ballooning"><span class="toc-section-number">9.7.4</span>  Ballooning Mode</a></li>
-  <li><a href="#sec-tearing" id="toc-sec-tearing" class="nav-link" data-scroll-target="#sec-tearing"><span class="toc-section-number">9.7.5</span>  Tearing Mode</a></li>
+  <li><a href="#kink-mode" id="toc-kink-mode" class="nav-link" data-scroll-target="#kink-mode"><span class="header-section-number">9.7.1</span> Kink Mode</a></li>
+  <li><a href="#sausage-mode" id="toc-sausage-mode" class="nav-link" data-scroll-target="#sausage-mode"><span class="header-section-number">9.7.2</span> Sausage Mode</a></li>
+  <li><a href="#kink-mode-1" id="toc-kink-mode-1" class="nav-link" data-scroll-target="#kink-mode-1"><span class="header-section-number">9.7.3</span> Kink Mode</a></li>
+  <li><a href="#sec-ballooning" id="toc-sec-ballooning" class="nav-link" data-scroll-target="#sec-ballooning"><span class="header-section-number">9.7.4</span> Ballooning Mode</a></li>
+  <li><a href="#sec-tearing" id="toc-sec-tearing" class="nav-link" data-scroll-target="#sec-tearing"><span class="header-section-number">9.7.5</span> Tearing Mode</a></li>
   </ul></li>
-  <li><a href="#sec-reconnection" id="toc-sec-reconnection" class="nav-link" data-scroll-target="#sec-reconnection"><span class="toc-section-number">9.8</span>  Magnetic Reconnection</a>
+  <li><a href="#sec-reconnection" id="toc-sec-reconnection" class="nav-link" data-scroll-target="#sec-reconnection"><span class="header-section-number">9.8</span> Magnetic Reconnection</a>
   <ul class="collapse">
-  <li><a href="#reconnection-rate" id="toc-reconnection-rate" class="nav-link" data-scroll-target="#reconnection-rate"><span class="toc-section-number">9.8.1</span>  Reconnection Rate</a></li>
-  <li><a href="#hall-field" id="toc-hall-field" class="nav-link" data-scroll-target="#hall-field"><span class="toc-section-number">9.8.2</span>  Hall Field</a></li>
-  <li><a href="#kinetic-signatures-of-diffusion-region" id="toc-kinetic-signatures-of-diffusion-region" class="nav-link" data-scroll-target="#kinetic-signatures-of-diffusion-region"><span class="toc-section-number">9.8.3</span>  Kinetic Signatures of Diffusion Region</a></li>
-  <li><a href="#d-shape-distribution" id="toc-d-shape-distribution" class="nav-link" data-scroll-target="#d-shape-distribution"><span class="toc-section-number">9.8.4</span>  D-shape Distribution</a></li>
-  <li><a href="#classification-of-discontinuity-types" id="toc-classification-of-discontinuity-types" class="nav-link" data-scroll-target="#classification-of-discontinuity-types"><span class="toc-section-number">9.8.5</span>  Classification of Discontinuity Types</a></li>
-  <li><a href="#reconnection-efficiency" id="toc-reconnection-efficiency" class="nav-link" data-scroll-target="#reconnection-efficiency"><span class="toc-section-number">9.8.6</span>  Reconnection Efficiency</a></li>
-  <li><a href="#dissipation-mechanisms" id="toc-dissipation-mechanisms" class="nav-link" data-scroll-target="#dissipation-mechanisms"><span class="toc-section-number">9.8.7</span>  Dissipation Mechanisms</a></li>
-  <li><a href="#sweet-parker-solution" id="toc-sweet-parker-solution" class="nav-link" data-scroll-target="#sweet-parker-solution"><span class="toc-section-number">9.8.8</span>  Sweet-Parker Solution</a></li>
-  <li><a href="#petschek-solution" id="toc-petschek-solution" class="nav-link" data-scroll-target="#petschek-solution"><span class="toc-section-number">9.8.9</span>  Petschek Solution</a></li>
-  <li><a href="#d-nature-of-reconnection" id="toc-d-nature-of-reconnection" class="nav-link" data-scroll-target="#d-nature-of-reconnection"><span class="toc-section-number">9.8.10</span>  3D Nature of Reconnection</a></li>
+  <li><a href="#reconnection-rate" id="toc-reconnection-rate" class="nav-link" data-scroll-target="#reconnection-rate"><span class="header-section-number">9.8.1</span> Reconnection Rate</a></li>
+  <li><a href="#hall-field" id="toc-hall-field" class="nav-link" data-scroll-target="#hall-field"><span class="header-section-number">9.8.2</span> Hall Field</a></li>
+  <li><a href="#kinetic-signatures-of-diffusion-region" id="toc-kinetic-signatures-of-diffusion-region" class="nav-link" data-scroll-target="#kinetic-signatures-of-diffusion-region"><span class="header-section-number">9.8.3</span> Kinetic Signatures of Diffusion Region</a></li>
+  <li><a href="#d-shape-distribution" id="toc-d-shape-distribution" class="nav-link" data-scroll-target="#d-shape-distribution"><span class="header-section-number">9.8.4</span> D-shape Distribution</a></li>
+  <li><a href="#classification-of-discontinuity-types" id="toc-classification-of-discontinuity-types" class="nav-link" data-scroll-target="#classification-of-discontinuity-types"><span class="header-section-number">9.8.5</span> Classification of Discontinuity Types</a></li>
+  <li><a href="#reconnection-efficiency" id="toc-reconnection-efficiency" class="nav-link" data-scroll-target="#reconnection-efficiency"><span class="header-section-number">9.8.6</span> Reconnection Efficiency</a></li>
+  <li><a href="#dissipation-mechanisms" id="toc-dissipation-mechanisms" class="nav-link" data-scroll-target="#dissipation-mechanisms"><span class="header-section-number">9.8.7</span> Dissipation Mechanisms</a></li>
+  <li><a href="#sweet-parker-solution" id="toc-sweet-parker-solution" class="nav-link" data-scroll-target="#sweet-parker-solution"><span class="header-section-number">9.8.8</span> Sweet-Parker Solution</a></li>
+  <li><a href="#petschek-solution" id="toc-petschek-solution" class="nav-link" data-scroll-target="#petschek-solution"><span class="header-section-number">9.8.9</span> Petschek Solution</a></li>
+  <li><a href="#d-nature-of-reconnection" id="toc-d-nature-of-reconnection" class="nav-link" data-scroll-target="#d-nature-of-reconnection"><span class="header-section-number">9.8.10</span> 3D Nature of Reconnection</a></li>
   </ul></li>
-  <li><a href="#sec-LHDI" id="toc-sec-LHDI" class="nav-link" data-scroll-target="#sec-LHDI"><span class="toc-section-number">9.9</span>  Lower Hybrid Drift Instability</a></li>
-  <li><a href="#kinetic-mode" id="toc-kinetic-mode" class="nav-link" data-scroll-target="#kinetic-mode"><span class="toc-section-number">9.10</span>  Kinetic Mode</a></li>
-  <li><a href="#pressure-anisotropy-instabilities" id="toc-pressure-anisotropy-instabilities" class="nav-link" data-scroll-target="#pressure-anisotropy-instabilities"><span class="toc-section-number">9.11</span>  Pressure Anisotropy Instabilities</a>
+  <li><a href="#sec-LHDI" id="toc-sec-LHDI" class="nav-link" data-scroll-target="#sec-LHDI"><span class="header-section-number">9.9</span> Lower Hybrid Drift Instability</a></li>
+  <li><a href="#kinetic-mode" id="toc-kinetic-mode" class="nav-link" data-scroll-target="#kinetic-mode"><span class="header-section-number">9.10</span> Kinetic Mode</a></li>
+  <li><a href="#pressure-anisotropy-instabilities" id="toc-pressure-anisotropy-instabilities" class="nav-link" data-scroll-target="#pressure-anisotropy-instabilities"><span class="header-section-number">9.11</span> Pressure Anisotropy Instabilities</a>
   <ul class="collapse">
-  <li><a href="#firehose-instability" id="toc-firehose-instability" class="nav-link" data-scroll-target="#firehose-instability"><span class="toc-section-number">9.11.1</span>  Firehose Instability</a></li>
-  <li><a href="#sec-mirror-instability" id="toc-sec-mirror-instability" class="nav-link" data-scroll-target="#sec-mirror-instability"><span class="toc-section-number">9.11.2</span>  Mirror Instability</a></li>
+  <li><a href="#firehose-instability" id="toc-firehose-instability" class="nav-link" data-scroll-target="#firehose-instability"><span class="header-section-number">9.11.1</span> Firehose Instability</a></li>
+  <li><a href="#sec-mirror-instability" id="toc-sec-mirror-instability" class="nav-link" data-scroll-target="#sec-mirror-instability"><span class="header-section-number">9.11.2</span> Mirror Instability</a></li>
   </ul></li>
-  <li><a href="#cyclotron-instability" id="toc-cyclotron-instability" class="nav-link" data-scroll-target="#cyclotron-instability"><span class="toc-section-number">9.12</span>  Cyclotron Instability</a>
+  <li><a href="#cyclotron-instability" id="toc-cyclotron-instability" class="nav-link" data-scroll-target="#cyclotron-instability"><span class="header-section-number">9.12</span> Cyclotron Instability</a>
   <ul class="collapse">
-  <li><a href="#ion-cyclotron-instability" id="toc-ion-cyclotron-instability" class="nav-link" data-scroll-target="#ion-cyclotron-instability"><span class="toc-section-number">9.12.1</span>  Ion Cyclotron Instability</a></li>
+  <li><a href="#ion-cyclotron-instability" id="toc-ion-cyclotron-instability" class="nav-link" data-scroll-target="#ion-cyclotron-instability"><span class="header-section-number">9.12.1</span> Ion Cyclotron Instability</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/stability.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
@@ -400,7 +407,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-stability" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></span></h1>
+<h1 class="title"><span id="sec-stability" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></span></h1>
 </div>
 
 
@@ -614,7 +621,7 @@ W=\frac{\Phi^2}{2L}
 <div id="fig-kink_sausage" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/kink_sausage_modes.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.1: Sausage and kink modes.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9.1: Sausage and kink modes.</figcaption>
 </figure>
 </div>
 <p>Another famous instability is the Rayleigh-Taylor instability. In fluid dynamics, Rayleigh-Taylor instability happens due to gravity. Here in plasma physics, the role of gravity force is replaced by the electromagnetic force. Imagine a situation where plasma are located at <span class="math inline">\(z&gt;0\)</span> region, below which is a vacuum space. There is a B field pointing outside the plane while <span class="math inline">\(\nabla B\)</span> is pointing upwards (<span class="math inline">\(B_{\text{up}}&gt;B_{\text{down}}\)</span>). Due to gradient drift on the boundary, ions will move to the left while electrons will move to the right, where a E field pointing left to right is created. Thus the <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift will lead plasma from upper region to lower region, and eventually breaks the interface. (Actually I have some questions for this figure: it seems to me that it is impossible to decide which part of the interface is changing first?)</p>
@@ -625,7 +632,7 @@ W=\frac{\Phi^2}{2L}
 <div id="fig-magnetic_mirror" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/magnetic_mirror.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.2: Basic magnetic mirror configuration.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9.2: Basic magnetic mirror configuration.</figcaption>
 </figure>
 </div>
 <p>In general, we can define two configuration categories: the unstable situation, where <span class="math inline">\(\mathbf{B}\)</span> has a “bad” unfavorable curvature, and the stable situation, where <span class="math inline">\(\mathbf{B}\)</span> has a “good” favorable curvature. This depends on whether or not the magnetic pressure in the vacuum is stronger than that inside the plasma. In a basic magnetic mirror, the plasma on the center boundaries are unstable, while those around the coil curvature are stable.</p>
@@ -719,19 +726,19 @@ g(v)=\frac{1}{2}\big[ \delta(v-v_1)+\delta(v-v_2) \big]
 <div id="fig-2stream_dispersion" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/Two_stream_dispersion_relation.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.3: 2-stream dispersion relation.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9.3: 2-stream dispersion relation.</figcaption>
 </figure>
 </div>
 <div id="fig-2stream_dielectric" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/Two_stream_dielectric.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.4: 2-stream dielectric function.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9.4: 2-stream dielectric function.</figcaption>
 </figure>
 </div>
 <div id="fig-2stream_velocity" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/Two_stream_instability_velocity.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.5: 2-stream velocity space distribution.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9.5: 2-stream velocity space distribution.</figcaption>
 </figure>
 </div>
 <p><span class="math display">\[
@@ -753,7 +760,7 @@ f(z)=\frac{1}{(z-\lambda)^2}+\frac{{\omega_{pi}}^2/{\omega_{pe}}^2}{z^2}=\frac{z
 <div id="fig-RT_instability" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/Rayleigh_Taylor_Instability.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.6: Simultaion of Rayleigh-Taylor instability <span class="citation" data-cites="rahman2019">(<a href="#ref-rahman2019" role="doc-biblioref">Rahman and San 2019</a>)</span>.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9.6: Simultaion of Rayleigh-Taylor instability <span class="citation" data-cites="rahman2019">(<a href="#ref-rahman2019" role="doc-biblioref">Rahman and San 2019</a>)</span>.</figcaption>
 </figure>
 </div>
 <section id="fluid-diffuse-boundary-model" class="level3" data-number="9.4.1">
@@ -1013,13 +1020,11 @@ a(t) = a_0e^{\pm\sqrt{gk} t}
 \end{aligned}
 \]</span></p>
 <p>Since density along field lines are constant (incompressible) and area <span class="math inline">\(A_P&lt;A_Q\)</span>, we have <span class="math inline">\(v_P&gt;v_Q\)</span>. From the Bernoulli equation, <span class="math inline">\(p_P&lt;p_Q\)</span>. Similar for the upper layer, we get the pressure at <span class="math inline">\(P\)</span> is larger than that at <span class="math inline">\(Q\)</span>. Therefore, the total pressure is pointing away from interface, which let the ripple grow.</p>
-<div>
 <div id="fig-two_layer_flow" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/electron_sheet.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.7: Two layers of flow with a velocity shear at the plane interface.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9.7: Two layers of flow with a velocity shear at the plane interface.</figcaption>
 </figure>
-</div>
 </div>
 <p>Now we are ready to do more careful derivations. The governing equations are <span class="math display">\[
 \begin{aligned}
@@ -1121,13 +1126,11 @@ v_{1x} &amp;=\xi_\tau \frac{\sinh{kx}}{\sinh{k\tau}} + \xi_0\frac{\sinh{k(x-\tau
 \]</span> Then from the dispersion relation of K-H mode, we have the growth rate <span class="math display">\[
 \omega_i = \frac{1}{2}k_y|\Delta v|=\frac{1}{2}k_y\Big|\frac{en_0\tau}{B_0 \epsilon_0}\Big|=\frac{1}{2}k_y \tau\frac{{\omega_{pe}}^2}{|\Omega_e|},
 \]</span> which is valid as long as <span class="math inline">\(k_y\tau\ll1\)</span>,i.e., long wave length limit.</p>
-<div>
 <div id="fig-electron_sheet" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/electron_sheet.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.8: Illustration of an electron sheet with surface charge density <span class="math inline">\(\sigma_0\)</span>, charge density <span class="math inline">\(\rho_0\)</span> and thickness <span class="math inline">\(\tau\)</span>. The electric field is generated by electron charge in the sheet, and the <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift will cause a velocity shear through the sheet. This velocity shear will lead to K-H instability.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9.8: Illustration of an electron sheet with surface charge density <span class="math inline">\(\sigma_0\)</span>, charge density <span class="math inline">\(\rho_0\)</span> and thickness <span class="math inline">\(\tau\)</span>. The electric field is generated by electron charge in the sheet, and the <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift will cause a velocity shear through the sheet. This velocity shear will lead to K-H instability.</figcaption>
 </figure>
-</div>
 </div>
 <p><span class="citation" data-cites="bellan2008fundamentals">(<a href="#ref-bellan2008fundamentals" role="doc-biblioref">Bellan 2008</a>)</span> P537.</p>
 <p>FIGURE NEEDED from H.W.3.4 Consider the diocotron instabity on a MELBA-like annular electron beam which propagates inside a metallic drift tube. Let $V = $ beam voltage, <span class="math inline">\(I =\)</span> beam current, <span class="math inline">\(a =\)</span> beam radius, <span class="math inline">\(\tau=\)</span> annular beam thickness (<span class="math inline">\(\tau\ll 1\)</span>)m <span class="math inline">\(L=\)</span> length of drift tube, $T = $ beam’s pulselength, <span class="math inline">\(B=\)</span> axial magnetic field. Note that the combined self-electric and self-magnetic field of the beam produces a slow rotational <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift in the <span class="math inline">\(\theta-\)</span>direction. This azimuthal drift velocity, <span class="math inline">\(v_{0\theta}\)</span>, is much less than the axial velocity of the beam, but it is sheared.</p>
@@ -1270,13 +1273,11 @@ B_T &amp;= \pm B_0 J_1\Big( \frac{\alpha_0 r}{r_0} \Big)
 \end{aligned}
 \]</span></p>
 <p>where <span class="math inline">\(B_r, B_A\)</span>, and <span class="math inline">\(B_T\)</span> are radial, axial and tangential magnetic field components, respectively. The solution is a magnetic <em>flux rope</em> where magnetic field lines form helixes whose pitch angle increases from the axis (<a href="#fig-flux_rope">Figure&nbsp;<span>9.9</span></a>). <span class="math inline">\(r\)</span> is the radial distance from the flux rope axis, <span class="math inline">\(r_0\)</span> is the radius of the flux rope and <span class="math inline">\(B_0\)</span> is the maximum magnetic field magnitude at the center of the flux rope <span class="math inline">\(r=0\)</span>.</p>
-<div>
 <div id="fig-flux_rope" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK9UT0Lwv7_BfDT214RFjQJe1MBmMAQ9QShw&amp;usqp=CAU.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.9: Helical structure of a force-free magnetic field.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9.9: Helical structure of a force-free magnetic field.</figcaption>
 </figure>
-</div>
 </div>
 <p>A special case of a force-free magnetic field is the current-free configuration <span class="math inline">\(\nabla\times\mathbf{B}=0\)</span>. Now the magnetic field can be expressed as the gradient of a scalar potential <span class="math inline">\(\mathbf{B}=\nabla\Psi\)</span>, and since <span class="math inline">\(\nabla\cdot\mathbf{B}=0\)</span> it can be found via the <em>Laplace equation</em></p>
 <p><span class="math display">\[
@@ -1284,13 +1285,11 @@ B_T &amp;= \pm B_0 J_1\Big( \frac{\alpha_0 r}{r_0} \Big)
 \]</span></p>
 <p>with appropriate boundary conditions and using the methods of potential theory.</p>
 <p>For example, the Sun’s magnetic field structure is often modeled by the so-called Potential Field Source Surface (<a href="https://gong.nso.edu/science/gongpfss/gongpfss.html">PFSS</a>) model (<a href="#fig-PFSS">Figure&nbsp;<span>9.10</span></a>). The magnetic field is computed from the Laplace equation using spherical coordinates from the photosphere to the “source surface”, nominally chosen to be at 2.5 Solar radii. At the source surface the Sun’s magnetic field is assumed to be purely radial. The inner boundary conditions are obtained from solar magnetograms. Thus, PFSS assumes that there is no electric current in the corona.</p>
-<div>
 <div id="fig-PFSS" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://gong.nso.edu/science/gongpfss/filled_mrmap_2068_dham.fits.magmod.dat240.gif" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.10: Helical structure of a force-free magnetic field.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9.10: Helical structure of a force-free magnetic field.</figcaption>
 </figure>
-</div>
 </div>
 </section>
 </section>
@@ -1688,13 +1687,11 @@ k\ge-\frac{\Phi}{2L}
 <p>Tearing mode is closely related to magnetic reconnection (<a href="#sec-reconnection"><span>Section&nbsp;9.8</span></a>). The reconnection process is very important because it is one of the main way of burst energy transformation. It is known that in collisionless systems current sheets are unstable against tearing instability, a process where the current tends to collapse into filaments. The tearing instability produces magnetic islands that then interact and merge together giving rise to a nonlinear instability phase, where the reconnection process is enhanced. See <span class="citation" data-cites="bellan2008fundamentals">(<a href="#ref-bellan2008fundamentals" role="doc-biblioref">Bellan 2008</a>)</span> P413 for more.</p>
 <p><strong>Linear Tearing Mode</strong></p>
 <p>Consider the interface between two plasmas containing magnetic fields of different orientations. The simplest imaginable field configuration is that illustrated in <a href="#fig-tearing_config_simple">Figure&nbsp;<span>9.11</span></a>. Here, the field varies only in the <span class="math inline">\(x\)</span>-direction, and points only in the <span class="math inline">\(y\)</span>-direction. The field is directed in the <span class="math inline">\(-y\)</span>-direction for <span class="math inline">\(x&lt;0\)</span>, and in the <span class="math inline">\(+y-\)</span>direction for <span class="math inline">\(x&gt;0\)</span>. The interface is situated at <span class="math inline">\(x=0\)</span>. The sudden reversal of the field direction across the interface gives rise to a <span class="math inline">\(z\)</span>-directional current sheet at <span class="math inline">\(x=0\)</span>.</p>
-<div>
 <div id="fig-tearing_config_simple" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://farside.ph.utexas.edu/teaching/plasma/Plasmahtml/img1924.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.11: A reconnection magnetic field configuration.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9.11: A reconnection magnetic field configuration.</figcaption>
 </figure>
-</div>
 </div>
 <p>With the neglect of plasma resistivity, the field configuration shown in <a href="#fig-tearing_config_simple">Figure&nbsp;<span>9.11</span></a> represents a stable equilibrium state, assuming, of course, that we have normal pressure balance across the interface. But, does the field configuration remain stable when we take resistivity into account? If not, we expect an instability to develop which relaxes the configuration to one possessing lower magnetic energy. As we shall see, this type of relaxation process inevitably entails the breaking and reconnection of magnetic field lines, and is, therefore, termed <em>magnetic reconnection</em>. The magnetic energy releases during the reconnection process eventually appears as plasma thermal energy. Thus, magnetic reconnection also involves plasma heating.</p>
 <p>In the following, we shall outline the standard method for determining the linear stability of the type of magnetic field configuration shown in <a href="#fig-tearing_config_simple">Figure&nbsp;<span>9.11</span></a>, taking into account the effect of plasma resistivity. We are particularly interested in plasma instabilities which are stable in the absence of resistivity, and only grow when the resistivity is non-zero. Such instabilities are conventionally termed <em>tearing modes</em>. Since magnetic reconnection is, in fact, a nonlinear process, we shall then proceed to investigate the nonlinear development of tearing modes.</p>
@@ -1772,13 +1769,11 @@ Q &amp;= \gamma\,\tau_H^{2/3}\,\tau_R^{1/3}
 <p>There are several key elements for understanding the physics of reconnection at a deeper level <span class="citation" data-cites="ji2022magnetic">(<a href="#ref-ji2022magnetic" role="doc-biblioref">Ji et al. 2022</a>)</span>. First, the frozen-in properties in an electron-ion plasma are associated with the electron fluid due to its light weight. This is expressed in terms of the time changing rate of magnetic flux (<a href="single.html#eq-magnetic_flux">Equation&nbsp;<span>4.31</span></a>) through an arbitrary area, <span class="math inline">\(\mathbf{S}\)</span> (enclosed by loop <span class="math inline">\(l\)</span>), convecting with the electron flow as <span class="math inline">\(\mathrm{d}\Phi/\mathrm{d}t = \oint(\mathbf{E}+\mathbf{u}_e\times\mathbf{B})\cdot\mathrm{d}l = 0\)</span>. Thus, the frozen-in condition is regulated by the electron momentum equation (i.e.&nbsp;the generalized Ohm’s law) <span id="eq-ohms_law_reconnection"><span class="math display">\[
 \underbrace{\mathbf{E} + \mathbf{V}_e\times\mathbf{B}}_{\text{Ideal}} = \underbrace{\mathbf{R}_\text{col}}_{\text{Collisional}} - \underbrace{\frac{\nabla\cdot\mathbf{P}_e}{en} - \frac{m_e}{e}\frac{\mathrm{d}\mathbf{u}_e}{\mathrm{d}t}}_{\text{Kinetic}}
 \tag{9.25}\]</span></span> where <span class="math inline">\(\mathbf{R}_\text{col}\)</span> is the collisional force per electron charge. In a fully ionized collisional plasma, <span class="math inline">\(\mathbf{R}_\text{col}\approx \eta\mathbf{j}\)</span> where <span class="math inline">\(\eta\)</span> is the resistivity due to Coulomb collisions. If the terms on the right-hand side of <a href="#eq-ohms_law_reconnection">Equation&nbsp;<span>9.25</span></a> are negligible, then <span class="math inline">\(\mathrm{d}\Phi/\mathrm{d}t \approx 0\)</span> and the magnetic flux is “frozen-in” to the electron flow. For the generic reconnection layer illustrated in the middle panel of <a href="#fig-reconnection_configurations">Figure&nbsp;<span>9.12</span></a>, deviations from ideal evolution occur within the “diffusion region” (blue), where either finite resistivity or kinetic effects (electron inertia and pressure tensor) are important. Within the diffusion region, field lines converging from opposite sides of the layer can change connectivity.</p>
-<div>
 <div id="fig-reconnection_configurations" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs42254-021-00419-x/MediaObjects/42254_2021_419_Fig2_HTML.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.12: Magnetic reconnection within a current sheet (depicted at the center) features inflows (<span class="math inline">\(V_\text{in}\)</span>) of plasma with density <span class="math inline">\(\rho\)</span> and reconnecting magnetic field <span class="math inline">\(B_0\)</span>, outflows (<span class="math inline">\(V_\text{out}\)</span>) on order of Alfvén speed <span class="math inline">\(V_A\)</span>, and a diffusion region (with a length of <span class="math inline">\(2L\)</span> and a thickness of <span class="math inline">\(2\Delta\)</span>) where field lines change connectivity. Magnetic separatrices (red) are field lines marking the topological boundary between the upstream flux and the downstream flow jet. Top panels display reconnection phases that have been confirmed in the laboratory experiments: single X-line collisional, single X-line collisionless, and multiple X-line collisionless. Here R and Z are radial and axial coordinates, respectively, in Magnetic Reconnection Experiment (MRX) where these data were taken. <span class="math inline">\(B_Y\)</span> and <span class="math inline">\(J_Y\)</span> are out-of-the-plane field and current density, respectively. Bottom panels illustrate cartoons of plasmoid mediated and 3D turbulent reconnection, both of which are expected to exhibit some degree of self-similarity. Figure 2 from <span class="citation" data-cites="ji2022magnetic">(<a href="#ref-ji2022magnetic" role="doc-biblioref">Ji et al. 2022</a>)</span>.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9.12: Magnetic reconnection within a current sheet (depicted at the center) features inflows (<span class="math inline">\(V_\text{in}\)</span>) of plasma with density <span class="math inline">\(\rho\)</span> and reconnecting magnetic field <span class="math inline">\(B_0\)</span>, outflows (<span class="math inline">\(V_\text{out}\)</span>) on order of Alfvén speed <span class="math inline">\(V_A\)</span>, and a diffusion region (with a length of <span class="math inline">\(2L\)</span> and a thickness of <span class="math inline">\(2\Delta\)</span>) where field lines change connectivity. Magnetic separatrices (red) are field lines marking the topological boundary between the upstream flux and the downstream flow jet. Top panels display reconnection phases that have been confirmed in the laboratory experiments: single X-line collisional, single X-line collisionless, and multiple X-line collisionless. Here R and Z are radial and axial coordinates, respectively, in Magnetic Reconnection Experiment (MRX) where these data were taken. <span class="math inline">\(B_Y\)</span> and <span class="math inline">\(J_Y\)</span> are out-of-the-plane field and current density, respectively. Bottom panels illustrate cartoons of plasmoid mediated and 3D turbulent reconnection, both of which are expected to exhibit some degree of self-similarity. Figure 2 from <span class="citation" data-cites="ji2022magnetic">(<a href="#ref-ji2022magnetic" role="doc-biblioref">Ji et al. 2022</a>)</span>.</figcaption>
 </figure>
-</div>
 </div>
 <p>The next key element for understanding the physics of magnetic reconnection is to grasp the remarkable global consequences of changing field line connectivity within a localized region. In particular, the newly reconnected field lines have a large curvature <span class="math inline">\(\mathbf{B}\cdot\nabla\mathbf{B}\)</span> which produces a tension force — closely analogous to a stretched rubber band. Allowing for the possibility of pressure anisotropy, the MHD momentum equation perpendicular to magnetic field is <span id="eq-mhd_force_perp_anisotropic"><span class="math display">\[
 \rho\frac{\mathrm{d}\mathbf{u}_\perp}{\mathrm{d}t} = -\nabla_\perp\left( p_\perp + \frac{B^2}{2\mu_0}\right) + \left( 1+\frac{p_\perp - p_\parallel}{B^2/\mu_0}\right)\mathbf{B}\cdot\nabla\mathbf{B} - \mathbf{F}_{\text{col}\perp}
@@ -1854,7 +1849,7 @@ R \equiv B_\mathrm{in}u_\mathrm{in} - B_\mathrm{out}u_\mathrm{out}
 <div id="fig-ion_crescent" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/ion_distribution_crescent_1981.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.13: Ion crescent shape distribution at Earth’s magnetopause revealed by ISEE satellite at 1981.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9.13: Ion crescent shape distribution at Earth’s magnetopause revealed by ISEE satellite at 1981.</figcaption>
 </figure>
 </div>
 <p>At the dayside magnetopause, reconnection between magnetosheath and geomagnetic field lines is expected to produce</p>
@@ -2014,7 +2009,7 @@ P_{ij} = p_\perp \delta_{ij} + (p_\parallel - p_\perp)B_i B_j / B^2
 <div id="fig-instability_mirror" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/instability_mirror.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;9.14: Illustration of mirror instability.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;9.14: Illustration of mirror instability.</figcaption>
 </figure>
 </div>
 <p>(Song+ 1994) presented a set of identification criteria for distinguishing among various forms of high <span class="math inline">\(\beta\)</span> MHD waves, with mirror modes having the properties:</p>
@@ -2044,38 +2039,38 @@ P_{ij} = p_\perp \delta_{ij} + (p_\parallel - p_\perp)B_i B_j / B^2
 <p>From Earth’s magnetosheath observations, mirror modes dominates even though the linear dispersion relation predicts a smaller growth rate compared with EMIC waves. Gary argued in the 1990s that this is because of a small portion of heavier species (e.g.&nbsp;helium) that modifies the growth rate. Local hybrid simulations (e.g.&nbsp;the example from hybrid VPIC in ISSS14) supports this. However, researchers have not reached a consensus on whether ion cyclotron instability suppress mirror instability or vice versa.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-bellan2008fundamentals" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-bellan2008fundamentals" class="csl-entry" role="listitem">
 Bellan, Paul M. 2008. <em>Fundamentals of Plasma Physics</em>. Cambridge University Press.
 </div>
-<div id="ref-chen2016introduction" class="csl-entry" role="doc-biblioentry">
+<div id="ref-chen2016introduction" class="csl-entry" role="listitem">
 Chen, Francis F. 2016. <em>Introduction to Plasma Physics and Controlled Fusion</em>. Vol. 1. Springer.
 </div>
-<div id="ref-cgl1956" class="csl-entry" role="doc-biblioentry">
+<div id="ref-cgl1956" class="csl-entry" role="listitem">
 Chew, GF, ML Goldberger, and FE Low. 1956. <span>“The Boltzmann Equation and the One-Fluid Hydromagnetic Equations in the Absence of Particle Collisions.”</span> <em>Proceedings of the Royal Society of London. Series A. Mathematical and Physical Sciences</em> 236 (1204): 112–18. <a href="https://doi.org/10.1098/rspa.1956.0116">https://doi.org/10.1098/rspa.1956.0116</a>.
 </div>
-<div id="ref-dai2023kinetic" class="csl-entry" role="doc-biblioentry">
+<div id="ref-dai2023kinetic" class="csl-entry" role="listitem">
 Dai, Lei, and Chi Wang. 2023. <span>“Kinetic Alfven Wave Eigenmode in Magnetosphere Magnetic Reconnection.”</span> <em>Reviews of Modern Plasma Physics</em> 7 (1): 1–38. <a href="https://doi.org/10.1007/s41614-022-00107-y">https://doi.org/10.1007/s41614-022-00107-y</a>.
 </div>
-<div id="ref-furth1963finite" class="csl-entry" role="doc-biblioentry">
+<div id="ref-furth1963finite" class="csl-entry" role="listitem">
 Furth, Harold P, John Killeen, and Marshall N Rosenbluth. 1963. <span>“Finite-Resistivity Instabilities of a Sheet Pinch.”</span> <em>The Physics of Fluids</em> 6 (4): 459–84. <a href="https://doi.org/10.1063/1.1706761">https://doi.org/10.1063/1.1706761</a>.
 </div>
-<div id="ref-gurram2021shear" class="csl-entry" role="doc-biblioentry">
+<div id="ref-gurram2021shear" class="csl-entry" role="listitem">
 Gurram, Harsha, Jan Egedal, and W Daughton. 2021. <span>“Shear Alfv<span>é</span>n Waves Driven by Magnetic Reconnection as an Energy Source for the Aurora Borealis.”</span> <em>Geophysical Research Letters</em> 48 (14): e2021GL094201. <a href="https://doi.org/10.1029/2021GL094201">https://doi.org/10.1029/2021GL094201</a>.
 </div>
-<div id="ref-hameiri1991ballooning" class="csl-entry" role="doc-biblioentry">
+<div id="ref-hameiri1991ballooning" class="csl-entry" role="listitem">
 Hameiri, E, P Laurence, and M Mond. 1991. <span>“The Ballooning Instability in Space Plasmas.”</span> <em>Journal of Geophysical Research: Space Physics</em> 96 (A2): 1513–26. <a href="https://doi.org/10.1029/90JA02100">https://doi.org/10.1029/90JA02100</a>.
 </div>
-<div id="ref-ji2022magnetic" class="csl-entry" role="doc-biblioentry">
+<div id="ref-ji2022magnetic" class="csl-entry" role="listitem">
 Ji, Hantao, William Daughton, Jonathan Jara-Almonte, Ari Le, Adam Stanier, and Jongsoo Yoo. 2022. <span>“Magnetic Reconnection in the Era of Exascale Computing and Multiscale Experiments.”</span> <em>Nature Reviews Physics</em> 4 (4): 263–82. <a href="https://doi.org/10.1038/s42254-021-00419-x">https://doi.org/10.1038/s42254-021-00419-x</a>.
 </div>
-<div id="ref-rahman2019" class="csl-entry" role="doc-biblioentry">
+<div id="ref-rahman2019" class="csl-entry" role="listitem">
 Rahman, Sk Mashfiqur, and Omer San. 2019. <span>“A Relaxation Filtering Approach for Two-Dimensional Rayleigh–Taylor Instability-Induced Flows.”</span> <em>Fluids</em> 4 (2): 78.
 </div>
-<div id="ref-sonnerup1979space" class="csl-entry" role="doc-biblioentry">
+<div id="ref-sonnerup1979space" class="csl-entry" role="listitem">
 Sonnerup, B. U. Ö. 1979. <span>“Space Plasma Physics: The Study of Solar-System Plasmas.”</span>
 </div>
-<div id="ref-wang2023situ" class="csl-entry" role="doc-biblioentry">
+<div id="ref-wang2023situ" class="csl-entry" role="listitem">
 Wang, Jing, Jiang Yu, Aojun Ren, Zuzheng Chen, Xiaojun Xu, Jun Cui, and Jinbin Cao. 2023. <span>“In Situ Observations of Whistler-Mode Waves in Magnetic Reconnection at Mars.”</span> <em>The Astrophysical Journal</em> 944 (1): 85. <a href="https://doi.org/10.3847/1538-4357/acb152">https://doi.org/10.3847/1538-4357/acb152</a>.
 </div>
 </div>
@@ -2225,9 +2220,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -2292,6 +2301,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

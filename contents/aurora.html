@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,14 +17,15 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -38,8 +39,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -82,6 +82,7 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -90,11 +91,16 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/aurora.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -102,190 +108,220 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/about.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></a>
+  <a href="../contents/about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></a>
+  <a href="../contents/math.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/single.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></a>
+  <a href="../contents/single.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></a>
+  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></a>
+  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></a>
+  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></a>
+  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></a>
+  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></a>
+  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></a>
+  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></a>
+  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></a>
+  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></a>
+  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></a>
+  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></a>
+  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></a>
+  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></a>
+  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></a>
+  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></a>
+  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></a>
+  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></a>
+  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></a>
+  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></a>
+  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></a>
+  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/test.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></a>
+  <a href="../contents/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">Appendix</a>
+  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></a>
+  <a href="../contents/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#auroral-light-emission" id="toc-auroral-light-emission" class="nav-link active" data-scroll-target="#auroral-light-emission"><span class="toc-section-number">21.1</span>  Auroral Light Emission</a></li>
-  <li><a href="#diffuse-aurora" id="toc-diffuse-aurora" class="nav-link" data-scroll-target="#diffuse-aurora"><span class="toc-section-number">21.2</span>  Diffuse Aurora</a></li>
-  <li><a href="#auroral-waves-and-ion-heating" id="toc-auroral-waves-and-ion-heating" class="nav-link" data-scroll-target="#auroral-waves-and-ion-heating"><span class="toc-section-number">21.3</span>  Auroral Waves and Ion Heating</a></li>
-  <li><a href="#substorms-and-discrete-aurora" id="toc-substorms-and-discrete-aurora" class="nav-link" data-scroll-target="#substorms-and-discrete-aurora"><span class="toc-section-number">21.4</span>  Substorms and Discrete Aurora</a>
+  <li><a href="#auroral-light-emission" id="toc-auroral-light-emission" class="nav-link active" data-scroll-target="#auroral-light-emission"><span class="header-section-number">21.1</span> Auroral Light Emission</a></li>
+  <li><a href="#diffuse-aurora" id="toc-diffuse-aurora" class="nav-link" data-scroll-target="#diffuse-aurora"><span class="header-section-number">21.2</span> Diffuse Aurora</a></li>
+  <li><a href="#auroral-waves-and-ion-heating" id="toc-auroral-waves-and-ion-heating" class="nav-link" data-scroll-target="#auroral-waves-and-ion-heating"><span class="header-section-number">21.3</span> Auroral Waves and Ion Heating</a></li>
+  <li><a href="#substorms-and-discrete-aurora" id="toc-substorms-and-discrete-aurora" class="nav-link" data-scroll-target="#substorms-and-discrete-aurora"><span class="header-section-number">21.4</span> Substorms and Discrete Aurora</a>
   <ul class="collapse">
-  <li><a href="#knights-relation" id="toc-knights-relation" class="nav-link" data-scroll-target="#knights-relation"><span class="toc-section-number">21.4.1</span>  Knight’s relation</a></li>
-  <li><a href="#current-circuit" id="toc-current-circuit" class="nav-link" data-scroll-target="#current-circuit"><span class="toc-section-number">21.4.2</span>  Current circuit</a></li>
+  <li><a href="#knights-relation" id="toc-knights-relation" class="nav-link" data-scroll-target="#knights-relation"><span class="header-section-number">21.4.1</span> Knight’s relation</a></li>
+  <li><a href="#current-circuit" id="toc-current-circuit" class="nav-link" data-scroll-target="#current-circuit"><span class="header-section-number">21.4.2</span> Current circuit</a></li>
   </ul></li>
-  <li><a href="#region-i-and-region-ii-currents" id="toc-region-i-and-region-ii-currents" class="nav-link" data-scroll-target="#region-i-and-region-ii-currents"><span class="toc-section-number">21.5</span>  Region I and Region II Currents</a></li>
-  <li><a href="#omega-band-auroras" id="toc-omega-band-auroras" class="nav-link" data-scroll-target="#omega-band-auroras"><span class="toc-section-number">21.6</span>  Omega Band Auroras</a></li>
-  <li><a href="#theta-auroras" id="toc-theta-auroras" class="nav-link" data-scroll-target="#theta-auroras"><span class="toc-section-number">21.7</span>  Theta Auroras</a></li>
-  <li><a href="#pulsation-auroras" id="toc-pulsation-auroras" class="nav-link" data-scroll-target="#pulsation-auroras"><span class="toc-section-number">21.8</span>  Pulsation Auroras</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="toc-section-number">21.9</span>  Summary</a></li>
+  <li><a href="#region-i-and-region-ii-currents" id="toc-region-i-and-region-ii-currents" class="nav-link" data-scroll-target="#region-i-and-region-ii-currents"><span class="header-section-number">21.5</span> Region I and Region II Currents</a></li>
+  <li><a href="#omega-band-auroras" id="toc-omega-band-auroras" class="nav-link" data-scroll-target="#omega-band-auroras"><span class="header-section-number">21.6</span> Omega Band Auroras</a></li>
+  <li><a href="#theta-auroras" id="toc-theta-auroras" class="nav-link" data-scroll-target="#theta-auroras"><span class="header-section-number">21.7</span> Theta Auroras</a></li>
+  <li><a href="#pulsation-auroras" id="toc-pulsation-auroras" class="nav-link" data-scroll-target="#pulsation-auroras"><span class="header-section-number">21.8</span> Pulsation Auroras</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">21.9</span> Summary</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/aurora.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -294,7 +330,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-aurora" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></span></h1>
+<h1 class="title"><span id="sec-aurora" class="quarto-section-identifier"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></span></h1>
 </div>
 
 
@@ -317,7 +353,7 @@ div.csl-indent {
 <div id="fig-aurora_altitude_dist" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/aurora_altitude_distribution.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;21.1: The altitude distribution of auroral emissions at day and night.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;21.1: The altitude distribution of auroral emissions at day and night.</figcaption>
 </figure>
 </div>
 <p><a href="#fig-aurora_altitude_dist">Figure&nbsp;<span>21.1</span></a> shows the typical altitude distribution of the auroral emissions. The cross section for excitation of the different lines depends on the energy of the incoming auroral particles. Usually, the precipitating particles have higher energy at night than during the day. Low energy electrons give up their energy at higher altitudes, and produces more red emissions. Another difference between day and night is that resonant scattering by sunlight enhances the <span class="math inline">\(\mathrm{N}_2^+\)</span> line 427.8 nm relative to the green line.</p>
@@ -341,13 +377,11 @@ div.csl-indent {
 <p><em>Magnetospheric substorms</em> arise due to an imbalance between the dayside and nightside reconnection rates. As a simple example, this can arise during a sudden rotation of the IMF from northward to southward. A southward IMF leads to an increased reconnection rate at the magnetopause. More plasma and more magnetic flux is then transported to the magnetotail in <span class="math inline">\(\mathcal{O}(10^2)\,\mathrm{s}\)</span>, and the pressure in the tail lobes increases. The plasmasheet is compressed, which on the ground can be seen as an equatorward motion and brightening of a pre-existing diffuse arc. The increased precipitation from the squeezed plasmasheet will also intensify ion heating, which leads to lower densities in the upper ionosphere above the auroral arc. As the density of the cross tail current increases and the neutral sheet becomes thinner, an unstable situation builds up. At this stage, reconnection starts in some part of the tail (<a href="#fig-substorm">Figure&nbsp;<span>21.2</span></a>). This marks the onset of a magnetospheric substorm, and the process of storing energy in the magnetotail described above is often called the <em>substorm growth phase</em>.</p>
 <p>The original usage of “substorm” comes from Akasofu and Chapman (1961), and was used to describe the short-term magnetic variations during the main phase of a magnetic storm. The current definition did not develop until a decade later, after it became clear that substorms and storms were distinctly different geomagnetic phenomena. The collection of phenomena that includes auroral breakup and expansion, the substorm current wedge, near-Earth dipolarization, and Pi2 pulsations, became collectively known as the magnetospheric substorm.</p>
 <p>The concept of the <em>substorm current wedge</em> (SCW) has played an important role in understanding the coupling of the magnetotail to the ionosphere during substorms. It provides a simple explanation for the magnetic perturbations observed at mid and low latitudes during substorms, and is useful in understanding the magnetic variations seen in the auroral zone. In its simplest form, a model of the current wedge consists of a single loop with line currents into and out of the ionosphere on dipole field lines connected by a westward ionospheric line current and by an eastward magnetospheric line current (<a href="#fig-substorm">Figure&nbsp;<span>21.2</span></a>).</p>
-<div>
 <div id="fig-substorm" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1007%2Fs11214-021-00806-x/MediaObjects/11214_2021_806_Fig2_HTML.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;21.2: A schematic view of the essential physical elements of magnetospheric substorm processes on the Earth’s nightside. This includes magnetotail current systems, the near-Earth neutral line region, and reconfiguring magnetic fields in the substorm current wedge as suggested by the near-Earth neutral line model.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;21.2: A schematic view of the essential physical elements of magnetospheric substorm processes on the Earth’s nightside. This includes magnetotail current systems, the near-Earth neutral line region, and reconfiguring magnetic fields in the substorm current wedge as suggested by the near-Earth neutral line model.</figcaption>
 </figure>
-</div>
 </div>
 <p>When the magnetic field lines in the tail start to reconnect, part of the plasmasheet will be ejected from the tail and flow Earthward with a speed that often exceeds 400 km/s. The braking of this flow at the inner edge of the plasmasheet requires a substantial <span class="math inline">\(\mathbf{j}\times\mathbf{B}\)</span> force, and hence a substantial dusk-to-dawn current, which leads to dipolarization of the inner portion of the magnetic field. At the edges of the injection region, this current is diverted into field-aligned currents that drive the auroral electrojet, a strong westward current in the ionosphere. Note that the auroral electrojet via Ohm’s law implies a westward electric field and an equatorward flow of the ionospheric plasma. Flows from the reconnection region and dipolarization of the magnetic field are associated with field-aligned currents coupling to the ionosphere, whose net effect is then the SCW. This sequence of changes, from energy storage through explosive release, is called a <em>magnetospheric substorm</em>. The reconnection process is temporally and spatially varying, which structures the flows in scale sizes of the order of a few <span class="math inline">\(\mathrm{R}_\mathrm{E}\)</span> and time scales of a few minutes.</p>
 <p>Field-aligned auroral currents in the ionosphere are observed to have current densities of <span class="math inline">\(10\,\mathrm{\mu A}/\mathrm{m}^2\)</span>. Considering only field-aligned currents, the current density must decrease higher up where the flux tube widens. At altitudes around <span class="math inline">\(1\,\mathrm{R}_\mathrm{E}\)</span> the current density is still about <span class="math inline">\(1\,\mathrm{\mu A}/\mathrm{m}^2\)</span>. In the auroral cavity where the electron density <span class="math inline">\(n_e\)</span> is about <span class="math inline">\(3\times10^5\,\mathrm{m}^{-3}\)</span>, we can estimate the velocity the electrons must have to carry this current as <span class="math inline">\(v_\parallel=j_\parallel/en_e \sim 2\times10^7\,\mathrm{m/s}\)</span>, which corresponds to a kinetic energy slightly higher than 1 keV. When the fast flow injected from the tail by reconnection is stopped, the field-aligned current is carried by electrons that must be accelerated to keV energies. These electrons will cause aurora, and the sudden buildup of this current leads to a breakup of the quiet auroral arc that existed during the growth phase of the substorm.</p>
@@ -372,7 +406,7 @@ K=\frac{n_{G}e^2}{\sqrt{2\pi m T_G}}
 <div id="fig-discrete_auroral_arc_current" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/current_discrete_auroral_arc.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;21.3: Geometry of the auroral current circuit and the generator region in the equatorial magnetosphere.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;21.3: Geometry of the auroral current circuit and the generator region in the equatorial magnetosphere.</figcaption>
 </figure>
 </div>
 <p>Let us assume that the auroral flux tube, extending from the ionosphere to the equatorial plane, can be separated into three parts.</p>
@@ -427,8 +461,8 @@ e\frac{\partial n_i}{\partial t} \approx -\partial_\perp j_\perp = \frac{n_i m_i
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-kepko2015substorm" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-kepko2015substorm" class="csl-entry" role="listitem">
 Kepko, Larry, RL McPherron, O Amm, S Apatenkov, Wolfgang Baumjohann, Joachim Birn, M Lester, R Nakamura, Tuija I Pulkkinen, and V Sergeev. 2015. <span>“Substorm Current Wedge Revisited.”</span> <em>Space Science Reviews</em> 190 (1): 1–46. <a href="https://doi.org/10.1007/s11214-014-0124-9">https://doi.org/10.1007/s11214-014-0124-9</a>.
 </div>
 </div>
@@ -583,9 +617,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -650,6 +698,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

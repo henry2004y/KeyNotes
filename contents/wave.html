@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,48 +47,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -101,8 +73,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -145,6 +116,7 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -153,11 +125,16 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/wave.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -165,228 +142,258 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/about.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></a>
+  <a href="../contents/about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></a>
+  <a href="../contents/math.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/single.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></a>
+  <a href="../contents/single.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></a>
+  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></a>
+  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></a>
+  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></a>
+  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></a>
+  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></a>
+  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></a>
+  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></a>
+  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></a>
+  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></a>
+  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></a>
+  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></a>
+  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></a>
+  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></a>
+  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></a>
+  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></a>
+  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></a>
+  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></a>
+  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></a>
+  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></a>
+  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></a>
+  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/test.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></a>
+  <a href="../contents/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">Appendix</a>
+  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></a>
+  <a href="../contents/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#dispersion-relation" id="toc-dispersion-relation" class="nav-link active" data-scroll-target="#dispersion-relation"><span class="toc-section-number">7.1</span>  Dispersion Relation</a></li>
-  <li><a href="#dielectric-function" id="toc-dielectric-function" class="nav-link" data-scroll-target="#dielectric-function"><span class="toc-section-number">7.2</span>  Dielectric Function</a></li>
-  <li><a href="#sec-oscillations" id="toc-sec-oscillations" class="nav-link" data-scroll-target="#sec-oscillations"><span class="toc-section-number">7.3</span>  Plasma Oscillations</a></li>
-  <li><a href="#classification-of-em-waves-in-uniform-plasma" id="toc-classification-of-em-waves-in-uniform-plasma" class="nav-link" data-scroll-target="#classification-of-em-waves-in-uniform-plasma"><span class="toc-section-number">7.4</span>  Classification of EM Waves in Uniform Plasma</a></li>
-  <li><a href="#es-vs.-em-waves" id="toc-es-vs.-em-waves" class="nav-link" data-scroll-target="#es-vs.-em-waves"><span class="toc-section-number">7.5</span>  ES vs.&nbsp;EM Waves</a></li>
-  <li><a href="#sec-CPDR" id="toc-sec-CPDR" class="nav-link" data-scroll-target="#sec-CPDR"><span class="toc-section-number">7.6</span>  Cold Uniform Plasma</a>
+  <li><a href="#dispersion-relation" id="toc-dispersion-relation" class="nav-link active" data-scroll-target="#dispersion-relation"><span class="header-section-number">7.1</span> Dispersion Relation</a></li>
+  <li><a href="#dielectric-function" id="toc-dielectric-function" class="nav-link" data-scroll-target="#dielectric-function"><span class="header-section-number">7.2</span> Dielectric Function</a></li>
+  <li><a href="#sec-oscillations" id="toc-sec-oscillations" class="nav-link" data-scroll-target="#sec-oscillations"><span class="header-section-number">7.3</span> Plasma Oscillations</a></li>
+  <li><a href="#classification-of-em-waves-in-uniform-plasma" id="toc-classification-of-em-waves-in-uniform-plasma" class="nav-link" data-scroll-target="#classification-of-em-waves-in-uniform-plasma"><span class="header-section-number">7.4</span> Classification of EM Waves in Uniform Plasma</a></li>
+  <li><a href="#es-vs.-em-waves" id="toc-es-vs.-em-waves" class="nav-link" data-scroll-target="#es-vs.-em-waves"><span class="header-section-number">7.5</span> ES vs.&nbsp;EM Waves</a></li>
+  <li><a href="#sec-CPDR" id="toc-sec-CPDR" class="nav-link" data-scroll-target="#sec-CPDR"><span class="header-section-number">7.6</span> Cold Uniform Plasma</a>
   <ul class="collapse">
-  <li><a href="#wave-modes" id="toc-wave-modes" class="nav-link" data-scroll-target="#wave-modes"><span class="toc-section-number">7.6.1</span>  Wave Modes</a></li>
-  <li><a href="#resonances" id="toc-resonances" class="nav-link" data-scroll-target="#resonances"><span class="toc-section-number">7.6.2</span>  Resonances</a></li>
-  <li><a href="#cutoffs" id="toc-cutoffs" class="nav-link" data-scroll-target="#cutoffs"><span class="toc-section-number">7.6.3</span>  Cutoffs</a></li>
-  <li><a href="#polarizations" id="toc-polarizations" class="nav-link" data-scroll-target="#polarizations"><span class="toc-section-number">7.6.4</span>  Polarizations</a></li>
-  <li><a href="#low-frequency-limit" id="toc-low-frequency-limit" class="nav-link" data-scroll-target="#low-frequency-limit"><span class="toc-section-number">7.6.5</span>  Low Frequency Limit</a></li>
-  <li><a href="#faraday-rotation" id="toc-faraday-rotation" class="nav-link" data-scroll-target="#faraday-rotation"><span class="toc-section-number">7.6.6</span>  Faraday Rotation</a></li>
-  <li><a href="#perpendicular-wave-propagation" id="toc-perpendicular-wave-propagation" class="nav-link" data-scroll-target="#perpendicular-wave-propagation"><span class="toc-section-number">7.6.7</span>  Perpendicular Wave Propagation</a></li>
+  <li><a href="#wave-modes" id="toc-wave-modes" class="nav-link" data-scroll-target="#wave-modes"><span class="header-section-number">7.6.1</span> Wave Modes</a></li>
+  <li><a href="#resonances" id="toc-resonances" class="nav-link" data-scroll-target="#resonances"><span class="header-section-number">7.6.2</span> Resonances</a></li>
+  <li><a href="#cutoffs" id="toc-cutoffs" class="nav-link" data-scroll-target="#cutoffs"><span class="header-section-number">7.6.3</span> Cutoffs</a></li>
+  <li><a href="#polarizations" id="toc-polarizations" class="nav-link" data-scroll-target="#polarizations"><span class="header-section-number">7.6.4</span> Polarizations</a></li>
+  <li><a href="#low-frequency-limit" id="toc-low-frequency-limit" class="nav-link" data-scroll-target="#low-frequency-limit"><span class="header-section-number">7.6.5</span> Low Frequency Limit</a></li>
+  <li><a href="#faraday-rotation" id="toc-faraday-rotation" class="nav-link" data-scroll-target="#faraday-rotation"><span class="header-section-number">7.6.6</span> Faraday Rotation</a></li>
+  <li><a href="#perpendicular-wave-propagation" id="toc-perpendicular-wave-propagation" class="nav-link" data-scroll-target="#perpendicular-wave-propagation"><span class="header-section-number">7.6.7</span> Perpendicular Wave Propagation</a></li>
   </ul></li>
-  <li><a href="#mhd-waves" id="toc-mhd-waves" class="nav-link" data-scroll-target="#mhd-waves"><span class="toc-section-number">7.7</span>  MHD Waves</a>
+  <li><a href="#mhd-waves" id="toc-mhd-waves" class="nav-link" data-scroll-target="#mhd-waves"><span class="header-section-number">7.7</span> MHD Waves</a>
   <ul class="collapse">
-  <li><a href="#cold-mhd" id="toc-cold-mhd" class="nav-link" data-scroll-target="#cold-mhd"><span class="toc-section-number">7.7.1</span>  Cold MHD</a></li>
-  <li><a href="#hot-mhd" id="toc-hot-mhd" class="nav-link" data-scroll-target="#hot-mhd"><span class="toc-section-number">7.7.2</span>  Hot MHD</a></li>
-  <li><a href="#alfvén-wave" id="toc-alfvén-wave" class="nav-link" data-scroll-target="#alfvén-wave"><span class="toc-section-number">7.7.3</span>  Alfvén Wave</a></li>
-  <li><a href="#sec-fast_slow" id="toc-sec-fast_slow" class="nav-link" data-scroll-target="#sec-fast_slow"><span class="toc-section-number">7.7.4</span>  Fast and Slow Wave</a></li>
-  <li><a href="#limitations-of-the-mhd-model" id="toc-limitations-of-the-mhd-model" class="nav-link" data-scroll-target="#limitations-of-the-mhd-model"><span class="toc-section-number">7.7.5</span>  Limitations of the MHD model</a></li>
+  <li><a href="#cold-mhd" id="toc-cold-mhd" class="nav-link" data-scroll-target="#cold-mhd"><span class="header-section-number">7.7.1</span> Cold MHD</a></li>
+  <li><a href="#hot-mhd" id="toc-hot-mhd" class="nav-link" data-scroll-target="#hot-mhd"><span class="header-section-number">7.7.2</span> Hot MHD</a></li>
+  <li><a href="#alfvén-wave" id="toc-alfvén-wave" class="nav-link" data-scroll-target="#alfvén-wave"><span class="header-section-number">7.7.3</span> Alfvén Wave</a></li>
+  <li><a href="#sec-fast_slow" id="toc-sec-fast_slow" class="nav-link" data-scroll-target="#sec-fast_slow"><span class="header-section-number">7.7.4</span> Fast and Slow Wave</a></li>
+  <li><a href="#limitations-of-the-mhd-model" id="toc-limitations-of-the-mhd-model" class="nav-link" data-scroll-target="#limitations-of-the-mhd-model"><span class="header-section-number">7.7.5</span> Limitations of the MHD model</a></li>
   </ul></li>
-  <li><a href="#two-fluid-model-of-alfvén-modes" id="toc-two-fluid-model-of-alfvén-modes" class="nav-link" data-scroll-target="#two-fluid-model-of-alfvén-modes"><span class="toc-section-number">7.8</span>  Two-fluid model of Alfvén modes</a>
+  <li><a href="#two-fluid-model-of-alfvén-modes" id="toc-two-fluid-model-of-alfvén-modes" class="nav-link" data-scroll-target="#two-fluid-model-of-alfvén-modes"><span class="header-section-number">7.8</span> Two-fluid model of Alfvén modes</a>
   <ul class="collapse">
-  <li><a href="#two-fluid-shear-modes" id="toc-two-fluid-shear-modes" class="nav-link" data-scroll-target="#two-fluid-shear-modes"><span class="toc-section-number">7.8.1</span>  Two-fluid shear modes</a></li>
-  <li><a href="#two-fluid-compressional-modes" id="toc-two-fluid-compressional-modes" class="nav-link" data-scroll-target="#two-fluid-compressional-modes"><span class="toc-section-number">7.8.2</span>  Two-fluid compressional modes</a></li>
-  <li><a href="#differences-betwen-the-two-fluid-and-mhd-descriptions" id="toc-differences-betwen-the-two-fluid-and-mhd-descriptions" class="nav-link" data-scroll-target="#differences-betwen-the-two-fluid-and-mhd-descriptions"><span class="toc-section-number">7.8.3</span>  Differences betwen the two-fluid and MHD descriptions</a></li>
-  <li><a href="#sec-kaw" id="toc-sec-kaw" class="nav-link" data-scroll-target="#sec-kaw"><span class="toc-section-number">7.8.4</span>  KAW properties</a></li>
+  <li><a href="#two-fluid-shear-modes" id="toc-two-fluid-shear-modes" class="nav-link" data-scroll-target="#two-fluid-shear-modes"><span class="header-section-number">7.8.1</span> Two-fluid shear modes</a></li>
+  <li><a href="#two-fluid-compressional-modes" id="toc-two-fluid-compressional-modes" class="nav-link" data-scroll-target="#two-fluid-compressional-modes"><span class="header-section-number">7.8.2</span> Two-fluid compressional modes</a></li>
+  <li><a href="#differences-betwen-the-two-fluid-and-mhd-descriptions" id="toc-differences-betwen-the-two-fluid-and-mhd-descriptions" class="nav-link" data-scroll-target="#differences-betwen-the-two-fluid-and-mhd-descriptions"><span class="header-section-number">7.8.3</span> Differences betwen the two-fluid and MHD descriptions</a></li>
+  <li><a href="#sec-kaw" id="toc-sec-kaw" class="nav-link" data-scroll-target="#sec-kaw"><span class="header-section-number">7.8.4</span> KAW properties</a></li>
   </ul></li>
-  <li><a href="#particle-motions" id="toc-particle-motions" class="nav-link" data-scroll-target="#particle-motions"><span class="toc-section-number">7.9</span>  Particle Motions</a></li>
-  <li><a href="#cold-nonuniform-plasma" id="toc-cold-nonuniform-plasma" class="nav-link" data-scroll-target="#cold-nonuniform-plasma"><span class="toc-section-number">7.10</span>  Cold Nonuniform Plasma</a>
+  <li><a href="#particle-motions" id="toc-particle-motions" class="nav-link" data-scroll-target="#particle-motions"><span class="header-section-number">7.9</span> Particle Motions</a></li>
+  <li><a href="#cold-nonuniform-plasma" id="toc-cold-nonuniform-plasma" class="nav-link" data-scroll-target="#cold-nonuniform-plasma"><span class="header-section-number">7.10</span> Cold Nonuniform Plasma</a>
   <ul class="collapse">
-  <li><a href="#simple-em-wave" id="toc-simple-em-wave" class="nav-link" data-scroll-target="#simple-em-wave"><span class="toc-section-number">7.10.1</span>  Simple EM Wave</a></li>
-  <li><a href="#electron-cyclotron-resonance-heating" id="toc-electron-cyclotron-resonance-heating" class="nav-link" data-scroll-target="#electron-cyclotron-resonance-heating"><span class="toc-section-number">7.10.2</span>  Electron Cyclotron Resonance Heating</a></li>
-  <li><a href="#o-mode" id="toc-o-mode" class="nav-link" data-scroll-target="#o-mode"><span class="toc-section-number">7.10.3</span>  O-mode</a></li>
+  <li><a href="#simple-em-wave" id="toc-simple-em-wave" class="nav-link" data-scroll-target="#simple-em-wave"><span class="header-section-number">7.10.1</span> Simple EM Wave</a></li>
+  <li><a href="#electron-cyclotron-resonance-heating" id="toc-electron-cyclotron-resonance-heating" class="nav-link" data-scroll-target="#electron-cyclotron-resonance-heating"><span class="header-section-number">7.10.2</span> Electron Cyclotron Resonance Heating</a></li>
+  <li><a href="#o-mode" id="toc-o-mode" class="nav-link" data-scroll-target="#o-mode"><span class="header-section-number">7.10.3</span> O-mode</a></li>
   </ul></li>
-  <li><a href="#warm-uniform-plasma" id="toc-warm-uniform-plasma" class="nav-link" data-scroll-target="#warm-uniform-plasma"><span class="toc-section-number">7.11</span>  Warm Uniform Plasma</a>
+  <li><a href="#warm-uniform-plasma" id="toc-warm-uniform-plasma" class="nav-link" data-scroll-target="#warm-uniform-plasma"><span class="header-section-number">7.11</span> Warm Uniform Plasma</a>
   <ul class="collapse">
-  <li><a href="#two-fluid-approach" id="toc-two-fluid-approach" class="nav-link" data-scroll-target="#two-fluid-approach"><span class="toc-section-number">7.11.1</span>  Two-fluid approach</a></li>
-  <li><a href="#vlasov-approach" id="toc-vlasov-approach" class="nav-link" data-scroll-target="#vlasov-approach"><span class="toc-section-number">7.11.2</span>  Vlasov approach</a></li>
-  <li><a href="#ion-acoustic-wave" id="toc-ion-acoustic-wave" class="nav-link" data-scroll-target="#ion-acoustic-wave"><span class="toc-section-number">7.11.3</span>  Ion-acoustic wave</a></li>
+  <li><a href="#two-fluid-approach" id="toc-two-fluid-approach" class="nav-link" data-scroll-target="#two-fluid-approach"><span class="header-section-number">7.11.1</span> Two-fluid approach</a></li>
+  <li><a href="#vlasov-approach" id="toc-vlasov-approach" class="nav-link" data-scroll-target="#vlasov-approach"><span class="header-section-number">7.11.2</span> Vlasov approach</a></li>
+  <li><a href="#ion-acoustic-wave" id="toc-ion-acoustic-wave" class="nav-link" data-scroll-target="#ion-acoustic-wave"><span class="header-section-number">7.11.3</span> Ion-acoustic wave</a></li>
   </ul></li>
-  <li><a href="#sec-es_wave_magnetized" id="toc-sec-es_wave_magnetized" class="nav-link" data-scroll-target="#sec-es_wave_magnetized"><span class="toc-section-number">7.12</span>  Electrostatic Wave in a Magnetized Plasma</a></li>
-  <li><a href="#animation-of-waves" id="toc-animation-of-waves" class="nav-link" data-scroll-target="#animation-of-waves"><span class="toc-section-number">7.13</span>  Animation of Waves</a></li>
-  <li><a href="#cma-diagram" id="toc-cma-diagram" class="nav-link" data-scroll-target="#cma-diagram"><span class="toc-section-number">7.14</span>  CMA Diagram</a></li>
-  <li><a href="#wave-particle-interactions" id="toc-wave-particle-interactions" class="nav-link" data-scroll-target="#wave-particle-interactions"><span class="toc-section-number">7.15</span>  Wave-Particle Interactions</a>
+  <li><a href="#sec-es_wave_magnetized" id="toc-sec-es_wave_magnetized" class="nav-link" data-scroll-target="#sec-es_wave_magnetized"><span class="header-section-number">7.12</span> Electrostatic Wave in a Magnetized Plasma</a></li>
+  <li><a href="#animation-of-waves" id="toc-animation-of-waves" class="nav-link" data-scroll-target="#animation-of-waves"><span class="header-section-number">7.13</span> Animation of Waves</a></li>
+  <li><a href="#cma-diagram" id="toc-cma-diagram" class="nav-link" data-scroll-target="#cma-diagram"><span class="header-section-number">7.14</span> CMA Diagram</a></li>
+  <li><a href="#wave-particle-interactions" id="toc-wave-particle-interactions" class="nav-link" data-scroll-target="#wave-particle-interactions"><span class="header-section-number">7.15</span> Wave-Particle Interactions</a>
   <ul class="collapse">
-  <li><a href="#pitch-angle-scattering" id="toc-pitch-angle-scattering" class="nav-link" data-scroll-target="#pitch-angle-scattering"><span class="toc-section-number">7.15.1</span>  Pitch Angle Scattering</a></li>
+  <li><a href="#pitch-angle-scattering" id="toc-pitch-angle-scattering" class="nav-link" data-scroll-target="#pitch-angle-scattering"><span class="header-section-number">7.15.1</span> Pitch Angle Scattering</a></li>
   </ul></li>
-  <li><a href="#sec-whistler" id="toc-sec-whistler" class="nav-link" data-scroll-target="#sec-whistler"><span class="toc-section-number">7.16</span>  Whistler Wave</a></li>
+  <li><a href="#sec-whistler" id="toc-sec-whistler" class="nav-link" data-scroll-target="#sec-whistler"><span class="header-section-number">7.16</span> Whistler Wave</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/wave.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -395,7 +402,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-waves" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></span></h1>
+<h1 class="title"><span id="sec-waves" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></span></h1>
 </div>
 
 
@@ -422,13 +429,11 @@ div.csl-indent {
 <section id="sec-oscillations" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="sec-oscillations"><span class="header-section-number">7.3</span> Plasma Oscillations</h2>
 <p>If the electrons in a plasma are displaced from a uniform background of ions, electric fields will be built up in such a direction as to restore the neutrality of the plasma by pulling the electrons back to their original positions. Because of their inertia, the electrons will overshoot and oscillate around their equilibrium positions with a characteristic frequency known as the <em>plasma frequency</em>. This oscillation is so fast that the massive ions do not have time to respond to the oscillating field and may be considered as fixed. In Fig. 4.2 (ADD IT!), the open rectangles represent typical elements of the ion fluid, and the darkened rectangles the alternately displaced elements of the electron fluid. The resulting charge bunching causes a spatially periodic <span class="math inline">\(\mathbf{E}\)</span> field, which tends to restore the electrons to their neutral positions.</p>
-<div>
 <div id="fig-langmuir_wave" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://s8.gifyu.com/images/plasma.gif" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.1: Plasma oscillation, also known as Langmuir wave.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7.1: Plasma oscillation, also known as Langmuir wave.</figcaption>
 </figure>
-</div>
 </div>
 <p>We shall derive an expression for the plasma frequency <span class="math inline">\(\omega_p\)</span> in the simplest case, making the following assumptions:</p>
 <ol type="1">
@@ -854,23 +859,19 @@ k^2c^2 = \omega^2\Big(1+\frac{\omega_{pe}^2}{\omega\omega_{ce}} \Big)
 <p><span class="quarto-unresolved-ref">?fig-dispersion_parallel</span> shows the dispersion relations for L/R waves in a rough scale (ACTUALLY THE SCALES ARE SO BAD…). Above the cut-off frequencies (<span class="math inline">\(\omega_{R=0}\)</span> and <span class="math inline">\(\omega_{L=0}\)</span>) the solution to the wave dispersion equation is called the <em>free-space mode</em>. Below electron and ion cyclotron frequencies the waves are called the <em>cyclotron modes</em>. At low frequencies (<span class="math inline">\(\omega\rightarrow 0\)</span>) L- and R-modes merge and the dispersion becomes that of the shear Alfvén wave <span class="math inline">\(n^2\rightarrow c^2/v_A^2\)</span>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode jl code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>KeyNotes.<span class="fu">plot_dispersion_parallel</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The dispersion curve for a R-wave propagating parallel to the equilibrium magnetic field is sketched in <a href="#fig-dispersion_R_wave">Figure&nbsp;<span>7.2</span></a>. The continuation of the Alfvén wave above the ion cyclotron frequency is called the <em>electron cyclotron wave</em>, or sometimes the <em>whistler wave</em>. The latter terminology is prevalent in ionospheric and space plasma physics contexts. The phase speed is mostly super-Alfvénic except near the electron gyrofrequency. The wave which propagates above the cutoff frequency, <span class="math inline">\(\omega_1\)</span>, is a standard right-handed circularly polarized electromagnetic wave, somewhat modified by the presence of the plasma. Note that the low-frequency branch of the dispersion curve differs fundamentally from the high-frequency branch, because the former branch corresponds to a wave which can only propagate through the plasma in the presence of an equilibrium magnetic field, whereas the high-frequency branch corresponds to a wave which can propagate in the absence of an equilibrium field.</p>
-<div>
 <div id="fig-dispersion_R_wave" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://farside.ph.utexas.edu/teaching/plasma/lectures/img1241.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.2: Dispersion relation for a right-handed wave propagating parallel to the magnetic field in a magnetized plasma.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7.2: Dispersion relation for a right-handed wave propagating parallel to the magnetic field in a magnetized plasma.</figcaption>
 </figure>
-</div>
 </div>
 <p>For a L-wave, similar considerations to the above give a dispersion curve of the form sketched in <a href="#fig-dispersion_L_wave">Figure&nbsp;<span>7.3</span></a>. In this case, <span class="math inline">\(n^2\)</span> goes to infinity at the ion cyclotron frequency, <span class="math inline">\(\Omega_i\)</span>, corresponding to the so-called <em>ion cyclotron resonance</em> (at <span class="math inline">\(L\rightarrow\infty\)</span>). At this resonance, the rotating electric field associated with a left-handed wave resonates with the gyromotion of the ions, allowing wave energy to be converted into perpendicular kinetic energy of the ions. There is a band of frequencies, lying above the ion cyclotron frequency, in which the left-handed wave does not propagate. At very high frequencies a propagating mode exists, which is basically a standard left-handed circularly polarized electromagnetic wave, somewhat modified by the presence of the plasma.</p>
 <p>As before, the lower branch in <a href="#fig-dispersion_L_wave">Figure&nbsp;<span>7.3</span></a> describes a wave that can only propagate in the presence of an equilibrium magnetic field, whereas the upper branch describes a wave that can propagate in the absence an equilibrium field. The continuation of the Alfvén wave to just below the ion cyclotron frequency is generally called the <em>ion cyclotron wave</em>. Note that the phase speed is always sub-Alfvénic.</p>
-<div>
 <div id="fig-dispersion_L_wave" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://farside.ph.utexas.edu/teaching/plasma/lectures/img1251.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.3: Dispersion relation for a left-handed wave propagating parallel to the magnetic field in a magnetized plasma.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7.3: Dispersion relation for a left-handed wave propagating parallel to the magnetic field in a magnetized plasma.</figcaption>
 </figure>
-</div>
 </div>
 </section>
 <section id="faraday-rotation" class="level3" data-number="7.6.6">
@@ -909,13 +910,11 @@ S = 1 - \frac{\omega_{pe}^2}{\omega^2 - \Omega_e^2} - \frac{\omega_{pi}^2}{\omeg
 \omega_\mathrm{LH} &lt; \omega_{L=0} &lt; \omega_\mathrm{UH} &lt; \omega_{R=0}
 \]</span></p>
 <p>we can deduce that the dispersion curve for the mode in question takes the form sketched in <a href="#fig-dispersion_perp_wave">Figure&nbsp;<span>7.4</span></a>. The lowest frequency branch corresponds to the compressional-Alfvén wave. The other two branches constitute the <em>extraordinary</em>, or <span class="math inline">\(X\)</span>-, wave. The upper branch is basically a linearly polarized (in the <span class="math inline">\(y\)</span>-direction) electromagnetic wave, somewhat modified by the presence of the plasma. This branch corresponds to a wave which propagates in the absence of an equilibrium magnetic field. The lowest branch corresponds to a wave which does not propagate in the absence of an equilibrium field. Finally, the middle branch corresponds to a wave which converts into an electrostatic plasma wave in the absence of an equilibrium magnetic field.</p>
-<div>
 <div id="fig-dispersion_perp_wave" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://farside.ph.utexas.edu/teaching/plasma/lectures/img1270.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.4: Dispersion relation for a left-handed wave propagating perpendicular to the magnetic field in a magnetized plasma.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7.4: Dispersion relation for a left-handed wave propagating perpendicular to the magnetic field in a magnetized plasma.</figcaption>
 </figure>
-</div>
 </div>
 <p>Wave propagation at oblique angles is generally more complicated than propagation parallel or perpendicular to the equilibrium magnetic field, but does not involve any new physical effects.</p>
 </section>
@@ -1016,13 +1015,11 @@ p_1 &amp;= 0 \\
 \tag{7.29}\]</span></span></p>
 <p>SAW has a wave vector <span class="math inline">\(\mathbf{k}\)</span> in the XZ-plane. <span class="math inline">\(\mathbf{E}\)</span> shall oscillate in the X-direction; <span class="math inline">\(\mathbf{B}\)</span> shall oscillate in the Y-direction. The electric current of the wave <span class="math inline">\(\mathbf{j}\)</span> lies in the XZ-plane. The timescale of the variations of the wave fields is much longer than the ion gyroperiod <span class="math inline">\(\Omega_i^{-1}\)</span>. In both the perpendicular and parallel directions, the spatial scale of the waves <span class="math inline">\(1/k\)</span> are much larger than ion motion scale <span class="math inline">\(r_{iL}\)</span>. The wave carries a Poynting flux <span class="math inline">\(\mathbf{S} = \mathbf{E}\times\mathbf{B}_1\)</span> strictly parallel to <span class="math inline">\(\mathbf{B}_0\)</span>. The ratio of the wave electric field to the wave magnetic field <span class="math inline">\(|\mathbf{E}|/|\mathbf{B}_1|\)</span> is exactly one Alfvén speed <span class="math inline">\(V_A\)</span>.</p>
 <p><span class="math inline">\(\mathbf{E}\)</span> (or <span class="math inline">\(\mathbf{B}_1\)</span>) in <a href="#eq-mhd_Alfven_perturbations">Equation&nbsp;<span>7.29</span></a> shows that the Alfvén wave in a uniform plasma is a linearly polarized wave if <span class="math inline">\(\mathbf{v}_1 = (0, v_y, 0)\)</span>. If instead we set <span class="math inline">\(\mathbf{k}=(0,0,k)\)</span> (<span class="math inline">\(\theta=0^o\)</span>) and <span class="math inline">\(\mathbf{v}_1 = (v_x, v_y, 0)\)</span>, then <span class="math inline">\(\mathbf{k}\cdot\mathbf{v}=0\Rightarrow \rho_1=0\)</span> but <span class="math inline">\(\mathbf{E}=-\mathbf{v}\times\mathbf{B}_0 = kv_y\hat{x} - kv_x\hat{y}\)</span> can be a circularly polarized wave or else. Correlated <span class="math inline">\(\mathbf{B}_1\)</span> and <span class="math inline">\(\mathbf{v}\)</span> corresponds to waves propagating anti-parallel to the <span class="math inline">\(\mathbf{B}_0\)</span> (<span class="math inline">\(\mathbf{k}\cdot\mathbf{B}_0&lt;0\)</span>), and anti-correlated <span class="math inline">\(\mathbf{B}_1\)</span> and <span class="math inline">\(\mathbf{v}\)</span> corresponds to waves propagating parallel to the <span class="math inline">\(\mathbf{B}_0\)</span> (<span class="math inline">\(\mathbf{k}\cdot\mathbf{B}_0&gt;0\)</span>). (This is the same as expressed by the Alfvénicity condition <a href="turbulence.html#eq-Alfvenity">Equation&nbsp;<span>14.2</span></a>.) The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the <em>shear Alfvén wave</em> (SAW). An animation of SAW is shown in <a href="#fig-alfven_wave">Figure&nbsp;<span>7.5</span></a>.</p>
-<div>
 <div id="fig-alfven_wave" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://s8.gifyu.com/images/alfven.gif" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.5: Alfvén wave.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7.5: Alfvén wave.</figcaption>
 </figure>
-</div>
 </div>
 <p>To understand what happens physically in an Alfvén wave, recall that this is an electromagnetic wave with a fluctuating magnetic field <span class="math inline">\(\mathbf{B}_1\)</span> given by <span id="eq-alfven-perturb-e-b"><span class="math display">\[
 \nabla\times\mathbf{E}_1 = -\dot{\mathbf{B}}_1\quad E_x=(\omega/k)B_y
@@ -1037,7 +1034,7 @@ v_{iy} &amp;= \frac{q}{m\omega}\frac{\Omega_c}{\omega} \left( 1-\frac{\Omega_c^2
 <div id="fig-alfven_wave_oscillations" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/Alfven_V_B_E.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.6: Relation among the oscillating quantities in an Alfvén wave and the (exaggerated) distortion of the lines of force.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7.6: Relation among the oscillating quantities in an Alfvén wave and the (exaggerated) distortion of the lines of force.</figcaption>
 </figure>
 </div>
 <p>It remains for us to see what sustains the electric field <span class="math inline">\(E_x\)</span> which we presupposed was there. As <span class="math inline">\(\mathbf{E}_1\)</span> fluctuates, the ions’ inertia causes them to lag behind the electrons, and there is a polarization drift <span class="math inline">\(\mathbf{v}_p\)</span> in the direction of <span class="math inline">\(\mathbf{E}_1\)</span>. This drift <span class="math inline">\(v_{ix}\)</span> is given by <a href="#eq-vxy-CPDR">Equation&nbsp;<span>7.31</span></a> and causes a current <span class="math inline">\(\mathbf{j}_1\)</span> to flow in the <span class="math inline">\(x\)</span> direction. The resulting <span class="math inline">\(\mathbf{j}_1\times\mathbf{B}_0\)</span> force on the fluid is in the <span class="math inline">\(y\)</span> direction and is <span class="math inline">\(90^o\)</span> out of phase with the velocity <span class="math inline">\(\mathbf{v}_1\)</span>. This force perpetuates the oscillation in the same way as in any oscillator where the force is out of phase with the velocity. It is, of course, always the ion inertia that causes an overshoot and a sustained oscillation, but in a plasma the momentum is transferred in a complicated way via the electromagnetic forces.</p>
@@ -1133,13 +1130,11 @@ B_{1x} = i(\mathbf{k}\cdot\mathbf{B}_0)\xi_{1x}
 <li>Check the polarization to see if it is an cyclotron wave.</li>
 <li>Check the parallel electric field to see if has kinetic features.</li>
 </ul>
-<div>
 <div id="fig-mhd-phase-speed-low-beta" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://farside.ph.utexas.edu/teaching/plasma/Plasma/img2325.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.7: Friedrich diagram showing the variation of the phase velocities of the three MHD waves with direction of propagation in the x-z plane when <span class="math inline">\(v_A&gt;v_s\)</span>, i.e.&nbsp;low-<span class="math inline">\(\beta\)</span> case.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7.7: Friedrich diagram showing the variation of the phase velocities of the three MHD waves with direction of propagation in the x-z plane when <span class="math inline">\(v_A&gt;v_s\)</span>, i.e.&nbsp;low-<span class="math inline">\(\beta\)</span> case.</figcaption>
 </figure>
-</div>
 </div>
 <p>Given the velocity perturbation <span class="math inline">\(\mathbf{v}_1 = (v_x, 0, v_z)\)</span>, the other perturbations are given as <span id="eq-mhd_fast_perturbations"><span class="math display">\[
 \begin{aligned}
@@ -1178,13 +1173,11 @@ T_1 &amp;= T - T_0 = \frac{p_0 + p_1}{(n_0 + n_1)k_B} - \frac{p_0}{n_0 k_B} \\
 \omega \simeq k\,v_s\,\cos\theta
 \]</span></p>
 <p>Thus, in low-<span class="math inline">\(\beta\)</span> plasmas the slow wave is a sound wave modified by the presence of the magnetic field.</p>
-<div>
 <div id="fig-fast_wave" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://s8.gifyu.com/images/fast.gif" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.8: Fast wave.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7.8: Fast wave.</figcaption>
 </figure>
-</div>
 </div>
 <p>Sometimes the fast wave dispersion relation is written in alternative ways. Let <span class="math inline">\(a=\omega/(k_\parallel v_A)=\omega/(k\cos\theta\,v_A)\)</span>. From <a href="#eq-mhd_fast_slow">Equation&nbsp;<span>7.41</span></a>, we have <span id="eq-mhd-fast-angle"><span class="math display">\[
 \cos^2\theta = \frac{a^2\left( v_s^2/v_A^2 + 1 \right)-v_s^2/v_A^2}{a^4}
@@ -1572,7 +1565,7 @@ cB_x\simeq \mp A\, n^{1/2}\exp\Big(\pm i\,k_0 \int^z n \mathrm{d}z\Big) - \frac{
 <div id="fig-ECRH" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/ECRH.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.9: Plasma frequency and wave number as functions of <span class="math inline">\(z\)</span> in a non-uniform plasma for the electron cyclotron resonance mode.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7.9: Plasma frequency and wave number as functions of <span class="math inline">\(z\)</span> in a non-uniform plasma for the electron cyclotron resonance mode.</figcaption>
 </figure>
 </div>
 <p>We use <span class="math inline">\(z\)</span> here to remind ourselves of the fact that the wave property changes along the field line. Imagine a wave <span class="math inline">\(\sim e^{i(kz -\omega t)}\)</span> incident into a plasma with fixed density <span class="math inline">\(n_0\)</span> and varying magnetic field <span class="math inline">\(B_0(z)\)</span> as shown in <a href="#fig-ECRH">Figure&nbsp;<span>7.9</span></a>(a). At <span class="math inline">\(z=z_R\)</span>, <span class="math inline">\(\omega_{ce}(z) = \omega_{ce}(z_R) = \omega\)</span>. Then we can draw <span class="math inline">\(k^2(z)\)</span> as a function of <span class="math inline">\(z\)</span> as in <a href="#fig-ECRH">Figure&nbsp;<span>7.9</span></a>(b). There is a pole at <span class="math inline">\(z=z_R\)</span>, which indicates resonance since <span class="math inline">\(k^2\rightarrow\infty\)</span>. There is also a zero on the right of <span class="math inline">\(z_R\)</span>.</p>
@@ -1592,7 +1585,7 @@ k^2(x) = \frac{\omega^2}{c^2}n^2 = \frac{\omega^2}{c^2}\Big[ 1-\frac{{\omega_{pe
 <div id="fig-Omode" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/Omode.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.10: Plasma frequency and wave number as functions of <span class="math inline">\(x\)</span> in a non-uniform plasma for O mode.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7.10: Plasma frequency and wave number as functions of <span class="math inline">\(x\)</span> in a non-uniform plasma for O mode.</figcaption>
 </figure>
 </div>
 <p>Note that there is no energy dissipation, because it is collisionless. Imagine a wave <span class="math inline">\(\sim e^{i(kx-\omega t)}\)</span> incident into a plasma with density <span class="math inline">\(n_0(x)\)</span> shown in <a href="#fig-Omode">Figure&nbsp;<span>7.10</span></a>. We encounter a cutoff at <span class="math inline">\(x=x_t\)</span>, <span class="math inline">\(\omega_{pe}(x_t) = \omega\)</span>. Therefore we can draw <span class="math inline">\(k^2(x)\)</span> as a function of x as in <a href="#fig-Omode">Figure&nbsp;<span>7.10</span></a>. Then the properties of the wave can be categorized into two regimes: <span class="math display">\[
@@ -1837,13 +1830,11 @@ v_{1ix}=\frac{1}{\Omega_i}\frac{\partial}{\partial t}\Big( \frac{E_{1x}}{B_0}\Bi
 </section>
 <section id="animation-of-waves" class="level2" data-number="7.13">
 <h2 data-number="7.13" class="anchored" data-anchor-id="animation-of-waves"><span class="header-section-number">7.13</span> Animation of Waves</h2>
-<div>
 <div id="fig-lowerhybrid_wave" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://s8.gifyu.com/images/lowerhybrid.gif" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.11: Lower hybrid wave.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7.11: Lower hybrid wave.</figcaption>
 </figure>
-</div>
 </div>
 </section>
 <section id="cma-diagram" class="level2" data-number="7.14">
@@ -1869,7 +1860,7 @@ v_{1ix}=\frac{1}{\Omega_i}\frac{\partial}{\partial t}\Big( \frac{E_{1x}}{B_0}\Bi
 <div id="fig-wave_particle" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/wave_particle_interactions.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.12: Wave-particle interactions and the associated part of the velocity distribution functions. Courtesy of Yasuhito Narita.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7.12: Wave-particle interactions and the associated part of the velocity distribution functions. Courtesy of Yasuhito Narita.</figcaption>
 </figure>
 </div>
 <p>Note that the resonance parameters above are defined for a Maxwellian plasma. A correction is needed when treating a non-Maxwellian plasma to find the suitable velocity-space gradient for the resonance. The resonance is efficient when the parameter <span class="math inline">\(\xi_\text{L}\)</span> or <span class="math inline">\(\xi_\text{C}\)</span> is on the order of unity. Strictly speaking, the wave damping (or particle acceleration) is most efficient, typically for <span class="math inline">\(1&lt;\xi&lt;5\)</span>. The upper limit is not exact, but the resonance becomes gradually inefficient at larger values of <span class="math inline">\(\xi\)</span>. For <span class="math inline">\(\xi&lt;1\)</span> the particle motion is slower than the wave propagation and the particles do not have a sufficient time for exchanging energy with the wave electric field. For <span class="math inline">\(\xi&gt;5\)</span> there are increasingly fewer particles with higher velocities for the resonance (higher than the thermal speed).</p>
@@ -1900,33 +1891,31 @@ K_{wv} = \frac{1}{2}\left[ v_\perp^2 + \left( v_\parallel - \frac{\omega}{k_\par
 \]</span></p>
 <p>This is the <span class="math inline">\(v_A\ll W\)</span> case in <a href="#eq-R-wave-phase-speed">Equation&nbsp;<span>7.22</span></a> where <span class="math inline">\(v_w = W\)</span>. For a more complete derivation, see <a href="https://chenshihelio.github.io/notes/Hall_MHD_ion_cyclotron.pdf">Chen Shi’s note</a>. The dispersion relations of whistler and ion cyclotron wave make a pair, similar to the relation between fast and slow magnetosonic waves.</p>
 <p>The dispersion property of whistler waves makes it a problem for hybrid simulations (<a href="hybrid.html#sec-finite_e_mass"><span>Section&nbsp;24.2</span></a>).</p>
-<div>
 <div id="fig-whistler_wave" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://s8.gifyu.com/images/whistler.gif" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;7.13: Whistler wave.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;7.13: Whistler wave.</figcaption>
 </figure>
 </div>
-</div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-bellan2008fundamentals" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-bellan2008fundamentals" class="csl-entry" role="listitem">
 Bellan, Paul M. 2008. <em>Fundamentals of Plasma Physics</em>. Cambridge University Press.
 </div>
-<div id="ref-chen2016introduction" class="csl-entry" role="doc-biblioentry">
+<div id="ref-chen2016introduction" class="csl-entry" role="listitem">
 Chen, Francis F. 2016. <em>Introduction to Plasma Physics and Controlled Fusion</em>. Vol. 1. Springer.
 </div>
-<div id="ref-chen2021physics" class="csl-entry" role="doc-biblioentry">
+<div id="ref-chen2021physics" class="csl-entry" role="listitem">
 Chen, Liu, Fulvio Zonca, and Yu Lin. 2021. <span>“Physics of Kinetic Alfvén Waves: A Gyrokinetic Theory Approach.”</span> <em>Reviews of Modern Plasma Physics</em> 5 (1): 1–37. <a href="https://doi.org/10.1007/s41614-020-00049-3">https://doi.org/10.1007/s41614-020-00049-3</a>.
 </div>
-<div id="ref-gurram2021shear" class="csl-entry" role="doc-biblioentry">
+<div id="ref-gurram2021shear" class="csl-entry" role="listitem">
 Gurram, Harsha, Jan Egedal, and W Daughton. 2021. <span>“Shear Alfv<span>é</span>n Waves Driven by Magnetic Reconnection as an Energy Source for the Aurora Borealis.”</span> <em>Geophysical Research Letters</em> 48 (14): e2021GL094201. <a href="https://doi.org/10.1029/2021GL094201">https://doi.org/10.1029/2021GL094201</a>.
 </div>
-<div id="ref-swanson2012plasma" class="csl-entry" role="doc-biblioentry">
+<div id="ref-swanson2012plasma" class="csl-entry" role="listitem">
 Swanson, Donald Gary. 2012. <em>Plasma Waves</em>. Elsevier.
 </div>
-<div id="ref-wang2023situ" class="csl-entry" role="doc-biblioentry">
+<div id="ref-wang2023situ" class="csl-entry" role="listitem">
 Wang, Jing, Jiang Yu, Aojun Ren, Zuzheng Chen, Xiaojun Xu, Jun Cui, and Jinbin Cao. 2023. <span>“In Situ Observations of Whistler-Mode Waves in Magnetic Reconnection at Mars.”</span> <em>The Astrophysical Journal</em> 944 (1): 85. <a href="https://doi.org/10.3847/1538-4357/acb152">https://doi.org/10.3847/1538-4357/acb152</a>.
 </div>
 </div>
@@ -2082,9 +2071,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -2149,6 +2152,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

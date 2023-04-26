@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,48 +47,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -101,8 +73,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -145,6 +116,7 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -153,11 +125,16 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/math.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -165,204 +142,234 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/about.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></a>
+  <a href="../contents/about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/math.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></a>
+  <a href="../contents/math.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/single.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></a>
+  <a href="../contents/single.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></a>
+  <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></a>
+  <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></a>
+  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></a>
+  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></a>
+  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></a>
+  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></a>
+  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></a>
+  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></a>
+  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></a>
+  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></a>
+  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></a>
+  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></a>
+  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Shock</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></a>
+  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></a>
+  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></a>
+  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></a>
+  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aurora</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></a>
+  <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></a>
+  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></a>
+  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></a>
+  <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/test.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></a>
+  <a href="../contents/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">Appendix</a>
+  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></a>
+  <a href="../contents/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#vector-identities" id="toc-vector-identities" class="nav-link active" data-scroll-target="#vector-identities"><span class="toc-section-number">3.1</span>  Vector Identities</a></li>
-  <li><a href="#differential-of-line-segments" id="toc-differential-of-line-segments" class="nav-link" data-scroll-target="#differential-of-line-segments"><span class="toc-section-number">3.2</span>  Differential of Line Segments</a></li>
-  <li><a href="#lagrangian-vs-eulerian-descriptions" id="toc-lagrangian-vs-eulerian-descriptions" class="nav-link" data-scroll-target="#lagrangian-vs-eulerian-descriptions"><span class="toc-section-number">3.3</span>  Lagrangian vs Eulerian Descriptions</a></li>
-  <li><a href="#complex-analysis" id="toc-complex-analysis" class="nav-link" data-scroll-target="#complex-analysis"><span class="toc-section-number">3.4</span>  Complex Analysis</a></li>
-  <li><a href="#helmholtzs-theorem" id="toc-helmholtzs-theorem" class="nav-link" data-scroll-target="#helmholtzs-theorem"><span class="toc-section-number">3.5</span>  Helmholtz’s Theorem</a></li>
-  <li><a href="#toroidal-and-poloidal-decomposition" id="toc-toroidal-and-poloidal-decomposition" class="nav-link" data-scroll-target="#toroidal-and-poloidal-decomposition"><span class="toc-section-number">3.6</span>  Toroidal and Poloidal Decomposition</a></li>
-  <li><a href="#magnetic-dipole-field" id="toc-magnetic-dipole-field" class="nav-link" data-scroll-target="#magnetic-dipole-field"><span class="toc-section-number">3.7</span>  Magnetic Dipole Field</a></li>
-  <li><a href="#greens-function" id="toc-greens-function" class="nav-link" data-scroll-target="#greens-function"><span class="toc-section-number">3.8</span>  Green’s Function</a></li>
-  <li><a href="#linearization" id="toc-linearization" class="nav-link" data-scroll-target="#linearization"><span class="toc-section-number">3.9</span>  Linearization</a></li>
-  <li><a href="#sec-WKB" id="toc-sec-WKB" class="nav-link" data-scroll-target="#sec-WKB"><span class="toc-section-number">3.10</span>  Wave Equations</a>
+  <li><a href="#vector-identities" id="toc-vector-identities" class="nav-link active" data-scroll-target="#vector-identities"><span class="header-section-number">3.1</span> Vector Identities</a></li>
+  <li><a href="#differential-of-line-segments" id="toc-differential-of-line-segments" class="nav-link" data-scroll-target="#differential-of-line-segments"><span class="header-section-number">3.2</span> Differential of Line Segments</a></li>
+  <li><a href="#lagrangian-vs-eulerian-descriptions" id="toc-lagrangian-vs-eulerian-descriptions" class="nav-link" data-scroll-target="#lagrangian-vs-eulerian-descriptions"><span class="header-section-number">3.3</span> Lagrangian vs Eulerian Descriptions</a></li>
+  <li><a href="#complex-analysis" id="toc-complex-analysis" class="nav-link" data-scroll-target="#complex-analysis"><span class="header-section-number">3.4</span> Complex Analysis</a></li>
+  <li><a href="#helmholtzs-theorem" id="toc-helmholtzs-theorem" class="nav-link" data-scroll-target="#helmholtzs-theorem"><span class="header-section-number">3.5</span> Helmholtz’s Theorem</a></li>
+  <li><a href="#toroidal-and-poloidal-decomposition" id="toc-toroidal-and-poloidal-decomposition" class="nav-link" data-scroll-target="#toroidal-and-poloidal-decomposition"><span class="header-section-number">3.6</span> Toroidal and Poloidal Decomposition</a></li>
+  <li><a href="#magnetic-dipole-field" id="toc-magnetic-dipole-field" class="nav-link" data-scroll-target="#magnetic-dipole-field"><span class="header-section-number">3.7</span> Magnetic Dipole Field</a></li>
+  <li><a href="#greens-function" id="toc-greens-function" class="nav-link" data-scroll-target="#greens-function"><span class="header-section-number">3.8</span> Green’s Function</a></li>
+  <li><a href="#linearization" id="toc-linearization" class="nav-link" data-scroll-target="#linearization"><span class="header-section-number">3.9</span> Linearization</a></li>
+  <li><a href="#sec-WKB" id="toc-sec-WKB" class="nav-link" data-scroll-target="#sec-WKB"><span class="header-section-number">3.10</span> Wave Equations</a>
   <ul class="collapse">
-  <li><a href="#sec-airy" id="toc-sec-airy" class="nav-link" data-scroll-target="#sec-airy"><span class="toc-section-number">3.10.1</span>  Airy Function</a></li>
-  <li><a href="#uniformly-valid-wkbj-solution-across-the-turning-point" id="toc-uniformly-valid-wkbj-solution-across-the-turning-point" class="nav-link" data-scroll-target="#uniformly-valid-wkbj-solution-across-the-turning-point"><span class="toc-section-number">3.10.2</span>  Uniformly Valid WKBJ Solution Across the Turning Point</a></li>
-  <li><a href="#sec-stokes_phenomenon" id="toc-sec-stokes_phenomenon" class="nav-link" data-scroll-target="#sec-stokes_phenomenon"><span class="toc-section-number">3.10.3</span>  Stokes Phenomenon</a></li>
-  <li><a href="#sec-stokes_application" id="toc-sec-stokes_application" class="nav-link" data-scroll-target="#sec-stokes_application"><span class="toc-section-number">3.10.4</span>  Application of Stokes Lines</a></li>
-  <li><a href="#exact-wkbj-solution" id="toc-exact-wkbj-solution" class="nav-link" data-scroll-target="#exact-wkbj-solution"><span class="toc-section-number">3.10.5</span>  “Exact” WKBJ Solution</a></li>
+  <li><a href="#sec-airy" id="toc-sec-airy" class="nav-link" data-scroll-target="#sec-airy"><span class="header-section-number">3.10.1</span> Airy Function</a></li>
+  <li><a href="#uniformly-valid-wkbj-solution-across-the-turning-point" id="toc-uniformly-valid-wkbj-solution-across-the-turning-point" class="nav-link" data-scroll-target="#uniformly-valid-wkbj-solution-across-the-turning-point"><span class="header-section-number">3.10.2</span> Uniformly Valid WKBJ Solution Across the Turning Point</a></li>
+  <li><a href="#sec-stokes_phenomenon" id="toc-sec-stokes_phenomenon" class="nav-link" data-scroll-target="#sec-stokes_phenomenon"><span class="header-section-number">3.10.3</span> Stokes Phenomenon</a></li>
+  <li><a href="#sec-stokes_application" id="toc-sec-stokes_application" class="nav-link" data-scroll-target="#sec-stokes_application"><span class="header-section-number">3.10.4</span> Application of Stokes Lines</a></li>
+  <li><a href="#exact-wkbj-solution" id="toc-exact-wkbj-solution" class="nav-link" data-scroll-target="#exact-wkbj-solution"><span class="header-section-number">3.10.5</span> “Exact” WKBJ Solution</a></li>
   </ul></li>
-  <li><a href="#normalization" id="toc-normalization" class="nav-link" data-scroll-target="#normalization"><span class="toc-section-number">3.11</span>  Normalization</a></li>
-  <li><a href="#theoretical-mechanics" id="toc-theoretical-mechanics" class="nav-link" data-scroll-target="#theoretical-mechanics"><span class="toc-section-number">3.12</span>  Theoretical Mechanics</a>
+  <li><a href="#normalization" id="toc-normalization" class="nav-link" data-scroll-target="#normalization"><span class="header-section-number">3.11</span> Normalization</a></li>
+  <li><a href="#theoretical-mechanics" id="toc-theoretical-mechanics" class="nav-link" data-scroll-target="#theoretical-mechanics"><span class="header-section-number">3.12</span> Theoretical Mechanics</a>
   <ul class="collapse">
-  <li><a href="#generalized-coordinates" id="toc-generalized-coordinates" class="nav-link" data-scroll-target="#generalized-coordinates"><span class="toc-section-number">3.12.1</span>  Generalized Coordinates</a></li>
-  <li><a href="#dalemberts-principle" id="toc-dalemberts-principle" class="nav-link" data-scroll-target="#dalemberts-principle"><span class="toc-section-number">3.12.2</span>  D’Alembert’s Principle</a></li>
-  <li><a href="#lagrangian-mechanics" id="toc-lagrangian-mechanics" class="nav-link" data-scroll-target="#lagrangian-mechanics"><span class="toc-section-number">3.12.3</span>  Lagrangian Mechanics</a></li>
-  <li><a href="#hamiltonian-mechanics" id="toc-hamiltonian-mechanics" class="nav-link" data-scroll-target="#hamiltonian-mechanics"><span class="toc-section-number">3.12.4</span>  Hamiltonian Mechanics</a></li>
-  <li><a href="#hamilton-lagrange-formalism-vs.-lorentz-equation" id="toc-hamilton-lagrange-formalism-vs.-lorentz-equation" class="nav-link" data-scroll-target="#hamilton-lagrange-formalism-vs.-lorentz-equation"><span class="toc-section-number">3.12.5</span>  Hamilton-Lagrange formalism vs.&nbsp;Lorentz equation</a></li>
+  <li><a href="#generalized-coordinates" id="toc-generalized-coordinates" class="nav-link" data-scroll-target="#generalized-coordinates"><span class="header-section-number">3.12.1</span> Generalized Coordinates</a></li>
+  <li><a href="#dalemberts-principle" id="toc-dalemberts-principle" class="nav-link" data-scroll-target="#dalemberts-principle"><span class="header-section-number">3.12.2</span> D’Alembert’s Principle</a></li>
+  <li><a href="#lagrangian-mechanics" id="toc-lagrangian-mechanics" class="nav-link" data-scroll-target="#lagrangian-mechanics"><span class="header-section-number">3.12.3</span> Lagrangian Mechanics</a></li>
+  <li><a href="#hamiltonian-mechanics" id="toc-hamiltonian-mechanics" class="nav-link" data-scroll-target="#hamiltonian-mechanics"><span class="header-section-number">3.12.4</span> Hamiltonian Mechanics</a></li>
+  <li><a href="#hamilton-lagrange-formalism-vs.-lorentz-equation" id="toc-hamilton-lagrange-formalism-vs.-lorentz-equation" class="nav-link" data-scroll-target="#hamilton-lagrange-formalism-vs.-lorentz-equation"><span class="header-section-number">3.12.5</span> Hamilton-Lagrange formalism vs.&nbsp;Lorentz equation</a></li>
   </ul></li>
-  <li><a href="#wavelet-analysis" id="toc-wavelet-analysis" class="nav-link" data-scroll-target="#wavelet-analysis"><span class="toc-section-number">3.13</span>  Wavelet Analysis</a></li>
+  <li><a href="#wavelet-analysis" id="toc-wavelet-analysis" class="nav-link" data-scroll-target="#wavelet-analysis"><span class="header-section-number">3.13</span> Wavelet Analysis</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/math.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -371,7 +378,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-math" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></span></h1>
+<h1 class="title"><span id="sec-math" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></span></h1>
 </div>
 
 
@@ -576,7 +583,7 @@ f(\omega)=\Big(\oint_C-\int_{C_R}\Big)\frac{dv e^{iv}}{v-\omega}=2\pi i e^{i\ome
 <div id="fig-toroidal_poloidal" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/toroidal_poloidal.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.1: Toroidal-Poloidal Decomposition.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;3.1: Toroidal-Poloidal Decomposition.</figcaption>
 </figure>
 </div>
 <p>The OED also records the later usage of these terms in the context of toroidally confined plasmas, as encountered in magnetic confinement fusion. In the plasma context, the toroidal direction is the long way around the torus, the corresponding coordinate being denoted by z in the slab approximation or <span class="math inline">\(\zeta\)</span> or <span class="math inline">\(\phi\)</span> in magnetic coordinates; the poloidal direction is the short way around the torus, the corresponding coordinate being denoted by y in the slab approximation or <span class="math inline">\(\theta\)</span> in magnetic coordinates. (The third direction, normal to the magnetic surfaces, is often called the “radial direction”, denoted by x in the slab approximation and variously <span class="math inline">\(\psi\)</span>, <span class="math inline">\(\chi\)</span>, r, <span class="math inline">\(\rho\)</span>, or <span class="math inline">\(s\)</span> in magnetic coordinates.)</p>
@@ -866,7 +873,7 @@ E(\zeta) = \int_{C_1,C_2,C_3} \mathrm{d}t\ e^{t\zeta-\frac{1}{3}t^3}
 <div id="fig-stokes_sol" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/Stokes_Sol_In_Complex_Plane.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.2: Solution to Stokes Equation in complex t-plane.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;3.2: Solution to Stokes Equation in complex t-plane.</figcaption>
 </figure>
 </div>
 <p><em>Proof</em>.</p>
@@ -1095,7 +1102,7 @@ E(x)= \frac{1}{\sqrt{\zeta^\prime(x)}}Ai(\zeta) \sim \frac{1}{\sqrt{k(x)}} e^{-\
 <div id="fig-Omode_sol" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/WKBJ_sol_Omode.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.3: Comparison between the WKBJ solution, uniformly valid solution and numerical integral solution for the O-mode with monotonically increasing density with <span class="math inline">\(x\)</span>.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;3.3: Comparison between the WKBJ solution, uniformly valid solution and numerical integral solution for the O-mode with monotonically increasing density with <span class="math inline">\(x\)</span>.</figcaption>
 </figure>
 </div>
 <p>We know that away from <span class="math inline">\(x_t\)</span>, WKBJ solution works. To the left of <span class="math inline">\(x_t\)</span> (with <span class="math inline">\(\zeta&lt;-3\)</span>), <a href="#eq-airy_approxi_negative">Equation&nbsp;<span>3.14</span></a> gives</p>
@@ -1172,7 +1179,7 @@ E = \sinh{z}=\frac{1}{2}(e^z-e^{-z}) \Rightarrow
 <div id="fig-stokes_line" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/StokesLine.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.4: Stokes lines and anti-Stokes lines for WKBJ solution of Airy Equation.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;3.4: Stokes lines and anti-Stokes lines for WKBJ solution of Airy Equation.</figcaption>
 </figure>
 </div>
 <p>Even though we say “arbitrary”, the analytic solution in the whole complex plane possess a limit on that amount. The next question would be: how much exponentially decaying solution can you add to the exponentially growing solution? (Note that the asympotic series is also a divergent series: more terms don’t lead to high resolution accuracy! I have questions on this part???)</p>
@@ -1180,7 +1187,7 @@ E = \sinh{z}=\frac{1}{2}(e^z-e^{-z}) \Rightarrow
 <div id="fig-stokes_line_Zplane" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/StokesLine_Zplane.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.5: Marked Stokes lines and regions for Airy solution.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;3.5: Marked Stokes lines and regions for Airy solution.</figcaption>
 </figure>
 </div>
 <p>Let us start from region I. The solution in region I is</p>
@@ -1280,7 +1287,7 @@ E_{S_2} \sim\frac{1}{\sqrt{k}}e^{-i\omega t}\Big[ \underbrace{e^{-i\int_{z_t}^z 
 <div id="fig-potential_well" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/Potential_well.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.6: Potential well.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;3.6: Potential well.</figcaption>
 </figure>
 </div>
 <p>Schrödinger equation reads</p>
@@ -1720,8 +1727,8 @@ H &amp;= \mathbf{P}\cdot\mathbf{v} - L = \frac{mv^2}{2} + q\phi \\
 <p>Check the <a href="https://henry2004y.github.io/blog/wavelet/">notes from my blog</a> and the references therein.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-budden1961radio" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-budden1961radio" class="csl-entry" role="listitem">
 Budden, Kenneth George. 1961. <em>Radio Waves in the Ionosphere</em>. <em>Radio Waves in the Ionosphere</em>.
 </div>
 </div>
@@ -1870,9 +1877,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1937,6 +1958,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
