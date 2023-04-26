@@ -80,10 +80,12 @@ As a rough physical picture, during the cyclotron resonance:
 
 ## Modeling
 
-3D Fokker-Planck diffusion model (e.g. [@glauert2014three]) has been built to model the radiation belt electrons. In the Earth's radiation belts, the evolution of the phase-averaged phase-space density $f(p,r,t)$ can be described by a diffusion equation (see also @eq-fokker_planck):
+3D Fokker-Planck diffusion model[^FP_advection] (e.g. [@glauert2014three]) has been built to model the radiation belt electrons. In the Earth's radiation belts, the evolution of the phase-averaged phase-space density $f(p,r,t)$ can be described by a diffusion equation (see also @eq-fokker_planck):
 $$
 \frac{\partial f}{\partial t} = \sum_{i,j}\frac{\partial}{\partial J_i}\left[ D_{ij}\frac{\partial f}{\partial J_j} \right]
 $$ {#eq-fokker_planck_general}
+
+[^FP_advection]: The general form of the Fokker-Planck equation also includes an advection term, which is ignored here since the drift is negligible compared to diffusion.
 
 Here $D_{ij}$ are diffusion coefficients and $J_i$ are the action integrals, $J_1 = 2\pi m_e \mu/|q|$, $J_2 = J$, and $J_3 = q|\phi|$, where $\mu,J$, and $\phi$ are the adiabatic invariants of charged particle motion, $m_e$ is the electron mass, and $q$ the charge. The adiabatic invariants are awkward variables to visualize and relate to data so many authors transform to other coordinates. One choice is to use pitch angle, energy, and $L^\ast=2\pi M/(|\phi| R_\text{E})$ (@eq-Lstar), where $M=8.22\times 10^{22}\, \text{A}\,\text{m}^2$ is the magnetic moment of the Earth's dipole field and $R_\text{E}$ is the Earth's radius, as the three independent variables.
 
