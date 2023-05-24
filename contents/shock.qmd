@@ -2,16 +2,13 @@
 
 Consider a subsonic disturbance moving through a conventional neutral fluid. As is well-known, sound waves propagating ahead of the disturbance give advance warning of its arrival, and, thereby, allow the response of the fluid to be both smooth and adiabatic. Now, consider a supersonic disturbance. In this case, sound waves are unable to propagate ahead of the disturbance, and so there is no advance warning of its arrival, and, consequently, the fluid response is _sharp_ and _non-adiabatic_. This type of response is generally known as a _shock_.
 
-In space, shock is a dissipative structure in which the kinetic and magnetic energy of a directed plasma flow is partly transferred to heating of the plasma. The dissipation does not take place, however, by means of particle collisions for a shock in space. Collisionless shocks can be divided into _super_- and _sub-critical_: the _critical Mach number_ $M_A^\ast$ is defined by equating the normal component of the downstream flow velocity in the shock frame to the sound speed. (In aerodynamics, the critical Mach number $M^\ast$ of an aircraft is the _lowest_ Mach number at which the airflow over some point of the aircraft reaches the speed of sound, but does not exceed it.) Above the critical Mach number, resistivity alone is unable to provide all the dissipation needed for the required _Rankine-Hugoniot_ shock jump. Supercritical shocks are important because they usually produce much greater ion heating than subcritical shocks. In contrast to sub-critical shocks, resistivity in super-critical shocks cannot provide all the necessary dissipation for a shock transition according to the _Rankine–Hugoniot_ relationships. Thus, other processes like wave-particle interactions provide the dissipation required for supercritical shock formation. This is the reason why they are able to accelerate particles to high energies. Note that most of the time we have supercritical bow shock at Earth, i.e. the sound speed in the magnetosheath is larger than the bulk speed.
-
 Let us investigate shocks first in MHD fluids. Since information in such fluids is carried via three different waves -- namely, _fast_ or _compressional-Alfvén waves_, _intermediate_ or _shear-Alfvén waves_, and _slow_ or _magnetosonic waves_ -- we might expect MHD fluids to support three different types of shock, corresponding to disturbances traveling faster than each of the aforementioned waves.
 
-In general, a shock propagating through an MHD fluid produces a significant difference in plasma properties on either side of the shock front. The thickness of the front is determined by a balance between convective and dissipative effects. However, dissipative effects in high temperature plasmas are only comparable to convective effects when the spatial gradients in plasma variables become extremely large. Hence, MHD shocks in such plasmas tend to be _extremely narrow_, and are well-approximated as _discontinuous_ changes in plasma parameters. The MHD equations, and Maxwell's equations, can be integrated across a shock to give a set of jump conditions which relate plasma properties on each side of the shock front. If the shock is sufficiently narrow then these relations become independent of its detailed structure. Let us derive the jump conditions for a narrow, planar, steady-state, MHD shock.
+In general, a shock propagating through an MHD fluid produces a significant difference in plasma properties on either side of the shock front. The thickness of the front is determined by a balance between convective and dissipative effects. However, dissipative effects in high temperature plasmas are only comparable to convective effects when the spatial gradients in plasma variables become extremely large. Hence, MHD shocks in such plasmas tend to be _extremely narrow_, and are well-approximated as _discontinuities_ in plasma parameters. The MHD equations, and Maxwell's equations, can be integrated across a shock to give a set of jump conditions which relate plasma properties on each side of the shock front. If the shock is sufficiently narrow then these relations become independent of its detailed structure. Let us derive the jump conditions for a narrow, planar, steady-state, MHD shock.
 
 ## MHD Theory
 
 The conserved form of MHD equations can be written as:
-
 $$
 \begin{aligned}
 \nabla\cdot\mathbf{B}=0 \\
@@ -21,25 +18,18 @@ $$
 \frac{\partial U}{\partial t} + \nabla\cdot\mathbf{u}=0
 \end{aligned}
 $$ {#eq-mhd_conservation}
-
 where
-
 $$
 \mathbf{T} = \rho\,\mathbf{V}\,\mathbf{V} + \left(p+ \frac{B^2}{2\mu_0}\right)\mathbf{I}- \frac{\mathbf{B}\mathbf{B}}{\mu_0}
 $$
-
 is the total (i.e., including electromagnetic, as well as plasma, contributions) stress tensor, $\mathbf{I}$ the identity tensor,
-
 $$
 U = \frac{1}{2}\rho V^2 + \frac{p}{\gamma-1} + \frac{B^2}{2\mu_0}
 $$
-
 the total energy density, and
-
 $$
 \mathbf{u} = \left(\frac{1}{2}\rho V^2+ \frac{\gamma}{\gamma -1}p\right)\mathbf{V} + \frac{\mathbf{B}\times (\mathbf{V}\times \mathbf{B})}{\mu_0}
 $$
-
 the total energy flux density.
 
 Let us move into the rest frame of the shock. For a 1D shock, suppose that the shock front coincides with the $y$-$z$ plane. Furthermore, let the regions of the plasma upstream and downstream of the shock, which are termed regions 1 and 2, respectively, be _spatially uniform_ and _time-static_, i.e. $\partial/\partial t = \partial/\partial x = \partial/\partial y = 0$. Moreover, $\partial/\partial x=0$, except in the immediate vicinity of the shock. Finally, let the velocity and magnetic fields upstream and downstream of the shock all lie in the $x$-$y$ plane. The situation under discussion is illustrated in the figure below.
@@ -53,7 +43,6 @@ Let us move into the rest frame of the shock. For a 1D shock, suppose that the s
 Here, $\rho_1$, $p_1$, $\mathbf{V}_1$, and $\mathbf{B}_1$ are the downstream mass density, pressure, velocity, and magnetic field, respectively, whereas $\rho_2$, $p_2$, $\mathbf{V}_2$, and $\mathbf{B}_2$ are the corresponding upstream quantities.
 
 The basic RH relations are listed in [MHD shocks](https://en.wikipedia.org/wiki/Shocks_and_discontinuities_(magnetohydrodynamics)). In the immediate vicinity of the planar shock, @eq-mhd_conservation reduce to
-
 $$
 \begin{aligned}
 \frac{\mathrm{d}B_{x}}{\mathrm{d}x}=0 \\
@@ -95,11 +84,27 @@ The categories of the solution of @eq-RH_planar_sol are shown in the following t
 
 3. Slow-mode and fast-mode shocks are compressive and are associated with an increase in entropy. This is the key in identifying the downstream from the upstream in the case of slow/fast shocks.
 
-4. The Earth's bow shock is a fast mode shock.
+4. The Earth's bow shock is a fast, supercritical shock. An intuitive interpretation of "supercritical" is that the Mach number is so large such that across the shock in the downstream magnetosheath the plasma bulk speed is still larger than the sound speed.
+
+### Evolutionarity
+
+The hyperbolic nature of the conservation laws allows wave propagation only if it is in accord with causality (???). Causality is a general requirement in nature, meaning in this case that the drop in speed across a shock must be large enough for the normal component of the downstream flow to fall below the corresponding downstream mode velocity. For a fast shock this implies the
+following ordering of the normal flow and magnetosonic velocities to both sides of the shock:
+$$
+\begin{aligned}
+V_{1n} > c_{1ms}^+ \\
+V_{2n} < c_{2ms}^+
+\end{aligned}
+$$
+where the numbers 1, 2 refer to upstream and downstream of the fast shock wave.
+
+The first condition is necessary for the shock to be formed at all; it is the second condition which (partially) accounts for the evolutionarity. Otherwise the small fast-mode disturbances excited downstream and moving upward towards the shock would move faster than the flow, they would overcome the shock and steepen it without limit[^q1]. Since this cannot happen for a shock to form, the downstream normal speed must be less than the downstream fast magnetosonic speed. Furthermore, for fast shocks the flow velocity must be greater than the intermediate speed on both sides of the shock, while for slow shocks it must be less than the intermediate speed on both sides. These conditions hold because of the same reason as otherwise the corresponding waves would catch up with the shock front, modify and destroy it and no shock could form.
+
+[^q1]: I don't quite understand this. This makes sense if the velocities contain signs.
 
 ### Coplanarity
 
-Knowing that for the shock $v_n\neq 0$ and $\lfloor v_n \rceil \neq 0$, we can eliminate $\lfloor v_t \rceil$ from the RH relations listed on Wiki and obtain
+Knowing that for the shock $v_n\neq 0$ and $\lfloor v_n \rceil \neq 0$, we can eliminate $\lfloor v_t \rceil$ from the [RH relations](https://en.wikipedia.org/wiki/Shocks_and_discontinuities_(magnetohydrodynamics)) and obtain
 $$
 \lfloor v_n \mathbf{B}_t \rceil = \frac{B_n^2}{\mu_0 (something) }\lfloor \mathbf{B}_t \rceil
 $$
@@ -108,11 +113,39 @@ Hence the cross product of the left with the right hand side must vanish:
 $$
 \begin{aligned}
 \lfloor \mathbf{B}_t \rceil \times \lfloor v_n\mathbf{B}_t \rceil = 0 \\
-(v_{n1} - v_{n2})(\mathbf{B}_{t1}\times\mathbf{B}_{t2}) = 0
+(\mathbf{B}_{t2} - \mathbf{B}_{t1})\times(v_{n2}\mathbf{B}_{t2} - v_{n1}\mathbf{B}_{t1}) = 0 \\
+(v_{n1} - v_{n2})(\mathbf{B}_{t1}\times\mathbf{B}_{t2}) = 0 \\
+\mathbf{B}_{t1} \parallel \mathbf{B}_{t2}
 \end{aligned}
 $$ {#eq-shock_coplanarity}
 
 The resulting coplanarity theorem implies that the magnetic field across the shock has a 2-D geometry: upstream and dowstream tangential fields are parallel to each other and coplanar with the shock normal $\hat{n}$.
+
+Coplanarity does not strictly hold, however. For instance, when the shock is non-stationary, i.e. when its width changes with time or in the direction tangential to the shock, $\partial\mathbf{B}/\partial t$ in Faraday's law does not vanish, and coplanarity becomes violated.
+
+Also, any upstream low frequency electromagnetic plasma wave that propagates along the upstream magnetic field, possesses a magnetic wave field that is perpendicular to the upstream field. When it encounters the shock, this tangential component will be transformed and amplified across the shock. This naturally introduces an out-of-plane magnetic field component, thereby violating the co-planarity condition. There are also other effects which at a real non-MHD shock violate coplanarity.
+
+### Criticality
+
+In space, shock is a dissipative structure in which the kinetic and magnetic energy of a directed plasma flow is partly transferred to heating of the plasma. The dissipation does not take place, however, by means of particle collisions for a shock in space. Collisionless shocks can be divided into _super_- and _sub-critical_, according to their Mach-numbers $M < M_c$ being
+smaller or $M > M_c$ larger than some critical Mach-number $M_c$. In aerodynamics, the [critical Mach number](https://en.wikipedia.org/wiki/Critical_Mach_number) $M^\ast$ of an aircraft is the _lowest_ Mach number at which the airflow over some point of the aircraft reaches the speed of sound, but does not exceed it. For a resistive shock Marshall [1955] had numerically determined the critical Mach number to $M_c\approx 2.76$.
+
+Subcritical shocks are capable of generating sufficient dissipation to account for retardation, thermalisation and entropy in the time the flow crosses the shock from upstream to downstream. The relevant processes are based on wave-particle interaction between the shocked plasma and the shock-excited turbulent wave fields.
+
+For supercritical shocks this is, however, not the case. Supercritical shocks must evoke mechanisms different from simple wave-particle interaction for getting rid of the excess energy in the bulk flow that cannot be dissipated by any classical anomalous dissipation. Above the critical Mach number the simplest efficient way of energy dissipation is rejection of the in-flowing excess energy from the shock by reflecting a substantial part of the incoming plasma back upstream.
+
+The determination of the critical Mach number poses an interesting problem. The finite magnetic field compression ratio sets an upper limit to the rate of resistive dissipation that is possible in an MHD shock. Plasmas possess several dissipative lengths, depending on which dissipative process is considered. Any nonlinear wave that propagates in the plasma should steepen as long, until its transverse scale approaches the longest of these dissipative scales. Then dissipation sets on and limits its amplitude.
+
+Thus, when the wavelength of the fast magnetosonic wave approaches the resistive length, the magnetic field decouples from the wave by resistive dissipation, and the wave speed becomes the sound speed downstream of the shock ramp. The condition for the critical Mach number is then given by $v_{n2} = c_{2s}$. Similarly, for the slow-mode shock, because of its different dispersive properties, the resistive critical-Mach number is defined by the condition $v_{1n} = c_{1s}$[^slow_critical]. Since these quantities depend on wave angle, they have to be solved numerically. Prior studies showed that critical fast-mode Mach number varies between 1 and 3, depending on the upstream plasma parameters and flow angle to the magnetic field. It is usually called _first_ critical Mach number, because there is theoretical evidence in simulations for a second critical Mach number, which comes
+into play when the shock structure becomes time dependent, whistlers accumulate at the shock front and periodically cause its reformation. The dominant dispersion is then the whistler dispersion. An approximate expression for this second or whistler critical Mach number is
+$$
+M_{2c} \propto \left( \frac{m_i}{m_e} \right)^{1/2}\cos\theta_{Bn}
+$$
+where the constant of proportionality depends on whether one defines the Mach number with respect to the whistler-phase or group velocities. For the former it is $1/2$, and for the latter $\sqrt{27/64}$ [Oka+, 2006].
+
+[^slow_critical]: so it depends on the upstream sound speed?
+
+It is clear that it is the smallest critical Mach number that determines the behaviour of the shock. In simple words: $M > 1$ is responsible for the existence of the shock under the condition that an obstacle exists in the flow, which is disturbed in some way such that fast waves can grow, steepen and form shocks. When, in addition, the flow exceeds the next lowest Mach number for a given $\theta_{Bn}$ the shock at this angle will make the transition into a supercritical shock and under additional conditions, which have not yet be ultimately clarified, will start reflecting particles back upstream. If, because of some reason, this would not happen, the flow might have to exceed the next higher critical Mach number until reflection becomes possible. In such a case the shock would become metastable in the region where the Mach number becomes supercritical, will steepen and shrink in width until other effects and – ultimately – reflection of particles can set on.
 
 ### Parallel Shock {#sec-parallel_shock}
 
@@ -258,7 +291,7 @@ $$
 \frac{p_2}{p_1} &= 1+\frac{\gamma v_1^2(r-1)}{v_{s1}^2 r}\left[1-\frac{r v_{A1}^2 [(r+1)v_1^2 - 2r v_{A1}^2\cos^2\theta_1]}{2(v_1^2 -r v_{A1}^2\cos^2\theta_1)^2} \right]
 \end{aligned}
 $$ {#eq-oblique_shock_relation}
-where $v_1 = v_{x1}=v_1\cos\theta_1$ is the component of the upstream velocity normal to the shock front, and $theta_1$ is the angle subtended between the upstream plasma flow and the shock front normal. Finally, given the compression ratio, $r$, the square of the normal upstream velocity, $v_1^{\,2}$, is a real root of a cubic equation known as the _shock adiabatic_:
+where $v_1 = v_{x1}=v_1\cos\theta_1$ is the component of the upstream velocity normal to the shock front, and $\theta_1$ is the angle subtended between the upstream plasma flow and the shock front normal. Finally, given the compression ratio, $r$, the square of the normal upstream velocity, $v_1^{\,2}$, is a real root of a cubic equation known as the _shock adiabatic_:
 $$
 \begin{aligned}
 0 = & (v_1^2 - r\cos^2\theta_1 v_{A1}^2)^2\{ [(\gamma+1) - (\gamma-1)r]v_1^2 - 2r v_{s1}^2 \} \\
@@ -316,7 +349,9 @@ $$
 
 We recognize the first of these roots as the hydrodynamic shock discussed in @sec-parallel_shock. This shock is classified as a slow shock when $V_{S\,1}<v_{A\,1}$, and as a fast shock when $V_{S\,1}> v_{A\,1}$. The other two roots are identical, and correspond to shocks which propagate at the velocity $v_1 =\sqrt{r}\, v_{A\,1}$ and "switch-on" the tangential components of the plasma flow and the magnetic field: it can be seen from @eq-oblique_shock_relation that $v_{y\,1}=B_{y\,1} =0$ whilst $v_{y\,2}\neq 0$ and $B_{y\,2}\neq 0$ for these types of shock.
 
-There we have "switch-on" and "switch-off" shocks which refer to the generation and elimination of tangential components of the plasma flow and the magnetic field. Incidentally, it is also possible to have a "switch-off" shock which eliminates the tangential components of the plasma flow and the magnetic field. According to @eq-oblique_shock_relation, such a shock propagates at the velocity $v_1=\cos\theta_1\,v_{A\,1}$. Switch-on and switch-off shocks are illustrated in @fig-shock_switch_on_off.
+There we have "switch-on" and "switch-off" shocks which refer to the generation and elimination of tangential components of the plasma flow and the magnetic field. Incidentally, it is also possible to have a "switch-off" shock which eliminates the tangential components of the plasma flow and the magnetic field. According to @eq-oblique_shock_relation, such a shock propagates at the velocity $v_1=\cos\theta_1\,v_{A\,1}$[^switch_on_alfven]. Switch-on and switch-off shocks are illustrated in @fig-shock_switch_on_off.
+
+[^switch_on_alfven]: This is a very strong indication that Alfvén waves are involved in switch-on/off shocks!
 
 ::: {.content-visible unless-format="pdf"}
 
@@ -338,6 +373,17 @@ $$
 The first of these roots is clearly a fast shock, and is identical to the perpendicular shock discussed in @sec-perp_shock, except that there is no plasma flow across the shock front in this case. (IS IT BECAUSE OF THE HT FRAME?) The fact that the two other roots are zero indicates that, like the corresponding MHD waves, slow and intermediate MHD shocks do not propagate perpendicular to the magnetic field.
 
 MHD shocks have been observed in a large variety of situations. For instance, shocks are known to be formed by supernova explosions, by strong stellar winds, by solar flares, and by the solar wind upstream of planetary magnetospheres.
+
+### Switch-On and Switch-Off Shocks
+
+Parallel shocks in MHD should, theoretically, behave exactly like gasdynamic shocks, not having any upstream tangential magnetic field component and should also not have any downstream tangential field. This conclusion does not hold rigourously, however, since plasmas consist of charged particles which are sensitive to fluctuations in the field and can excite various waves in
+the plasma via electric currents which then become the sources of magnetic fields. The  kinetic effects in parallel and quasi-parallel shocks play an important role in their physics and are well capable of generating tangential fields at least on scales shorter than the ion scale.
+
+However, even in MHD as we have seen in the previous subsection, one stumbles across the interesting fact that this kind of shocks must have peculiar properties. The reason is that they are not, as in gasdynamics, the result of steepened _sound waves_, in which case they would simply be purely electrostatic shocks. At the contrary, the waves propagating parallel to the magnetic field are Alfvén and magnetosonic waves. Alfvén waves contain transverse magnetic field components. These transverse wave fields, in a parallel shock, are in fact tangential to the shock. Hence, if a purely parallel shock steepens, the transverse Alfvén waves do steepen as well, and the shock after the transition from upstream to downstream switches on a tangential magnetic component which originally was not present. Such shocks are called _switch-on_ shocks. Similarly one can imagine the case that a tangential component behind the shock is by the same process switched off by an oppositely directed switch-on field, yielding a _switch-off_ shock.
+
+The problem of whether or not such shocks exist in MHD is related to the question whether or not an Alfvén wave steepens nonlinearly when propagating into a shock. To first order this steepening for an ordinary Alfvén wave is zero. However, to second order a wave trailing the leading Alfvén wave feels its weak transverse magnetic component. This trailing wave therefore propagates slightly oblique to the main magnetic field and thus causes a second order density compression which in addition to generating a shock-like plasma compression changes the Alfvén velocity locally. In the case when the trailing wave is polarised in the same direction as the leading wave it also increases the transverse magnetic field component downstream of the compression thereby to second order switching on a tangential magnetic component. A whole train of trailing waves of same polarisation will thus cause strong steepening in both the density and tangential magnetic field.
+
+Clearly, this kind of shocks is a more or less exotic case of MHD shocks whose importance is not precisely known, with very rare cases of observation.
 
 ## Double Adiabatic Theory
 
