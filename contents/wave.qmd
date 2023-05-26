@@ -1441,8 +1441,7 @@ where $k^2=k_z^2+k+\perp^2$. Since $\nabla\cdot\mathbf{u}_{s\perp 1}=i\mathbf{k}
 
 ### Differences betwen the two-fluid and MHD descriptions
 
-The two-fluid description shows that the Alfvén mode (finite $E_z$) appears as either an inertial or a kinetic Alfvén wave depending on the plasma $\beta$; the MHD description assumes that $E_z = 0$ for this mode and does not distinguish between inertial and kinetic modes. The two-fluid description also shows that finite $E_z$ will give ion acoustic modes in the parallel direction which are decoupled. The MHD description predicts a so-called sound wave
-which differs from the ion acoustic wave because the MHD sound wave does not have the requirement that $T_e \gg T_i$; the MHD sound wave is an artifact for parallel propagation in a plasma with low collisionality (if the collisions are sufficiently large, then the plasma would behave like a neutral gas). Then MHD description predicts a coupling between oblique sound waves via a square root relation (@eq-mhd_fast_slow) which does not exist in the two-fluid model.
+The two-fluid description shows that the Alfvén mode (finite $E_z$) appears as either an inertial or a kinetic Alfvén wave depending on the plasma $\beta$; the MHD description assumes that $E_z = 0$ for this mode and does not distinguish between inertial and kinetic modes. The two-fluid description also shows that finite $E_z$ will give ion acoustic modes in the parallel direction which are decoupled. The MHD description predicts a so-called sound wave which differs from the ion acoustic wave because the MHD sound wave does not have the requirement that $T_e \gg T_i$; the MHD sound wave is an artifact for parallel propagation in a plasma with low collisionality (if the collisions are sufficiently large, then the plasma would behave like a neutral gas). Then MHD description predicts a coupling between oblique sound waves via a square root relation (@eq-mhd_fast_slow) which does not exist in the two-fluid model.
 
 ### KAW properties {#sec-kaw}
 
@@ -1476,11 +1475,11 @@ While SAWs do not have ion density perturbations, KAWs do. In compressibility is
 
 The polarizations of KAW can be expressed as
 $$
-\bigg\lvert \frac{\delta \mathbf{E}_\perp}{\delta \mathbf{B}_\perp} \bigg\rvert = v_A(1+k_\perp^2r_{iL}^2)[1+k_\perp^2(r_{iL}^2+r_{fL}^2)]^{-1/2}
+\left\lvert \frac{\delta \mathbf{E}_\perp}{\delta \mathbf{B}_\perp} \right\rvert = v_A(1+k_\perp^2r_{iL}^2)[1+k_\perp^2(r_{iL}^2+r_{fL}^2)]^{-1/2}
 $$
-where $\delta\mathbf{E}_\perp \perp \delta\mathbf{B}_\perp$. The parallel electric field is
+where $\delta\mathbf{E}_\perp \perp \delta\mathbf{B}_\perp$. KAWs are right-hand polarized. The parallel electric field is
 $$
-\bigg\lvert \frac{\delta E_\parallel}{\delta E_\perp} \bigg\rvert = k_\parallel k_\perp\frac{r_{fL}^2}{1+k_\perp^2r_{iL}^2}
+\left\lvert \frac{\delta E_\parallel}{\delta E_\perp} \right\rvert = k_\parallel k_\perp\frac{r_{fL}^2}{1+k_\perp^2r_{iL}^2}
 $$
 
 It has been shown that KAWs can be generated via magnetic reconnection, mode conversion, and phase mixing.
@@ -1499,6 +1498,10 @@ It would be very intuitive to compare animations between [MHD Alfvén waves](htt
 Almost half a century after the discovery of KAW, [@chen2021physics] demonstrated that the proper treatment of this wave requires gyrokinetics (@sec-gyrokinetics). However, under some circumstances ($\beta\gg 1$?) the two-fluid theory can recover most if not all of the KAW physics. I need to go over the derivations!
 
 I am not the only person who is confused by so many different names assigned to Alfvén waves. [The Alfvén Wave Zoo](https://www.scirp.org/html/101254_101254.htm#txtF6) is a nice review of all the existence names related to Alfvén waves. Many wave modes degenerate into the classical Alfvén mode in the small k limitation, but they may show different polarizations.
+
+## Kinetic Slow Modes
+
+The least-damped kinetic slow mode is associated with the ion-acoustic (IA) wave and a nonpropagating (NP) mode, both of which exhibit an anticorrelation between $\delta n$ and $\delta B$. A comparison of the damping rates of the IA mode and the NP mode suggests that the IA mode is the dominating kinetic slow mode at low $\beta_\parallel$, while the NP mode is the dominating kinetic slow mode at high $\beta_\parallel$ [@verscharen2017kinetic]. Temperature anisotropies alter the dispersion relations and the damping behavior of slow modes in kinetic plasmas, and can drive the NP mode (i.e., the mirror mode) to be unstable.
 
 ## Particle Motions
 
@@ -1992,14 +1995,21 @@ The Clemmow-Mullaly-Allis (CMA) diagram classifies all EM + ES waves (including 
 
 ## Wave-Particle Interactions
 
-Charged particles can exchange the energy with the wave electric field both parallel and perpendicular to the mean magnetic field (_Landau resonance_). @fig-wave_particle left and middle panels show these resonance types and the associated parts of the distribution function schematically. The resonance parameters for the Landau and cyclotron resonances are
+Different wavemodes exchange energy with particles by different mechanisms including
 
+1. Landau resonance which heats in the direction parallel to the magnetic field and can give a parallel beam in the velocity distribution function (VDF) (@fig-wave_particle left). Charged particles exchange energy with $E_\parallel$.
+
+2. Cyclotron resonance which heats in the direction perpendicular to the magnetic field and broadens the velocity distribution function in the perpendicular direction (@fig-wave_particle middle). Charged particles exchange energy with $E_\perp$. Left-hand polarized ion cyclotron waves can lead to ion heating in the perpendicular direction.
+
+3. Pitch angle scattering which can lead to the formation of a plateau in the VDF (@fig-wave_particle right).
+
+The resonance parameters for the Landau and cyclotron resonances are
 $$
 \xi_\text{L} = \frac{\omega}{k_\parallel v_{\text{th},s}}
 $$ {#eq-landau_resonance}
 
 $$
-\xi_\text{C} = \frac{\omega-\Omega_s}{k_\parallel v_(\text{th},s)}
+\xi_\text{C} = \frac{\omega-\Omega_s}{k_\parallel v_{\text{th},s}}
 $$ {#eq-cyclotron_resonance}
 
 Here the frequency $\omega$ is measured in the plasma rest frame. $\Omega_s$ denotes the cyclotron frequency of particle species $s$ (ion species and electrons), $k_\parallel$ the parallel component of the wavevector, and $v_{\text{th},s}$ the particle thermal speed of species $s$. In general, the resonance parameter can be defined for arbitrary harmonics of the cyclotron frequency $m=0,\pm 1,\pm 2,...$:
@@ -2060,3 +2070,60 @@ The dispersion property of whistler waves makes it a problem for hybrid simulati
 ![Whistler wave.](https://s8.gifyu.com/images/whistler.gif){#fig-whistler_wave}
 
 :::
+
+## Wave Identification
+
+Measured wave spectra are complex and opaque, i.e. it is very difficult from an inspection of their shape to identify the wave modes that are present in the plasma volume under investigation. In some rare clean cases one can conclude from the observation of a particular maximum peak in the wave power or the observation of only one single field component which wave has been detected. In the general case of broad spectra or mixed spectral peaks and various field components lacking clear dominance of one field component it becomes nearly impossible to decide about the waves. Clearly, when the spectrum is a shapeless power-law one, in most cases, we are dealing with developed turbulence or localised structures in which case it makes no sense to distinguish and search for single modes. Then one must seek shelter among the well developed methods of analysing turbulence.
+
+On the other hand, if the spectra indicate the presence of single waves, one would like to have some quantities at hand which help identifying which modes one is dealing with. It would be helpful if one could measure simultaneously both, the wave frequency and the wave number spectra. This is possible, however, only with sophisticated multi-spacecraft constellations. And even then only in the rarest cases the determination of the dispersion relation from experiment will be possible.
+
+In application of these theoretical arguments to real observations one therefore has defined some quantities, called "_transport ratios_", which have turned out to be quite valuable in helping identifying some of the wave modes. Such transport ratios for electromagnetic waves have been given by [@gary1993theory].
+
+* Polarization
+
+The polarisation of a wave magnetic field with respect to wave number $\mathbf{k}$ is given by
+$$
+P = i b_s / b_A
+$$
+where $b_s, b_A$ are the components of the magnetic fluctuation field $\mathbf{b}$ in the direction $\mathbf{S},\mathbf{A}$ of magnetosonic and Alfvén waves, respectively, i.e. the vector $\mathbf{A}=\mathbf{k}\times\mathbf{B}_0$ is perpendicular to the wave vector and the ambient magnetic field, while the vector $\mathbf{S}$ is perpendicular to $\mathbf{k}$ (because of the vanishing divergence $\nabla\cdot\mathbf{b} = \mathbf{k}\cdot\mathbf{b}=0$) in the plane $(\mathbf{k},\mathbf{B}_0)$. The waves are more magnetosonic or more Alfvénic whether $|P|>1$ $|P|<1$, respectively. For $\Re(P)>0 (<0)$ the waves are right-hand (left-hand) polarized.
+
+* Compression
+
+The magnetic compression of the wave measures the relative variation in the parallel magnetic fluctuation field
+$$
+C_B = \left< b_\parallel^2 \right> / \left< |\mathbf{b}|^2 \right>
+$$
+where the fluctuations are taken at a given pair $(\omega,\mathbf{k})$. The angular brackets $\left< ab \right>$ mean taking the real part of the correlation function of the two bracketed quantities.
+
+* Parallel compressibility
+
+This ratio together with the compression ratio provides a tool for estimating how compressive a wave is. It is defined for species $s$ as
+$$
+C_{\parallel s} = \frac{B_0^2}{\left< b_\parallel^2 \right>} \frac{\left< b_\parallel \Delta n_s \right>}{n_s B_0}
+$$
+
+* Non-coplanarity ratio
+
+This ratio measures the fluctuating field component out of the plane $(\mathbf{k},\mathbf{B}_0)$, and is given by
+$$
+C_c = \left< b_A^2 \right> / \left< |\mathbf{b}|^2 \right>
+$$
+
+* Alfvén ratio: the ratio of velocity to magnetic fluctuations
+
+Defining $\delta\mathbf{v}_A = \mathbf{b} / \sqrt{\mu_0 m_i n}$ (unit V/B), where $n$ is the total plasma density, the Alfvén ratio is defined as
+$$
+R_{As} = \left< |\delta\mathbf{v}_s|^2 \right> / \left< |\delta\mathbf{v}_A|^2 \right>
+$$
+where $\delta \mathbf{v}_s$ is the flow velocity of species $s$. An Alfvén wave has $\delta \mathbf{v}_i = \pm \mathbf{v}_A \mathbf{b}/\mathbf{B}_0$, and its own Alfvén ratio is $R_{Ai} = 1$. The Alfvén ratio thus measures the fraction of Alfvén waves contained in the near-zero frequency fluctuations.
+
+In another form, it can be written as
+$$
+R_A = \mu_0 n m_i \frac{|\delta v_i|^2}{|\delta\mathbf{B}|^2}
+$$
+
+One property that differs significantly is the Alfvén ratio where velocity fluctuations dominate for the kinetic slow wave and magnetic fluctuations dominate for the KAW.
+
+* Cross helicity
+
+Helicity of a wave is another identifier of the wave mode, it is in particular useful for determining the direction of propagation of the wave by considering its sign. See @sec-turbulence_cross_helicity

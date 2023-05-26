@@ -4,56 +4,45 @@ The _solar wind_ is a high-speed particle stream continuously blown out from the
 
 In the vicinity of the Earth, (i.e., at about 1 AU from the Sun) the solar wind velocity typically ranges between 300 and 1400 $\mathrm{km}\,\mathrm{s}^{-1}$. The average value is approximately $500\,\mathrm{km}\,\mathrm{s}^{-1}$, which corresponds to about a 4 day time of flight from the Sun. Note that the solar wind is both _super-sonic_ and _super-Alfvénic_.
 
-The solar wind is predominately composed of protons and electrons.
+The solar wind is predominately composed of protons and electrons. Generally helium ($\mathrm{He}^{++}$) is about 4%, and oxygen ($\mathrm{O}^+$) is about 0.1%.
 
 Amazingly enough, the solar wind was predicted theoretically by Eugine Parker in 1958, a number of years before its existence was confirmed using satellite data. Parker's prediction of a super-sonic outflow of gas from the Sun is a fascinating scientific detective story, as well as a wonderful application of plasma physics.
 
 The solar wind originates from the solar corona. The solar corona is a hot, tenuous plasma surrounding the Sun, with characteristic temperatures and particle densities of about $10^6$K and $10^{14}\,\mathrm{m}^{-3}$, respectively. Note that the corona is _far hotter_ than the solar atmosphere, or photosphere. In fact, the temperature of the photosphere is only about 6000 K. It is thought that the corona is heated by Alfvén waves emanating from the photosphere together with a turbulent cascading process. The solar corona is most easily observed during a total solar eclipse, when it is visible as a white filamentary region immediately surrounding the Sun.
 
 Let us start, following Chapman, by attempting to construct a model for a static solar corona. The equation of hydrostatic equilibrium for the corona takes the form
-
 $$
 \frac{\mathrm{d}p}{\mathrm{d}r} = - \rho\,\frac{G\,M_\odot}{r^2}
 $$ {#eq-corona_static}
-
 where $G= 6.67\times 10^{-11}\,\mathrm{m}^{3}\,\mathrm{s}^{-2}\,\mathrm{kg}^{-1}$ is the gravitational constant, and $M_\odot=2\times 10^{30}\,\mathrm{kg}$ is the solar mass. The plasma density is written
-
 $$
 \rho\simeq n\,m_p
 $$ {#eq-corona_mass_density}
-
 where $n$ is the number density of protons. If both protons and electrons are assumed to possess a common temperature, $T(r)$, then the coronal pressure is given by
-
 $$
 p = 2nk_B T
 $$ {#eq-corona_pressure_constT}
 
 The thermal conductivity of the corona is dominated by the electron thermal conductivity, and takes the form (???)
-
 $$
 \kappa = \kappa_0\,T^{5/2}
 $$
-
 where $\kappa_0$ is a relatively weak function of density and temperature. For typical coronal conditions this conductivity is extremely high: i.e., it is about twenty times the thermal conductivity of copper at room temperature. The coronal heat flux density is written
-
 $$
 \mathbf{q} = -\kappa\nabla T
 $$
 
 For a static corona, in the absence of energy sources or sinks, we require
-
 $$
 \nabla\cdot\mathbf{q} = 0
 $$
 
 Assuming spherical symmetry, this expression reduces to
-
 $$
 \frac{1}{r^2}\frac{\mathrm{d}}{\mathrm{d}r}\left(r^2\kappa_0\, k_B T^{5/2}\,\frac{dT}{\mathrm{d}r}\right) =0
 $$
 
 Adopting the sensible boundary condition that the coronal temperature must tend to zero at large distances from the Sun, we obtain
-
 $$
 T(r) = T(a)\left(\frac{a}{r}\right)^{2/7}
 $$ {#eq-corona_T_static}
@@ -61,13 +50,11 @@ $$ {#eq-corona_T_static}
 The reference level $r=a$ is conveniently taken to be the base of the corona, where $a\sim 7\times 10^5\,\mathrm{km}$, $n\sim 2\times 10^{14}\,\mathrm{m}^{-3}$, and $T\sim 2\times 10^{6}$K.
 
 @eq-corona_static, @eq-corona_mass_density, @eq-corona_pressure_constT, and @eq-corona_T_static can be combined and integrated to give
-
 $$
 p(r) = p(a) \exp\left\{\frac{7}{5}\,\frac{G\,M_\odot\,m_p}{2k_B T(a)\,a} \left[\left(\frac{a}{r}\right)^{5/7}-1\right]\right\}
 $$
 
 Note that as $r\rightarrow\infty$ the coronal pressure tends towards a finite constant value:
-
 $$
 p(\infty) = p(a)\,\exp\left\{-\frac{7}{5}\,\frac{G\,M_\odot\,m_p}{2k_B T(a)\,a} \right\}
 $$
@@ -79,57 +66,42 @@ Since we have just demonstrated that a static model of the solar corona is unsat
 ## Parker Solar Wind Model
 
 By symmetry, we expect a purely radial coronal outflow. The radial momentum conservation equation for the corona takes the form
-
 $$
 \rho\,u\,\frac{du}{\mathrm{d}r} = -\frac{\mathrm{d}p}{\mathrm{d}r} - \rho\,\frac{G\,M_\odot}{r^2}
 $$ {#eq-corona_dynamic_mass_cons}
-
 where $u$ is the radial expansion speed. The continuity equation reduces to
-
 $$
 \frac{1}{r^2}\frac{\mathrm{d}(r^2\,\rho\,u)}{\mathrm{d}r} = 0
 $$ {#eq-corona_dynamic_continuity_reduced}
 
 In order to obtain a closed set of equations, we now need to adopt an equation of state for the corona, relating the pressure, $p$, and the density, $\rho$. For the sake of simplicity, we adopt the simplest conceivable equation of state, which corresponds to an _isothermal_ corona. Thus, we have
-
 $$
 p = \frac{2k_B\rho T}{m_p}
 $$ {#eq-corona_dynamic_isothermal}
-
 where $T$ is a constant. Note that more realistic equations of state complicate the analysis, but do not significantly modify any of the physics results.
 
 @eq-corona_dynamic_continuity_reduced can be integrated to give
-
 $$
 r^2\,\rho\,u = I
 $$ {#eq-corona_dynamic_continuity_integrated}
-
 where $I$ is a constant. The above expression simply states that the mass flux per unit solid angle, which takes the value $I$, is independent of the radius, $r$. @eq-corona_dynamic_mass_cons, @eq-corona_dynamic_isothermal, and @eq-corona_dynamic_continuity_integrated can be combined together to give
-
 $$
 \frac{1}{u} \,\frac{du}{\mathrm{d}r}\left(u^2 - \frac{2k_B T}{m_p}\right) = \frac{4k_B T}{m_p\,r} - \frac{G\,M_\odot}{r^2}
 $$ {#eq-corona_dynamic_governing}
 
 Let us restrict our attention to coronal temperatures which satisfy
-
 $$
 T < T_c \equiv \frac{G\,M_\odot\,m_p}{4k_B\,a}
 $$
-
 where $a$ is the radius of the base of the corona. $T_c$ is the defined temperature where the right-hand side of @eq-corona_dynamic_governing is zero at $r=a$. For typical coronal parameters (see previous section), $T_c\simeq 5.8\times 10^6$K, which is certainly greater than the temperature of the corona at $r=a$. For $T<T_c$, the right-hand side of @eq-corona_dynamic_governing is negative for $a<r<r_c$, where (???)
-
 $$
 \frac{r_c}{a} = \frac{T_c}{T}
 $$ {#eq-corona_T_r}
-
 and positive for $r_c<r<\infty$. The right-hand side of @eq-corona_dynamic_governing is zero at $r=r_c$, implying that the left-hand side is also zero at this radius, which is usually termed the "critical radius". There are two ways in which the left-hand side of @eq-corona_dynamic_governing can be zero at the critical radius. Either
-
 $$
 u^2(r_c) = u_c^2 \equiv \frac{2k_B T}{m_p}
 $$ {#eq-corona_dynamic_critical1}
-
 or
-
 $$
 \frac{du(r_c)}{\mathrm{d}r} = 0
 $$ {#eq-corona_dynamic_critical2}
@@ -154,47 +126,35 @@ These four classes of solutions are illustrated in @fig-parker_sol.
 Each of the classes of solutions described above fits a different set of boundary conditions at $r=a$ and $r\rightarrow\infty$. The physical acceptability of these solutions depends on these boundary conditions. For example, both Class 3 and Class 4 solutions can be ruled out as plausible models for the solar corona since they predict super-sonic flow at the base of the corona, which is not observed, and is also not consistent with a static solar photosphere. Class 1 and Class 2 solutions remain acceptable models for the solar corona on the basis of their properties around $r=a$, since they both predict sub-sonic flow in this region. However, the Class 1 and Class 2 solutions behave quite differently as $r\rightarrow\infty$, and the physical acceptability of these two classes hinges on this difference.
 
 @eq-corona_dynamic_governing can be rearranged to give
-
 $$
 \frac{du^2}{\mathrm{d}r}\left(1-\frac{u_c^{~2}}{u^2}\right) = \frac{4\,u_c^{~2}}{r} \left(1-\frac{r_c}{r}\right)
 $$
-
 where @eq-corona_T_r and the definition of $T_c$ have been used. The above expression can be integrated to give
-
 $$
 \left(\frac{u}{u_c}\right)^2 -\ln\!\left(\frac{u}{u_c}\right)^2 = 4\,\ln r + 4\,\frac{r_c}{r} + C
 $$ {#eq-corona_dynamic_sol}
-
 where $C$ is a constant of integration.
 
 Let us consider the behaviour of Class 1 solutions in the limit $r\rightarrow\infty$. It is clear from @fig-parker_sol that, for Class 1 solutions, $u/u_c$ is less than unity and monotonically decreasing as $r\rightarrow\infty$. In the large-$r$ limit, @eq-corona_dynamic_sol reduces to
-
 $$
 \ln\frac{u}{u_c} \simeq -2\,\ln r
 $$
-
 so that
-
 $$
 u\propto \frac{1}{r^2}
 $$
 
 It follows from @eq-corona_dynamic_continuity_integrated that the coronal density, $\rho$, approaches a finite, constant value, $\rho_\infty$, as $r\rightarrow\infty$. Thus, the Class 1 solutions yield a finite pressure,
-
 $$
 p_\infty= \frac{2k_B\,\rho_\infty\,T}{m_p}
 $$
-
 at large $r$, which cannot be matched to the much smaller pressure of the interstellar medium. Clearly, Class 1 solutions are unphysical.
 
 Let us consider the behaviour of the Class 2 solution in the limit $r\rightarrow\infty$. It is clear from @fig-parker_sol that, for the Class 2 solution, $u/u_c$ is greater than unity and monotonically increasing as $r\rightarrow\infty$. In the large-$r$ limit, @eq-corona_dynamic_sol reduces to
-
 $$
 \left(\frac{u}{u_c}\right)^2 \simeq 4\,\ln r
 $$
-
 so that
-
 $$
 u \simeq 2\,u_c\,(\ln r)^{1/2}
 $$
@@ -226,13 +186,10 @@ Observationally, Pioneer 6 showed that the ion temperature anisotropy in the sol
 It may possibly be explained by the conservation of the 1st adiabatic invariant [@scarf1967plasma](This paper shows how pioneers in our field did real elegant physics!).
 
 The magnetic moment $\mu = m v_\perp^2/2B$ is conserved as the collisionless solar wind flows outward from the sun. Near the solar equator the mean field magnitude declines with
-
 $$
 B_r(r) \simeq B_r(r_0)\Big( \frac{r_0}{r} \Big)^2
 $$
-
 and
-
 $$
 B_\phi(r) \simeq \frac{\Omega_r}{u(r)}B_r(r)
 $$
@@ -240,19 +197,15 @@ $$
 from the Parker spiral solar wind model and $\Omega_r = 2.94\times 10^{-6}$ rad/s being the angular frequency of the rotation of the sun.
 
 The adiabatic equation in the perpendicular direction indicates that the perpendicular thermal energy $\langle m v_\perp^2/2\rangle = k_B T_\perp$ declines with B. Assuming in the rest frame the distribution function is a bi-Maxwellian of the form
-
 $$
 f(v) = \Big( \frac{m}{2\pi}  \Big)^{3/2}\frac{1}{k_B T_\perp (k_B T_\parallel)^{1/2}} \exp\Big( -\frac{mv_\perp^2}{2k_B T_\perp} -\frac{mv_\parallel^2}{2k_B T_\parallel} \Big)
 $$
 
 The conservation of the total thermal energy
-
 $$
 W = \int \mathrm{d}^3v \frac{mv^2}{2}f(v)
 $$
-
 yields
-
 $$
 W = k_B T_\perp + k_B T_\parallel/2 = \text{const}.
 $$
@@ -264,7 +217,6 @@ Well, we know now when pressure anisotropy develops, two kinds of plasma instabi
 On the other hand, the opposite case, $T_\perp > T_\parallel$, is also observed and believed to be related to local ion heating by macroscale compressions (e.g. high/low speed streams interaction) or plasma instabilities [@bame1975evidence].
 
 The mirror instability criterion as an additional relation to determine the pressure anisotropy downstream of the shock from the book Plasma instabilities and nonlinear effects by Hasegawa 1975,
-
 $$
 1 + \sum_{\textrm{species}} \beta_\perp \big( 1 - \frac{\beta_\perp}{\beta_\parallel} \big) < 0
 $$
@@ -294,3 +246,9 @@ See more in [Switchbacks Science: Explaining Parker Solar Probe's Magnetic Puzzl
 Because of the presence of a strong magnetic field carried by the wind, low-frequency fluctuations in the solar wind are usually described with MHD. However, due to some peculiar characteristics, the solar wind turbulence contains some features hardly classified within a general theoretical framework. (Tu and Marsch 1995) presents a thorough review of the turbulent phenomena in the solar wind from observations in the ecliptic. In the 1990s, with the launch of the Ulysses spacecraft, investigations have been extended to the high-latitude regions of the heliosphere.
 
 Ruelle and Takens (1971) who showed that a strange attractor in the phase space of the system is the best model for the birth of turbulence. This gave a strong impulse to the investigation of the phenomenology of turbulence from the point of view of dynamical systems. Turbulence in the solar wind has been used as a big wind tunnel to investigate scaling laws of turbulent fluctuations, multifractals models, etc. Therefore, the solar wind can be seen as a very big laboratory where fully developed turbulence can be investigated not only per se, rather as far as basic theoretical aspects are concerned.
+
+## Wave Modes in the Solar Wind
+
+Observations in the solar wind suggest that the compressive component of inertial-range solar-wind turbulence is dominated by slow modes. The low collisionality of the solar wind allows for nonthermal features to survive, which suggests the requirement of a kinetic plasma description. 
+
+The role of kinetic slow waves (KSWs) have largely been ignored as it is heavily damped for the typical plasma parameters of the solar wind (Barnes, 1966; Narita & Marsch, 2015). Recently, KSWs (or pressure balanced structures) have often been invoked to explain the compressible fluctuations and the anticorrelation of magnetic field strength $B$ and the density $n$ at fluid scales [@howes2012slow; @verscharen2017kinetic] and have also been revisited at sub-ion scales to explain the observed increase in compressibility [@lacombe2017anisotropies].
