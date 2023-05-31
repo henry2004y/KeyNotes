@@ -77,24 +77,37 @@ $$
 $$ {#eq-RH_planar_sol}
 where $\lfloor A \rceil = A_2 - A_1$ is the difference across the shock. These relations are often called the Rankine-Hugoniot relations for MHD. There are 6 scalar equations and 12 scalar variables all together. Assuming that all of the upstream plasma parameters are known, there are 6 unknown parameters in the problem--namely, $B_{x\,2}$, $B_{y\,2}$, $V_{x\,2}$, $V_{y\,2}$, $\rho_2$, and $p_2$. These 6 unknowns are fully determined by the six jump conditions. If we loose the planar assumption, then we typically write the $x$-component as the normal component ($v_n, B_n$) and the combined $y$- and $z$-components as the tangential component ($v_t,B_t$). Luckily this is still deterministic. However, the general case is very complicated!
 
-The categories of the solution of @eq-RH_planar_sol are shown in the following table. The $\pm$ signs denote the changes of the downstream compared with the upstream ($+$ means increase, $-$ means decrease). By definition shocks are transition layers across which there is a transport of particles, whereas discontinuities are transition layers across which there is no particle transport.
+A clear exposition of the two types of strong discontinuities, namely the shock wave and the tangential discontinuity can be found in §84, Landau & Lifshitz. By definition shocks are transition layers across which there is a transport of particles, whereas discontinuities are transition layers across which there is no particle transport. Thus in shocks $V_n \neq 0$, and in discontinuities $V_n = 0$. Take a reference frame fixed to the discontinuity with x-axis along the normal. Since mass, momentum and energy is conserved across the discontinuity, we must have from @eq-RH_planar_sol for inviscid flows (no magnetic field, y-direction represents the tangential direction),
+$$
+\begin{aligned}
+\lfloor \rho v_x\rceil=0 \\
+\lfloor \rho v_x^2 + p \rceil = 0, \lfloor \rho v_x v_y \rceil=0 \\
+\lfloor \rho v_x\left(\frac{1}{2}v^2 + h\right)\rceil=0
+\end{aligned}
+$$
+
+In tangential discontinuities, no particle transport means $v_{1x} = v_{2x} = 0$. Then the x-momentum jump implies $\lfloor p \rceil=0$, where the y-momentum jump sets no restrictions on $v_y$. There is also no restriction on $\rho$. Energy equation is also satisfied. Thus, in tangential discontinuities, the density and tangential velocity components can be discontinuities, whereas the pressure must be continuous and the normal velocity component must be zero.  
+
+The categories of the solution of @eq-RH_planar_sol are shown in the following table. The $\pm$ signs denote the changes of the downstream compared with the upstream ($+$ means increase, $-$ means decrease).
 
 |     Type     | Particle Transport | $\rho$ | $\mathbf{v}$ | $p$ | $\mathbf{B}$ | T |
 |:------------:|:------------------:|:------:|:------------:|:---:|:------------:|:---:|
+| Tangential   | No  | $\pm$  | $V_n=0$ | continuous | $B_n = 0$ | $\pm$ |
 | Contact      | No  | $\pm$  | continuous | continuous  | continuous | $\pm$ |
-| Tangential   | No  | $\pm$  | continuous | $\pm$ | $B_n = 0$ | $\pm$ |
 | Slow         | Yes | + | - | + | $B_t$ - | + |
 | Intermediate | Yes | continuous | $\pm$ | $\pm$ | $\pm$ | $\pm$ |
 | Rotational   | No  | continuous  | $V_n=0$, $V_t - B_t/\sqrt{\mu_0 \rho}=0$ | continuous | $B_n = 0$ | $\pm$ |
 | Fast         | Yes | + | - | + | $B_t$ + | + |
 
-1. The Earth's magnetopause (@sec-magnetopause) is generally a tangential discontinuity. When there is no flux rope been generated, the magnetopause can be treated as the surface of pressure balance between magnetic pressure, ram pressure and thermal pressure. However, when reconnection triggers flux rope generation, it may become a rotational discontinuity (TO BE CONFIRMED!).
+1. The contact discontinuity is a special case of tangential discontinuity in which we assume $\lfloor V_t\rceil = 0$, i.e., the tangential velocity (and so the velocity) is continuous, but not the density and other thermodynamic variables. Since the tangential discontinuities do not have a propagating aspect with respect to the flow, they move with the fluid.
 
-2. Intermediate shocks are incompressive and isentropic. The rotational discontinuity is a special case of the intermediate shock. All thermodynamic quantities are continuous across the shock, but the tangential component of the magnetic field can "rotate". The condition $\lfloor \mathbf{V}_t - \frac{\mathbf{B}_t}{\sqrt{\mu_0 \rho}}\rceil=0$ is known as the _Walen relation_. Intermediate shocks in general however, unlike rotational discontinuities, can have a discontinuity in the pressure.
+2. The Earth's magnetopause (@sec-magnetopause) is generally a tangential discontinuity. When there is no flux rope been generated, the magnetopause can be treated as the surface of pressure balance between magnetic pressure, ram pressure and thermal pressure. However, when reconnection triggers flux rope generation, it may become a rotational discontinuity (TO BE CONFIRMED!).
 
-3. Slow-mode and fast-mode shocks are compressive and are associated with an increase in entropy. This is the key in identifying the downstream from the upstream in the case of slow/fast shocks.
+3. Intermediate shocks are incompressive and isentropic. The rotational discontinuity is a special case of the intermediate shock. All thermodynamic quantities are continuous across the shock, but the tangential component of the magnetic field can "rotate". The condition $\lfloor \mathbf{V}_t - \frac{\mathbf{B}_t}{\sqrt{\mu_0 \rho}}\rceil=0$ is known as the _Walen relation_. Intermediate shocks in general however, unlike rotational discontinuities, can have a discontinuity in the pressure.
 
-4. The Earth's bow shock is a fast, supercritical shock. An intuitive interpretation of "supercritical" is that the Mach number is so large such that across the shock in the downstream magnetosheath the plasma bulk speed is still larger than the sound speed.
+4. Slow-mode and fast-mode shocks are compressive and are associated with an increase in entropy. This is the key in identifying the downstream from the upstream in the case of slow/fast shocks.
+
+5. The Earth's bow shock is a fast, supercritical shock. An intuitive interpretation of "supercritical" is that the Mach number is so large such that across the shock in the downstream magnetosheath the plasma bulk speed is still larger than the sound speed.
 
 ### Evolutionarity
 
