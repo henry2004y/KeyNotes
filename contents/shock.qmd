@@ -522,7 +522,7 @@ Another thing to note is that, if you set the jump ratio to 4 (maximum value whe
 
 ## Parallel Shock
 
-From MHD or double adiabatic theory, parallel shocks are  more special in that the magnetic field strength remains unchanged so the equations effectively describe pure gasdynamic solutions.
+From MHD or double adiabatic theory, parallel shocks are more special in that the magnetic field strength remains unchanged so the equations effectively describe pure gasdynamic solutions.
 [@kuznetsov2018parallel] presents a simplified solution in a 1D parallel shock case with parallel and perpendicular thermal energy heat fluxes $S_\parallel$ and $S_\perp$ included. Note again the original CGL theory assumes 0 heat fluxes.
 
 However, as have been indicated in @sec-switch-shocks, this does not cover the real physics involved into parallel shocks which must be treated on the basis of kinetic theory and with the simulation tool at hand. These shocks possess an extended foreshock region with its own extremely interesting dynamics for both types of particles, electrons and ions, reaching from the foreshock boundaries to the deep interior of the foreshock. Based mostly on kinetic simulations, the foreshock is the region where dissipation of flow energy starts well before the flow arrives at the shock. This dissipation is caused by various instabilities excited by the interaction between the flow and the reflected particles that have escaped to upstream from the shock. Interaction between these waves and the reflected and accumulated particle component in the foreshock causes wave growth and steeping, formation of shocklets and pulsations and causes continuous reformation of the quasi-parallel shock that differs completely from quasi-perpendicular shock reformation. It is the main process of maintaining the quasi-parallel shock which by its nature principally turns out to be locally nonstationary and, in addition, on the small scale making the quasi-parallel shock close to becoming quasi-perpendicular for the electrons. This process can be defined as turbulent reformation, with transient phenonmena like hot flow anomalies, foreshock bubbles, and the generation of electromagnetic radiation. Foreshock physics is important for particle acceleration.
@@ -663,6 +663,59 @@ well.
 In quasi-perpendicular and oblique shocks the ions can escape along the magnetic field. In this case an ion two-stream situation arises between the upstream beam and the plasma inflow with the consequence of excitation of a variety of electromagnetic and electrostatic instabilities. In addition, however, an ion-electron two-stream situation is caused between the upstream ions and the inflow electrons which because of the large upstream electron temperatures probably excites mainly ion-acoustic modes but
 can also lead to Buneman two-stream mode excitation. These modes contribute to turbulence in the upstream foreshock region creating a weakly dissipative state in the foreshock where the plasma inflow becomes informed about the presence of the shock.
 The electromagnetic low frequency instabilities on the other hand, which are excited in this region, will grow to large amplitude, form localised structures and after being convected by the main flow towards the shock ramp interact with the shock and modify the shock profile or even contribute to shock formation and shock regeneration.
+
+## Foreshock Transients
+
+This section provides a list and a very short description of foreshock transients based on observations including hot flow anomalies (HFAs), spontaneous hot flow anomalies (SHFAs), foreshock bubbles (FBs), foreshock cavities, foreshock cavitons, foreshock compressional boundaries, density holes, and Short Large-Amplitude Magnetic structures (SLAMs). [@zhang2022dayside]@tbl-foreshock-transient shows a comparison of their characteristics.
+
+|         | Depletion in n and B | Compression in n and B | Presence of suprathermal ions | Significant flow deflection | Significant plasma heating | Associated with an IMF discontinuity | Duration | Scale Size | Generation Mechanism |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| HFA          | Yes | At edges       | Yes | Yes | Yes | Yes | $10 - 10^2$ s | $\mathcal{O}(R_E)$ | Interaction of IMF discontinuities with the bow shock |
+| SHFA         | Yes | At edges       | Yes | Yes | Yes | No  | $10 - 10^2$ s | $\mathcal{O}(R_E)$ | Interaction of foreshock cavitons with the bow shock |
+| FB           | Yes | Only on the upstream edge | Yes | Yes | Yes | Yes | $10 - 10^2$ s | $\mathcal{O}(R_E)$ | Kinetic interactions between suprathermal, backstreaming ions and incident solar wind plasma with embedded IMF discontinuities that move through and alter the ion foreshock |
+| Cavity       | Yes | At edges       | Yes | No  | Modest | Sometimes | $10 - 10^2$ s | $\mathcal{O}(R_E)$ | Antisunward moving slabs of magnetic field lines that connect to the bow shock that are sandwiched between broader regions of magnetic field lines that remain unconnected to the bow shock |
+| Caviton      | Yes | At edges       | Yes | No | No | No | $10 - 60$ s | $\mathcal{O}(R_E)$ | Nonlinear interaction of ULF waves |
+| FCB          | Yes on the turbulent side | At edges       | Maybe | No | No | No || $10 - 10^2$ s | $\mathcal{O}(R_E)$ | Backstreaming ions result in increased pressure within the foreshock region leading to its expansion against the pristine solar wind and the generation of FCBs |
+| Density hole | Yes | At edges       | Yes | Sometimes | Sometimes | Yes | $1 - 60$ s | $\mathcal{O}(R_E)$ | Possibly due to backstreaming particles interacting with the original solar wind |
+| SLAMS        | No | Yes       | Maybe | Sometimes | Sometimes | No || $1 - 60$ s | up to $0.5\, R_E$? | Nonlinear wave steepening |
+
+: Comparison of transient phenomena at the bow shocks. {#tbl-foreshock-transient}
+
+### Hot Flow Anomaly
+
+HFAs are characterized by a low field strength and low density core with heated plasma and substantial flow deflection with sizes of several $\mathrm{R}_\mathrm{E}$. HFAs are typically driven by a solar wind tangential discontinuity (TD) that intersects the bow shock with solar wind convection electric field pointing inward on at least one side of the TD. Such a TD can locally trap foreshock ions leading to the HFA formation while propagating along the bow shock surface. HFAs may accelerate particles efficiently through Fermi acceleration, i.e., bouncing between the converging HFA boundary and the bow shock. The observed energetic ions may also have escaped from the outer magnetosphere.
+
+One of the most remarkable properties of HFAs is the strong deflection of the solar wind bulk flow which can be large enough that inside an HFA the flow can actually show a sunward component. A transient region of lower density in the solar wind interacting with the fast shock can cause the disruption of the fast shock and leads to a new shock that actually travels into the upstream direction with plasma behind this new shock having a much smaller momentum density and velocity than the original solar wind.
+
+### Spontaneous Hot Flow Anomaly
+
+SHFAs have the same characteristics as HFAs except that they are not associated with any solar wind discontinuities. They form intrinsically in the quasi-parallel regime, likely due to the interaction between foreshock cavitons and the bow shock.
+
+### Foreshock Bubble
+
+When backstreaming foreshock ions interact with a solar wind rotational discontinuity (RD) that does not necessarily intersect the bow shock, FBs form upstream of the RD and convecting anti-sunward with it.  Later observations and simulations found that TDs can also drive FBs. FBs are also characterized by a heated, tenuous core
+with significant flow deflection. Different from HFAs and SHFAs, the expansion of FBs is super-fast-magnetosonic and dominantly in the sunward direction. Because of the
+sunward super-fast-magnetosonic expansion, a shock forms upstream of the core, and the FB size in the expansion direction can reach 5-10 $\mathrm{R}_\mathrm{E}$, larger than typical HFAs and SHFAs. In addition to their significant dynamic pressure perturbations, FBs are also efficient particle accelerators due to the presence of the shock (e.g., shock drift acceleration and Fermi acceleration as the shock converges towards the bow shock).
+
+### Foreshock Cavity
+
+Foreshock cavities are characterized by low density, low field strength core regions with high density, high field strength compressional boundaries on two sides. But different from HFAs, the flow deflection inside foreshock cavities is rather weak and plasma heating is not significant. When slabs of magnetic field lines connected to the bow shock are bounded by broader regions of magnetic field lines that remain unconnected to the bow shock, only the slabs are filled with energized particles reflected from the bow shock. The presence of foreshock particles enhanced the thermal pressure, causing an expansion on two sides. Such an expansion decreases the plasma density and magnetic field strength inside the slabs and increases the density and field strength at two boundaries, i.e., a foreshock cavity forms.
+
+### Foreshock Caviton
+
+Foreshock cavitons are also characterized by a core region with low density and field strength bounded by two boundaries with high density and field strength, without clear heating and flow deflection. Their sizes are about one $\mathrm{R}_\mathrm{E}$. They form due to the nonlinear evolution of two types of waves: the parallel propagating sinusoidal waves and the highly oblique, linearly polarized, fast magnetosonic waves. Thus, foreshock cavitons are embedded in foreshock ULF waves, whereas foreshock cavities are isolated due to their different formation mechanisms.
+
+### Foreshock Compressional Boundary
+
+FCBs have enhanced density and field strength. They occur at the boundary between the foreshock and the pristine solar wind. Because of the high thermal pressure due to the presence of foreshock ions, the foreshock region expands into the ambient pristine solar wind, leading to the formation of an FCB. FCBs are sometimes associated with local density and field strength depletion on their foreshock side. FCBs can form under either steady or nonsteady IMF conditions.
+
+### SLAMS and Shocklets
+
+Short Large-Amplitude Magnetic Structures (SLAMS) are magnetic pulsations with amplitudes at least two times the ambient magnetic field strength. SLAMS have typical spatial scales up to many ion gyroradii (where the thermal ion gyroradius is typically 160 km in the solar wind) and grow rapidly with time scales of seconds. Shocklets are also magnetic structures (nonlinearly steepened magnetosonic waves), but differ from SLAMS in terms of amplitude, spatial scale, growth rate, and propagation angle.
+
+### Density Hole
+
+Density holes are characterized by similarly shaped magnetic holes with enhanced density and field strength at one or both edges. The definition of density holes overlaps with HFAs, SHFAs, FBs, foreshock cavities, and foreshock cavitons, but in a broader sense. @lu2022statistical showed statistically that ∼66% of 411 density holes cannot be categorized by any of these foreshock transient types. Therefore, it is necessary to make density holes a separate category. A better definition of density holes is needed to definitely distinguish them from other foreshock transient types, which requires further studies. The formation could be due to the interaction between backstreaming particles and the original solar wind [@parks2006larmor].
 
 ## Subcritical Shocks
 
