@@ -362,8 +362,7 @@ div.csl-indent {
 \]</span></p>
 <p><span class="math display">\[
 \mathbf{J} = \sum_s q_s n_s \mathbf{V}_s - e n_e \mathbf{V}_e
-\]</span></p>
-<p>where <span class="math inline">\(q_s, n_s, \mathbf{V}_s\)</span> are the charge, number density and bulk velocity of ion species s calculated by taking moments of the distribution function <span class="math display">\[
+\]</span> where <span class="math inline">\(q_s, n_s, \mathbf{V}_s\)</span> are the charge, number density and bulk velocity of ion species s calculated by taking moments of the distribution function <span class="math display">\[
 n_s = \int \mathrm{d}^3 v f_s(\mathbf{r}_s,\mathbf{v}_s,t)
 \]</span> <span class="math display">\[
 \mathbf{u}_s = \frac{1}{n_s}\int \mathrm{d}^3 v \mathbf{v}_s f_s(\mathbf{r}_s,\mathbf{v}_s,t)
@@ -374,7 +373,7 @@ n_s = \int \mathrm{d}^3 v f_s(\mathbf{r}_s,\mathbf{v}_s,t)
 <li>avoid solving the Maxwell’s equations entirely and instead use the generalized Ohm’s law instead</li>
 </ul>
 <p>The electron density thus can be written by using ion densities <span class="math inline">\(n_e \approx n_i \equiv \sum_s q_s n_s /e\)</span>. In addition, the electron bulk velocity may also be eliminated using Ampère’s law <span class="math display">\[
-\mathbf{J} = \mu_0\nabla\times\mathbf{B}
+\mathbf{J} = \mu_0^{-1}\nabla\times\mathbf{B}
 \]</span> and the relation <span id="eq-hybrid_Je"><span class="math display">\[
 \mathbf{v}_e = \mathbf{v}_i - \mathbf{J}/n_e e
 \tag{24.1}\]</span></span></p>
@@ -390,7 +389,7 @@ n_s = \int \mathrm{d}^3 v f_s(\mathbf{r}_s,\mathbf{v}_s,t)
 \mathbf{a}_s = \frac{q_s}{m_s}(\mathbf{E}+\mathbf{v}_s\times\mathbf{B})
 \]</span></p>
 <p>The generalized Ohm’s law is used to determine the time evolution of the electric field, derived from the electron momentum equation assuming <span class="math inline">\(m_e \rightarrow 0\)</span>, <span id="eq-hybrid_ohm"><span class="math display">\[
-\mathbf{E} = - \mathbf{V}_i \times \mathbf{B} + \frac{1}{n_i e}(\nabla\times\mathbf{B})\times\mathbf{B} - \frac{1}{n_i e}\nabla\cdot\overleftrightarrow{P}_e + \eta \mathbf{J}
+\mathbf{E} = - \mathbf{V}_i \times \mathbf{B} + \frac{1}{\mu_0 n_i e}(\nabla\times\mathbf{B})\times\mathbf{B} - \frac{1}{n_i e}\nabla\cdot\overleftrightarrow{P}_e + \eta \mathbf{J}
 \tag{24.2}\]</span></span> where the current in the Hall term has already been replaced by the curvature of B. The last term can either represent collision/physical resistivity, or artificial resistivity/numerical diffusion.</p>
 <p>The magnetic fields evolve according to Faraday’s law <span class="math display">\[
 \frac{\partial \mathbf{B}}{\partial t} = -\nabla\times\mathbf{E}
@@ -423,6 +422,7 @@ P_e = n_e^\gamma k_B T_e = n_0(n/n_0)^\gamma k_B T_{e0}
 <section id="sec-finite_e_mass" class="level2" data-number="24.2">
 <h2 data-number="24.2" class="anchored" data-anchor-id="sec-finite_e_mass"><span class="header-section-number">24.2</span> Finite Electron Inertia</h2>
 <p>The conventional hybrid simulation model dealing with kinetic ions and a massless charge-neutralizing electron fluid is known to be susceptible to numerical instability due to divergence of the whistler-mode wave dispersion, as well as division-by-density operation in regions of low density. The Alfvén wave at short wavelength comparable to ion inertia length has dispersion due to the decoupling between ion and electron dynamics. There thus appears the whistler mode whose frequency diverges as <span class="math inline">\(\omega \propto k^2\)</span>. This means that the maximum phase velocity in the system increases rapidly without bound, implying numerical difficulty. The division-by-density issue originates from <a href="#eq-hybrid_Je">Equation&nbsp;<span>24.1</span></a> and appears in the Hall and electron pressure gradient terms. Consequently, a pure vacuum region is not allowed to exist in the simulation domain unless some ad hoc technique is used.</p>
+<p>On the other hand, this can be restated as hybrid simulations with massless charge-neutralizing electrons are unrealistic if whistlers are involved. Either people use full particle models, or try to incoporate finite electron mass into the conventional hybrid model.</p>
 <p>The finite electron inertia correction is proposed to solve the whistler-mode wave dispersion issue. The conventional way to include a finite electron inertia correction into the hybrid model is to introduce the following so-called generalized electromagnetic field <span class="math inline">\(\widehat{\mathbf{E}}, \widehat{\mathbf{B}}\)</span>, defined as <span class="math display">\[
 \widehat{\mathbf{E}} = \mathbf{E} - \frac{\partial}{\partial t}\big( \frac{c}{\omega_{pe}^2}\nabla\times\mathbf{B} \big)
 \]</span></p>
