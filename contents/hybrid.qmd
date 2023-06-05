@@ -14,7 +14,6 @@ $$
 $$
 \mathbf{J} = \sum_s q_s n_s \mathbf{V}_s - e n_e \mathbf{V}_e
 $$
-
 where $q_s, n_s, \mathbf{V}_s$ are the charge, number density and bulk velocity of ion species s calculated by taking moments of the distribution function
 $$
 n_s = \int \mathrm{d}^3 v f_s(\mathbf{r}_s,\mathbf{v}_s,t)
@@ -32,7 +31,7 @@ The crucial assumption in the hybrid model is the _quasi-neutrality_, that is, t
 The electron density thus can be written by using ion densities $n_e \approx n_i \equiv \sum_s q_s n_s /e$.
 In addition, the electron bulk velocity may also be eliminated using Ampère's law
 $$
-\mathbf{J} = \mu_0\nabla\times\mathbf{B}
+\mathbf{J} = \mu_0^{-1}\nabla\times\mathbf{B}
 $$
 and the relation
 $$
@@ -60,7 +59,7 @@ $$
 
 The generalized Ohm's law is used to determine the time evolution of the electric field, derived from the electron momentum equation assuming $m_e \rightarrow 0$,
 $$
-\mathbf{E} = - \mathbf{V}_i \times \mathbf{B} + \frac{1}{n_i e}(\nabla\times\mathbf{B})\times\mathbf{B} - \frac{1}{n_i e}\nabla\cdot\overleftrightarrow{P}_e + \eta \mathbf{J}
+\mathbf{E} = - \mathbf{V}_i \times \mathbf{B} + \frac{1}{\mu_0 n_i e}(\nabla\times\mathbf{B})\times\mathbf{B} - \frac{1}{n_i e}\nabla\cdot\overleftrightarrow{P}_e + \eta \mathbf{J}
 $$ {#eq-hybrid_ohm}
 where the current in the Hall term has already been replaced by the curvature of B. The last term can either represent collision/physical resistivity, or artificial resistivity/numerical diffusion.
 
