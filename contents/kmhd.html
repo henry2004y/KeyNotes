@@ -520,10 +520,12 @@ f_s(w_\perp, w_\parallel) = F_s(\mu, \epsilon)
 \omega^2 = k_\parallel^2 \Big( \frac{B^2}{\mu_0 \rho} + \frac{p_\perp - p_\parallel}{\rho} \Big) = k_\parallel^2 v_{th\parallel}^2 \Big( \frac{p_\perp - p_\parallel}{p_\parallel} + \frac{2}{\beta_\parallel} \Big)
 \end{aligned}
 \]</span></p>
-<p>Let <span class="math inline">\(A = (p_\perp - p_\parallel)/p_\parallel\)</span>. The system will be unstable if <span class="math inline">\(A&lt;-2/\beta_\parallel\)</span>, which leads to a growth rate <span class="math display">\[
+<p>Let <span class="math inline">\(A = (p_\perp - p_\parallel)/p_\parallel\)</span>. The system will be unstable if <span class="math inline">\(A&lt;-2/\beta_\parallel\)</span>, i.e. <span id="eq-kmhd_firehose_criterion"><span class="math display">\[
+p_\perp - p_\parallel &gt; 2 p_B
+\tag{10.15}\]</span></span> which leads to a growth rate <span id="eq-kmhd_firehose_growth_rate"><span class="math display">\[
 \gamma = k_\parallel v_{th\parallel}\sqrt{\bigg\lvert A+\frac{2}{\beta_\parallel}\bigg\rvert}
-\]</span></p>
-<p>Thus, negative <span class="math inline">\(A\)</span> (<span class="math inline">\(p_\parallel &gt; p_\perp\)</span>) locally weakens tention, i.e.&nbsp;slows down Alfvén waves, and makes it energetically easier to bend the field lines. For <span class="math inline">\(A&lt;-2/\beta_\parallel\)</span>, the elasticity of field lines is lost and we have the firehose instability.</p>
+\tag{10.16}\]</span></span></p>
+<p>Thus, negative <span class="math inline">\(A\)</span> (<span class="math inline">\(p_\parallel &gt; p_\perp\)</span>) locally weakens tention, i.e.&nbsp;slows down Alfvén waves, and makes it energetically easier to bend the field lines. When <span class="math inline">\(A&lt;-2/\beta_\parallel\)</span>, the elasticity of field lines is lost and we have the firehose instability.</p>
 <div id="fig-firehose" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/instability_firehose.png" class="img-fluid figure-img"></p>
@@ -546,13 +548,13 @@ k_{\parallel\text{peak}}r_i\sim \bigg\lvert A + \frac{2}{\beta_\parallel} \bigg\
 <h2 data-number="10.2" class="anchored" data-anchor-id="sec-mirror"><span class="header-section-number">10.2</span> Mirror Instability: Linear Theory</h2>
 <p>Let us go back to <a href="#eq-kmhd_induction_perturb">Equation&nbsp;<span>10.13</span></a> and <a href="#eq-kmhd_momentum_perturb">Equation&nbsp;<span>10.14</span></a> and get apart from Alfvénic what other perturbations there are and when they are stable. We have already looked at the Alfvénic perturbation <span class="math inline">\(\delta\hat{b}=\delta \mathbf{B}_\perp/B\)</span>. Now consider <span id="eq-kmhd_B_perturb"><span class="math display">\[
 \frac{\delta B}{B} = \frac{\delta B_\parallel}{B}
-\tag{10.15}\]</span></span></p>
+\tag{10.17}\]</span></span></p>
 <p>From <a href="#eq-kmhd_induction_perturb">Equation&nbsp;<span>10.13</span></a>, we have the perpendicular compression increases B: <span class="math display">\[
 \omega\frac{\delta B}{B} = \mathbf{k}_\perp\cdot\delta\mathbf{u}_\perp
 \]</span></p>
 <p>Take <span class="math inline">\(\mathbf{k}_\perp\cdot\)</span> <a href="#eq-kmhd_momentum_perturb">Equation&nbsp;<span>10.14</span></a>: <span id="eq-kmhd_momentum_perturb_perp"><span class="math display">\[
 \omega\rho\mathbf{k}_\perp\cdot\delta\mathbf{u}_\perp = \rho\omega^2 \frac{\delta B}{B} = k_\perp^2\Big( \delta p_\perp + \frac{B\delta B}{\mu_0} \Big) + k_\parallel^2\Big( p_\perp - p_\parallel + \frac{B^2}{\mu_0} \Big) \frac{\delta B}{B}
-\tag{10.16}\]</span></span></p>
+\tag{10.18}\]</span></span></p>
 <p>Note the <span class="math inline">\(p_\perp\)</span> term here: we need kinetic theory to calculate this! Fortunately we have <a href="#eq-kmhd_kinetic_1storder">Equation&nbsp;<span>10.12</span></a> ready for calculating <span class="math display">\[
 \delta p_\perp = \int \mathrm{d}\mathbf{w}\frac{m_sw_\perp^2}{2}\delta f_s(w_\perp, w_\parallel)
 \]</span></p>
@@ -596,7 +598,7 @@ f_{0s} = \frac{n_s}{\pi^{3/2}v_{\text{th}\perp s}^2 v_{\text{th}\parallel s}}\ex
 &amp;= \int \mathrm{d}\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s + 2\int \mathrm{d}\mathbf{w}\frac{m_s w_\perp^2}{2}\delta f_{0s}\frac{\delta B}{B} + \int \mathrm{d}\mathbf{w}\frac{2(\frac{1}{2}m_sw_\perp^2)^2}{m_sw_\parallel^2}f_{0s}\frac{\delta B}{B} \\
 &amp;= \int \mathrm{d}\mathbf{w}\frac{m_s w_\perp^2}{2}\delta F_s + \frac{\delta B}{B}\Big( 2p_{\perp s} - \frac{2 p_{\perp s}^2}{p_{\parallel s}} \alpha_s )
 \end{aligned}
-\tag{10.17}\]</span></span> where <span class="math inline">\(\alpha_s\)</span> is some coefficients of order 1 if <span class="math inline">\(f_{0s}\)</span> is not bi-Maxwellian.</p>
+\tag{10.19}\]</span></span> where <span class="math inline">\(\alpha_s\)</span> is some coefficients of order 1 if <span class="math inline">\(f_{0s}\)</span> is not bi-Maxwellian.</p>
 <p><span class="math inline">\(\delta F_s\)</span> can be obtained by ignoring collisions and linearizing and Fourier-transforming <a href="#eq-kmhd_kinetic_1storder">Equation&nbsp;<span>10.12</span></a> (<span class="math inline">\(\mathbf{u}_s=0\)</span>): <span class="math display">\[
 \begin{aligned}
 -i(\omega - k_\parallel w_\parallel)\delta F_s = - \Big[ m_sw_\parallel\Big( \frac{q_s}{m_s}E_\parallel - i(\omega-k_\parallel w_\parallel) \delta u_{\parallel s}\Big) -i\omega\mu\delta B \Big]\frac{\partial F_{0s}}{\partial \epsilon} \\
@@ -629,23 +631,23 @@ f_{0s} = \frac{n_s}{\pi^{3/2}v_{\text{th}\perp s}^2 v_{\text{th}\parallel s}}\ex
 \Big[ \frac{\partial}{\partial w_\parallel^2}\int \mathrm{d}\mathbf{w}_\perp\frac{m_s^2w_\perp^4}{2}f_{0s} \Big]_{w_\parallel=\omega/|k_\parallel|} = -\frac{2p_{\perp s}^2}{p_{\parallel s}}\frac{e^{-\frac{\omega^2}{k_\parallel^2 v_{\text{th}\parallel s}^2}}}{\sqrt{\pi}v_{\text{th}\parallel s}}
 \]</span></p>
 <p>The exponential term is nearly 1. If it is not a bi-Maxwellian, then we need to multiply by a coefficient <span class="math inline">\(\alpha_s \sim 1\)</span>.</p>
-<p><a href="#eq-kmhd_pperp_perturb">Equation&nbsp;<span>10.17</span></a> becomes <span class="math display">\[
+<p><a href="#eq-kmhd_pperp_perturb">Equation&nbsp;<span>10.19</span></a> becomes <span class="math display">\[
 \delta p_{\perp s} = \frac{\delta B}{B}\Big[ 2p_{\perp s} - \frac{2p_{\perp s}^2}{p_{\parallel s}}\Big( \alpha_s + i\sqrt{\pi}\frac{\omega}{|k_\parallel|v_{\text{th}\parallel s}}\sigma_s \Big) \Big]
 \]</span></p>
-<p>This goes into <a href="#eq-kmhd_momentum_perturb_perp">Equation&nbsp;<span>10.16</span></a>: <span class="math display">\[
+<p>This goes into <a href="#eq-kmhd_momentum_perturb_perp">Equation&nbsp;<span>10.18</span></a>: <span class="math display">\[
 \rho \omega^2 = k_\perp^2\frac{B^2}{\mu_0}\Big[ \sum_s(1 - \frac{p_{\perp s}}{p_{\parallel s}}\alpha_s)\beta_{\perp s} - i\sum_s \sigma_s\frac{p_{\perp s}}{p_{\parallel s}}\beta_{\perp s}\sqrt{\pi}\frac{\omega}{|k_\parallel| v_{\text{th} \parallel s}} + 1 \Big] + k_\parallel^2 \frac{B^2}{\mu_0}\Big[ \sum_s\frac{\beta_{\perp s}}{2}\big( 1 - \frac{p_{\parallel s}}{p_{\perp s}} \big) + 1 \Big]
 \]</span></p>
 <p>The left-hand side can be neglected because <span class="math inline">\(\omega\ll k_\parallel v_{\text{th}\parallel s}\)</span>. The electron thermal velocity <span class="math inline">\(v_{\text{th}\parallel e}\)</span> in the denominator can be neglected because <span class="math inline">\(v_{\text{th}\parallel e} \gg v_{\text{th}\parallel i}\)</span>. The growth rate <span class="math inline">\(\gamma\)</span> is the imaginary part of <span class="math inline">\(\omega\)</span>. Reorganize the last equation: <span id="eq-kmhd_mirror_dispersion"><span class="math display">\[
 \sigma_i\frac{p_{\perp i}}{p_{\parallel i}}\beta_{\perp i}\sqrt{\pi}\frac{\gamma}{|k_\parallel|v_{\text{th}\parallel i}} = \sum_s \Big(\frac{p_\perp s}{p_\parallel s}\alpha_s - 1 \Big)\beta_{\perp s} - 1 -\frac{k_\parallel^2}{k_\perp^2}\Big[ \sum_s\frac{\beta_{\perp s}}{2}\big( 1-\frac{p_{\parallel s}}{p_{\perp s}}\big) + 1 \Big]
-\tag{10.18}\]</span></span> where <span class="math inline">\(\Lambda\equiv \frac{k_\parallel^2}{k_\perp^2}\sum_s \Big(\frac{p_\perp s}{p_\parallel s}\alpha_s - 1 \Big)\beta_{\perp s} - 1\)</span> triggers instability if this is positive: <span class="math display">\[
+\tag{10.20}\]</span></span> where <span class="math inline">\(\Lambda\equiv \frac{k_\parallel^2}{k_\perp^2}\sum_s \Big(\frac{p_\perp s}{p_\parallel s}\alpha_s - 1 \Big)\beta_{\perp s} - 1\)</span> triggers instability if this is positive: <span class="math display">\[
 \sum_s \Big(\frac{p_\perp s}{p_\parallel s}\alpha_s - 1 \Big)\beta_{\perp s} &gt; 1
 \]</span></p>
 <p>Examining where this comes from, we see that this amounts to <span class="math inline">\(\delta p_\perp\)</span> modifying the magnetic pressure force and turning it from positive to negative: <span class="math display">\[
 \delta p_\perp + \frac{B\delta B}{\mu_0} = \frac{B\delta B}{\mu_0}\Big[ \underbrace{1}_{\text{B pressure}} - \underbrace{\sum_s\Big( \frac{p_{\perp s}}{p_{\parallel s}}\alpha_s - 1 \Big)\beta_{\perp s}}_{\substack{\text{non-resonant} \\ \text{particle pressure}}} + \underbrace{...}_{\substack{\text{resonant particle} \\ \text{pressure}}} \Big]
 \]</span></p>
-<p>Thus, fundamentally, pressure anisotropy makes it easier to compress or rarefy magnetic field — and things become unstable when the sign of the pressure flips and it becomes energetically profitable to create compressions and rarefications. (ADD FIGURE!) The dispersion relation <a href="#eq-kmhd_mirror_dispersion">Equation&nbsp;<span>10.18</span></a> is basically a statement of pressure balance between the magnetic pressure, the non-resonant particle pressure <span class="math inline">\(\delta p_\perp\)</span> and the resonant particle pressure <span class="math inline">\(\propto\gamma\)</span>, which came from the <em>betatron acceleration</em> <span class="math inline">\(\mu \mathrm{d}B/\mathrm{d}t\)</span> in <a href="#eq-kmhd_kinetic_1storder">Equation&nbsp;<span>10.12</span></a>.</p>
+<p>Thus, fundamentally, pressure anisotropy makes it easier to compress or rarefy magnetic field — and things become unstable when the sign of the pressure flips and it becomes energetically profitable to create compressions and rarefications. (ADD FIGURE!) The dispersion relation <a href="#eq-kmhd_mirror_dispersion">Equation&nbsp;<span>10.20</span></a> is basically a statement of pressure balance between the magnetic pressure, the non-resonant particle pressure <span class="math inline">\(\delta p_\perp\)</span> and the resonant particle pressure <span class="math inline">\(\propto\gamma\)</span>, which came from the <em>betatron acceleration</em> <span class="math inline">\(\mu \mathrm{d}B/\mathrm{d}t\)</span> in <a href="#eq-kmhd_kinetic_1storder">Equation&nbsp;<span>10.12</span></a>.</p>
 <p>The betatron acceleration term refers to what happens in the stable case. When magnetic pressure opposes formation of <span class="math inline">\(\delta B\)</span> perturbations (say, troughs), to compensate it, we must have <span class="math inline">\(\gamma&lt;0\)</span> and energy goes from <span class="math inline">\(\delta B\)</span> to resonant particles, which are accelerated by the mirror force. The corresponding decaying of <span class="math inline">\(\delta B\)</span> is the well-known <em>Barnes damping</em> (landau damping of “mirror field”, Barnes 1966, also known as transit-time damping from Stix’s book. See more discussion on the physics in Southwood &amp; Kivelson 1993.)</p>
-<p>To finish the job, note that, from <a href="#eq-kmhd_mirror_dispersion">Equation&nbsp;<span>10.18</span></a> (ADD FIGURE!) for a given <span class="math inline">\(k_\perp\)</span> <span class="math display">\[
+<p>To finish the job, note that, from <a href="#eq-kmhd_mirror_dispersion">Equation&nbsp;<span>10.20</span></a> (ADD FIGURE!) for a given <span class="math inline">\(k_\perp\)</span> <span class="math display">\[
 \frac{\partial\gamma}{\partial k_\parallel}\bigg\rvert_{k_\perp} \propto \Lambda - \frac{k_\parallel^2}{k_\perp^2}\Big[\sum_s\frac{\beta_{\perp s}}{2}\Big(1-\frac{p_\parallel s}{p_\perp s} \Big) + 1 \Big]
 \]</span></p>
 <p>The maximum growth rate is reached when the right-hand side goes to 0, which is equivalent to <span class="math inline">\(\frac{2}{3}\Lambda\)</span>, so the maximum growth rate <span class="math display">\[
@@ -682,10 +684,10 @@ f_{0s} = \frac{n_s}{\pi^{3/2}v_{\text{th}\perp s}^2 v_{\text{th}\parallel s}}\ex
 \]</span></p>
 <p>For the purpose of a qualitative discussion, let us pretend for a moment that <span class="math inline">\(n_s=\text{const}\)</span> (incompressible plasmas, <span class="math inline">\(\beta\gg 1\)</span>). Then the above conservation relation says that, locally in a fluid element (<span class="math inline">\(\mathbf{w}\)</span> is peculari velocity), every time you change <span class="math inline">\(\mathbf{B}\)</span>, you must change <span class="math inline">\(p_{\perp s}\)</span> proportionally (but not <span class="math inline">\(p_{\parallel s}\)</span>). Thus we expect (?) <span id="eq-kmhd_pressure_change"><span class="math display">\[
 \frac{1}{p_{\perp s}}\frac{\mathrm{d} p_{\perp s}}{\mathrm{d}t}\sim\underbrace{\frac{1}{B}\frac{\mathrm{d}B}{\mathrm{d}t}}_{\mu\text{ conservation}} - \underbrace{\nu_s\frac{p_{\perp s}-p_{\parallel s}}{p_{\perp s}}}_{\substack{\text{relaxation of pressure} \\ \text{anisotropy by collisions}}}
-\tag{10.19}\]</span></span></p>
+\tag{10.21}\]</span></span></p>
 <p>It is useful to remind ourselves that <span class="math inline">\(\mathrm{d}/\mathrm{d}t\)</span> is in the <span class="math inline">\(\mathbf{u}_s\)</span> frame. Balancing the two effects on the right-hand side, <span id="eq-kmhd_pressure_balance"><span class="math display">\[
 \Delta_s = \frac{p_{\perp s} - p_{\parallel s}}{p_{\perp s}} \sim\frac{1}{\nu_s}\frac{1}{B}\frac{\mathrm{d}B}{\mathrm{d}t}
-\tag{10.20}\]</span></span></p>
+\tag{10.22}\]</span></span></p>
 <p>This expression is valid only if <span class="math inline">\(\Delta_s\ll 1\)</span>, i.e.&nbsp;<span class="math inline">\(\nu_s\gg \frac{1}{B}\frac{\mathrm{d}B}{\mathrm{d}t}\)</span>, otherwise <span class="math inline">\(\Delta_s\)</span> will grow with time as B is changed. Thus</p>
 <ul>
 <li>B increases locally <span class="math inline">\(\rightarrow \Delta_s &gt;0 \rightarrow\)</span> mirror</li>
@@ -713,18 +715,18 @@ f_{0s} = \frac{n_s}{\pi^{3/2}v_{\text{th}\perp s}^2 v_{\text{th}\parallel s}}\ex
 \frac{1}{B}\frac{\mathrm{d}B}{\mathrm{d}t} = \hat{b}\hat{b}:\nabla\mathbf{u}
 \end{aligned}
 \]</span></p>
-<p>Then, from <a href="#eq-kmhd_pressure_balance">Equation&nbsp;<span>10.20</span></a>, <span class="math display">\[
+<p>Then, from <a href="#eq-kmhd_pressure_balance">Equation&nbsp;<span>10.22</span></a>, <span class="math display">\[
 p_{\perp s} - p_{\parallel s}\sim\frac{p_s}{\nu_c}\hat{b}\hat{b}:\nabla\mathbf{u}
 \]</span> where <span class="math inline">\(p_s/\nu_c\)</span> is the parallel dynamical viscosity. Putting this back into <a href="#eq-kmhd_momentum_species_gyrotropic">Equation&nbsp;<span>10.10</span></a>, we get the lowest order ??? MHD equation. So, from the large-scale point of view, pressure anisotropy is viscous stress — but the resulting equations are ill-posed (blow up via instabilities with <span class="math inline">\(\gamma\propto k_\parallel\)</span>).</p>
 </section>
 <section id="remark-ii" class="level3" data-number="10.4.2">
 <h3 data-number="10.4.2" class="anchored" data-anchor-id="remark-ii"><span class="header-section-number">10.4.2</span> Remark II</h3>
-<p>More rigorously, <a href="#eq-kmhd_pressure_change">Equation&nbsp;<span>10.19</span></a> can be obtained via “CGL equations”, i.e.&nbsp;the evolution equations of <span class="math inline">\(p_{\perp s}\)</span> and <span class="math inline">\(p_{\parallel s}\)</span>. Namely <span class="math inline">\(\int \mathrm{d}\mathbf{w}\frac{m_sw_\perp^2}{2}\)</span> <a href="#eq-kmhd_boltzmann_1storder">Equation&nbsp;<span>10.11</span></a>: <span id="eq-kmhd_cgl_perp"><span class="math display">\[
+<p>More rigorously, <a href="#eq-kmhd_pressure_change">Equation&nbsp;<span>10.21</span></a> can be obtained via “CGL equations”, i.e.&nbsp;the evolution equations of <span class="math inline">\(p_{\perp s}\)</span> and <span class="math inline">\(p_{\parallel s}\)</span>. Namely <span class="math inline">\(\int \mathrm{d}\mathbf{w}\frac{m_sw_\perp^2}{2}\)</span> <a href="#eq-kmhd_boltzmann_1storder">Equation&nbsp;<span>10.11</span></a>: <span id="eq-kmhd_cgl_perp"><span class="math display">\[
 p_{\perp s}\frac{\mathrm{d}}{\mathrm{d}t}\ln\frac{p_{\perp s}}{n_s B} = -\nabla\cdot(q_{\perp s}\hat{b}) - q_{\perp s}\nabla\cdot\hat{b} - \nu_s(p_{\perp s} - p_{\parallel s})
-\tag{10.21}\]</span></span></p>
+\tag{10.23}\]</span></span></p>
 <p><span class="math inline">\(\int \mathrm{d}\mathbf{w}m_sw_\parallel^2\)</span> <a href="#eq-kmhd_boltzmann_1storder">Equation&nbsp;<span>10.11</span></a>: <span id="eq-kmhd_cgl_par"><span class="math display">\[
 p_{\parallel s}\frac{\mathrm{d}}{\mathrm{d}t}\ln\frac{p_{\parallel s}B^2}{n_s^3} = -\nabla\cdot(q_{\parallel s}\hat{b}) + 2q_{\perp s}\nabla\cdot\hat{b} - 2\nu_s (p_{\parallel s} - p_{\perp s})
-\tag{10.22}\]</span></span></p>
+\tag{10.24}\]</span></span></p>
 <p>The left-hand side is the conservation of <span class="math inline">\(J=\oint dl w_\parallel\)</span>, i.e.&nbsp;“bounce invariant”. The new feature here is heat fluxes: <span class="math display">\[
 \begin{aligned}
 q_{\perp s} = \int \mathrm{d}\mathbf{w}\frac{m_sw_\perp^2}{2}w_\parallel f_s \\
@@ -732,7 +734,7 @@ q_{\parallel s} = \int \mathrm{d}\mathbf{w}m_sw_\parallel^3 f_s
 \end{aligned}
 \]</span></p>
 <p>They are here because particles can flow in and out of a fluid element and thus affect the conservation (or otherwise) of <span class="math inline">\(&lt;\mu&gt;_w\)</span> and <span class="math inline">\(&lt;J^2&gt;_w\)</span> within it.</p>
-<p>Finally, from <a href="#eq-kmhd_cgl_perp">Equation&nbsp;<span>10.21</span></a> and <a href="#eq-kmhd_cgl_par">Equation&nbsp;<span>10.22</span></a>, <span class="math display">\[
+<p>Finally, from <a href="#eq-kmhd_cgl_perp">Equation&nbsp;<span>10.23</span></a> and <a href="#eq-kmhd_cgl_par">Equation&nbsp;<span>10.24</span></a>, <span class="math display">\[
 \begin{aligned}
 \frac{\mathrm{d}}{\mathrm{d}t}(p_{\perp s} - p_{\parallel s}) &amp;= (p_{\perp s} + 2p_{\parallel s})\frac{1}{B}\frac{\mathrm{d}B}{\mathrm{d}t} + (p_{\perp s} - 3p_{\parallel s})\frac{1}{n_s}\frac{dn_s}{\mathrm{d}t} \\
 &amp;-\nabla\cdot[(q_{\perp s}-q_{\parallel s})\hat{b}] - 3q_{\perp s}\nabla\cdot\hat{b} - 3\nu_s(p_{\perp s} - p_{\parallel s})
