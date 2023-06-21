@@ -300,53 +300,40 @@ This decomposition is symmetric in that the curl of a toroidal field is poloidal
 ## Magnetic Dipole Field
 
 If there's no current,
-
 $$
 \nabla\times\mathbf{B}=\mu_0 \mathbf{J} = 0 \Rightarrow B=-\nabla V
 $$
 
 The divergence free condition for magnetic field then yields a laplace equation
-
 $$
 \Delta V = 0
 $$
-
 for the Gauss potential $V$. The solution of Laplace equation within a certain volume has been first described by Gauss and reads in complex notation
-
 $$
 V(\mathbf{r},t) = Re \sum_{l=0}^{\infty}\sum_{m=0}^{l} \Big\{ R_0 \big( \frac{R_0}{r}\big)^{l+1} G_{lm}^\ast(t)Y_{lm}^\ast(\theta,\phi) + R_0\big( \frac{r}{R_0} \big)^{l} C_{lm}^\ast(t)Y_{lm}^\ast(\theta,\phi) \Big\}
 $$
-
 where $R_0$ is a constant coefficient, and the complex internal Gauss coefficients
-
 $$
 G_{lm}^\ast(t) = G_{lm}(t) - i H_{lm}(t)
 $$
-
 and external coefficients
-
 $$
 C_{lm}^\ast(t) = C_{lm}(t) - iD_{lm}(t)
 $$
-
 adopting all time variability as well as the complex spherical harmonics
-
 $$
 Y_{lm}^\ast(\theta,\phi) = e^{im\phi}_{lm}(\cos{\theta})
 $$
-
 with associated Legendre polynomials $P_{lm}(\cos{\theta})$. e.g. $P_{00}(\cos\theta) = 1,\ P_{10} = \cos\theta,\ P_{11} = \sin\theta$.
 
 _Ex 1._ Planet dipole field
 
 Let the radius of the planet be $R$ (the same as the coefficient). Then the Gauss potential for the dipole reads
-
 $$
 V = \frac{R^3}{r^2}\big[ G_{10}\cos\theta + G_{11}\cos\phi\sin\theta + H_{11}\sin\phi\sin\theta \big]
 $$
 
 Let dipole moment be $\mathbf{m} = (G_{11},H_{11},G_{10})$ in Cartesian coordinates, we have
-
 $$
 \mathbf{B} = -\nabla V = -\nabla \Big[ \frac{R^3\mathbf{m}\cdot\mathbf{r}}{r^3} \Big]
 $$
@@ -354,33 +341,26 @@ $$
 This is why in literature we often see dipole moments in the unit of $[\text{nT}]$: it is equivalent to the equatorial field strength $B_{\text{eq}}$ at the planet's surface. If we specify the dipole moment $M$ in $[\text{T}\text{m}^3]$, then $B_{\text{eq}}=M/R_\text{E}^3$.
 
 When we expand the gradient operator, we have
-
 $$
 \mathbf{B} = \frac{\mu_0}{4\pi}\frac{3(\mathbf{m}\cdot\widehat{r})\widehat{r}-\mathbf{m}}{r^3}
 $$
 
 In spherical coordinates $(r,\theta,\varphi)$ aligned with the dipole moment,
-
 $$
 \mathbf{B} = \frac{\mu_0}{4\pi} \frac{m}{r^3} (-2\cos\theta, -\sin\theta, \,0)
 $$ {#eq-dipole_spherical}
 
 It is usually convenient to work in terms of the latitude, $\vartheta = \pi/2 - \theta$, rather than the polar angle, $\theta$. An individual magnetic field-line satisfies the equation
-
 $$
 r = r_\mathrm{eq}\,\cos^2\vartheta
 $$
-
 where $r_\mathrm{eq}$ is the radial distance to the field line in the equatorial plane ($\vartheta=0^\circ$). It is conventional to label field lines using the L-shell parameter, $L=r_\mathrm{eq}/R_E$. Here, $R_E = 6.37\times 10^6\,\mathrm{m}$ is the Earth's radius. Thus, the variation of the magnetic field-strength along a field line characterized by a given $L$-value is
-
 $$
 B = \frac{B_E}{L^3} \frac{(1+3\,\sin^2\vartheta)^{1/2}}{\cos^6\vartheta}
 $$
-
 where $B_E= \mu_0 M_E/(4\pi\, R_E^{~3}) = 3.11\times 10^{-5}\,\mathrm{T}$ is the equatorial magnetic field-strength on the Earth's surface.
 
 In Cartesian representation,
-
 $$
 \mathbf{B} = \frac{\mu_0}{4\pi}\frac{1}{r^5}
 \begin{pmatrix}
