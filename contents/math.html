@@ -350,7 +350,7 @@ div.csl-indent {
   <li><a href="#complex-analysis" id="toc-complex-analysis" class="nav-link" data-scroll-target="#complex-analysis"><span class="header-section-number">3.4</span> Complex Analysis</a></li>
   <li><a href="#helmholtzs-theorem" id="toc-helmholtzs-theorem" class="nav-link" data-scroll-target="#helmholtzs-theorem"><span class="header-section-number">3.5</span> Helmholtz’s Theorem</a></li>
   <li><a href="#toroidal-and-poloidal-decomposition" id="toc-toroidal-and-poloidal-decomposition" class="nav-link" data-scroll-target="#toroidal-and-poloidal-decomposition"><span class="header-section-number">3.6</span> Toroidal and Poloidal Decomposition</a></li>
-  <li><a href="#magnetic-dipole-field" id="toc-magnetic-dipole-field" class="nav-link" data-scroll-target="#magnetic-dipole-field"><span class="header-section-number">3.7</span> Magnetic Dipole Field</a></li>
+  <li><a href="#sec-dipole" id="toc-sec-dipole" class="nav-link" data-scroll-target="#sec-dipole"><span class="header-section-number">3.7</span> Magnetic Dipole Field</a></li>
   <li><a href="#greens-function" id="toc-greens-function" class="nav-link" data-scroll-target="#greens-function"><span class="header-section-number">3.8</span> Green’s Function</a></li>
   <li><a href="#linearization" id="toc-linearization" class="nav-link" data-scroll-target="#linearization"><span class="header-section-number">3.9</span> Linearization</a></li>
   <li><a href="#sec-WKB" id="toc-sec-WKB" class="nav-link" data-scroll-target="#sec-WKB"><span class="header-section-number">3.10</span> Wave Equations</a>
@@ -607,62 +607,42 @@ f(\omega)=\Big(\oint_C-\int_{C_R}\Big)\frac{dv e^{iv}}{v-\omega}=2\pi i e^{i\ome
 \]</span></p>
 <p>This decomposition is symmetric in that the curl of a toroidal field is poloidal, and the curl of a poloidal field is toroidal. The poloidal–toroidal decomposition is unique if it is required that the average of the scalar fields <span class="math inline">\(\Psi\)</span> and <span class="math inline">\(\Phi\)</span> vanishes on every sphere of radius <span class="math inline">\(r\)</span>.</p>
 </section>
-<section id="magnetic-dipole-field" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="magnetic-dipole-field"><span class="header-section-number">3.7</span> Magnetic Dipole Field</h2>
-<p>If there’s no current,</p>
-<p><span class="math display">\[
+<section id="sec-dipole" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="sec-dipole"><span class="header-section-number">3.7</span> Magnetic Dipole Field</h2>
+<p>If there’s no current, <span class="math display">\[
 \nabla\times\mathbf{B}=\mu_0 \mathbf{J} = 0 \Rightarrow B=-\nabla V
 \]</span></p>
-<p>The divergence free condition for magnetic field then yields a laplace equation</p>
-<p><span class="math display">\[
+<p>The divergence free condition for magnetic field then yields a laplace equation <span class="math display">\[
 \Delta V = 0
-\]</span></p>
-<p>for the Gauss potential <span class="math inline">\(V\)</span>. The solution of Laplace equation within a certain volume has been first described by Gauss and reads in complex notation</p>
-<p><span class="math display">\[
+\]</span> for the Gauss potential <span class="math inline">\(V\)</span>. The solution of Laplace equation within a certain volume has been first described by Gauss and reads in complex notation <span class="math display">\[
 V(\mathbf{r},t) = Re \sum_{l=0}^{\infty}\sum_{m=0}^{l} \Big\{ R_0 \big( \frac{R_0}{r}\big)^{l+1} G_{lm}^\ast(t)Y_{lm}^\ast(\theta,\phi) + R_0\big( \frac{r}{R_0} \big)^{l} C_{lm}^\ast(t)Y_{lm}^\ast(\theta,\phi) \Big\}
-\]</span></p>
-<p>where <span class="math inline">\(R_0\)</span> is a constant coefficient, and the complex internal Gauss coefficients</p>
-<p><span class="math display">\[
+\]</span> where <span class="math inline">\(R_0\)</span> is a constant coefficient, and the complex internal Gauss coefficients <span class="math display">\[
 G_{lm}^\ast(t) = G_{lm}(t) - i H_{lm}(t)
-\]</span></p>
-<p>and external coefficients</p>
-<p><span class="math display">\[
+\]</span> and external coefficients <span class="math display">\[
 C_{lm}^\ast(t) = C_{lm}(t) - iD_{lm}(t)
-\]</span></p>
-<p>adopting all time variability as well as the complex spherical harmonics</p>
-<p><span class="math display">\[
+\]</span> adopting all time variability as well as the complex spherical harmonics <span class="math display">\[
 Y_{lm}^\ast(\theta,\phi) = e^{im\phi}_{lm}(\cos{\theta})
-\]</span></p>
-<p>with associated Legendre polynomials <span class="math inline">\(P_{lm}(\cos{\theta})\)</span>. e.g.&nbsp;<span class="math inline">\(P_{00}(\cos\theta) = 1,\ P_{10} = \cos\theta,\ P_{11} = \sin\theta\)</span>.</p>
+\]</span> with associated Legendre polynomials <span class="math inline">\(P_{lm}(\cos{\theta})\)</span>. e.g.&nbsp;<span class="math inline">\(P_{00}(\cos\theta) = 1,\ P_{10} = \cos\theta,\ P_{11} = \sin\theta\)</span>.</p>
 <p><em>Ex 1.</em> Planet dipole field</p>
-<p>Let the radius of the planet be <span class="math inline">\(R\)</span> (the same as the coefficient). Then the Gauss potential for the dipole reads</p>
-<p><span class="math display">\[
+<p>Let the radius of the planet be <span class="math inline">\(R\)</span> (the same as the coefficient). Then the Gauss potential for the dipole reads <span class="math display">\[
 V = \frac{R^3}{r^2}\big[ G_{10}\cos\theta + G_{11}\cos\phi\sin\theta + H_{11}\sin\phi\sin\theta \big]
 \]</span></p>
-<p>Let dipole moment be <span class="math inline">\(\mathbf{m} = (G_{11},H_{11},G_{10})\)</span> in Cartesian coordinates, we have</p>
-<p><span class="math display">\[
+<p>Let dipole moment be <span class="math inline">\(\mathbf{m} = (G_{11},H_{11},G_{10})\)</span> in Cartesian coordinates, we have <span class="math display">\[
 \mathbf{B} = -\nabla V = -\nabla \Big[ \frac{R^3\mathbf{m}\cdot\mathbf{r}}{r^3} \Big]
 \]</span></p>
 <p>This is why in literature we often see dipole moments in the unit of <span class="math inline">\([\text{nT}]\)</span>: it is equivalent to the equatorial field strength <span class="math inline">\(B_{\text{eq}}\)</span> at the planet’s surface. If we specify the dipole moment <span class="math inline">\(M\)</span> in <span class="math inline">\([\text{T}\text{m}^3]\)</span>, then <span class="math inline">\(B_{\text{eq}}=M/R_\text{E}^3\)</span>.</p>
-<p>When we expand the gradient operator, we have</p>
-<p><span class="math display">\[
+<p>When we expand the gradient operator, we have <span class="math display">\[
 \mathbf{B} = \frac{\mu_0}{4\pi}\frac{3(\mathbf{m}\cdot\widehat{r})\widehat{r}-\mathbf{m}}{r^3}
 \]</span></p>
-<p>In spherical coordinates <span class="math inline">\((r,\theta,\varphi)\)</span> aligned with the dipole moment,</p>
-<p><span id="eq-dipole_spherical"><span class="math display">\[
+<p>In spherical coordinates <span class="math inline">\((r,\theta,\varphi)\)</span> aligned with the dipole moment, <span id="eq-dipole_spherical"><span class="math display">\[
 \mathbf{B} = \frac{\mu_0}{4\pi} \frac{m}{r^3} (-2\cos\theta, -\sin\theta, \,0)
 \tag{3.4}\]</span></span></p>
-<p>It is usually convenient to work in terms of the latitude, <span class="math inline">\(\vartheta = \pi/2 - \theta\)</span>, rather than the polar angle, <span class="math inline">\(\theta\)</span>. An individual magnetic field-line satisfies the equation</p>
-<p><span class="math display">\[
+<p>It is usually convenient to work in terms of the latitude, <span class="math inline">\(\vartheta = \pi/2 - \theta\)</span>, rather than the polar angle, <span class="math inline">\(\theta\)</span>. An individual magnetic field-line satisfies the equation <span class="math display">\[
 r = r_\mathrm{eq}\,\cos^2\vartheta
-\]</span></p>
-<p>where <span class="math inline">\(r_\mathrm{eq}\)</span> is the radial distance to the field line in the equatorial plane (<span class="math inline">\(\vartheta=0^\circ\)</span>). It is conventional to label field lines using the L-shell parameter, <span class="math inline">\(L=r_\mathrm{eq}/R_E\)</span>. Here, <span class="math inline">\(R_E = 6.37\times 10^6\,\mathrm{m}\)</span> is the Earth’s radius. Thus, the variation of the magnetic field-strength along a field line characterized by a given <span class="math inline">\(L\)</span>-value is</p>
-<p><span class="math display">\[
+\]</span> where <span class="math inline">\(r_\mathrm{eq}\)</span> is the radial distance to the field line in the equatorial plane (<span class="math inline">\(\vartheta=0^\circ\)</span>). It is conventional to label field lines using the L-shell parameter, <span class="math inline">\(L=r_\mathrm{eq}/R_E\)</span>. Here, <span class="math inline">\(R_E = 6.37\times 10^6\,\mathrm{m}\)</span> is the Earth’s radius. Thus, the variation of the magnetic field-strength along a field line characterized by a given <span class="math inline">\(L\)</span>-value is <span class="math display">\[
 B = \frac{B_E}{L^3} \frac{(1+3\,\sin^2\vartheta)^{1/2}}{\cos^6\vartheta}
-\]</span></p>
-<p>where <span class="math inline">\(B_E= \mu_0 M_E/(4\pi\, R_E^{~3}) = 3.11\times 10^{-5}\,\mathrm{T}\)</span> is the equatorial magnetic field-strength on the Earth’s surface.</p>
-<p>In Cartesian representation,</p>
-<p><span id="eq-dipole_cartesian"><span class="math display">\[
+\]</span> where <span class="math inline">\(B_E= \mu_0 M_E/(4\pi\, R_E^{~3}) = 3.11\times 10^{-5}\,\mathrm{T}\)</span> is the equatorial magnetic field-strength on the Earth’s surface.</p>
+<p>In Cartesian representation, <span id="eq-dipole_cartesian"><span class="math display">\[
 \mathbf{B} = \frac{\mu_0}{4\pi}\frac{1}{r^5}
 \begin{pmatrix}
 (3x^2-r^2) &amp; 3xy &amp; 3xz \\
