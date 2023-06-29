@@ -4,6 +4,123 @@ This chapter introduces the topology-related concepts in plasma physics, includi
 
 Generally speaking, there are two ways of tackling the geometry problems: physics-based methods and statistical methods (classical and machine learning). We may find harmony when combining these two families and reach optimal results.
 
+## Local Coordinate System
+
+Define the Jacobian $\overleftrightarrow{G} = \nabla\mathbf{B}$ of the magnetic field.
+
+* Minimum Directional Derivative (MDD) Method: In the MDD method, local orthogonal coordinate directions can be obtained from eigenvectors of $\overleftrightarrow{G}^\intercal\overleftrightarrow{G}$.
+
+* Minimum Gradient Analysis (MGA): In MGA, local orthogonal coordinate directions can be obtained from eigenvectors of $\overleftrightarrow{G}\overleftrightarrow{G}^\intercal$.
+
+MGA produces a set of basis vectors that are analogous with the ones from Minimum Variance Analysis ([MVA](https://henry2004y.github.io/VisAnaJulia/dev/man/analysis/#Minimum-Variance-Analysis-1)), with the eigenvector corresponding to the largest eigenvalue aligned with the vector that has maximal variation (which is denoted by $\hat{L}_\mathrm{MGA}$), the second one corresponding to the intermediate ($\hat{M}_\mathrm{MGA}$) and third the least variation ($\hat{N}_\mathrm{MGA}$). MDD produces a set of basis vectors where the eigenvector corresponding to the largest eigenvalue shows the direction of the displacement which produces the largest variation in $\mathbf{B}$ (the cross-sheet direction in a Harris current sheet; $\hat{L}_\mathrm{MDD}$), idem with smaller eigenvalues ($\hat{M}_\mathrm{MDD}$ and $\hat{N}_\mathrm{MDD}$, respectively). Both of these eigensystems have the same eigenvalues, but the eigenvectors differ and are not necessarily aligned with each others. We note here that for a one-dimensional structure, both of these eigensystem have only one well-defined eigenvector, and that for a 1D current sheet structure, the well-defined eigenvectors of different bases are orthogonal to each others, as shown in Figure~\ref{fig:shirepro}.
+
+![a) MVA (MGA) and b) MDD eigenvectors $\vec{n}_\mathrm{max},\vec{n}_\mathrm{mid},\vec{n}_\mathrm{min}$, corresponding to largest, middle and minimum eigenvalues in a 1-D current sheet.](../images/MVA_MDD.png){#fig-mva_mdd}
+
+### Dimensionality
+
+MDD gives a way to define the local dimensionality of a structure from the eigenvalues of the matrix $\overleftrightarrow{G}\overleftrightarrow{G}^\intercal$. The measures $D_1$, $D_2$, $D_3$ describing the one-, two- or three-dimensionality of the magnetic field and are obtained from the ratios of square roots of the eigenvalues $\lambda_i$ ($i=1,2,3$, in descending order) of the MDD $\overleftrightarrow{G}\overleftrightarrow{G}^\intercal$.
+
+One kind of definitions for $D_1$, $D_2$, $D_3$ are given below:
+$$
+\begin{aligned}
+   D_1 &= \frac{\sqrt{\lambda_1}-\sqrt{\lambda_2}}{\sqrt{\lambda_1}}\\
+   D_2 &= \frac{\sqrt{\lambda_2}-\sqrt{\lambda_3}}{\sqrt{\lambda_1}}\\
+   D_3 &= \frac{\sqrt{\lambda_3}}{\sqrt{\lambda_1}}.
+\end{aligned}
+$$
+These quantities are defined to lie in the range [0,1] and their sum is one. For $D_1 \approx 1$, the magnetic field structure is primarily one-dimensional, such as a current sheet with $\mathbf{B} \approx \mathbf{B}(z)$ for a direction $z$ normal to the current sheet. Correspondingly, for $D_2 \approx 1$, the structure is primarily a function of two coordinates, etc. These measures allow us to quantify whether or not the locally 2D treatment for neutral lines is well-founded.
+
+If the eigenvalues are not well-separated, the directions obtained from MGA and MDD are ambiguous [@shi2019]. For example, the current sheet with dimensionality 1, MGA obtains the field-aligned direction (above and below the current sheet), while MDD obtains the normal direction to the current sheet, with two other directions being ambiguous.[^question_d]
+
+[^question_d]: I have not thought about Markku's statement here carefully. In his proposed method, the two L directions taken from both MDD and MGA are used to construct the local coordinate system.
+
+Common representative structure:
+
+* 1D: current sheet
+* 2D: plasmoid, flux rope
+* 3D: rare[^question_3d]
+
+[^question_3d]: 3D structures are rarely mentioned in literature. Markku also found it rare from Vlasiator simulations.
+
+## Reconnection Identification
+
+Here we present analytical fields for an X-point configuration and an O-point configuration, respectively.
+
+![Example of (a) O-point and (b) X-point.](../images/x_o_point.png){#fig-x_o_points}
+
+### 2D
+
+Identification of 2D reconnection sites is easy. Assume the out-of-plane direction being y, with $B_y = \mathrm{const}$. The divergence-free condition gives
+$$
+\frac{\partial B_x}{\partial x} + \frac{\partial B_z}{\partial z} = 0
+$$
+
+In the X-Z plane, we can define a flux function
+$$
+\psi = \int B_x dz = - \int B_z dx
+$$
+then
+$$
+\mathbf{B} = B_x\hat{x} + B_z\hat{z} = \hat{y}\times\nabla\psi
+$$
+
+The null points are simple saddle points and extremas of the flux function.
+
+![Neutral point classification in a well-defined local coordinate system. On the plane where $B_L=0$ and on the subset of that plane where $B_N = 0$, the O-points have $\partial{}B_N/\partial{}L < 0$, and X-points $\partial{}B_N/\partial{}L > 0$. Note that this classification assumes a right-handed coordinate system.](../images/MVA_MDD.png){#fig-mva_mdd}
+
+### 3D
+
+Identification of 3D reconnection sites is not easy.
+
+Implement Lapenta's method.
+
+The four-field junction (FFJ) method is proposed by Laitinen+ 2006. It works decently on steady reconnection cases, but not when things change drastically.
+
+### Critical Points
+
+Let us discuss the problem with topological definitions (following Kenneth Rohde Christiansen and Aard Keimpema). Critical points are points where the vector vanishes (i.e. $\mathbf{v}=0$). More rigidly speaking, critical points are stationary points that have a non-singular (i.e. no zero eigenvalues) Jacobian or vector gradient $\nabla\mathbf{v}$. There are 6 different types of critical points, characterized by the behavior of nearby tangent curves. The position of these critical points can be found by searching all cells in the flow field. Critical points only occur in cells whree all components of the vector pass through zero. In order to find the exact location of the critical point we will have to do interpolations.
+
+We can then classify these by looking at the eigenvalues of the Jacobian matrix. The Jacobian matrix for a 2D vector $(u,v)$ is given by
+$$
+\frac{\partial(u,v)}{\partial(x,y)}\Bigg\rvert_{x_0, y_0} =
+\begin{pmatrix}
+\partial_x u & \partial_y u \\ \partial_x v & \partial_y v
+\end{pmatrix}\Bigg\rvert_{x_0, y_0}
+$$ {#eq-Jacobian-2d}
+
+As seen in @fig-critical-pts-2d these 6 different types are classified by the sign of the real and imaginary part of the eigenvalues. The real part of the eigenvalue gives rise to an attraction (if $RE < 0$) or a repulsion (if $RE > 0$). The imaginary part of the eigenvalue give rise to a rotation of vector field around the critical point. When we have an imaginary eigenvalue we are left with an entirely rotational vector field around the critical point.
+
+![Classification of critical points, here Re1/Re2 is the real part of the first/second eigenvalue and Im1/Im2 is the imaginary part of the first/second eigenvalue.](../images/critical_points_2d.png){#fig-critical-pts-2d}
+
+The most important critical point is the _saddle point_ here we have a combination of attraction in one direction and repulsion in the other. The importance of saddle points as we shall see in the next section is that the tangent curves near a critical point determine the global structure of the flow.
+
+A critical point is called _hyperbolic_ if it does not have any eigenvalues with zero real part. Hyperbolic critical points are structurally stable, i.e., a small perturbation does not change their topology.
+
+Besides critical points there are also so-called attachment/detachment nodes. These are points on the wall of an object where tangent curves terminate or begin.
+
+In 3D, the most common (i.e., nondegenerate) types of critical points are sources, sinks, repelling saddles, and attracting saddles, visualized in @fig-critical-pts-3d ([@bujack2021open]). Each of these types may imply a rotating pattern in a certain plane depending on the presence of eigenvalues with nonzero imaginary part. This gives rise to the eight cases shown in the figure. A 2D separatrix and two 1D separatrices originate or terminate at a saddle (if the 2D separatrix originates at the saddle, then the 1D separatrices terminate at the saddle, and vice-versa). The directions along which the separatrices approach the saddle are given by the eigenvectors of $\nabla v$. The 1D separatrices are computed by placing two seeds at a small user-defined offset of the saddle in the direction of
+the eigenvectors of $\nabla v$ corresponding to the eigenvalue whose sign appears only once. The trajectories from these seeds are integrated as explained above. The 2D separatrix is computed by placing eight seeds at a small user-defined offset of the saddle in the plane spanned by the eigenvectors of ∇v corresponding to the eigenvalues whose signs appear twice. These seeds are the base for integrating a surface --- the separatrix.
+
+![The different types of nondegenerate 3D critical points visualized with streamlines color coded in red/blue for forward/backward integration and line integral convolution in the plane of the common sign. Here the presence of the subscript $i$ means all $i \in (1, 2, 3)$, and the order of the eigenvalues does not matter.](../images/critical_points_3d.png){#fig-critical-pts-3d}
+
+The most important input parameters are the distance in which the separatrices are seeded away from the saddles and the parameters that are handed off to the streamline and streamsurface integrators, like step sizes and maximum number of steps.
+
+### Separatrix
+
+In scientific visualization, we treat vector fields defined on a discrete set of points in a grid and interpolate linearly or multilinearly within the cells. Since piecewise linear or multilinear functions are Lipschitz continuous, streamlines always exist uniquely.
+
+A skeleton of a flow field is a figure containing the critical points of the flow field and the so-called integral curves connecting them. An integral curve can be thought of as the path a test particle takes when released infinitesimally close to a critical point. By adding e.g. an arrow the direction of the integral curves can be displayed; giving a global image of the flow. In the topology context, the skeleton is known as the [separatrix](https://en.wikipedia.org/wiki/Separatrix_(mathematics)). Separatrices are solutions which differ from their neighbors in their limit sets (?) or in their behavior in the large (?). Separatrices include critical points, periodic orbits, and invariant manifolds of saddles.
+
+In practice, separatrices are constructed by
+
+* Detecting critical points analytically in each cell
+* Classifying them based on the eigenvalues of their Jacobian
+* Seeding separatrices in a small offset of the saddles in the direction of their eigenvectors
+
+![Identification of separatrices in 2D.](../images/separatries_identification.png){#fig-separatrices-2d}
+
+In 3D, instead of lines we may have separatrix surfaces.
+
 ## Helicity
 
 In fluid dynamics, helicity is, under appropriate conditions, an invariant of the Euler equations of fluid flow, having a topological interpretation as a measure of _linkage_ and _knottedness_ of vortex lines in the flow (Moffatt 1969).
@@ -104,83 +221,6 @@ $$
 \sigma_m(\nu, t) = \frac{2\Im[W_T^\ast(\nu, t)\cdot W_N(\nu, t)]}{|W_R(\nu, t)|^2 + |W_T(\nu, t)|^2 + |W_N(\nu, t)|^2}
 $$ {#eq-reduced_magnetic_helicity}
 where $\nu$ is the frequency associated with the Wavelet function and the sampling period of the measured magnetic field in the radial tangential normal (RTN) coordinate system. The spectra $W_R(\nu, t)$, $W_T(\nu, t)$, and $W_N(\nu, t)$ are the wavelet transforms of time series of $\mathbf{B}_{1R}$, $\mathbf{B}_{1T}$, and $\mathbf{B}_{1N}$, respectively; and $W_T^\ast(\nu,t)$ is the conjugate of $W_T(\nu,t)$. From the resulting spectrogram of the magnetic helicity, $\sigma_m$, one can determine both the magnitude and the handedness (chirality) of underlying fluctuations at a specific scale. A positive value of $\sigma_m$ corresponds to right-handed chirality and a negative value to left-handed chirality.
-
-## Reconnection Identification
-
-Here we present analytical fields for an X-point configuration and an O-point configuration, respectively.
-
-![Example of (a) O-point and (b) X-point.](../images/x_o_point.png){#fig-x_o_points}
-
-### 2D
-
-Identification of 2D reconnection sites is easy. Assume the out-of-plane direction being y, with $B_y = \mathrm{const}$. The divergence-free condition gives
-$$
-\frac{\partial B_x}{\partial x} + \frac{\partial B_z}{\partial z} = 0
-$$
-
-In the X-Z plane, we can define a flux function
-$$
-\psi = \int B_x dz = - \int B_z dx
-$$
-then
-$$
-\mathbf{B} = B_x\hat{x} + B_z\hat{z} = \hat{y}\times\nabla\psi
-$$
-
-The null points are simple saddle points and extremas of the flux function.
-
-### 3D
-
-Identification of 3D reconnection sites is not easy.
-
-Implement Lapenta's method.
-
-The four-field junction (FFJ) method is proposed by Laitinen+ 2006. It works decently on steady reconnection cases, but not when things change drastically.
-
-### Critical Points
-
-Let us discuss the problem with topological definitions (following Kenneth Rohde Christiansen and Aard Keimpema). Critical points are points where the vector vanishes (i.e. $\mathbf{v}=0$). More rigidly speaking, critical points are stationary points that have a non-singular (i.e. no zero eigenvalues) Jacobian or vector gradient $\nabla\mathbf{v}$. There are 6 different types of critical points, characterized by the behavior of nearby tangent curves. The position of these critical points can be found by searching all cells in the flow field. Critical points only occur in cells whree all components of the vector pass through zero. In order to find the exact location of the critical point we will have to do interpolations.
-
-We can then classify these by looking at the eigenvalues of the Jacobian matrix. The Jacobian matrix for a 2D vector $(u,v)$ is given by
-$$
-\frac{\partial(u,v)}{\partial(x,y)}\Bigg\rvert_{x_0, y_0} =
-\begin{pmatrix}
-\partial_x u & \partial_y u \\ \partial_x v & \partial_y v
-\end{pmatrix}\Bigg\rvert_{x_0, y_0}
-$$ {#eq-Jacobian-2d}
-
-As seen in @fig-critical-pts-2d these 6 different types are classified by the sign of the real and imaginary part of the eigenvalues. The real part of the eigenvalue gives rise to an attraction (if $RE < 0$) or a repulsion (if $RE > 0$). The imaginary part of the eigenvalue give rise to a rotation of vector field around the critical point. When we have an imaginary eigenvalue we are left with an entirely rotational vector field around the critical point.
-
-![Classification of critical points, here Re1/Re2 is the real part of the first/second eigenvalue and Im1/Im2 is the imaginary part of the first/second eigenvalue.](../images/critical_points_2d.png){#fig-critical-pts-2d}
-
-The most important critical point is the _saddle point_ here we have a combination of attraction in one direction and repulsion in the other. The importance of saddle points as we shall see in the next section is that the tangent curves near a critical point determine the global structure of the flow.
-
-A critical point is called _hyperbolic_ if it does not have any eigenvalues with zero real part. Hyperbolic critical points are structurally stable, i.e., a small perturbation does not change their topology.
-
-Besides critical points there are also so-called attachment/detachment nodes. These are points on the wall of an object where tangent curves terminate or begin.
-
-In 3D, the most common (i.e., nondegenerate) types of critical points are sources, sinks, repelling saddles, and attracting saddles, visualized in @fig-critical-pts-3d ([@bujack2021open]). Each of these types may imply a rotating pattern in a certain plane depending on the presence of eigenvalues with nonzero imaginary part. This gives rise to the eight cases shown in the figure. A 2D separatrix and two 1D separatrices originate or terminate at a saddle (if the 2D separatrix originates at the saddle, then the 1D separatrices terminate at the saddle, and vice-versa). The directions along which the separatrices approach the saddle are given by the eigenvectors of $\nabla v$. The 1D separatrices are computed by placing two seeds at a small user-defined offset of the saddle in the direction of
-the eigenvectors of $\nabla v$ corresponding to the eigenvalue whose sign appears only once. The trajectories from these seeds are integrated as explained above. The 2D separatrix is computed by placing eight seeds at a small user-defined offset of the saddle in the plane spanned by the eigenvectors of ∇v corresponding to the eigenvalues whose signs appear twice. These seeds are the base for integrating a surface --- the separatrix.
-
-![The different types of nondegenerate 3D critical points visualized with streamlines color coded in red/blue for forward/backward integration and line integral convolution in the plane of the common sign. Here the presence of the subscript $i$ means all $i \in (1, 2, 3)$, and the order of the eigenvalues does not matter.](../images/critical_points_3d.png){#fig-critical-pts-3d}
-
-The most important input parameters are the distance in which the separatrices are seeded away from the saddles and the parameters that are handed off to the streamline and streamsurface integrators, like step sizes and maximum number of steps.
-
-### Separatrix
-
-In scientific visualization, we treat vector fields defined on a discrete set of points in a grid and interpolate linearly or multilinearly within the cells. Since piecewise linear or multilinear functions are Lipschitz continuous, streamlines always exist uniquely.
-
-A skeleton of a flow field is a figure containing the critical points of the flow field and the so-called integral curves connecting them. An integral curve can be thought of as the path a test particle takes when released infinitesimally close to a critical point. By adding e.g. an arrow the direction of the integral curves can be displayed; giving a global image of the flow. In the topology context, the skeleton is known as the [separatrix](https://en.wikipedia.org/wiki/Separatrix_(mathematics)). Separatrices are solutions which differ from their neighbors in their limit sets (?) or in their behavior in the large (?). Separatrices include critical points, periodic orbits, and invariant manifolds of saddles.
-
-In practice, separatrices are constructed by
-
-* Detecting critical points analytically in each cell
-* Classifying them based on the eigenvalues of their Jacobian
-* Seeding separatrices in a small offset of the saddles in the direction of their eigenvectors
-
-![Identification of separatrices in 2D.](../images/separatries_identification.png){#fig-separatrices-2d}
-
-In 3D, instead of lines we may have separatrix surfaces.
 
 ## Magnetospause Identification
 
