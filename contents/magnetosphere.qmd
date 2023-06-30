@@ -10,6 +10,10 @@ The big picture when considering the interaction of the solar wind and the magne
 
 In the first approximation the Earth's magnetic field is that of a magnetic dipole (@sec-dipole). The dipole axis is tilted 11◦ from the direction of the Earth's rotation axis. The current circuit giving rise to the magnetic field is located in the liquid core about 1200–3400 km from the center of the planet. The current system is asymmetric displacing the dipole moment from the center, which together with inhomogeneous distribution of magnetic matter above the core gives rise to large deviations from the dipole field on the surface. The pure dipole field on the surface would be 30 µT at the dipole equator and 60 µT at the poles. However, the actual surface field exceeds 66 µT in the region between Australia and Antarctica and is weakest, about 22 µT, in a region called _South Atlantic Anomaly_ (SAA).
 
+### Basic Structures
+
+In the frame of reference of the Earth the solar wind is supermagnetosonic, exceeding the local magnetosonic speed $v_ms = \sqrt{v_s^2 + v_A^2}$, where $v_s$ is the sound speed, $v_A$ is the Alfvén speed. Because fluid-scale perturbations cannot propagate faster than $v_{ms}$, this leads to a formation of a collisionless shock front, called the _bow shock_, upstream of the magnetosphere. Under typical solar wind conditions the apex of the shock in the solar direction is about 3 $R_E$ upstream of the magnetopause. The shock converts a considerable fraction of solar wind kinetic energy to heat and electromagnetic energy. The irregular shocked flow region between the bow shock and the magnetopause is called the _magnetosheath_.
+
 ### The Dipole Field
 
 The dipole field is an idealization where the source current is assumed to be confined into a point at the origin. The source of planetary and stellar dipoles is a finite, actually a large, current system within the celestial body. Such fields, including the Terrestrial magnetic field, are customarily represented as a multipole expansion: dipole, quadrupole, octupole, etc. When moving away from the source, the higher multipoles vanish faster than the dipole making the dipole field a good starting point to consider the motion of charged particles. In the dipole field charged particles behave adiabatically as long as their gyro radii are smaller than the gradient scale length of the field (@sec-adiabatic-invariant) and their orbits are not disturbed by collisions or time-varying electromagnetic field.
@@ -71,7 +75,7 @@ $$
 Any dipole field line is determined by its (constant) longitude $\phi_0$ and the distance where the field line crosses the dipole equator. This distance is often given in terms of the _L-parameter_
 $$
 L = r_0 / R_E
-$$
+$$ {#eq-L-shell}
 
 For a given L the corresponding field line reaches the surface of the Earth at the (dipole) latitude
 $$
@@ -100,6 +104,44 @@ The actual geomagnetic field has considerable deviations from the dipolar field 
 
 ### Current Systems
 
+The Earth's magnetosphere is the region where the near-Earth magnetic field controls the motion of charged particles. It is formed by the interaction between the geodipole and the solar wind. The deformation of the field, caused by the variable solar wind pressure, sets up time-dependent magnetospheric current systems that dominate deviations from the dipole field in the outer radiation belt and beyond.
+
+The solar wind plasma cannot easily penetrate to the Earth's magnetic field and the outer magnetosphere is essentially a cavity around which the solar wind flows. The cavity is bounded by a flow discontinuity called the _magnetopause_. The shape and location of the magnetopause is determined by the balance between the solar wind plasma pressure and the magnetospheric magnetic field pressure. The nose, or apex, of the magnetopause is, under average solar wind conditions, at the distance of about 10 $R_E$ from the center of the Earth but can be pushed to the vicinity of the geostationary distance (6.6 $R_E$) during periods of large solar wind pressure. In the dayside the dipole field is compressed toward the Earth, whereas in the nightside the field is stretched to form a long _magnetotail_. The deviations from the curl-free dipole field correspond to electric current systems according to Ampère's law $\mathbf{J}=\nabla\times\mathbf{B}/\mu_0$.
+
+The current system on the dayside magnetopause shielding the Earth's magnetic field from the solar wind is known as the _Chapman–Ferraro current_. In the first approximation the Chapman–Ferraro current density $\mathbf{J}_\mathrm{CF}$ can be expressed as
+$$
+\mathbf{J}_\mathrm{CF} = \frac{\mathbf{B}_\mathrm{MS}}{B_\mathrm{MS}^2}\times\nabla P_\mathrm{dyn}
+$$
+where $\mathbf{B}_\mathrm{MS}$ is the magnetospheric magnetic field and $P_\mathrm{dyn}$ the dynamic pressure of the solar wind.
+Because the _interplanetary magnetic field_ (IMF) at the Earth's orbit is only a few nanoteslas, the magnetopause current must shield the magnetospheric field to almost zero just outside the current layer. Consequently, the magnetic field immediately inside the magnetopause doubles: about one half comes from the Earth's dipole and the second half from the magnetopause current.
+In plasma physics this is known as the diamagnetic current caused by the pressure gradient (@eq-diamagnetic_drift, @eq-diamagnetic_curent).
+
+The Chapman–Ferraro model describes a teardrop-like closed magnetosphere that is compressed in the dayside and stretched in the nightside, but not very far. Since the 1960s spacecraft observations have shown that the nightside magnetosphere, the _magnetotail_, is very long, extending far beyond the orbit of the Moon. This requires a mechanism to transfer energy from the solar wind into the magnetosphere to keep up the current system that sustains the tail-like configuration.
+
+@fig-magnetosphere-current is a sketch of the magnetosphere with the main large-scale magnetospheric current systems. The overwhelming fraction of the magnetospheric volume consists of _tail lobes_, connected magnetically to the polar caps in the ionized upper atmosphere, known as the _ionosphere_. The polar caps are bounded by _auroral ovals_. Consequently, in the northern lobe the magnetic field points toward the Earth, in the southern away from the Earth. To maintain the lobe structure, there must be a current sheet between the lobes where the current points from dawn to dusk. This _cross-tail current_ is embedded within the plasma sheet and closes around the tail lobes forming the nightside part of the the _magnetopause current_.
+
+The cusp-like configurations of weak magnetic field above the polar regions known as _polar cusps_ do not connect magnetically to magnetic poles, but instead to the southern and northern auroral ovals at noon, because the entire magnetic flux enclosed by the ovals is connected to the tail lobes. Tailward of the cusps the Chapman–Ferraro current and the tail magnetopause current smoothly merge with each other. @fig-magnetosphere-current also illustrates the westward flowing _ring current_ (RC) and the magnetic _field-aligned currents_ (FAC) connecting the magnetospheric currents to the horizontal ionospheric currents in auroral regions at an altitude of about 100 km.
+
+![The magnetosphere and the large scale magnetospheric current systems.](../images/Magnetosphere_current_system.png){#fig-magnetosphere-current}
+
+The magnetospheric current systems can have significant temporal variations, which makes the mathematical description of the magnetic field complicated. A common approach is to apply some of the various models developed by Nikolai Tsyganenko [@tsyganenko2013data].[^ccmc_tsyganenko] 
+
+[^ccmc_tsyganenko]: Tsyganenko models are available at [Community Coordinated Modeling Center](https://ccmc.gsfc.nasa.gov/models/).
+
+For illustrative purposes simpler models are sometimes useful. For example, the early time-independent model of Mead (1964) reduces in the magnetic equatorial $(r, \phi)$ plane to
+$$
+B(r,\phi) = B_E\left( \frac{R_E}{r} \right)^3 \left[ 1 + \frac{b_1}{B_E}\left( \frac{r}{R_E} \right)^3 - \frac{b_2}{B_E}\left( \frac{r}{R_E} \right)^4 \cos\phi \right]
+$$
+where $B_E$ is the equatorial dipole field on the surface of the Earth (approximately 30.4 µT = 30,400 nT) and φ is the longitude east of midnight. The $\cos\phi$ term describes the azimuthal asymmetry due to the dayside compression and nightside stretching of the field. The coefficients $b_1$ and $b_2$ depend on the distance of the subsolar point of the magnetopause $R_s$ (in units of $R_E$), which, in turn, depends on the upstream solar wind pressure
+$$
+\begin{aligned}
+b_1 &= 25\left( \frac{10}{R_s} \right)^3\,\mathrm{nT} \\
+b_2 &= 2.1\left( \frac{10}{R_s} \right)^4\,\mathrm{nT}
+\end{aligned}
+$$
+
+This model is fairly accurate during quiet and moderately disturbed times at geocentric distances 1.5–7 $R_E$.
+
 ### Geomagnetic Activity Indices
 
 The intensity and variations of magnetospheric and ionospheric current systems are traditionally described in terms of [_geomagnetic activity indices_](http://isgi.unistra.fr). The indices are calculated from ground-based magnetometer measurements. As different indices describe different features of magnetospheric currents, there is no one-to-one correspondence between them. The choice of a particular index depends on physical processes being investigated.
@@ -110,27 +152,88 @@ The most widely used indices for global storm levels are _Dst_,  _Kp_, and _AE_.
 
 The Dst index aims at measuring the intensity of the ring current. It is calculated once an hour as a weighted average of the deviation from the quiet level of the horizontal magnetic field component (H) measured at four low-latitude stations distributed around the globe. _Geomagnetic storms_ are defined as periods of strongly negative Dst index, signalling enhanced westward the ring current. The more negative the Dst index is, the stronger is the storm. There is no canonical lower threshold for the magnetic perturbation beyond which the state of the magnetosphere is to be called a storm and identification of weak storms is often ambiguous. As an empirical classification, we call storms with Dst from –50 to –100 nT moderate, from –100 to –200 nT intense, and those with Dst < −200 nT big. A similar 1-min index derived from a partly different set of six low-latitude stations (_SYM–H_) is also in use.
 
-Dst has contributions from all currents in addition to the ring current. These include the magnetopause and cross-tail currents, as well as induced currents in the ground due to rapid temporal changes of ionospheric currents. Large solar wind pressure pushes the magnetopause closer to the Earth forcing the magnetopause current to increase to be able to shield a locally stronger
-geomagnetic field from the solar wind. The effect is strongest on the dayside where the magnetopause current flows in the direction opposite to the ring current. The _pressure corrected Dst_ index can be defined as
+Dst has contributions from all currents in addition to the ring current. These include the magnetopause and cross-tail currents, as well as induced currents in the ground due to rapid temporal changes of ionospheric currents. Large solar wind pressure pushes the magnetopause closer to the Earth forcing the magnetopause current to increase to be able to shield a locally stronger geomagnetic field from the solar wind. The effect is strongest on the dayside where the magnetopause current flows in the direction opposite to the ring current. The _pressure corrected Dst_ index can be defined as
 $$
 \mathrm{Dst}^\ast = \mathrm{Dst} - b\sqrt{P_\mathrm{dyn}} + c
 $$
 where $P_\mathrm{dyn}$ is the solar wind dynamic pressure and b and c are empirical parameters, whose exact values depend on the used statistical analysis methods, e.g., $b = 7.26\,\mathrm{nT}\,\mathrm{nPa}^{−1/2}$ and $c = 11\,\mathrm{nT}$ as determined by O'Brien and McPherron (2000).
 
-The contribution from the dawn-to-dusk directed tail current to the Dst index is more difficult to estimate. During strong activity the cross-tail current intensifies and moves closer to the Earth, enhancing the nightside contribution to Dst. The
-estimates of this effect on Dst vary in the range 25–50%. Furthermore, fast temporal changes in the ionospheric currents
-induce strong localized currents in the ground, which may contribute up to 25% to the Dst index.
+The contribution from the dawn-to-dusk directed tail current to the Dst index is more difficult to estimate. During strong activity the cross-tail current intensifies and moves closer to the Earth, enhancing the nightside contribution to Dst. The estimates of this effect on Dst vary in the range 25–50%. Furthermore, fast temporal changes in the ionospheric currents induce strong localized currents in the ground, which may contribute up to 25% to the Dst index.
 
 #### Kp
 
-Another widely used index is the planetary K index, _Kp_. Each magnetic observatory has its own K index and Kp is an average of K indices from 13 mid-latitude stations. It is a quasi-logarithmic range index expressed in a scale of one-thirds: 0, 0+, 1−, 1, 1+,..., 8+, 9−, 9. Kp is based on mid-latitude observations and thus more sensitive to high-latitude auroral current systems and
-to substorm activity than the Dst index. Kp is a 3-h index and does not reflect rapid changes in the magnetospheric currents.
+Another widely used index is the planetary K index, _Kp_. Each magnetic observatory has its own K index and Kp is an average of K indices from 13 mid-latitude stations. It is a quasi-logarithmic range index expressed in a scale of one-thirds: 0, 0+, 1−, 1, 1+,..., 8+, 9−, 9. Kp is based on mid-latitude observations and thus more sensitive to high-latitude auroral current systems and to substorm activity than the Dst index. Kp is a 3-h index and does not reflect rapid changes in the magnetospheric currents.
 
 #### AE
 
 The fastest variations in the current systems take place at auroral latitudes. To describe the strength of the auroral currents the _auroral electrojet indices_ (AE) are commonly used. The standard AE index is calculated from 11 or 12 magnetometer stations located under the average auroral oval in the northern hemisphere. It is derived from the magnetic north component at each station by determining the envelope of the largest negative deviation from the quiet time background, called the AL index, and the largest positive deviation, called the AU index. The AE index itself is $\mathrm{AE} = \mathrm{AU} - \mathrm{AL}$ (all in nT). Thus AL is the measure of the strongest westward current in the auroral oval, AU is the measure of the strongest eastward current, and AE characterizes the total electrojet activity. AE, AU, AL are typically given with 1-min time resolution.
 
 As the auroral electrojets flow at the altitude of about 100 km, their magnetic deviations on the ground are much larger than those caused by the ring current. For example, during typical substorm activations AE is in the range 200–400 nT and can during strong storms exceed 2000 nT, whereas the equatorial Dst perturbations exceed −200 nT only during the strongest storms.
+
+## Particles
+
+Typical densities of the unperturbed solar wind at 1 AU extend from about $3\,\mathrm{cm}^{-3}$ in the fast ($\sim 750\,\mathrm{km}\,\mathrm{s}^{-1}$) to about $10\,\mathrm{cm}^{-3}$ in the slow ($\sim 350\,\mathrm{km}\,\mathrm{s}^{-1}$) solar wind, again with large deviations.
+
+### Outer Magnetosphere
+
+The outer magnetosphere can be considered to begin at distances of about 7–8 $R_E$ where the nightside magnetic field becomes increasingly stretched. @tbl-plasma-param-mid-tail summarizes typical plasma parameters in the mid-tail region, at about $X = -20\, R_E$ from the Earth. Here $X$ is the Earth-centered coordinate along the Earth–Sun line, positive toward the Sun. The tail lobes are almost empty, particle number densities being of the order of 0.01 $\mathrm{cm}^{-3}$. The central plasma sheet where the cross-tail current is embedded (@fig-magnetosphere-current) is, in turn, a region of hot high-density plasma. It
+is surrounded by the plasma sheet boundary layer with density and temperature intermediate to values in the central plasma sheet and tail lobes. The field lines of the boundary layer connect to the poleward edge of the auroral oval. The actual numbers differ considerably from the typical values under changing solar wind conditions and, in particular, during strong magnetospheric disturbances.
+
+| | Magnetosheath | Tail lobe | Plasma sheet boundary | Central plasma sheet |
+|:---:|:--------------:|:--------------:|:-----------:|:---:|
+| $n(\mathrm{cm}^{-3})$ | 8 | 0.01 | 0.1 | 0.3 |
+| $T_i(\mathrm{eV})$ | 150 | 300 | 1000 | 4200 |
+| $T_e(\mathrm{eV})$ | 25 | 50 | 150 | 600 |
+| $B(\mathrm{nT})$ | 15 | 20 | 20 | 10 |
+| $\beta$ | 2.5  | 0.0003 | 0.1 | 6 |
+
+: Typical values of plasma parameters in the mid-tail {#tbl-plasma-param-mid-tail}
+
+@tbl-plasma-param-mid-tail also includes typical parameters in the magnetosheath at the same X-coordinate. The magnetosheath consists of solar wind plasma that has been compressed and heated by the Earth's bow shock. It has higher density and lower temperature than observed in the outer magnetosphere. @tbl-plasma-param-mid-tail shows that, while the magnetic field magnitude is rather similar in all regions shown, plasma beta (the ratio between the kinetic and magnetic field pressures), is a useful parameter to distinguish between different regions.
+
+### Inner Magnetosphere
+
+The inner magnetosphere is the region where the magnetic field is quasi-dipolar. It is populated by different spatially overlapping particle species with different origins and widely different energies: the ring current, the radiation belts and the plasmasphere (@sec-radiation_belt). The ring current and radiation belts consist mainly of trapped particles in the quasi-dipolar field drifting due to magnetic field gradient and curvature effects around the Earth, whereas the motion and spatial extent of plasmaspheric plasma is mostly influenced by the corotation and convection electric fields.
+
+The _ring current_ arises from the azimuthal drift of energetic charged particles around the Earth; positively charged particles drifting toward the west and electrons toward the east. Basically all drifting particles contribute to the ring current. The drift currents are proportional to the energy density of the particles and the main ring current carriers are positive ions in the energy range 10–200 keV, whose fluxes are much larger than those of the higher-energy radiation belt particles. The ring
+current flows at geocentric distances 3–8 $R_E$, and peaks at about 3–4 $R_E$. At the earthward edge of the ring current the negative pressure gradient introduces a local eastward diamagnetic current, but the net current remains westward.
+
+During magnetospheric activity the role of the ionosphere as the plasma source of ring current enhances, increasing the relative abundance of oxygen ($\mathrm{O}^+$) and helium ($\mathrm{He}^+$) ions in the magnetosphere. As a result a significant fraction of ring current can at times be carried by oxygen ions of atmospheric origin. The heavy-ion content furthermore modifies the properties of plasma waves in the inner magnetosphere, which has consequences on the wave–particle interactions with the radiation belt electrons.
+
+The plasmasphere is the innermost part of the magnetosphere. It consists of cold ($\sim 1\,\mathrm{eV}$) and dense ($\gtrsim 10^3\, \mathrm{cm}^{-3}$) plasma of ionospheric origin. The existence of the plasmasphere was already known before the spaceflight era based on the propagation characteristics of lightning-generated and man-made very low-frequency (VLF) waves. The plasmasphere has a relatively clear outer edge, the _plasmapause_, where the proton density drops several orders of magnitude. The location and structure of the plasmapause vary considerably as a function of magnetic activity (@fig-plasmapause). During magnetospheric quiescence the density decreases smoothly at distances from 4–6 $R_E$, whereas during strong activity the plasmapause is steeper and pushed closer to the Earth.
+
+![Plasma density in the night sector organized by the activity index Kp. Kp < 1+ corresponds to a very quiet magnetosphere, whereas Kp = 4-5 indicates a significant activity level, although not yet a big magnetic storm. The L-shell is defined in @eq-L-shell. [Chappell (1972)]](../images/plasmapause.png){#fig-plasmapause}
+
+The location of the plasmapause is determined by the interplay between the sunward convection of plasma sheet particles and the plasmaspheric plasma corotating with the Earth. By adding the convective and corotational electric fields to the guiding center motion of charged particles we find that an outward bulge called _plasmaspheric plume_ develops on the duskside around 18 h magnetic local time (MLT). Plasmaspheric plumes are most common and pronounced during geomagnetic storms and substorms, but they can exist also during quiet conditions (e.g., Moldwin+ 2016). During geomagnetic storms the plume can expand out to geostationary orbit and bend toward earlier MLT.
+
+@fig-plasmasphere shows global observations of the plasmasphere taken by the EUV instrument onboard the IMAGE satellite before and after a moderate geomagnetic storm in June 2000. Before the storm the plasmasphere was more or less symmetric. After the storm the plasmasphere was significantly eroded leaving a plume extending from the dusk toward the dayside magnetopause. When traversing the plume, the trapped radiation belt electrons, otherwise outside the plasmapause, encounter a colder and higher-density plasma with plasma wave environment similar to the plasmasphere proper. Consequently, the influence of the plasmasphere on radiation belt particles extends beyond its nominal boundary depicted in @fig-plasmapause.
+
+![Plasmapheric plume and plasmaspheric erosion as observed by the IMAGE EUV instrument. The picture is taken from above the northern hemisphere and the Sun is to the right. (Goldstein+2004)](../images/plasmasphere.png){#fig-plasmasphere}
+
+The plasma parameters in the plasmasphere, in the plume and at the plasmapause are critical to the generation and propagation of plasma waves that, in turn, interact with the energetic particles in the ring current and radiation belts. Thus, the coldest and the hottest components of the inner magnetosphere are intimately coupled to each other through wave–particle interactions.
+
+### Cosmic Rays
+
+In addition to ion and electron radiation belts another important component of corpuscular radiation in the near-Earth space consists of cosmic rays. The kinetic
+energies of a large fraction of cosmic ray particles are so large that the geomagnetic field cannot trap them. Instead, the particles traverse through the Earth's
+magnetosphere without much deflection of their trajectories. Some of them hit the atmosphere interacting with nuclei of atmospheric atoms and molecules causing showers of elementary particles being possible to detect on ground. Those with highest energies can penetrate all the way to the ground.
+
+The spectrum of cosmic ray ions at energies below about $10^{15}$ eV per nucleon in the near-Earth space has three main components:
+
+* Galactic cosmic rays (GCR), whose spectrum peaks at energies above 100 MeV per nucleon, are most likely accelerated by supernova remnant shock waves in our galaxy.
+* Solar cosmic rays (SCR) are accelerated by coronal and interplanetary shocks related to solar eruptions. Their energies are mostly below 100 MeV per nucleon and a fraction of them can become trapped in the inner radiation belt.
+* Anomalous cosmic rays (ACR) are ions of solar origin captured and accelerated by the heliospheric termination shock, where the supersonic solar wind becomes subsonic before encountering the interstellar plasma, or in the heliosheath outside the heliopause. Some of the ions are injected back toward the Sun. Near the Earth the ACR spectrum peaks at about 10 MeV per nucleon and thus the particles can become trapped in the geomagnetic field.
+
+Although the galactic cosmic rays cannot directly be trapped into the radiation belts, they contribute indirectly to the inner belt composition through the _Cosmic
+Ray Albedo Neutron Decay_ (GRAND) mechanism. The cosmic ray bombardment of the atmosphere produces neutrons that move in all directions. Although the average neutron lifetime is 14 min 38 s, during which a multi-MeV neutron either hits the Earth or escapes far away from the magnetosphere, a small fraction of them decay to protons while still in the inner magnetosphere and may become trapped in the inner radiation belt.
+
+Below about 10 GeV GCR and ACR fluxes are modulated by the 11- and 22-year solar cycles, so they provide quasi-stationary background radiation in the timescales of radiation belt observations. The arrivals of SCRs are, in turn, transient phenomena related to solar flares and coronal mass ejections.
+
+The cosmic ray electrons also have galactic and solar components. Furthermore, the magnetosphere of Jupiter accelerates high-energy electrons escaping to the interplanetary space. These Jovian electrons can be observed near the Earth at intervals of about 13 months when the Earth and Jupiter are connected by the IMF.
+
+Supernova shock waves are the most likely sources of the accelerated GCR electrons, whereas in the acceleration of SCR and Jovian electrons also other mechanisms besides shock acceleration are important, in particular inductive electric fields associated with magnetic reconnection in solar flares and the Jovian magnetosphere.
+
+The acceleration and identity of the observed very highest-energy cosmic rays up to about $3\times 10^{20}$ eV remain enigmatic. It should not be possible to observe protons with energies higher than $6\times 10^{19}$ eV, known as the _Greisen–Zatsepin–Kuzmin cutoff_, unless they are accelerated not too far from the observing site. Above the cutoff the interaction of protons with the blue-shifted cosmic microwave background produces pions that carry away the excessive energy. It is possible that the highest-energy particles are nuclei of heavier elements. This is, for the time being, an open question.
 
 ## ULF Waves
 
