@@ -678,31 +678,26 @@ f_1 &= \frac{ieE_x}{m}\frac{\partial f_0/\partial v_x}{\omega - kv_x}
 $$
 
 Poisson's equation gives
-
 $$
 \epsilon_0\nabla\cdot\mathbf{E}_1 = ik\epsilon_0 E_x = -en_1 = -e\int\int\int f_1 d^3v
 $$
 
 Substituting for $f_1$ and dividing by $ik\epsilon_0 E_x$, we have
-
 $$
 1 = -\frac{e^2}{km\epsilon_0}\int\int\int \frac{\partial f_0/\partial v_x}{\omega - k v_x}d^3v
 $$
 
 A factor $n_0$ can be factored out if we replace $f_0$ by a normalized function $\hat{f}_0$:
-
 $$
 1 = -\frac{\omega_p^2}{k}\int_{-\infty}^{\infty}dv_z\int_{-\infty}^{\infty}dv_y\int_{-\infty}^{\infty}\frac{\partial \hat{f}_0(v_x, v_y, v_z)/\partial v_x}{\omega- k v_x}dv_x
 $$
 
 If $f_0$ is a Maxwellian or some other factorable distribution, the integration over $v_y$ and $v_z$ can be carried out easily. What remains is the one-dimensional distribution $\hat{f}_0(v_x)$. For instance, a one-dimensional Maxwellian distribution is
-
 $$
 \hat{f}_m(v_x) = \sqrt{\frac{m}{2\pi k_B T}} e^{\frac{-mv_x^2}{2 k_B T}}
 $$
 
 Since we are dealing with a one-dimensional problem we may drop the subscript x, begin careful not to confuse $v$ (which is really $v_x$) with the total velocity $v$ used earlier:
-
 $$
 1 = \frac{\omega_p^2}{k^2}\int_{-\infty}^{\infty}\frac{\partial \hat{f}_0/\partial v}{v - \omega/k}\mathrm{d}v
 $$ {#eq-dispersion_0th}
@@ -712,13 +707,10 @@ Here, $\hat{f}_0$ is understood to be a one-dimensional distribution function, t
 The integral in this equation is not straightforward to evaluate because of the singularity at $v=\omega/k$. One might think that the singularity would be of no concern, because in practice $\omega$ is almost always never real; waves are usually slightly damped by collisions or are amplified by some instability mechanisms. Since the velocity $v$ is a real quantity, the denominator never vanishes. Landau was the first to treat this equation properly. He found that even though the singularity lies off the path of integration, its presence introduces an important modification to the plasma wave dispersion relation --- an effect not predicted by the fluid theory.
 
 Consider an initial value problem in which the plasma is given a sinusoidal perturbation, and therefore $k$ is real. If the perturbation grows or decays, $\omega$ will be complex. This integral must be treated as a contour integral in the complex $v$ plane. Possible contours are shown for (a) an unstable wave, with $\Im(\omega) > 0$, and (b) a dampled wave, with $\Im(\omega) < 0$. Normally, one would evaluate the line integral along the real $v$ axis by the residue theorem:
-
 $$
 \int_{C_1} G \mathrm{d}v + \int_{C_2} G \mathrm{d}v = 2\pi i R(\omega/k)
 $$
-
 where $G$ is the integrand, $C_1$ is the path along the real axis, $C_2$ is the semicircle at infinity, and $R(\omega/k)$ is the residue at $\omega/k$. This works if the integral over $C_2$ vanishes. Unfortunately, this does not happen for a Maxwellian distribution, which contains the factor
-
 $$
 \exp(-v^2/v_{th}^2)
 $$
@@ -726,43 +718,34 @@ $$
 This factor becomes large for $v\rightarrow \pm i \infty$, and the contribution from $C_2$ cannot be neglected. Landau showed that when the problem is properly treated as an initial value problem the correct contour to use is the curve $C_1$ passing below the singularity. This integral must in general be evaluated numerically.
 
 Although an exact analysis of this problem is complicated, we can obtain an approximate dispersion relation for the case of large phase velocity and weak damping. In this case, the pole at $\omega/k$ lies near the real $v$ axis. The contour prescribed by Landau is then a straight line along the $\Re(v)$ axis with a small semicircle around the pole. In going around the pole, one obtains $2\pi i$ time half the residue there. Then @eq-dispersion_0th becomes
-
 $$
 1 = \frac{\omega_p^2}{k^2} \Big[ P\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0/\partial v}{v - (\omega/k)}\mathrm{d}v + i\pi \frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=\omega/k} \Big]
 $$ {#eq-landau_residue}
-
 where $P$ stands for the Cauchy principal value. To evaluate this, we integrate along the real $v$ axis but stop just before encountering the pole. If the phase velocity $v_\phi = \omega/k$ is sufficiently large, as we assume, there will not be much contribution from the neglected part of the contour, since both $\hat{f}_0$ and $\partial\hat{f}_0/\partial v$ are very small there. The integral above can be evaluated by integration by parts:
-
 $$
 \int_{-\infty}^{\infty}\frac{\partial\hat{f}_0}{\partial v}\frac{\mathrm{d}v}{v - v_\phi} = \Big[ \frac{\hat{f}_0}{v-v_\phi} \Big]_{-\infty}^{\infty} - \int_{-\infty}^{\infty}\frac{-\hat{f}_0 \mathrm{d}v}{(v-v_\phi)^2} = \int_{-\infty}^{\infty}\frac{\hat{f}_0 \mathrm{d}v}{(v-v_\phi)^2}
 $$
 
 Since this is just an average of $(v-v_\phi)^{-2}$ over the distribution, the real part of the dispersion relation can be written
-
 $$
 1 = \frac{\omega_p^2}{k^2} \overline{(v-v_\phi)^{-2}}
 $$
 
 Since $v_\phi \gg v$ has been assumed, we can expand $(v-v_\phi)^{-2}$:
-
 $$
 (v-v_\phi)^{-2} = v_\phi^{-2}\Big( 1 - \frac{v}{v_\phi} \Big)^{-2} = v_\phi^{-2}\Big( 1 + \frac{2v}{v_\phi} + \frac{3v^2}{v_\phi^2} + \frac{4v^3}{v_\phi^3} + ... \Big)
 $$
 
 The odd terms vanish upon taking the average, and we have
-
 $$
 \overline{(v-v_\phi)^{-2}} \approx v_\phi^{-2} \Big( 1 + \frac{3\overline{v^2}}{v_\phi^2} \Big)
 $$
 
 We now let $\hat{f}_0$ be Maxwellian and evaluate $\overline{v^2}$. Remembering that $v$ here is an abbreviation for $v_x$, we can write
-
 $$
 \frac{1}{2}m\overline{v_x^2} = \frac{1}{2}k_B T_e
 $$
-
 there being only one degree of freedom. The dispersion relation then becomes
-
 $$
 \begin{aligned}
 1 &= \frac{\omega_p^2}{k^2}\frac{k^2}{\omega^2}\Big( 1+ 3\frac{k^2}{\omega^2}\frac{k_B T_e}{m} \Big) \\
@@ -771,15 +754,12 @@ $$
 $$
 
 If the thermal correction is small (i.e. the second term on the right-hand side is small, such that $\omega \approx \omega_p$), we may replace $\omega^2$ by $\omega_p^2$ in the second term. We then have
-
 $$
 \omega^2 = \omega_p^2 + \frac{3k_B T_e}{m}k^2
 $$
-
 which is the same as that been obtained from the fluid equations with $\gamma=3$.
 
 We now return to the imaginary term in the dispersion relation. In evaluating this small term, it will be sufficiently accurate to neglect the thermal correction to the real part of $\omega$ and let $\omega^2\approx \omega_p^2$. From the evaluation of the real part above we see that the principle value of the integral is approximately $k^2/\omega^2$. The dispersion relation now becomes
-
 $$
 1 = \frac{\omega_p^2}{\omega^2} + i\pi\frac{\omega_p^2}{k^2}\frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=v_\phi}
 $$
@@ -789,19 +769,16 @@ $$
 $$
 
 Treating the imaginary term as small, we can bring it to the right-hand side and take the square root by Taylar series expansion. We then obtain
-
 $$
 \omega = \omega_p\Big( 1 + i\frac{\pi}{2}\frac{\omega_p^2}{k^2}\frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=v_\phi} \Big)
 $$ {#eq-landau}
 
 If $\hat{f}_0$ is a one-dimensional Maxwellian, we have
-
 $$
 \frac{\partial\hat{f}_0}{\partial v} = (\pi v_{th}^2)^{-1/2} \Big( \frac{-2v}{v_{th}^2} \Big) \exp\Big( \frac{-v^2}{v_{th}^2} \Big) = -\frac{2v}{\sqrt{\pi}v_{th}}\exp\Big( \frac{-v^2}{v_{th}^2} \Big)
 $$
 
 We may approximate $v_\phi$ by $\omega_p/k$ in the coefficient, but in the exponent we must keep the thermal correction in the real part of the dispersion relation. The damping is then given by
-
 $$
 \begin{aligned}
 \Im(\omega) &= -\frac{\pi}{2}\frac{\omega_p^2}{k^2}\frac{2\omega_p}{k\sqrt{\pi}}\frac{1}{v_{th}^3}\exp\Big( \frac{-\omega^2}{k^2 v_{th}^2} \Big) \\
@@ -1314,39 +1291,33 @@ What happens when collisions are added to ion Landau damping? Surprisingly littl
 ## Kinetic Effects in a Magnetic Field
 
 When either the dc magnetic field $\mathbf{B}_0$ or the oscillating magnetic field $\mathbf{B}_1$ is finite, the $\mathbf{v}\times\mathbf{B}$ term in the Vlasov equation for a collisionless plasma must be included. The linearized equation is then replaced by
-
 $$
-\frac{\partial f_1}{\partial t} + \mathbf{v}\cdot\nabla f_1 +\frac{q}{m}(\mathbf{v}\times\mathbf{B}_0)\cdot\frac{\partial f_1}{\partial \mathbf{v}} = -\frac{q}{m}(\mathbf{E}_1 + \mathbf{v}\times\mathbf{B}_1)\cdot\frac{\partial f_0}{\partial \mathbf{v}}
-$$
+\frac{\mathrm{d}f_1}{\mathrm{d}t} = \frac{\partial f_1}{\partial t} + \mathbf{v}\cdot\nabla f_1 +\frac{q}{m}(\mathbf{v}\times\mathbf{B}_0)\cdot\frac{\partial f_1}{\partial \mathbf{v}} = -\frac{q}{m}(\mathbf{E}_1 + \mathbf{v}\times\mathbf{B}_1)\cdot\frac{\partial f_0}{\partial \mathbf{v}}
+$$ {#eq-vlasov-linear}
 
-Resonant particles moving along $\mathbf{B}_0$ still cause Landau damping if $\omega/k\simeq v_{th}$, but two new kinetic effects now appera which are connected with the velocity component $\mathbf{v}_\perp$ perpendicular to $\mathbf{B}_0$. One of these is cyclotron damping, which will be discussed later; the other is the generation of cyclotron harmonics, leading to the possibility of the oscillation commonly called Bernstein waves.
+Resonant particles moving along $\mathbf{B}_0$ still cause Landau damping if $\omega/k\simeq v_{th}$, but two new kinetic effects now appear which are connected with the velocity component $\mathbf{v}_\perp$ perpendicular to $\mathbf{B}_0$. One of these is cyclotron damping, which will be discussed later; the other is the generation of cyclotron harmonics, leading to the possibility of the oscillation commonly called Bernstein waves.
 
 Harmonics of the cyclotron frequency are generated when the particles' circular Larmor orbits are distorted by the wave fields $\mathbf{E}_1$ and $\mathbf{B}_1$. These finite-$r_L$ effects are neglected in ordinary fluid theory but can be taken into account to order $k^2r_L^2$ by including the viscosity. A kinetic treatment can be accurate even for $k^2r_L^2 = \mathcal{O}(1)$. To understand how harmonics aris, consider the motion of a particle in an electric field:
-
 $$
 \mathbf{E} = E_x e^{i(kx-\omega t)}\hat{\mathbf{x}}
 $$
 
 The equation of motion is
-
 $$
 \ddot{x} + \omega_c^2 x = \frac{1}{m}E_x e^{i(kx-\omega t)}
 $$
 
 If $kr_L$ is not small, the exponent varies from one side of the orbit to the other. We can approximate $kx$ by substituting the undisturbed orbit $x=r_L\sin\omega_c t$
-
 $$
 \ddot{x} + \omega_c^2 x = \frac{1}{m}E_x e^{i(kr_L\sin\omega_c t-\omega t)}
 $$
 
 The generating function for the Bessel function $J_n(z)$ is
-
 $$
 e^{z(t-1/t)/2} = \sum_{n=-\infty}^{\infty} t^n J_n(z)
 $$
 
 Letting $z=kr_L$ and $t = \exp(i\omega_c t)$, we obtain
-
 $$
 e^{ikr_L\sin\omega_c t} = \sum_{n=-\infty}^{\infty} J_n(kr_L) e^{in\omega_c t}
 $$
@@ -1356,7 +1327,6 @@ $$
 $$
 
 The following solution can be verified by direct substitution:
-
 $$
 x = \frac{q}{m}E_x \sum_{n=-\infty}^{\infty} \frac{J_n(kr_L)e^{i(\omega-n\omega_c) t}}{\omega_c^2 - (\omega - n\omega_c)^2}
 $$
