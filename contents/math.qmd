@@ -231,6 +231,29 @@ $$
 
 where $P$ denotes the principle value integral. This is the same as @eq-landau_residue that will be discussed in @sec-landau.
 
+## Electromagnetic Four-Potential
+
+An [electromagnetic four-potential](https://en.wikipedia.org/wiki/Electromagnetic_four-potential) is a relativistic vector function from which the electromagnetic field can be derived. It combines both an electric scalar potential and a magnetic vector potential into a single four-vector.
+
+As measured in a given frame of reference, and for a given gauge, the first component of the electromagnetic four-potential is conventionally taken to be the electric scalar potential, and the other three components make up the magnetic vector potential. While both the scalar and vector potential depend upon the frame, the electromagnetic four-potential is Lorentz covariant.
+
+The electromagnetic four-potential can be defined as:
+| SI units | Gaussian units |
+|:--------:|:--------------:|
+| $A^\alpha = \left( \frac{\phi}{c}, \mathbf{A} \right)$ | $A^\alpha = \left( \phi, \mathbf{A} \right)$ |
+
+: Electromagnetic four-potential {#tbl-em-four-potential}
+
+in which $\phi$ is the electric potential, and $\mathbf{A}$ is the magnetic potential (a vector potential).
+
+The electric and magnetic fields associated with these four-potentials are:
+| SI units | Gaussian units |
+|:--------:|:--------------:|
+| $\mathbf{E} = -\nabla phi - \frac{\partial\mathbf{A}}{\partial t}$ |  $\mathbf{E} = -\nabla phi - \frac{1}{c}\frac{\partial\mathbf{A}}{\partial t}$ |
+| $\mathbf{B}=\nabla\times\mathbf{A}$ | $\mathbf{B}=\nabla\times\mathbf{A}$ |
+
+: Electromagnetic fields from the four-potential {#tbl-em-fields-four-potential}
+
 ## Helmholtz's Theorem
 
 Helmholtz's theorem, also known as the fundamental theorem of vector calculus, states that any sufficiently smooth, rapidly decaying vector field in three dimensions can be resolved into the sum of an irrotational (curl-free) vector field and a solenoidal (divergence-free) vector field.
@@ -453,21 +476,17 @@ $$
 $$
 
 In general, a second order ODE
-
 $$
 \frac{\mathrm{d}^2 u(x)}{\mathrm{d}x^2} + a_1(x)\frac{du(x)}{\mathrm{d}x} + a_2(x)u(x) = 0
 $$
-
 can be rewritten to get rid of the first derivative. Let
 $$
 u(x) = E(x) e^{-\frac{1}{2}\int^x a_1(x)\mathrm{d}x}
 $$
-
 we have
 $$
 \frac{\mathrm{d}^2 E(x)}{\mathrm{d}x^2} + k^2(x) E(x) = 0
 $$ {#eq-2nd_ODE}
-
 where
 $$
 k^2(x) = a_2(x) - \frac{{a_1}^2}{4} -\frac{1}{2}\frac{\mathrm{d} a_1(x)}{\mathrm{d}x}
@@ -476,7 +495,6 @@ $$
 Note that the lower bound of the integral is left on purpose to account for a constant. We will concentrate at special points, i.e. zeros (cutoff) and poles (resonance) of $k^2(x)\equiv \frac{\omega^2}{c^2}n^2(x)$.
 
 First, we will introduce _Wentzel–Kramers–Brillouin-Jeffreys_ ([WKBJ](https://en.wikipedia.org/wiki/WKB_approximation)) solution to @eq-2nd_ODE:
-
 $$
 E(x) \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x^\prime)\mathrm{d}x^\prime}.
 $$
@@ -484,13 +502,11 @@ $$
 _Proof_.
 
 For simplicity, here we use a simple harmonic oscillation analogy. Consider
-
 $$
 \frac{\mathrm{d}^2 x(t)}{\mathrm{d}t^2} + \Omega^2(t)x(t) = 0
 $$
 
 Assume $\Omega \gg 1$, and $T$ is the time scale over which $\Omega$ changes appreciably. We would anticipate solutions like
-
 $$
 \begin{aligned}
 &x(t)\sim e^{\pm i \Phi(t)} \\
@@ -518,7 +534,6 @@ mA^2\Omega \simeq \text{const.},\ A\sim\frac{1}{\sqrt{\Omega}}
 $$
 
 Thus the general form of solution can be written as
-
 $$
 x(t)\sim\frac{1}{\sqrt{\Omega}}e^{\pm i \Phi(t)} \sim\frac{1}{\sqrt{\Omega}} e^{\pm i \int^t \Omega(t^\prime)\mathrm{d}t^\prime+\text{const.}}
 $$
@@ -533,19 +548,16 @@ Note:
 ### Airy Function {#sec-airy}
 
 We want to develop a general method for cut-off and resonance. Away from the turning point $x_t$,
-
 $$
 E_{\text{WKBJ}}(x) \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x)\mathrm{d}x}
 $$
 
 Near $x=x_t$, we can use a linear approximation for $k^2(x)$ (first term in the Taylor expansion),
-
 $$
 k^2(x) \approx -{k_0}^2 a(x-x_t)
 $$
 
 Then
-
 $$
 \begin{aligned}
 \frac{\mathrm{d}^2 E}{\mathrm{d}x^2} + k^2(x)E &= 0 \\
@@ -554,19 +566,16 @@ $$
 $$
 
 Let $\frac{x-x_t}{l}=\zeta$, we have
-
 $$
 \frac{\mathrm{d}^2 E}{\mathrm{d}\zeta^2} - l^2 {k_0}^2 a l \zeta E(\zeta) = 0
 $$
 
 If we choose $l$ s.t. $l^3 {k_0}^2 a =1$ (non-dimensional treatment), we obtain
-
 $$
 \frac{\mathrm{d}^2 E}{\mathrm{d}\zeta^2} - \zeta E(\zeta) = 0
 $$ {#eq-stokes}
 
 which is equivalent to the case where $k^2(\zeta)=-\zeta$ that shows the linear approximation. @eq-stokes, known as the _Airy equation_ or _Stokes equation_, is the simplest second-order linear differential equation with a turning point (a point where the character of the solutions changes from oscillatory to exponential). From the WKBJ theory, we get the solution
-
 $$
 E_{\text{WKBJ}} \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x^\prime)\mathrm{d}x^\prime}
 = \left\{
@@ -577,26 +586,21 @@ E_{\text{WKBJ}} \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x^\prime)\mathrm{d}x^
 $$
 
 Note that the solution blows up at $\zeta=0$ (turning point) miserably. For $\zeta>0$, one solution is exponentially decay while the other is exponentially growing; for $\zeta<0$, the two solutions are oscillatory. Solutions can also be found as series in ascending powers of $\zeta$ by the standard method. Assume that a solution is $E=a_0+a_1\zeta+a_2\zeta^2+...$ Substitute this in Stokes Equation and equate powers of $\zeta$ will give relations between the constants $a_0,a_1,a_2$,etc., and lead finally to
-
 $$
 \begin{aligned}
 E = &a_0\Big\{ 1+\frac{\zeta^3}{3\cdot2} +\frac{\zeta^6}{6\cdot5\cdot3\cdot2} + \frac{\zeta^9}{9\cdot8\cdot6\cdot5\cdot3\cdot2} + ... \Big\} \\
 &+a_1\Big\{ \zeta+\frac{\zeta^4}{4\cdot3} +\frac{\zeta^7}{7\cdot6\cdot4\cdot3} + \frac{\zeta^{10}}{10\cdot9\cdot7\cdot6\cdot4\cdot3} + ...  \Big\}
 \end{aligned}
 $$
-
 which contains the two arbitrary constants $a_0$ and $a_1$, and is therefore the most general solution. The series are convergent for all $\zeta$, which confirms that every solution of Stokes Equation is finite, continuous and single valued.
 
 This form is usually not easy to interpret in physical sense. Besides this, we can find a more useful solution to @eq-stokes using the integral representation. An equivalent but maybe more intuitive approach is to solve @eq-stokes with Fourier transform; a coefficient $2\pi$ naturally appears. Both approaches reach the same results.
 
 Write
-
 $$
 E(\zeta) = \int_a^b \mathrm{d}t e^{t\zeta} f(t)
 $$
-
 where the integral represents a path in the complex t plane from $a$ to $b$. Then
-
 $$
 \begin{aligned}
 \frac{\mathrm{d}^2 E}{\mathrm{d}\zeta^2} &= \int_a^b \mathrm{d}t\ t^2 e^{t\zeta} f(t) \\
@@ -721,11 +725,9 @@ The procedure goes as follows:
 $$
 I=\int_C \mathrm{d}t e^{f(t)},\quad f(t) = f(t_s) + (t-t_s)f^\prime(t_s) + \frac{1}{2}(t-t_s)^2 f^{\prime\prime}(t_s) + ...
 $$
-
 where $f^\prime(t_s)=0$ at the saddle point $t=t_s$ simplifies $I$ to the integral of a Gaussian function.
 
 For $Ai(\zeta)$,
-
 $$
 \begin{aligned}
 f(t) &= t\zeta -\frac{1}{3}t^3 \\
@@ -735,16 +737,13 @@ f^{\prime\prime}(t_s)& = -2t_s
 $$
 
 Consider $\zeta>0$ (where the solution is either exponentially decaying or growing.) Then
-
 $$
 \begin{aligned}
 t_{s1} = -\sqrt{\zeta},\quad t_{s2} = \sqrt{\zeta} \\
 f(t_{s1}) = -\frac{2}{3}\zeta^{3/2},\quad f^{\prime\prime}(t_{s1}) = 2\zeta^{1/2}
 \end{aligned}
 $$
-
 So
-
 $$
 \begin{aligned}
 Ai(\zeta) &= \frac{1}{2\pi i} \int_{C_1} \mathrm{d}t\ e^{-\frac{2}{3}\zeta^{3/2}+\zeta^{1/2}(t-t_s)^2}+... \\
@@ -762,7 +761,6 @@ i\rho &= \pm \zeta^{1/4} (t-t_s) \\
 $$
 
 Then for $\zeta>0$
-
 $$
 \begin{aligned}
 Ai(\zeta) &= \frac{1}{2\pi i}e^{-\frac{2}{3}\zeta^{3/2}}\int_{-\infty}^{\infty}\frac{id\rho}{\zeta^{1/4}}e^{-\rho^2} \nonumber \\
@@ -777,7 +775,6 @@ The ratio of accuracy is shown in the following table (LABEL???). In practice, i
 |ratio | 0.934 | 0.972 | 0.983 | 0.993 | 1|
 
 Now, consider $\zeta<0$. When $\zeta\rightarrow-\infty$, we anticipate oscillating behavior of $Ai(\zeta)$. $\zeta=-|\zeta|$,
-
 $$
 \begin{aligned}
 &\left\{
@@ -790,21 +787,17 @@ f^{\prime\prime}(t) &= -2t
 &f^{\prime\prime}(t_{s1}) = 2i\sqrt{|\zeta|}
 \end{aligned}
 $$
-
 so the contribution from $t_{s1}$ is
-
 $$
 \frac{1}{2\pi i}e^{i\frac{2}{3}|\zeta|^{3/2}}\int_{t_{s1}} e^{\frac{1}{2}(2i\sqrt{|\zeta|})(t-t_s)^2+...}
 $$
 
 Let $-\rho^2=i\sqrt{|\zeta|}(t-t_{s1})^2$, differentiate on both sides to get
-
 $$
 \mathrm{d}t = \pm\frac{e^{i\pi/4}}{|\zeta|^{1/4}}\mathrm{d}\rho
 $$
 
 Again, $\rho=\text{real}$ is the direction of steepest descent at $t=t_{s1}$. Do the same to $t_{s2}$, then by summing them up we have for $\zeta<0$,
-
 $$
 \begin{aligned}
 Ai(\zeta) &\approx \frac{1}{2\pi i} \Big[ e^{i\frac{2}{3}|\zeta|^{3/2}}\int_{-\infty}^{\infty}\frac{e^{i\pi/4}}{|\zeta|^{1/4}}\mathrm{d}\rho e^{-\rho^2} - e^{-i\frac{2}{3}|\zeta|^{3/2}}\int_{-\infty}^{\infty}\frac{e^{-i\pi/4}}{|\zeta|^{1/4}}\mathrm{d}\rho e^{-\rho^2} \Big] \\
@@ -813,13 +806,10 @@ Ai(\zeta) &\approx \frac{1}{2\pi i} \Big[ e^{i\frac{2}{3}|\zeta|^{3/2}}\int_{-\i
 $$ {#eq-airy_approxi_negative}
 
 An interesting application of the gradient descent method is to find [Stirling's approximation](https://en.wikipedia.org/wiki/Stirling%27s_approximation). Mathematically, we can proof that
-
 $$
 n! =\int_0^\infty \mathrm{d}t\ e^{-t}t^n = \int_0^\infty \mathrm{d}t\ e^{-t+n\ln{t}} \equiv \int_0^\infty \mathrm{d}t\ e^{f(t)}
 $$
-
 and by following the steepest descent method,
-
 $$
 \begin{aligned}
 f(t) &= -t +n\ln{t} \\
@@ -829,7 +819,6 @@ f^{\prime\prime}(t) &= -n\frac{1}{t^2}
 $$
 
 we can find the approximation Stirling formula
-
 $$
 \begin{aligned}
 n! &\approx \int_0^\infty \mathrm{d}t\ e^{-n+n\ln{n}-\frac{1}{2n}(t-t_s)^2} \\
