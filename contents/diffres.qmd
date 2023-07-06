@@ -12,31 +12,25 @@ The picture, then, is of a nonuniform distribution of ions and electrons in a de
 When an electron, say, collides with a neutral atom, it may lose any fraction of its initial momentum, depending on the angle at which it rebounds. In a head-on collision with a heavy atom, the electron can lose twice its initial momentum, since its velocity reverses sign after the collision. The probability of momentum loss can be expressed in terms of the equivalent cross section $\sigma$ that the atoms would have if they were perfect absorbers of momentum.
 
 In Fig. 5.2, electrons are incident upon a slab of area $A$ and thickness $\mathrm{d}x$ containing $n_n$ neutral atoms per $\text{m}^3$. The atoms are imagined to be opaque spheres of cross-sectional area $\sigma$; that is, every time an electron comes within the area blocked by the atom, the electron loses all of its momentum. The number of atoms in the slab is $n_n A \mathrm{d}x$. The fraction of the slab blocked by atoms is $n_n A\sigma \mathrm{d}x / A = n_n \sigma \mathrm{d}x$. If a flux $\Gamma$ of electrons is incident on the slab, the flux emerging on the other side is $\Gamma^\prime = \Gamma(1-n_n \sigma \mathrm{d}x)$. Thus the change of $\Gamma$ with distance is $\mathrm{d}\Gamma/\mathrm{d}x = -n_n \sigma\Gamma$, or
-
 $$
 \Gamma = \Gamma_0 e^{-n_n\sigma x} \equiv \Gamma_0 e^{-x/\lambda_m}
 $$
 
 In a distance $\lambda_m$, the flux would be decreased to $1/e$ of its initial value. The quantity $\lambda_m$ is the _mean free path_ for collisions:
-
 $$
 \lambda_m = 1/n_n\sigma
 $$ {#eq-mean_free_path_collision}
 
 After traveling a distance $\lambda_m$, a particle will have had a good probability of making a collision. The mean time between collisions, for particles of velocity $v$, is given by
-
 $$
 \tau = \lambda_m/v
 $$
-
 and the mean frequency of collisions is
-
 $$
 \tau^{-1} = v/\lambda_m = n_n \sigma v
 $$ {#eq-mean_freq_collision}
 
 If we now average over particles of all velocities $v$ in a Maxwellian distribution, we have what is generally called the collision frequency $\nu$:
-
 $$
 \nu = n_n \overline{\sigma v}
 $$ {#eq-collision_freq}
@@ -44,20 +38,17 @@ $$ {#eq-collision_freq}
 ## Diffusion Parameters
 
 The fluid equation of motion including collisions is, for any species $s$,
-
 $$
 mn\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = mn \Big[ \frac{\partial\mathbf{v}}{\partial t} + (\mathbf{v}\cdot\nabla)\mathbf{v} \Big] = q_sn\mathbf{E} - \nabla p - mn\nu\mathbf{v}
 $$
 
 The averaging process used to compute $\nu$ is such as to make the last equation correct; we need not be concerned with the
 details of this computation. The quantity $\nu$ must, however, be assumed to be a constant in order for the equation to be useful. We shall consider a steady state in which $\partial\mathbf{v}/\partial t$ = 0. If $\mathbf{v}$ is sufficiently small (or $\nu$ sufficiently large), a fluid element will not move into regions of different $\mathbf{E}$ and $\nabla p$ in a collision time, and the convective derivative $\mathrm{d}\mathbf{v}/\mathrm{d}t$ will also vanish. Setting the left-hand side to zero, we have, for an isothermal plasma,
-
 $$
 \mathbf{v} = \frac{1}{mn\nu}(q_sn\mathbf{E} - k_B T \nabla n) = \frac{q_s}{m\nu}\mathbf{E} - \frac{k_B T}{mv}\frac{\nabla n}{n}
 $$
 
 The coefficients above are called the _mobility_ and the _diffusion coefficient_:
-
 $$
 \mu\equiv |q|/m\nu\quad\text{Mobility}
 $$ {#eq-mobility}
@@ -67,19 +58,15 @@ D\equiv k_B T/ m\nu\quad\text{Diffusion coefficient}
 $$ {#eq-diffusion_coef}
 
 These will be different for each species. Note that $D$ is measured in $\text{m}^2/s$. The transport coefficients $\mu$ and $D$ are connected by the _Einstein relation_:
-
 $$
 \mu = |q|D/k_B T
 $$ {#eq-einstein_relation}
-
 With the help of these definitions, the flux $\Gamma_s$ of the sth species can be written
-
 $$
 \Gamma_s = n\mathbf{v}_s = \pm \mu_s n\mathbf{E} - D_s\nabla n
 $$ {#eq-species_flux}
 
 _Fick’s law_ of diffusion is a special case of this, occurring when either $\mathbf{E}=0$ or the particles are uncharged, so that $\mu=0$:
-
 $$
 \Gamma = -D\nabla n\quad\text{Fick's law}
 $$
@@ -564,10 +551,9 @@ however, it takes time to set up the current distribution. It was shown by Stenz
 
 Y.Y talked about this during his lecture that the collision rate among ions or electrons is much larger than the collision rate between ions and electrons. I need to go back to the notes. See also [StackExchange Q&A](https://physics.stackexchange.com/questions/143738/why-are-ions-and-electrons-at-different-temperatures-in-a-plasma).
 
-### Conductivity Tensor
+### Conductivity Tensor {#sec-conductivity}
 
-Resistivity is the inverse of conductivity. Consider the effect of collisions as friction in the equation of motion:
-
+Resistivity is the inverse of conductivity. Consider the effect of collisions as friction in the equation of motion for electrons:
 $$
 m\frac{\mathrm{d}\mathbf{u}_e}{\mathrm{d}t} = q(\mathbf{E}+\mathbf{u}_e\times\mathbf{B}) - m\nu_c(\mathbf{u}_e - \mathbf{u}^\prime)
 $$
@@ -598,7 +584,7 @@ where $\sigma$ is the classical conductivity.
 
 * In magnetized plasma, let $\mathbf{B}=b\hat{z}$.
 
-Similarly to the unmagnetized case,
+Similar to the steady unmagnetized case,
 
 $$
 0 = -e(\mathbf{E} + \mathbf{u}_e\times\mathbf{B}) - \nu_c m_e\mathbf{u}_e
