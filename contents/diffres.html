@@ -353,7 +353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#numerical-values-of-η" id="toc-numerical-values-of-η" class="nav-link" data-scroll-target="#numerical-values-of-η"><span class="header-section-number">6.8.4</span> Numerical Values of η</a></li>
   <li><a href="#pulsed-currents" id="toc-pulsed-currents" class="nav-link" data-scroll-target="#pulsed-currents"><span class="header-section-number">6.8.5</span> Pulsed Currents</a></li>
   <li><a href="#collisions-between-species" id="toc-collisions-between-species" class="nav-link" data-scroll-target="#collisions-between-species"><span class="header-section-number">6.8.6</span> Collisions Between Species</a></li>
-  <li><a href="#conductivity-tensor" id="toc-conductivity-tensor" class="nav-link" data-scroll-target="#conductivity-tensor"><span class="header-section-number">6.8.7</span> Conductivity Tensor</a></li>
+  <li><a href="#sec-conductivity" id="toc-sec-conductivity" class="nav-link" data-scroll-target="#sec-conductivity"><span class="header-section-number">6.8.7</span> Conductivity Tensor</a></li>
   </ul></li>
   <li><a href="#diffusion-of-fully-ionized-plasmas" id="toc-diffusion-of-fully-ionized-plasmas" class="nav-link" data-scroll-target="#diffusion-of-fully-ionized-plasmas"><span class="header-section-number">6.9</span> Diffusion of Fully Ionized Plasmas</a>
   <ul class="collapse">
@@ -397,54 +397,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="collision-parameters" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="collision-parameters"><span class="header-section-number">6.2</span> Collision Parameters</h2>
 <p>When an electron, say, collides with a neutral atom, it may lose any fraction of its initial momentum, depending on the angle at which it rebounds. In a head-on collision with a heavy atom, the electron can lose twice its initial momentum, since its velocity reverses sign after the collision. The probability of momentum loss can be expressed in terms of the equivalent cross section <span class="math inline">\(\sigma\)</span> that the atoms would have if they were perfect absorbers of momentum.</p>
-<p>In Fig. 5.2, electrons are incident upon a slab of area <span class="math inline">\(A\)</span> and thickness <span class="math inline">\(\mathrm{d}x\)</span> containing <span class="math inline">\(n_n\)</span> neutral atoms per <span class="math inline">\(\text{m}^3\)</span>. The atoms are imagined to be opaque spheres of cross-sectional area <span class="math inline">\(\sigma\)</span>; that is, every time an electron comes within the area blocked by the atom, the electron loses all of its momentum. The number of atoms in the slab is <span class="math inline">\(n_n A \mathrm{d}x\)</span>. The fraction of the slab blocked by atoms is <span class="math inline">\(n_n A\sigma \mathrm{d}x / A = n_n \sigma \mathrm{d}x\)</span>. If a flux <span class="math inline">\(\Gamma\)</span> of electrons is incident on the slab, the flux emerging on the other side is <span class="math inline">\(\Gamma^\prime = \Gamma(1-n_n \sigma \mathrm{d}x)\)</span>. Thus the change of <span class="math inline">\(\Gamma\)</span> with distance is <span class="math inline">\(\mathrm{d}\Gamma/\mathrm{d}x = -n_n \sigma\Gamma\)</span>, or</p>
-<p><span class="math display">\[
+<p>In Fig. 5.2, electrons are incident upon a slab of area <span class="math inline">\(A\)</span> and thickness <span class="math inline">\(\mathrm{d}x\)</span> containing <span class="math inline">\(n_n\)</span> neutral atoms per <span class="math inline">\(\text{m}^3\)</span>. The atoms are imagined to be opaque spheres of cross-sectional area <span class="math inline">\(\sigma\)</span>; that is, every time an electron comes within the area blocked by the atom, the electron loses all of its momentum. The number of atoms in the slab is <span class="math inline">\(n_n A \mathrm{d}x\)</span>. The fraction of the slab blocked by atoms is <span class="math inline">\(n_n A\sigma \mathrm{d}x / A = n_n \sigma \mathrm{d}x\)</span>. If a flux <span class="math inline">\(\Gamma\)</span> of electrons is incident on the slab, the flux emerging on the other side is <span class="math inline">\(\Gamma^\prime = \Gamma(1-n_n \sigma \mathrm{d}x)\)</span>. Thus the change of <span class="math inline">\(\Gamma\)</span> with distance is <span class="math inline">\(\mathrm{d}\Gamma/\mathrm{d}x = -n_n \sigma\Gamma\)</span>, or <span class="math display">\[
 \Gamma = \Gamma_0 e^{-n_n\sigma x} \equiv \Gamma_0 e^{-x/\lambda_m}
 \]</span></p>
-<p>In a distance <span class="math inline">\(\lambda_m\)</span>, the flux would be decreased to <span class="math inline">\(1/e\)</span> of its initial value. The quantity <span class="math inline">\(\lambda_m\)</span> is the <em>mean free path</em> for collisions:</p>
-<p><span id="eq-mean_free_path_collision"><span class="math display">\[
+<p>In a distance <span class="math inline">\(\lambda_m\)</span>, the flux would be decreased to <span class="math inline">\(1/e\)</span> of its initial value. The quantity <span class="math inline">\(\lambda_m\)</span> is the <em>mean free path</em> for collisions: <span id="eq-mean_free_path_collision"><span class="math display">\[
 \lambda_m = 1/n_n\sigma
 \tag{6.1}\]</span></span></p>
-<p>After traveling a distance <span class="math inline">\(\lambda_m\)</span>, a particle will have had a good probability of making a collision. The mean time between collisions, for particles of velocity <span class="math inline">\(v\)</span>, is given by</p>
-<p><span class="math display">\[
+<p>After traveling a distance <span class="math inline">\(\lambda_m\)</span>, a particle will have had a good probability of making a collision. The mean time between collisions, for particles of velocity <span class="math inline">\(v\)</span>, is given by <span class="math display">\[
 \tau = \lambda_m/v
-\]</span></p>
-<p>and the mean frequency of collisions is</p>
-<p><span id="eq-mean_freq_collision"><span class="math display">\[
+\]</span> and the mean frequency of collisions is <span id="eq-mean_freq_collision"><span class="math display">\[
 \tau^{-1} = v/\lambda_m = n_n \sigma v
 \tag{6.2}\]</span></span></p>
-<p>If we now average over particles of all velocities <span class="math inline">\(v\)</span> in a Maxwellian distribution, we have what is generally called the collision frequency <span class="math inline">\(\nu\)</span>:</p>
-<p><span id="eq-collision_freq"><span class="math display">\[
+<p>If we now average over particles of all velocities <span class="math inline">\(v\)</span> in a Maxwellian distribution, we have what is generally called the collision frequency <span class="math inline">\(\nu\)</span>: <span id="eq-collision_freq"><span class="math display">\[
 \nu = n_n \overline{\sigma v}
 \tag{6.3}\]</span></span></p>
 </section>
 <section id="diffusion-parameters" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="diffusion-parameters"><span class="header-section-number">6.3</span> Diffusion Parameters</h2>
-<p>The fluid equation of motion including collisions is, for any species <span class="math inline">\(s\)</span>,</p>
-<p><span class="math display">\[
+<p>The fluid equation of motion including collisions is, for any species <span class="math inline">\(s\)</span>, <span class="math display">\[
 mn\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = mn \Big[ \frac{\partial\mathbf{v}}{\partial t} + (\mathbf{v}\cdot\nabla)\mathbf{v} \Big] = q_sn\mathbf{E} - \nabla p - mn\nu\mathbf{v}
 \]</span></p>
-<p>The averaging process used to compute <span class="math inline">\(\nu\)</span> is such as to make the last equation correct; we need not be concerned with the details of this computation. The quantity <span class="math inline">\(\nu\)</span> must, however, be assumed to be a constant in order for the equation to be useful. We shall consider a steady state in which <span class="math inline">\(\partial\mathbf{v}/\partial t\)</span> = 0. If <span class="math inline">\(\mathbf{v}\)</span> is sufficiently small (or <span class="math inline">\(\nu\)</span> sufficiently large), a fluid element will not move into regions of different <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\nabla p\)</span> in a collision time, and the convective derivative <span class="math inline">\(\mathrm{d}\mathbf{v}/\mathrm{d}t\)</span> will also vanish. Setting the left-hand side to zero, we have, for an isothermal plasma,</p>
-<p><span class="math display">\[
+<p>The averaging process used to compute <span class="math inline">\(\nu\)</span> is such as to make the last equation correct; we need not be concerned with the details of this computation. The quantity <span class="math inline">\(\nu\)</span> must, however, be assumed to be a constant in order for the equation to be useful. We shall consider a steady state in which <span class="math inline">\(\partial\mathbf{v}/\partial t\)</span> = 0. If <span class="math inline">\(\mathbf{v}\)</span> is sufficiently small (or <span class="math inline">\(\nu\)</span> sufficiently large), a fluid element will not move into regions of different <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\nabla p\)</span> in a collision time, and the convective derivative <span class="math inline">\(\mathrm{d}\mathbf{v}/\mathrm{d}t\)</span> will also vanish. Setting the left-hand side to zero, we have, for an isothermal plasma, <span class="math display">\[
 \mathbf{v} = \frac{1}{mn\nu}(q_sn\mathbf{E} - k_B T \nabla n) = \frac{q_s}{m\nu}\mathbf{E} - \frac{k_B T}{mv}\frac{\nabla n}{n}
 \]</span></p>
-<p>The coefficients above are called the <em>mobility</em> and the <em>diffusion coefficient</em>:</p>
-<p><span id="eq-mobility"><span class="math display">\[
+<p>The coefficients above are called the <em>mobility</em> and the <em>diffusion coefficient</em>: <span id="eq-mobility"><span class="math display">\[
 \mu\equiv |q|/m\nu\quad\text{Mobility}
 \tag{6.4}\]</span></span></p>
 <p><span id="eq-diffusion_coef"><span class="math display">\[
 D\equiv k_B T/ m\nu\quad\text{Diffusion coefficient}
 \tag{6.5}\]</span></span></p>
-<p>These will be different for each species. Note that <span class="math inline">\(D\)</span> is measured in <span class="math inline">\(\text{m}^2/s\)</span>. The transport coefficients <span class="math inline">\(\mu\)</span> and <span class="math inline">\(D\)</span> are connected by the <em>Einstein relation</em>:</p>
-<p><span id="eq-einstein_relation"><span class="math display">\[
+<p>These will be different for each species. Note that <span class="math inline">\(D\)</span> is measured in <span class="math inline">\(\text{m}^2/s\)</span>. The transport coefficients <span class="math inline">\(\mu\)</span> and <span class="math inline">\(D\)</span> are connected by the <em>Einstein relation</em>: <span id="eq-einstein_relation"><span class="math display">\[
 \mu = |q|D/k_B T
-\tag{6.6}\]</span></span></p>
-<p>With the help of these definitions, the flux <span class="math inline">\(\Gamma_s\)</span> of the sth species can be written</p>
-<p><span id="eq-species_flux"><span class="math display">\[
+\tag{6.6}\]</span></span> With the help of these definitions, the flux <span class="math inline">\(\Gamma_s\)</span> of the sth species can be written <span id="eq-species_flux"><span class="math display">\[
 \Gamma_s = n\mathbf{v}_s = \pm \mu_s n\mathbf{E} - D_s\nabla n
 \tag{6.7}\]</span></span></p>
-<p><em>Fick’s law</em> of diffusion is a special case of this, occurring when either <span class="math inline">\(\mathbf{E}=0\)</span> or the particles are uncharged, so that <span class="math inline">\(\mu=0\)</span>:</p>
-<p><span class="math display">\[
+<p><em>Fick’s law</em> of diffusion is a special case of this, occurring when either <span class="math inline">\(\mathbf{E}=0\)</span> or the particles are uncharged, so that <span class="math inline">\(\mu=0\)</span>: <span class="math display">\[
 \Gamma = -D\nabla n\quad\text{Fick's law}
 \]</span></p>
 <p>This equation merely expresses the fact that diffusion is a random-walk process, in which a net flux from dense regions to less dense regions occurs simply because more particles start in the dense region. This flux is obviously proportional to the gradient of the density. In plasmas, Fick’s law is not necessarily obeyed. Because of the possibility of organized motions (plasma waves), a plasma may spread out in a manner which is not truly random.</p>
@@ -838,10 +825,9 @@ en\mathbf{E} = \mathbf{P}_{ei}
 <h3 data-number="6.8.6" class="anchored" data-anchor-id="collisions-between-species"><span class="header-section-number">6.8.6</span> Collisions Between Species</h3>
 <p>Y.Y talked about this during his lecture that the collision rate among ions or electrons is much larger than the collision rate between ions and electrons. I need to go back to the notes. See also <a href="https://physics.stackexchange.com/questions/143738/why-are-ions-and-electrons-at-different-temperatures-in-a-plasma">StackExchange Q&amp;A</a>.</p>
 </section>
-<section id="conductivity-tensor" class="level3" data-number="6.8.7">
-<h3 data-number="6.8.7" class="anchored" data-anchor-id="conductivity-tensor"><span class="header-section-number">6.8.7</span> Conductivity Tensor</h3>
-<p>Resistivity is the inverse of conductivity. Consider the effect of collisions as friction in the equation of motion:</p>
-<p><span class="math display">\[
+<section id="sec-conductivity" class="level3" data-number="6.8.7">
+<h3 data-number="6.8.7" class="anchored" data-anchor-id="sec-conductivity"><span class="header-section-number">6.8.7</span> Conductivity Tensor</h3>
+<p>Resistivity is the inverse of conductivity. Consider the effect of collisions as friction in the equation of motion for electrons: <span class="math display">\[
 m\frac{\mathrm{d}\mathbf{u}_e}{\mathrm{d}t} = q(\mathbf{E}+\mathbf{u}_e\times\mathbf{B}) - m\nu_c(\mathbf{u}_e - \mathbf{u}^\prime)
 \]</span></p>
 <p>where <span class="math inline">\(\mathbf{u}^\prime\)</span> is the velocity of the collision targets.</p>
@@ -864,7 +850,7 @@ m\frac{\mathrm{d}\mathbf{u}_e}{\mathrm{d}t} = q(\mathbf{E}+\mathbf{u}_e\times\ma
 <ul>
 <li>In magnetized plasma, let <span class="math inline">\(\mathbf{B}=b\hat{z}\)</span>.</li>
 </ul>
-<p>Similarly to the unmagnetized case,</p>
+<p>Similar to the steady unmagnetized case,</p>
 <p><span class="math display">\[
 0 = -e(\mathbf{E} + \mathbf{u}_e\times\mathbf{B}) - \nu_c m_e\mathbf{u}_e
 \]</span></p>
