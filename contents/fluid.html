@@ -343,7 +343,15 @@ div.csl-indent {
   <li><a href="#fiveten-moment" id="toc-fiveten-moment" class="nav-link" data-scroll-target="#fiveten-moment"><span class="header-section-number">5.4.3</span> Five/Ten-moment</a></li>
   <li><a href="#characteristic-wave-speeds" id="toc-characteristic-wave-speeds" class="nav-link" data-scroll-target="#characteristic-wave-speeds"><span class="header-section-number">5.4.4</span> Characteristic wave speeds</a></li>
   </ul></li>
-  <li><a href="#generalized-ohms-law" id="toc-generalized-ohms-law" class="nav-link" data-scroll-target="#generalized-ohms-law"><span class="header-section-number">5.5</span> Generalized Ohm’s Law</a></li>
+  <li><a href="#generalized-ohms-law" id="toc-generalized-ohms-law" class="nav-link" data-scroll-target="#generalized-ohms-law"><span class="header-section-number">5.5</span> Generalized Ohm’s Law</a>
+  <ul class="collapse">
+  <li><a href="#basic-definitions-and-assumptions" id="toc-basic-definitions-and-assumptions" class="nav-link" data-scroll-target="#basic-definitions-and-assumptions"><span class="header-section-number">5.5.1</span> Basic definitions and assumptions</a></li>
+  <li><a href="#equation-of-motion-for-each-species" id="toc-equation-of-motion-for-each-species" class="nav-link" data-scroll-target="#equation-of-motion-for-each-species"><span class="header-section-number">5.5.2</span> Equation of Motion for Each Species</a></li>
+  <li><a href="#preconditions" id="toc-preconditions" class="nav-link" data-scroll-target="#preconditions"><span class="header-section-number">5.5.3</span> Preconditions</a></li>
+  <li><a href="#derivation" id="toc-derivation" class="nav-link" data-scroll-target="#derivation"><span class="header-section-number">5.5.4</span> Derivation</a></li>
+  <li><a href="#simplification-of-generalized-ohms-law" id="toc-simplification-of-generalized-ohms-law" class="nav-link" data-scroll-target="#simplification-of-generalized-ohms-law"><span class="header-section-number">5.5.5</span> Simplification of Generalized Ohm’s Law</a></li>
+  <li><a href="#discussions" id="toc-discussions" class="nav-link" data-scroll-target="#discussions"><span class="header-section-number">5.5.6</span> Discussions</a></li>
+  </ul></li>
   <li><a href="#sec-mhd" id="toc-sec-mhd" class="nav-link" data-scroll-target="#sec-mhd"><span class="header-section-number">5.6</span> Magnetohydrodynamics</a>
   <ul class="collapse">
   <li><a href="#sec-mhd-ohm" id="toc-sec-mhd-ohm" class="nav-link" data-scroll-target="#sec-mhd-ohm"><span class="header-section-number">5.6.1</span> MHD Ohm’s law</a></li>
@@ -820,10 +828,235 @@ Q_{ijm} \equiv m\int (v_i-u_i)(v_j-u_j)(v_m-u_m)\mathrm{d}\mathbf{v}
 </section>
 <section id="generalized-ohms-law" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="generalized-ohms-law"><span class="header-section-number">5.5</span> Generalized Ohm’s Law</h2>
-<p>DERIVATIONS TO BE ADDED…</p>
-<p>The generalized Ohm’s law can be derived from two-fluid equations: <span id="eq-genearlized_ohm_law"><span class="math display">\[
+<p>The generalized Ohm’s law can be derived from two-fluid equations. Landau once pointed out that the validity of describing plasma behaviors with two-fluid equations is based on the fact that the time scale of ions and electrons to reach an equilibrium Maxwellian distribution is much smaller than that of the heat exchange between species. The Ohm’s law is established upon the collisions between electrons, ions and neutral species, and is used to describe the relation between <span class="math inline">\(\mathbf{J}\)</span> and <span class="math inline">\(\mathbf{E},\,\mathbf{B},\,\mathbf{u}\)</span>.</p>
+<section id="basic-definitions-and-assumptions" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="basic-definitions-and-assumptions"><span class="header-section-number">5.5.1</span> Basic definitions and assumptions</h3>
+<ol type="1">
+<li>Ionized <span class="math inline">\(\textrm{H}^+\)</span> plasma: we use <span class="math inline">\(e,\, i,\, a\)</span> as subscripts for electron, ion and neutral species respectively. <span class="math display">\[
+\begin{aligned}
+q_e=-q_i=-e \\
+m_e\ll m_i \approx m_a
+\end{aligned}
+\]</span></li>
+</ol>
+<p>With the definition of ionization degree in <a href="introduction.html#eq-saha">Equation&nbsp;<span>2.1</span></a>, <span id="eq-ionization_degree"><span class="math display">\[
+\alpha=\frac{n_i}{n_i+n_a}
+\tag{5.17}\]</span></span> we have <span class="math display">\[
+\begin{aligned}
+\frac{n_i}{n_a}&amp;=\frac{\alpha}{1-\alpha}\\
+\frac{n_i}{2n_i+n_a}&amp;=\frac{\alpha}{1+\alpha}\\
+\frac{n_a}{2n_i+n_a}&amp;=\frac{1-\alpha}{1+\alpha}
+\end{aligned}
+\]</span></p>
+<ol start="2" type="1">
+<li><p>Quasi-neutrality assumption <span class="math display">\[
+\begin{aligned}
+\rho_e^\ast+\rho_i^\ast =0\ \Rightarrow\ n_e=n_i \\
+\rho_e=m_e n_e \ll \rho_i=m_i n_i
+\end{aligned}
+\]</span></p></li>
+<li><p>Ideal gas in thermal equilibrium <span class="math display">\[
+\begin{aligned}
+T_e=T_i=T_a \\
+p=p_e+p_i+p_a
+\end{aligned}
+\]</span></p></li>
+</ol>
+<p>Using the ionization degree defined in <a href="#eq-ionization_degree">Equation&nbsp;<span>5.17</span></a>, we have <span class="math display">\[
+\begin{aligned}
+p_e = p_i = \frac{n_i}{2n_i+n_a} p = \frac{\alpha}{1+\alpha} p \\
+p_a = \frac{n_a}{2n_i+n_a}p = \frac{1-\alpha}{1+\alpha}p
+\end{aligned}
+\]</span> Also, we have <span class="math display">\[
+v_{e,th}\gg v_{i,th}.
+\]</span></p>
+<ol start="4" type="1">
+<li>Flow velocity is much smaller than thermal speed, <span class="math display">\[
+|\mathbf{v}_s|\ll |\mathbf{v}_{s.th}|,\quad s=e,\, i,\, a.
+\]</span></li>
+</ol>
+<p>Typical time scale must satisfy <span class="math inline">\(\tau_0\gg \tau_{\text{collision}}\)</span>.</p>
+<ol start="5" type="1">
+<li>Ignore viscosity and non-EM force.</li>
+</ol>
+<p>The average velocity of protons with respect to bulk velocity of the plasma, the velocity difference between electron and ion, and the average velocity of neutral particles are <span class="math display">\[
+\begin{aligned}
+\mathbf{v}_i&amp;=\mathbf{u}_i-\mathbf{u} \\
+\mathbf{v}_{ei}&amp;=\mathbf{u}_e-\mathbf{u}_i \\
+\mathbf{u}_a&amp;=\mathbf{u}-\frac{n_i}{n_a}(\mathbf{v}_i+\frac{m_e}{m_i}\mathbf{v}_{ei})
+\end{aligned}
+\]</span></p>
+<p>The average momenta of electrons relative to protons and neutral particles are <span class="math display">\[
+\begin{aligned}
+\mathbf{I}_{ei}&amp;=m_e\mathbf{v}_{ei} \\
+\mathbf{I}_{ea}&amp;=m_e\Big[\Big( 1+\frac{n_im_e}{n_a m_i}\Big)\mathbf{v}_{ei}+\Big( 1+\frac{n_i}{n_a}\Big)\mathbf{v}_i\Big]\approx m_e\Big[ \mathbf{v}_{ei}+(\frac{1}{1-\alpha})\mathbf{v}_i \Big] \\
+\mathbf{I}_{ia}&amp;=m_i(\mathbf{u}_i-\mathbf{u}_a)=m_i (\mathbf{v}_i+\mathbf{u}-\mathbf{u}_a)=\frac{1}{1-\alpha}m_i\mathbf{v}_i+\frac{\alpha}{1-\alpha}m_e\mathbf{v}_{ei}
+\end{aligned}
+\]</span></p>
+<p>Note that from Newton’s third law, <span class="math inline">\(\Delta \mathbf{I}_{sk}=-\Delta \mathbf{I}_{ks}\)</span>.</p>
+</section>
+<section id="equation-of-motion-for-each-species" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="equation-of-motion-for-each-species"><span class="header-section-number">5.5.2</span> Equation of Motion for Each Species</h3>
+<section id="for-electrons" class="level4" data-number="5.5.2.1">
+<h4 data-number="5.5.2.1" class="anchored" data-anchor-id="for-electrons"><span class="header-section-number">5.5.2.1</span> For electrons</h4>
+<p><span id="eq-electron_motion_ohm"><span class="math display">\[
+\begin{aligned}
+m_en_e\frac{d\mathbf{u}_e}{dt}&amp;=m_en_i\frac{d}{dt}(\mathbf{v}_{ei}+\mathbf{v}_i+\mathbf{u}) \\
+&amp;=-\nabla p_e - n_i e \big[ \mathbf{E}+(\mathbf{v}_{ei}+\mathbf{v}_i+\mathbf{u})\times\mathbf{B} \big]+\mathbf{f}_e^c
+\end{aligned}
+\tag{5.18}\]</span></span> where the collisional force <span class="math display">\[
+\mathbf{f}_e^c=-n_i m_e\mathbf{v}_{ei}(\tau_{ei}^{-1}+\tau_{ea}^{-1})-\frac{1}{1-\alpha}n_i m_e\mathbf{v}_i\tau_{ea}^{-1}
+\]</span></p>
+<p><em>Proof</em>:</p>
+<p><span class="math inline">\(\mathbf{f}_{sk}^c\cdot\tau_{sk}=n_s\Delta \mathbf{I}_{sk}\)</span>, where <span class="math inline">\(\tau_{sk}\)</span> is the average collision interval. <span class="math display">\[
+\Delta \mathbf{I}_{sk}=-\Delta \mathbf{I}_{ks}
+\]</span></p>
+<p>Assuming elastic collision, we have <span class="math display">\[
+\begin{aligned}
+\Delta\mathbf{I}_{sk}&amp;=-\frac{m_sm_k}{m_s+m_k}\mathbf{v}_{sk} \\
+\Rightarrow \Delta\mathbf{I}_{ek}&amp;=-\frac{m_k}{m_e+m_k}m_e\mathbf{v}_{ek}\approx -\mathbf{I}_{ek}\text{(ignore electron mass)}\\
+\Delta\mathbf{I}_{ia}&amp;=-\frac{m_a}{m_a+m_i}m_i\mathbf{v}_{ia}\approx -\frac{1}{2}\mathbf{I}_{ia}\text{(ion mass=neutron mass)}
+\end{aligned}
+\]</span></p>
+<p>Therefore the collision force of electron is <span class="math display">\[
+\mathbf{f}_e^c=-n_i\mathbf{I}_{ei}\tau_{ei}^{-1}-n_i\mathbf{I}_{ea}\tau_{ea}^{-1}=-n_i m_e\mathbf{v}_{ei}(\tau_{ei}^{-1}+\tau_{ea}^{-1})-\frac{1}{1-\alpha}n_i m_e\mathbf{v}_i\tau_{ea}^{-1}
+\]</span> The collision force between ion and neutral is <span class="math display">\[
+\mathbf{f}_{ia}^c=-\frac{1}{2}n_i\mathbf{I}_{ia}\tau_{ia}^{-1}
+\]</span> □</p>
+</section>
+<section id="for-protons" class="level4" data-number="5.5.2.2">
+<h4 data-number="5.5.2.2" class="anchored" data-anchor-id="for-protons"><span class="header-section-number">5.5.2.2</span> For protons</h4>
+<p><span id="eq-proton_motion_ohm"><span class="math display">\[
+m_i n_i\frac{d\mathbf{u}_i}{dt}=m_i n_i\frac{d}{dt}(\mathbf{v}_i+\mathbf{u})=-\nabla p_i+n_i e\big[ \mathbf{E}+(\mathbf{v}_i+\mathbf{u}\times\mathbf{B}) \big]+\mathbf{f}_i^c
+\tag{5.19}\]</span></span> where the collision force is <span class="math display">\[
+\mathbf{f}_{i}^c=\mathbf{f}_{ia}^c+\mathbf{f}_{ie}^c=n_im_e\mathbf{v}_{ei}\tau_{ei}^{-1}-\frac{\alpha}{2(1-\alpha)}n_im_e\mathbf{v}_{ei}\tau_{ia}^{-1}-\frac{1}{2(1-\alpha)}n_i m_i\mathbf{v}_i\tau_{ia}^{-1}
+\]</span></p>
+</section>
+<section id="for-the-whole-plasma" class="level4" data-number="5.5.2.3">
+<h4 data-number="5.5.2.3" class="anchored" data-anchor-id="for-the-whole-plasma"><span class="header-section-number">5.5.2.3</span> For the whole plasma</h4>
+<p>If we do not consider the effect of other forces on plasma and ignore electron mass (<span class="math inline">\(m_en_e\ll m_in_i\)</span>), <span id="eq-plasma_motion_ohm"><span class="math display">\[
+m_i(n_i+n_a)\frac{d\mathbf{u}}{dt}=-\nabla p+\mathbf{j}\times\mathbf{B}=-\nabla p-n_i e\mathbf{v}_{ei}\times\mathbf{B}
+\tag{5.20}\]</span></span> where the total current density is <span class="math display">\[
+\mathbf{j}=\sum_s{n_s q_s\mathbf{u}_s}=-n_i e(\mathbf{v}_{ei}+\mathbf{v}_i+\mathbf{u})+n_i e(\mathbf{v}_i+\mathbf{u})=-n_i e\mathbf{v}_{ei}
+\]</span> Physically we usually think of current in plasma as the velocity difference between electrons and ions.</p>
+</section>
+</section>
+<section id="preconditions" class="level3" data-number="5.5.3">
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="preconditions"><span class="header-section-number">5.5.3</span> Preconditions</h3>
+<p>If an external B-field is present and the conductor is not at rest but moving at velocity <span class="math inline">\(\mathbf{u}\)</span>, then an extra term must be added to account for the current induced by the Lorentz force on the charge carriers: <span class="math display">\[
+\mathbf{j}=\sigma(\mathbf{E}+\mathbf{u}\times\mathbf{B})
+\]</span> where <span class="math inline">\(\sigma\)</span> is the electric conductivity.</p>
+<p>In the rest frame of the moving conductor this term drops out because <span class="math inline">\(\mathbf{v}=0\)</span>. There is no contradiction because the electric field in the rest frame differs from the E-field in the lab frame: <span class="math inline">\(\mathbf{E}^\prime = \mathbf{E} + \mathbf{u}\times\mathbf{B}\)</span>. Electric and magnetic fields are relative and related by theLorentz transformation.</p>
+<p>If the current <span class="math inline">\(\mathbf{J}\)</span> is alternating because the applied voltage or E-field varies in time, then reactance must be added to resistance to account for self-inductance (see electrical impedance). The reactance may be strong if the frequency is high or the conductor is coiled. hyzhou:Ponderamotive force???</p>
+</section>
+<section id="derivation" class="level3" data-number="5.5.4">
+<h3 data-number="5.5.4" class="anchored" data-anchor-id="derivation"><span class="header-section-number">5.5.4</span> Derivation</h3>
+<p>Negligible terms:</p>
+<ul>
+<li><p><span class="math inline">\(\frac{d\mathbf{v}_e}{dt}\)</span> in <a href="#eq-electron_motion_ohm">Equation&nbsp;<span>5.18</span></a> and <span class="math inline">\(\frac{d\mathbf{v}_i}{dt}\)</span> in <a href="#eq-proton_motion_ohm">Equation&nbsp;<span>5.19</span></a>), because <span class="math inline">\(|\mathbf{v}|\ll |\mathbf{v}^{th}|\)</span></p></li>
+<li><p><span class="math inline">\(\frac{d\mathbf{u}}{dt}\)</span> in <a href="#eq-electron_motion_ohm">Equation&nbsp;<span>5.18</span></a>. From <a href="#eq-plasma_motion_ohm">Equation&nbsp;<span>5.20</span></a> and <span class="math inline">\(m_e \ll m_i\)</span>, <span class="math display">\[
+m_en_i\frac{d\mathbf{u}}{dt}=\frac{m_e}{m_i}\frac{n_i}{n_i+n_a}(-\nabla p-n_i e\mathbf{v}_{ei}\times\mathbf{B})\ll 1
+\]</span></p></li>
+</ul>
+<p>From <a href="#eq-electron_motion_ohm">Equation&nbsp;<span>5.18</span></a>, <span class="math display">\[
+m_e n_i\frac{d\mathbf{u}}{dt}=-\nabla p_e -n_i e\mathbf{v}_{ei}\times\mathbf{B}-n_ie [\mathbf{E}+(\mathbf{v}_i+\mathbf{u})\times\mathbf{B}]+\mathbf{f}_e^c
+\]</span></p>
+<p>The above two equations give <span id="eq-Ohm_derivation1"><span class="math display">\[
+\begin{aligned}
+0=&amp;-\nabla p_e -n_i e\mathbf{v}_{ei}\times\mathbf{B}-n_ie [\mathbf{E}+(\mathbf{v}_i+\mathbf{u})\times\mathbf{B}] \\
+&amp; -n_i m_e\mathbf{v}_{ei}(\tau_{ei}^{-1}+\tau_{ea}^{-1})-\frac{1}{1-\alpha}n_i m_e\mathbf{v}_i\tau_{ea}^{-1}
+\end{aligned}
+\tag{5.21}\]</span></span></p>
+<p><a href="#eq-Ohm_derivation1">Equation&nbsp;<span>5.21</span></a>, <a href="#eq-proton_motion_ohm">Equation&nbsp;<span>5.19</span></a> and <a href="#eq-plasma_motion_ohm">Equation&nbsp;<span>5.20</span></a> are three main equations we need to derive the generalized Ohm’s law.</p>
+<p>If we define the ratios of gyro-period and collision time as <span class="math display">\[
+\begin{aligned}
+\kappa_{ei} &amp;\equiv \frac{1}{\Omega_e \tau_{ei}}=\frac{m_e}{eB}\tau_{ei}^{-1} \\
+\kappa_{ea} &amp;\equiv \frac{1}{\Omega_e \tau_{ea}}=\frac{m_e}{eB}\tau_{ea}^{-1} \\
+\kappa_{ia}&amp;\equiv \frac{1}{2\Omega_i \tau_{ia}}=\frac{m_i}{2eB}\tau_{ia}^{-1}
+\end{aligned}
+\]</span> and ion current density as <span class="math display">\[
+\mathbf{j}_i=n_i e\mathbf{v}_i
+\]</span> we can write the three main equations above as <span id="eq-Ohm_derivation2"><span class="math display">\[
+0=-\nabla p_e -n_i e(\mathbf{E}+\mathbf{u}\times\mathbf{B}) + \mathbf{j}\times\mathbf{B}-\mathbf{j}_i\times\mathbf{B}+(\kappa_{ei}+\kappa_{ea})B\mathbf{j}-\frac{1}{1-\alpha}\kappa_{ea}B\mathbf{j}_i
+\tag{5.22}\]</span></span></p>
+<p><span id="eq-Ohm_derivation3"><span class="math display">\[
+\begin{aligned}
+m_in_i\frac{d\mathbf{u}}{dt}=&amp;-\nabla p_i+n_i e(\mathbf{E}+\mathbf{u}\times\mathbf{B})+\mathbf{j}_i\times\mathbf{B} \\ &amp;-(\kappa_{ei}-\frac{\alpha}{1-\alpha}\frac{m_e}{m_i}\kappa_{ia})B\mathbf{j}-\frac{1}{1-\alpha}\kappa_{ia}B\mathbf{j}_i
+\end{aligned}
+\tag{5.23}\]</span></span></p>
+<p><span id="eq-Ohm_derivation4"><span class="math display">\[
+\frac{1}{\alpha}m_in_i\frac{d\mathbf{u}}{dt}=-\nabla p+\mathbf{j}\times\mathbf{B}
+\tag{5.24}\]</span></span></p>
+<p>Subtract <a href="#eq-Ohm_derivation3">Equation&nbsp;<span>5.23</span></a> from <a href="#eq-Ohm_derivation4">Equation&nbsp;<span>5.24</span></a> from <a href="#eq-Ohm_derivation2">Equation&nbsp;<span>5.22</span></a>, we get the expression for ion current density <span class="math display">\[
+\begin{aligned}
+\mathbf{j}_i&amp;=\frac{1-\alpha}{(\kappa_{ea}+\kappa_{ia})B}\Big[ \alpha\nabla p -\nabla(p_e+p_i)+(1-\alpha)\mathbf{j}\times\mathbf{B}+(\kappa_{ea}+\frac{\alpha}{1-\alpha}\frac{m_e}{m_i}\kappa_{ia})B\mathbf{j}\Big] \\
+&amp;=\frac{1-\alpha}{(\kappa_{ea}+\kappa_{ia})B}\Big[ \frac{\alpha(\alpha-1)}{\alpha+1}\nabla p+(1-\alpha)\mathbf{j}\times\mathbf{B}+(\kappa_{ea}+\frac{\alpha}{1-\alpha}\frac{m_e}{m_i}\kappa_{ia})B\mathbf{j}\Big]
+\end{aligned}
+\]</span></p>
+<p>Then we can eliminate <span class="math inline">\(\frac{d\mathbf{u}}{dt}\)</span> and <span class="math inline">\(\mathbf{j}_i\)</span> from the three main equations and get the generalized Ohm’s law <span class="math display">\[
+\begin{aligned}
+\nabla p_e +\frac{\alpha(\alpha-1)}{\alpha+1}r_e \nabla p=&amp;-n_i e(\mathbf{E}+\mathbf{u}\times\mathbf{B})
++\big[1-2r_e(1-\alpha)-\alpha\frac{m_e}{m_i}r_i\big]\mathbf{j}\times\mathbf{B} \\
+&amp;+\big[\kappa_{ei}-(1-r_e)\kappa-\frac{\alpha}{1-\alpha}\frac{m_e}{m_i}r_e\kappa_{ia}\big]B\mathbf{j} \\
+&amp;+\frac{(1-\alpha)^2}{(\kappa_{ea}+\kappa_{ia})B}\big[ \frac{\alpha}{\alpha+1}\nabla p\times\mathbf{B}-\mathbf{j}\times\mathbf{B}\times\mathbf{B} \big]
+\end{aligned}
+\]</span> where <span class="math display">\[
+r_e=\frac{\kappa_{ea}}{\kappa_{ea}+\kappa_{ia}},\quad r_i=\frac{\kappa_{ia}}{\kappa_{ea}+\kappa_{ia}}
+\]</span></p>
+</section>
+<section id="simplification-of-generalized-ohms-law" class="level3" data-number="5.5.5">
+<h3 data-number="5.5.5" class="anchored" data-anchor-id="simplification-of-generalized-ohms-law"><span class="header-section-number">5.5.5</span> Simplification of Generalized Ohm’s Law</h3>
+<ol type="1">
+<li>If the mean free path of protons is much smaller than that of electrons, i.e.&nbsp;the cross section of proton is much smaller than that of electron, <span class="math display">\[
+\begin{aligned}
+&amp;\frac{\tau_{ia}}{\tau_{ea}}=\frac{l_{ia}\cdot v_{e,th}}{l_{ea}\cdot v_{i,th}}\propto \Big(\frac{m_i}{m_e}\Big)^{1/2}\cdot\frac{l_{ia}}{l_ea}\ll  \Big(\frac{m_i}{m_e}\Big)^{1/2} \\
+\Rightarrow &amp;\frac{\kappa_{ea}}{\kappa_{ia}}=2\frac{\Omega_i \tau_{ia}}{\Omega_e\tau_{ea}}\propto 2\frac{m_e}{m_i}\cdot\frac{\tau_{ia}}{\tau_{ea}}\propto2\Big( \frac{m_e}{m_i}\Big)^{1/2}\cdot\frac{l_{ia}}{l_{ea}}\ll 1 \\
+\Rightarrow &amp;r_e=\frac{\kappa_{ea}}{\kappa_{ea}+\kappa_{ia}}\ll1\quad
+r_i=\frac{\kappa_{ia}}{\kappa_{ea}+\kappa_{ia}}\approx 1
+\end{aligned}
+\]</span></li>
+</ol>
+<p>Therefore we have <span class="math display">\[
+\begin{aligned}
+\nabla p_e&amp;=-n_i e(\mathbf{E}+\mathbf{u}\times\mathbf{B})+\mathbf{j}\times\mathbf{B}+(\kappa_{ei}+\kappa_{ea})B\mathbf{j}+
+\frac{(1-\alpha)^2}{\kappa_{ia}B}\big[ \frac{\alpha}{\alpha+1}\nabla p\times\mathbf{B}-\mathbf{j}\times\mathbf{B}\times\mathbf{B} \big] \\
+\mathbf{j}&amp;=\frac{n_i e}{(\kappa_{ei}+\kappa_{ea})B} (\mathbf{E}+\mathbf{u}\times\mathbf{B})+
+\frac{1}{(\kappa_{ei}+\kappa_{ea})B}\big( \nabla p_e-\mathbf{j}\times\mathbf{B}\big)-
+\frac{(1-\alpha)^2}{\kappa_{ia}(\kappa_{ei}+\kappa_{ea})B}\big[ \frac{\alpha}{\alpha+1}\nabla p\times\mathbf{B}-\mathbf{j}\times\mathbf{B}\times\mathbf{B} \big]
+\end{aligned}
+\]</span></p>
+<ol start="2" type="1">
+<li><p>If EM field is dominant, i.e.&nbsp;EM force <span class="math inline">\(\gg\)</span> thermal pressure gradient, <span class="math inline">\(|\mathbf{j}\times\mathbf{B}|\gg |\nabla p|\sim |\nabla p_e|\)</span>, then <span class="math display">\[
+\mathbf{j}=\sigma(\mathbf{E}+\mathbf{u}\times\mathbf{B})-\frac{\sigma}{n_i e}\mathbf{j}\times\mathbf{B}+
+\frac{\sigma}{n_i e}\frac{2(1-\alpha)^2 \Omega_i\tau_{ia}}{B}\mathbf{j}\times\mathbf{B}\times\mathbf{B}
+\]</span> where <span class="math inline">\(\sigma\)</span> is the electrical conductivity, <span class="math display">\[
+\sigma=\frac{n_i e^2}{m_e(\tau_{ei}^{-1}+\tau_{ea}^{-1})}
+\]</span></p></li>
+<li><p>For a fully ionized plasma, <span class="math inline">\(\alpha=1\ \Rightarrow\ \kappa_{ea}=\kappa_{ia}=0\)</span>, we have <span class="math display">\[
+\mathbf{j}=\sigma(\mathbf{E}+\mathbf{u}\times\mathbf{B})+\frac{\sigma}{n_i e}(\nabla p_e -\mathbf{j}\times\mathbf{B})
+\]</span> where <span class="math display">\[
+\sigma=\frac{n_i e^2\tau_{ei}}{m_e}
+\]</span></p></li>
+</ol>
+<p>Note that the electron pressure gradient term here shows an amazing effect: it can generate EM field out of nothing! This is one theory in astrophysics which describes the origin of EM field.</p>
+<ol start="4" type="1">
+<li><p>For a fully ionized plasma, if EM field is dominant, we have <span class="math display">\[
+\begin{aligned}
+\mathbf{j}=\sigma(\mathbf{E}+\mathbf{u}\times\mathbf{B}) -\frac{\sigma}{n_i e}\mathbf{j}\times\mathbf{B}=
+\sigma(\mathbf{E}+\mathbf{u}\times\mathbf{B}) -\Omega_e \tau_{ei}\mathbf{j}\times\mathbf{b}
+\end{aligned}
+\]</span></p></li>
+<li><p>If there is weak magnetic field and dense plasma, i.e.&nbsp;<span class="math inline">\(n_i \gg 1,\ |\mathbf{B}|\ll 1\)</span>, <span class="math display">\[
+\mathbf{j}=\sigma(\mathbf{E}+\mathbf{u}\times\mathbf{B})
+\]</span></p></li>
+</ol>
+</section>
+<section id="discussions" class="level3" data-number="5.5.6">
+<h3 data-number="5.5.6" class="anchored" data-anchor-id="discussions"><span class="header-section-number">5.5.6</span> Discussions</h3>
+<p>In <a href="#sec-mhd-ohm"><span>Section&nbsp;5.6.1</span></a>, we will see that a relatively simple form can be obtained by assuming that the electron inertia is much smaller than the Lorentz force, which is a good approximation when considering only the perpendicular velocity to the magnetic field.</p>
+<p><span id="eq-genearlized_ohm_law"><span class="math display">\[
 \mathbf{E} = -\mathbf{u}\times\mathbf{B} + \eta\mathbf{J} + \frac{1}{en}\mathbf{J}\times\mathbf{B}-\frac{1}{en}\nabla\cdot\overleftrightarrow{P}_e +\frac{m_e}{ne^2}\Big[ \frac{\partial \mathbf{J}}{\partial t}+\nabla\cdot(\mathbf{J}\mathbf{u}+\mathbf{u}\mathbf{J}) \Big]
-\tag{5.17}\]</span></span></p>
+\tag{5.25}\]</span></span></p>
 <p>where the first term on the right-hand side is the <em>convection term</em>, the second term is the <em>resistivity term</em> (<em>conductive term</em>), the third term is called the <em>Hall term</em>, the fourth term is the <em>electron pressure term</em>, and the fifth term is called the <em>electron inertia term</em>, since it is proportional to the mass of electrons.</p>
 <p>Note that both <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{J}\)</span> are the first-order moments, with <span class="math inline">\(\mathbf{u}\)</span> being the (weighted) sum of the first-order moment of electrons and ions while <span class="math inline">\(\mathbf{J}\)</span> being the difference between them. The generalized Ohm’s law is actually the difference between the electrons’ and ions’ first-order moment equations. <em>The generalized Ohm’s law is an equation that governs the time evolution of <span class="math inline">\(\mathbf{J}\)</span></em>. Also note that Ampère’s law, with the displacement current retained, is an equation governing the time evolution of <span class="math inline">\(\mathbf{E}\)</span>. However, in the approximation of the resistive MHD, the time derivative terms <span class="math inline">\(\partial \mathbf{E}/\partial t\)</span> and <span class="math inline">\(\partial \mathbf{J} /\partial t\)</span> are ignored in Ampère’s law and Ohm’s law, respectively. In this approximation, Ohm’s law is directly solved to determine <span class="math inline">\(\mathbf{E}\)</span> and Ampère’s law is directly solved to determine <span class="math inline">\(\mathbf{J}\)</span>. [Introduction to plasma physics: with space and laboratory applications, D. A. Gurnett and A. Bhattacharjee.]</p>
 <p><span class="math display">\[
@@ -834,7 +1067,7 @@ Q_{ijm} \equiv m\int (v_i-u_i)(v_j-u_j)(v_m-u_m)\mathrm{d}\mathbf{v}
 \rho\big( \frac{\partial \mathbf{u}}{\partial t}+\mathbf{u}\cdot\nabla\mathbf{u}\big) = \mathbf{J}\times\mathbf{B} - \nabla p +\rho\mathbf{g} \\
 \Rightarrow \omega\rho U\sim J B
 \end{aligned}
-\tag{5.18}\]</span></span></p>
+\tag{5.26}\]</span></span></p>
 <p>Using and the assumptions of MHD, the relations between each term in generalized Ohm’s law are <span class="math display">\[
 \begin{aligned}
 \frac{b}{d} &amp;= \frac{UB}{JB/en_e} = \frac{en_eUB}{\omega \rho U} = \frac{en_e B}{\omega n_e m_i} = \frac{\Omega_i}{\omega} \gg 1 \\
@@ -847,8 +1080,9 @@ Q_{ijm} \equiv m\int (v_i-u_i)(v_j-u_j)(v_m-u_m)\mathrm{d}\mathbf{v}
 \mathbf{E}_{\nabla P_e} &amp;= \frac{\nabla P_e}{n} = \frac{\nabla P_i}{n} = \frac{\nabla(Cn^\gamma)}{n} \\
 &amp;= C\gamma n^{\gamma-2}\nabla n = C\frac{\gamma}{\gamma-1}\nabla n^{\gamma-1}
 \end{aligned}
-\tag{5.19}\]</span></span></p>
-<p><a href="#eq-E_grad_pe">Equation&nbsp;<span>5.19</span></a> indicates that the associated electric field is a potential field that only relates to density.</p>
+\tag{5.27}\]</span></span></p>
+<p><a href="#eq-E_grad_pe">Equation&nbsp;<span>5.27</span></a> indicates that the associated electric field is a potential field that only relates to density.</p>
+</section>
 </section>
 <section id="sec-mhd" class="level2" data-number="5.6">
 <h2 data-number="5.6" class="anchored" data-anchor-id="sec-mhd"><span class="header-section-number">5.6</span> Magnetohydrodynamics</h2>
@@ -877,19 +1111,19 @@ Q_{ijm} \equiv m\int (v_i-u_i)(v_j-u_j)(v_m-u_m)\mathrm{d}\mathbf{v}
 <p>Single fluid MHD is somehow inconsistent since there is only one velocity. The definition of current using velocity cannot be applied, and the current can only be given by Ampère’s law (without the displacement current), <span class="math inline">\(\mathbf{J}=\nabla\times\mathbf{B}/\mu_0\)</span>.</p>
 <p>Multiplying <a href="#eq-continuity-species">Equation&nbsp;<span>5.5</span></a> by <span class="math inline">\(m_s\)</span> and summing over species gives the MHD continuity equation <span id="eq-continuity-mhd"><span class="math display">\[
 \frac{\partial\rho}{\partial t} + \nabla\cdot(\rho\mathbf{u}) = 0
-\tag{5.20}\]</span></span></p>
+\tag{5.28}\]</span></span></p>
 <p>To obtain an MHD equation of motion we take the first moment of the Vlasov equation and multiply the single species momentum equation by <span class="math inline">\(m_s\)</span> and sum over species, <span id="eq-1st-moment-vlasov-MHD"><span class="math display">\[
 \frac{\partial}{\partial t}\sum_s m_s \int\mathbf{v}f_s\mathrm{d}\mathbf{v} + \frac{\partial}{\partial\mathbf{x}}\cdot\sum_s\int m_s \mathbf{v}\mathbf{v}f_s\mathrm{d}\mathbf{v} + \sum_s q_s \int\mathbf{v}\frac{\partial}{\partial\mathbf{v}}\cdot [(\mathbf{E}+\mathbf{v}\times\mathbf{B})f_s] = 0
-\tag{5.21}\]</span></span></p>
+\tag{5.29}\]</span></span></p>
 <p>The right-hand side is zero since <span class="math inline">\(\mathbf{R}_{ei} + \mathbf{R}_{ie}=0\)</span>, i.e., the total plasma cannot exert drag on itself. We now define random velocities relative to <span class="math inline">\(\mathbf{u}\)</span> (rather than to <span class="math inline">\(\mathbf{u}_s\)</span> as was the case for the two-fluid equations) so that the second term can be written as <span id="eq-momentum-flux-vlasov-MHD"><span class="math display">\[
 \sum_s\int m_s \mathbf{v}\mathbf{v}f_s\mathrm{d}\mathbf{v} = \sum_s\int m_s (\mathbf{v}^\prime + \mathbf{u})(\mathbf{v}^\prime + \mathbf{u})f_s\mathrm{d}\mathbf{v} = \sum_s\int m_s \mathbf{v}^\prime\mathbf{v}^\prime f_s\mathrm{d}\mathbf{v} + \rho\mathbf{u}\mathbf{u}
-\tag{5.22}\]</span></span> where <span class="math inline">\(\sum_s\int m_s \mathbf{v}^\prime f\mathrm{d}\mathbf{v} = 0\)</span> has been used to eliminate terms linear in <span class="math inline">\(\mathbf{v}^\prime\)</span>. The MHD pressure tensor is now defined in terms of the random velocities relative to <span class="math inline">\(\mathbf{u}\)</span> and is given by <span id="eq-pressure-def-MHD"><span class="math display">\[
+\tag{5.30}\]</span></span> where <span class="math inline">\(\sum_s\int m_s \mathbf{v}^\prime f\mathrm{d}\mathbf{v} = 0\)</span> has been used to eliminate terms linear in <span class="math inline">\(\mathbf{v}^\prime\)</span>. The MHD pressure tensor is now defined in terms of the random velocities relative to <span class="math inline">\(\mathbf{u}\)</span> and is given by <span id="eq-pressure-def-MHD"><span class="math display">\[
 \overleftrightarrow{P}^{\mathrm{MHD}} = \sum_s \int m_s \mathbf{v}^\prime\mathbf{v}^\prime f_s\mathrm{d}\mathbf{v}
-\tag{5.23}\]</span></span></p>
-<p>We insert <a href="#eq-momentum-flux-vlasov-MHD">Equation&nbsp;<span>5.22</span></a> and <a href="#eq-pressure-def-MHD">Equation&nbsp;<span>5.23</span></a> in <a href="#eq-1st-moment-vlasov-MHD">Equation&nbsp;<span>5.21</span></a>, integrate by parts on the acceleration term, and perform the summation over species to obtain the MHD equation of motion <span id="eq-momentum-MHD"><span class="math display">\[
+\tag{5.31}\]</span></span></p>
+<p>We insert <a href="#eq-momentum-flux-vlasov-MHD">Equation&nbsp;<span>5.30</span></a> and <a href="#eq-pressure-def-MHD">Equation&nbsp;<span>5.31</span></a> in <a href="#eq-1st-moment-vlasov-MHD">Equation&nbsp;<span>5.29</span></a>, integrate by parts on the acceleration term, and perform the summation over species to obtain the MHD equation of motion <span id="eq-momentum-MHD"><span class="math display">\[
 \frac{\partial(\rho\mathbf{u})}{\partial t} + \nabla\cdot(\rho\mathbf{u}\mathbf{u}) = \left( \sum_s n_s q_s \right)\mathbf{E} + \mathbf{J}\times\mathbf{B} - \nabla\cdot\overleftrightarrow{P}^{\mathrm{MHD}}
-\tag{5.24}\]</span></span></p>
-<p>MHD is typically used to describe phenomena having spatial scales large enough for the plasma to be essentially neutral, i.e., <span class="math inline">\(\sum_s n_s q_s = 0\)</span> so that the <span class="math inline">\(\mathbf{E}\)</span> term can be dropped. Just as in the two-fluid situation, the left-hand side of <a href="#eq-momentum-MHD">Equation&nbsp;<span>5.24</span></a> contains a factor times the MHD continuity equation, since the left-hand side can be expanded as <span class="math display">\[
+\tag{5.32}\]</span></span></p>
+<p>MHD is typically used to describe phenomena having spatial scales large enough for the plasma to be essentially neutral, i.e., <span class="math inline">\(\sum_s n_s q_s = 0\)</span> so that the <span class="math inline">\(\mathbf{E}\)</span> term can be dropped. Just as in the two-fluid situation, the left-hand side of <a href="#eq-momentum-MHD">Equation&nbsp;<span>5.32</span></a> contains a factor times the MHD continuity equation, since the left-hand side can be expanded as <span class="math display">\[
 \begin{aligned}
 \frac{\partial(\rho\mathbf{u})}{\partial t} + \nabla\cdot(\rho\mathbf{u}\mathbf{u}) &amp;= \left[ \cancel{\frac{\partial\rho}{\partial t} + \nabla\cdot(\rho\mathbf{u})} \right]\mathbf{u} + \rho\frac{\partial\mathbf{u}}{\partial t} + \rho\mathbf{u}\cdot\nabla\mathbf{u} \\
 &amp;= \rho \left( \rho\frac{\partial\mathbf{u}}{\partial t} + \rho\mathbf{u}\cdot\nabla\mathbf{u} \right)
@@ -897,20 +1131,20 @@ Q_{ijm} \equiv m\int (v_i-u_i)(v_j-u_j)(v_m-u_m)\mathrm{d}\mathbf{v}
 \]</span></p>
 <p>This leads to the standard form for the MHD equation of motion, <span id="eq-motion-MHD"><span class="math display">\[
 \rho\frac{\mathrm{D}\mathbf{u}}{\mathrm{D}t} = \mathbf{J}\times\mathbf{B} - \nabla\cdot\overleftrightarrow{P}^{\mathrm{MHD}}
-\tag{5.25}\]</span></span> where <span class="math display">\[
+\tag{5.33}\]</span></span> where <span class="math display">\[
 \frac{\mathrm{D}}{\mathrm{D}t} \equiv \frac{\partial}{\partial t} + \mathbf{u}\cdot\nabla
 \]</span> is the convective derivative defined using the center-of-mass velocity. This notation is used to emphasize the difference from single species treatment. Scalar approximations of the MHD pressure tensor will be postponed until after discussing the MHD Ohm’s law and its implications.</p>
 <section id="sec-mhd-ohm" class="level3" data-number="5.6.1">
 <h3 data-number="5.6.1" class="anchored" data-anchor-id="sec-mhd-ohm"><span class="header-section-number">5.6.1</span> MHD Ohm’s law</h3>
-<p><a href="#eq-motion-MHD">Equation&nbsp;<span>5.25</span></a> provides one equation relating <span class="math inline">\(\mathbf{J}\)</span> and <span class="math inline">\(\mathbf{u}\)</span>; let us now find the other one. In order to do this, consider the two-fluid electron equation of motion, <span id="eq-electron-momentum-mhd"><span class="math display">\[
+<p><a href="#eq-motion-MHD">Equation&nbsp;<span>5.33</span></a> provides one equation relating <span class="math inline">\(\mathbf{J}\)</span> and <span class="math inline">\(\mathbf{u}\)</span>; let us now find the other one. In order to do this, consider the two-fluid electron equation of motion, <span id="eq-electron-momentum-mhd"><span class="math display">\[
 m_e\frac{\mathrm{d}\mathbf{u}_e}{\mathrm{d}t} = -e(\mathbf{E}+\mathbf{u}_e\times\mathbf{B}) - \frac{1}{n_e}\nabla(n_e k_B T_e) - \nu_{ei}m_e(\mathbf{u}_e - \mathbf{u}_i)
-\tag{5.26}\]</span></span></p>
-<p>In MHD we are interested in low-frequency phenomena with large spatial scales. If the characteristic time scale of the phenomenon is long compared to the electron cyclotron motion, then the electron inertia term <span class="math inline">\(m_e \mathrm{d}\mathbf{u}_e/\mathrm{d}t\)</span> can be dropped since it is small compared to the magnetic force term <span class="math inline">\(-e(\mathbf{u}_e\times\mathbf{B})\)</span>. This assumption is reasonable for velocities perpendicular to <span class="math inline">\(\mathbf{B}\)</span>, but can be a poor approximation for the velocity component parallel to <span class="math inline">\(\mathbf{B}\)</span>, since parallel velocities do not provide a magnetic force. Since <span class="math inline">\(\mathbf{u}_e - \mathbf{u}_i = -\mathbf{J}/n_e e\)</span> and <span class="math inline">\(\mathbf{u}_i\simeq \mathbf{u}\)</span>, <a href="#eq-electron-momentum-mhd">Equation&nbsp;<span>5.26</span></a> reduces to the generalized Ohm’s law <span id="eq-ohm-law-mhd"><span class="math display">\[
+\tag{5.34}\]</span></span></p>
+<p>In MHD we are interested in low-frequency phenomena with large spatial scales. If the characteristic time scale of the phenomenon is long compared to the electron cyclotron motion, then the electron inertia term <span class="math inline">\(m_e \mathrm{d}\mathbf{u}_e/\mathrm{d}t\)</span> can be dropped since it is small compared to the magnetic force term <span class="math inline">\(-e(\mathbf{u}_e\times\mathbf{B})\)</span>. This assumption is reasonable for velocities perpendicular to <span class="math inline">\(\mathbf{B}\)</span>, but can be a poor approximation for the velocity component parallel to <span class="math inline">\(\mathbf{B}\)</span>, since parallel velocities do not provide a magnetic force. Since <span class="math inline">\(\mathbf{u}_e - \mathbf{u}_i = -\mathbf{J}/n_e e\)</span> and <span class="math inline">\(\mathbf{u}_i\simeq \mathbf{u}\)</span>, <a href="#eq-electron-momentum-mhd">Equation&nbsp;<span>5.34</span></a> reduces to the generalized Ohm’s law <span id="eq-ohm-law-mhd"><span class="math display">\[
 \mathbf{E} + \mathbf{u}\times\mathbf{B} - \frac{1}{n_e e}\mathbf{J}\times\mathbf{B} + \frac{1}{n_e e}\nabla(n_e k_B T_e) = \eta\mathbf{J}
-\tag{5.27}\]</span></span></p>
+\tag{5.35}\]</span></span></p>
 <p>(What if we consider ion species with charge larger than 1?) The term <span class="math inline">\(-\mathbf{J}\times\mathbf{B}/n_e e\)</span> on the left-hand side is called the <em>Hall term</em> and can be neglected in either of the following two cases:</p>
 <ol type="1">
-<li>The pressure term in the MHD equation of motion, <a href="#eq-motion-MHD">Equation&nbsp;<span>5.25</span></a> is negligible compared to the other two terms, which therefore must balance, giving <span class="math display">\[
+<li>The pressure term in the MHD equation of motion, <a href="#eq-motion-MHD">Equation&nbsp;<span>5.33</span></a> is negligible compared to the other two terms, which therefore must balance, giving <span class="math display">\[
 |\mathbf{J}|\sim \omega\rho|\mathbf{u}|/|\mathbf{B}|
 \]</span></li>
 </ol>
@@ -921,21 +1155,21 @@ m_e\frac{\mathrm{d}\mathbf{u}_e}{\mathrm{d}t} = -e(\mathbf{E}+\mathbf{u}_e\times
 </section>
 <section id="ideal-mhd" class="level3" data-number="5.6.2">
 <h3 data-number="5.6.2" class="anchored" data-anchor-id="ideal-mhd"><span class="header-section-number">5.6.2</span> Ideal MHD</h3>
-<p>If the Hall term is dropped, the system is called ideal MHD. Typically, <a href="#eq-ohm-law-mhd">Equation&nbsp;<span>5.27</span></a> will not be used directly; instead its curl will be used to provide the induction equation <span class="math display">\[
+<p>If the Hall term is dropped, the system is called ideal MHD. Typically, <a href="#eq-ohm-law-mhd">Equation&nbsp;<span>5.35</span></a> will not be used directly; instead its curl will be used to provide the induction equation <span class="math display">\[
 -\frac{\partial\mathbf{B}}{\partial t} + \nabla\times(\mathbf{u}\times\mathbf{B}) - \frac{1}{n_e e}\nabla n_e\times\nabla k_B T_e = \nabla\times\left( \frac{\eta}{\mu_0}\nabla\times\mathbf{B} \right)
 \]</span></p>
 <p>Usually the density gradient is parallel to the temperature gradient so that the thermal electromotive force term <span class="math inline">\((n_e e)^{-1}\nabla n_e\times\nabla k_B T_e\)</span> can be dropped, or the thermal term is often simply ignored, in which case the induction equation reduces to <span id="eq-mhd-induction"><span class="math display">\[
 -\frac{\partial\mathbf{B}}{\partial t} + \nabla\times(\mathbf{u}\times\mathbf{B}) = \nabla\times\left( \frac{\eta}{\mu_0}\nabla\times\mathbf{B} \right)
-\tag{5.28}\]</span></span> or written in the form of Ohm’s law <span id="eq-ideal-mhd-ohm-law"><span class="math display">\[
+\tag{5.36}\]</span></span> or written in the form of Ohm’s law <span id="eq-ideal-mhd-ohm-law"><span class="math display">\[
 \mathbf{E} + \mathbf{u}\times\mathbf{B} = \eta\mathbf{J}
-\tag{5.29}\]</span></span></p>
-<p>If the resistive term <span class="math inline">\(\eta\mathbf{J}\)</span> is so small as to be negligible compared to the other terms in <a href="#eq-ideal-mhd-ohm-law">Equation&nbsp;<span>5.29</span></a>, then the plasma is said to be <em>ideal</em> or <em>perfectly conducting</em>. From the Lorentz transformation of electromagnetic theory we realize that <span class="math display">\[
+\tag{5.37}\]</span></span></p>
+<p>If the resistive term <span class="math inline">\(\eta\mathbf{J}\)</span> is so small as to be negligible compared to the other terms in <a href="#eq-ideal-mhd-ohm-law">Equation&nbsp;<span>5.37</span></a>, then the plasma is said to be <em>ideal</em> or <em>perfectly conducting</em>. From the Lorentz transformation of electromagnetic theory we realize that <span class="math display">\[
 \mathbf{E}+\mathbf{u}\times\mathbf{B} = \mathbf{E}^\prime
 \]</span> where <span class="math inline">\(\mathbf{E}^\prime\)</span> is the electric field observed in the frame moving with velocity <span class="math inline">\(\mathbf{u}\)</span>. This implies that the magnetic flux in ideal plasmas is time-invariant in the frame moving with velocity <span class="math inline">\(\mathbf{u}\)</span>, because otherwise Faraday’s law would imply the existence of an electric field in the moving frame. The frozen-in flux concept is the essential “bed-rock” concept underlying ideal MHD. While this concept is often an excellent approximation, it must be kept in mind that the concept becomes invalid in situations when any one of the electron inertia, electron pressure, or Hall terms becomes important and leads to different, more complex behavior.</p>
 <p>The frozen-in flux concept is frequently expressed in a slightly different form as a frozen-in field concept, i.e., it is often said that magnetic field lines are frozen into the plasma so that the plasma and magnetic field lines move together as an ensemble. While this point of view can be quite intuitive and useful, it contains some ambiguity because an ideal plasma can actually move across magnetic field lines in certain situations. These situations are such that magnetic flux is preserved within the plasma even though it is moving across field lines.</p>
 <p>A formal proof of the frozen-in flux property will now be established by direct calculation of the rate of change of the magnetic flux through a surface <span class="math inline">\(S(t)\)</span> bounded by a material line <span class="math inline">\(C(t)\)</span>, i.e., a closed contour that moves with the plasma. This magnetic flux is <span class="math display">\[
 \Phi(t) = \int_{S(t)} \mathbf{B}(\mathbf{x},t)\cdot\mathrm{d}\mathbf{s}
-\]</span> and hte flux changes with respect to time due to either (i) the explicit time dependence of <span class="math inline">\(\mathbf{B}(t)\)</span> or (ii) changes in the surface <span class="math inline">\(S(t)\)</span> resulting from plasma motion. The rate of change of flux is thus <span class="math display">\[
+\]</span> and the flux changes with respect to time due to either (i) the explicit time dependence of <span class="math inline">\(\mathbf{B}(t)\)</span> or (ii) changes in the surface <span class="math inline">\(S(t)\)</span> resulting from plasma motion. The rate of change of flux is thus <span class="math display">\[
 \frac{\mathrm{D}\Phi}{\mathrm{D}t} = \lim_{\delta t\rightarrow 0}\left( \frac{ \int_{S(t+\delta t)} \mathbf{B}(\mathbf{x},t+\delta t)\cdot\mathrm{d}\mathbf{s} - \int_{S(t)} \mathbf{B}(\mathbf{x},t)\cdot\mathrm{d}\mathbf{s} }{\delta t} \right)
 \]</span></p>
 <p>The displacement of a segment <span class="math inline">\(\mathrm{d}\mathbf{l}\)</span> of the bounding contour <span class="math inline">\(C\)</span> is <span class="math inline">\(\mathbf{u}\delta t\)</span>, where <span class="math inline">\(\mathbf{u}\)</span> is the velocity of this segment. The incremental change in surface area due to this displacement is <span class="math inline">\(\Delta S = \mathbf{u}\delta t\times\mathrm{d}\mathbf{l}\)</span>. The rate of change of flux can thus be expressed as <span class="math display">\[
@@ -949,9 +1183,9 @@ m_e\frac{\mathrm{d}\mathbf{u}_e}{\mathrm{d}t} = -e(\mathbf{E}+\mathbf{u}_e\times
 \]</span></p>
 <p>Thus, if <span id="eq-induction-ideal-mhd"><span class="math display">\[
 \frac{\partial\mathbf{B}}{\partial t} + \nabla\times(\mathbf{B}\times\mathbf{u}) = 0
-\tag{5.30}\]</span></span> then <span class="math display">\[
+\tag{5.38}\]</span></span> then <span class="math display">\[
 \frac{\mathrm{D}\Phi}{\mathrm{D}t} = 0
-\]</span> so that the magnetic flux linked by any closed material line is constant. Therefore, magnetic flux is frozen into an ideal plasma because <a href="#eq-mhd-induction">Equation&nbsp;<span>5.28</span></a> reduces to <a href="#eq-induction-ideal-mhd">Equation&nbsp;<span>5.30</span></a> if <span class="math inline">\(\eta = 0\)</span>. <a href="#eq-induction-ideal-mhd">Equation&nbsp;<span>5.30</span></a> is called the ideal MHD induction equation.</p>
+\]</span> so that the magnetic flux linked by any closed material line is constant. Therefore, magnetic flux is frozen into an ideal plasma because <a href="#eq-mhd-induction">Equation&nbsp;<span>5.36</span></a> reduces to <a href="#eq-induction-ideal-mhd">Equation&nbsp;<span>5.38</span></a> if <span class="math inline">\(\eta = 0\)</span>. <a href="#eq-induction-ideal-mhd">Equation&nbsp;<span>5.38</span></a> is called the ideal MHD induction equation.</p>
 <section id="equation-of-state-1" class="level4" data-number="5.6.2.1">
 <h4 data-number="5.6.2.1" class="anchored" data-anchor-id="equation-of-state-1"><span class="header-section-number">5.6.2.1</span> Equation of state</h4>
 <p><strong>Double adiabatic laws</strong></p>
@@ -975,30 +1209,30 @@ p_\perp\mathbf{I} + (p_\parallel - p_\perp)\hat{b}\hat{b}
 <ul>
 <li><p>Parallel direction: here the number of dimensions is <span class="math inline">\(N = 1\)</span> so that <span class="math inline">\(\gamma = 3\)</span> and so the adiabatic law gives <span id="eq-parallel-p-rho-1D"><span class="math display">\[
 \frac{p_\parallel^{1D}}{\rho_{1D}^3}=\mathrm{const.}
-\tag{5.31}\]</span></span> where <span class="math inline">\(\rho_{1D}\)</span> is the <em>one-dimensional</em> mass density; i.e., <span class="math inline">\(\rho_{1D}\sim 1/L\)</span>, where <span class="math inline">\(L\)</span> is the length along the flux tube in <a href="#fig-b-flux-tube">Figure&nbsp;<span>5.1</span></a>. The three-dimensional mass density, which has been used implicitly until now, has the proportionality <span class="math inline">\(\rho\sim 1/LA\)</span>, where <span class="math inline">\(A\)</span> is the cross-section of the flux tube; similarly the three-dimensional pressure has the proportionality <span class="math inline">\(p_\parallel \sim \rho T_\parallel\)</span>. However, we must be careful to realize that <span class="math inline">\(p_\parallel^{1D}\sim\rho_{1D}T_\parallel\)</span> so, using <span class="math inline">\(BA=\mathrm{const.}\)</span>, <a href="#eq-parallel-p-rho-1D">Equation&nbsp;<span>5.31</span></a> can be recast as <span class="math display">\[
+\tag{5.39}\]</span></span> where <span class="math inline">\(\rho_{1D}\)</span> is the <em>one-dimensional</em> mass density; i.e., <span class="math inline">\(\rho_{1D}\sim 1/L\)</span>, where <span class="math inline">\(L\)</span> is the length along the flux tube in <a href="#fig-b-flux-tube">Figure&nbsp;<span>5.1</span></a>. The three-dimensional mass density, which has been used implicitly until now, has the proportionality <span class="math inline">\(\rho\sim 1/LA\)</span>, where <span class="math inline">\(A\)</span> is the cross-section of the flux tube; similarly the three-dimensional pressure has the proportionality <span class="math inline">\(p_\parallel \sim \rho T_\parallel\)</span>. However, we must be careful to realize that <span class="math inline">\(p_\parallel^{1D}\sim\rho_{1D}T_\parallel\)</span> so, using <span class="math inline">\(BA=\mathrm{const.}\)</span>, <a href="#eq-parallel-p-rho-1D">Equation&nbsp;<span>5.39</span></a> can be recast as <span class="math display">\[
 \mathrm{const.} = \frac{p_\parallel^{1D}}{\rho_{1D}^3} \sim \frac{\rho_{1D}T_\parallel}{\rho_{1D}^3} \sim T_\parallel \rho_{1D}^2 \sim \left( \frac{1}{LA} \right) T_\parallel (LA)^3 B^2
 \]</span> or <span id="eq-CGL-par"><span class="math display">\[
 \frac{p_\parallel B^2}{\rho^3} = \mathrm{const.}
-\tag{5.32}\]</span></span></p></li>
+\tag{5.40}\]</span></span></p></li>
 <li><p>Perpendicular direction: here the number of dimensions is <span class="math inline">\(N = 2\)</span> so that <span class="math inline">\(\gamma = 2\)</span> and the adiabatic law gives <span id="eq-perpendicular-p-rho-2D"><span class="math display">\[
 \frac{p_\perp^{2D}}{\rho_{2D}^2}=\mathrm{const.}
-\tag{5.33}\]</span></span> where <span class="math inline">\(p_\perp^{2D}\)</span> is the 2-D perpendicular pressure, and has dimensions of energy per unit area, while <span class="math inline">\(\rho_{2D}\)</span> is the 2-D mass density and has dimensions of mass per unit area. Thus, <span class="math inline">\(\rho_{2D}\sim 1/A\)</span> so <span class="math inline">\(p_\perp^{2D}\sim\rho_{2D}T_\perp \sim T_\perp/A\)</span>, in which case <a href="#eq-perpendicular-p-rho-2D">Equation&nbsp;<span>5.33</span></a> can be recast as <span class="math display">\[
+\tag{5.41}\]</span></span> where <span class="math inline">\(p_\perp^{2D}\)</span> is the 2-D perpendicular pressure, and has dimensions of energy per unit area, while <span class="math inline">\(\rho_{2D}\)</span> is the 2-D mass density and has dimensions of mass per unit area. Thus, <span class="math inline">\(\rho_{2D}\sim 1/A\)</span> so <span class="math inline">\(p_\perp^{2D}\sim\rho_{2D}T_\perp \sim T_\perp/A\)</span>, in which case <a href="#eq-perpendicular-p-rho-2D">Equation&nbsp;<span>5.41</span></a> can be recast as <span class="math display">\[
 \mathrm{const.} = \frac{p_\parallel B^2}{\rho^3} = T_\perp A \sim \left( \frac{1}{LA} \right) T_\perp \frac{LA}{B}
 \]</span> or <span id="eq-CGL-perp"><span class="math display">\[
 \frac{p_\perp}{\rho B} = \mathrm{const.}
-\tag{5.34}\]</span></span></p></li>
+\tag{5.42}\]</span></span></p></li>
 </ul>
-<p><a href="#eq-CGL-par">Equation&nbsp;<span>5.32</span></a> and <a href="#eq-CGL-perp">Equation&nbsp;<span>5.34</span></a> are called the double adiabatic or CGL laws after Chew, Goldberger, and Low <span class="citation" data-cites="cgl1956">(<a href="#ref-cgl1956" role="doc-biblioref">Chew, Goldberger, and Low 1956</a>)</span> who first developed these laws.</p>
+<p><a href="#eq-CGL-par">Equation&nbsp;<span>5.40</span></a> and <a href="#eq-CGL-perp">Equation&nbsp;<span>5.42</span></a> are called the double adiabatic or CGL laws after Chew, Goldberger, and Low <span class="citation" data-cites="cgl1956">(<a href="#ref-cgl1956" role="doc-biblioref">Chew, Goldberger, and Low 1956</a>)</span> who first developed these laws.</p>
 <p><strong>Single adiabatic law</strong></p>
 <p>If collisions are sufficiently frequent to equilibrate the perpendicular and parallel temperatures, then the pressure tensor becomes fully isotropic and the dimensionality of the system is <span class="math inline">\(N = 3\)</span> so that <span class="math inline">\(\gamma = 5/3\)</span>. There is now just one pressure and one temperature and the adiabatic relation becomes <span id="eq-single-adiabatic"><span class="math display">\[
 \frac{p}{\rho^{5/3}} = \mathrm{const.}
-\tag{5.35}\]</span></span></p>
+\tag{5.43}\]</span></span></p>
 </section>
 <section id="mhd-approximations-for-maxwells-equations" class="level4" data-number="5.6.2.2">
 <h4 data-number="5.6.2.2" class="anchored" data-anchor-id="mhd-approximations-for-maxwells-equations"><span class="header-section-number">5.6.2.2</span> MHD approximations for Maxwell’s equations</h4>
 <p>The various assumptions contained in MHD lead to a simplifying approximation of Maxwell’s equations. In particular, the assumption of charge neutrality in MHD makes Poisson’s equation superfluous because Poisson’s equation prescribes the relationship between non-neutrality and the electrostatic component of the electric field. The assumption of charge neutrality also has implications for the current density. To see this, the two-fluid continuity equation is multiplied by <span class="math inline">\(q_s\)</span> and then summed over species to obtain the charge conservation equation <span id="eq-charge-conservation"><span class="math display">\[
 \frac{\partial}{\partial t}\left( \sum_s n_s q_s \right) + \nabla\cdot\mathbf{J} = 0
-\tag{5.36}\]</span></span></p>
+\tag{5.44}\]</span></span></p>
 <p>Thus, charge neutrality implies <span class="math display">\[
 \nabla\cdot\mathbf{J} = 0
 \]</span></p>
@@ -1007,7 +1241,7 @@ p_\perp\mathbf{I} + (p_\parallel - p_\perp)\hat{b}\hat{b}
 \]</span></p>
 <p>Taking the divergence gives <span class="math display">\[
 \nabla\cdot
-\]</span> which is equivalent to <a href="#eq-charge-conservation">Equation&nbsp;<span>5.36</span></a> if Poisson’s equation is invoked.</p>
+\]</span> which is equivalent to <a href="#eq-charge-conservation">Equation&nbsp;<span>5.44</span></a> if Poisson’s equation is invoked.</p>
 <p>Finally, MHD is restricted to phenomena having characteristic velocities <span class="math inline">\(V_{\mathrm{ph}}\)</span> slow compared to the speed of light in vacuum, <span class="math inline">\(c=(\mu_0 \epsilon_0)^{-1/2}\)</span>. Again, <span class="math inline">\(t_{\mathrm{char}}\)</span> is assumed to represent the characteristic time scale for a given phenomenon and <span class="math inline">\(l_{\mathrm{char}}\)</span> is assumed to represent the corresponding characteristic length scale so that <span class="math inline">\(V_{\mathrm{ph}}\sim l_{\mathrm{char}}/t_{\mathrm{char}}\)</span>. Faraday’s equation gives the scaling <span class="math display">\[
 \nabla\times\mathbf{E} = -\dot{\mathbf{B}} \rightarrow E \sim B l_{\mathrm{char}}/t_{\mathrm{char}}
 \]</span> On comparing the magnitude of the displacement current term in Ampère’s law to the left-hand side it is seen that <span class="math display">\[
@@ -1015,8 +1249,8 @@ p_\perp\mathbf{I} + (p_\parallel - p_\perp)\hat{b}\hat{b}
 \]</span></p>
 <p>Thus, if <span class="math inline">\(V_{\mathrm{ph}} \ll c\)</span> the displacement current term can be dropped from Amperè’s law resulting in the so-called “pre-Maxwell” form <span id="eq-ampere-pre-maxwell"><span class="math display">\[
 \nabla\times\mathbf{B} = \mu_0 \mathbf{J}
-\tag{5.37}\]</span></span></p>
-<p>The divergence of <a href="#eq-ampere-pre-maxwell">Equation&nbsp;<span>5.37</span></a> gives <span class="math inline">\(\nabla\cdot\mathbf{J}=0\)</span> so it is unnecessary to specify it separately.</p>
+\tag{5.45}\]</span></span></p>
+<p>The divergence of <a href="#eq-ampere-pre-maxwell">Equation&nbsp;<span>5.45</span></a> gives <span class="math inline">\(\nabla\cdot\mathbf{J}=0\)</span> so it is unnecessary to specify it separately.</p>
 </section>
 <section id="complete-equation-set" class="level4" data-number="5.6.2.3">
 <h4 data-number="5.6.2.3" class="anchored" data-anchor-id="complete-equation-set"><span class="header-section-number">5.6.2.3</span> Complete equation set</h4>
@@ -1029,10 +1263,10 @@ p_\perp\mathbf{I} + (p_\parallel - p_\perp)\hat{b}\hat{b}
 p^\ast = p + \frac{\mathbf{B}\cdot\mathbf{B}}{2\mu_0} \\
 \mathcal{E} = \frac{p}{\gamma - 1} + \frac{\rho \mathbf{u}\cdot\mathbf{u}}{2} + \frac{\mathbf{B}\cdot\mathbf{B}}{2\mu_0}
 \end{aligned}
-\tag{5.38}\]</span></span> where <span class="math inline">\(\rho\)</span> is the mass density, <span class="math inline">\(\mathbf{u}\)</span> the velocity, <span class="math inline">\(\mathcal{E}\)</span> the total energy density, <span class="math inline">\(\mathbf{B}\)</span> the magnetic field, <span class="math inline">\(p\)</span> the thermal pressure, and <span class="math inline">\(\gamma\)</span> the adiabatic index (ratio of specific heats). Microscopic dissipations of any kind (viscosity, resistivity, or conduction) are not included in ideal MHD. Note that there is only one constant <span class="math inline">\(\mu_0\)</span> appeared in <a href="#eq-ideal-mhd">Equation&nbsp;<span>5.38</span></a>. The introduction of temperature comes with a new constant <span class="math inline">\(R\equiv 2k_B/m\)</span>: <span class="math display">\[
+\tag{5.46}\]</span></span> where <span class="math inline">\(\rho\)</span> is the mass density, <span class="math inline">\(\mathbf{u}\)</span> the velocity, <span class="math inline">\(\mathcal{E}\)</span> the total energy density, <span class="math inline">\(\mathbf{B}\)</span> the magnetic field, <span class="math inline">\(p\)</span> the thermal pressure, and <span class="math inline">\(\gamma\)</span> the adiabatic index (ratio of specific heats). Microscopic dissipations of any kind (viscosity, resistivity, or conduction) are not included in ideal MHD. Note that there is only one constant <span class="math inline">\(\mu_0\)</span> appeared in <a href="#eq-ideal-mhd">Equation&nbsp;<span>5.46</span></a>. The introduction of temperature comes with a new constant <span class="math inline">\(R\equiv 2k_B/m\)</span>: <span class="math display">\[
 p = \rho\, R\, T
 \]</span></p>
-<p>Many often in simulations, the dimensionless units are applied. <a href="#eq-ideal-mhd">Equation&nbsp;<span>5.38</span></a> under the dimensionless units can be written as <span id="eq-ideal-mhd-dimensionless"><span class="math display">\[
+<p>Many often in simulations, the dimensionless units are applied. <a href="#eq-ideal-mhd">Equation&nbsp;<span>5.46</span></a> under the dimensionless units can be written as <span id="eq-ideal-mhd-dimensionless"><span class="math display">\[
 \begin{aligned}
 \frac{\partial \rho_\ast}{\partial t_\ast} + \nabla_\ast\cdot(\rho_\ast\mathbf{u}_\ast) = 0 \\
 \frac{\partial \rho_\ast\mathbf{u}_\ast}{\partial t_\ast} + \nabla_\ast\cdot\left( \rho_\ast\mathbf{u}_\ast\mathbf{u}_\ast - \mathbf{B}_\ast\mathbf{B}_\ast + p_\ast^\ast \right) = 0 \\
@@ -1041,10 +1275,10 @@ p = \rho\, R\, T
 p_\ast^\ast = p_\ast + \frac{\mathbf{B}_\ast\cdot\mathbf{B}_\ast}{2} \\
 \mathcal{E}_\ast = \frac{p_\ast}{\gamma - 1} + \frac{\rho_\ast \mathbf{u}_\ast\cdot\mathbf{u}_\ast}{2} + \frac{\mathbf{B}_\ast\cdot\mathbf{B}_\ast}{2}
 \end{aligned}
-\tag{5.39}\]</span></span> where the subscripts <span class="math inline">\(\ast\)</span> denotes the variables in dimensionless units, and the adiabatic equation of state is given as <span class="math display">\[
+\tag{5.47}\]</span></span> where the subscripts <span class="math inline">\(\ast\)</span> denotes the variables in dimensionless units, and the adiabatic equation of state is given as <span class="math display">\[
 p_\ast = \rho_\ast T_\ast
 \]</span></p>
-<p>In more theoretical derivations, for simplicity the energy equation is substituted with either single adiabatic law <a href="#eq-single-adiabatic">Equation&nbsp;<span>5.35</span></a> or double adiabatic law <a href="#eq-CGL-par">Equation&nbsp;<span>5.32</span></a> and <a href="#eq-CGL-perp">Equation&nbsp;<span>5.34</span></a>. If we drop the isotropic assumption and instead use separate pressure equations for the parallel and perpendicular components as in <a href="#eq-6-moment-fluids">Equation&nbsp;<span>5.14</span></a>, we get the anisotropic MHD equations.</p>
+<p>In more theoretical derivations, for simplicity the energy equation is substituted with either single adiabatic law <a href="#eq-single-adiabatic">Equation&nbsp;<span>5.43</span></a> or double adiabatic law <a href="#eq-CGL-par">Equation&nbsp;<span>5.40</span></a> and <a href="#eq-CGL-perp">Equation&nbsp;<span>5.42</span></a>. If we drop the isotropic assumption and instead use separate pressure equations for the parallel and perpendicular components as in <a href="#eq-6-moment-fluids">Equation&nbsp;<span>5.14</span></a>, we get the anisotropic MHD equations.</p>
 <p>These equations provide a self-consistent description of phenomena that satisfy all the various assumptions we have made, namely:</p>
 <ol type="1">
 <li>The plasma is charge-neutral since characteristic lengths are much longer than a Debye length;</li>
@@ -1053,7 +1287,7 @@ p_\ast = \rho_\ast T_\ast
 <li>The time scale is long compared to both the electron and ion cyclotron periods.</li>
 </ol>
 <p>Even though these assumptions are self-consistent, they may not accurately portray a real plasma and so MHD models, while intuitively appealing, must be used with caution.</p>
-<p>Finally, it is worth mentioning that MHD plasmas can be categorized yet another way, namely according to the relative importance of the magnetic force <span class="math inline">\(\mathbf{J}\times\mathbf{B}\)</span> compared to the hydrodynamic force <span class="math inline">\(\nabla\cdot\overleftrightarrow{P}\)</span>. If the magnetic force is negligible compared to the hydrodynamic force, then there is not much point in using MHD because in this case the system of equations is simply classical hydrodynamics. Thus, the only non-trivial MHD situations are where the magnetic and hydrodynamic forces are of comparable importance or where the magnetic force is much more important than the hydrodynamic force. Using <a href="#eq-ampere-pre-maxwell">Equation&nbsp;<span>5.37</span></a>, the nominal ratio of the hydrodynamic force to the magnetic force is defined as <span class="math display">\[
+<p>Finally, it is worth mentioning that MHD plasmas can be categorized yet another way, namely according to the relative importance of the magnetic force <span class="math inline">\(\mathbf{J}\times\mathbf{B}\)</span> compared to the hydrodynamic force <span class="math inline">\(\nabla\cdot\overleftrightarrow{P}\)</span>. If the magnetic force is negligible compared to the hydrodynamic force, then there is not much point in using MHD because in this case the system of equations is simply classical hydrodynamics. Thus, the only non-trivial MHD situations are where the magnetic and hydrodynamic forces are of comparable importance or where the magnetic force is much more important than the hydrodynamic force. Using <a href="#eq-ampere-pre-maxwell">Equation&nbsp;<span>5.45</span></a>, the nominal ratio of the hydrodynamic force to the magnetic force is defined as <span class="math display">\[
 \beta = \frac{p}{B^2/2\mu_0} \sim \frac{\nabla\cdot\overleftarrow{P}}{\mathbf{J}\times\mathbf{B}} \sim \frac{p/L}{B^2/2\mu_0 L}
 \]</span></p>
 <p>The characteristic gradient scale length <span class="math inline">\(L\)</span> is assumed to be comparable for both types of forces and so cancels out in the comparison. Low-<span class="math inline">\(\beta\)</span> plasmas are those where <span class="math inline">\(B^2/2\mu_0\)</span> is much larger than <span class="math inline">\(p\)</span> so the hydrodynamic force is negligible compared to the magnetic force, whereas <span class="math inline">\(\beta = \mathcal{O}(1)\)</span> plasmas are those where the magnetic and hydrodynamic forces are comparable. The different <span class="math inline">\(\beta\)</span> regime has important implications on the validity of many approximations seen in later chapters.</p>
@@ -1073,7 +1307,7 @@ p_\ast = \rho_\ast T_\ast
 \frac{\partial \mathbf{B}}{\partial t} &amp;= -\nabla\times\left[ \mathbf{u}_e \times\mathbf{B} + \eta\mathbf{J} - \frac{\nabla p_e}{ne}\right] \\
 \frac{\partial p_e}{\partial t} + \nabla\cdot \left(p_e\mathbf{u}_e \right)&amp;=-(\gamma-1)p_e\nabla\cdot\mathbf{u}_e
 \end{aligned}
-\tag{5.40}\]</span></span></p>
+\tag{5.48}\]</span></span></p>
 <p>where <span class="math inline">\(\bar{\bar{I}}\)</span> is the identity matrix, <span class="math inline">\(\rho\)</span> is the mass density, <span class="math inline">\(\mathbf{u}\)</span> is the plasma bulk velocity, <span class="math inline">\(\mathbf{B}\)</span> is the magnetic field, <span class="math inline">\(p_e\)</span> is the electron pressure, <span class="math inline">\(p\)</span> is the ion thermal pressure, <span class="math inline">\(\mathbf{J}=\nabla\times\mathbf{B}/\mu_0\)</span> is the current density, <span class="math inline">\(\epsilon=\rho\mathbf{u}^2/2\)</span> is the hydrodynamic energy density, and <span class="math inline">\(\epsilon_e=\rho\mathbf{u}_e^2/2\)</span> is the electron hydrodynamic energy density. The Hall velocity is defined as <span class="math display">\[
 \mathbf{v}_H=-\frac{\mathbf{J}}{ne}
 \]</span></p>
@@ -1090,11 +1324,11 @@ e= \frac{1}{2}\rho \mathbf{u}^2+\frac{1}{\gamma-1}(p+p_e)+\frac{\mathbf{B}^2}{2\
 <h2 data-number="5.7" class="anchored" data-anchor-id="sec-fluid-drift-perp"><span class="header-section-number">5.7</span> Fluid Drifts Perpendicular to B</h2>
 <p>Since a fluid element is composed of many individual particles, one would expect the fluid to have drifts perpendicular to <span class="math inline">\(\mathbf{B}\)</span> if the individual guiding centers have such drifts. However, since the <span class="math inline">\(\nabla p\)</span> term appears only in the fluid equations, there is a drift associated with it which the fluid elements have but the particles do not have. For each species, we have an equation of motion <span id="eq-momentum_single_fluid_ratio"><span class="math display">\[
 mn\Big[ \underbrace{\frac{\partial\mathbf{u}}{\partial t}}_{1}+\underbrace{(\mathbf{u}\cdot\nabla)\mathbf{u}}_{2}\Big] = q n (\mathbf{E}+\underbrace{\mathbf{u}\times\mathbf{B}}_{3}) - \nabla p
-\tag{5.41}\]</span></span></p>
+\tag{5.49}\]</span></span></p>
 <p>Consider the ratio of term 1 to term 3: <span class="math display">\[
 \frac{\text{term }1}{\text{term }3} \approx \bigg\lvert\frac{mni\omega v_\perp}{qnv_\perp B}\bigg\rvert \approx \frac{\omega}{\omega_c}
 \]</span></p>
-<p>Here we have taken <span class="math inline">\(\partial/\partial t=i\omega\)</span> and are concerned only with <span class="math inline">\(\mathbf{v}_\perp\)</span>. For drifts slow compared with the time scale associated with <span class="math inline">\(\omega_c\)</span>, we may neglect term 1. We shall also neglect the <span class="math inline">\((\mathbf{u}\cdot\nabla)\mathbf{u}\)</span> term and show a <em>posteriori</em> that this is all right. Let <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> be uniform, but let <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> have a gradient. This is the usual situation in a magnetically confined plasma column (Fig. 3.4 ADD FIGURE!). Taking the cross product of <a href="#eq-momentum_single_fluid_ratio">Equation&nbsp;<span>5.41</span></a> with B, we have (neglecting the left-hand side)</p>
+<p>Here we have taken <span class="math inline">\(\partial/\partial t=i\omega\)</span> and are concerned only with <span class="math inline">\(\mathbf{v}_\perp\)</span>. For drifts slow compared with the time scale associated with <span class="math inline">\(\omega_c\)</span>, we may neglect term 1. We shall also neglect the <span class="math inline">\((\mathbf{u}\cdot\nabla)\mathbf{u}\)</span> term and show a <em>posteriori</em> that this is all right. Let <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> be uniform, but let <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> have a gradient. This is the usual situation in a magnetically confined plasma column (Fig. 3.4 ADD FIGURE!). Taking the cross product of <a href="#eq-momentum_single_fluid_ratio">Equation&nbsp;<span>5.49</span></a> with B, we have (neglecting the left-hand side)</p>
 <p><span class="math display">\[
 \begin{aligned}
 0 &amp;= qn[\mathbf{E}\times\mathbf{B}+(\mathbf{u}_\perp\times\mathbf{B})\times\mathbf{B}] - \nabla p\times\mathbf{B} \\
@@ -1109,11 +1343,11 @@ mn\Big[ \underbrace{\frac{\partial\mathbf{u}}{\partial t}}_{1}+\underbrace{(\mat
 \]</span></p>
 <p><span id="eq-diamagnetic_drift"><span class="math display">\[
 \mathbf{u}_D\equiv-\frac{\nabla p\times\mathbf{B}}{qnB^2}\quad\text{Diamagnetic drift}
-\tag{5.42}\]</span></span></p>
+\tag{5.50}\]</span></span></p>
 <p>The drift <span class="math inline">\(\mathbf{u}_E\)</span> is the same as for guiding centers, but there is now a new drift <span class="math inline">\(\mathbf{u}_D\)</span>, called the diamagnetic drift. Since <span class="math inline">\(\mathbf{u}_D\)</span> is perpendicular to the direction of the gradient, our neglect of <span class="math inline">\((\mathbf{u}\cdot\nabla)\mathbf{u}\)</span> is justified if <span class="math inline">\(\mathbf{E}=0\)</span>. If <span class="math inline">\(\mathbf{E}=-\nabla\phi\neq 0\)</span> (i.e.&nbsp;a potential field), <span class="math inline">\((\mathbf{u}\cdot\nabla)\mathbf{u}\)</span> is still zero if <span class="math inline">\(\nabla\phi\)</span> and <span class="math inline">\(\nabla p\)</span> are in the same direction; otherwise, there could be a more complicated solution involving <span class="math inline">\((\mathbf{u}\cdot\nabla)\mathbf{u}\)</span>.</p>
 <p>With the help of <a href="#eq-eos_nabla_p">Equation&nbsp;<span>5.12</span></a>, we can write the diamagnetic drift as <span id="eq-diamagnetic_drift_eos"><span class="math display">\[
 \mathbf{u}_D = \pm \frac{\gamma k_B T}{eB}\frac{\hat{z}\times\nabla n}{n}
-\tag{5.43}\]</span></span></p>
+\tag{5.51}\]</span></span></p>
 <p>In particular, for an isothermal plasma in the geometry of Fig.3.4 (ADD IT!), in which <span class="math inline">\(\nabla n = \partial n\partial r\hat{r} = n^\prime\hat{r}\)</span> (<span class="math inline">\(n^\prime &lt; 0\)</span>), we have the following formulas familiar to experimentalists who have worked with Q-machines <span class="math display">\[
 \begin{aligned}
 \mathbf{u}_{Di} &amp;= \frac{k_B T_i}{eB}\frac{n^\prime}{n}\hat{\theta} \\
@@ -1129,7 +1363,7 @@ mn\Big[ \underbrace{\frac{\partial\mathbf{u}}{\partial t}}_{1}+\underbrace{(\mat
 </div>
 <p>Since ions and electrons drift in opposite directions, there is a diamagnetic current. For <span class="math inline">\(\gamma=Z=1\)</span>, this is given by <span id="eq-diamagnetic_curent"><span class="math display">\[
 \mathbf{J}_D = ne(\mathbf{u}_{Di} + \mathbf{u}_{De}) = \frac{\mathbf{B}}{B^2}\times\nabla\left( p_i + p_e \right) = (k_B T_i + k_B T_e)\frac{\mathbf{B}\times\nabla n}{B^2}
-\tag{5.44}\]</span></span></p>
+\tag{5.52}\]</span></span></p>
 <p>In the particle picture, one would not expect to measure a current if the guiding centers do not drift. In the fluid picture, the current <span class="math inline">\(\mathbf{J}_D\)</span> flows wherever there is a pressure gradient. These two viewpoints can be reconciled if one considers that all experiments must be carried out in a finite-sized plasma. Suppose the plasma were in a rigid box (Fig. 3.6 ADD IT!). If one were to calculate the current from the single-particle picture, one would have to take into account the particles at the edges which have cycloidal paths. Since there are more particles on the left than on the right, there is a net current downward, in agreement with the fluid picture.</p>
 <p>The reader may not be satisfied with this explanation because it was necessary to specify reflecting walls. If the walls were absorbing or if they were removed, one would find that electric fields would develop because more of one species—the one with larger Larmor radius—would collected than the other. Then the guiding centers would drift, and the simplicity of the model would be lost. Alternatively, one could imagine trying to measure the diamagnetic current with a current probe (Fig. 3.7 ADD IT!). This is just a transformer with a core of magnetic material. The primary winding is the plasma current threading the core, and the secondary is a multiturn winding all around the core. Let the whole thing be infinitesimally thin, so it does not intercept any particles. It is clear from Fig. 3.7 that a net upward current would be measured, there being higher density on the left than on the right, so that the diamagnetic current is a real current. From this example, one can see that it can be quite tricky to work with the single-particle picture. The fluid theory usually gives the right results when applied straightforwardly, even though it contains “fictitious” drifts like the diamagnetic drift.</p>
 <p>What about the grad-B and curvature drifts which appeared in the single-particle picture? The curvature drift also exists in the fluid picture, since the centrifugal force is felt by all the particles in a fluid element as they move around a bend in the magnetic field. A term <span class="math inline">\(\bar{F}_{cf} = \overline{nmv_\parallel^2}/R_c = nk_B T_\parallel / R_c\)</span> has to be added to the right-hand side of the fluid equation of motion. This is equivalent to a gravitational force <span class="math inline">\(mng\)</span>, with <span class="math inline">\(g = k_BT_\parallel/m R_c\)</span>, and leads to a drift <span class="math inline">\(\mathbf{u}_g=(m/q)(\mathbf{g}\times\mathbf{B})/B^2\)</span>, as in the particle picture (<a href="single.html#eq-gravity_drift">Equation&nbsp;<span>4.5</span></a>).</p>
@@ -1147,27 +1381,27 @@ mn\Big[ \underbrace{\frac{\partial\mathbf{u}}{\partial t}}_{1}+\underbrace{(\mat
 <h2 data-number="5.8" class="anchored" data-anchor-id="fluid-drifts-parallel-to-b"><span class="header-section-number">5.8</span> Fluid Drifts Parallel to B</h2>
 <p>The <span class="math inline">\(z\)</span> component of the fluid equation of motions is <span id="eq-fluid_momentum_parallel"><span class="math display">\[
 mn\left[ \frac{\partial u_z}{\partial t} + (\mathbf{u}\cdot\nabla)u_z\right] = qn E_z - \frac{\partial\phi}{\partial z}
-\tag{5.45}\]</span></span></p>
-<p>The convective term can often be neglected because it is much smaller than the <span class="math inline">\(\partial u_z/\partial t\)</span> term. We shall avoid complicated arguments here and simply consider cases in which <span class="math inline">\(u_z\)</span> is spatially uniform. Using <a href="#eq-fluid_momentum_parallel">Equation&nbsp;<span>5.45</span></a>, we have <span id="eq-fluid_momentum_parallel_simple"><span class="math display">\[
+\tag{5.53}\]</span></span></p>
+<p>The convective term can often be neglected because it is much smaller than the <span class="math inline">\(\partial u_z/\partial t\)</span> term. We shall avoid complicated arguments here and simply consider cases in which <span class="math inline">\(u_z\)</span> is spatially uniform. Using <a href="#eq-fluid_momentum_parallel">Equation&nbsp;<span>5.53</span></a>, we have <span id="eq-fluid_momentum_parallel_simple"><span class="math display">\[
 \frac{\partial u_z}{\partial t} = \frac{q}{m}E_z - \frac{\gamma k_B T}{mn}\frac{\partial n}{\partial z}
-\tag{5.46}\]</span></span></p>
-<p>This shows that the fluid is accelerated along <span class="math inline">\(\mathbf{B}\)</span> under the combined electrostatic and pressure gradient forces. A particularly important result is obtained by applying <a href="#eq-fluid_momentum_parallel_simple">Equation&nbsp;<span>5.46</span></a> to massless electrons. Taking the limit <span class="math inline">\(m\rightarrow 0\)</span> and specifying <span class="math inline">\(q=-e\)</span> and <span class="math inline">\(\mathbf{E}=-\nabla\phi\)</span>, we have <span class="math display">\[
+\tag{5.54}\]</span></span></p>
+<p>This shows that the fluid is accelerated along <span class="math inline">\(\mathbf{B}\)</span> under the combined electrostatic and pressure gradient forces. A particularly important result is obtained by applying <a href="#eq-fluid_momentum_parallel_simple">Equation&nbsp;<span>5.54</span></a> to massless electrons. Taking the limit <span class="math inline">\(m\rightarrow 0\)</span> and specifying <span class="math inline">\(q=-e\)</span> and <span class="math inline">\(\mathbf{E}=-\nabla\phi\)</span>, we have <span class="math display">\[
 qE_z = e\frac{\partial\phi}{\partial z} = \frac{\gamma k_B T_e}{n}\frac{\partial n}{\partial z}
 \]</span></p>
 <p>Electrons are so mobile that their heat conductivity is almost infinite. We may then assume isothermal electrons and take <span class="math inline">\(\gamma = 1\)</span>. Integrating, we have <span class="math display">\[
 e\phi = k_B T_e \ln n + C
 \]</span> or <span id="eq-boltzmann_relation"><span class="math display">\[
 n = n_0 \exp(e\phi/k_B T_e)
-\tag{5.47}\]</span></span></p>
+\tag{5.55}\]</span></span></p>
 <p>This is just the <em>Boltzmann relation</em> for electrons.</p>
-<p>What this means physically is that electrons, being light, are very mobile and would be accelerated to high energies very quickly if there were a net force on them. Since electrons cannot leave a region en masse without leaving behind a large ion charge, the electrostatic and pressure gradient forces on the electrons must be closely in balance. This condition leads to the Boltzmann relation. Note that <a href="#eq-boltzmann_relation">Equation&nbsp;<span>5.47</span></a> <em>applies to each magnetic field lines separately</em>. Different field lines may be charged to different potentials arbitrarily unless a mechanism is provided for the electrons to move across <span class="math inline">\(\mathbf{B}\)</span>. The conductors on which field lines terminate can provide such a mechanism, and the experimentalist has to take these end effects into account carefully.</p>
+<p>What this means physically is that electrons, being light, are very mobile and would be accelerated to high energies very quickly if there were a net force on them. Since electrons cannot leave a region en masse without leaving behind a large ion charge, the electrostatic and pressure gradient forces on the electrons must be closely in balance. This condition leads to the Boltzmann relation. Note that <a href="#eq-boltzmann_relation">Equation&nbsp;<span>5.55</span></a> <em>applies to each magnetic field lines separately</em>. Different field lines may be charged to different potentials arbitrarily unless a mechanism is provided for the electrons to move across <span class="math inline">\(\mathbf{B}\)</span>. The conductors on which field lines terminate can provide such a mechanism, and the experimentalist has to take these end effects into account carefully.</p>
 <div id="fig-boltzmann_relation" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/boltzmann_relation.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;5.4: Physical reason for the Boltzmann relation between density and potential.</figcaption>
 </figure>
 </div>
-<p><a href="#fig-boltzmann_relation">Figure&nbsp;<span>5.4</span></a> shows graphically what occurs when there is a local density clump in the plasma. Let the density gradient be toward the center of the diagram, and suppose <span class="math inline">\(k_B T\)</span> is constant. There is then a pressure gradient toward the center. Since the plasma is quasineutral, the gradient exists for both the electron and ion fluids. Consider the pressure gradient force <span class="math inline">\(\mathbf{F}_p\)</span> on the electron fluid. It drives the mobile electrons away from the center, leaving the ions behind. The resulting positive charge generates a field <span class="math inline">\(\mathbf{E}\)</span> whose force <span class="math inline">\(\mathbf{F}_E\)</span> on the electrons opposes <span class="math inline">\(\mathbf{F}_p\)</span>. Only when <span class="math inline">\(\mathbf{F}_E = -\mathbf{F}_p\)</span> is a steady state achieved. If <span class="math inline">\(\mathbf{B}\)</span> is a constant, <span class="math inline">\(\mathbf{E}\)</span> is an electrostatic field <span class="math inline">\(\mathbf{E}=-\nabla\phi\)</span>, and <span class="math inline">\(\phi\)</span> must be large at the center, where <span class="math inline">\(n\)</span> is large. This is just what <a href="#eq-boltzmann_relation">Equation&nbsp;<span>5.47</span></a> tells us. The deviation from stric neutrality adjusts itself so that there is just enough charge to set up the <span class="math inline">\(\mathbf{E}\)</span> field required to balance the forces on the electrons.</p>
+<p><a href="#fig-boltzmann_relation">Figure&nbsp;<span>5.4</span></a> shows graphically what occurs when there is a local density clump in the plasma. Let the density gradient be toward the center of the diagram, and suppose <span class="math inline">\(k_B T\)</span> is constant. There is then a pressure gradient toward the center. Since the plasma is quasineutral, the gradient exists for both the electron and ion fluids. Consider the pressure gradient force <span class="math inline">\(\mathbf{F}_p\)</span> on the electron fluid. It drives the mobile electrons away from the center, leaving the ions behind. The resulting positive charge generates a field <span class="math inline">\(\mathbf{E}\)</span> whose force <span class="math inline">\(\mathbf{F}_E\)</span> on the electrons opposes <span class="math inline">\(\mathbf{F}_p\)</span>. Only when <span class="math inline">\(\mathbf{F}_E = -\mathbf{F}_p\)</span> is a steady state achieved. If <span class="math inline">\(\mathbf{B}\)</span> is a constant, <span class="math inline">\(\mathbf{E}\)</span> is an electrostatic field <span class="math inline">\(\mathbf{E}=-\nabla\phi\)</span>, and <span class="math inline">\(\phi\)</span> must be large at the center, where <span class="math inline">\(n\)</span> is large. This is just what <a href="#eq-boltzmann_relation">Equation&nbsp;<span>5.55</span></a> tells us. The deviation from stric neutrality adjusts itself so that there is just enough charge to set up the <span class="math inline">\(\mathbf{E}\)</span> field required to balance the forces on the electrons.</p>
 </section>
 <section id="sec-plasma_approximation" class="level2" data-number="5.9">
 <h2 data-number="5.9" class="anchored" data-anchor-id="sec-plasma_approximation"><span class="header-section-number">5.9</span> The Plasma Approximation</h2>
