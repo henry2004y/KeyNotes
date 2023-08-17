@@ -529,9 +529,296 @@ Numerically, however, using $c$ in the numerical fluxes makes the scheme rather 
 
 ## Generalized Ohm's Law
 
-DERIVATIONS TO BE ADDED...
+The generalized Ohm's law can be derived from two-fluid equations. Landau once pointed out that the validity of describing plasma behaviors with two-fluid equations is based on the fact that the time scale of ions and electrons to reach an equilibrium Maxwellian distribution is much smaller than that of the heat exchange between species. The Ohm's law is established upon the collisions between electrons, ions and neutral species, and is used to describe the relation between $\mathbf{J}$ and $\mathbf{E},\,\mathbf{B},\,\mathbf{u}$.
 
-The generalized Ohm's law can be derived from two-fluid equations:
+### Basic definitions and assumptions
+
+1. Ionized $\textrm{H}^+$ plasma: we use $e,\, i,\, a$ as subscripts for electron, ion and neutral species respectively.
+$$
+\begin{aligned}
+q_e=-q_i=-e \\
+m_e\ll m_i \approx m_a
+\end{aligned}
+$$
+
+With the definition of ionization degree in @eq-saha,
+$$
+\alpha=\frac{n_i}{n_i+n_a}
+$$ {#eq-ionization_degree}
+we have
+$$
+\begin{aligned}
+\frac{n_i}{n_a}&=\frac{\alpha}{1-\alpha}\\
+\frac{n_i}{2n_i+n_a}&=\frac{\alpha}{1+\alpha}\\
+\frac{n_a}{2n_i+n_a}&=\frac{1-\alpha}{1+\alpha}
+\end{aligned}
+$$
+
+2. Quasi-neutrality assumption
+$$
+\begin{aligned}
+\rho_e^\ast+\rho_i^\ast =0\ \Rightarrow\ n_e=n_i \\
+\rho_e=m_e n_e \ll \rho_i=m_i n_i
+\end{aligned}
+$$
+
+3. Ideal gas in thermal equilibrium
+$$
+\begin{aligned}
+T_e=T_i=T_a \\
+p=p_e+p_i+p_a
+\end{aligned}
+$$
+
+Using the ionization degree defined in @eq-ionization_degree, we have
+$$
+\begin{aligned}
+p_e = p_i = \frac{n_i}{2n_i+n_a} p = \frac{\alpha}{1+\alpha} p \\
+p_a = \frac{n_a}{2n_i+n_a}p = \frac{1-\alpha}{1+\alpha}p
+\end{aligned}
+$$
+Also, we have
+$$
+v_{e,th}\gg v_{i,th}.
+$$
+
+4. Flow velocity is much smaller than thermal speed,
+$$
+|\mathbf{v}_s|\ll |\mathbf{v}_{s.th}|,\quad s=e,\, i,\, a.
+$$
+
+Typical time scale must satisfy $\tau_0\gg \tau_{\text{collision}}$.
+
+5. Ignore viscosity and non-EM force.
+
+The average velocity of protons with respect to bulk velocity of the plasma, the velocity difference between electron and ion, and the average velocity of neutral particles are
+$$
+\begin{aligned}
+\mathbf{v}_i&=\mathbf{u}_i-\mathbf{u} \\
+\mathbf{v}_{ei}&=\mathbf{u}_e-\mathbf{u}_i \\
+\mathbf{u}_a&=\mathbf{u}-\frac{n_i}{n_a}(\mathbf{v}_i+\frac{m_e}{m_i}\mathbf{v}_{ei})
+\end{aligned}
+$$
+
+The average momenta of electrons relative to protons and neutral particles are
+$$
+\begin{aligned}
+\mathbf{I}_{ei}&=m_e\mathbf{v}_{ei} \\
+\mathbf{I}_{ea}&=m_e\Big[\Big( 1+\frac{n_im_e}{n_a m_i}\Big)\mathbf{v}_{ei}+\Big( 1+\frac{n_i}{n_a}\Big)\mathbf{v}_i\Big]\approx m_e\Big[ \mathbf{v}_{ei}+(\frac{1}{1-\alpha})\mathbf{v}_i \Big] \\
+\mathbf{I}_{ia}&=m_i(\mathbf{u}_i-\mathbf{u}_a)=m_i (\mathbf{v}_i+\mathbf{u}-\mathbf{u}_a)=\frac{1}{1-\alpha}m_i\mathbf{v}_i+\frac{\alpha}{1-\alpha}m_e\mathbf{v}_{ei}
+\end{aligned}
+$$
+
+Note that from Newton's third law, $\Delta \mathbf{I}_{sk}=-\Delta \mathbf{I}_{ks}$.
+
+### Equation of Motion for Each Species
+
+#### For electrons
+$$
+\begin{aligned}
+m_en_e\frac{d\mathbf{u}_e}{dt}&=m_en_i\frac{d}{dt}(\mathbf{v}_{ei}+\mathbf{v}_i+\mathbf{u}) \\
+&=-\nabla p_e - n_i e \big[ \mathbf{E}+(\mathbf{v}_{ei}+\mathbf{v}_i+\mathbf{u})\times\mathbf{B} \big]+\mathbf{f}_e^c
+\end{aligned}
+$$ {#eq-electron_motion_ohm}
+where the collisional force
+$$
+\mathbf{f}_e^c=-n_i m_e\mathbf{v}_{ei}(\tau_{ei}^{-1}+\tau_{ea}^{-1})-\frac{1}{1-\alpha}n_i m_e\mathbf{v}_i\tau_{ea}^{-1}
+$$
+
+_Proof_:
+
+$\mathbf{f}_{sk}^c\cdot\tau_{sk}=n_s\Delta \mathbf{I}_{sk}$, where $\tau_{sk}$ is the average collision interval.
+$$
+\Delta \mathbf{I}_{sk}=-\Delta \mathbf{I}_{ks}
+$$
+
+Assuming elastic collision, we have
+$$
+\begin{aligned}
+\Delta\mathbf{I}_{sk}&=-\frac{m_sm_k}{m_s+m_k}\mathbf{v}_{sk} \\
+\Rightarrow \Delta\mathbf{I}_{ek}&=-\frac{m_k}{m_e+m_k}m_e\mathbf{v}_{ek}\approx -\mathbf{I}_{ek}\text{(ignore electron mass)}\\
+\Delta\mathbf{I}_{ia}&=-\frac{m_a}{m_a+m_i}m_i\mathbf{v}_{ia}\approx -\frac{1}{2}\mathbf{I}_{ia}\text{(ion mass=neutron mass)}
+\end{aligned}
+$$
+
+Therefore the collision force of electron is
+$$
+\mathbf{f}_e^c=-n_i\mathbf{I}_{ei}\tau_{ei}^{-1}-n_i\mathbf{I}_{ea}\tau_{ea}^{-1}=-n_i m_e\mathbf{v}_{ei}(\tau_{ei}^{-1}+\tau_{ea}^{-1})-\frac{1}{1-\alpha}n_i m_e\mathbf{v}_i\tau_{ea}^{-1}
+$$
+The collision force between ion and neutral is
+$$
+\mathbf{f}_{ia}^c=-\frac{1}{2}n_i\mathbf{I}_{ia}\tau_{ia}^{-1}
+$$
+□
+
+#### For protons
+
+$$
+m_i n_i\frac{d\mathbf{u}_i}{dt}=m_i n_i\frac{d}{dt}(\mathbf{v}_i+\mathbf{u})=-\nabla p_i+n_i e\big[ \mathbf{E}+(\mathbf{v}_i+\mathbf{u}\times\mathbf{B}) \big]+\mathbf{f}_i^c
+$$ {#eq-proton_motion_ohm}
+where the collision force is
+$$
+\mathbf{f}_{i}^c=\mathbf{f}_{ia}^c+\mathbf{f}_{ie}^c=n_im_e\mathbf{v}_{ei}\tau_{ei}^{-1}-\frac{\alpha}{2(1-\alpha)}n_im_e\mathbf{v}_{ei}\tau_{ia}^{-1}-\frac{1}{2(1-\alpha)}n_i m_i\mathbf{v}_i\tau_{ia}^{-1}
+$$
+
+#### For the whole plasma
+
+If we do not consider the effect of other forces on plasma and ignore electron mass ($m_en_e\ll m_in_i$),
+$$
+m_i(n_i+n_a)\frac{d\mathbf{u}}{dt}=-\nabla p+\mathbf{j}\times\mathbf{B}=-\nabla p-n_i e\mathbf{v}_{ei}\times\mathbf{B}
+$$ {#eq-plasma_motion_ohm}
+where the total current density is
+$$
+\mathbf{j}=\sum_s{n_s q_s\mathbf{u}_s}=-n_i e(\mathbf{v}_{ei}+\mathbf{v}_i+\mathbf{u})+n_i e(\mathbf{v}_i+\mathbf{u})=-n_i e\mathbf{v}_{ei}
+$$
+Physically we usually think of current in plasma as the velocity difference between electrons and ions.
+
+### Preconditions
+
+If an external B-field is present and the conductor is not at rest but moving at velocity $\mathbf{u}$, then an extra term must be added to account for the current induced by the Lorentz force on the charge carriers:
+$$
+\mathbf{j}=\sigma(\mathbf{E}+\mathbf{u}\times\mathbf{B})
+$$
+where $\sigma$ is the electric conductivity.
+
+In the rest frame of the moving conductor this term drops out because $\mathbf{v}=0$. There is no contradiction because the electric field in the rest frame differs from the E-field in the lab frame: $\mathbf{E}^\prime = \mathbf{E} + \mathbf{u}\times\mathbf{B}$. Electric and magnetic fields are relative and related by theLorentz transformation.
+
+If the current $\mathbf{J}$ is alternating because the applied voltage or E-field varies in time, then reactance must be added to resistance to account for self-inductance (see electrical impedance). The reactance may be strong if the frequency is high or the conductor is coiled. hyzhou:Ponderamotive force???
+
+### Derivation
+
+Negligible terms:
+
+* $\frac{d\mathbf{v}_e}{dt}$ in @eq-electron_motion_ohm and $\frac{d\mathbf{v}_i}{dt}$ in @eq-proton_motion_ohm), because $|\mathbf{v}|\ll |\mathbf{v}^{th}|$
+
+* $\frac{d\mathbf{u}}{dt}$ in @eq-electron_motion_ohm. From @eq-plasma_motion_ohm and $m_e \ll m_i$,
+$$
+m_en_i\frac{d\mathbf{u}}{dt}=\frac{m_e}{m_i}\frac{n_i}{n_i+n_a}(-\nabla p-n_i e\mathbf{v}_{ei}\times\mathbf{B})\ll 1
+$$
+
+From @eq-electron_motion_ohm, 
+$$
+m_e n_i\frac{d\mathbf{u}}{dt}=-\nabla p_e -n_i e\mathbf{v}_{ei}\times\mathbf{B}-n_ie [\mathbf{E}+(\mathbf{v}_i+\mathbf{u})\times\mathbf{B}]+\mathbf{f}_e^c
+$$
+
+The above two equations give
+$$
+\begin{aligned}
+0=&-\nabla p_e -n_i e\mathbf{v}_{ei}\times\mathbf{B}-n_ie [\mathbf{E}+(\mathbf{v}_i+\mathbf{u})\times\mathbf{B}] \\
+& -n_i m_e\mathbf{v}_{ei}(\tau_{ei}^{-1}+\tau_{ea}^{-1})-\frac{1}{1-\alpha}n_i m_e\mathbf{v}_i\tau_{ea}^{-1}
+\end{aligned}
+$$ {#eq-Ohm_derivation1}
+
+@eq-Ohm_derivation1, @eq-proton_motion_ohm and @eq-plasma_motion_ohm are three main equations we need to derive the generalized Ohm's law.
+
+If we define the ratios of gyro-period and collision time as
+$$
+\begin{aligned}
+\kappa_{ei} &\equiv \frac{1}{\Omega_e \tau_{ei}}=\frac{m_e}{eB}\tau_{ei}^{-1} \\
+\kappa_{ea} &\equiv \frac{1}{\Omega_e \tau_{ea}}=\frac{m_e}{eB}\tau_{ea}^{-1} \\
+\kappa_{ia}&\equiv \frac{1}{2\Omega_i \tau_{ia}}=\frac{m_i}{2eB}\tau_{ia}^{-1}
+\end{aligned}
+$$
+and ion current density as
+$$
+\mathbf{j}_i=n_i e\mathbf{v}_i
+$$
+we can write the three main equations above as
+$$
+0=-\nabla p_e -n_i e(\mathbf{E}+\mathbf{u}\times\mathbf{B}) + \mathbf{j}\times\mathbf{B}-\mathbf{j}_i\times\mathbf{B}+(\kappa_{ei}+\kappa_{ea})B\mathbf{j}-\frac{1}{1-\alpha}\kappa_{ea}B\mathbf{j}_i
+$$ {#eq-Ohm_derivation2}
+
+$$
+m_in_i\frac{d\mathbf{u}}{dt}&=-\nabla p_i+n_i e(\mathbf{E}+\mathbf{u}\times\mathbf{B})+\mathbf{j}_i\times\mathbf{B}-(\kappa_{ei}-\frac{\alpha}{1-\alpha}\frac{m_e}{m_i}\kappa_{ia})B\mathbf{j}-\frac{1}{1-\alpha}\kappa_{ia}B\mathbf{j}_i
+$$ {#eq-Ohm_derivation3}
+
+$$
+\frac{1}{\alpha}m_in_i\frac{d\mathbf{u}}{dt}&=-\nabla p+\mathbf{j}\times\mathbf{B}
+$$ {#eq-Ohm_derivation4}
+
+Subtract @eq-Ohm_derivation3 from @eq-Ohm_derivation4 from @eq-Ohm_derivation2, we get the expression for ion current density
+$$
+\begin{aligned}
+\mathbf{j}_i&=\frac{1-\alpha}{(\kappa_{ea}+\kappa_{ia})B}\Big[ \alpha\nabla p -\nabla(p_e+p_i)+(1-\alpha)\mathbf{j}\times\mathbf{B}+(\kappa_{ea}+\frac{\alpha}{1-\alpha}\frac{m_e}{m_i}\kappa_{ia})B\mathbf{j}\Big] \\
+&=\frac{1-\alpha}{(\kappa_{ea}+\kappa_{ia})B}\Big[ \frac{\alpha(\alpha-1)}{\alpha+1}\nabla p+(1-\alpha)\mathbf{j}\times\mathbf{B}+(\kappa_{ea}+\frac{\alpha}{1-\alpha}\frac{m_e}{m_i}\kappa_{ia})B\mathbf{j}\Big]
+\end{aligned}
+$$
+
+Then we can eliminate $\frac{d\mathbf{u}}{dt}$ and $\mathbf{j}_i$ from the three main equations and get the generalized Ohm's law
+$$
+\begin{aligned}
+\nabla p_e +\frac{\alpha(\alpha-1)}{\alpha+1}r_e \nabla p=&-n_i e(\mathbf{E}+\mathbf{u}\times\mathbf{B})
++\big[1-2r_e(1-\alpha)-\alpha\frac{m_e}{m_i}r_i\big]\mathbf{j}\times\mathbf{B} \\
+&+\big[\kappa_{ei}-(1-r_e)\kappa-\frac{\alpha}{1-\alpha}\frac{m_e}{m_i}r_e\kappa_{ia}\big]B\mathbf{j} \\
+&+\frac{(1-\alpha)^2}{(\kappa_{ea}+\kappa_{ia})B}\big[ \frac{\alpha}{\alpha+1}\nabla p\times\mathbf{B}-\mathbf{j}\times\mathbf{B}\times\mathbf{B} \big]
+\end{aligned}
+$$
+where
+$$
+r_e=\frac{\kappa_{ea}}{\kappa_{ea}+\kappa_{ia}},\quad r_i=\frac{\kappa_{ia}}{\kappa_{ea}+\kappa_{ia}}
+$$
+
+### Simplification of Generalized Ohm's Law
+
+1. If the mean free path of protons is much smaller than that of electrons, i.e. the cross section of proton is much smaller than that of electron,
+$$
+\begin{aligned}
+&\frac{\tau_{ia}}{\tau_{ea}}=\frac{l_{ia}\cdot v_{e,th}}{l_{ea}\cdot v_{i,th}}\propto \Big(\frac{m_i}{m_e}\Big)^{1/2}\cdot\frac{l_{ia}}{l_ea}\ll  \Big(\frac{m_i}{m_e}\Big)^{1/2} \\
+\Rightarrow &\frac{\kappa_{ea}}{\kappa_{ia}}=2\frac{\Omega_i \tau_{ia}}{\Omega_e\tau_{ea}}\propto 2\frac{m_e}{m_i}\cdot\frac{\tau_{ia}}{\tau_{ea}}\propto2\Big( \frac{m_e}{m_i}\Big)^{1/2}\cdot\frac{l_{ia}}{l_{ea}}\ll 1 \\
+\Rightarrow &r_e=\frac{\kappa_{ea}}{\kappa_{ea}+\kappa_{ia}}\ll1\quad 
+r_i=\frac{\kappa_{ia}}{\kappa_{ea}+\kappa_{ia}}\approx 1
+\end{aligned}
+$$
+
+Therefore we have
+$$
+\begin{aligned}
+\nabla p_e&=-n_i e(\mathbf{E}+\mathbf{u}\times\mathbf{B})+\mathbf{j}\times\mathbf{B}+(\kappa_{ei}+\kappa_{ea})B\mathbf{j}+
+\frac{(1-\alpha)^2}{\kappa_{ia}B}\big[ \frac{\alpha}{\alpha+1}\nabla p\times\mathbf{B}-\mathbf{j}\times\mathbf{B}\times\mathbf{B} \big] \\
+\mathbf{j}&=\frac{n_i e}{(\kappa_{ei}+\kappa_{ea})B} (\mathbf{E}+\mathbf{u}\times\mathbf{B})+
+\frac{1}{(\kappa_{ei}+\kappa_{ea})B}\big( \nabla p_e-\mathbf{j}\times\mathbf{B}\big)-
+\frac{(1-\alpha)^2}{\kappa_{ia}(\kappa_{ei}+\kappa_{ea})B}\big[ \frac{\alpha}{\alpha+1}\nabla p\times\mathbf{B}-\mathbf{j}\times\mathbf{B}\times\mathbf{B} \big] 
+\end{aligned}
+$$
+
+2. If EM field is dominant, i.e. EM force $\gg$ thermal pressure gradient, $|\mathbf{j}\times\mathbf{B}|\gg |\nabla p|\sim |\nabla p_e|$, then 
+$$
+\mathbf{j}=\sigma(\mathbf{E}+\mathbf{u}\times\mathbf{B})-\frac{\sigma}{n_i e}\mathbf{j}\times\mathbf{B}+
+\frac{\sigma}{n_i e}\frac{2(1-\alpha)^2 \Omega_i\tau_{ia}}{B}\mathbf{j}\times\mathbf{B}\times\mathbf{B}
+$$
+where $\sigma$ is the electrical conductivity,
+$$
+\sigma=\frac{n_i e^2}{m_e(\tau_{ei}^{-1}+\tau_{ea}^{-1})}
+$$
+
+3. For a fully ionized plasma, $\alpha=1\ \Rightarrow\ \kappa_{ea}=\kappa_{ia}=0$, we have
+$$
+\mathbf{j}=\sigma(\mathbf{E}+\mathbf{u}\times\mathbf{B})+\frac{\sigma}{n_i e}(\nabla p_e -\mathbf{j}\times\mathbf{B})
+$$
+where
+$$
+\sigma=\frac{n_i e^2\tau_{ei}}{m_e}
+$$
+
+Note that the electron pressure gradient term here shows an amazing effect: it can generate EM field out of nothing! This is one theory in astrophysics which describes the origin of EM field.
+
+4. For a fully ionized plasma, if EM field is dominant, we have
+$$
+\begin{aligned}
+\mathbf{j}=\sigma(\mathbf{E}+\mathbf{u}\times\mathbf{B}) -\frac{\sigma}{n_i e}\mathbf{j}\times\mathbf{B}=
+\sigma(\mathbf{E}+\mathbf{u}\times\mathbf{B}) -\Omega_e \tau_{ei}\mathbf{j}\times\mathbf{b}
+\end{aligned}
+$$
+
+5. If there is weak magnetic field and dense plasma, i.e. $n_i \gg 1,\ |\mathbf{B}|\ll 1$, 
+$$
+\mathbf{j}=\sigma(\mathbf{E}+\mathbf{u}\times\mathbf{B})
+$$
+
+### Discussions
+
+In @sec-mhd-ohm, we will see that a relatively simple form can be obtained by assuming that the electron inertia is much smaller than the Lorentz force, which is a good approximation when considering only the perpendicular velocity to the magnetic field.
+
 $$
 \mathbf{E} = -\mathbf{u}\times\mathbf{B} + \eta\mathbf{J} + \frac{1}{en}\mathbf{J}\times\mathbf{B}-\frac{1}{en}\nabla\cdot\overleftrightarrow{P}_e +\frac{m_e}{ne^2}\Big[ \frac{\partial \mathbf{J}}{\partial t}+\nabla\cdot(\mathbf{J}\mathbf{u}+\mathbf{u}\mathbf{J}) \Big]
 $$ {#eq-genearlized_ohm_law}
@@ -706,7 +993,7 @@ A formal proof of the frozen-in flux property will now be established by direct 
 $$
 \Phi(t) = \int_{S(t)} \mathbf{B}(\mathbf{x},t)\cdot\mathrm{d}\mathbf{s}
 $$
-and hte flux changes with respect to time due to either (i) the explicit time dependence of $\mathbf{B}(t)$ or (ii) changes in the surface $S(t)$ resulting from plasma motion. The rate of change of flux is thus
+and the flux changes with respect to time due to either (i) the explicit time dependence of $\mathbf{B}(t)$ or (ii) changes in the surface $S(t)$ resulting from plasma motion. The rate of change of flux is thus
 $$
 \frac{\mathrm{D}\Phi}{\mathrm{D}t} = \lim_{\delta t\rightarrow 0}\left( \frac{ \int_{S(t+\delta t)} \mathbf{B}(\mathbf{x},t+\delta t)\cdot\mathrm{d}\mathbf{s} - \int_{S(t)} \mathbf{B}(\mathbf{x},t)\cdot\mathrm{d}\mathbf{s} }{\delta t} \right)
 $$
