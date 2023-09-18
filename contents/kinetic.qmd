@@ -1099,7 +1099,6 @@ We have seen that Landau damping is directly connected to the requirement that $
 ## Ion Landau Damping
 
 Electrons are not the only resonant particles. If a wave has a slow enough phase velocity to match the thermal velocity of ions, ion Landau damping can occur. The ion acoustic wave, for instance, is greatly affected by Landau damping. Recall from the fluid theory that the dispersion relation for ion waves is
-
 $$
 \frac{\omega}{k} = v_s = \Big( \frac{k_BT_e + \gamma_i k_B T_i}{m_i} \Big)^{1/2}
 $$
@@ -1109,37 +1108,29 @@ If $T_e \le T_i$, the phase velocity lies in the region where $f_{0i}(v)$ has a 
 ### The Plasma Dispersion Function
 
 To introduce some of the standard terminlogy of kinetic theory, we now calculate the ion Landau damping of ion acoustic waves in the absence of magnetic fields. Ions and electrons follow the Vlasov equation and have perturbations of the form $f_1\propto\exp(ikx-i\omega t)$ indicating plane waves propagating in the x direction. The solution for $f_1$ is given by the linearized momentum equation with appropriate modifications:
-
 $$
 f_{1j} = -\frac{iq_jE}{m_j}\frac{\partial f_{oj}/\partial v_j}{\omega-kv_j}
 $$
-
 where $E$ and $v_j$ stand for $E_x, v_{xj}$; and the $j$th species has charge $q_j$, mass $m_j$, and particle velocity $v_j$. The density perturbation of the $j$th species is given by
-
 $$
 n_{1j} = \int_{-\infty}^{\infty}f_{1j}(v_j)dv_j = -\frac{iq_jE}{m_j}\int_{-\infty}^{\infty}\frac{\partial f_{oj}/\partial v_j}{\omega-kv_j}dv_j
 $$
 
 Let the equilibrium distributions $f_{0j}$ be one-dimensional Maxwellians:
-
 $$
 f_{0j} = \frac{n_{0j}}{v_{thj}\pi^{1/2}}e^{-v_j^2/v_{th}^2},\quad v_{thj}\equiv (2k_B T_j/m_j)^{1/2}
 $$
 
 Introducing the dummy integration variable $s = v_j/v_{thj}$, we can write $n_{1j}$ as
-
 $$
 n_{1j} = \frac{iq_j E n_{0j}}{km_j v_{thj}^2}\frac{1}{\pi^{1/2}}\int_{-\infty}^{\infty}\frac{(d/ds)(e^{-s^2})}{s -\zeta_j}ds
 $$
-
 where
-
 $$
 \zeta\equiv \omega/k v_{thj}
 $$
 
 We now define the _plasma dispersion function_ $Z(\zeta)$:
-
 $$
 Z(\zeta) = \frac{1}{\pi^{1/2}}\int_{-\infty}^{\infty}\frac{e^{-s^2}}{s -\zeta}ds\quad \Im(\zeta)>0
 $$ {#eq-plasma_dispersion_function}
@@ -1147,71 +1138,58 @@ $$ {#eq-plasma_dispersion_function}
 (Why positive imaginary part???)This is a contour integral, as explained in previous sections, and analytic continuation to the lower half plane must be used if $\Im(\zeta)<0$. $Z(\zeta)$ is a complex function of a complex argument (since $\omega$ or $k$ usually has an imaginary part). In cases where $Z(\zeta)$ cannot be approximated by an asymptotic formula, one can do it numerically.
 
 To express $n_{1j}$ in terms of $Z(\zeta)$, we take the derivative with respect to $\zeta$:
-
 $$
 Z^\prime(\zeta) = \frac{1}{\pi^{1/2}}\int_{-\infty}^{\infty}\frac{e^{-s^2}}{(s -\zeta)^2}ds
 $$
 
 Integration by parts yields
-
 $$
 Z^\prime(\zeta) = \frac{1}{\pi^{1/2}}\Big[ \frac{-e^{-s^2}}{s-\zeta} \Big]_{-\infty}^{\infty} + \frac{1} {\pi^{1/2}}\int_{-\infty}^{\infty}\frac{(d/ds)(e^{-s^2})}{s -\zeta}ds
 $$
 
 The first term vanishes, as it must for any well-behaved distribution function. Now we have
-
 $$
 n_{1j} = \frac{iq_j E n_{0j}}{km_j v_{thj}^2}Z^\prime(\zeta_j)
 $$
 
 Poisson's equation is
-
 $$
 \epsilon\nabla\cdot\mathbf{E} = ik\epsilon_0E = \sum_j q_j n_{1j}
 $$
 
 Combining the last two equations, separating out the electron term explicitly, and defining
-
 $$
 \Omega_{pj}\equiv(n_{oj}Z_j^2 e^2/\epsilon_0 m_j)^{1/2}
 $$
 
 We obtain the dispersion relation
-
 $$
 k^2 = \frac{\omega_p^2}{v_{the}^2}Z^\prime(\zeta_e) + \sum_j\frac{\Omega_{pj}^2}{v_{thj}^2}Z^\prime(\zeta_j)
 $$
 
 Electron plasma waves can be obtained by setting $\Omega_{pj}=0$ (infinitely massive ions). Defining
-
 $$
 k_D^2 = 2\omega_p^2/v_{the}^2 = \lambda_D^{-2}
 $$
-
 we then obtain
-
 $$
 k/k_D^2 = \frac{1}{2}Z^\prime(\zeta_e)
 $$
-
 which is the same as @eq-dispersion_0th when $f_{0e}$ is Maxwellian.
 
 ### Ion Waves and Their Damping
 
 To obtain ion waves, go back to the plasma dispersion relation and use the fact that their phase velocity $\omega/k$ is much smaller than $v_{the}$; hence $\zeta_e$ is small, and we can expand $Z(\zeta_e)$ in a power series:
-
 $$
 Z(\zeta_e) = i\sqrt{\pi}e^{-\zeta_e^2} - 2\zeta_e(1-\frac{2}{3}\zeta_e^2 + ...)
 $$
 
 The imaginary term comes from the residue at a pole lying near the real $s$ axis and represents electron Landau damping. For $\zeta_e \ll 1$, the derivative of the above gives
-
 $$
 Z^\prime(\zeta_e) = -2i\sqrt{\pi}\zeta_e e^{-\zeta_e^2} - 2 + ... \simeq -2
 $$
 
 Electron Landau damping can usually be neglected in ion waves because the slope of $f_e(v)$ is small near its peak. Replacing $Z^\prime(\zeta_e)$ by -2 in the dispersion relation gives
-
 $$
 \lambda_D\sum_j \frac{\Omega_{pj}^2}{v_{thj}^2}Z^\prime(\zeta_j) = 1+k^2\lambda_D^2 \simeq 1
 $$
@@ -1219,13 +1197,11 @@ $$
 The term $k^2\lambda_D^2$ represents the deviation from quasineutrality. ($1/k\sim L,k^2\lambda_D^2 \sim\lambda_D^2/L^2\ll 1$ where $L$ is the system length scale.)
 
 We now specialize tothe case of a single ion species. Since $n_{0e}=Z_in_{0i}$, the coefficient in the equation above is
-
 $$
 \lambda_D\frac{\Omega_{p}^2}{v_{thi}^2}=\frac{\epsilon k_B T_e}{n_{0e}e^2}\frac{n_{0i}Z^2e^2}{\epsilon m_i}\frac{m_i}{2k_B T_i} = \frac{1}{2}\frac{ZT_e}{T_i}
 $$
 
 For $k_2\lambda_D^2\ll 1$, the dispersion relation becomes
-
 $$
 Z^\prime(\frac{\omega}{kv_{thi}}) = \frac{2T_i}{ZT_e}
 $$
@@ -1233,25 +1209,20 @@ $$
 Solving this equation is a nontrivial problem. Suppose we take real $k$ and complex $\omega$ to study damping in time. Then the real and imaginary parts of $\omega$ must be adjusted so that $\Im(Z^\prime)=0$ and $\Re(Z^\prime) = 2T_i/ZT_e$. There are in general many possible roots $\omega$ that satisfy this, all of them having $\Im(\omega)<0$. The least damped, dominant root is the one having the smallest $|\Im(\omega)|$. Damping in space is usually treated by taking $\omega$ real and $k$ complex. Again we get a series of roots $k$ with $\Im(k)>0$, representing spatial damping. However, the dominant root does not correspond to the same value of $\zeta_i$ as in the complex $\omega$ case. It turns out that the spatial problem has to be treated with special attention to the excitation mechanism at the boundaries and with more careful treatment of the electron term $Z^\prime(\zeta_e)$.
 
 To obtain an analytic result, we consider the limit $\zeta_i \gg 1$, corresponding to large temperature ratio $\theta\equiv ZT_e/T_i$. (???) The asymptotic expression for $Z^\prime(\zeta_i)$ is
-
 $$
 Z^\prime(\zeta_i) = -2i\sqrt{\pi}\zeta_i e^{-\zeta_i^2} + \zeta_i^{-2} + \frac{3}{2}\zeta_i^{-4} + ...
 $$
 
 (I think this can be found from the plasma handbook; it can also be found [here](https://farside.ph.utexas.edu/teaching/plasma/lectures/node87.html)) If the damping is small, we cna neglect the Landau term in the first approximation. The equation becomes
-
 $$
 \frac{1}{\zeta_i^2}\Big( 1+\frac{3}{2}\frac{1}{\zeta_i^2} \Big) = \frac{2}{\theta}
 $$
 
 Since $\theta$ is assumed large, $\zeta_i^2$ is large; and we can approximate $\zeta_i^2$ by $\theta/2$ in the second term. Thus
-
 $$
 \frac{1}{\zeta_i^2}\Big( 1+\frac{3}{\theta} \Big) = \frac{2}{\theta},\quad \zeta_i^2 = \frac{3}{2} + \frac{\theta}{2}
 $$
-
 or
-
 $$
 \frac{\omega^2}{k^2} = \frac{2k_B T_i}{m_i}\Big( \frac{3}{2} + \frac{ZT_e}{2T_i} \Big) = \frac{Zk_B T_e + 3k_B T_i}{m_i}
 $$
@@ -1259,7 +1230,6 @@ $$
 This is the ion wave dispersion relation with $\gamma_i=3$, generalized to arbitrary $Z$.
 
 We now substitue the above approximations back into the dispersion relation retaining the Landau term:
-
 $$
 \begin{aligned}
 \frac{1}{\zeta_i^2}\Big( 1+\frac{3}{\theta} \Big) - 2i\sqrt{\pi}\zeta_i e^{-\zeta_i^2} = \frac{2}{\theta} \\
@@ -1269,19 +1239,16 @@ $$
 $$
 
 Expanding the square root, we have
-
 $$
 \zeta_i \simeq \Big(\frac{3+\theta}{2}\Big)^{1/2}\Big(1-\frac{1}{2}i\sqrt{\pi}\theta\zeta_i e^{-\zeta_i^2}\Big)
 $$
 
 The approximate damping rate is found by using the above approximation in the imaginary term:
-
 $$
 -\frac{\Im(\zeta_i)}{\Re(\zeta_i)} = \frac{\Im(\omega)}{\Re(\omega)} = \Big(\frac{\pi}{8} \Big)^{1/2}\theta (3+\theta)^{1/2} e^{-(3+\theta)/2}
 $$
 
 This asymptotic expression, accurate for large $\theta$, shows an exponential decrease in damping with increasing $\theta$. When $\theta$ falls below 10, this expression becomes inacuurate, and the damping must be computed from the original expression which employs the Z-function. For the experimentally interesting region $1<\theta<10$, the following simple formula is ananalytic fit to the exact solution:
-
 $$
 -\Im(\omega)/\Re(\omega) = 1.1\theta^{7/4}\exp(-\theta^2)
 $$
