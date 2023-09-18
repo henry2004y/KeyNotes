@@ -1191,131 +1191,98 @@ W_w = \frac{\epsilon E_1^2}{2}
 </section>
 <section id="ion-landau-damping" class="level2" data-number="8.9">
 <h2 data-number="8.9" class="anchored" data-anchor-id="ion-landau-damping"><span class="header-section-number">8.9</span> Ion Landau Damping</h2>
-<p>Electrons are not the only resonant particles. If a wave has a slow enough phase velocity to match the thermal velocity of ions, ion Landau damping can occur. The ion acoustic wave, for instance, is greatly affected by Landau damping. Recall from the fluid theory that the dispersion relation for ion waves is</p>
-<p><span class="math display">\[
+<p>Electrons are not the only resonant particles. If a wave has a slow enough phase velocity to match the thermal velocity of ions, ion Landau damping can occur. The ion acoustic wave, for instance, is greatly affected by Landau damping. Recall from the fluid theory that the dispersion relation for ion waves is <span class="math display">\[
 \frac{\omega}{k} = v_s = \Big( \frac{k_BT_e + \gamma_i k_B T_i}{m_i} \Big)^{1/2}
 \]</span></p>
 <p>If <span class="math inline">\(T_e \le T_i\)</span>, the phase velocity lies in the region where <span class="math inline">\(f_{0i}(v)\)</span> has a negative slope, as shown in Fig.7-30(A)(ADD IT!!!). Consequently, ion waves are heavily Landau-damped if <span class="math inline">\(T_e \le T_i\)</span>. Ion waves are observable only if <span class="math inline">\(T_e \gg T_i\)</span>(Fig.7-30(B)), so that the phase velocity lies far in the tail of the ion velocity distribution. A clever way to introduce Landau damping in a controlled manner was employed by Alexeff, Jones, and Montgomery. A weakly damped ion wave was created in a heavy-ion plasma (such as xenon) with <span class="math inline">\(T_e \gg T_i\)</span>. A small amount of a light atom (helium) was then added. Since the helium had about the temperature as the xenon but had much smaller mass, its distribution function was much broader, as shown by the dashed curve in Fig.7-30(B). The resonant helium ions then caused the wave to damp.</p>
 <section id="the-plasma-dispersion-function" class="level3" data-number="8.9.1">
 <h3 data-number="8.9.1" class="anchored" data-anchor-id="the-plasma-dispersion-function"><span class="header-section-number">8.9.1</span> The Plasma Dispersion Function</h3>
-<p>To introduce some of the standard terminlogy of kinetic theory, we now calculate the ion Landau damping of ion acoustic waves in the absence of magnetic fields. Ions and electrons follow the Vlasov equation and have perturbations of the form <span class="math inline">\(f_1\propto\exp(ikx-i\omega t)\)</span> indicating plane waves propagating in the x direction. The solution for <span class="math inline">\(f_1\)</span> is given by the linearized momentum equation with appropriate modifications:</p>
-<p><span class="math display">\[
+<p>To introduce some of the standard terminlogy of kinetic theory, we now calculate the ion Landau damping of ion acoustic waves in the absence of magnetic fields. Ions and electrons follow the Vlasov equation and have perturbations of the form <span class="math inline">\(f_1\propto\exp(ikx-i\omega t)\)</span> indicating plane waves propagating in the x direction. The solution for <span class="math inline">\(f_1\)</span> is given by the linearized momentum equation with appropriate modifications: <span class="math display">\[
 f_{1j} = -\frac{iq_jE}{m_j}\frac{\partial f_{oj}/\partial v_j}{\omega-kv_j}
-\]</span></p>
-<p>where <span class="math inline">\(E\)</span> and <span class="math inline">\(v_j\)</span> stand for <span class="math inline">\(E_x, v_{xj}\)</span>; and the <span class="math inline">\(j\)</span>th species has charge <span class="math inline">\(q_j\)</span>, mass <span class="math inline">\(m_j\)</span>, and particle velocity <span class="math inline">\(v_j\)</span>. The density perturbation of the <span class="math inline">\(j\)</span>th species is given by</p>
-<p><span class="math display">\[
+\]</span> where <span class="math inline">\(E\)</span> and <span class="math inline">\(v_j\)</span> stand for <span class="math inline">\(E_x, v_{xj}\)</span>; and the <span class="math inline">\(j\)</span>th species has charge <span class="math inline">\(q_j\)</span>, mass <span class="math inline">\(m_j\)</span>, and particle velocity <span class="math inline">\(v_j\)</span>. The density perturbation of the <span class="math inline">\(j\)</span>th species is given by <span class="math display">\[
 n_{1j} = \int_{-\infty}^{\infty}f_{1j}(v_j)dv_j = -\frac{iq_jE}{m_j}\int_{-\infty}^{\infty}\frac{\partial f_{oj}/\partial v_j}{\omega-kv_j}dv_j
 \]</span></p>
-<p>Let the equilibrium distributions <span class="math inline">\(f_{0j}\)</span> be one-dimensional Maxwellians:</p>
-<p><span class="math display">\[
+<p>Let the equilibrium distributions <span class="math inline">\(f_{0j}\)</span> be one-dimensional Maxwellians: <span class="math display">\[
 f_{0j} = \frac{n_{0j}}{v_{thj}\pi^{1/2}}e^{-v_j^2/v_{th}^2},\quad v_{thj}\equiv (2k_B T_j/m_j)^{1/2}
 \]</span></p>
-<p>Introducing the dummy integration variable <span class="math inline">\(s = v_j/v_{thj}\)</span>, we can write <span class="math inline">\(n_{1j}\)</span> as</p>
-<p><span class="math display">\[
+<p>Introducing the dummy integration variable <span class="math inline">\(s = v_j/v_{thj}\)</span>, we can write <span class="math inline">\(n_{1j}\)</span> as <span class="math display">\[
 n_{1j} = \frac{iq_j E n_{0j}}{km_j v_{thj}^2}\frac{1}{\pi^{1/2}}\int_{-\infty}^{\infty}\frac{(d/ds)(e^{-s^2})}{s -\zeta_j}ds
-\]</span></p>
-<p>where</p>
-<p><span class="math display">\[
+\]</span> where <span class="math display">\[
 \zeta\equiv \omega/k v_{thj}
 \]</span></p>
-<p>We now define the <em>plasma dispersion function</em> <span class="math inline">\(Z(\zeta)\)</span>:</p>
-<p><span id="eq-plasma_dispersion_function"><span class="math display">\[
+<p>We now define the <em>plasma dispersion function</em> <span class="math inline">\(Z(\zeta)\)</span>: <span id="eq-plasma_dispersion_function"><span class="math display">\[
 Z(\zeta) = \frac{1}{\pi^{1/2}}\int_{-\infty}^{\infty}\frac{e^{-s^2}}{s -\zeta}ds\quad \Im(\zeta)&gt;0
 \tag{8.33}\]</span></span></p>
 <p>(Why positive imaginary part???)This is a contour integral, as explained in previous sections, and analytic continuation to the lower half plane must be used if <span class="math inline">\(\Im(\zeta)&lt;0\)</span>. <span class="math inline">\(Z(\zeta)\)</span> is a complex function of a complex argument (since <span class="math inline">\(\omega\)</span> or <span class="math inline">\(k\)</span> usually has an imaginary part). In cases where <span class="math inline">\(Z(\zeta)\)</span> cannot be approximated by an asymptotic formula, one can do it numerically.</p>
-<p>To express <span class="math inline">\(n_{1j}\)</span> in terms of <span class="math inline">\(Z(\zeta)\)</span>, we take the derivative with respect to <span class="math inline">\(\zeta\)</span>:</p>
-<p><span class="math display">\[
+<p>To express <span class="math inline">\(n_{1j}\)</span> in terms of <span class="math inline">\(Z(\zeta)\)</span>, we take the derivative with respect to <span class="math inline">\(\zeta\)</span>: <span class="math display">\[
 Z^\prime(\zeta) = \frac{1}{\pi^{1/2}}\int_{-\infty}^{\infty}\frac{e^{-s^2}}{(s -\zeta)^2}ds
 \]</span></p>
-<p>Integration by parts yields</p>
-<p><span class="math display">\[
+<p>Integration by parts yields <span class="math display">\[
 Z^\prime(\zeta) = \frac{1}{\pi^{1/2}}\Big[ \frac{-e^{-s^2}}{s-\zeta} \Big]_{-\infty}^{\infty} + \frac{1} {\pi^{1/2}}\int_{-\infty}^{\infty}\frac{(d/ds)(e^{-s^2})}{s -\zeta}ds
 \]</span></p>
-<p>The first term vanishes, as it must for any well-behaved distribution function. Now we have</p>
-<p><span class="math display">\[
+<p>The first term vanishes, as it must for any well-behaved distribution function. Now we have <span class="math display">\[
 n_{1j} = \frac{iq_j E n_{0j}}{km_j v_{thj}^2}Z^\prime(\zeta_j)
 \]</span></p>
-<p>Poisson’s equation is</p>
-<p><span class="math display">\[
+<p>Poisson’s equation is <span class="math display">\[
 \epsilon\nabla\cdot\mathbf{E} = ik\epsilon_0E = \sum_j q_j n_{1j}
 \]</span></p>
-<p>Combining the last two equations, separating out the electron term explicitly, and defining</p>
-<p><span class="math display">\[
+<p>Combining the last two equations, separating out the electron term explicitly, and defining <span class="math display">\[
 \Omega_{pj}\equiv(n_{oj}Z_j^2 e^2/\epsilon_0 m_j)^{1/2}
 \]</span></p>
-<p>We obtain the dispersion relation</p>
-<p><span class="math display">\[
+<p>We obtain the dispersion relation <span class="math display">\[
 k^2 = \frac{\omega_p^2}{v_{the}^2}Z^\prime(\zeta_e) + \sum_j\frac{\Omega_{pj}^2}{v_{thj}^2}Z^\prime(\zeta_j)
 \]</span></p>
-<p>Electron plasma waves can be obtained by setting <span class="math inline">\(\Omega_{pj}=0\)</span> (infinitely massive ions). Defining</p>
-<p><span class="math display">\[
+<p>Electron plasma waves can be obtained by setting <span class="math inline">\(\Omega_{pj}=0\)</span> (infinitely massive ions). Defining <span class="math display">\[
 k_D^2 = 2\omega_p^2/v_{the}^2 = \lambda_D^{-2}
-\]</span></p>
-<p>we then obtain</p>
-<p><span class="math display">\[
+\]</span> we then obtain <span class="math display">\[
 k/k_D^2 = \frac{1}{2}Z^\prime(\zeta_e)
-\]</span></p>
-<p>which is the same as <a href="#eq-dispersion_0th">Equation&nbsp;<span>8.30</span></a> when <span class="math inline">\(f_{0e}\)</span> is Maxwellian.</p>
+\]</span> which is the same as <a href="#eq-dispersion_0th">Equation&nbsp;<span>8.30</span></a> when <span class="math inline">\(f_{0e}\)</span> is Maxwellian.</p>
 </section>
 <section id="ion-waves-and-their-damping" class="level3" data-number="8.9.2">
 <h3 data-number="8.9.2" class="anchored" data-anchor-id="ion-waves-and-their-damping"><span class="header-section-number">8.9.2</span> Ion Waves and Their Damping</h3>
-<p>To obtain ion waves, go back to the plasma dispersion relation and use the fact that their phase velocity <span class="math inline">\(\omega/k\)</span> is much smaller than <span class="math inline">\(v_{the}\)</span>; hence <span class="math inline">\(\zeta_e\)</span> is small, and we can expand <span class="math inline">\(Z(\zeta_e)\)</span> in a power series:</p>
-<p><span class="math display">\[
+<p>To obtain ion waves, go back to the plasma dispersion relation and use the fact that their phase velocity <span class="math inline">\(\omega/k\)</span> is much smaller than <span class="math inline">\(v_{the}\)</span>; hence <span class="math inline">\(\zeta_e\)</span> is small, and we can expand <span class="math inline">\(Z(\zeta_e)\)</span> in a power series: <span class="math display">\[
 Z(\zeta_e) = i\sqrt{\pi}e^{-\zeta_e^2} - 2\zeta_e(1-\frac{2}{3}\zeta_e^2 + ...)
 \]</span></p>
-<p>The imaginary term comes from the residue at a pole lying near the real <span class="math inline">\(s\)</span> axis and represents electron Landau damping. For <span class="math inline">\(\zeta_e \ll 1\)</span>, the derivative of the above gives</p>
-<p><span class="math display">\[
+<p>The imaginary term comes from the residue at a pole lying near the real <span class="math inline">\(s\)</span> axis and represents electron Landau damping. For <span class="math inline">\(\zeta_e \ll 1\)</span>, the derivative of the above gives <span class="math display">\[
 Z^\prime(\zeta_e) = -2i\sqrt{\pi}\zeta_e e^{-\zeta_e^2} - 2 + ... \simeq -2
 \]</span></p>
-<p>Electron Landau damping can usually be neglected in ion waves because the slope of <span class="math inline">\(f_e(v)\)</span> is small near its peak. Replacing <span class="math inline">\(Z^\prime(\zeta_e)\)</span> by -2 in the dispersion relation gives</p>
-<p><span class="math display">\[
+<p>Electron Landau damping can usually be neglected in ion waves because the slope of <span class="math inline">\(f_e(v)\)</span> is small near its peak. Replacing <span class="math inline">\(Z^\prime(\zeta_e)\)</span> by -2 in the dispersion relation gives <span class="math display">\[
 \lambda_D\sum_j \frac{\Omega_{pj}^2}{v_{thj}^2}Z^\prime(\zeta_j) = 1+k^2\lambda_D^2 \simeq 1
 \]</span></p>
 <p>The term <span class="math inline">\(k^2\lambda_D^2\)</span> represents the deviation from quasineutrality. (<span class="math inline">\(1/k\sim L,k^2\lambda_D^2 \sim\lambda_D^2/L^2\ll 1\)</span> where <span class="math inline">\(L\)</span> is the system length scale.)</p>
-<p>We now specialize tothe case of a single ion species. Since <span class="math inline">\(n_{0e}=Z_in_{0i}\)</span>, the coefficient in the equation above is</p>
-<p><span class="math display">\[
+<p>We now specialize tothe case of a single ion species. Since <span class="math inline">\(n_{0e}=Z_in_{0i}\)</span>, the coefficient in the equation above is <span class="math display">\[
 \lambda_D\frac{\Omega_{p}^2}{v_{thi}^2}=\frac{\epsilon k_B T_e}{n_{0e}e^2}\frac{n_{0i}Z^2e^2}{\epsilon m_i}\frac{m_i}{2k_B T_i} = \frac{1}{2}\frac{ZT_e}{T_i}
 \]</span></p>
-<p>For <span class="math inline">\(k_2\lambda_D^2\ll 1\)</span>, the dispersion relation becomes</p>
-<p><span class="math display">\[
+<p>For <span class="math inline">\(k_2\lambda_D^2\ll 1\)</span>, the dispersion relation becomes <span class="math display">\[
 Z^\prime(\frac{\omega}{kv_{thi}}) = \frac{2T_i}{ZT_e}
 \]</span></p>
 <p>Solving this equation is a nontrivial problem. Suppose we take real <span class="math inline">\(k\)</span> and complex <span class="math inline">\(\omega\)</span> to study damping in time. Then the real and imaginary parts of <span class="math inline">\(\omega\)</span> must be adjusted so that <span class="math inline">\(\Im(Z^\prime)=0\)</span> and <span class="math inline">\(\Re(Z^\prime) = 2T_i/ZT_e\)</span>. There are in general many possible roots <span class="math inline">\(\omega\)</span> that satisfy this, all of them having <span class="math inline">\(\Im(\omega)&lt;0\)</span>. The least damped, dominant root is the one having the smallest <span class="math inline">\(|\Im(\omega)|\)</span>. Damping in space is usually treated by taking <span class="math inline">\(\omega\)</span> real and <span class="math inline">\(k\)</span> complex. Again we get a series of roots <span class="math inline">\(k\)</span> with <span class="math inline">\(\Im(k)&gt;0\)</span>, representing spatial damping. However, the dominant root does not correspond to the same value of <span class="math inline">\(\zeta_i\)</span> as in the complex <span class="math inline">\(\omega\)</span> case. It turns out that the spatial problem has to be treated with special attention to the excitation mechanism at the boundaries and with more careful treatment of the electron term <span class="math inline">\(Z^\prime(\zeta_e)\)</span>.</p>
-<p>To obtain an analytic result, we consider the limit <span class="math inline">\(\zeta_i \gg 1\)</span>, corresponding to large temperature ratio <span class="math inline">\(\theta\equiv ZT_e/T_i\)</span>. (???) The asymptotic expression for <span class="math inline">\(Z^\prime(\zeta_i)\)</span> is</p>
-<p><span class="math display">\[
+<p>To obtain an analytic result, we consider the limit <span class="math inline">\(\zeta_i \gg 1\)</span>, corresponding to large temperature ratio <span class="math inline">\(\theta\equiv ZT_e/T_i\)</span>. (???) The asymptotic expression for <span class="math inline">\(Z^\prime(\zeta_i)\)</span> is <span class="math display">\[
 Z^\prime(\zeta_i) = -2i\sqrt{\pi}\zeta_i e^{-\zeta_i^2} + \zeta_i^{-2} + \frac{3}{2}\zeta_i^{-4} + ...
 \]</span></p>
-<p>(I think this can be found from the plasma handbook; it can also be found <a href="https://farside.ph.utexas.edu/teaching/plasma/lectures/node87.html">here</a>) If the damping is small, we cna neglect the Landau term in the first approximation. The equation becomes</p>
-<p><span class="math display">\[
+<p>(I think this can be found from the plasma handbook; it can also be found <a href="https://farside.ph.utexas.edu/teaching/plasma/lectures/node87.html">here</a>) If the damping is small, we cna neglect the Landau term in the first approximation. The equation becomes <span class="math display">\[
 \frac{1}{\zeta_i^2}\Big( 1+\frac{3}{2}\frac{1}{\zeta_i^2} \Big) = \frac{2}{\theta}
 \]</span></p>
-<p>Since <span class="math inline">\(\theta\)</span> is assumed large, <span class="math inline">\(\zeta_i^2\)</span> is large; and we can approximate <span class="math inline">\(\zeta_i^2\)</span> by <span class="math inline">\(\theta/2\)</span> in the second term. Thus</p>
-<p><span class="math display">\[
+<p>Since <span class="math inline">\(\theta\)</span> is assumed large, <span class="math inline">\(\zeta_i^2\)</span> is large; and we can approximate <span class="math inline">\(\zeta_i^2\)</span> by <span class="math inline">\(\theta/2\)</span> in the second term. Thus <span class="math display">\[
 \frac{1}{\zeta_i^2}\Big( 1+\frac{3}{\theta} \Big) = \frac{2}{\theta},\quad \zeta_i^2 = \frac{3}{2} + \frac{\theta}{2}
-\]</span></p>
-<p>or</p>
-<p><span class="math display">\[
+\]</span> or <span class="math display">\[
 \frac{\omega^2}{k^2} = \frac{2k_B T_i}{m_i}\Big( \frac{3}{2} + \frac{ZT_e}{2T_i} \Big) = \frac{Zk_B T_e + 3k_B T_i}{m_i}
 \]</span></p>
 <p>This is the ion wave dispersion relation with <span class="math inline">\(\gamma_i=3\)</span>, generalized to arbitrary <span class="math inline">\(Z\)</span>.</p>
-<p>We now substitue the above approximations back into the dispersion relation retaining the Landau term:</p>
-<p><span class="math display">\[
+<p>We now substitue the above approximations back into the dispersion relation retaining the Landau term: <span class="math display">\[
 \begin{aligned}
 \frac{1}{\zeta_i^2}\Big( 1+\frac{3}{\theta} \Big) - 2i\sqrt{\pi}\zeta_i e^{-\zeta_i^2} = \frac{2}{\theta} \\
 \frac{1}{\zeta_i^2}\Big( 1+\frac{3}{\theta} \Big) = \frac{2}{\theta}(1+i\sqrt{\pi}\theta\zeta_i e^{-\zeta_i^2}) \\
 \zeta_i^2 = \Big(\frac{3+\theta}{2}\Big)^{1/2}(1+i\sqrt{\pi}\theta\zeta_i e^{-\zeta_i^2})^{-1}
 \end{aligned}
 \]</span></p>
-<p>Expanding the square root, we have</p>
-<p><span class="math display">\[
+<p>Expanding the square root, we have <span class="math display">\[
 \zeta_i \simeq \Big(\frac{3+\theta}{2}\Big)^{1/2}\Big(1-\frac{1}{2}i\sqrt{\pi}\theta\zeta_i e^{-\zeta_i^2}\Big)
 \]</span></p>
-<p>The approximate damping rate is found by using the above approximation in the imaginary term:</p>
-<p><span class="math display">\[
+<p>The approximate damping rate is found by using the above approximation in the imaginary term: <span class="math display">\[
 -\frac{\Im(\zeta_i)}{\Re(\zeta_i)} = \frac{\Im(\omega)}{\Re(\omega)} = \Big(\frac{\pi}{8} \Big)^{1/2}\theta (3+\theta)^{1/2} e^{-(3+\theta)/2}
 \]</span></p>
-<p>This asymptotic expression, accurate for large <span class="math inline">\(\theta\)</span>, shows an exponential decrease in damping with increasing <span class="math inline">\(\theta\)</span>. When <span class="math inline">\(\theta\)</span> falls below 10, this expression becomes inacuurate, and the damping must be computed from the original expression which employs the Z-function. For the experimentally interesting region <span class="math inline">\(1&lt;\theta&lt;10\)</span>, the following simple formula is ananalytic fit to the exact solution:</p>
-<p><span class="math display">\[
+<p>This asymptotic expression, accurate for large <span class="math inline">\(\theta\)</span>, shows an exponential decrease in damping with increasing <span class="math inline">\(\theta\)</span>. When <span class="math inline">\(\theta\)</span> falls below 10, this expression becomes inacuurate, and the damping must be computed from the original expression which employs the Z-function. For the experimentally interesting region <span class="math inline">\(1&lt;\theta&lt;10\)</span>, the following simple formula is ananalytic fit to the exact solution: <span class="math display">\[
 -\Im(\omega)/\Re(\omega) = 1.1\theta^{7/4}\exp(-\theta^2)
 \]</span></p>
 <p>What happens when collisions are added to ion Landau damping? Surprisingly little. Ion-electron collisions are weak because the ion and electron fluids move almost in unison, creating little friction between them. Ion-ion collisions (ion viscosity) can damp ion acoustic waves, but we know that sound waves in air can propagate well in spite of the dominance of collisions. Actually, collisions spoil the particle resonances that cause Landau damping, and one finds that the total damping is <em>less</em> than the Landau damping unless the collision rate is extremely large. In summary, ion Landau damping is almost always the dominant process with ion waves, and this varies exponentially with the ratio <span class="math inline">\(ZT_e/T_i\)</span>.</p>

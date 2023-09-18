@@ -455,36 +455,29 @@ D\equiv k_B T/ m\nu\quad\text{Diffusion coefficient}
 <p>We now consider how a plasma created in a container decays by diffusion to the walls. Once ions and electrons reach the wall, they recombine there. The density near the wall, therefore, is essentially zero. The fluid equations of motion and continuity govern the plasma behavior; but if the decay is slow, we need only keep the time derivative in the continuity equation. The time derivative in the equation of motion, will be negligible if the collision frequency <span class="math inline">\(\nu\)</span> is large. We thus have</p>
 <p><span id="eq-diffusion_continuity"><span class="math display">\[
 \frac{\partial n}{\partial t} + \nabla\cdot\Gamma_s = 0
-\tag{6.8}\]</span></span></p>
-<p>with <span class="math inline">\(\Gamma_s\)</span> given by <a href="#eq-species_flux">Equation&nbsp;<span>6.7</span></a>. It is clear that if <span class="math inline">\(\Gamma_i\)</span> and <span class="math inline">\(\Gamma_e\)</span> were not equal, a serious charge imbalance would soon arise. If the plasma is much larger than a Debye length, it must be quasineutral; and one would expect that the rates of diffusion of ions and electrons would somehow adjust themselves so that the two species leave at the same rate. How this happens is easy to see. The electrons, being lighter, have higher thermal velocities and tend to leave the plasma first. A positive charge is left behind, and an electric field is set up of such a polarity as to retard the loss of electrons and accelerate the loss of ions. The required <span class="math inline">\(\mathbf{E}\)</span> field is found by setting <span class="math inline">\(\Gamma_i=\Gamma_e=\Gamma\)</span>. From @<a href="#eq-species_flux">Equation&nbsp;<span>6.7</span></a>, we can write</p>
+\tag{6.8}\]</span></span> with <span class="math inline">\(\Gamma_s\)</span> given by <a href="#eq-species_flux">Equation&nbsp;<span>6.7</span></a>. It is clear that if <span class="math inline">\(\Gamma_i\)</span> and <span class="math inline">\(\Gamma_e\)</span> were not equal, a serious charge imbalance would soon arise. If the plasma is much larger than a Debye length, it must be quasineutral; and one would expect that the rates of diffusion of ions and electrons would somehow adjust themselves so that the two species leave at the same rate. How this happens is easy to see. The electrons, being lighter, have higher thermal velocities and tend to leave the plasma first. A positive charge is left behind, and an electric field is set up of such a polarity as to retard the loss of electrons and accelerate the loss of ions. The required <span class="math inline">\(\mathbf{E}\)</span> field is found by setting <span class="math inline">\(\Gamma_i=\Gamma_e=\Gamma\)</span>. From @<a href="#eq-species_flux">Equation&nbsp;<span>6.7</span></a>, we can write</p>
 <p><span class="math display">\[
 \Gamma = \mu_i n\mathbf{E} - D_i \nabla n = -\mu_e n\mathbf{E} - D_e\nabla n
 \]</span></p>
 <p><span class="math display">\[
 \mathbf{E} = \frac{D_i - D_e}{\mu_i + \mu_e}\frac{\nabla n}{n}
 \]</span></p>
-<p>The common flux <span class="math inline">\(\Gamma\)</span> is then given by</p>
-<p><span class="math display">\[
+<p>The common flux <span class="math inline">\(\Gamma\)</span> is then given by <span class="math display">\[
 \begin{aligned}
 \Gamma &amp;= \mu_i\frac{D_i - D_e}{\mu_i + \mu_e}\nabla n - D_i \nabla n \\
 &amp;=\frac{\mu_iD_i - \mu_iD_e - \mu_iD_i - \mu_eD_i}{\mu_i + \mu_e}\nabla n \\
 &amp;=-\frac{\mu_iD_e + \mu_eD_i}{\mu_i+\mu_e}\nabla n
 \end{aligned}
 \]</span></p>
-<p>This is Fick’s law with a new diffusion coefficient</p>
-<p><span id="eq-ambipolar_diffusion_coef"><span class="math display">\[
+<p>This is Fick’s law with a new diffusion coefficient <span id="eq-ambipolar_diffusion_coef"><span class="math display">\[
 D_a \equiv \frac{\mu_iD_e + \mu_eD_i}{\mu_i+\mu_e}
-\tag{6.9}\]</span></span></p>
-<p>called the <em>ambipolar diffusion coefficient</em>. If this is constant, the continuity equation above becomes simply</p>
-<p><span id="eq-ambipolar_diffusion"><span class="math display">\[
+\tag{6.9}\]</span></span> called the <em>ambipolar diffusion coefficient</em>. If this is constant, the continuity equation above becomes simply <span id="eq-ambipolar_diffusion"><span class="math display">\[
 \frac{\partial n}{\partial t} = D_a \nabla^2 n
 \tag{6.10}\]</span></span></p>
-<p>The magnitude of Da can be estimated if we take <span class="math inline">\(\mu_e\gg\mu_i\)</span>. That this is true can be seen from <a href="#eq-mobility">Equation&nbsp;<span>6.4</span></a>. Since <span class="math inline">\(\nu\)</span> is proportional to the thermal velocity, which is proportional to <span class="math inline">\(m^{-1/2}\)</span>, <span class="math inline">\(\mu\)</span> is proportional to <span class="math inline">\(m^{-1/2}\)</span>. <a href="#eq-mobility">Equation&nbsp;<span>6.4</span></a> and <a href="#eq-ambipolar_diffusion_coef">Equation&nbsp;<span>6.9</span></a> then give</p>
-<p><span class="math display">\[
+<p>The magnitude of Da can be estimated if we take <span class="math inline">\(\mu_e\gg\mu_i\)</span>. That this is true can be seen from <a href="#eq-mobility">Equation&nbsp;<span>6.4</span></a>. Since <span class="math inline">\(\nu\)</span> is proportional to the thermal velocity, which is proportional to <span class="math inline">\(m^{-1/2}\)</span>, <span class="math inline">\(\mu\)</span> is proportional to <span class="math inline">\(m^{-1/2}\)</span>. <a href="#eq-mobility">Equation&nbsp;<span>6.4</span></a> and <a href="#eq-ambipolar_diffusion_coef">Equation&nbsp;<span>6.9</span></a> then give <span class="math display">\[
 D_a \approx D_i + \frac{\mu_i}{\mu_e}D_e = D_i + \frac{T_e}{T_i}D_i
 \]</span></p>
-<p>For <span class="math inline">\(T_e = T_i\)</span>, we have</p>
-<p><span class="math display">\[
+<p>For <span class="math inline">\(T_e = T_i\)</span>, we have <span class="math display">\[
 D_a \approx 2D_i
 \]</span></p>
 <p>The effect of the ambipolar electric field is to enhance the diffusion of ions by a factor of two, and the diffusion rate of the two species together is primarily controlled by the slower species.</p>
