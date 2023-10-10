@@ -12,9 +12,9 @@ $$
 $$
 
 $$
-\mathbf{J} = \sum_s q_s n_s \mathbf{V}_s - e n_e \mathbf{V}_e
+\mathbf{J} = \sum_s q_s n_s \mathbf{u}_s - e n_e \mathbf{u}_e
 $$
-where $q_s, n_s, \mathbf{V}_s$ are the charge, number density and bulk velocity of ion species s calculated by taking moments of the distribution function
+where $q_s, n_s, \mathbf{U}_s$ are the charge, number density and bulk velocity of ion species s calculated by taking moments of the distribution function
 $$
 n_s = \int \mathrm{d}^3 v f_s(\mathbf{r}_s,\mathbf{v}_s,t)
 $$
@@ -32,10 +32,10 @@ The electron density thus can be written by using ion densities $n_e \approx n_i
 In addition, the electron bulk velocity may also be eliminated using Ampère's law
 $$
 \mathbf{J} = \mu_0^{-1}\nabla\times\mathbf{B}
-$$
+$$ {#eq-hybrid_ampere}
 and the relation
 $$
-\mathbf{v}_e = \mathbf{v}_i - \mathbf{J}/n_e e
+\mathbf{u}_e = \mathbf{u}_i - \mathbf{J}/n_e e
 $$ {#eq-hybrid_Je}
 
 The basic equations used in the conventional PIC hybrid model first has a particle pusher for individual ions
@@ -59,14 +59,20 @@ $$
 
 The generalized Ohm's law is used to determine the time evolution of the electric field, derived from the electron momentum equation assuming $m_e \rightarrow 0$,
 $$
-\mathbf{E} = - \mathbf{V}_i \times \mathbf{B} + \frac{1}{\mu_0 n_i e}(\nabla\times\mathbf{B})\times\mathbf{B} - \frac{1}{n_i e}\nabla\cdot\overleftrightarrow{P}_e + \eta \mathbf{J}
+\mathbf{E} = - \mathbf{u}_i \times \mathbf{B} + \frac{1}{\mu_0 n_e e}(\nabla\times\mathbf{B})\times\mathbf{B} - \frac{1}{n_e e}\nabla\cdot\overleftrightarrow{P}_e + \mathbf{R}_{ei}
 $$ {#eq-hybrid_ohm}
-where the current in the Hall term has already been replaced by the curvature of B. The last term can either represent collision/physical resistivity, or artificial resistivity/numerical diffusion.
+where the current in the Hall term has already been replaced by the curvature of B. Note that the density has been written with electron number density, instead of ion density, to avoid the confusion for multiple ion species under the quasi-neutrality condition. The last term $\mathbf{R}_{ei}$ can either represent collision/physical resistivity, or artificial resistivity/numerical diffusion. For electromagnetic problems, it can include resistive and hyper-resistive terms of the form
+$$
+\mathbf{R}_{ei} = \eta \mathbf{J} + \eta_H\nabla^2\mathbf{J}
+$$
+where the resistivity $\eta$ may be thought of as accounting in a simple way for electron-ion collisions, and the hyper-resistivity $\eta_H$ may represent an electron viscosity and helps with numerical stability by damping grid-scale oscillations. In addition, $\mathbf{R}_{ei}$ can also include contributions from explicit friction or other momentum exchange terms in the particle collision models.
 
 The magnetic fields evolve according to Faraday's law
 $$
 \frac{\partial \mathbf{B}}{\partial t} = -\nabla\times\mathbf{E}
 $$
+
+The Hall term supports Whistler waves, which usually place the strongest limit on the time step in hybrid PIC codes. The Courant–Friedrichs–Lewy (CFL) condition for Whistler waves on the time step is typically $\Omega_{ci}\Delta t < (\Delta x/ d_i)^2/\pi$. Updating the magnetic field including the Hall term turns out to be a stiff problem, thus requires smaller time step sub-cycling in many practical cases. This is most useful when the grid resolution is very fine with $\Delta x\ll d_i$.
 
 Finally, by determining the electron pressure tensor by using an appropriate equation of state, the evolution of the system can be followed in time. For example, let $\overleftrightarrow{P}_e = P_e \overleftrightarrow{I}$ where $P_e$ is the isotropic scalar electron pressure. In the simplest form
 $$
@@ -77,6 +83,18 @@ $$
 P_e = n_e^\gamma k_B T_e = n_0(n/n_0)^\gamma k_B T_{e0}
 $$
 where $\gamma=5/3$ is the adiabatic index for a monatomic ideal gas.
+
+For more complicated systems with gradients in the initial conditions, a separate electron energy evolution equation is required. This takes the form
+$$
+\frac{\partial P_e}{\partial t} = -\gamma \nabla\cdot(P_e \mathbf{u}_e) + (\gamma-1)\mathbf{u}_e\cdot\nabla P_e + (\gamma-1)(-\nabla\cdot\mathbf{Q}_e + H_{ei})
+$$ {#eq-hybrid_pe_evolution}
+where the electron bulk velocity is inferred from @eq-hybrid_Je, with the current from @eq-hybrid_ampere. If used in place of a simple equation of state, @eq-hybrid_pe_evolution is integrated in time within the same numerical loop as the magnetic field evolution. For many problems, the electron heat flux may be modeled with a heat conductivity $\kappa$ as
+$$
+\mathbf{Q_e} = -\kappa \nabla T_e
+$$
+where $\kappa = \kappa_e + \kappa_0$, $\kappa_e$ is given by a physical model and may depend on the local plasma conditions, and $\kappa_0$ is a small ($\kappa_0\sim 0.01 - 0.1 \kappa_e$ for models with a physical heat conductivity, or $\kappa_0\sim 0.01 n_0 d_i V_A$ for magnetized simulations) constant numerical diffusion coefficient set separately for convenience that helps maintain numerical stability. Models for electron and ion energy exchange may be included through the term $H_{ei}$, which can be captured by adding energy lost in each cell by ions in collisions models back to the local electron fluid cell. (???)
+
+It is of course possible to incorporate the full electron pressure tensor effects to handle specially reconnection physics better.
 
 A more complete review is given by [@winske2023hybrid] for the hybrid-kinetic model assuming massless electrons.
 The essential problem in all hybrid algorithms is how to calculate the electric field at the next time step.
@@ -89,7 +107,8 @@ Strengths:
 * Valid for $\omega/\Omega_i \sim kr_i \sim 1$.
 * No issues for high-$\beta$ regimes.
 * Simple implementation of particle push that can be readily optimized.
-* Removes stiffest electron scales.
+* Removes stiffest electron scales. Neglecting the electron kinetic scales typically reduces the computing cost and memory
+requirements by a factor of $\sqrt{m_i/m_e}$ (compared to what is used in full-PIC) for each spatial dimension and the time step may usually be increased by a similar factor.
 
 Limitations:
 
@@ -98,6 +117,33 @@ Limitations:
 * No electron Landau damping.
 * Explicit time-stepping schemes can be complex.
 * No existing method conserves momentum or energy.
+
+## Low Density Treatment
+
+Because the hybrid model includes terms proportional to $1/n_e$, a modification is necessary for low-density and vacuum regions. The simplest method is to apply a density lower limit $n_f$ in the field solver, so that the density used to advance the fields is $n_e = \max(n_e, n_f)$. Typical values used for the density floor are $n_f/n_0 \sim 0.01 - 0.05$, where $n_0$ is a reference background density. The reference density $n_0$ is typically the value used to define the ion skin depth $d_i=V_A/\omega_{ci}$. 
+
+[@amano2014robust] suggests another way to solve for the electric field
+$$
+(\omega_{pe}^2 - c^2\nabla^2)\mathbf{E} = \frac{e}{m_e}\big( \mathbf{J}_e \times\mathbf{B} - \nabla\cdot\overleftrightarrow{P}_e \big) + (\mathbf{V}_e\cdot\nabla)\mathbf{J}_e + \eta\mathbf{J}
+$$
+which can be reduced to the Laplace equation in near-vacuum region, presenting no numerical difficulty.
+
+Besides, the electron velocity is redefined
+$$
+\mathbf{V}_e = \frac{\mathbf{J}_e}{\text{max}(\rho_e, \rho_{e,min})}
+$$
+where the minimum density $\rho_{e,min}$ is an artificially set value.
+
+In a hybrid system, the maximum phase velocity is the electron Alfvén speed, which goes to infinity when $m_e \approx 0$. However, when doing calculations we only have ion Alfvén speed
+$$
+v_{p,max} \simeq \frac{1}{2}\frac{B}{\sqrt{\mu_0 n_e m_e}} = \frac{1}{2}V_{A,i} \sqrt{\frac{m_i}{m_e}}
+$$
+
+To keep the maximum phase velocity always below the CFL condition, one may use a modified electron mass ratio $m_e^\prime$ defined as
+$$
+\frac{m_e^\prime}{m_i}=\text{max}\Big( \frac{m_e}{m_i}, V_A^2\big( \frac{\Delta t}{2\alpha \Delta x} \big)^2 \Big)
+$$
+instead of the physical electron mass $m_e$. Here $V_A$ is the Alfvén speed calculated from the local density and magnetic field, and $\alpha$ is the maximum allowed Courant number ($\le 0.5$).
 
 ## Finite Electron Inertia {#sec-finite_e_mass}
 
@@ -131,31 +177,6 @@ $$
 \widehat{\mathbf{B}} = \big( 1 - \frac{c^2}{\omega_{pe}^2}\nabla^2 \big)\mathbf{B}
 $$
 and $\widehat{\mathbf{E}} = \mathbf{E}$ is assumed. The nice feature with this approach is that the correction can be implemented as a post process to the each integration step of a standard procedure.
-
-## Low Density Treatment
-
-Apparently new methods are still being proposed because the inclusion of electron inertia term along cannot solve all the issues. [@amano2014robust] suggests another way to solve for the electric field
-$$
-(\omega_{pe}^2 - c^2\nabla^2)\mathbf{E} = \frac{e}{m_e}\big( \mathbf{J}_e \times\mathbf{B} - \nabla\cdot\overleftrightarrow{P}_e \big) + (\mathbf{V}_e\cdot\nabla)\mathbf{J}_e + \eta\mathbf{J}
-$$
-which can be reduced to the Laplace equation in near-vacuum region, presenting no numerical difficulty.
-
-Besides, the electron velocity is redefined
-$$
-\mathbf{V}_e = \frac{\mathbf{J}_e}{\text{max}(\rho_e, \rho_{e,min})}
-$$
-where the minimum density $\rho_{e,min}$ is an artificially set value.
-
-In a hybrid system, the maximum phase velocity is the electron Alfvén speed, which goes to infinity when $m_e \approx 0$. However, when doing calculations we only have ion Alfvén speed
-$$
-v_{p,max} \simeq \frac{1}{2}\frac{B}{\sqrt{\mu_0 n_e m_e}} = \frac{1}{2}V_{A,i} \sqrt{\frac{m_i}{m_e}}
-$$
-
-To keep the maximum phase velocity always below the CFL condition, one may use a modified electron mass ratio $m_e^\prime$ defined as
-$$
-\frac{m_e^\prime}{m_i}=\text{max}\Big( \frac{m_e}{m_i}, V_A^2\big( \frac{\Delta t}{2\alpha \Delta x} \big)^2 \Big)
-$$
-instead of the physical electron mass $m_e$. Here $V_A$ is the Alfvén speed calculated from the local density and magnetic field, and $\alpha$ is the maximum allowed Courant number ($\le 0.5$).
 
 ## Comparison with Hall MHD
 
@@ -280,7 +301,17 @@ $$
 Imagine a scenario where cold ion beams move through uniform spatial mesh. It was shown by [@rambo1995finite] that non-conservative (explicit) schemes are unstable for Ti /Te << 1 regardless of spatial resolution. The precise threshold in $T_i /T_e$ and beam velocity depends on shape-function for macroparticles. This instability causes unstable (exponential) heating of ions until some saturation value and also violates momentum conservation. Implict momentum and energy conserving
 schemes are stable w.r.t. these instabilities.
 
-## Magnetosphere Inner Boundary Conditions
+## Boundary Conditions
+
+### Open Boundary Conditions
+
+Open boundary conditions allow plasma and magnetic flux to flow into or out of the simulation domain. Ion particles are absorbed at the open boundaries, and new particles are injected if necessary. The injected particle flux is sampled from a drifting multi-Maxwellian velocity distribution that matches specified densities, velocities, and pressure moments at the boundary.
+
+The magnetic field is formally split into two components $\mathbf{B} = \mathbf{B}_0 + \mathbf{B}_1$, with a fixed external field $\mathbf{B}_0$ and a time-varying component $\mathbf{B}1$. The external field is a vacuum field ($\nabla\times\mathbf{B}_0 = 0$) generated by a system of currents outside the plasma. Examples are the interplanetary magnetic field and planetary dipole field in a global magnetosphere simulation, or the confinement fields generated by external coils in a magnetic mirror device. The particles are advanced in the total magnetic field $\mathbf{B}$, In the field solver, only $\mathbf{B}_1$ is advanced in time, and $\mathbf{B}_0$ may be dropped when computing the plasma current density in the Hall term from $\mu_0\mathbf{J}=\nabla\times\mathbf{B}=\nabla\times\mathbf{B}_1$. The advantage of splitting $\mathbf{B}$ in this manner is that for the open boundary conditions, $\mathbf{B}_0$ is left fixed in the boundary ghost cells. Otherwise, the external field may change over time by diffusing at the boundaries. For the open boundary condition on the time-varying component of $\mathbf{B}$, the field $\mathbf{B}_1$ in each ghost cell is set equal to the value of its neighbor within the simulation domain.
+
+The electric field is handled differently. The electric field in ghost cells along an open boundary is advanced in time along with the electric field within the bulk cells. But when computing the electric field from the Ohm’s law @eq-hybrid_ohm in the a ghost cell, it is assumed that there are no gradients in either $\mathbf{B}$ or the plasma moments ($n$ and $\mathbf{u}_i$) normal to the boundary. The plasma moments, like the magnetic field, within the ghost cell are set equal to their neighboring values. So, for example, an open boundary in the $x$ direction may have pressure gradient fields $E_y$ and $E_z$ from $y$ and $z$ gradients in $P_e$, but there is no pressure gradient-driven component $E_x$. Crucially, for an open $x$ boundary, gradients in $y$ and $z$ (but not $x$) are retained in the Hall term $\propto(\nabla\times\mathbf{B})\times\mathbf{B}$. This treatment of the electric field at open boundaries significantly enhances numerical stability. Nevertheless, it is often necessary to also include a buffer region several cells wide with an enhanced hyper-resistivity $η_H$ to dissipate residual oscillations.
+
+### Magnetosphere Inner Boundary Conditions
 
 Inner boundary condition is often the most tricky part in magnetopshere modeling. In Angeo3D [Lin+ 2014], the inner magnetosphere ($r<6\,\text{R}_\text{E}$) is assumed to be dominated by a cold, incompressible ion fluid, which coexists with particle ions. The number density of the cold ion fluid is assumed to be
 $$
