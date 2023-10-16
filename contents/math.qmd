@@ -333,26 +333,36 @@ The divergence free condition for magnetic field then yields a laplace equation
 $$
 \Delta V = 0
 $$
-for the Gauss potential $V$. The solution of Laplace equation within a certain volume has been first described by Gauss and reads in complex notation
+for the Gauss potential $V$. The general complex solution of Laplace equation in spherical coordinates is
 $$
-V(\mathbf{r},t) = Re \sum_{l=0}^{\infty}\sum_{m=0}^{l} \Big\{ R_0 \big( \frac{R_0}{r}\big)^{l+1} G_{lm}^\ast(t)Y_{lm}^\ast(\theta,\phi) + R_0\big( \frac{r}{R_0} \big)^{l} C_{lm}^\ast(t)Y_{lm}^\ast(\theta,\phi) \Big\}
+\begin{aligned}
+V(\mathbf{r}) &= \sum_{l=0}^{\infty}\sum_{m=-l}^{l} \left( A_l r^l + B_l r^{-l-1} \right)P_l^m(\cos\phi)e^{-im\theta} \\
+&= \sum_{l=0}^{\infty}\sum_{m=-l}^{l} \left( A_l r^l + B_l r^{-l-1} \right) Y_l^m(\theta, \phi)
+\end{aligned}
 $$
-where $R_0$ is a constant coefficient, and the complex internal Gauss coefficients
+where
 $$
-G_{lm}^\ast(t) = G_{lm}(t) - i H_{lm}(t)
+Y_l^m(\theta,\phi) = P_l^m(\cos{\theta})e^{-im\phi}
 $$
-and external coefficients
+are the (complex) spherical harmonics. The indices l and m indicate degree and order of the function. The general real solution is
 $$
-C_{lm}^\ast(t) = C_{lm}(t) - iD_{lm}(t)
+V(\mathbf{r}) = \sum_{l=0}^{\infty}\sum_{m=0}^{l} \left( A_l r^l + B_l r^{-l-1} \right)P_l^m(\cos\theta)\left[ S_m\sin{m\phi} + C_m\cos{m\phi} \right]
 $$
-adopting all time variability as well as the complex spherical harmonics
+
+$P_l^m$ are the [associated Legendre polynomials](https://en.wikipedia.org/wiki/Associated_Legendre_polynomials). The first three terms of $P_l^m(\cos\theta)$ are
 $$
-Y_{lm}^\ast(\theta,\phi) = e^{im\phi}_{lm}(\cos{\theta})
+\begin{aligned}
+P_0^0(\cos\theta) &= 1 \\
+P_1^0(\cos\theta) &= \cos\theta \\
+P_1^1(\cos\theta) &= -\sin\theta
+\end{aligned}
 $$
-with associated Legendre polynomials $P_{lm}(\cos{\theta})$. e.g. $P_{00}(\cos\theta) = 1,\ P_{10} = \cos\theta,\ P_{11} = \sin\theta$.
+
+There are two parts in the real solution. The first part, starting with coefficients $A_l$, represents the potential from an exterior source, which is analytic at $r=0$ but diverges as $r\rightarrow\infty$. The second part, starting with coefficients $B_l$, represents the potential from an interior source, which is singular at $r=0$ and finite as $r\rightarrow\infty$.
 
 _Ex 1._ Planet dipole field
 
+For a planetary dipole field, we only consider the contribution from the internal source.
 Let the radius of the planet be $R$ (the same as the coefficient). Then the Gauss potential for the dipole reads
 $$
 V = \frac{R^3}{r^2}\big[ G_{10}\cos\theta + G_{11}\cos\phi\sin\theta + H_{11}\sin\phi\sin\theta \big]
@@ -363,7 +373,7 @@ $$
 \mathbf{B} = -\nabla V = -\nabla \Big[ \frac{R^3\mathbf{m}\cdot\mathbf{r}}{r^3} \Big]
 $$
 
-This is why in literature we often see dipole moments in the unit of $[\text{nT}]$: it is equivalent to the equatorial field strength $B_{\text{eq}}$ at the planet's surface. If we specify the dipole moment $M$ in $[\text{T}\text{m}^3]$, then $B_{\text{eq}}=M/R_\text{E}^3$.
+Often in literature we see dipole moments in the unit of $[\text{nT}]$: it is equivalent to the equatorial field strength $B_{\text{eq}}$ at the planet's surface. If we specify the dipole moment $M$ in $[\text{T}\text{m}^3]$, then $B_{\text{eq}}=M/R_\text{E}^3$.
 
 When we expand the gradient operator, we have
 $$
@@ -397,6 +407,24 @@ $$
 $$ {#eq-dipole_cartesian}
 
 Note that $(x,y,z)$ and $r$ are all normalized to the radius of the planet $R$.
+
+_Ex 2._ 2D dipole field
+
+Let us consider the solution to the Laplace equation in polar coordinates $(r, \theta)$. Via separation of variable it can be shown that the general real solution takes the form
+$$
+V = c_0\ln{r} + D_0 + \sum_{n=1}^\infty \left( A_n\cos{n\theta} + B_n\sin{n\theta} \right)\left( C_n r^n + D_n r^{-n} \right)
+$$
+
+For a dipole field, we only consider $n=1$ from the internal source. If we absorb $D_1$ into $A_1$ and $B_1$, we have
+$$
+V = (A_1\cos\theta + B_1\sin\theta)\frac{1}{r}
+$$
+
+Thus
+$$
+\mathbf{B}_\mathrm{dipole,2D} = -\nabla V = (A_1\cos\theta + B_1\sin\theta)\frac{\mathbf{r}}{r^3}
+$$ {#eq-dipole_2d}
+where the minus sign has been absorbed into the coefficients.
 
 ## Green's Function
 
