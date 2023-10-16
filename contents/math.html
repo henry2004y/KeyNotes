@@ -681,23 +681,32 @@ f(\omega)=\Big(\oint_C-\int_{C_R}\Big)\frac{dv e^{iv}}{v-\omega}=2\pi i e^{i\ome
 \]</span></p>
 <p>The divergence free condition for magnetic field then yields a laplace equation <span class="math display">\[
 \Delta V = 0
-\]</span> for the Gauss potential <span class="math inline">\(V\)</span>. The solution of Laplace equation within a certain volume has been first described by Gauss and reads in complex notation <span class="math display">\[
-V(\mathbf{r},t) = Re \sum_{l=0}^{\infty}\sum_{m=0}^{l} \Big\{ R_0 \big( \frac{R_0}{r}\big)^{l+1} G_{lm}^\ast(t)Y_{lm}^\ast(\theta,\phi) + R_0\big( \frac{r}{R_0} \big)^{l} C_{lm}^\ast(t)Y_{lm}^\ast(\theta,\phi) \Big\}
-\]</span> where <span class="math inline">\(R_0\)</span> is a constant coefficient, and the complex internal Gauss coefficients <span class="math display">\[
-G_{lm}^\ast(t) = G_{lm}(t) - i H_{lm}(t)
-\]</span> and external coefficients <span class="math display">\[
-C_{lm}^\ast(t) = C_{lm}(t) - iD_{lm}(t)
-\]</span> adopting all time variability as well as the complex spherical harmonics <span class="math display">\[
-Y_{lm}^\ast(\theta,\phi) = e^{im\phi}_{lm}(\cos{\theta})
-\]</span> with associated Legendre polynomials <span class="math inline">\(P_{lm}(\cos{\theta})\)</span>. e.g.&nbsp;<span class="math inline">\(P_{00}(\cos\theta) = 1,\ P_{10} = \cos\theta,\ P_{11} = \sin\theta\)</span>.</p>
+\]</span> for the Gauss potential <span class="math inline">\(V\)</span>. The general complex solution of Laplace equation in spherical coordinates is <span class="math display">\[
+\begin{aligned}
+V(\mathbf{r}) &amp;= \sum_{l=0}^{\infty}\sum_{m=-l}^{l} \left( A_l r^l + B_l r^{-l-1} \right)P_l^m(\cos\phi)e^{-im\theta} \\
+&amp;= \sum_{l=0}^{\infty}\sum_{m=-l}^{l} \left( A_l r^l + B_l r^{-l-1} \right) Y_l^m(\theta, \phi)
+\end{aligned}
+\]</span> where <span class="math display">\[
+Y_l^m(\theta,\phi) = P_l^m(\cos{\theta})e^{-im\phi}
+\]</span> are the (complex) spherical harmonics. The indices l and m indicate degree and order of the function. The general real solution is <span class="math display">\[
+V(\mathbf{r}) = \sum_{l=0}^{\infty}\sum_{m=0}^{l} \left( A_l r^l + B_l r^{-l-1} \right)P_l^m(\cos\theta)\left[ S_m\sin{m\phi} + C_m\cos{m\phi} \right]
+\]</span></p>
+<p><span class="math inline">\(P_l^m\)</span> are the <a href="https://en.wikipedia.org/wiki/Associated_Legendre_polynomials">associated Legendre polynomials</a>. The first three terms of <span class="math inline">\(P_l^m(\cos\theta)\)</span> are <span class="math display">\[
+\begin{aligned}
+P_0^0(\cos\theta) &amp;= 1 \\
+P_1^0(\cos\theta) &amp;= \cos\theta \\
+P_1^1(\cos\theta) &amp;= -\sin\theta
+\end{aligned}
+\]</span></p>
+<p>There are two parts in the real solution. The first part, starting with coefficients <span class="math inline">\(A_l\)</span>, represents the potential from an exterior source, which is analytic at <span class="math inline">\(r=0\)</span> but diverges as <span class="math inline">\(r\rightarrow\infty\)</span>. The second part, starting with coefficients <span class="math inline">\(B_l\)</span>, represents the potential from an interior source, which is singular at <span class="math inline">\(r=0\)</span> and finite as <span class="math inline">\(r\rightarrow\infty\)</span>.</p>
 <p><em>Ex 1.</em> Planet dipole field</p>
-<p>Let the radius of the planet be <span class="math inline">\(R\)</span> (the same as the coefficient). Then the Gauss potential for the dipole reads <span class="math display">\[
+<p>For a planetary dipole field, we only consider the contribution from the internal source. Let the radius of the planet be <span class="math inline">\(R\)</span> (the same as the coefficient). Then the Gauss potential for the dipole reads <span class="math display">\[
 V = \frac{R^3}{r^2}\big[ G_{10}\cos\theta + G_{11}\cos\phi\sin\theta + H_{11}\sin\phi\sin\theta \big]
 \]</span></p>
 <p>Let dipole moment be <span class="math inline">\(\mathbf{m} = (G_{11},H_{11},G_{10})\)</span> in Cartesian coordinates, we have <span class="math display">\[
 \mathbf{B} = -\nabla V = -\nabla \Big[ \frac{R^3\mathbf{m}\cdot\mathbf{r}}{r^3} \Big]
 \]</span></p>
-<p>This is why in literature we often see dipole moments in the unit of <span class="math inline">\([\text{nT}]\)</span>: it is equivalent to the equatorial field strength <span class="math inline">\(B_{\text{eq}}\)</span> at the planet’s surface. If we specify the dipole moment <span class="math inline">\(M\)</span> in <span class="math inline">\([\text{T}\text{m}^3]\)</span>, then <span class="math inline">\(B_{\text{eq}}=M/R_\text{E}^3\)</span>.</p>
+<p>Often in literature we see dipole moments in the unit of <span class="math inline">\([\text{nT}]\)</span>: it is equivalent to the equatorial field strength <span class="math inline">\(B_{\text{eq}}\)</span> at the planet’s surface. If we specify the dipole moment <span class="math inline">\(M\)</span> in <span class="math inline">\([\text{T}\text{m}^3]\)</span>, then <span class="math inline">\(B_{\text{eq}}=M/R_\text{E}^3\)</span>.</p>
 <p>When we expand the gradient operator, we have <span class="math display">\[
 \mathbf{B} = \frac{\mu_0}{4\pi}\frac{3(\mathbf{m}\cdot\widehat{r})\widehat{r}-\mathbf{m}}{r^3}
 \]</span></p>
@@ -719,6 +728,16 @@ B = \frac{B_E}{L^3} \frac{(1+3\,\sin^2\vartheta)^{1/2}}{\cos^6\vartheta}
 \mathbf{m}
 \tag{3.5}\]</span></span></p>
 <p>Note that <span class="math inline">\((x,y,z)\)</span> and <span class="math inline">\(r\)</span> are all normalized to the radius of the planet <span class="math inline">\(R\)</span>.</p>
+<p><em>Ex 2.</em> 2D dipole field</p>
+<p>Let us consider the solution to the Laplace equation in polar coordinates <span class="math inline">\((r, \theta)\)</span>. Via separation of variable it can be shown that the general real solution takes the form <span class="math display">\[
+V = c_0\ln{r} + D_0 + \sum_{n=1}^\infty \left( A_n\cos{n\theta} + B_n\sin{n\theta} \right)\left( C_n r^n + D_n r^{-n} \right)
+\]</span></p>
+<p>For a dipole field, we only consider <span class="math inline">\(n=1\)</span> from the internal source. If we absorb <span class="math inline">\(D_1\)</span> into <span class="math inline">\(A_1\)</span> and <span class="math inline">\(B_1\)</span>, we have <span class="math display">\[
+V = (A_1\cos\theta + B_1\sin\theta)\frac{1}{r}
+\]</span></p>
+<p>Thus <span id="eq-dipole_2d"><span class="math display">\[
+\mathbf{B}_\mathrm{dipole,2D} = -\nabla V = (A_1\cos\theta + B_1\sin\theta)\frac{\mathbf{r}}{r^3}
+\tag{3.6}\]</span></span> where the minus sign has been absorbed into the coefficients.</p>
 </section>
 <section id="greens-function" class="level2" data-number="3.9">
 <h2 data-number="3.9" class="anchored" data-anchor-id="greens-function"><span class="header-section-number">3.9</span> Green’s Function</h2>
@@ -739,19 +758,19 @@ G(x,0)&amp;=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}dk=\frac{1}{2i\pi x}e^{i
 <h2 data-number="3.10" class="anchored" data-anchor-id="linearization"><span class="header-section-number">3.10</span> Linearization</h2>
 <p>In linear wave analysis, we need to check how small perturbations evolve in the PDEs. For plasma physics, it is usually very useful to transform into a magnetic field guided coordinates, with the notation <span class="math inline">\(\parallel\)</span> being parallel to the background magnetic field and <span class="math inline">\(\perp\)</span> being perpendicular to the background magnetic field <span class="math inline">\(\mathbf{B}\)</span>. Besides the perturbation of plasma moments (i.e.&nbsp;density, velocity, pressure, etc.), we also need the perturbations to the magnitude of the magnetic field B and the unit vector <span class="math inline">\(\hat{\mathbf{b}}\)</span>. Linearzing <span class="math inline">\(B^2 = \mathbf{B}\cdot\mathbf{B}\)</span>, we find <span id="eq-perturb_b"><span class="math display">\[
 \delta B = \hat{\mathbf{b}}\cdot\delta\mathbf{B} = \delta B_\parallel
-\tag{3.6}\]</span></span></p>
+\tag{3.7}\]</span></span></p>
 <p>Linearzing <span class="math inline">\(\hat{\mathbf{b}} = \mathbf{B}/B\)</span>, we obtain <span id="eq-perturb_bhat"><span class="math display">\[
 \begin{aligned}
 \delta\hat{\mathbf{b}} = \delta\left(\frac{\mathbf{B}}{B}\right) = \frac{\delta\mathbf{B}B - \delta B\mathbf{B}}{B^2} = \frac{\delta\mathbf{B}}{B} - \frac{\delta \mathbf{B}_\parallel}{B} = \frac{\delta \mathbf{B}_\perp}{B}
 \end{aligned}
-\tag{3.7}\]</span></span></p>
+\tag{3.8}\]</span></span></p>
 <p>The divergence-free of magnetic field gives <span class="math display">\[
 \mathbf{k}\cdot\delta\mathbf{B} = k_\parallel \delta B_\parallel + k_\perp \delta B_\perp = 0
 \]</span></p>
 <p>Thus <span id="eq-perturb_k_bhat"><span class="math display">\[
 \mathbf{k}\cdot\hat{\mathbf{b}} = \mathbf{k}\cdot\frac{\delta \mathbf{B}_\perp}{B} = \frac{k_\perp \delta B_\perp}{B} = -k_\parallel\frac{\delta B_\parallel}{B} = -k_\parallel\frac{\delta B}{B}
-\tag{3.8}\]</span></span></p>
-<p>These seemingly trivial relations have profound implications in physics. <a href="#eq-perturb_b">Equation&nbsp;<span>3.6</span></a> tells us that the perturbation of magnetic field magnitude has only contribution from the parallel component, which is why in satellite observations people only look at parallel perturbations for compressional wave modes. <a href="#eq-perturb_bhat">Equation&nbsp;<span>3.7</span></a> tells us that the perturbation in the unit vector is only related to the perpendicular fluctuations.</p>
+\tag{3.9}\]</span></span></p>
+<p>These seemingly trivial relations have profound implications in physics. <a href="#eq-perturb_b">Equation&nbsp;<span>3.7</span></a> tells us that the perturbation of magnetic field magnitude has only contribution from the parallel component, which is why in satellite observations people only look at parallel perturbations for compressional wave modes. <a href="#eq-perturb_bhat">Equation&nbsp;<span>3.8</span></a> tells us that the perturbation in the unit vector is only related to the perpendicular fluctuations.</p>
 </section>
 <section id="sec-WKB" class="level2" data-number="3.11">
 <h2 data-number="3.11" class="anchored" data-anchor-id="sec-WKB"><span class="header-section-number">3.11</span> Wave Equations</h2>
@@ -775,7 +794,7 @@ G(x,0)&amp;=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}dk=\frac{1}{2i\pi x}e^{i
 </ul>
 <p><span id="eq-ODE_Omode"><span class="math display">\[
 \frac{\mathrm{d}^2 E}{\mathrm{d}x^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2} \Big]E = 0
-\tag{3.9}\]</span></span></p>
+\tag{3.10}\]</span></span></p>
 <ul>
 <li>Electron cyclotron resonance heating (ECRH):</li>
 </ul>
@@ -788,11 +807,11 @@ G(x,0)&amp;=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}dk=\frac{1}{2i\pi x}e^{i
 u(x) = E(x) e^{-\frac{1}{2}\int^x a_1(x)\mathrm{d}x}
 \]</span> we have <span id="eq-2nd_ODE"><span class="math display">\[
 \frac{\mathrm{d}^2 E(x)}{\mathrm{d}x^2} + k^2(x) E(x) = 0
-\tag{3.10}\]</span></span> where <span class="math display">\[
+\tag{3.11}\]</span></span> where <span class="math display">\[
 k^2(x) = a_2(x) - \frac{{a_1}^2}{4} -\frac{1}{2}\frac{\mathrm{d} a_1(x)}{\mathrm{d}x}
 \]</span></p>
 <p>Note that the lower bound of the integral is left on purpose to account for a constant. We will concentrate at special points, i.e.&nbsp;zeros (cutoff) and poles (resonance) of <span class="math inline">\(k^2(x)\equiv \frac{\omega^2}{c^2}n^2(x)\)</span>.</p>
-<p>First, we will introduce <em>Wentzel–Kramers–Brillouin-Jeffreys</em> (<a href="https://en.wikipedia.org/wiki/WKB_approximation">WKBJ</a>) solution to <a href="#eq-2nd_ODE">Equation&nbsp;<span>3.10</span></a>: <span class="math display">\[
+<p>First, we will introduce <em>Wentzel–Kramers–Brillouin-Jeffreys</em> (<a href="https://en.wikipedia.org/wiki/WKB_approximation">WKBJ</a>) solution to <a href="#eq-2nd_ODE">Equation&nbsp;<span>3.11</span></a>: <span class="math display">\[
 E(x) \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x^\prime)\mathrm{d}x^\prime}.
 \]</span></p>
 <p><em>Proof</em>.</p>
@@ -846,8 +865,8 @@ k^2(x) \approx -{k_0}^2 a(x-x_t)
 \]</span></p>
 <p>If we choose <span class="math inline">\(l\)</span> s.t. <span class="math inline">\(l^3 {k_0}^2 a =1\)</span> (non-dimensional treatment), we obtain <span id="eq-stokes"><span class="math display">\[
 \frac{\mathrm{d}^2 E}{\mathrm{d}\zeta^2} - \zeta E(\zeta) = 0
-\tag{3.11}\]</span></span></p>
-<p>which is equivalent to the case where <span class="math inline">\(k^2(\zeta)=-\zeta\)</span> that shows the linear approximation. <a href="#eq-stokes">Equation&nbsp;<span>3.11</span></a>, known as the <em>Airy equation</em> or <em>Stokes equation</em>, is the simplest second-order linear differential equation with a turning point (a point where the character of the solutions changes from oscillatory to exponential). From the WKBJ theory, we get the solution <span class="math display">\[
+\tag{3.12}\]</span></span></p>
+<p>which is equivalent to the case where <span class="math inline">\(k^2(\zeta)=-\zeta\)</span> that shows the linear approximation. <a href="#eq-stokes">Equation&nbsp;<span>3.12</span></a>, known as the <em>Airy equation</em> or <em>Stokes equation</em>, is the simplest second-order linear differential equation with a turning point (a point where the character of the solutions changes from oscillatory to exponential). From the WKBJ theory, we get the solution <span class="math display">\[
 E_{\text{WKBJ}} \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x^\prime)\mathrm{d}x^\prime}
 = \left\{
 \begin{array}{rl}
@@ -861,7 +880,7 @@ E = &amp;a_0\Big\{ 1+\frac{\zeta^3}{3\cdot2} +\frac{\zeta^6}{6\cdot5\cdot3\cdot2
 &amp;+a_1\Big\{ \zeta+\frac{\zeta^4}{4\cdot3} +\frac{\zeta^7}{7\cdot6\cdot4\cdot3} + \frac{\zeta^{10}}{10\cdot9\cdot7\cdot6\cdot4\cdot3} + ...  \Big\}
 \end{aligned}
 \]</span> which contains the two arbitrary constants <span class="math inline">\(a_0\)</span> and <span class="math inline">\(a_1\)</span>, and is therefore the most general solution. The series are convergent for all <span class="math inline">\(\zeta\)</span>, which confirms that every solution of Stokes Equation is finite, continuous and single valued.</p>
-<p>This form is usually not easy to interpret in physical sense. Besides this, we can find a more useful solution to <a href="#eq-stokes">Equation&nbsp;<span>3.11</span></a> using the integral representation. An equivalent but maybe more intuitive approach is to solve <a href="#eq-stokes">Equation&nbsp;<span>3.11</span></a> with Fourier transform; a coefficient <span class="math inline">\(2\pi\)</span> naturally appears. Both approaches reach the same results.</p>
+<p>This form is usually not easy to interpret in physical sense. Besides this, we can find a more useful solution to <a href="#eq-stokes">Equation&nbsp;<span>3.12</span></a> using the integral representation. An equivalent but maybe more intuitive approach is to solve <a href="#eq-stokes">Equation&nbsp;<span>3.12</span></a> with Fourier transform; a coefficient <span class="math inline">\(2\pi\)</span> naturally appears. Both approaches reach the same results.</p>
 <p>Write <span class="math display">\[
 E(\zeta) = \int_a^b \mathrm{d}t e^{t\zeta} f(t)
 \]</span> where the integral represents a path in the complex t plane from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>. Then <span class="math display">\[
@@ -871,7 +890,7 @@ E(\zeta) = \int_a^b \mathrm{d}t e^{t\zeta} f(t)
 &amp;=e^{t\zeta} f(t) \Big|_a^b -\int_a^b dte^{t\zeta} f^\prime(t)
 \end{aligned}
 \]</span></p>
-<p>The limits <span class="math inline">\(a,b\)</span> are be chosen so that the first term vanishes at both limits. Then <a href="#eq-stokes">Equation&nbsp;<span>3.11</span></a> is satisfied if</p>
+<p>The limits <span class="math inline">\(a,b\)</span> are be chosen so that the first term vanishes at both limits. Then <a href="#eq-stokes">Equation&nbsp;<span>3.12</span></a> is satisfied if</p>
 <p><span class="math display">\[
 \left\{
 \begin{array}{l}
@@ -928,8 +947,8 @@ t^3 = |t|^3 e^{i3\theta} = |t|^3 \big( \cos{3\theta} + i\sin{3\theta} \big)
 Ai(\zeta) &amp;= \frac{1}{2\pi i}\int_{C_1} \mathrm{d}t e^{-\frac{1}{3}t^3 + \zeta t} \\
 Bi(\zeta) &amp;= \frac{1}{2\pi} \Big[\int_{C_2}+\int_{C_3}\Big]\mathrm{d}t e^{-\frac{1}{3}t^3 + \zeta t}
 \end{aligned}
-\tag{3.12}\]</span></span></p>
-<p>Obviously he took the Fourier transform such that a coefficient <span class="math inline">\(2\pi\)</span> naturally appears. In <a href="#eq-airy_func">Equation&nbsp;<span>3.12</span></a>, the contour <span class="math inline">\(C_1\)</span> can be distorted so as to coincide with the imaginary t-axis for almost its whole length. It must be displaced slightly to the left of this axis at its ends to remain in the shaded region at infinity. Let <span class="math inline">\(t=is\)</span>. Then the Airy function of the first kind in <a href="#eq-airy_func">Equation&nbsp;<span>3.12</span></a> becomes</p>
+\tag{3.13}\]</span></span></p>
+<p>Obviously he took the Fourier transform such that a coefficient <span class="math inline">\(2\pi\)</span> naturally appears. In <a href="#eq-airy_func">Equation&nbsp;<span>3.13</span></a>, the contour <span class="math inline">\(C_1\)</span> can be distorted so as to coincide with the imaginary t-axis for almost its whole length. It must be displaced slightly to the left of this axis at its ends to remain in the shaded region at infinity. Let <span class="math inline">\(t=is\)</span>. Then the Airy function of the first kind in <a href="#eq-airy_func">Equation&nbsp;<span>3.13</span></a> becomes</p>
 <p><span class="math display">\[
 \begin{aligned}
 Ai(\zeta) &amp;= \frac{1}{2\pi}\int_{-\infty}^{\infty}e^{i(\zeta s+\frac{1}{3}s^3)}ds \\
@@ -988,7 +1007,7 @@ i\rho &amp;= \pm \zeta^{1/4} (t-t_s) \\
 Ai(\zeta) &amp;= \frac{1}{2\pi i}e^{-\frac{2}{3}\zeta^{3/2}}\int_{-\infty}^{\infty}\frac{id\rho}{\zeta^{1/4}}e^{-\rho^2} \nonumber \\
 &amp;=\frac{1}{2\sqrt{\pi}\zeta^{1/4}}e^{-\frac{2}{3}\zeta^{3/2}} \text{ as}\ \zeta\rightarrow \infty
 \end{aligned}
-\tag{3.13}\]</span></span></p>
+\tag{3.14}\]</span></span></p>
 <p>The ratio of accuracy is shown in the following table (LABEL???). In practice, it is already a very good approximation when <span class="math inline">\(\zeta&gt;3\)</span>. (think of <span class="math inline">\(kL\gg 3\)</span> for WKBJ solution! ???)</p>
 <table class="table">
 <thead>
@@ -1034,7 +1053,7 @@ f^{\prime\prime}(t) &amp;= -2t
 Ai(\zeta) &amp;\approx \frac{1}{2\pi i} \Big[ e^{i\frac{2}{3}|\zeta|^{3/2}}\int_{-\infty}^{\infty}\frac{e^{i\pi/4}}{|\zeta|^{1/4}}\mathrm{d}\rho e^{-\rho^2} - e^{-i\frac{2}{3}|\zeta|^{3/2}}\int_{-\infty}^{\infty}\frac{e^{-i\pi/4}}{|\zeta|^{1/4}}\mathrm{d}\rho e^{-\rho^2} \Big] \\
 &amp;= \frac{1}{2\pi i} \Big[ \frac{e^{i\frac{2}{3}|\zeta|^{3/2}+i\pi/4}}{{|\zeta|^{1/4}}} \sqrt{\pi} - \frac{e^{-i\frac{2}{3}|\zeta|^{3/2}-i\pi/4}}{{|\zeta|^{1/4}}} \sqrt{\pi} \Big]
 \end{aligned}
-\tag{3.14}\]</span></span></p>
+\tag{3.15}\]</span></span></p>
 <p>An interesting application of the gradient descent method is to find <a href="https://en.wikipedia.org/wiki/Stirling%27s_approximation">Stirling’s approximation</a>. Mathematically, we can proof that <span class="math display">\[
 n! =\int_0^\infty \mathrm{d}t\ e^{-t}t^n = \int_0^\infty \mathrm{d}t\ e^{-t+n\ln{t}} \equiv \int_0^\infty \mathrm{d}t\ e^{f(t)}
 \]</span> and by following the steepest descent method, <span class="math display">\[
@@ -1091,24 +1110,24 @@ n! &amp;\approx \int_0^\infty \mathrm{d}t\ e^{-n+n\ln{n}-\frac{1}{2n}(t-t_s)^2} 
 <p>We next verify that the uniformly valid solution to the standard equation is simply</p>
 <p><span id="eq-WKBJ_uniform_valid_sol"><span class="math display">\[
 E(x) = \frac{1}{\sqrt{\zeta^\prime(x)}}Ai(\zeta)
-\tag{3.15}\]</span></span></p>
-<p>where the prime denotes a derivative. For large values of <span class="math inline">\(\zeta\)</span>, we can use the asymptotic formula of <span class="math inline">\(Ai\)</span> <a href="#eq-airy_approxi_positive">Equation&nbsp;<span>3.13</span></a>, and notice that</p>
+\tag{3.16}\]</span></span></p>
+<p>where the prime denotes a derivative. For large values of <span class="math inline">\(\zeta\)</span>, we can use the asymptotic formula of <span class="math inline">\(Ai\)</span> <a href="#eq-airy_approxi_positive">Equation&nbsp;<span>3.14</span></a>, and notice that</p>
 <p><span class="math display">\[
 \begin{aligned}
 -\zeta^{1/2}\zeta^\prime = ik(x) \\
 \zeta^\prime(x) = -i \frac{k(x)}{\zeta^{1/2}}
 \end{aligned}
 \]</span></p>
-<p>we can see that <a href="#eq-WKBJ_uniform_valid_sol">Equation&nbsp;<span>3.15</span></a> reduces to the standard WKBJ solutions for large values of <span class="math inline">\(\zeta\)</span></p>
+<p>we can see that <a href="#eq-WKBJ_uniform_valid_sol">Equation&nbsp;<span>3.16</span></a> reduces to the standard WKBJ solutions for large values of <span class="math inline">\(\zeta\)</span></p>
 <p><span class="math display">\[
 E(x)= \frac{1}{\sqrt{\zeta^\prime(x)}}Ai(\zeta) \sim \frac{1}{\sqrt{k(x)}} e^{-\frac{2}{3}\zeta^{3/2}} = \frac{1}{\sqrt{k(x)}}e^{ i \int_0^x k(x^\prime)\mathrm{d}x^\prime}
 \]</span></p>
-<p>We can also show that <a href="#eq-WKBJ_uniform_valid_sol">Equation&nbsp;<span>3.15</span></a> is valid for small values of <span class="math inline">\(\zeta\)</span>, i.e.&nbsp;near the turning point at <span class="math inline">\(x=0\)</span>. (Hint: Near <span class="math inline">\(x=0\)</span>, <span class="math inline">\(k^2(x)\)</span> may be approximated by a linear function of <span class="math inline">\(x\)</span>. This linear approximation then yields <span class="math inline">\(\zeta(x)\)</span> as a linear function of <span class="math inline">\(x\)</span> according to <a href="#eq-WKBJ_uniform_valid_sol">Equation&nbsp;<span>3.15</span></a>.)</p>
+<p>We can also show that <a href="#eq-WKBJ_uniform_valid_sol">Equation&nbsp;<span>3.16</span></a> is valid for small values of <span class="math inline">\(\zeta\)</span>, i.e.&nbsp;near the turning point at <span class="math inline">\(x=0\)</span>. (Hint: Near <span class="math inline">\(x=0\)</span>, <span class="math inline">\(k^2(x)\)</span> may be approximated by a linear function of <span class="math inline">\(x\)</span>. This linear approximation then yields <span class="math inline">\(\zeta(x)\)</span> as a linear function of <span class="math inline">\(x\)</span> according to <a href="#eq-WKBJ_uniform_valid_sol">Equation&nbsp;<span>3.16</span></a>.)</p>
 <p><em>Ex</em>. Choose a smooth plasma density profile which monotonically increases with <span class="math inline">\(x\)</span> s.t.</p>
 <p><span class="math display">\[
 \frac{\omega_{pe}^2(x)}{\omega^2} = 1 + \tanh{x}
 \]</span></p>
-<p>and launch a wave of frequency <span class="math inline">\(\omega\)</span> from <span class="math inline">\(x=-\infty\)</span>, the vacuum region, toward the positive <span class="math inline">\(x\)</span>-direction with <span class="math inline">\(\frac{\omega^2}{c^2} = 10 \text{m}^{-2}\)</span>. (This is like launching a wave from low <span class="math inline">\(B\)</span> region into high <span class="math inline">\(B\)</span> region.) Numerically integrate the wave equation <a href="#eq-ODE_Omode">Equation&nbsp;<span>3.9</span></a>,</p>
+<p>and launch a wave of frequency <span class="math inline">\(\omega\)</span> from <span class="math inline">\(x=-\infty\)</span>, the vacuum region, toward the positive <span class="math inline">\(x\)</span>-direction with <span class="math inline">\(\frac{\omega^2}{c^2} = 10 \text{m}^{-2}\)</span>. (This is like launching a wave from low <span class="math inline">\(B\)</span> region into high <span class="math inline">\(B\)</span> region.) Numerically integrate the wave equation <a href="#eq-ODE_Omode">Equation&nbsp;<span>3.10</span></a>,</p>
 <p><span class="math display">\[
 \frac{\mathrm{d}^2 E}{\mathrm{d}x^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2} \Big]E = 0
 \]</span></p>
@@ -1119,7 +1138,7 @@ E(x)= \frac{1}{\sqrt{\zeta^\prime(x)}}Ai(\zeta) \sim \frac{1}{\sqrt{k(x)}} e^{-\
 <figcaption class="figure-caption">Figure&nbsp;3.3: Comparison between the WKBJ solution, uniformly valid solution and numerical integral solution for the O-mode with monotonically increasing density with <span class="math inline">\(x\)</span>.</figcaption>
 </figure>
 </div>
-<p>We know that away from <span class="math inline">\(x_t\)</span>, WKBJ solution works. To the left of <span class="math inline">\(x_t\)</span> (with <span class="math inline">\(\zeta&lt;-3\)</span>), <a href="#eq-airy_approxi_negative">Equation&nbsp;<span>3.14</span></a> gives</p>
+<p>We know that away from <span class="math inline">\(x_t\)</span>, WKBJ solution works. To the left of <span class="math inline">\(x_t\)</span> (with <span class="math inline">\(\zeta&lt;-3\)</span>), <a href="#eq-airy_approxi_negative">Equation&nbsp;<span>3.15</span></a> gives</p>
 <p><span class="math display">\[
 Ai(\zeta) = \frac{1}{2i\sqrt{\pi}|\zeta|^{1/4}}\Big[ e^{i \frac{2}{3}|\zeta|^{3/2}+i\frac{\pi}{4}} - e^{-\frac{2}{3}|\zeta|^{3/2}-i\frac{\pi}{4}} \Big]
 \]</span></p>
@@ -1170,7 +1189,7 @@ E = \sinh{z}=\frac{1}{2}(e^z-e^{-z}) \Rightarrow
 \end{aligned}
 \]</span></p>
 <p>Note that if a solution is exponentially growing in one direction, its asymptotic solution can contain an arbitrary amount of the exponentially decaying solution; that is, specifying an asymptotic growing solution in one direction cannot completely specify the solution in the entire complex plane.</p>
-<p>The two linearly independent approximate solutions to Airy <a href="#eq-stokes">Equation&nbsp;<span>3.11</span></a> are the Airy function approximations from WKBJ method:</p>
+<p>The two linearly independent approximate solutions to Airy <a href="#eq-stokes">Equation&nbsp;<span>3.12</span></a> are the Airy function approximations from WKBJ method:</p>
 <p><span class="math display">\[
 \begin{aligned}
 &amp;\frac{\mathrm{d}^2 E}{\mathrm{d}\zeta^2} - \zeta E = 0 \\
@@ -1197,7 +1216,7 @@ E = \sinh{z}=\frac{1}{2}(e^z-e^{-z}) \Rightarrow
 </figure>
 </div>
 <p>Even though we say “arbitrary”, the analytic solution in the whole complex plane possess a limit on that amount. The next question would be: how much exponentially decaying solution can you add to the exponentially growing solution? (Note that the asympotic series is also a divergent series: more terms don’t lead to high resolution accuracy! I have questions on this part???)</p>
-<p>For the asymptotic approximation solution of Airy <a href="#eq-stokes">Equation&nbsp;<span>3.11</span></a>, we need to define <span class="math inline">\(\arg(\zeta)\)</span> properly to make it single value. Let us choose the branch cut <span class="math inline">\(-\pi\le\arg{\zeta}&lt;\pi\)</span>. The complex plane is demonstrated in <a href="#fig-stokes_line_Zplane">Figure&nbsp;<span>3.5</span></a>.</p>
+<p>For the asymptotic approximation solution of Airy <a href="#eq-stokes">Equation&nbsp;<span>3.12</span></a>, we need to define <span class="math inline">\(\arg(\zeta)\)</span> properly to make it single value. Let us choose the branch cut <span class="math inline">\(-\pi\le\arg{\zeta}&lt;\pi\)</span>. The complex plane is demonstrated in <a href="#fig-stokes_line_Zplane">Figure&nbsp;<span>3.5</span></a>.</p>
 <div id="fig-stokes_line_Zplane" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/StokesLine_Zplane.png" class="img-fluid figure-img"></p>
@@ -1257,7 +1276,7 @@ A_1 \\ B_1
 <h3 data-number="3.11.4" class="anchored" data-anchor-id="sec-stokes_application"><span class="header-section-number">3.11.4</span> Application of Stokes Lines</h3>
 <p><em>Ex</em>.1 Reflection Coefficient from Stokes Constant ???</p>
 <p><em>Ex</em>.2 O-mode</p>
-<p>For EM O-mode wave in a non-magnetized plasma, the governing <a href="#eq-ODE_Omode">Equation&nbsp;<span>3.9</span></a> is rewritten here</p>
+<p>For EM O-mode wave in a non-magnetized plasma, the governing <a href="#eq-ODE_Omode">Equation&nbsp;<span>3.10</span></a> is rewritten here</p>
 <p><span class="math display">\[
 \frac{\mathrm{d}^2 E}{dz^2} +k^2 E = 0,\quad k^2 = \frac{\omega^2}{c^2}\Big[ 1-\frac{{\omega_p}^2(z)}{\omega^2} \Big]
 \]</span></p>
@@ -1363,7 +1382,7 @@ k(z) =
 |k| &amp; z_1&lt;z&lt;z_2 \\
 i|k| &amp; z&lt;z_1
 \end{cases}
-\tag{3.16}\]</span></span></p>
+\tag{3.17}\]</span></span></p>
 <p>On <span class="math inline">\(S_1\)</span>,</p>
 <p><span class="math display">\[
 \Psi_{E_{S_1}} \sim \frac{1}{\sqrt{k}}e^{\pm i \int_{z_2}^{z} kdz^\prime} = \frac{1}{\sqrt{k}}e^{-i\int_{z_2}^{z}kdz^\prime}
@@ -1372,7 +1391,7 @@ i|k| &amp; z&lt;z_1
 <p>Crossing <span class="math inline">\(S_2\)</span> into region I, we have</p>
 <p><span id="eq-psi_I_1"><span class="math display">\[
 \Psi_I \sim \frac{1}{\sqrt{k}}\Big\{ \underbrace{e^{-i\int_{z_2}^z kdz^\prime}}_{\text{dominant on }S_2} + i\underbrace{e^{+i\int_{z_2}^z kdz^\prime}}_{\text{subdominant on }S_2} \Big\}
-\tag{3.17}\]</span></span></p>
+\tag{3.18}\]</span></span></p>
 <p>On <span class="math inline">\(S_4\)</span>,</p>
 <p><span class="math display">\[
 \Psi_{S_4}\sim \frac{1}{\sqrt{k}}e^{\pm i \int_{z_1}^z kdz^\prime} \sim \frac{1}{\sqrt{k}}e^{-i\int_{z_1}^z kdz^\prime},
@@ -1384,8 +1403,8 @@ i|k| &amp; z&lt;z_1
 \Psi_I &amp;\sim \Big\{ \underbrace{e^{-i\int_{z_1}^z kdz^\prime}}_{\text{dominant on }S_3} - i\underbrace{e^{+i\int_{z_1}^z kdz^\prime}}_{\text{subdominant on }S_3} \Big\} \\
 &amp;= \frac{1}{\sqrt{k}}\Big\{ e^{-i\int_{z_2}^z kdz^\prime}\cdot e^{-i\int_{z_1}^{z_2}kdz^\prime} - ie^{i\int_{z_2}^z kdz^\prime}\cdot e^{i\int_{z_1}^{z_2}kdz^\prime} \Big\}
 \end{aligned}
-\tag{3.18}\]</span></span></p>
-<p>Because the solution is analytic, <a href="#eq-psi_I_1">Equation&nbsp;<span>3.17</span></a> and <a href="#eq-psi_I_2">Equation&nbsp;<span>3.18</span></a> should be equal, therefore</p>
+\tag{3.19}\]</span></span></p>
+<p>Because the solution is analytic, <a href="#eq-psi_I_1">Equation&nbsp;<span>3.18</span></a> and <a href="#eq-psi_I_2">Equation&nbsp;<span>3.19</span></a> should be equal, therefore</p>
 <p><span class="math display">\[
 \begin{aligned}
 &amp;\frac{1}{e^{-i\int_{z_1}^{z_2}kdz^\prime}} = \frac{i}{-ie^{i\int_{z_1}^{z_2}kdz^\prime}} \\
@@ -1416,14 +1435,14 @@ k(z) =
 i|k| &amp; z_1&lt;z&lt;z_2 \\
 -|k| &amp; z&lt;z_1
 \end{cases}
-\tag{3.19}\]</span></span></p>
+\tag{3.20}\]</span></span></p>
 <p>On <span class="math inline">\(AS_1\)</span>, the solution</p>
 <p><span id="eq-tunnel_AS1"><span class="math display">\[
 E\sim \frac{1}{\sqrt{k}}e^{-i\omega t+i \int_{z_2}^z kdz^\prime}
-\tag{3.20}\]</span></span></p>
+\tag{3.21}\]</span></span></p>
 <p>represents the outgoing wave propagating to <span class="math inline">\(z=\infty\)</span>.</p>
-<p>On <span class="math inline">\(S_2\)</span>, solution <a href="#eq-tunnel_AS1">Equation&nbsp;<span>3.20</span></a> behaves like <span class="math inline">\(E\sim e^{\int_b^z |k|dz^\prime}\)</span> which is dominant on <span class="math inline">\(S_2\)</span> with respect to <span class="math inline">\(z=z_2\)</span>. Thus, on <span class="math inline">\(S_1\)</span>, it is subdominant.</p>
-<p>On crossing <span class="math inline">\(S_1\)</span> from <span class="math inline">\(AS_1\)</span>, solution <a href="#eq-tunnel_AS1">Equation&nbsp;<span>3.20</span></a> remains valid. In fact, it is valid in the region bounded by <span class="math inline">\(S_1\)</span>, <span class="math inline">\(S_2\)</span> and <span class="math inline">\(S_3\)</span>. Note that it is subdominant on <span class="math inline">\(S_2\)</span> with respect to <span class="math inline">\(z=z_1\)</span> (because we just showed that it is dominant on <span class="math inline">\(S_2\)</span> with respect to <span class="math inline">\(z=z_2\)</span>). Thus, we rewrite the solution as</p>
+<p>On <span class="math inline">\(S_2\)</span>, solution <a href="#eq-tunnel_AS1">Equation&nbsp;<span>3.21</span></a> behaves like <span class="math inline">\(E\sim e^{\int_b^z |k|dz^\prime}\)</span> which is dominant on <span class="math inline">\(S_2\)</span> with respect to <span class="math inline">\(z=z_2\)</span>. Thus, on <span class="math inline">\(S_1\)</span>, it is subdominant.</p>
+<p>On crossing <span class="math inline">\(S_1\)</span> from <span class="math inline">\(AS_1\)</span>, solution <a href="#eq-tunnel_AS1">Equation&nbsp;<span>3.21</span></a> remains valid. In fact, it is valid in the region bounded by <span class="math inline">\(S_1\)</span>, <span class="math inline">\(S_2\)</span> and <span class="math inline">\(S_3\)</span>. Note that it is subdominant on <span class="math inline">\(S_2\)</span> with respect to <span class="math inline">\(z=z_1\)</span> (because we just showed that it is dominant on <span class="math inline">\(S_2\)</span> with respect to <span class="math inline">\(z=z_2\)</span>). Thus, we rewrite the solution as</p>
 <p><span class="math display">\[
 E\sim \frac{1}{\sqrt{k}}e^{-i\omega t + i\int_{z_2}^{z_1} kdz^\prime}\cdot \underbrace{e^{i\int_{z_1}^z kdz^\prime}}_{\text{subdominant on }\ S_2 w.r.t\ z=a}
 \]</span></p>
@@ -1432,7 +1451,7 @@ E\sim \frac{1}{\sqrt{k}}e^{-i\omega t + i\int_{z_2}^{z_1} kdz^\prime}\cdot \unde
 E\sim \frac{1}{\sqrt{k}}e^{-i\omega t + i\int_{z_2}^{z_1} kdz^\prime} \big[ \underbrace{e^{i\int_{z_1}^z kdz^\prime}}_{\text{dominant on }S_3} + \underbrace{ie^{-i\int_{z_1}^z kdz^\prime}}_{\text{subdominant on }S_3}  \big]
 \]</span></p>
 <p>where we pick up the Stokes constant <span class="math inline">\(i\)</span> and the subdominant solution, represented by the last term of the solution.</p>
-<p>Now, this is the solution on <span class="math inline">\(AS_4\)</span> (<span class="math inline">\(z&lt;z_1\)</span>). Referring to <a href="#eq-tunnel_k">Equation&nbsp;<span>3.19</span></a>, we see that the first term of the solution represents the reflected wave, and the second term the incident wave from <span class="math inline">\(z=-\infty\)</span>. Since the incident wave and reflected wave have equal amplitude, we have</p>
+<p>Now, this is the solution on <span class="math inline">\(AS_4\)</span> (<span class="math inline">\(z&lt;z_1\)</span>). Referring to <a href="#eq-tunnel_k">Equation&nbsp;<span>3.20</span></a>, we see that the first term of the solution represents the reflected wave, and the second term the incident wave from <span class="math inline">\(z=-\infty\)</span>. Since the incident wave and reflected wave have equal amplitude, we have</p>
 <p><span class="math display">\[
 |R|^2 = 1
 \]</span></p>
@@ -1483,15 +1502,15 @@ k(z) =
 i|k| &amp; 0&lt;z&lt;a \\
 |k| &amp; z&lt;0
 \end{cases}
-\tag{3.21}\]</span></span></p>
+\tag{3.22}\]</span></span></p>
 <p>For wave launched from large magnetic field side <span class="math inline">\(z=+\infty\)</span> going to <span class="math inline">\(z=-\infty\)</span> on <span class="math inline">\(AS_3\)</span>, the solution on <span class="math inline">\(AS_3\)</span> is (Note that even though <span class="math inline">\(z\)</span> is negative, it is the upper limit of the integral and k is positive. It took me a long time to get the right sign here for a left propagating wave.)</p>
 <p><span class="math display">\[
 E\sim \frac{1}{\sqrt{k}}e^{-i\omega t- i \int_0^z kdz^\prime}
 \]</span> This solution behaves like</p>
 <p><span id="eq-wave_AS3"><span class="math display">\[
 E\sim  \frac{1}{\sqrt{k}} e^{-i\omega t- i \int_0^z i|k|dz^\prime} \sim \frac{1}{\sqrt{k}} e^{-i\omega t + \int_0^z |k|dz^\prime}
-\tag{3.22}\]</span></span></p>
-<p>on <span class="math inline">\(S_1\)</span>. Thus, it is dominant on <span class="math inline">\(S_1\)</span> with respect to <span class="math inline">\(z=0\)</span>; it is subdominant on the neighboring Stokes line <span class="math inline">\(S_2\)</span>. Thus solution <a href="#eq-wave_AS3">Equation&nbsp;<span>3.22</span></a> remains valid upon crosing Stokes line <span class="math inline">\(S_2\)</span>. It is the solution in region I, bounded by <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_2\)</span>. Since it is dominant on <span class="math inline">\(S_1\)</span> with respect to <span class="math inline">\(z=0\)</span>, it is subdominant on <span class="math inline">\(S_1\)</span> with respect to <span class="math inline">\(z=a\)</span>. So we can write it as</p>
+\tag{3.23}\]</span></span></p>
+<p>on <span class="math inline">\(S_1\)</span>. Thus, it is dominant on <span class="math inline">\(S_1\)</span> with respect to <span class="math inline">\(z=0\)</span>; it is subdominant on the neighboring Stokes line <span class="math inline">\(S_2\)</span>. Thus solution <a href="#eq-wave_AS3">Equation&nbsp;<span>3.23</span></a> remains valid upon crosing Stokes line <span class="math inline">\(S_2\)</span>. It is the solution in region I, bounded by <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_2\)</span>. Since it is dominant on <span class="math inline">\(S_1\)</span> with respect to <span class="math inline">\(z=0\)</span>, it is subdominant on <span class="math inline">\(S_1\)</span> with respect to <span class="math inline">\(z=a\)</span>. So we can write it as</p>
 <p><span class="math display">\[
 E \sim \frac{1}{\sqrt{k}}e^{-i\omega t - i\int_0^a kdz^\prime}\cdot \underbrace{e^{-i\int_a^z kdz^\prime}}_{\text{subdominant on }\ S_1\ w.r.t.\ z=a}
 \]</span></p>
@@ -1693,40 +1712,40 @@ S = \int_{t_1}^{t_2}L(Q_i(t), \dot{Q}_i(t), t) \mathrm{d}t
 \]</span></p>
 <p>Since <span class="math inline">\(\eta_i(t_{1,2})=0\)</span>, the integrated term vanishes and since <span class="math inline">\(\eta_i\)</span> was an arbitrary function of <span class="math inline">\(t\)</span>, the coefficient of i in the integrand must vanish, yielding Lagrange’s equation <span id="eq-lagrange"><span class="math display">\[
 \frac{\mathrm{d}P_i}{\mathrm{d}t} = \frac{\partial L}{\partial Q_i}
-\tag{3.23}\]</span></span> where the <em>canonical momentum</em> <span class="math inline">\(P_i\)</span> is defined as <span id="eq-canonical-momentum"><span class="math display">\[
+\tag{3.24}\]</span></span> where the <em>canonical momentum</em> <span class="math inline">\(P_i\)</span> is defined as <span id="eq-canonical-momentum"><span class="math display">\[
 P_i \equiv \frac{\partial L}{\partial\dot{Q}_i}
-\tag{3.24}\]</span></span></p>
+\tag{3.25}\]</span></span></p>
 <p>Lagrange’s equation shows that if <span class="math inline">\(L\)</span> does not depend on a particular generalized coordinate <span class="math inline">\(Q_j\)</span>, then <span class="math inline">\(\mathrm{d}P_j/\mathrm{d}t=0\)</span>, in which case the canonical momentum <span class="math inline">\(P_j\)</span> is a <em>constant of motion</em>; the coordinate <span class="math inline">\(Q_j\)</span> is called a <em>cyclic</em> or <em>ignorable</em> coordinate. This is a very powerful and profound result. Saying that the Lagrangian function does not depend on a coordinate is equivalent to saying that the system is <em>symmetric</em> in that coordinate or translationally invariant with respect to that coordinate. The quantities <span class="math inline">\(P_j\)</span> and <span class="math inline">\(Q_j\)</span> are called conjugate and action has the dimensions of the product of these quantities.</p>
 <p>Hamilton extended this formalism by introducing a new function related to the Lagrangian. This new function, called the Hamiltonian, provides further useful information and is defined as <span id="eq-hamiltonian"><span class="math display">\[
 H \equiv \left( \sum_i P_i \dot{Q}_i \right) - L
-\tag{3.25}\]</span></span></p>
+\tag{3.26}\]</span></span></p>
 <p>Partial derivative of <span class="math inline">\(H\)</span> with respect to <span class="math inline">\(P_i\)</span> and to <span class="math inline">\(Q_i\)</span> give Hamilton’s equations <span class="math display">\[
 \dot{Q}_i = \frac{\partial H}{\partial P_i},\quad \dot{P}_i = -\frac{\partial H}{\partial Q_i}
 \]</span> which are equations of motion having a close relation to phase-space concepts. The time derivative of the Hamiltonian is <span id="eq-hamiltonian-time-derivative"><span class="math display">\[
 \frac{\mathrm{d}H}{\mathrm{d}t} = \sum_i \frac{\mathrm{d}P_i}{\mathrm{d}t}\dot{Q}_i + \sum_i P_i\frac{\mathrm{d}\dot{Q}_i}{\mathrm{d}t} - \left( \sum_i\frac{\partial L}{\partial Q_i}\dot{Q}_i + \sum_i\frac{\partial L}{\partial\dot{Q}_i}\frac{\mathrm{d}\dot{Q}_i}{\mathrm{d}t} + \frac{\partial L}{\partial t} \right) = -\frac{\partial L}{\partial t}
-\tag{3.26}\]</span></span></p>
+\tag{3.27}\]</span></span></p>
 <p>This shows that if Ldoes not explicitly depend on time, the Hamiltonian <span class="math inline">\(H\)</span> is a <em>constant of the motion</em>. As will be shown later, <span class="math inline">\(H\)</span> corresponds to the energy of the system, so if <span class="math inline">\(\partial L/\partial t=0\)</span>, the energy is a constant of the motion. Thus, energy is conjugate to time in analogy to canonical momentum being conjugate to position (note that energy <span class="math inline">\(\times\)</span> time also has the units of action). If the Lagrangian does not explicitly depend on time, then the system can be thought of as being “symmetric” with respect to time, or “translationally” invariant with respect to time.</p>
 <p>The Lagrangian for a charged particle in an electromagnetic field is <span id="eq-lagrangian-charged-particle"><span class="math display">\[
 L = \frac{mv^2}{2} + q\mathbf{v}\cdot\mathbf{A}(\mathbf{x},t) - q\phi(\mathbf{x},t)
-\tag{3.27}\]</span></span></p>
-<p>The validity of <a href="#eq-lagrangian-charged-particle">Equation&nbsp;<span>3.27</span></a> will now be established by showing that it generates the Lorentz equation when inserted into Lagrange’s equation. Since no symmetry is assumed, there is no reason to use any special coordinate system and so ordinary Cartesian coordinates will be used as the canonical coordinates, in which case <a href="#eq-canonical-momentum">Equation&nbsp;<span>3.24</span></a> gives the canonical momentum as <span class="math display">\[
+\tag{3.28}\]</span></span></p>
+<p>The validity of <a href="#eq-lagrangian-charged-particle">Equation&nbsp;<span>3.28</span></a> will now be established by showing that it generates the Lorentz equation when inserted into Lagrange’s equation. Since no symmetry is assumed, there is no reason to use any special coordinate system and so ordinary Cartesian coordinates will be used as the canonical coordinates, in which case <a href="#eq-canonical-momentum">Equation&nbsp;<span>3.25</span></a> gives the canonical momentum as <span class="math display">\[
 \mathbf{P} = m\mathbf{v} + q\mathbf{A}(\mathbf{x},t)
 \]</span></p>
-<p>The left-hand side of <a href="#eq-lagrange">Equation&nbsp;<span>3.23</span></a> becomes <span class="math display">\[
+<p>The left-hand side of <a href="#eq-lagrange">Equation&nbsp;<span>3.24</span></a> becomes <span class="math display">\[
 \frac{\mathrm{d}\mathbf{P}}{\mathrm{d}t} = m\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} + q\left( \frac{\partial\mathbf{A}}{\partial t} + \mathbf{v}\cdot\nabla\mathbf{A} \right)
-\]</span> while the right-hand side of <a href="#eq-lagrange">Equation&nbsp;<span>3.23</span></a> becomes <span class="math display">\[
+\]</span> while the right-hand side of <a href="#eq-lagrange">Equation&nbsp;<span>3.24</span></a> becomes <span class="math display">\[
 \begin{aligned}
 \frac{\partial L}{\partial\mathbf{x}} &amp;= q\nabla(\mathbf{v}\cdot\mathbf{A}) - q\nabla\phi = q(\mathbf{v}\cdot\nabla\mathbf{A} + \mathbf{v}\times\nabla\times\mathbf{A}) - q\nabla\phi \\
 &amp;= q(\mathbf{v}\cdot\nabla\mathbf{A} + \mathbf{v}\times\mathbf{B}) - q\nabla\phi
 \end{aligned}
 \]</span></p>
-<p>Equating the above two expressions gives the Lorentz equation, where the electric field is defined as <span class="math inline">\(\mathbf{E}=-\partial\mathbf{A}/\partial t - \nabla\phi\)</span> in accordance with Faraday’s law. This proves that <a href="#eq-lagrangian-charged-particle">Equation&nbsp;<span>3.27</span></a> is mathematically equivalent to the Lorentz equation when used with the principle of least action.</p>
+<p>Equating the above two expressions gives the Lorentz equation, where the electric field is defined as <span class="math inline">\(\mathbf{E}=-\partial\mathbf{A}/\partial t - \nabla\phi\)</span> in accordance with Faraday’s law. This proves that <a href="#eq-lagrangian-charged-particle">Equation&nbsp;<span>3.28</span></a> is mathematically equivalent to the Lorentz equation when used with the principle of least action.</p>
 <p>The Hamiltonian associated with this Lagrangian is, in Cartesian coordinates, <span id="eq-hamiltonian-charged-particle"><span class="math display">\[
 \begin{aligned}
 H &amp;= \mathbf{P}\cdot\mathbf{v} - L = \frac{mv^2}{2} + q\phi \\
 &amp;= \frac{\left(\mathbf{P} - q\mathbf{A}(\mathbf{x},t)\right)^2}{2m} + q\phi(\mathbf{x},t)
 \end{aligned}
-\tag{3.28}\]</span></span> where the last line is the form more suitable for use with Hamilton’s equations, i.e., <span class="math inline">\(H=H(\mathbf{x},\mathbf{P},t)\)</span>. <a href="#eq-hamiltonian-charged-particle">Equation&nbsp;<span>3.28</span></a> also shows that <span class="math inline">\(H\)</span> is, as promised, the particle energy. If generalized coordinates are used, the energy can be written in a general form as <span class="math inline">\(E=H(Q,P,t)\)</span>. <a href="#eq-hamiltonian-time-derivative">Equation&nbsp;<span>3.26</span></a> showed that even though both <span class="math inline">\(Q\)</span> and <span class="math inline">\(P\)</span> depend on time, the energy depends on time only if <span class="math inline">\(H\)</span> explicitly depends on time. Thus, in a situation where <span class="math inline">\(H\)</span> does not explicitly depend on time, the energy would have the form <span class="math inline">\(E=H(Q(t),P(t)) = \mathrm{const}\)</span>.</p>
+\tag{3.29}\]</span></span> where the last line is the form more suitable for use with Hamilton’s equations, i.e., <span class="math inline">\(H=H(\mathbf{x},\mathbf{P},t)\)</span>. <a href="#eq-hamiltonian-charged-particle">Equation&nbsp;<span>3.29</span></a> also shows that <span class="math inline">\(H\)</span> is, as promised, the particle energy. If generalized coordinates are used, the energy can be written in a general form as <span class="math inline">\(E=H(Q,P,t)\)</span>. <a href="#eq-hamiltonian-time-derivative">Equation&nbsp;<span>3.27</span></a> showed that even though both <span class="math inline">\(Q\)</span> and <span class="math inline">\(P\)</span> depend on time, the energy depends on time only if <span class="math inline">\(H\)</span> explicitly depends on time. Thus, in a situation where <span class="math inline">\(H\)</span> does not explicitly depend on time, the energy would have the form <span class="math inline">\(E=H(Q(t),P(t)) = \mathrm{const}\)</span>.</p>
 <p>It is important to realize that both canonical momentum and energy depend on the reference frame. For example, a bullet fired in an airplane in the direction opposite to the airplane motion, and with a speed equal to the airplane’s speed, has a large energy as measured in the airplane frame, but zero energy as measured by an observer on the ground. A more subtle example (of importance to later analysis of waves and Landau damping) occurs when <span class="math inline">\(\mathbf{A}\)</span> and/or <span class="math inline">\(\phi\)</span> has a wave-like dependence, e.g., <span class="math inline">\(\phi(\mathbf{x},t)=\phi(\mathbf{x}-\mathbf{v}_{\mathrm{ph}}t)\)</span>, where <span class="math inline">\(\mathbf{v}_{\mathrm{ph}}\)</span> is the wave phase velocity. This potential is time-dependent in the lab frame and so the associated Lagrangian has an explicit dependence on time in the lab frame, which implies that <em>energy is not a constant of the motion in the lab frame</em>. In contrast, <span class="math inline">\(\phi\)</span> is time-independent in the wave frame and so the energy is a <em>constant of the motion</em> in the wave frame. Existence of a constant of the motion reduces the complexity of the system of equations and typically makes it possible to integrate at least one equation in closed form. Thus, it is advantageous to analyze the system in the frame having the most constants of the motion.</p>
 </section>
 </section>
