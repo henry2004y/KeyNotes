@@ -700,16 +700,19 @@ P_1^1(\cos\theta) &amp;= -\sin\theta
 \]</span></p>
 <p>There are two parts in the real solution. The first part, starting with coefficients <span class="math inline">\(A_l\)</span>, represents the potential from an exterior source, which is analytic at <span class="math inline">\(r=0\)</span> but diverges as <span class="math inline">\(r\rightarrow\infty\)</span>. The second part, starting with coefficients <span class="math inline">\(B_l\)</span>, represents the potential from an interior source, which is singular at <span class="math inline">\(r=0\)</span> and finite as <span class="math inline">\(r\rightarrow\infty\)</span>.</p>
 <p><em>Ex 1.</em> Planet dipole field</p>
-<p>For a planetary dipole field, we only consider the contribution from the internal source. Let the radius of the planet be <span class="math inline">\(R\)</span> (the same as the coefficient). Then the Gauss potential for the dipole reads <span class="math display">\[
-V = \frac{R^3}{r^2}\big[ G_{10}\cos\theta + G_{11}\cos\phi\sin\theta + H_{11}\sin\phi\sin\theta \big]
+<p>For a planetary dipole field, we only consider the contribution from the internal source. The Gauss potential for the dipole reads <span class="math display">\[
+\begin{aligned}
+V &amp;= \frac{1}{r^2}\big[ B_1C_0\cos\theta + B_1C_1\cos\phi\sin\theta + B_1S_1\sin\phi\sin\theta \big] \\
+&amp;= \frac{1}{r^2}\big[ G_{10}\cos\theta + G_{11}\cos\phi\sin\theta + H_{11}\sin\phi\sin\theta \big]
+\end{aligned}
 \]</span></p>
-<p>Let dipole moment be <span class="math inline">\(\mathbf{m} = (G_{11},H_{11},G_{10})\)</span> in Cartesian coordinates, we have <span class="math display">\[
-\mathbf{B} = -\nabla V = -\nabla \Big[ \frac{R^3\mathbf{m}\cdot\mathbf{r}}{r^3} \Big]
+<p>If <span class="math inline">\(r\)</span> is defined in the unit of planet radius, then the dipole moment <span class="math inline">\(\mathbf{m} = (G_{11},H_{11},G_{10})\)</span> in Cartesian coordinates would have the SI unit of <span class="math inline">\([\text{T}\text{m}^3]\)</span>. We then have <span class="math display">\[
+\mathbf{B} = -\nabla V = -\nabla \Big[ \frac{\mathbf{m}\cdot\mathbf{r}}{r^3} \Big] = \frac{3(\mathbf{m}\cdot\widehat{r})\widehat{r}-\mathbf{m}}{r^3}
 \]</span></p>
-<p>Often in literature we see dipole moments in the unit of <span class="math inline">\([\text{nT}]\)</span>: it is equivalent to the equatorial field strength <span class="math inline">\(B_{\text{eq}}\)</span> at the planet’s surface. If we specify the dipole moment <span class="math inline">\(M\)</span> in <span class="math inline">\([\text{T}\text{m}^3]\)</span>, then <span class="math inline">\(B_{\text{eq}}=M/R_\text{E}^3\)</span>.</p>
-<p>When we expand the gradient operator, we have <span class="math display">\[
+<p>Often in literature we see dipole moments in the unit of <span class="math inline">\([\text{nT}]\,[\text{R}]^3\)</span>: this indicates that this dipole strength is equivalent to the equatorial field strength <span class="math inline">\(B_{\text{eq}}\)</span> at the planet’s surface, and the field strength is scaled as <span class="math inline">\(r^{-3}\)</span>.</p>
+<p>In SI units, we need to append additional coefficients <span class="math display">\[
 \mathbf{B} = \frac{\mu_0}{4\pi}\frac{3(\mathbf{m}\cdot\widehat{r})\widehat{r}-\mathbf{m}}{r^3}
-\]</span></p>
+\]</span> such that the dipole moment <span class="math inline">\(\mathbf{m}\)</span> has the unit of <span class="math inline">\([\mathrm{A}]\,[\mathrm{m}]^2\)</span>, consistent with its physical meaning originated from a closed current loop.</p>
 <p>In spherical coordinates <span class="math inline">\((r,\theta,\varphi)\)</span> aligned with the dipole moment, <span id="eq-dipole_spherical"><span class="math display">\[
 \mathbf{B} = \frac{\mu_0}{4\pi} \frac{m}{r^3} (-2\cos\theta, -\sin\theta, \,0)
 \tag{3.4}\]</span></span></p>
@@ -733,11 +736,11 @@ B = \frac{B_E}{L^3} \frac{(1+3\,\sin^2\vartheta)^{1/2}}{\cos^6\vartheta}
 V = c_0\ln{r} + D_0 + \sum_{n=1}^\infty \left( A_n\cos{n\theta} + B_n\sin{n\theta} \right)\left( C_n r^n + D_n r^{-n} \right)
 \]</span></p>
 <p>For a dipole field, we only consider <span class="math inline">\(n=1\)</span> from the internal source. If we absorb <span class="math inline">\(D_1\)</span> into <span class="math inline">\(A_1\)</span> and <span class="math inline">\(B_1\)</span>, we have <span class="math display">\[
-V = (A_1\cos\theta + B_1\sin\theta)\frac{1}{r}
-\]</span></p>
+V = (A_1\cos\theta + B_1\sin\theta)\frac{1}{r} = \frac{\mathbf{m}\cdot\mathbf{r}}{r^2}
+\]</span> where the 2D magnetic moment is <span class="math inline">\(\mathbf{m}=(A_1, B_1)\)</span>.</p>
 <p>Thus <span id="eq-dipole_2d"><span class="math display">\[
-\mathbf{B}_\mathrm{dipole,2D} = -\nabla V = (A_1\cos\theta + B_1\sin\theta)\frac{\mathbf{r}}{r^3}
-\tag{3.6}\]</span></span> where the minus sign has been absorbed into the coefficients.</p>
+\mathbf{B}_\mathrm{dipole,2D} = -\nabla V = \frac{2(\mathbf{m}\cdot\hat{r})\hat{r} - \mathbf{m}}{r^2}
+\tag{3.6}\]</span></span> where the minus sign has been absorbed into the coefficients. 2D dipole scales as <span class="math inline">\(r^{-2}\)</span>.</p>
 </section>
 <section id="greens-function" class="level2" data-number="3.9">
 <h2 data-number="3.9" class="anchored" data-anchor-id="greens-function"><span class="header-section-number">3.9</span> Green’s Function</h2>
