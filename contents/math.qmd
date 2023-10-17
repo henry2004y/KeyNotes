@@ -363,22 +363,26 @@ There are two parts in the real solution. The first part, starting with coeffici
 _Ex 1._ Planet dipole field
 
 For a planetary dipole field, we only consider the contribution from the internal source.
-Let the radius of the planet be $R$ (the same as the coefficient). Then the Gauss potential for the dipole reads
+The Gauss potential for the dipole reads
 $$
-V = \frac{R^3}{r^2}\big[ G_{10}\cos\theta + G_{11}\cos\phi\sin\theta + H_{11}\sin\phi\sin\theta \big]
-$$
-
-Let dipole moment be $\mathbf{m} = (G_{11},H_{11},G_{10})$ in Cartesian coordinates, we have
-$$
-\mathbf{B} = -\nabla V = -\nabla \Big[ \frac{R^3\mathbf{m}\cdot\mathbf{r}}{r^3} \Big]
+\begin{aligned}
+V &= \frac{1}{r^2}\big[ B_1C_0\cos\theta + B_1C_1\cos\phi\sin\theta + B_1S_1\sin\phi\sin\theta \big] \\
+&= \frac{1}{r^2}\big[ G_{10}\cos\theta + G_{11}\cos\phi\sin\theta + H_{11}\sin\phi\sin\theta \big]
+\end{aligned}
 $$
 
-Often in literature we see dipole moments in the unit of $[\text{nT}]$: it is equivalent to the equatorial field strength $B_{\text{eq}}$ at the planet's surface. If we specify the dipole moment $M$ in $[\text{T}\text{m}^3]$, then $B_{\text{eq}}=M/R_\text{E}^3$.
+If $r$ is defined in the unit of planet radius, then the dipole moment $\mathbf{m} = (G_{11},H_{11},G_{10})$ in Cartesian coordinates would have the SI unit of $[\text{T}\text{m}^3]$. We then have
+$$
+\mathbf{B} = -\nabla V = -\nabla \Big[ \frac{\mathbf{m}\cdot\mathbf{r}}{r^3} \Big] = \frac{3(\mathbf{m}\cdot\widehat{r})\widehat{r}-\mathbf{m}}{r^3}
+$$
 
-When we expand the gradient operator, we have
+Often in literature we see dipole moments in the unit of $[\text{nT}]\,[\text{R}]^3$: this indicates that this dipole strength is equivalent to the equatorial field strength $B_{\text{eq}}$ at the planet's surface, and the field strength is scaled as $r^{-3}$.
+
+In SI units, we need to append additional coefficients
 $$
 \mathbf{B} = \frac{\mu_0}{4\pi}\frac{3(\mathbf{m}\cdot\widehat{r})\widehat{r}-\mathbf{m}}{r^3}
 $$
+such that the dipole moment $\mathbf{m}$ has the unit of $[\mathrm{A}]\,[\mathrm{m}]^2$, consistent with its physical meaning originated from a closed current loop.
 
 In spherical coordinates $(r,\theta,\varphi)$ aligned with the dipole moment,
 $$
@@ -417,14 +421,15 @@ $$
 
 For a dipole field, we only consider $n=1$ from the internal source. If we absorb $D_1$ into $A_1$ and $B_1$, we have
 $$
-V = (A_1\cos\theta + B_1\sin\theta)\frac{1}{r}
+V = (A_1\cos\theta + B_1\sin\theta)\frac{1}{r} = \frac{\mathbf{m}\cdot\mathbf{r}}{r^2}
 $$
+where the 2D magnetic moment is $\mathbf{m}=(A_1, B_1)$.
 
 Thus
 $$
-\mathbf{B}_\mathrm{dipole,2D} = -\nabla V = (A_1\cos\theta + B_1\sin\theta)\frac{\mathbf{r}}{r^3}
+\mathbf{B}_\mathrm{dipole,2D} = -\nabla V = \frac{2(\mathbf{m}\cdot\hat{r})\hat{r} - \mathbf{m}}{r^2}
 $$ {#eq-dipole_2d}
-where the minus sign has been absorbed into the coefficients.
+where the minus sign has been absorbed into the coefficients. 2D dipole scales as $r^{-2}$.
 
 ## Green's Function
 
