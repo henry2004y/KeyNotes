@@ -1693,21 +1693,32 @@ In contrast to the ideal physics driving the jet, the non-ideal terms within the
 
 ### Reconnection Rate
 
-Reconnection rate quantifies the amount of magnetic flux transportation through the X-line. There are two kinds of reconnection rate:
+Reconnection rate quantifies the amount of magnetic flux transportation through the X-line. There are two kinds of reconnection rate [@nakamura2018measurement]:
 
-1. The _dimensionless_ reconnection rate, defined as the ratio between the inflow magnetic flux and the outflow magnetic flux:
+1. The _dimensional_ reconnection rate, defined as the out-of-plane electric (usually denoted as $E_r$ or $E_y$ for a 2D X-Z plane configuration, with a unit of [V/m]) at the X-line for steady state reconnection:
 $$
-R \equiv \frac{B_\mathrm{in}u_\mathrm{in}}{B_\mathrm{out}u_\mathrm{out}} \approx \frac{u_\mathrm{in}}{u_\mathrm{out}}
-$$ {#eq-reconnection-rate-dimensionless}
-
-The approximation is usually valid when we take the field values far away from the reconnection site. If there is no diffusion, all the incoming magnetic field lines can be reconnected, thus $R=1$. Due to the presence of ion and electron diffusion regions, the magnetic flux will dissipate near the X-line (smaller field strength, smaller velocity), therefore not all of the field lines will be reconnected. Observationally, this ratio is on the order of $\mathcal{O}(0.1)$. There has been some arguments based on geometry to explain this universal ratio in recent years.
-
-2. The _dimensional_ reconnection rate, defined as the difference between the inflow magnetic flux and the outflow magnetic flux:
-$$
-R \equiv B_\mathrm{in}u_\mathrm{in} - B_\mathrm{out}u_\mathrm{out}
+E_r \equiv E_y \sim U_\mathrm{in}B_\mathrm{in}\sim U_\mathrm{out}B_\mathrm{out}
 $$ {#eq-reconnection-rate-dimensional}
 
-When we think of a 2D X-line configuration in the X-Z plane, this is equivalent to the out-of-plane electric field $E_y$ in the unit of [V/m]. For global magnetosphere studies, a useful concept called _reconnection efficiency_ $\epsilon$ is defined as ratio of the imposed potential drop to the full possible potential drop across the width of the magnetosphere. The potential drop is calculated from integrating $R$ (or equivalently the out-of-plane electric field) along the X-line. As an example, Ganymede has been observed to possess an unusually high reconnection efficiency about 60% [@zhou2020reconnection]. High $\epsilon$ means either less diffusion or more plasmas diverting around the magnetopause. 
+Steady state is necessary for balancing the inflowing and outflowing flux and a uniform $E_r$. $E_r$ defines the rate at which the magnetic flux is transferred from the inflow region into the diffusion region to change the field line connectivity. Therefore, the reconnection electric field is also referred to as the dimensional reconnection rate.
+
+2. The _dimensionless_ reconnection rate, defined as the ratio between the inflow speed and the ion Alfvén speed based on the background reconnecting field strength $B_b$ and the upstream density:
+$$
+R \equiv \frac{U_\mathrm{in}}{V_{Aib}}
+$$ {#eq-reconnection-rate-dimensionless}
+
+Because of the [magnetic flux conservation in ideal MHD](https://en.wikipedia.org/wiki/Alfv%C3%A9n%27s_theorem), $B_\mathrm{in}U_\mathrm{in}=B_\mathrm{out}U_\mathrm{out}$. Assuming $B_\mathrm{in}\sim B_b$ and $U_\mathrm{out}\sim V_{Aib}$, the normalized reconnection rate can be approximately written by using the unnormalized rate $E_r\sim U_\mathrm{in}B_\mathrm{in}$ as
+$$
+R = \frac{U_\mathrm{in}}{V_{Aib}} \sim \frac{E_r}{V_{Aib}B_b} \sim \frac{E_r}{V_\mathrm{out}B_b}
+$$
+
+The inflow speed shall be taken near the reconnection site. Observationally, this ratio is on the order of $\mathcal{O}(0.1)$. There has been some theoretical arguments based on geometry to explain this universal ratio in recent years. We shall also note that magnetic flux is not conserved close to the center of X-line, in regions typically known as the ion diffusion region and electron diffusion region.
+
+For global magnetosphere studies, a useful concept called _reconnection efficiency_ $\epsilon$ is defined as ratio of the imposed potential drop to the full possible potential drop across the width of the magnetosphere. The potential drop is calculated from integrating $E_r$ along the X-line. As an example, Ganymede has been observed to possess an unusually high reconnection efficiency about 60% [@zhou2020reconnection], compared to about 10% measured by cross polar cap potential (CPCP) over the full possible potential drop at Earth. High $\epsilon$ means more plasmas penetrating inside the magnetosphere instead of diverting around the magnetopause.[^efficiency]
+
+[^efficiency]: I have a question here. If $\epsilon=1$, does it mean that all the plasmas hitting the magnetopause will penetrate inside via reconnection? How should I demonstrate this, e.g. using a test particle model?
+
+It is important to note that high reconnection efficiency does not indicate high dimensionless reconnection rate. For instance, in a 2D steady state magnetosphere reconnection, the global reconnection efficiency must be 1, otherwise the system cannot be steady. However, the local dimensionless reconnection rate can still be 0.1, measured from either the speed ratio or the ratio of $B_N$ in the LMN coordinate system to the total magnetic field strength right inside the magnetopause [@sonnerup1974magnetopause].
 
 ### Hall Field
 
