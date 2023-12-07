@@ -455,7 +455,7 @@ u^2(r_c) = u_c^2 \equiv \frac{2k_B T}{m_p}
 <p>These four classes of solutions are illustrated in <a href="#fig-parker_sol">Figure&nbsp;<span>16.1</span></a>.</p>
 <div id="fig-parker_sol" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://farside.ph.utexas.edu/teaching/plasma/lectures1/img1660.png" class="img-fluid figure-img"></p>
+<p><img src="https://farside.ph.utexas.edu/teaching/plasma/lectures/img2794.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;16.1: The four classes of Parker outflow solutions for the solar wind.</figcaption>
 </figure>
 </div>
@@ -463,10 +463,10 @@ u^2(r_c) = u_c^2 \equiv \frac{2k_B T}{m_p}
 <p><a href="#eq-corona_dynamic_governing">Equation&nbsp;<span>16.9</span></a> can be rearranged to give <span class="math display">\[
 \frac{du^2}{\mathrm{d}r}\left(1-\frac{u_c^{~2}}{u^2}\right) = \frac{4\,u_c^{~2}}{r} \left(1-\frac{r_c}{r}\right)
 \]</span> where <a href="#eq-corona_T_r">Equation&nbsp;<span>16.10</span></a> and the definition of <span class="math inline">\(T_c\)</span> have been used. The above expression can be integrated to give <span id="eq-corona_dynamic_sol"><span class="math display">\[
-\left(\frac{u}{u_c}\right)^2 -\ln\!\left(\frac{u}{u_c}\right)^2 = 4\,\ln r + 4\,\frac{r_c}{r} + C
+\left(\frac{u}{u_c}\right)^2 -\ln\!\left(\frac{u}{u_c}\right)^2 = 4\,\ln\frac{r}{r_c} + 4\,\frac{r_c}{r} + C
 \tag{16.13}\]</span></span> where <span class="math inline">\(C\)</span> is a constant of integration.</p>
 <p>Let us consider the behaviour of Class 1 solutions in the limit <span class="math inline">\(r\rightarrow\infty\)</span>. It is clear from <a href="#fig-parker_sol">Figure&nbsp;<span>16.1</span></a> that, for Class 1 solutions, <span class="math inline">\(u/u_c\)</span> is less than unity and monotonically decreasing as <span class="math inline">\(r\rightarrow\infty\)</span>. In the large-<span class="math inline">\(r\)</span> limit, <a href="#eq-corona_dynamic_sol">Equation&nbsp;<span>16.13</span></a> reduces to <span class="math display">\[
-\ln\frac{u}{u_c} \simeq -2\,\ln r
+\ln\frac{u}{u_c} \simeq -2\,\ln\frac{r}{r_c}
 \]</span> so that <span class="math display">\[
 u\propto \frac{1}{r^2}
 \]</span></p>
@@ -474,7 +474,7 @@ u\propto \frac{1}{r^2}
 p_\infty= \frac{2k_B\,\rho_\infty\,T}{m_p}
 \]</span> at large <span class="math inline">\(r\)</span>, which cannot be matched to the much smaller pressure of the interstellar medium. Clearly, Class 1 solutions are unphysical.</p>
 <p>Let us consider the behaviour of the Class 2 solution in the limit <span class="math inline">\(r\rightarrow\infty\)</span>. It is clear from <a href="#fig-parker_sol">Figure&nbsp;<span>16.1</span></a> that, for the Class 2 solution, <span class="math inline">\(u/u_c\)</span> is greater than unity and monotonically increasing as <span class="math inline">\(r\rightarrow\infty\)</span>. In the large-<span class="math inline">\(r\)</span> limit, <a href="#eq-corona_dynamic_sol">Equation&nbsp;<span>16.13</span></a> reduces to <span class="math display">\[
-\left(\frac{u}{u_c}\right)^2 \simeq 4\,\ln r
+\left(\frac{u}{u_c}\right)^2 \simeq 4\,\ln\frac{r}{r_c}
 \]</span> so that <span class="math display">\[
 u \simeq 2\,u_c\,(\ln r)^{1/2}
 \]</span></p>
@@ -485,7 +485,8 @@ u \simeq 2\,u_c\,(\ln r)^{1/2}
 <section id="parker-spiral" class="level2" data-number="16.2">
 <h2 data-number="16.2" class="anchored" data-anchor-id="parker-spiral"><span class="header-section-number">16.2</span> Parker Spiral</h2>
 <p>The <em>interplanetary magnetic field</em> (IMF), also called <em>Parker spiral</em>, is the component of the solar magnetic field that is dragged out from the solar corona by the solar wind flow to fill the Solar System. Depending on the polarity of the photospheric footpoint, the heliospheric magnetic field spirals inward or outward; the magnetic field follows the same shape of spiral in the northern and southern parts of the heliosphere, but with opposite field direction. These two magnetic domains are separated by a current sheet (an electric current that is confined to a curved plane). This heliospheric current sheet has a shape similar to a twirled ballerina skirt (<a href="#fig-helio_current_sheet">Figure&nbsp;<span>16.2</span></a>), and changes in shape through the solar cycle as the Sun’s magnetic field reverses about every 11 years.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode jl code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>KeyNotes.<span class="fu">plot_IMF_3D</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode jl code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>KeyNotes.<span class="fu">plot_IMF_ecliptic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode jl code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>KeyNotes.<span class="fu">plot_IMF_3D</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="fig-helio_current_sheet" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="../images/Heliospheric-current-sheet.png" class="img-fluid figure-img"></p>
