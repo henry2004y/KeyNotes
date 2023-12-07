@@ -119,7 +119,7 @@ These four classes of solutions are illustrated in @fig-parker_sol.
 
 ::: {.content-visible unless-format="pdf"}
 
-![The four classes of Parker outflow solutions for the solar wind.](https://farside.ph.utexas.edu/teaching/plasma/lectures1/img1660.png){#fig-parker_sol}
+![The four classes of Parker outflow solutions for the solar wind.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img2794.png){#fig-parker_sol}
 
 :::
 
@@ -131,13 +131,13 @@ $$
 $$
 where @eq-corona_T_r and the definition of $T_c$ have been used. The above expression can be integrated to give
 $$
-\left(\frac{u}{u_c}\right)^2 -\ln\!\left(\frac{u}{u_c}\right)^2 = 4\,\ln r + 4\,\frac{r_c}{r} + C
+\left(\frac{u}{u_c}\right)^2 -\ln\!\left(\frac{u}{u_c}\right)^2 = 4\,\ln\frac{r}{r_c} + 4\,\frac{r_c}{r} + C
 $$ {#eq-corona_dynamic_sol}
 where $C$ is a constant of integration.
 
 Let us consider the behaviour of Class 1 solutions in the limit $r\rightarrow\infty$. It is clear from @fig-parker_sol that, for Class 1 solutions, $u/u_c$ is less than unity and monotonically decreasing as $r\rightarrow\infty$. In the large-$r$ limit, @eq-corona_dynamic_sol reduces to
 $$
-\ln\frac{u}{u_c} \simeq -2\,\ln r
+\ln\frac{u}{u_c} \simeq -2\,\ln\frac{r}{r_c}
 $$
 so that
 $$
@@ -152,7 +152,7 @@ at large $r$, which cannot be matched to the much smaller pressure of the inters
 
 Let us consider the behaviour of the Class 2 solution in the limit $r\rightarrow\infty$. It is clear from @fig-parker_sol that, for the Class 2 solution, $u/u_c$ is greater than unity and monotonically increasing as $r\rightarrow\infty$. In the large-$r$ limit, @eq-corona_dynamic_sol reduces to
 $$
-\left(\frac{u}{u_c}\right)^2 \simeq 4\,\ln r
+\left(\frac{u}{u_c}\right)^2 \simeq 4\,\ln\frac{r}{r_c}
 $$
 so that
 $$
@@ -168,6 +168,10 @@ Note that while the velocity prediction accords well with satellite observations
 ## Parker Spiral
 
 The _interplanetary magnetic field_ (IMF), also called _Parker spiral_, is the component of the solar magnetic field that is dragged out from the solar corona by the solar wind flow to fill the Solar System. Depending on the polarity of the photospheric footpoint, the heliospheric magnetic field spirals inward or outward; the magnetic field follows the same shape of spiral in the northern and southern parts of the heliosphere, but with opposite field direction. These two magnetic domains are separated by a current sheet (an electric current that is confined to a curved plane). This heliospheric current sheet has a shape similar to a twirled ballerina skirt (@fig-helio_current_sheet), and changes in shape through the solar cycle as the Sun's magnetic field reverses about every 11 years.
+
+```jl
+KeyNotes.plot_IMF_ecliptic()
+```
 
 ```jl
 KeyNotes.plot_IMF_3D()

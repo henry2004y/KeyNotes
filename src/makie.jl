@@ -317,7 +317,7 @@ function plot_dispersion_parallel()
    Options(f; caption, label)
 end
 
-"Not working in Makie v0.18 due to the lack of polar axis!"
+"Parker spiral in 2D polar axis."
 function plot_IMF_ecliptic()
    # Solar
    Tsolarrotate = 25.05*24*3600 # [s]
@@ -338,27 +338,24 @@ function plot_IMF_ecliptic()
    
    # 2D ecliptic plane
    φ₀ = 0
-   r = range(rmin, rmax, length=300)
+   r = range(rmin, rmax, length=400)
    φ = @. 2π *( φ₀ + rmin*ωsun/Vr*(r/rmin - log(r) - 1 + log(rmin)) )
-   #=
-   fig = figure("Ecliptic plane",figsize=(10,10))
-   ax = PyPlot.axes(polar="true")
-   ax.plot(φ, r./AU, label="Parker spiral")
-   
+
+   f = Figure(size = (800, 400))
+
+   ax = PolarAxis(f[1,1], title="Ecliptic plane")
+   lines!(ax, φ, r./AU, label="Parker spiral")
    rCircle = ones(100)
    angle = range(0, 2π, length=100)
-   
-   ax.plot(angle, rCircle, "k--", label="Earth")
-   ax.plot(angle, rCircle.*dMercury, "--", label="Mercury")
-   ax.plot(angle, rCircle.*dVenus, "--", label="Venus")
-   ax.plot(angle, rCircle.*dMars, "--", label="Mars")
-   ax.plot(angle, rCircle.*dJupiter, "--", label="Jupiter")
-   
-   ax.set_rmax(rmax/AU)
-   ax.set_rlabel_position(-22.5)  # Move radial labels away from plotted line
-   ax.grid(true)
-   legend()
-   =#
+   lines!(ax, angle, rCircle, linestyle=:dashdot, color=:black, label="Earth")
+   lines!(ax, angle, rCircle.*dMercury, linestyle=:dashdot, label="Mercury")
+   lines!(ax, angle, rCircle.*dVenus, linestyle=:dashdot, label="Venus")
+   lines!(ax, angle, rCircle.*dMars, linestyle=:dashdot, label="Mars")
+   lines!(ax, angle, rCircle.*dJupiter, linestyle=:dashdot, label="Jupiter")
+   rlims!(ax, 0, rmax/AU)
+   #TODO: not working in Makie v0.20.2!
+   #axislegend()
+
    caption = "Interplanetary magnetic field in the ecliptic plane."
    label = "IMF2D"
    Options(f; caption, label)
