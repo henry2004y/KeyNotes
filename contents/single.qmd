@@ -256,17 +256,27 @@ $$
 Thus
 $$
 |B| \propto \frac{1}{R_c},\, \frac{\nabla B}{B} = - \frac{\mathbf{R}_c}{R_c^2}
-$$
+$$ {#eq-curvature-radius}
 
 Using the expression of the grad-B drift, we have
 $$
 \mathbf{v}_{\nabla B} = \mp \frac{1}{2}\frac{v_\perp r_L}{B^2}\mathbf{B}\times\frac{\mathbf{R}_c}{R_c^2} = \pm \frac{1}{2}\frac{v_\perp^2}{\omega_c}\frac{\mathbf{R}_c\times\mathbf{B}}{R_c^2 B} = \frac{1}{2}\frac{m}{q}v_\perp^2\frac{\mathbf{R}_c\times\mathbf{B}}{R_c^2 B^2}
 $$
 
-Adding this to $\mathbf{v}_R$ , we have the total drift in a curved vacuum field:
+Adding this to $\mathbf{v}_R$ , we have the total drift in a curved vacuum field
 $$
 \mathbf{v}_R + \mathbf{v}_{\nabla B} = \frac{m}{q}\frac{\mathbf{R}_c\times\mathbf{B}}{R_c^2 B^2}\Big( v_\parallel^2 + \frac{1}{2}v_\perp^2 \Big)
 $$
+
+or with just the magnetic field
+$$
+\mathbf{v}_R + \mathbf{v}_{\nabla B} = \frac{m}{q}\frac{\mathbf{B}\times\nabla B}{B^3}\Big( v_\parallel^2 + \frac{1}{2}v_\perp^2 \Big)
+$$
+
+or if the kinetic energy $W$ and pitch angle $\theta$ are involved
+$$
+\mathbf{v}_R + \mathbf{v}_{\nabla B} = \frac{\mathbf{B}\times\nabla B}{qB^3}\Big( 2W\sin^2\theta + W\cos^2\theta \Big) = \frac{\mathbf{B}\times\nabla B}{qB^3}\Big( 1 + W\sin^2\theta \Big)
+$$ {#eq-gc-drift-b-pitchangle}
 
 It is unfortunate that these drifts add. This means that if one bends a magnetic field into a torus for the purpose of confining a thermonuclear plasma, the particles will drift out of the torus no matter how one juggles the temperatures and magnetic fields.
 
@@ -762,44 +772,50 @@ By applying the guiding center approximation, we reduce the number of independen
 General force:
 $$
 \mathbf{v}_f = \frac{1}{q}\frac{\mathbf{F}\times\mathbf{B}}{B^2}
-$$
+$$ {#eq-gc-drift-f}
 
 Electric field:
 $$
 \mathbf{v}_E = \frac{\mathbf{E}\times\mathbf{B}}{B^2}
-$$
+$$ {#eq-gc-drift-e}
 
 Gravitational field:
 $$
 \mathbf{v}_g = \frac{m}{q}\frac{\mathbf{g}\times\mathbf{B}}{B^2}
-$$
+$$ {#eq-gc-drift-g}
 
 Nonuniform electric field:
 $$
 \mathbf{v}_E = \Big( 1+\frac{1}{4}r_L^2 \nabla^2 \Big)\frac{\mathbf{E}\times\mathbf{B}}{B^2}
-$$
+$$ {#eq-gc-drift-e-nonuniform}
 
 Nonuniform magnetic field:
 
 Grad-B:
 $$
 \mathbf{v}_{\nabla B} = \pm \frac{1}{2}v_\perp r_L\frac{\mathbf{B}\times\nabla B}{B^2}
-$$
+$$ {#eq-gc-drift-gradB}
 
 Curvature drift:
 $$
-\mathbf{v}_R = \frac{mv_\parallel^2}{q}\frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2 B^2}
-$$
+\begin{aligned}
+\mathbf{v}_R &= \frac{mv_\parallel^2}{q}\frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2 B^2} \\
+&= \frac{m v_\parallel^2}{q}\frac{\mathbf{B}\times\nabla B}{B^3}
+\end{aligned}
+$$ {#eq-gc-drift-curvature}
 
 Curved vacuum field:
 $$
-\mathbf{v}_R + \mathbf{v}_{\nabla B} = \frac{m}{q}\Big( v_\parallel^2 + \frac{1}{2}v_\perp^2 \Big) \frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2 B^2}
-$$
+\begin{aligned}
+\mathbf{v}_R + \mathbf{v}_{\nabla B} &= \frac{m}{q}\Big( v_\parallel^2 + \frac{1}{2}v_\perp^2 \Big) \frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2 B^2} \\
+&= \frac{m}{q}\frac{\mathbf{B}\times\nabla B}{B^3}\Big( v_\parallel^2 + \frac{1}{2}v_\perp^2 \Big)
+\end{aligned}
+$$ {#eq-gc-drift-b}
 
 Polarization drift:
 $$
 \mathbf{v}_p = \pm \frac{1}{\omega_c B}\frac{\mathrm{d}\mathbf{E}}{\mathrm{d}t}
-$$
+$$ {#eq-gc-drift-polarization}
 
 ## Adiabatic Invariants {#sec-adiabatic-invariant}
 
