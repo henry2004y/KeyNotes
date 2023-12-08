@@ -246,9 +246,9 @@ $$
 \mathbf{v}_{R} = \frac{1}{q}\frac{\mathbf{F}_{cf}\times\mathbf{B}}{B^2} = \frac{mv_\parallel^2}{qB^2}\frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2}
 $$
 
-The drift $\mathbf{v}_R$ is called the *curvature drift*.
+The drift $\mathbf{v}_c$ is called the *curvature drift*.
 
-We must now compute the grad-B drift which accompanies this when the decrease of $|B|$ with radius is taken into account. In a vacuum, we have $\nabla\times\mathbf{B} = 0$. In the cylindrical coordinates, $\nabla\times\mathbf{B}$ only has a $z$ component, since $\mathbf{B}$ has only a $\theta$ component and $\nabla B$ only an $r$ component. We then have
+We must now compute the grad-B drift which accompanies this when the decrease of $|B|$ with radius is taken into account. In a vacuum, we have $\nabla\times\mathbf{B} = 0$ (current-free). In the cylindrical coordinates, $\nabla\times\mathbf{B}$ only has a $z$ component, since $\mathbf{B}$ has only a $\theta$ component and $\nabla B$ only an $r$ component. We then have
 $$
 (\nabla\times\mathbf{B})_z = \frac{1}{r}\frac{\partial}{\partial r}(rB_\theta) = 0,\, B\propto \frac{1}{r}
 $$
@@ -263,19 +263,19 @@ $$
 \mathbf{v}_{\nabla B} = \mp \frac{1}{2}\frac{v_\perp r_L}{B^2}\mathbf{B}\times\frac{\mathbf{R}_c}{R_c^2} = \pm \frac{1}{2}\frac{v_\perp^2}{\omega_c}\frac{\mathbf{R}_c\times\mathbf{B}}{R_c^2 B} = \frac{1}{2}\frac{m}{q}v_\perp^2\frac{\mathbf{R}_c\times\mathbf{B}}{R_c^2 B^2}
 $$
 
-Adding this to $\mathbf{v}_R$ , we have the total drift in a curved vacuum field
+Adding this to $\mathbf{v}_c$ , we have the total drift in a curved vacuum field
 $$
-\mathbf{v}_R + \mathbf{v}_{\nabla B} = \frac{m}{q}\frac{\mathbf{R}_c\times\mathbf{B}}{R_c^2 B^2}\Big( v_\parallel^2 + \frac{1}{2}v_\perp^2 \Big)
+\mathbf{v}_c + \mathbf{v}_{\nabla B} = \frac{m}{q}\frac{\mathbf{R}_c\times\mathbf{B}}{R_c^2 B^2}\left( v_\parallel^2 + \frac{1}{2}v_\perp^2 \right)
 $$
 
 or with just the magnetic field
 $$
-\mathbf{v}_R + \mathbf{v}_{\nabla B} = \frac{m}{q}\frac{\mathbf{B}\times\nabla B}{B^3}\Big( v_\parallel^2 + \frac{1}{2}v_\perp^2 \Big)
-$$
+\mathbf{v}_c + \mathbf{v}_{\nabla B} = \frac{m}{q}\frac{\mathbf{B}\times\nabla B}{B^3}\left( v_\parallel^2 + \frac{1}{2}v_\perp^2 \right)
+$$ {#eq-gc-drift-curvature-current-free}
 
 or if the kinetic energy $W$ and pitch angle $\theta$ are involved
 $$
-\mathbf{v}_R + \mathbf{v}_{\nabla B} = \frac{\mathbf{B}\times\nabla B}{qB^3}\Big( 2W\sin^2\theta + W\cos^2\theta \Big) = \frac{\mathbf{B}\times\nabla B}{qB^3}\Big( 1 + W\sin^2\theta \Big)
+\mathbf{v}_c + \mathbf{v}_{\nabla B} = \frac{\mathbf{B}\times\nabla B}{qB^3}\Big( 2W\cos^2\theta + W\sin^2\theta \Big) = \frac{\mathbf{B}\times\nabla B}{qB^3}\left( 1 + W\cos^2\theta \right)
 $$ {#eq-gc-drift-b-pitchangle}
 
 It is unfortunate that these drifts add. This means that if one bends a magnetic field into a torus for the purpose of confining a thermonuclear plasma, the particles will drift out of the torus no matter how one juggles the temperatures and magnetic fields.
@@ -285,6 +285,26 @@ $$
 \bar{\mathbf{v}}_{R+\nabla B} = \pm \frac{v_{th}^2}{R_c\omega_c}\widehat{y} = \pm\frac{\bar{r}_L}{R_c}v_{th}\widehat{y}
 $$
 where $\widehat{y}$ here is the direction of $\widehat{R}_c\times\mathbf{B}$. This shows that $\bar{\mathbf{v}}_{R+\nabla B}$ depends on the charge of the species but not on its mass.
+
+If current exists and we cannot assume $\nabla\times\mathbf{B}=0$, we rely on the original definition of curvature radius
+$$
+\frac{\hat{r}}{R_c} = \frac{\mathbf{R}_c}{R_c^2} = -\hat{b}\cdot\nabla\hat{b}
+$$ {#eq-curvature-radius}
+
+Then the curvature drift can be written as
+$$
+\mathbf{v}_{R} = \frac{mv_\parallel^2}{qB^2}\frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2} = \frac{mv_\parallel^2}{qB^4}\mathbf{B}\times\left[ \mathbf{B}\cdot\nabla\mathbf{B} \right]
+$$ {#eq-gc-drift-curvature-general}
+
+The equivalence of @eq-gc-drift-curvature-current-free and @eq-gc-drift-curvature-general can be verified by using the equality[^proof]
+$$
+\begin{aligned}
+\mathbf{B}\times(\cancel{\nabla\times\mathbf{B}}) &= (\nabla\mathbf{B})\cdot\mathbf{B} - (\mathbf{B}\cdot\nabla)\mathbf{B} \\
+(\mathbf{B}\cdot\nabla)\mathbf{B} = (\nabla\mathbf{B})\cdot\mathbf{B} = B\nabla B
+\end{aligned}
+$$
+
+[^proof]: The last equality can be checked by writing out each component of $\mathbf{B}$.
 
 ### ∇B ∥ B: Magnetic Mirrors
 
@@ -799,15 +819,16 @@ $$ {#eq-gc-drift-gradB}
 Curvature drift:
 $$
 \begin{aligned}
-\mathbf{v}_R &= \frac{mv_\parallel^2}{q}\frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2 B^2} \\
-&= \frac{m v_\parallel^2}{q}\frac{\mathbf{B}\times\nabla B}{B^3}
+\mathbf{v}_c &= \frac{mv_\parallel^2}{q}\frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2 B^2} \\
+&= \frac{mv_\parallel^2}{qB^4}\mathbf{B}\times\left[ \mathbf{B}\cdot\nabla\mathbf{B} \right] \\
+&= \frac{m v_\parallel^2}{qB^3}\mathbf{B}\times\nabla B\,\text{(current-free)}
 \end{aligned}
 $$ {#eq-gc-drift-curvature}
 
 Curved vacuum field:
 $$
 \begin{aligned}
-\mathbf{v}_R + \mathbf{v}_{\nabla B} &= \frac{m}{q}\Big( v_\parallel^2 + \frac{1}{2}v_\perp^2 \Big) \frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2 B^2} \\
+\mathbf{v}_c + \mathbf{v}_{\nabla B} &= \frac{m}{q}\Big( v_\parallel^2 + \frac{1}{2}v_\perp^2 \Big) \frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2 B^2} \\
 &= \frac{m}{q}\frac{\mathbf{B}\times\nabla B}{B^3}\Big( v_\parallel^2 + \frac{1}{2}v_\perp^2 \Big)
 \end{aligned}
 $$ {#eq-gc-drift-b}
@@ -1084,7 +1105,7 @@ $$
 
 The guiding center drift in curved vacuum field is
 $$
-\mathbf{v}_{gc} = \mathbf{v}_R + \mathbf{v}_{\nabla B} = \pm \frac{1}{2}v_\perp r_L\frac{\mathbf{B}\times\nabla B}{B^2} + \frac{mv_\parallel^2}{q}\frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2 B^2}
+\mathbf{v}_{gc} = \mathbf{v}_c + \mathbf{v}_{\nabla B} = \pm \frac{1}{2}v_\perp r_L\frac{\mathbf{B}\times\nabla B}{B^2} + \frac{mv_\parallel^2}{q}\frac{\mathbf{R}_c \times\mathbf{B}}{R_c^2 B^2}
 $$
 
 The curvature drift has no component along $\mathbf{R}_c$. Using the above three equations, we have
