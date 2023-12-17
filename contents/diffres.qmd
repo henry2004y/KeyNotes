@@ -79,12 +79,10 @@ gradient of the density. In plasmas, Fick’s law is not necessarily obeyed. Bec
 ### Ambipolar Diffusion
 
 We now consider how a plasma created in a container decays by diffusion to the walls. Once ions and electrons reach the wall, they recombine there. The density near the wall, therefore, is essentially zero. The fluid equations of motion and continuity govern the plasma behavior; but if the decay is slow, we need only keep the time derivative in the continuity equation. The time derivative in the equation of motion, will be negligible if the collision frequency $\nu$ is large. We thus have
-
 $$
 \frac{\partial n}{\partial t} + \nabla\cdot\Gamma_s = 0
 $$ {#eq-diffusion_continuity}
 with $\Gamma_s$ given by @eq-species_flux. It is clear that if $\Gamma_i$ and $\Gamma_e$ were not equal, a serious charge imbalance would soon arise. If the plasma is much larger than a Debye length, it must be quasineutral; and one would expect that the rates of diffusion of ions and electrons would somehow adjust themselves so that the two species leave at the same rate. How this happens is easy to see. The electrons, being lighter, have higher thermal velocities and tend to leave the plasma first. A positive charge is left behind, and an electric field is set up of such a polarity as to retard the loss of electrons and accelerate the loss of ions. The required $\mathbf{E}$ field is found by setting $\Gamma_i=\Gamma_e=\Gamma$. From @@eq-species_flux, we can write
-
 $$
 \Gamma = \mu_i n\mathbf{E} - D_i \nabla n = -\mu_e n\mathbf{E} - D_e\nabla n
 $$
@@ -126,13 +124,11 @@ The effect of the ambipolar electric field is to enhance the diffusion of ions b
 ### Diffusion in a Slab
 
 The diffusion @eq-ambipolar_diffusion can easily be solved by the method of separation of variables. We let
-
 $$
 n(\mathbf{r}, t) = T(t)S(\mathbf{r})
 $$
 
 whereupon @eq-ambipolar_diffusion, with the subscript on $D_a$ understood, becomes
-
 $$
 \begin{aligned}
 S\frac{\mathrm{d}T}{\mathrm{d}t} &= DT\nabla^2 S \\
@@ -141,49 +137,40 @@ S\frac{\mathrm{d}T}{\mathrm{d}t} &= DT\nabla^2 S \\
 $$
 
 Since the left side is a function of time alone and the right side a function of space alone, they must both be equal to the same constant, which we shall call $-1/\tau$. The function $T$ then obeys the equation
-
 $$
 \frac{\mathrm{d}T}{\mathrm{d}t} = -\frac{T}{\tau}
 $$ {#eq-diffusion_temporal}
 
 with the solution
-
 $$
 T = T_0 e^{-t/\tau}
 $$
 
 The spatial part $S$ obeys the equation
-
 $$
 \nabla^2 S = -\frac{1}{D\tau} S
 $$ {#eq-diffusion_spatial}
 
 In slab geometry, this becomes
-
 $$
 \frac{\mathrm{d}^2 S}{\mathrm{d}x^2} = -\frac{1}{D\tau}S
 $$ {#eq-diffusion_spatial_slab}
 
 with the solution
-
 $$
 S = A\cos\frac{x}{(D\tau)^{1/2}} + B\sin\frac{x}{(D\tau)^{1/2}}
 $$ {#eq-slab_sol}
 
 We would expect the density to be nearly zero at the walls (Fig. 5.3 ADD IT!) and to have one or more peaks in between. The simplest solution is that with a single maximum. By symmetry, we can reject the odd (sine) term in @eq-slab_sol. The boundary conditions $S=0$ at $x=\pm L$ then requires
-
 $$
 \frac{L}{(D\tau)^{1/2}} = \frac{\pi}{2}
 $$
-
 or
-
 $$
 \tau = \Big( \frac{2L}{\pi} \Big)^2 \frac{1}{D}
 $$
 
 Combining all the equations above, we have
-
 $$
 n = n_0 e^{-t/\tau} \cos\frac{\pi x}{2L}
 $$
@@ -191,25 +178,21 @@ $$
 This is called the _lowest diffusion mode_. The density distribution is a cosine, and the peak density decays exponentially with time. The time constant $\tau$ increases with $L$ and varies inversely with $D$, as one would expect.
 
 There are, of course, higher diffusion modes with more than one peak. Suppose the initial density distribution is as shown by the top curve in Fig. 5.4 ADD IT. Such an arbitrary distribution can be expanded in a Fourier series:
-
 $$
 n = n_0 \Big( \sum_l a_l\cos\frac{(l+\frac{1}{2})\pi x}{L} \sum_m b_m\sin\frac{m\pi x}{L} \Big)
 $$
 
 We have chosen the indices so that the boundary condition at $x=\pm L$ is automatically satisfied. To treat the time dependence, we can try a solution of the form
-
 $$
 n = n_0 \Big( \sum_l a_l e^{-t/\tau_l}\cos\frac{(l+\frac{1}{2})\pi x}{L} \sum_m b_m e^{-t/\tau_m}\sin\frac{m\pi x}{L} \Big)
 $$
 
 Substituting this into the diffusion @eq-ambipolar_diffusion, we see that each cosine term yields a relation of the form
-
 $$
 -\frac{1}{\tau_l} = -D\Big[ \Big(l+\frac{\pi}{2}\Big)\frac{\pi}{L} \Big]^2
 $$
 
 and similarly for the sine terms. Thus the decay time constant for the $l$th mode is given by
-
 $$
 \tau_l = \Big[ \frac{L}{(l+\frac{1}{2})\pi} \Big]^2 \frac{1}{D}
 $$
@@ -221,7 +204,6 @@ I WANT TO DO A SIMULATION ON THIS! TRY METHODOFLINES.JL?
 ### Diffusion in a Cylinder
 
 The spatial part of the diffusion equation, eq-diffusion_spatial, reads, in cylindrical geometry,
-
 $$
 \frac{\mathrm{d}^2 S}{dr^2} + \frac{1}{r}\frac{dS}{dr} + \frac{1}{D\tau}S = 0
 $$ {#eq-diffusion_spatial_cylinder}
@@ -236,7 +218,6 @@ again decays exponentially, since the temporal part of the diffusion equation, @
 ## Steady State Solutions
 
 In many experiments, a plasma is maintained in a steady state by continuous ionization or injection of plasma to offset the losses. To calculate the density profile in this case, we must add a source term to the equation of continuity:
-
 $$
 \frac{\partial n}{\partial t} - D\nabla^2 n = Q(\mathbf{r})
 $$
@@ -246,7 +227,6 @@ The sign is chosen so that when $Q$ is positive, it represents a source and cont
 ### Constant Ionization Function
 
 In many weakly ionized gases, ionization is produced by energetic electrons in the tail of the Maxwellian distribution. In this case, the source term $Q$ is proportional to the electron density $n$. Setting $Q=Zn$, where $Z$ is the "ionization function", we have
-
 $$
 \nabla^2 n = -(Z/D)n
 $$
@@ -257,13 +237,11 @@ is a cosine or Bessel function, as in the case of a decaying plasma, only in thi
 ### Plane Source
 
 We next consider what profile would be obtained in slab geometry if there is a localized source on the plane $x=0$. Such a source might be, for instance, a slit-collimated beam of ultraviolet light strong enough to ionize the neutral gas. The steady state diffusion equation is then
-
 $$
 \frac{\mathrm{d}^n}{\mathrm{d}x^2} = -\frac{Q}{D}\delta(0)
 $$
 
 Except at $x=0$, the density must satisfy $\partial^2 n/\partial x^2=0$. This obviously has the solution (Fig. 5.7 ADD IT)
-
 $$
 n = n_0 \Big( 1-\frac{|x|}{L} \Big)
 $$
@@ -273,13 +251,11 @@ The plasma has a linear profile. The discontinuity in slope at the source is cha
 ### Line Source
 
 Finally, we consider a cylindrical plasma with a source located on the axis. Such a source might, for instance, be a beam of energetic electrons producing ionization along the axis. Except at $r=0$, the density must satisfy
-
 $$
 \frac{1}{r}\frac{\partial}{\partial r}\Big(r\frac{\partial n}{\partial r}\Big) = 0
 $$
 
 The solution that vanishes at $r=a$ is
-
 $$
 n = n_0 \ln(a/r)
 $$
@@ -289,17 +265,14 @@ The density becomes infinite at $r=0$ (Fig. 5.8); it is not possible to determin
 ## Recombination
 
 When an ion and an electron collide, particularly at low relative velocity, they have a finite probability of recombining into a neutral atom. To conserve momentum, a third body must be present. If this third body is an emitted photon, the process is called _radiative recombination_. If it is a particle, the process is called _three-body recombination_. The loss of plasma by recombination can be represented by a negative source term in the equation of continuity. It is clear that this term will be proportional to $n_en_i=n^2$. In the absence of the diffusion terms, the equation of continuity then becomes
-
 $$
 \frac{\partial n}{\partial t} = -\alpha n^2
 $$
 
 The constant of proportionality $\alpha$ is called the recombination coefficient and has units of $\text{m}^3/\text{s}$. This is a nonlinear equation for $n$. This means that the straightforward method for satisfying initial and boundary conditions by linear superposition of solutions is not available. Fortunately, it is such a simple nonlinear equation that the solution can be found by inspection. It is
-
 $$
 \frac{1}{n(\mathbf{r},t)} = \frac{1}{n_0(\mathbf{r})} + \alpha t
 $$
-
 where $n_0(\mathbf{r})$ is the initial density distribution. After the density has fallen far below its initial value, it decays _reciprocally_ with time, $n\propto 1/\alpha t$. This is a fundamentally different behavior from the case of diffusion, in which the time variation is exponential.
 
 Figure 5.9 (ADD IT!) shows the results of measurements of the density decay in the afterglow of a weakly ionized H plasma. When the density is high, recombination, which is proportional to $n^2$, is dominant, and the density decays reciprocally. After the density has reached a low value, diffusion becomes dominant, and the decay is thenceforth exponential.
@@ -307,7 +280,6 @@ Figure 5.9 (ADD IT!) shows the results of measurements of the density decay in t
 ## Diffusion Across a Magnetic Field
 
 The rate of plasma loss by diffusion can be decreased by a magnetic field; this is the problem of confinement in controlled fusion research. Consider a weakly ionized plasma in a magnetic field (fig-gyration_collision ADD IT!). Charged particles will move along $\mathbf{B}$ by diffusion and mobility according to @eq-species_flux, since $\mathbf{B}$ does not affect motion in the parallel direction. Thus we have, for each species,
-
 $$
 \Gamma_z = \pm\mu n E_z - D\frac{\partial n}{\partial z}
 $$
@@ -328,11 +300,9 @@ To see how this comes about, we write the perpendicular component of the fluid e
 
 ### Ambipolar Diffusion Across B
 
-Because the diffusion and mobility coefficients are anisotropic in the presence of a magnetic field, the problem of ambipolar diffusion is not as straightforward as in the $B = 0$ case. Consider the particle fluxes perpendicular to $\mathbf{B}$ (Fig. 5.13 ADD IT!). Ordinarily, since $\Gamma_{e\perp}$ is smaller than $\Gamma_{i\perp}$, a transverse electric field would be set up so as to aid electron diffusion and retard ion diffusion. However, this electric field can be short-circuited by an imbalance of the fluxes along $\mathbf{B}$. That is, the negative charge resulting from $\Gamma_{e\perp} < \Gamma_{i\perp}$ can be dissipated by electrons escaping along the field lines. Although the total diffusion must be ambipolar, the perpendicular part of the losses need not be ambipolar. The ions can diffuse out primarily radially, while the electrons diffuse out primarily along $\mathbf{B}$. Whether or not this in fact happens depends on the particular experiment. In short plasma columns with the field lines terminating on conducting plates, one would expect the ambipolar electric field to be
-short-circuited out. Each species then diffuses radially at a different rate. In long, thin plasma columns terminated by insulating plates, one would expect the radial diffusion to be ambipolar because escape along $\mathbf{B}$ is arduous.
+Because the diffusion and mobility coefficients are anisotropic in the presence of a magnetic field, the problem of ambipolar diffusion is not as straightforward as in the $B = 0$ case. Consider the particle fluxes perpendicular to $\mathbf{B}$ (Fig. 5.13 ADD IT!). Ordinarily, since $\Gamma_{e\perp}$ is smaller than $\Gamma_{i\perp}$, a transverse electric field would be set up so as to aid electron diffusion and retard ion diffusion. However, this electric field can be short-circuited by an imbalance of the fluxes along $\mathbf{B}$. That is, the negative charge resulting from $\Gamma_{e\perp} < \Gamma_{i\perp}$ can be dissipated by electrons escaping along the field lines. Although the total diffusion must be ambipolar, the perpendicular part of the losses need not be ambipolar. The ions can diffuse out primarily radially, while the electrons diffuse out primarily along $\mathbf{B}$. Whether or not this in fact happens depends on the particular experiment. In short plasma columns with the field lines terminating on conducting plates, one would expect the ambipolar electric field to be short-circuited out. Each species then diffuses radially at a different rate. In long, thin plasma columns terminated by insulating plates, one would expect the radial diffusion to be ambipolar because escape along $\mathbf{B}$ is arduous.
 
 Mathematically, the problem is to solve simultaneously the continuity @eq-diffusion_continuity for ions and electrons. It is not the fluxes $\mathbf{\Gamma}_j$, but the divergence $\nabla\cdot\mathbf{\Gamma}_j$ which must be set equal to each other. Separating $\nabla\cdot\mathbf{\Gamma}_j$ into perpendicular and parallel components, we have
-
 $$
 \begin{aligned}
 \nabla\cdot\mathbf{\Gamma}_i &= \nabla_\perp\cdot(\mu_i n \mathbf{E}_\perp - D_{i\perp}\nabla n) + \frac{\partial}{\partial z}\Big( \mu_inE_z - D_i\frac{\partial n}{\partial z} \Big) \\
@@ -357,7 +327,6 @@ When two particles of opposite charge collide, however, the situation is entirel
 ### Plasma Resistivity
 
 The fluid equations of motion including the effects of charged-particle collisions may be written as follows
-
 $$
 \begin{aligned}
 m_i n\frac{\mathrm{d}\mathbf{v}_i}{\mathrm{d}t} &= en(\mathbf{E}+\mathbf{v}_i\times\mathbf{B}) - \nabla p_i -\nabla\cdot\pmb{\pi}_i + \mathbf{P}_{ie} \\
@@ -367,26 +336,22 @@ $$ {#eq-resistivity_fluid_momentum}
 
 The terms $\mathbf{P}_{ie}$ and $\mathbf{P}_{ei}$ represent, respectively, the momentum gain of the ion fluid caused by collisions with electrons, and vice versa. The stress tensor $\mathbf{P}_j$ has been split into the isotropic part $p_j$ and the anisotropic viscosity tensor $\pmb{\pi}_j$. Like-particle collisions, which give rise to stresses within each fluid individually, are contained in $\pmb{\pi}_j$. Since these collisions do not give rise to much diffusion, we shall ignore the
 terms $\nabla\cdot\pmb{\pi}_j$. As for the terms $\mathbf{P}_{ie}$ and $\mathbf{P}_{ei}$, which represent the friction between the two fluids, the conservation of momentum requires
-
 $$
 \mathbf{P}_{ie} = -\mathbf{P}_{ei}
 $$
 
 We can write $\mathbf{P}_{ei}$ in terms of the collision frequency in the usual manner:
-
 $$
 \mathbf{P}_{ei} = mn(\mathbf{v}_i - \mathbf{v}_e)\nu_{ei}
 $$
 
 and similarly for $\mathbf{P}_{ie}$. Since the collisions are Coulomb collisions, one would expect $\mathbf{P}_{ei}$ to be proportional to the Coulomb force, which is proportional to $e^2$ (for singly-charged ions). Furthermore, $\mathbf{P}_{ei}$ must be proportional to the density of electrons $n_e$ and to the density of scattering centers $n_i$, which, of course, is equal to $n_e$. Finally, $\mathbf{P}_{ei}$ should be proportional to the relative velocity of the two fluids. On physical
 grounds, then, we can write $\mathbf{P}_{ei}$ as
-
 $$
 \mathbf{P}_{ei} = \eta e^2n^2(\mathbf{v}_i - \mathbf{v}_e)
 $$ {#eq-coulomb_collision_momentum}
 
 where $\eta$ is a constant of proportionality. Comparing this with the last equation, we see that
-
 $$
 \nu_{ei} = \frac{ne^2}{m}\eta
 $$ {#eq-coulomb_collision_frequency}
@@ -894,6 +859,46 @@ $$
 $$
 
 i.e. $\mathbf{B}/\rho$ and $\mathbf{l}$ has the same form of variation. If density does not change much, the magnetic field strength will be proportional to $l$.
+
+## Pitch Angle Scattering
+
+This section first follows @tautz2013pitch. This paper gives the definition of pitch angle scattering in terms of diffusion coefficient, typical behavior of pitch angle scattering, and consequent pitch angle distribution.
+
+Strongly pitch-angle–anisotropic phase space distribution functions cannot be properly accounted for by the diffusion approximation. Examples include solar energetic particles (SEPs), heliospheric particle populations such as Jovian electron jets and suprathermal ion species accelerated at interplanetary traveling shocks.
+
+The key to this problem is the determination of the pitch-angle diffusion coefficient $D_{\mu\mu}$ that occurs in the Fokker-Planck transport equation. In general, one can distinguish at least three different methods of addressing this problem.
+
+First, the wave number k-dependence of the turbulent power spectrum $G(k)$ can be specified to derive analytical approximations for $D_{\mu\mu}$. The quasi-linear theory (QLT) derived by Jokipii (1966) has been the standard theory, until it was realized that QLT is not only inaccurate but, in fact, invalid for some scenarios. For the example of isotropic turbulence, it has been known that QLT cannot properly describe pitch-angle scattering, because it neglects 90° scattering and leads to infinitely large mean-free paths. This problem was remedied by the application of the second-order QLT (Shalchi 2005; Tautz et al. 2008), which considers deviations from the unperturbed spiral orbits that were assumed in QLT.
+
+Second, to allow for more complex turbulence properties and to validate the permissibility of the analytical perturbation theories, one can resort to test particle simulations in specified turbulent magnetic fields. By tracing particle trajectories, the mean square displacements and the associated diffusion parameters can be obtained.
+
+Third, rather than entirely specifying the turbulent magnetic fields, one can perform direct numerical simulations to compute solutions to the magnetohydrodynamic equations, while the test-particle trajectories are still integrated as in the previous method. Such computations do not require assumptions regarding the turbulence spectrum that is seen by the energetic particles. They are, however, limited regarding the extent of the inertial range of the turbulence spectrum, owing to computational constraints.
+
+Perhaps the most important transport process of high-energy particles is represented by pitch-angle scattering, i.e., by stochastic variations in $\mu = v_\parallel / v = \cos\theta$ with range $[-1,1]$ , where $\theta$ is the angle between $\mathbf{B}_0$ the mean magnetic field and $\mathbf{v}$ the particle velocity. This process is related to diffusion along the mean magnetic field, which is described by the parallel diffusion coefficient, $\kappa_\parallel$, or the parallel mean free path, $\lambda_\parallel = (3/v)\kappa_\parallel$, which are also related to the cosmic ray anisotropy.
+
+![Pitch-angle cosine, $\mu = v_\parallel/v$ as a function of the normalized time, $\tau = \Omega t$ for a relative slab turbulence strength $\delta B/B_0 = 10^{-2}$. Four particles with initial pitch angles in the range $0.1 < \mu_0 < 0.8$ are highlighted.](https://www.aanda.org/articles/aa/full_html/2013/10/aa22142-13/aa22142-13-fig1.jpg){#fig-pitch-angle-scattering}
+
+The time evolution of the pitch angle is shown in @fig-pitch-angle-scattering for a sample of typical single-particle trajectories. It is indeed confirmed that particles with $μ \approx[0, \pm 1] $ almost retain their original pitch angle. However, scattering through 90° can occur, a fact that is not included in QLT.
+
+### Definition of Pitch Angle Scattering
+
+The usual definition of pitch-angle scattering can be found in the so-called Taylor-Green-Kubo (TGK) formalism (Taylor 1922; Green 1951; Kubo 1957; Shalchi 2011) as
+$$
+\begin{aligned}
+D_{\mu\mu}(\mu) &= \int_0^\infty \mathrm{d}t \left< \dot{\mu}(t)\dot{\mu}(0) \right> \\
+&= \frac{1}{2}\frac{\mathrm{d}}{\mathrm{d}t}\left< \Delta \mu(t)^2 \right>
+\end{aligned}
+$$ {#eq-pitch-angle-diffusion-coef}
+where the second line employs the definition $\Delta \mu(t) = \mu(t) - \mu(0)$. It can be shown that both versions agree with each other, if $t$ is high enough that the expression becomes asymptotically time-independent.
+
+The combination of diffusion (Fick 1855) and random walk (Chandrasekhar 1943) motivated the usual definition of the diffusion in terms of the mean-square displacement (e.g., Tautz 2012) $\kappa = \left< \Delta x^2 \right> /(2t)$, which can also be used for a third expression for $D_{\mu\mu}$, namely
+$$
+D_{\mu\mu} = \frac{1}{2t}\left<  \Delta \mu(t)^2 \right>
+$$ #eq-pitch-angle-diffusion-coef3}
+which is again valid if $t$ is high enough. However, the formal limit $t \rightarrow \infty$ is forbidden since $|\Delta \mu|$ cannot exceed a value of 2. For high enough times, $D_{\mu\mu}$ will always be dominated by the $1/t$ dependence, independent of the choice of the formula. Therefore, a meaningful, time-independent value for $D_{\mu\mu}$ can be obtained if and only if
+
+1. $t$ is long enough that the initial conditions become insignificant; 
+2. $t$ is short enough that the behavior of $D_{\mu\mu}$ is not already dominated by the $1/t$ proportionality.
 
 ## Solutions of the Diffusion Equation
 
