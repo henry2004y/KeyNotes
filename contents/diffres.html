@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -372,12 +391,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#small-r_m-condition" id="toc-small-r_m-condition" class="nav-link" data-scroll-target="#small-r_m-condition"><span class="header-section-number">6.9.1</span> Small <span class="math inline">\(R_m\)</span> condition</a></li>
   <li><a href="#large-r_m-condition" id="toc-large-r_m-condition" class="nav-link" data-scroll-target="#large-r_m-condition"><span class="header-section-number">6.9.2</span> Large <span class="math inline">\(R_m\)</span> condition</a></li>
   </ul></li>
-  <li><a href="#solutions-of-the-diffusion-equation" id="toc-solutions-of-the-diffusion-equation" class="nav-link" data-scroll-target="#solutions-of-the-diffusion-equation"><span class="header-section-number">6.10</span> Solutions of the Diffusion Equation</a>
+  <li><a href="#pitch-angle-scattering" id="toc-pitch-angle-scattering" class="nav-link" data-scroll-target="#pitch-angle-scattering"><span class="header-section-number">6.10</span> Pitch Angle Scattering</a>
   <ul class="collapse">
-  <li><a href="#time-dependence" id="toc-time-dependence" class="nav-link" data-scroll-target="#time-dependence"><span class="header-section-number">6.10.1</span> Time Dependence</a></li>
-  <li><a href="#time-independent-solutions" id="toc-time-independent-solutions" class="nav-link" data-scroll-target="#time-independent-solutions"><span class="header-section-number">6.10.2</span> Time-Independent Solutions</a></li>
+  <li><a href="#definition-of-pitch-angle-scattering" id="toc-definition-of-pitch-angle-scattering" class="nav-link" data-scroll-target="#definition-of-pitch-angle-scattering"><span class="header-section-number">6.10.1</span> Definition of Pitch Angle Scattering</a></li>
   </ul></li>
-  <li><a href="#bohm-diffusion-and-neoclassical-diffusion" id="toc-bohm-diffusion-and-neoclassical-diffusion" class="nav-link" data-scroll-target="#bohm-diffusion-and-neoclassical-diffusion"><span class="header-section-number">6.11</span> Bohm Diffusion and Neoclassical Diffusion</a></li>
+  <li><a href="#solutions-of-the-diffusion-equation" id="toc-solutions-of-the-diffusion-equation" class="nav-link" data-scroll-target="#solutions-of-the-diffusion-equation"><span class="header-section-number">6.11</span> Solutions of the Diffusion Equation</a>
+  <ul class="collapse">
+  <li><a href="#time-dependence" id="toc-time-dependence" class="nav-link" data-scroll-target="#time-dependence"><span class="header-section-number">6.11.1</span> Time Dependence</a></li>
+  <li><a href="#time-independent-solutions" id="toc-time-independent-solutions" class="nav-link" data-scroll-target="#time-independent-solutions"><span class="header-section-number">6.11.2</span> Time-Independent Solutions</a></li>
+  </ul></li>
+  <li><a href="#bohm-diffusion-and-neoclassical-diffusion" id="toc-bohm-diffusion-and-neoclassical-diffusion" class="nav-link" data-scroll-target="#bohm-diffusion-and-neoclassical-diffusion"><span class="header-section-number">6.12</span> Bohm Diffusion and Neoclassical Diffusion</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/diffres.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -452,11 +475,9 @@ D\equiv k_B T/ m\nu\quad\text{Diffusion coefficient}
 <h2 data-number="6.4" class="anchored" data-anchor-id="decay-of-a-plasma-by-diffusion"><span class="header-section-number">6.4</span> Decay of a Plasma by Diffusion</h2>
 <section id="ambipolar-diffusion" class="level3" data-number="6.4.1">
 <h3 data-number="6.4.1" class="anchored" data-anchor-id="ambipolar-diffusion"><span class="header-section-number">6.4.1</span> Ambipolar Diffusion</h3>
-<p>We now consider how a plasma created in a container decays by diffusion to the walls. Once ions and electrons reach the wall, they recombine there. The density near the wall, therefore, is essentially zero. The fluid equations of motion and continuity govern the plasma behavior; but if the decay is slow, we need only keep the time derivative in the continuity equation. The time derivative in the equation of motion, will be negligible if the collision frequency <span class="math inline">\(\nu\)</span> is large. We thus have</p>
-<p><span id="eq-diffusion_continuity"><span class="math display">\[
+<p>We now consider how a plasma created in a container decays by diffusion to the walls. Once ions and electrons reach the wall, they recombine there. The density near the wall, therefore, is essentially zero. The fluid equations of motion and continuity govern the plasma behavior; but if the decay is slow, we need only keep the time derivative in the continuity equation. The time derivative in the equation of motion, will be negligible if the collision frequency <span class="math inline">\(\nu\)</span> is large. We thus have <span id="eq-diffusion_continuity"><span class="math display">\[
 \frac{\partial n}{\partial t} + \nabla\cdot\Gamma_s = 0
-\tag{6.8}\]</span></span> with <span class="math inline">\(\Gamma_s\)</span> given by <a href="#eq-species_flux">Equation&nbsp;<span>6.7</span></a>. It is clear that if <span class="math inline">\(\Gamma_i\)</span> and <span class="math inline">\(\Gamma_e\)</span> were not equal, a serious charge imbalance would soon arise. If the plasma is much larger than a Debye length, it must be quasineutral; and one would expect that the rates of diffusion of ions and electrons would somehow adjust themselves so that the two species leave at the same rate. How this happens is easy to see. The electrons, being lighter, have higher thermal velocities and tend to leave the plasma first. A positive charge is left behind, and an electric field is set up of such a polarity as to retard the loss of electrons and accelerate the loss of ions. The required <span class="math inline">\(\mathbf{E}\)</span> field is found by setting <span class="math inline">\(\Gamma_i=\Gamma_e=\Gamma\)</span>. From @<a href="#eq-species_flux">Equation&nbsp;<span>6.7</span></a>, we can write</p>
-<p><span class="math display">\[
+\tag{6.8}\]</span></span> with <span class="math inline">\(\Gamma_s\)</span> given by <a href="#eq-species_flux">Equation&nbsp;<span>6.7</span></a>. It is clear that if <span class="math inline">\(\Gamma_i\)</span> and <span class="math inline">\(\Gamma_e\)</span> were not equal, a serious charge imbalance would soon arise. If the plasma is much larger than a Debye length, it must be quasineutral; and one would expect that the rates of diffusion of ions and electrons would somehow adjust themselves so that the two species leave at the same rate. How this happens is easy to see. The electrons, being lighter, have higher thermal velocities and tend to leave the plasma first. A positive charge is left behind, and an electric field is set up of such a polarity as to retard the loss of electrons and accelerate the loss of ions. The required <span class="math inline">\(\mathbf{E}\)</span> field is found by setting <span class="math inline">\(\Gamma_i=\Gamma_e=\Gamma\)</span>. From @<a href="#eq-species_flux">Equation&nbsp;<span>6.7</span></a>, we can write <span class="math display">\[
 \Gamma = \mu_i n\mathbf{E} - D_i \nabla n = -\mu_e n\mathbf{E} - D_e\nabla n
 \]</span></p>
 <p><span class="math display">\[
@@ -484,64 +505,49 @@ D_a \approx 2D_i
 </section>
 <section id="diffusion-in-a-slab" class="level3" data-number="6.4.2">
 <h3 data-number="6.4.2" class="anchored" data-anchor-id="diffusion-in-a-slab"><span class="header-section-number">6.4.2</span> Diffusion in a Slab</h3>
-<p>The diffusion <a href="#eq-ambipolar_diffusion">Equation&nbsp;<span>6.10</span></a> can easily be solved by the method of separation of variables. We let</p>
-<p><span class="math display">\[
+<p>The diffusion <a href="#eq-ambipolar_diffusion">Equation&nbsp;<span>6.10</span></a> can easily be solved by the method of separation of variables. We let <span class="math display">\[
 n(\mathbf{r}, t) = T(t)S(\mathbf{r})
 \]</span></p>
-<p>whereupon <a href="#eq-ambipolar_diffusion">Equation&nbsp;<span>6.10</span></a>, with the subscript on <span class="math inline">\(D_a\)</span> understood, becomes</p>
-<p><span class="math display">\[
+<p>whereupon <a href="#eq-ambipolar_diffusion">Equation&nbsp;<span>6.10</span></a>, with the subscript on <span class="math inline">\(D_a\)</span> understood, becomes <span class="math display">\[
 \begin{aligned}
 S\frac{\mathrm{d}T}{\mathrm{d}t} &amp;= DT\nabla^2 S \\
 \frac{1}{T}\frac{\mathrm{d}T}{\mathrm{d}t} &amp;= \frac{D}{S}\nabla^2 S
 \end{aligned}
 \]</span></p>
-<p>Since the left side is a function of time alone and the right side a function of space alone, they must both be equal to the same constant, which we shall call <span class="math inline">\(-1/\tau\)</span>. The function <span class="math inline">\(T\)</span> then obeys the equation</p>
-<p><span id="eq-diffusion_temporal"><span class="math display">\[
+<p>Since the left side is a function of time alone and the right side a function of space alone, they must both be equal to the same constant, which we shall call <span class="math inline">\(-1/\tau\)</span>. The function <span class="math inline">\(T\)</span> then obeys the equation <span id="eq-diffusion_temporal"><span class="math display">\[
 \frac{\mathrm{d}T}{\mathrm{d}t} = -\frac{T}{\tau}
 \tag{6.11}\]</span></span></p>
-<p>with the solution</p>
-<p><span class="math display">\[
+<p>with the solution <span class="math display">\[
 T = T_0 e^{-t/\tau}
 \]</span></p>
-<p>The spatial part <span class="math inline">\(S\)</span> obeys the equation</p>
-<p><span id="eq-diffusion_spatial"><span class="math display">\[
+<p>The spatial part <span class="math inline">\(S\)</span> obeys the equation <span id="eq-diffusion_spatial"><span class="math display">\[
 \nabla^2 S = -\frac{1}{D\tau} S
 \tag{6.12}\]</span></span></p>
-<p>In slab geometry, this becomes</p>
-<p><span id="eq-diffusion_spatial_slab"><span class="math display">\[
+<p>In slab geometry, this becomes <span id="eq-diffusion_spatial_slab"><span class="math display">\[
 \frac{\mathrm{d}^2 S}{\mathrm{d}x^2} = -\frac{1}{D\tau}S
 \tag{6.13}\]</span></span></p>
-<p>with the solution</p>
-<p><span id="eq-slab_sol"><span class="math display">\[
+<p>with the solution <span id="eq-slab_sol"><span class="math display">\[
 S = A\cos\frac{x}{(D\tau)^{1/2}} + B\sin\frac{x}{(D\tau)^{1/2}}
 \tag{6.14}\]</span></span></p>
-<p>We would expect the density to be nearly zero at the walls (Fig. 5.3 ADD IT!) and to have one or more peaks in between. The simplest solution is that with a single maximum. By symmetry, we can reject the odd (sine) term in <a href="#eq-slab_sol">Equation&nbsp;<span>6.14</span></a>. The boundary conditions <span class="math inline">\(S=0\)</span> at <span class="math inline">\(x=\pm L\)</span> then requires</p>
-<p><span class="math display">\[
+<p>We would expect the density to be nearly zero at the walls (Fig. 5.3 ADD IT!) and to have one or more peaks in between. The simplest solution is that with a single maximum. By symmetry, we can reject the odd (sine) term in <a href="#eq-slab_sol">Equation&nbsp;<span>6.14</span></a>. The boundary conditions <span class="math inline">\(S=0\)</span> at <span class="math inline">\(x=\pm L\)</span> then requires <span class="math display">\[
 \frac{L}{(D\tau)^{1/2}} = \frac{\pi}{2}
-\]</span></p>
-<p>or</p>
-<p><span class="math display">\[
+\]</span> or <span class="math display">\[
 \tau = \Big( \frac{2L}{\pi} \Big)^2 \frac{1}{D}
 \]</span></p>
-<p>Combining all the equations above, we have</p>
-<p><span class="math display">\[
+<p>Combining all the equations above, we have <span class="math display">\[
 n = n_0 e^{-t/\tau} \cos\frac{\pi x}{2L}
 \]</span></p>
 <p>This is called the <em>lowest diffusion mode</em>. The density distribution is a cosine, and the peak density decays exponentially with time. The time constant <span class="math inline">\(\tau\)</span> increases with <span class="math inline">\(L\)</span> and varies inversely with <span class="math inline">\(D\)</span>, as one would expect.</p>
-<p>There are, of course, higher diffusion modes with more than one peak. Suppose the initial density distribution is as shown by the top curve in Fig. 5.4 ADD IT. Such an arbitrary distribution can be expanded in a Fourier series:</p>
-<p><span class="math display">\[
+<p>There are, of course, higher diffusion modes with more than one peak. Suppose the initial density distribution is as shown by the top curve in Fig. 5.4 ADD IT. Such an arbitrary distribution can be expanded in a Fourier series: <span class="math display">\[
 n = n_0 \Big( \sum_l a_l\cos\frac{(l+\frac{1}{2})\pi x}{L} \sum_m b_m\sin\frac{m\pi x}{L} \Big)
 \]</span></p>
-<p>We have chosen the indices so that the boundary condition at <span class="math inline">\(x=\pm L\)</span> is automatically satisfied. To treat the time dependence, we can try a solution of the form</p>
-<p><span class="math display">\[
+<p>We have chosen the indices so that the boundary condition at <span class="math inline">\(x=\pm L\)</span> is automatically satisfied. To treat the time dependence, we can try a solution of the form <span class="math display">\[
 n = n_0 \Big( \sum_l a_l e^{-t/\tau_l}\cos\frac{(l+\frac{1}{2})\pi x}{L} \sum_m b_m e^{-t/\tau_m}\sin\frac{m\pi x}{L} \Big)
 \]</span></p>
-<p>Substituting this into the diffusion <a href="#eq-ambipolar_diffusion">Equation&nbsp;<span>6.10</span></a>, we see that each cosine term yields a relation of the form</p>
-<p><span class="math display">\[
+<p>Substituting this into the diffusion <a href="#eq-ambipolar_diffusion">Equation&nbsp;<span>6.10</span></a>, we see that each cosine term yields a relation of the form <span class="math display">\[
 -\frac{1}{\tau_l} = -D\Big[ \Big(l+\frac{\pi}{2}\Big)\frac{\pi}{L} \Big]^2
 \]</span></p>
-<p>and similarly for the sine terms. Thus the decay time constant for the <span class="math inline">\(l\)</span>th mode is given by</p>
-<p><span class="math display">\[
+<p>and similarly for the sine terms. Thus the decay time constant for the <span class="math inline">\(l\)</span>th mode is given by <span class="math display">\[
 \tau_l = \Big[ \frac{L}{(l+\frac{1}{2})\pi} \Big]^2 \frac{1}{D}
 \]</span></p>
 <p>The fine-grained structure of the density distribution, corresponding to large <span class="math inline">\(l\)</span> numbers, decays faster, with a smaller time constant <span class="math inline">\(\tau_l\)</span>. The plasma decay will proceed as indicated in Fig. 5.4 ADD IT. First, the fine structure will be washed out by diffusion. Then the lowest diffusion mode, the simple cosine distribution of Fig. 5.3 ADD IT, will be reached. Finally, the peak density continues to decay while the plasma density profile retains the same shape.</p>
@@ -549,8 +555,7 @@ n = n_0 \Big( \sum_l a_l e^{-t/\tau_l}\cos\frac{(l+\frac{1}{2})\pi x}{L} \sum_m 
 </section>
 <section id="diffusion-in-a-cylinder" class="level3" data-number="6.4.3">
 <h3 data-number="6.4.3" class="anchored" data-anchor-id="diffusion-in-a-cylinder"><span class="header-section-number">6.4.3</span> Diffusion in a Cylinder</h3>
-<p>The spatial part of the diffusion equation, eq-diffusion_spatial, reads, in cylindrical geometry,</p>
-<p><span id="eq-diffusion_spatial_cylinder"><span class="math display">\[
+<p>The spatial part of the diffusion equation, eq-diffusion_spatial, reads, in cylindrical geometry, <span id="eq-diffusion_spatial_cylinder"><span class="math display">\[
 \frac{\mathrm{d}^2 S}{dr^2} + \frac{1}{r}\frac{dS}{dr} + \frac{1}{D\tau}S = 0
 \tag{6.15}\]</span></span></p>
 <p>This differs from <a href="#eq-diffusion_spatial_slab">Equation&nbsp;<span>6.13</span></a> by the addition of the middle term, which merely accouts for the change in coordinates. The need for the extra term is illustrated simply in Fig. 5.5 ADD IT. If a slice of plasma in (a) is moved toward larger x without being allowed to expand, the density would remain constant. On the other hand, if a shell of plasma in (b) is moved toward larger <span class="math inline">\(r\)</span> with the shell thickness kept constant, the density would necessarily decrease as <span class="math inline">\(1/r\)</span>. Consequently, one would expect the solution to <a href="#eq-diffusion_spatial_cylinder">Equation&nbsp;<span>6.15</span></a> to be like a damped cosine (Fig. 5.6 ADD IT). This function is called a <em>Bessel function of order zero</em>, and eq-diffusion_spatial_cylinder is called Bessel’s equation (of order zero). Instead of the symbol cos, it is given the symbol <span class="math inline">\(J_0\)</span>. The function <span class="math inline">\(J0(r/[D\tau]^{1/2})\)</span> is a solution to eq-diffusion_spatial_cylinder, just as <span class="math inline">\(\cos[x/(\mathrm{d}\tau)^{1/2}]\)</span> is a solution to eq-diffusion_spatial. Both <span class="math inline">\(\cos kx\)</span> and <span class="math inline">\(J_0(kr)\)</span> are expressible in terms of infinite series.</p>
@@ -560,39 +565,33 @@ n = n_0 \Big( \sum_l a_l e^{-t/\tau_l}\cos\frac{(l+\frac{1}{2})\pi x}{L} \sum_m 
 </section>
 <section id="steady-state-solutions" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="steady-state-solutions"><span class="header-section-number">6.5</span> Steady State Solutions</h2>
-<p>In many experiments, a plasma is maintained in a steady state by continuous ionization or injection of plasma to offset the losses. To calculate the density profile in this case, we must add a source term to the equation of continuity:</p>
-<p><span class="math display">\[
+<p>In many experiments, a plasma is maintained in a steady state by continuous ionization or injection of plasma to offset the losses. To calculate the density profile in this case, we must add a source term to the equation of continuity: <span class="math display">\[
 \frac{\partial n}{\partial t} - D\nabla^2 n = Q(\mathbf{r})
 \]</span></p>
 <p>The sign is chosen so that when <span class="math inline">\(Q\)</span> is positive, it represents a source and contributes to positive <span class="math inline">\(\partial n/\partial t\)</span>. In steady state, we set <span class="math inline">\(\partial n/\partial t=0\)</span> and are left with a Poisson-type equation for <span class="math inline">\(n(\mathbf{r})\)</span>.</p>
 <section id="constant-ionization-function" class="level3" data-number="6.5.1">
 <h3 data-number="6.5.1" class="anchored" data-anchor-id="constant-ionization-function"><span class="header-section-number">6.5.1</span> Constant Ionization Function</h3>
-<p>In many weakly ionized gases, ionization is produced by energetic electrons in the tail of the Maxwellian distribution. In this case, the source term <span class="math inline">\(Q\)</span> is proportional to the electron density <span class="math inline">\(n\)</span>. Setting <span class="math inline">\(Q=Zn\)</span>, where <span class="math inline">\(Z\)</span> is the “ionization function”, we have</p>
-<p><span class="math display">\[
+<p>In many weakly ionized gases, ionization is produced by energetic electrons in the tail of the Maxwellian distribution. In this case, the source term <span class="math inline">\(Q\)</span> is proportional to the electron density <span class="math inline">\(n\)</span>. Setting <span class="math inline">\(Q=Zn\)</span>, where <span class="math inline">\(Z\)</span> is the “ionization function”, we have <span class="math display">\[
 \nabla^2 n = -(Z/D)n
 \]</span></p>
 <p>This is the same equation as that for S, <a href="#eq-diffusion_spatial">Equation&nbsp;<span>6.12</span></a>. Consequently, the density profile is a cosine or Bessel function, as in the case of a decaying plasma, only in this case the density remains constant. The plasma is maintained against diffusion losses by whatever heat source keeps the electron temperature at its constant value and by a small influx of neutral atoms to replenish those that are ionized.</p>
 </section>
 <section id="plane-source" class="level3" data-number="6.5.2">
 <h3 data-number="6.5.2" class="anchored" data-anchor-id="plane-source"><span class="header-section-number">6.5.2</span> Plane Source</h3>
-<p>We next consider what profile would be obtained in slab geometry if there is a localized source on the plane <span class="math inline">\(x=0\)</span>. Such a source might be, for instance, a slit-collimated beam of ultraviolet light strong enough to ionize the neutral gas. The steady state diffusion equation is then</p>
-<p><span class="math display">\[
+<p>We next consider what profile would be obtained in slab geometry if there is a localized source on the plane <span class="math inline">\(x=0\)</span>. Such a source might be, for instance, a slit-collimated beam of ultraviolet light strong enough to ionize the neutral gas. The steady state diffusion equation is then <span class="math display">\[
 \frac{\mathrm{d}^n}{\mathrm{d}x^2} = -\frac{Q}{D}\delta(0)
 \]</span></p>
-<p>Except at <span class="math inline">\(x=0\)</span>, the density must satisfy <span class="math inline">\(\partial^2 n/\partial x^2=0\)</span>. This obviously has the solution (Fig. 5.7 ADD IT)</p>
-<p><span class="math display">\[
+<p>Except at <span class="math inline">\(x=0\)</span>, the density must satisfy <span class="math inline">\(\partial^2 n/\partial x^2=0\)</span>. This obviously has the solution (Fig. 5.7 ADD IT) <span class="math display">\[
 n = n_0 \Big( 1-\frac{|x|}{L} \Big)
 \]</span></p>
 <p>The plasma has a linear profile. The discontinuity in slope at the source is characteristic of <span class="math inline">\(\delta\)</span>-function sources.</p>
 </section>
 <section id="line-source" class="level3" data-number="6.5.3">
 <h3 data-number="6.5.3" class="anchored" data-anchor-id="line-source"><span class="header-section-number">6.5.3</span> Line Source</h3>
-<p>Finally, we consider a cylindrical plasma with a source located on the axis. Such a source might, for instance, be a beam of energetic electrons producing ionization along the axis. Except at <span class="math inline">\(r=0\)</span>, the density must satisfy</p>
-<p><span class="math display">\[
+<p>Finally, we consider a cylindrical plasma with a source located on the axis. Such a source might, for instance, be a beam of energetic electrons producing ionization along the axis. Except at <span class="math inline">\(r=0\)</span>, the density must satisfy <span class="math display">\[
 \frac{1}{r}\frac{\partial}{\partial r}\Big(r\frac{\partial n}{\partial r}\Big) = 0
 \]</span></p>
-<p>The solution that vanishes at <span class="math inline">\(r=a\)</span> is</p>
-<p><span class="math display">\[
+<p>The solution that vanishes at <span class="math inline">\(r=a\)</span> is <span class="math display">\[
 n = n_0 \ln(a/r)
 \]</span></p>
 <p>The density becomes infinite at <span class="math inline">\(r=0\)</span> (Fig. 5.8); it is not possible to determine the density near the axis accurately without considering the finite width of the source.</p>
@@ -600,21 +599,17 @@ n = n_0 \ln(a/r)
 </section>
 <section id="recombination" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="recombination"><span class="header-section-number">6.6</span> Recombination</h2>
-<p>When an ion and an electron collide, particularly at low relative velocity, they have a finite probability of recombining into a neutral atom. To conserve momentum, a third body must be present. If this third body is an emitted photon, the process is called <em>radiative recombination</em>. If it is a particle, the process is called <em>three-body recombination</em>. The loss of plasma by recombination can be represented by a negative source term in the equation of continuity. It is clear that this term will be proportional to <span class="math inline">\(n_en_i=n^2\)</span>. In the absence of the diffusion terms, the equation of continuity then becomes</p>
-<p><span class="math display">\[
+<p>When an ion and an electron collide, particularly at low relative velocity, they have a finite probability of recombining into a neutral atom. To conserve momentum, a third body must be present. If this third body is an emitted photon, the process is called <em>radiative recombination</em>. If it is a particle, the process is called <em>three-body recombination</em>. The loss of plasma by recombination can be represented by a negative source term in the equation of continuity. It is clear that this term will be proportional to <span class="math inline">\(n_en_i=n^2\)</span>. In the absence of the diffusion terms, the equation of continuity then becomes <span class="math display">\[
 \frac{\partial n}{\partial t} = -\alpha n^2
 \]</span></p>
-<p>The constant of proportionality <span class="math inline">\(\alpha\)</span> is called the recombination coefficient and has units of <span class="math inline">\(\text{m}^3/\text{s}\)</span>. This is a nonlinear equation for <span class="math inline">\(n\)</span>. This means that the straightforward method for satisfying initial and boundary conditions by linear superposition of solutions is not available. Fortunately, it is such a simple nonlinear equation that the solution can be found by inspection. It is</p>
-<p><span class="math display">\[
+<p>The constant of proportionality <span class="math inline">\(\alpha\)</span> is called the recombination coefficient and has units of <span class="math inline">\(\text{m}^3/\text{s}\)</span>. This is a nonlinear equation for <span class="math inline">\(n\)</span>. This means that the straightforward method for satisfying initial and boundary conditions by linear superposition of solutions is not available. Fortunately, it is such a simple nonlinear equation that the solution can be found by inspection. It is <span class="math display">\[
 \frac{1}{n(\mathbf{r},t)} = \frac{1}{n_0(\mathbf{r})} + \alpha t
-\]</span></p>
-<p>where <span class="math inline">\(n_0(\mathbf{r})\)</span> is the initial density distribution. After the density has fallen far below its initial value, it decays <em>reciprocally</em> with time, <span class="math inline">\(n\propto 1/\alpha t\)</span>. This is a fundamentally different behavior from the case of diffusion, in which the time variation is exponential.</p>
+\]</span> where <span class="math inline">\(n_0(\mathbf{r})\)</span> is the initial density distribution. After the density has fallen far below its initial value, it decays <em>reciprocally</em> with time, <span class="math inline">\(n\propto 1/\alpha t\)</span>. This is a fundamentally different behavior from the case of diffusion, in which the time variation is exponential.</p>
 <p>Figure 5.9 (ADD IT!) shows the results of measurements of the density decay in the afterglow of a weakly ionized H plasma. When the density is high, recombination, which is proportional to <span class="math inline">\(n^2\)</span>, is dominant, and the density decays reciprocally. After the density has reached a low value, diffusion becomes dominant, and the decay is thenceforth exponential.</p>
 </section>
 <section id="diffusion-across-a-magnetic-field" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="diffusion-across-a-magnetic-field"><span class="header-section-number">6.7</span> Diffusion Across a Magnetic Field</h2>
-<p>The rate of plasma loss by diffusion can be decreased by a magnetic field; this is the problem of confinement in controlled fusion research. Consider a weakly ionized plasma in a magnetic field (fig-gyration_collision ADD IT!). Charged particles will move along <span class="math inline">\(\mathbf{B}\)</span> by diffusion and mobility according to <a href="#eq-species_flux">Equation&nbsp;<span>6.7</span></a>, since <span class="math inline">\(\mathbf{B}\)</span> does not affect motion in the parallel direction. Thus we have, for each species,</p>
-<p><span class="math display">\[
+<p>The rate of plasma loss by diffusion can be decreased by a magnetic field; this is the problem of confinement in controlled fusion research. Consider a weakly ionized plasma in a magnetic field (fig-gyration_collision ADD IT!). Charged particles will move along <span class="math inline">\(\mathbf{B}\)</span> by diffusion and mobility according to <a href="#eq-species_flux">Equation&nbsp;<span>6.7</span></a>, since <span class="math inline">\(\mathbf{B}\)</span> does not affect motion in the parallel direction. Thus we have, for each species, <span class="math display">\[
 \Gamma_z = \pm\mu n E_z - D\frac{\partial n}{\partial z}
 \]</span></p>
 <p>If there were no collisions, particles would not diffuse at all in the perpendicular direction — they would continue to gyrate about the same magnetic field line. There are, of course, particle drifts across <span class="math inline">\(\mathbf{B}\)</span> because of electric fields or gradients in <span class="math inline">\(\mathbf{B}\)</span>, but these can be arranged to be parallel to the walls. For instance, in a perfectly symmetric cylinder (fig-drift_cylinder ADD IT!), the gradients are all in the radial direction, so that the guiding center drifts are in the azimuthal direction. The drifts would then be harmless.</p>
@@ -627,8 +622,7 @@ n = n_0 \ln(a/r)
 <section id="ambipolar-diffusion-across-b" class="level3" data-number="6.7.1">
 <h3 data-number="6.7.1" class="anchored" data-anchor-id="ambipolar-diffusion-across-b"><span class="header-section-number">6.7.1</span> Ambipolar Diffusion Across B</h3>
 <p>Because the diffusion and mobility coefficients are anisotropic in the presence of a magnetic field, the problem of ambipolar diffusion is not as straightforward as in the <span class="math inline">\(B = 0\)</span> case. Consider the particle fluxes perpendicular to <span class="math inline">\(\mathbf{B}\)</span> (Fig. 5.13 ADD IT!). Ordinarily, since <span class="math inline">\(\Gamma_{e\perp}\)</span> is smaller than <span class="math inline">\(\Gamma_{i\perp}\)</span>, a transverse electric field would be set up so as to aid electron diffusion and retard ion diffusion. However, this electric field can be short-circuited by an imbalance of the fluxes along <span class="math inline">\(\mathbf{B}\)</span>. That is, the negative charge resulting from <span class="math inline">\(\Gamma_{e\perp} &lt; \Gamma_{i\perp}\)</span> can be dissipated by electrons escaping along the field lines. Although the total diffusion must be ambipolar, the perpendicular part of the losses need not be ambipolar. The ions can diffuse out primarily radially, while the electrons diffuse out primarily along <span class="math inline">\(\mathbf{B}\)</span>. Whether or not this in fact happens depends on the particular experiment. In short plasma columns with the field lines terminating on conducting plates, one would expect the ambipolar electric field to be short-circuited out. Each species then diffuses radially at a different rate. In long, thin plasma columns terminated by insulating plates, one would expect the radial diffusion to be ambipolar because escape along <span class="math inline">\(\mathbf{B}\)</span> is arduous.</p>
-<p>Mathematically, the problem is to solve simultaneously the continuity <a href="#eq-diffusion_continuity">Equation&nbsp;<span>6.8</span></a> for ions and electrons. It is not the fluxes <span class="math inline">\(\mathbf{\Gamma}_j\)</span>, but the divergence <span class="math inline">\(\nabla\cdot\mathbf{\Gamma}_j\)</span> which must be set equal to each other. Separating <span class="math inline">\(\nabla\cdot\mathbf{\Gamma}_j\)</span> into perpendicular and parallel components, we have</p>
-<p><span class="math display">\[
+<p>Mathematically, the problem is to solve simultaneously the continuity <a href="#eq-diffusion_continuity">Equation&nbsp;<span>6.8</span></a> for ions and electrons. It is not the fluxes <span class="math inline">\(\mathbf{\Gamma}_j\)</span>, but the divergence <span class="math inline">\(\nabla\cdot\mathbf{\Gamma}_j\)</span> which must be set equal to each other. Separating <span class="math inline">\(\nabla\cdot\mathbf{\Gamma}_j\)</span> into perpendicular and parallel components, we have <span class="math display">\[
 \begin{aligned}
 \nabla\cdot\mathbf{\Gamma}_i &amp;= \nabla_\perp\cdot(\mu_i n \mathbf{E}_\perp - D_{i\perp}\nabla n) + \frac{\partial}{\partial z}\Big( \mu_inE_z - D_i\frac{\partial n}{\partial z} \Big) \\
 \nabla\cdot\mathbf{\Gamma}_e &amp;= \nabla_\perp\cdot(\mu_e n \mathbf{E}_\perp - D_{e\perp}\nabla n) + \frac{\partial}{\partial z}\Big( -\mu_enE_z - D_e\frac{\partial n}{\partial z} \Big)
@@ -648,27 +642,22 @@ n = n_0 \ln(a/r)
 <p>When two particles of opposite charge collide, however, the situation is entirely different (Fig. 5.17 ADD IT!). The worst case is now the <span class="math inline">\(180^\circ\)</span> collision, in which the particles emerge with their velocities reversed. Since they must continue to gyrate about the magnetic field lines in the proper sense, both guiding centers will move in the same direction. <em>Unlike-particle collisions give rise to diffusion</em>. The physical picture is somewhat different for ions and electrons because of the disparity in mass. The electrons bounce off the nearly stationary ions and random-walk in the usual fashion. The ions are slightly jostled in each collision and move about as a result of frequent bombardment by electrons. Nonetheless, because of the conservation of momentum in each collision, the rates of diffusion are the same for ions and electrons, as we shall show.</p>
 <section id="plasma-resistivity" class="level3" data-number="6.8.1">
 <h3 data-number="6.8.1" class="anchored" data-anchor-id="plasma-resistivity"><span class="header-section-number">6.8.1</span> Plasma Resistivity</h3>
-<p>The fluid equations of motion including the effects of charged-particle collisions may be written as follows</p>
-<p><span id="eq-resistivity_fluid_momentum"><span class="math display">\[
+<p>The fluid equations of motion including the effects of charged-particle collisions may be written as follows <span id="eq-resistivity_fluid_momentum"><span class="math display">\[
 \begin{aligned}
 m_i n\frac{\mathrm{d}\mathbf{v}_i}{\mathrm{d}t} &amp;= en(\mathbf{E}+\mathbf{v}_i\times\mathbf{B}) - \nabla p_i -\nabla\cdot\pmb{\pi}_i + \mathbf{P}_{ie} \\
 m_e n\frac{\mathrm{d}\mathbf{v}_e}{\mathrm{d}t} &amp;= -en(\mathbf{E}+\mathbf{v}_e\times\mathbf{B}) - \nabla p_e -\nabla\cdot\pmb{\pi}_e + \mathbf{P}_{ei}
 \end{aligned}
 \tag{6.16}\]</span></span></p>
-<p>The terms <span class="math inline">\(\mathbf{P}_{ie}\)</span> and <span class="math inline">\(\mathbf{P}_{ei}\)</span> represent, respectively, the momentum gain of the ion fluid caused by collisions with electrons, and vice versa. The stress tensor <span class="math inline">\(\mathbf{P}_j\)</span> has been split into the isotropic part <span class="math inline">\(p_j\)</span> and the anisotropic viscosity tensor <span class="math inline">\(\pmb{\pi}_j\)</span>. Like-particle collisions, which give rise to stresses within each fluid individually, are contained in <span class="math inline">\(\pmb{\pi}_j\)</span>. Since these collisions do not give rise to much diffusion, we shall ignore the terms <span class="math inline">\(\nabla\cdot\pmb{\pi}_j\)</span>. As for the terms <span class="math inline">\(\mathbf{P}_{ie}\)</span> and <span class="math inline">\(\mathbf{P}_{ei}\)</span>, which represent the friction between the two fluids, the conservation of momentum requires</p>
-<p><span class="math display">\[
+<p>The terms <span class="math inline">\(\mathbf{P}_{ie}\)</span> and <span class="math inline">\(\mathbf{P}_{ei}\)</span> represent, respectively, the momentum gain of the ion fluid caused by collisions with electrons, and vice versa. The stress tensor <span class="math inline">\(\mathbf{P}_j\)</span> has been split into the isotropic part <span class="math inline">\(p_j\)</span> and the anisotropic viscosity tensor <span class="math inline">\(\pmb{\pi}_j\)</span>. Like-particle collisions, which give rise to stresses within each fluid individually, are contained in <span class="math inline">\(\pmb{\pi}_j\)</span>. Since these collisions do not give rise to much diffusion, we shall ignore the terms <span class="math inline">\(\nabla\cdot\pmb{\pi}_j\)</span>. As for the terms <span class="math inline">\(\mathbf{P}_{ie}\)</span> and <span class="math inline">\(\mathbf{P}_{ei}\)</span>, which represent the friction between the two fluids, the conservation of momentum requires <span class="math display">\[
 \mathbf{P}_{ie} = -\mathbf{P}_{ei}
 \]</span></p>
-<p>We can write <span class="math inline">\(\mathbf{P}_{ei}\)</span> in terms of the collision frequency in the usual manner:</p>
-<p><span class="math display">\[
+<p>We can write <span class="math inline">\(\mathbf{P}_{ei}\)</span> in terms of the collision frequency in the usual manner: <span class="math display">\[
 \mathbf{P}_{ei} = mn(\mathbf{v}_i - \mathbf{v}_e)\nu_{ei}
 \]</span></p>
-<p>and similarly for <span class="math inline">\(\mathbf{P}_{ie}\)</span>. Since the collisions are Coulomb collisions, one would expect <span class="math inline">\(\mathbf{P}_{ei}\)</span> to be proportional to the Coulomb force, which is proportional to <span class="math inline">\(e^2\)</span> (for singly-charged ions). Furthermore, <span class="math inline">\(\mathbf{P}_{ei}\)</span> must be proportional to the density of electrons <span class="math inline">\(n_e\)</span> and to the density of scattering centers <span class="math inline">\(n_i\)</span>, which, of course, is equal to <span class="math inline">\(n_e\)</span>. Finally, <span class="math inline">\(\mathbf{P}_{ei}\)</span> should be proportional to the relative velocity of the two fluids. On physical grounds, then, we can write <span class="math inline">\(\mathbf{P}_{ei}\)</span> as</p>
-<p><span id="eq-coulomb_collision_momentum"><span class="math display">\[
+<p>and similarly for <span class="math inline">\(\mathbf{P}_{ie}\)</span>. Since the collisions are Coulomb collisions, one would expect <span class="math inline">\(\mathbf{P}_{ei}\)</span> to be proportional to the Coulomb force, which is proportional to <span class="math inline">\(e^2\)</span> (for singly-charged ions). Furthermore, <span class="math inline">\(\mathbf{P}_{ei}\)</span> must be proportional to the density of electrons <span class="math inline">\(n_e\)</span> and to the density of scattering centers <span class="math inline">\(n_i\)</span>, which, of course, is equal to <span class="math inline">\(n_e\)</span>. Finally, <span class="math inline">\(\mathbf{P}_{ei}\)</span> should be proportional to the relative velocity of the two fluids. On physical grounds, then, we can write <span class="math inline">\(\mathbf{P}_{ei}\)</span> as <span id="eq-coulomb_collision_momentum"><span class="math display">\[
 \mathbf{P}_{ei} = \eta e^2n^2(\mathbf{v}_i - \mathbf{v}_e)
 \tag{6.17}\]</span></span></p>
-<p>where <span class="math inline">\(\eta\)</span> is a constant of proportionality. Comparing this with the last equation, we see that</p>
-<p><span id="eq-coulomb_collision_frequency"><span class="math display">\[
+<p>where <span class="math inline">\(\eta\)</span> is a constant of proportionality. Comparing this with the last equation, we see that <span id="eq-coulomb_collision_frequency"><span class="math display">\[
 \nu_{ei} = \frac{ne^2}{m}\eta
 \tag{6.18}\]</span></span></p>
 <p>The constant <span class="math inline">\(\eta\)</span> is the <em>specific resistivity</em> of the plasma; that this jibes with the usual meaning of resistivity will become clear shortly.</p>
@@ -1098,19 +1087,57 @@ j=\int_{-\infty}^{\infty}j_z \mathrm{d}x=\frac{1}{\mu}\int_{-\infty}^{\infty}\ma
 <p>i.e.&nbsp;<span class="math inline">\(\mathbf{B}/\rho\)</span> and <span class="math inline">\(\mathbf{l}\)</span> has the same form of variation. If density does not change much, the magnetic field strength will be proportional to <span class="math inline">\(l\)</span>.</p>
 </section>
 </section>
-<section id="solutions-of-the-diffusion-equation" class="level2" data-number="6.10">
-<h2 data-number="6.10" class="anchored" data-anchor-id="solutions-of-the-diffusion-equation"><span class="header-section-number">6.10</span> Solutions of the Diffusion Equation</h2>
-<section id="time-dependence" class="level3" data-number="6.10.1">
-<h3 data-number="6.10.1" class="anchored" data-anchor-id="time-dependence"><span class="header-section-number">6.10.1</span> Time Dependence</h3>
+<section id="pitch-angle-scattering" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="pitch-angle-scattering"><span class="header-section-number">6.10</span> Pitch Angle Scattering</h2>
+<p>This section first follows <span class="citation" data-cites="tautz2013pitch">Tautz et al. (<a href="#ref-tautz2013pitch" role="doc-biblioref">2013</a>)</span>. This paper gives the definition of pitch angle scattering in terms of diffusion coefficient, typical behavior of pitch angle scattering, and consequent pitch angle distribution.</p>
+<p>Strongly pitch-angle–anisotropic phase space distribution functions cannot be properly accounted for by the diffusion approximation. Examples include solar energetic particles (SEPs), heliospheric particle populations such as Jovian electron jets and suprathermal ion species accelerated at interplanetary traveling shocks.</p>
+<p>The key to this problem is the determination of the pitch-angle diffusion coefficient <span class="math inline">\(D_{\mu\mu}\)</span> that occurs in the Fokker-Planck transport equation. In general, one can distinguish at least three different methods of addressing this problem.</p>
+<p>First, the wave number k-dependence of the turbulent power spectrum <span class="math inline">\(G(k)\)</span> can be specified to derive analytical approximations for <span class="math inline">\(D_{\mu\mu}\)</span>. The quasi-linear theory (QLT) derived by Jokipii (1966) has been the standard theory, until it was realized that QLT is not only inaccurate but, in fact, invalid for some scenarios. For the example of isotropic turbulence, it has been known that QLT cannot properly describe pitch-angle scattering, because it neglects 90° scattering and leads to infinitely large mean-free paths. This problem was remedied by the application of the second-order QLT (Shalchi 2005; Tautz et al.&nbsp;2008), which considers deviations from the unperturbed spiral orbits that were assumed in QLT.</p>
+<p>Second, to allow for more complex turbulence properties and to validate the permissibility of the analytical perturbation theories, one can resort to test particle simulations in specified turbulent magnetic fields. By tracing particle trajectories, the mean square displacements and the associated diffusion parameters can be obtained.</p>
+<p>Third, rather than entirely specifying the turbulent magnetic fields, one can perform direct numerical simulations to compute solutions to the magnetohydrodynamic equations, while the test-particle trajectories are still integrated as in the previous method. Such computations do not require assumptions regarding the turbulence spectrum that is seen by the energetic particles. They are, however, limited regarding the extent of the inertial range of the turbulence spectrum, owing to computational constraints.</p>
+<p>Perhaps the most important transport process of high-energy particles is represented by pitch-angle scattering, i.e., by stochastic variations in <span class="math inline">\(\mu = v_\parallel / v = \cos\theta\)</span> with range <span class="math inline">\([-1,1]\)</span> , where <span class="math inline">\(\theta\)</span> is the angle between <span class="math inline">\(\mathbf{B}_0\)</span> the mean magnetic field and <span class="math inline">\(\mathbf{v}\)</span> the particle velocity. This process is related to diffusion along the mean magnetic field, which is described by the parallel diffusion coefficient, <span class="math inline">\(\kappa_\parallel\)</span>, or the parallel mean free path, <span class="math inline">\(\lambda_\parallel = (3/v)\kappa_\parallel\)</span>, which are also related to the cosmic ray anisotropy.</p>
+<div id="fig-pitch-angle-scattering" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://www.aanda.org/articles/aa/full_html/2013/10/aa22142-13/aa22142-13-fig1.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.3: Pitch-angle cosine, <span class="math inline">\(\mu = v_\parallel/v\)</span> as a function of the normalized time, <span class="math inline">\(\tau = \Omega t\)</span> for a relative slab turbulence strength <span class="math inline">\(\delta B/B_0 = 10^{-2}\)</span>. Four particles with initial pitch angles in the range <span class="math inline">\(0.1 &lt; \mu_0 &lt; 0.8\)</span> are highlighted.</figcaption>
+</figure>
+</div>
+<p>The time evolution of the pitch angle is shown in <a href="#fig-pitch-angle-scattering">Figure&nbsp;<span>6.3</span></a> for a sample of typical single-particle trajectories. It is indeed confirmed that particles with $μ $ almost retain their original pitch angle. However, scattering through 90° can occur, a fact that is not included in QLT.</p>
+<section id="definition-of-pitch-angle-scattering" class="level3" data-number="6.10.1">
+<h3 data-number="6.10.1" class="anchored" data-anchor-id="definition-of-pitch-angle-scattering"><span class="header-section-number">6.10.1</span> Definition of Pitch Angle Scattering</h3>
+<p>The usual definition of pitch-angle scattering can be found in the so-called Taylor-Green-Kubo (TGK) formalism (Taylor 1922; Green 1951; Kubo 1957; Shalchi 2011) as <span id="eq-pitch-angle-diffusion-coef"><span class="math display">\[
+\begin{aligned}
+D_{\mu\mu}(\mu) &amp;= \int_0^\infty \mathrm{d}t \left&lt; \dot{\mu}(t)\dot{\mu}(0) \right&gt; \\
+&amp;= \frac{1}{2}\frac{\mathrm{d}}{\mathrm{d}t}\left&lt; \Delta \mu(t)^2 \right&gt;
+\end{aligned}
+\tag{6.30}\]</span></span> where the second line employs the definition <span class="math inline">\(\Delta \mu(t) = \mu(t) - \mu(0)\)</span>. It can be shown that both versions agree with each other, if <span class="math inline">\(t\)</span> is high enough that the expression becomes asymptotically time-independent.</p>
+<p>The combination of diffusion (Fick 1855) and random walk (Chandrasekhar 1943) motivated the usual definition of the diffusion in terms of the mean-square displacement (e.g., Tautz 2012) <span class="math inline">\(\kappa = \left&lt; \Delta x^2 \right&gt; /(2t)\)</span>, which can also be used for a third expression for <span class="math inline">\(D_{\mu\mu}\)</span>, namely <span class="math display">\[
+D_{\mu\mu} = \frac{1}{2t}\left&lt;  \Delta \mu(t)^2 \right&gt;
+\]</span> #eq-pitch-angle-diffusion-coef3} which is again valid if <span class="math inline">\(t\)</span> is high enough. However, the formal limit <span class="math inline">\(t \rightarrow \infty\)</span> is forbidden since <span class="math inline">\(|\Delta \mu|\)</span> cannot exceed a value of 2. For high enough times, <span class="math inline">\(D_{\mu\mu}\)</span> will always be dominated by the <span class="math inline">\(1/t\)</span> dependence, independent of the choice of the formula. Therefore, a meaningful, time-independent value for <span class="math inline">\(D_{\mu\mu}\)</span> can be obtained if and only if</p>
+<ol type="1">
+<li><span class="math inline">\(t\)</span> is long enough that the initial conditions become insignificant;</li>
+<li><span class="math inline">\(t\)</span> is short enough that the behavior of <span class="math inline">\(D_{\mu\mu}\)</span> is not already dominated by the <span class="math inline">\(1/t\)</span> proportionality.</li>
+</ol>
 </section>
-<section id="time-independent-solutions" class="level3" data-number="6.10.2">
-<h3 data-number="6.10.2" class="anchored" data-anchor-id="time-independent-solutions"><span class="header-section-number">6.10.2</span> Time-Independent Solutions</h3>
+</section>
+<section id="solutions-of-the-diffusion-equation" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="solutions-of-the-diffusion-equation"><span class="header-section-number">6.11</span> Solutions of the Diffusion Equation</h2>
+<section id="time-dependence" class="level3" data-number="6.11.1">
+<h3 data-number="6.11.1" class="anchored" data-anchor-id="time-dependence"><span class="header-section-number">6.11.1</span> Time Dependence</h3>
+</section>
+<section id="time-independent-solutions" class="level3" data-number="6.11.2">
+<h3 data-number="6.11.2" class="anchored" data-anchor-id="time-independent-solutions"><span class="header-section-number">6.11.2</span> Time-Independent Solutions</h3>
 </section>
 </section>
-<section id="bohm-diffusion-and-neoclassical-diffusion" class="level2" data-number="6.11">
-<h2 data-number="6.11" class="anchored" data-anchor-id="bohm-diffusion-and-neoclassical-diffusion"><span class="header-section-number">6.11</span> Bohm Diffusion and Neoclassical Diffusion</h2>
+<section id="bohm-diffusion-and-neoclassical-diffusion" class="level2" data-number="6.12">
+<h2 data-number="6.12" class="anchored" data-anchor-id="bohm-diffusion-and-neoclassical-diffusion"><span class="header-section-number">6.12</span> Bohm Diffusion and Neoclassical Diffusion</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-tautz2013pitch" class="csl-entry" role="listitem">
+Tautz, RC, A Dosch, F Effenberger, H Fichtner, and A Kopp. 2013. <span>“Pitch-Angle Scattering in Magnetostatic Turbulence-i. Test-Particle Simulations and the Validity of Analytical Results.”</span> <em>Astronomy &amp; Astrophysics</em> 558: A147. <a href="https://doi.org/10.1051/0004-6361/201322142">https://doi.org/10.1051/0004-6361/201322142</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
