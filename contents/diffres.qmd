@@ -878,7 +878,7 @@ Perhaps the most important transport process of high-energy particles is represe
 
 ![Pitch-angle cosine, $\mu = v_\parallel/v$ as a function of the normalized time, $\tau = \Omega t$ for a relative slab turbulence strength $\delta B/B_0 = 10^{-2}$. Four particles with initial pitch angles in the range $0.1 < \mu_0 < 0.8$ are highlighted.](https://www.aanda.org/articles/aa/full_html/2013/10/aa22142-13/aa22142-13-fig1.jpg){#fig-pitch-angle-scattering}
 
-The time evolution of the pitch angle is shown in @fig-pitch-angle-scattering for a sample of typical single-particle trajectories. It is indeed confirmed that particles with $μ \approx[0, \pm 1] $ almost retain their original pitch angle. However, scattering through 90° can occur, a fact that is not included in QLT.
+The time evolution of the pitch angle is shown in @fig-pitch-angle-scattering for a sample of typical single-particle trajectories. It is indeed confirmed that particles with $\mu\approx[0, \pm 1]$ almost retain their original pitch angle. However, scattering through 90° can occur, a fact that is not included in QLT.
 
 ### Definition of Pitch Angle Scattering
 
@@ -894,11 +894,70 @@ where the second line employs the definition $\Delta \mu(t) = \mu(t) - \mu(0)$. 
 The combination of diffusion (Fick 1855) and random walk (Chandrasekhar 1943) motivated the usual definition of the diffusion in terms of the mean-square displacement (e.g., Tautz 2012) $\kappa = \left< \Delta x^2 \right> /(2t)$, which can also be used for a third expression for $D_{\mu\mu}$, namely
 $$
 D_{\mu\mu} = \frac{1}{2t}\left<  \Delta \mu(t)^2 \right>
-$$ #eq-pitch-angle-diffusion-coef3}
+$$ {#eq-pitch-angle-diffusion-coef3}
 which is again valid if $t$ is high enough. However, the formal limit $t \rightarrow \infty$ is forbidden since $|\Delta \mu|$ cannot exceed a value of 2. For high enough times, $D_{\mu\mu}$ will always be dominated by the $1/t$ dependence, independent of the choice of the formula. Therefore, a meaningful, time-independent value for $D_{\mu\mu}$ can be obtained if and only if
 
 1. $t$ is long enough that the initial conditions become insignificant; 
 2. $t$ is short enough that the behavior of $D_{\mu\mu}$ is not already dominated by the $1/t$ proportionality.
+
+## Cosmic Ray Diffusion
+
+Cosmic-ray (CR) diffusion in turbulent and magnetized media is a fundamental problem in space physics and astrophysics. CR diffusion strongly depends on the properties of magnetohydrodynamic (MHD) turbulence that they interact with. In the presence of magnetic fields, the CR diffusion perpendicular and parallel to the magnetic field needs to be treated separately. Within the inertial range of MHD turbulence, the superdiffusion of turbulent magnetic fields causes the perpendicular superdiffusion of CRs. In the direction parallel to the magnetic field, most earlier studies are focused on the diffusion induced by gyroresonant scattering. Due to the scale-dependent anisotropy of Alfvén and slow modes in MHD turbulence, Alfvén and slow modes are inefficient in scattering the CRs with gyroradii much smaller than the turbulence injection scale, while fast modes are identified as the more efficient agent of scattering. In 2020s, strong scattering of CRs by sharp intermittent magnetic field bends in MHD turbulence is proposed to be important for affecting CR parallel diffusion. The enhanced local scattering can be associated with the intermittent and fractal structure of MHD turbulence.
+
+The resonant scattering faces its long-standing 90° problem in the framework of the quasi-linear theory (QLT, Jokipii 1966). To resolve this issue, nonresonant interactions such as magnetic mirroring was explored. This consideration of the mirroring effect naturally solves the 90° problem and limits the pitch-angle range for gyroresonant scattering. Magnetic mirrors can naturally form in MHD turbulence due to compressions of magnetic fields, which are induced by pseudo-Alfvénic modes in an incompressible medium and slow and fast modes in a compressible medium. Unlike the trapping effect of magnetic mirrors considered for compressible MHD waves, in MHD turbulence CRs do not experience trapping due to the perpendicular superdiffusion of turbulent magnetic fields. Instead, they bounce among different magnetic mirrors and move diffusively along the local magnetic field, which leads to a new diffusion mechanism termed _mirror diffusion_. The mirror diffusion accounts for the suppressed diffusion of CRs when the mirroring condition is satisfied.
+
+### Perpendicular Superdiffusion of Mirroring CRs
+
+The perpendicular superdiffusion of CRs is caused by that of turbulent magnetic fields and takes place within the inertial range of MHD turbulence (Lazarian & Yan 2014). To simulate the CR scenario, each CR can be represented by a beam of charged particles initially close to each other with the same pitch-angle cosine $\mu_0$ and $r_L$. 
+The superdiffusion is obtained by
+1. measuring the perpendicular separation of each pair of particle trajectories and obtain its rms value for all pairs;
+2. averaging over all beams as the measured perpendicular displacement $\left< \sqrt{\left< \delta x_\perp \right>} \right>$.
+
+### Parallel Mirror Diffusion
+
+In the presence of a magnetic mirror with a longitudinal magnetic gradient, CRs with $r_L$ smaller than the mirror size $l_\parallel$ and $\mu$ satisfying
+$$
+\mu < \sqrt{\frac{\delta B_\parallel}{B_0+\delta B_\parallel}}
+$$ {#eq-mirror-diffusion-threshold}
+can be reflected by the magnetic mirror under the mirror force, where $\delta B_\parallel$ is the parallel magnetic fluctuation over $l_\parallel$ and $B_0$ is the mean magnetic field strength. The mirror force is
+$$
+{F}_{\parallel }=-M\frac{\partial {B}_{\parallel }}{\partial {l}_{\parallel }}
+$$
+where M is the magnetic moment
+$$
+M = \frac{\gamma {{mu}}_{\perp }^{2}}{2B}
+$$
+
+For mirroring CRs with their motion along the magnetic field dominated by magnetic mirroring, there is no stochastic change of $\mu$, and M is a constant, known as the first adiabatic invariant. The particle is reflected at different mirror points (i.e., regions with stronger B) multiple times and move back and forth in the direction parallel to the magnetic field. However, in the direction perpendicular to the $\mathbf{B}_0$, the particle is not trapped due to the perpendicular superdiffusion of turbulent magnetic fields (see previous subsection). As expected, CRs are not trapped between two magnetic mirror points, but diffusively move along the magnetic field in MHD turbulence due to the perpendicular superdiffusion.
+
+### Transition between Mirror Diffusion and Scattering Diffusion
+
+CRs with sufficiently small $\mu$ (@eq-mirror-diffusion-threshold) are subject to the nonresonant mirroring interaction and undergo the mirror diffusion. For CRs with larger $\mu$, their parallel diffusion is dominated by the resonant pitch-angle scattering and undergo the scattering diffusion. The transition between mirror diffusion and scattering diffusion takes place as $\mu$ stochastically changes due to the gyroresonant scattering. The transition between the two diffusion regimes is expected to occur at a critical $\mu$ as $\mu_c$.
+
+In compressible MHD turbulence, under the consideration that fast modes are mainly responsible for mirroring and scattering, μc is given by (Lazarian & Xu, 2021)
+$$
+{\mu }_{c}=\min \{{\mu }_{\max },{\mu }_{\mathrm{eq}}\}
+$$
+where
+$$
+{\mu }_{\max }=\sqrt{\frac{\delta {B}_{f}}{{B}_{0}+\delta {B}_{f}}}
+$$
+and
+$$
+{\mu }_{\mathrm{eq}}\approx {\left[\frac{14}{\pi }{\left(\frac{\delta {B}_{f}}{{B}_{0}}\right)}^{2}{\left(\frac{{r}_{L}}{{L}_{\mathrm{inj}}}\right)}^{\tfrac{1}{2}}\right]}^{\tfrac{2}{11}}
+$$
+corresponds to the pitch-angle cosine where mirroring and scattering are in balance, with $\delta B_f$ as the magnetic fluctuation at $L_\mathrm{inj}$ the injection length of fast modes.
+
+For incompressible MHD turbulence, pseudo-Aflvén modes are responsible for mirroring. Under the consideration of inefficient scattering by Alfvén and pseudo-Alfvén modes for CRs with $r_L \ll L_\mathrm{inj}$, we have
+$$
+{\mu }_{\max }=\sqrt{\frac{\delta {B}_{s}}{{B}_{0}+\delta {B}_{s}}}
+$$
+where $\delta B_s$ is the magnetic fluctuation of pseudo-Alfvén modes at $L_\mathrm{inj}$. As pseudo-Alfv́en modes are slaved to Alfv́en modes (Beresnyak & Lazarian 2019), $\delta B_s /B_0$ can be approximately by MA. Therefore, we have
+$$
+\mu_c = \sqrt{\frac{MA}{1 + MA}}
+$$
+
+At $μ\mu < \mu_c$, mirroring dominates scattering, and CRs are expected to undergo the mirror diffusion. At $\mu > \mu_c$, scattering becomes dominant, and CRs are expected to undergo the scattering diffusion.
 
 ## Solutions of the Diffusion Equation
 
