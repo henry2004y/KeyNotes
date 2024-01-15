@@ -395,12 +395,18 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#definition-of-pitch-angle-scattering" id="toc-definition-of-pitch-angle-scattering" class="nav-link" data-scroll-target="#definition-of-pitch-angle-scattering"><span class="header-section-number">6.10.1</span> Definition of Pitch Angle Scattering</a></li>
   </ul></li>
-  <li><a href="#solutions-of-the-diffusion-equation" id="toc-solutions-of-the-diffusion-equation" class="nav-link" data-scroll-target="#solutions-of-the-diffusion-equation"><span class="header-section-number">6.11</span> Solutions of the Diffusion Equation</a>
+  <li><a href="#cosmic-ray-diffusion" id="toc-cosmic-ray-diffusion" class="nav-link" data-scroll-target="#cosmic-ray-diffusion"><span class="header-section-number">6.11</span> Cosmic Ray Diffusion</a>
   <ul class="collapse">
-  <li><a href="#time-dependence" id="toc-time-dependence" class="nav-link" data-scroll-target="#time-dependence"><span class="header-section-number">6.11.1</span> Time Dependence</a></li>
-  <li><a href="#time-independent-solutions" id="toc-time-independent-solutions" class="nav-link" data-scroll-target="#time-independent-solutions"><span class="header-section-number">6.11.2</span> Time-Independent Solutions</a></li>
+  <li><a href="#perpendicular-superdiffusion-of-mirroring-crs" id="toc-perpendicular-superdiffusion-of-mirroring-crs" class="nav-link" data-scroll-target="#perpendicular-superdiffusion-of-mirroring-crs"><span class="header-section-number">6.11.1</span> Perpendicular Superdiffusion of Mirroring CRs</a></li>
+  <li><a href="#parallel-mirror-diffusion" id="toc-parallel-mirror-diffusion" class="nav-link" data-scroll-target="#parallel-mirror-diffusion"><span class="header-section-number">6.11.2</span> Parallel Mirror Diffusion</a></li>
+  <li><a href="#transition-between-mirror-diffusion-and-scattering-diffusion" id="toc-transition-between-mirror-diffusion-and-scattering-diffusion" class="nav-link" data-scroll-target="#transition-between-mirror-diffusion-and-scattering-diffusion"><span class="header-section-number">6.11.3</span> Transition between Mirror Diffusion and Scattering Diffusion</a></li>
   </ul></li>
-  <li><a href="#bohm-diffusion-and-neoclassical-diffusion" id="toc-bohm-diffusion-and-neoclassical-diffusion" class="nav-link" data-scroll-target="#bohm-diffusion-and-neoclassical-diffusion"><span class="header-section-number">6.12</span> Bohm Diffusion and Neoclassical Diffusion</a></li>
+  <li><a href="#solutions-of-the-diffusion-equation" id="toc-solutions-of-the-diffusion-equation" class="nav-link" data-scroll-target="#solutions-of-the-diffusion-equation"><span class="header-section-number">6.12</span> Solutions of the Diffusion Equation</a>
+  <ul class="collapse">
+  <li><a href="#time-dependence" id="toc-time-dependence" class="nav-link" data-scroll-target="#time-dependence"><span class="header-section-number">6.12.1</span> Time Dependence</a></li>
+  <li><a href="#time-independent-solutions" id="toc-time-independent-solutions" class="nav-link" data-scroll-target="#time-independent-solutions"><span class="header-section-number">6.12.2</span> Time-Independent Solutions</a></li>
+  </ul></li>
+  <li><a href="#bohm-diffusion-and-neoclassical-diffusion" id="toc-bohm-diffusion-and-neoclassical-diffusion" class="nav-link" data-scroll-target="#bohm-diffusion-and-neoclassical-diffusion"><span class="header-section-number">6.13</span> Bohm Diffusion and Neoclassical Diffusion</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/diffres.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -1102,7 +1108,7 @@ j=\int_{-\infty}^{\infty}j_z \mathrm{d}x=\frac{1}{\mu}\int_{-\infty}^{\infty}\ma
 <figcaption class="figure-caption">Figure&nbsp;6.3: Pitch-angle cosine, <span class="math inline">\(\mu = v_\parallel/v\)</span> as a function of the normalized time, <span class="math inline">\(\tau = \Omega t\)</span> for a relative slab turbulence strength <span class="math inline">\(\delta B/B_0 = 10^{-2}\)</span>. Four particles with initial pitch angles in the range <span class="math inline">\(0.1 &lt; \mu_0 &lt; 0.8\)</span> are highlighted.</figcaption>
 </figure>
 </div>
-<p>The time evolution of the pitch angle is shown in <a href="#fig-pitch-angle-scattering">Figure&nbsp;<span>6.3</span></a> for a sample of typical single-particle trajectories. It is indeed confirmed that particles with $μ $ almost retain their original pitch angle. However, scattering through 90° can occur, a fact that is not included in QLT.</p>
+<p>The time evolution of the pitch angle is shown in <a href="#fig-pitch-angle-scattering">Figure&nbsp;<span>6.3</span></a> for a sample of typical single-particle trajectories. It is indeed confirmed that particles with <span class="math inline">\(\mu\approx[0, \pm 1]\)</span> almost retain their original pitch angle. However, scattering through 90° can occur, a fact that is not included in QLT.</p>
 <section id="definition-of-pitch-angle-scattering" class="level3" data-number="6.10.1">
 <h3 data-number="6.10.1" class="anchored" data-anchor-id="definition-of-pitch-angle-scattering"><span class="header-section-number">6.10.1</span> Definition of Pitch Angle Scattering</h3>
 <p>The usual definition of pitch-angle scattering can be found in the so-called Taylor-Green-Kubo (TGK) formalism (Taylor 1922; Green 1951; Kubo 1957; Shalchi 2011) as <span id="eq-pitch-angle-diffusion-coef"><span class="math display">\[
@@ -1111,26 +1117,63 @@ D_{\mu\mu}(\mu) &amp;= \int_0^\infty \mathrm{d}t \left&lt; \dot{\mu}(t)\dot{\mu}
 &amp;= \frac{1}{2}\frac{\mathrm{d}}{\mathrm{d}t}\left&lt; \Delta \mu(t)^2 \right&gt;
 \end{aligned}
 \tag{6.30}\]</span></span> where the second line employs the definition <span class="math inline">\(\Delta \mu(t) = \mu(t) - \mu(0)\)</span>. It can be shown that both versions agree with each other, if <span class="math inline">\(t\)</span> is high enough that the expression becomes asymptotically time-independent.</p>
-<p>The combination of diffusion (Fick 1855) and random walk (Chandrasekhar 1943) motivated the usual definition of the diffusion in terms of the mean-square displacement (e.g., Tautz 2012) <span class="math inline">\(\kappa = \left&lt; \Delta x^2 \right&gt; /(2t)\)</span>, which can also be used for a third expression for <span class="math inline">\(D_{\mu\mu}\)</span>, namely <span class="math display">\[
+<p>The combination of diffusion (Fick 1855) and random walk (Chandrasekhar 1943) motivated the usual definition of the diffusion in terms of the mean-square displacement (e.g., Tautz 2012) <span class="math inline">\(\kappa = \left&lt; \Delta x^2 \right&gt; /(2t)\)</span>, which can also be used for a third expression for <span class="math inline">\(D_{\mu\mu}\)</span>, namely <span id="eq-pitch-angle-diffusion-coef3"><span class="math display">\[
 D_{\mu\mu} = \frac{1}{2t}\left&lt;  \Delta \mu(t)^2 \right&gt;
-\]</span> #eq-pitch-angle-diffusion-coef3} which is again valid if <span class="math inline">\(t\)</span> is high enough. However, the formal limit <span class="math inline">\(t \rightarrow \infty\)</span> is forbidden since <span class="math inline">\(|\Delta \mu|\)</span> cannot exceed a value of 2. For high enough times, <span class="math inline">\(D_{\mu\mu}\)</span> will always be dominated by the <span class="math inline">\(1/t\)</span> dependence, independent of the choice of the formula. Therefore, a meaningful, time-independent value for <span class="math inline">\(D_{\mu\mu}\)</span> can be obtained if and only if</p>
+\tag{6.31}\]</span></span> which is again valid if <span class="math inline">\(t\)</span> is high enough. However, the formal limit <span class="math inline">\(t \rightarrow \infty\)</span> is forbidden since <span class="math inline">\(|\Delta \mu|\)</span> cannot exceed a value of 2. For high enough times, <span class="math inline">\(D_{\mu\mu}\)</span> will always be dominated by the <span class="math inline">\(1/t\)</span> dependence, independent of the choice of the formula. Therefore, a meaningful, time-independent value for <span class="math inline">\(D_{\mu\mu}\)</span> can be obtained if and only if</p>
 <ol type="1">
 <li><span class="math inline">\(t\)</span> is long enough that the initial conditions become insignificant;</li>
 <li><span class="math inline">\(t\)</span> is short enough that the behavior of <span class="math inline">\(D_{\mu\mu}\)</span> is not already dominated by the <span class="math inline">\(1/t\)</span> proportionality.</li>
 </ol>
 </section>
 </section>
-<section id="solutions-of-the-diffusion-equation" class="level2" data-number="6.11">
-<h2 data-number="6.11" class="anchored" data-anchor-id="solutions-of-the-diffusion-equation"><span class="header-section-number">6.11</span> Solutions of the Diffusion Equation</h2>
-<section id="time-dependence" class="level3" data-number="6.11.1">
-<h3 data-number="6.11.1" class="anchored" data-anchor-id="time-dependence"><span class="header-section-number">6.11.1</span> Time Dependence</h3>
+<section id="cosmic-ray-diffusion" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="cosmic-ray-diffusion"><span class="header-section-number">6.11</span> Cosmic Ray Diffusion</h2>
+<p>Cosmic-ray (CR) diffusion in turbulent and magnetized media is a fundamental problem in space physics and astrophysics. CR diffusion strongly depends on the properties of magnetohydrodynamic (MHD) turbulence that they interact with. In the presence of magnetic fields, the CR diffusion perpendicular and parallel to the magnetic field needs to be treated separately. Within the inertial range of MHD turbulence, the superdiffusion of turbulent magnetic fields causes the perpendicular superdiffusion of CRs. In the direction parallel to the magnetic field, most earlier studies are focused on the diffusion induced by gyroresonant scattering. Due to the scale-dependent anisotropy of Alfvén and slow modes in MHD turbulence, Alfvén and slow modes are inefficient in scattering the CRs with gyroradii much smaller than the turbulence injection scale, while fast modes are identified as the more efficient agent of scattering. In 2020s, strong scattering of CRs by sharp intermittent magnetic field bends in MHD turbulence is proposed to be important for affecting CR parallel diffusion. The enhanced local scattering can be associated with the intermittent and fractal structure of MHD turbulence.</p>
+<p>The resonant scattering faces its long-standing 90° problem in the framework of the quasi-linear theory (QLT, Jokipii 1966). To resolve this issue, nonresonant interactions such as magnetic mirroring was explored. This consideration of the mirroring effect naturally solves the 90° problem and limits the pitch-angle range for gyroresonant scattering. Magnetic mirrors can naturally form in MHD turbulence due to compressions of magnetic fields, which are induced by pseudo-Alfvénic modes in an incompressible medium and slow and fast modes in a compressible medium. Unlike the trapping effect of magnetic mirrors considered for compressible MHD waves, in MHD turbulence CRs do not experience trapping due to the perpendicular superdiffusion of turbulent magnetic fields. Instead, they bounce among different magnetic mirrors and move diffusively along the local magnetic field, which leads to a new diffusion mechanism termed <em>mirror diffusion</em>. The mirror diffusion accounts for the suppressed diffusion of CRs when the mirroring condition is satisfied.</p>
+<section id="perpendicular-superdiffusion-of-mirroring-crs" class="level3" data-number="6.11.1">
+<h3 data-number="6.11.1" class="anchored" data-anchor-id="perpendicular-superdiffusion-of-mirroring-crs"><span class="header-section-number">6.11.1</span> Perpendicular Superdiffusion of Mirroring CRs</h3>
+<p>The perpendicular superdiffusion of CRs is caused by that of turbulent magnetic fields and takes place within the inertial range of MHD turbulence (Lazarian &amp; Yan 2014). To simulate the CR scenario, each CR can be represented by a beam of charged particles initially close to each other with the same pitch-angle cosine <span class="math inline">\(\mu_0\)</span> and <span class="math inline">\(r_L\)</span>. The superdiffusion is obtained by 1. measuring the perpendicular separation of each pair of particle trajectories and obtain its rms value for all pairs; 2. averaging over all beams as the measured perpendicular displacement <span class="math inline">\(\left&lt; \sqrt{\left&lt; \delta x_\perp \right&gt;} \right&gt;\)</span>.</p>
 </section>
-<section id="time-independent-solutions" class="level3" data-number="6.11.2">
-<h3 data-number="6.11.2" class="anchored" data-anchor-id="time-independent-solutions"><span class="header-section-number">6.11.2</span> Time-Independent Solutions</h3>
+<section id="parallel-mirror-diffusion" class="level3" data-number="6.11.2">
+<h3 data-number="6.11.2" class="anchored" data-anchor-id="parallel-mirror-diffusion"><span class="header-section-number">6.11.2</span> Parallel Mirror Diffusion</h3>
+<p>In the presence of a magnetic mirror with a longitudinal magnetic gradient, CRs with <span class="math inline">\(r_L\)</span> smaller than the mirror size <span class="math inline">\(l_\parallel\)</span> and <span class="math inline">\(\mu\)</span> satisfying <span id="eq-mirror-diffusion-threshold"><span class="math display">\[
+\mu &lt; \sqrt{\frac{\delta B_\parallel}{B_0+\delta B_\parallel}}
+\tag{6.32}\]</span></span> can be reflected by the magnetic mirror under the mirror force, where <span class="math inline">\(\delta B_\parallel\)</span> is the parallel magnetic fluctuation over <span class="math inline">\(l_\parallel\)</span> and <span class="math inline">\(B_0\)</span> is the mean magnetic field strength. The mirror force is <span class="math display">\[
+{F}_{\parallel }=-M\frac{\partial {B}_{\parallel }}{\partial {l}_{\parallel }}
+\]</span> where M is the magnetic moment <span class="math display">\[
+M = \frac{\gamma {{mu}}_{\perp }^{2}}{2B}
+\]</span></p>
+<p>For mirroring CRs with their motion along the magnetic field dominated by magnetic mirroring, there is no stochastic change of <span class="math inline">\(\mu\)</span>, and M is a constant, known as the first adiabatic invariant. The particle is reflected at different mirror points (i.e., regions with stronger B) multiple times and move back and forth in the direction parallel to the magnetic field. However, in the direction perpendicular to the <span class="math inline">\(\mathbf{B}_0\)</span>, the particle is not trapped due to the perpendicular superdiffusion of turbulent magnetic fields (see previous subsection). As expected, CRs are not trapped between two magnetic mirror points, but diffusively move along the magnetic field in MHD turbulence due to the perpendicular superdiffusion.</p>
+</section>
+<section id="transition-between-mirror-diffusion-and-scattering-diffusion" class="level3" data-number="6.11.3">
+<h3 data-number="6.11.3" class="anchored" data-anchor-id="transition-between-mirror-diffusion-and-scattering-diffusion"><span class="header-section-number">6.11.3</span> Transition between Mirror Diffusion and Scattering Diffusion</h3>
+<p>CRs with sufficiently small <span class="math inline">\(\mu\)</span> (<a href="#eq-mirror-diffusion-threshold">Equation&nbsp;<span>6.32</span></a>) are subject to the nonresonant mirroring interaction and undergo the mirror diffusion. For CRs with larger <span class="math inline">\(\mu\)</span>, their parallel diffusion is dominated by the resonant pitch-angle scattering and undergo the scattering diffusion. The transition between mirror diffusion and scattering diffusion takes place as <span class="math inline">\(\mu\)</span> stochastically changes due to the gyroresonant scattering. The transition between the two diffusion regimes is expected to occur at a critical <span class="math inline">\(\mu\)</span> as <span class="math inline">\(\mu_c\)</span>.</p>
+<p>In compressible MHD turbulence, under the consideration that fast modes are mainly responsible for mirroring and scattering, μc is given by (Lazarian &amp; Xu, 2021) <span class="math display">\[
+{\mu }_{c}=\min \{{\mu }_{\max },{\mu }_{\mathrm{eq}}\}
+\]</span> where <span class="math display">\[
+{\mu }_{\max }=\sqrt{\frac{\delta {B}_{f}}{{B}_{0}+\delta {B}_{f}}}
+\]</span> and <span class="math display">\[
+{\mu }_{\mathrm{eq}}\approx {\left[\frac{14}{\pi }{\left(\frac{\delta {B}_{f}}{{B}_{0}}\right)}^{2}{\left(\frac{{r}_{L}}{{L}_{\mathrm{inj}}}\right)}^{\tfrac{1}{2}}\right]}^{\tfrac{2}{11}}
+\]</span> corresponds to the pitch-angle cosine where mirroring and scattering are in balance, with <span class="math inline">\(\delta B_f\)</span> as the magnetic fluctuation at <span class="math inline">\(L_\mathrm{inj}\)</span> the injection length of fast modes.</p>
+<p>For incompressible MHD turbulence, pseudo-Aflvén modes are responsible for mirroring. Under the consideration of inefficient scattering by Alfvén and pseudo-Alfvén modes for CRs with <span class="math inline">\(r_L \ll L_\mathrm{inj}\)</span>, we have <span class="math display">\[
+{\mu }_{\max }=\sqrt{\frac{\delta {B}_{s}}{{B}_{0}+\delta {B}_{s}}}
+\]</span> where <span class="math inline">\(\delta B_s\)</span> is the magnetic fluctuation of pseudo-Alfvén modes at <span class="math inline">\(L_\mathrm{inj}\)</span>. As pseudo-Alfv́en modes are slaved to Alfv́en modes (Beresnyak &amp; Lazarian 2019), <span class="math inline">\(\delta B_s /B_0\)</span> can be approximately by MA. Therefore, we have <span class="math display">\[
+\mu_c = \sqrt{\frac{MA}{1 + MA}}
+\]</span></p>
+<p>At <span class="math inline">\(μ\mu &lt; \mu_c\)</span>, mirroring dominates scattering, and CRs are expected to undergo the mirror diffusion. At <span class="math inline">\(\mu &gt; \mu_c\)</span>, scattering becomes dominant, and CRs are expected to undergo the scattering diffusion.</p>
 </section>
 </section>
-<section id="bohm-diffusion-and-neoclassical-diffusion" class="level2" data-number="6.12">
-<h2 data-number="6.12" class="anchored" data-anchor-id="bohm-diffusion-and-neoclassical-diffusion"><span class="header-section-number">6.12</span> Bohm Diffusion and Neoclassical Diffusion</h2>
+<section id="solutions-of-the-diffusion-equation" class="level2" data-number="6.12">
+<h2 data-number="6.12" class="anchored" data-anchor-id="solutions-of-the-diffusion-equation"><span class="header-section-number">6.12</span> Solutions of the Diffusion Equation</h2>
+<section id="time-dependence" class="level3" data-number="6.12.1">
+<h3 data-number="6.12.1" class="anchored" data-anchor-id="time-dependence"><span class="header-section-number">6.12.1</span> Time Dependence</h3>
+</section>
+<section id="time-independent-solutions" class="level3" data-number="6.12.2">
+<h3 data-number="6.12.2" class="anchored" data-anchor-id="time-independent-solutions"><span class="header-section-number">6.12.2</span> Time-Independent Solutions</h3>
+</section>
+</section>
+<section id="bohm-diffusion-and-neoclassical-diffusion" class="level2" data-number="6.13">
+<h2 data-number="6.13" class="anchored" data-anchor-id="bohm-diffusion-and-neoclassical-diffusion"><span class="header-section-number">6.13</span> Bohm Diffusion and Neoclassical Diffusion</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
