@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -68,7 +69,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -77,6 +84,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -86,6 +94,33 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -94,12 +129,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/test.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/test.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tests</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -109,12 +144,12 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -315,7 +350,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -360,7 +395,7 @@ div.csl-indent {
   <li><a href="#magnetic-field-loop" id="toc-magnetic-field-loop" class="nav-link" data-scroll-target="#magnetic-field-loop"><span class="header-section-number">26.7.1</span> Magnetic field loop</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/test.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/test.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -380,22 +415,26 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <p>Verifying the validity of models is critical in performing consistent research. This chapter goes through the numerical tests we can do in plasma physics, and is heavily influenced by the <a href="https://www.astro.princeton.edu/~jstone/Athena/tests/">tests in the Athena MHD code</a>. Detail can be found in <span class="citation" data-cites="stone2008athena">(<a href="#ref-stone2008athena" role="doc-biblioref">Stone et al. 2008</a>)</span>.</p>
 <section id="unit-conversion" class="level3" data-number="26.0.1">
 <h3 data-number="26.0.1" class="anchored" data-anchor-id="unit-conversion"><span class="header-section-number">26.0.1</span> Unit Conversion</h3>
-<p>Most test parameters are listed in dimensionless units. If SI units are required, we need unit conversions. A rule of thumb is to check the number of constants in the system: making one constant equal to 1 requires to shrink the number of basic variables by 1. In ideal MHD <a href="fluid.html#eq-ideal-mhd">Equation&nbsp;<span>5.48</span></a>, there are 4 basic quantities (length, mass, time, and current density) and 1 physical constant <span class="math inline">\(\mu_0\)</span>. If we include temperature, then there will be 5 basic quantities and 2 physical constants <span class="math inline">\(\mu_0\)</span>, <span class="math inline">\(R\)</span>. This indicates that we need 3 reference quantities in order to make the 2 physical constants equal to 1 in the normalized units. For example, in the Earth’s magnetosphere, we select a reference length, e.g.&nbsp;<span class="math inline">\(l_0=1\,\mathrm{R}_\mathrm{E}\)</span>, a reference mass density, e.g.&nbsp;<span class="math inline">\(\rho_0 = 1.67\times10^{-17}\,\mathrm{kg}\cdot\mathrm{m}^{-3}\)</span>, and a reference magnetic field, e.g.&nbsp;<span class="math inline">\(B_0 = 3.12\times 10^{-5}\,\mathrm{T}\)</span> (Earth’s magnetic field strength at the equator). All the rest conversion factors can be derived from these together with the physical constants <span class="math inline">\(\mu_0, R, m_i\)</span> expressed SI units. (<span class="math inline">\(R\)</span> is needed for temperature and <span class="math inline">\(m_i\)</span> is needed for number density.) Inserting the initially chosen values, we get a full set of conversion factors from variables in normalized units <span class="math inline">\(n^\prime, B^\prime, u^\prime, p^\prime, T^\prime, \mathcal{E}^\prime\)</span> to SI units <span class="math inline">\(n, B, u, p, T, \mathcal{E}\)</span>: <span class="math display">\[
+<p>Most test parameters are listed in dimensionless units. If SI units are required, we need unit conversions. A rule of thumb is to check the number of constants in the system: making one constant equal to 1 requires to shrink the number of basic variables by 1. In ideal MHD <a href="fluid.html#eq-ideal-mhd" class="quarto-xref">Equation&nbsp;<span>5.49</span></a>, there are 4 basic quantities (length, mass, time, and current density) and 1 physical constant <span class="math inline">\(\mu_0\)</span>. If we include temperature, then there will be 5 basic quantities and 2 physical constants <span class="math inline">\(\mu_0\)</span>, <span class="math inline">\(R\)</span>. This indicates that we need 3 reference quantities in order to make the 2 physical constants equal to 1 in the normalized units. For example, in the Earth’s magnetosphere, we select a reference length, e.g.&nbsp;<span class="math inline">\(l_0=1\,\mathrm{R}_\mathrm{E}\)</span>, a reference mass density, e.g.&nbsp;<span class="math inline">\(\rho_0 = 1.67\times10^{-17}\,\mathrm{kg}\cdot\mathrm{m}^{-3}\)</span>, and a reference magnetic field, e.g.&nbsp;<span class="math inline">\(B_0 = 3.12\times 10^{-5}\,\mathrm{T}\)</span> (Earth’s magnetic field strength at the equator). All the rest conversion factors can be derived from these together with the physical constants <span class="math inline">\(\mu_0, R, m_i\)</span> expressed SI units. (<span class="math inline">\(R\)</span> is needed for temperature and <span class="math inline">\(m_i\)</span> is needed for number density.) Inserting the initially chosen values, we get a full set of conversion factors from variables in normalized units <span class="math inline">\(n^\prime, B^\prime, u^\prime, p^\prime, T^\prime, \mathcal{E}^\prime\)</span> to SI units <span class="math inline">\(n, B, u, p, T, \mathcal{E}\)</span>: <span class="math display">\[
 U_\mathrm{SI} = U^\prime * U_0
-\]</span> where each conversion factor is summarized in <a href="#tbl-mhd-unit-conversion">Table&nbsp;<span>26.1</span></a>. Note that in the definition of number density, the denominator is <span class="math inline">\(m_i\)</span> instead of <span class="math inline">\(m_0\)</span> and <span class="math inline">\(R=2k_B/m_i\)</span> only appears in temperature. This is because mass does not appear in ideal MHD: for a given <span class="math inline">\(\rho\)</span>, the same results are obtained for a heavy species with small number density and a light species with large number density, e.g.&nbsp;<span class="math inline">\(\rho=2m_i n_i = m_i 2n_i\)</span>. In principle we can choose the reference mass arbitrarily, but here in order to make the values in SI units “look good” we choose <span class="math inline">\(m_i\)</span>. If you need to compare with a hybrid model, an easy way to make self-consistent conversion is to make mass <span class="math inline">\(m_0=m_i\)</span> as a substitute for any of the basic variables. In this case, the dimensionless <span class="math inline">\(\rho=n\)</span>. Also note that in <a href="#tbl-mhd-unit-conversion">Table&nbsp;<span>26.1</span></a> the MHD pressure and temperature are the sum of electron’s and ion’s pressure and temperature, which is the reason a factor of “2” pops out in the definition of temperature. If we are comparing to a hybrid model which assumes massless electrons, a proper modification would be <span class="math inline">\(p_0=\rho_0v_0^2/2\)</span> and <span class="math inline">\(T_0=p_0*m_i/(k_B\,\rho_0)\)</span>.</p>
-<div id="tbl-mhd-unit-conversion" class="tbl-parent quarto-layout-panel anchored">
-<div class="panel-caption table-caption">
-<p>Table&nbsp;26.1: MHD unit conversion.</p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-mhd-unit-conversion-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-mhd-unit-conversion" style="flex-basis: 100.0%;justify-content: center;">
+\]</span> where each conversion factor is summarized in <a href="#tbl-mhd-unit-conversion" class="quarto-xref">Table&nbsp;<span>26.1</span></a>. Note that in the definition of number density, the denominator is <span class="math inline">\(m_i\)</span> instead of <span class="math inline">\(m_0\)</span> and <span class="math inline">\(R=2k_B/m_i\)</span> only appears in temperature. This is because mass does not appear in ideal MHD: for a given <span class="math inline">\(\rho\)</span>, the same results are obtained for a heavy species with small number density and a light species with large number density, e.g.&nbsp;<span class="math inline">\(\rho=2m_i n_i = m_i 2n_i\)</span>. In principle we can choose the reference mass arbitrarily, but here in order to make the values in SI units “look good” we choose <span class="math inline">\(m_i\)</span>. If you need to compare with a hybrid model, an easy way to make self-consistent conversion is to make mass <span class="math inline">\(m_0=m_i\)</span> as a substitute for any of the basic variables. In this case, the dimensionless <span class="math inline">\(\rho=n\)</span>. Also note that in <a href="#tbl-mhd-unit-conversion" class="quarto-xref">Table&nbsp;<span>26.1</span></a> the MHD pressure and temperature are the sum of electron’s and ion’s pressure and temperature, which is the reason a factor of “2” pops out in the definition of temperature. If we are comparing to a hybrid model which assumes massless electrons, a proper modification would be <span class="math inline">\(p_0=\rho_0v_0^2/2\)</span> and <span class="math inline">\(T_0=p_0*m_i/(k_B\,\rho_0)\)</span>.</p>
+<div id="tbl-mhd-unit-conversion" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mhd-unit-conversion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;26.1: MHD unit conversion.
+</figcaption>
+<div aria-describedby="tbl-mhd-unit-conversion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <table class="table">
-<caption>(a) Example basic quantities in MHD</caption>
+<caption>Example basic quantities in MHD</caption>
 <colgroup>
 <col style="width: 35%">
 <col style="width: 22%">
@@ -433,10 +472,10 @@ U_\mathrm{SI} = U^\prime * U_0
 </table>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-mhd-unit-conversion-2" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-mhd-unit-conversion" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <table class="table">
-<caption>(b) Example derived quantities in MHD</caption>
+<caption>Example derived quantities in MHD</caption>
 <colgroup>
 <col style="width: 34%">
 <col style="width: 28%">
@@ -499,6 +538,8 @@ U_\mathrm{SI} = U^\prime * U_0
 </div>
 </div>
 </div>
+</figure>
+</div>
 <section id="example-rhorhomathbfumathcalemathbfb-to-nut" class="level4" data-number="26.0.1.1">
 <h4 data-number="26.0.1.1" class="anchored" data-anchor-id="example-rhorhomathbfumathcalemathbfb-to-nut"><span class="header-section-number">26.0.1.1</span> Example: <span class="math inline">\(\rho,\rho\mathbf{u},\mathcal{E},\mathbf{B}\)</span> to <span class="math inline">\(n,u,T\)</span></h4>
 <p>When dealing with velocity distribution functions, one easy way is to write <span class="math inline">\(f(\mathbf{v})=f(\mathbf{v}; n,\mathbf{u},T)\)</span>. For instance, a 3D Maxwellian is given as <span class="math display">\[
@@ -525,7 +566,7 @@ B_\mathrm{SI} &amp;= B_0\,B \\
 <h2 data-number="26.2" class="anchored" data-anchor-id="wave-tests"><span class="header-section-number">26.2</span> Wave Tests</h2>
 <section id="linear-wave" class="level3" data-number="26.2.1">
 <h3 data-number="26.2.1" class="anchored" data-anchor-id="linear-wave"><span class="header-section-number">26.2.1</span> Linear wave</h3>
-<p>Linearization of <a href="fluid.html#eq-ideal-mhd">Equation&nbsp;<span>5.48</span></a> ends up in a system of equations <span class="math inline">\(\mathbf{W}_t = \mathbf{A}(\mathbf{W})\mathbf{W}_x\)</span>, where <span class="math inline">\(\mathbf{W}\)</span> is composed of either the primitive variables or conserved variables in 1D, and the subscripts <span class="math inline">\(t\)</span> and <span class="math inline">\(x\)</span> are corresponding partial derivatives. The eigenvalues and eigenvectors of ideal MHD can be used to set the characteristic wave perturbations. See the details in Appendix A and B from <span class="citation" data-cites="stone2008athena">(<a href="#ref-stone2008athena" role="doc-biblioref">Stone et al. 2008</a>)</span>.</p>
+<p>Linearization of <a href="fluid.html#eq-ideal-mhd" class="quarto-xref">Equation&nbsp;<span>5.49</span></a> ends up in a system of equations <span class="math inline">\(\mathbf{W}_t = \mathbf{A}(\mathbf{W})\mathbf{W}_x\)</span>, where <span class="math inline">\(\mathbf{W}\)</span> is composed of either the primitive variables or conserved variables in 1D, and the subscripts <span class="math inline">\(t\)</span> and <span class="math inline">\(x\)</span> are corresponding partial derivatives. The eigenvalues and eigenvectors of ideal MHD can be used to set the characteristic wave perturbations. See the details in Appendix A and B from <span class="citation" data-cites="stone2008athena">(<a href="#ref-stone2008athena" role="doc-biblioref">Stone et al. 2008</a>)</span>.</p>
 <p>The density, velocity, magnetic field, and total energy are all set to constant values initially. These values can be chosen so that the wave speeds are all well separated, and so that (in MHD) the wavevector is at an arbitrary angle to <span class="math inline">\(\mathbf{B}\)</span>. The precise values chosen for the tests described here are given in the appropriate results section below.</p>
 <p>The wave is added to as a perturbation to these constant values of the form <span class="math inline">\(\delta \mathbf{U} = A \mathbf{R} \sin(2\pi x)\)</span>. Here <span class="math inline">\(\mathbf{U}\)</span> is the vector of conserved variables, <span class="math inline">\(A\)</span> is an amplitude, and <span class="math inline">\(\mathbf{R}\)</span> is the right-eigenvector corresponding to the desired wave family. The components of <span class="math inline">\(\mathbf{R}\)</span> for each test are listed in the appropriate results section below. For all the tests shown here, <span class="math inline">\(A = 10^{-6}\)</span>.</p>
 <p>The length of the computational domain is set to be one wavelength. Periodic boundary conditions are used. After the wave has propagated one wavelength, we measure the error in the numerical solution by computing the norm of the vector resulting from summing the absolute value of errors in each variable over the grid,</p>
@@ -551,7 +592,7 @@ B_\mathrm{SI} &amp;= B_0\,B \\
 </ul>
 <section id="d-adiabatic-hydrodynamics" class="level4" data-number="26.2.1.1">
 <h4 data-number="26.2.1.1" class="anchored" data-anchor-id="d-adiabatic-hydrodynamics"><span class="header-section-number">26.2.1.1</span> 1D Adiabatic Hydrodynamics</h4>
-<p>Given <a href="fluid.html#eq-ideal-mhd">Equation&nbsp;<span>5.48</span></a> (with <span class="math inline">\(\mathbf{B}=0\)</span>), <span class="math display">\[
+<p>Given <a href="fluid.html#eq-ideal-mhd" class="quarto-xref">Equation&nbsp;<span>5.49</span></a> (with <span class="math inline">\(\mathbf{B}=0\)</span>), <span class="math display">\[
 \begin{aligned}
 \rho &amp;= 1 \\
 \mathbf{u} &amp;= \mathbf{0} \\
@@ -568,10 +609,14 @@ p &amp;= 1/\gamma
 <p><span class="math display">\[
 \delta p = (\gamma-1)\left( \delta\mathcal{E} + \rho\, u\delta u + \frac{1}{2}u^2\delta\rho \right) = 1.0
 \]</span></p>
-<p>The parameters are summarized in <a href="#tbl-linear-wave-1d-hd">Table&nbsp;<span>26.2</span></a>.</p>
-<div id="tbl-linear-wave-1d-hd" class="anchored">
+<p>The parameters are summarized in <a href="#tbl-linear-wave-1d-hd" class="quarto-xref">Table&nbsp;<span>26.2</span></a>.</p>
+<div id="tbl-linear-wave-1d-hd" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-linear-wave-1d-hd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;26.2: 1D adiabatic hydrodynamic linear wave parameters
+</figcaption>
+<div aria-describedby="tbl-linear-wave-1d-hd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
-<caption>Table&nbsp;26.2: 1D adiabatic hydrodynamic linear wave parameters</caption>
 <thead>
 <tr class="header">
 <th>Variable</th>
@@ -613,11 +658,13 @@ p &amp;= 1/\gamma
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 <p>The absolute error in propagating a sound wave to the left one wavelength as a function of the number of grid points <span class="math inline">\(N_x\)</span></p>
 </section>
 <section id="d-adiabatic-mhd" class="level4" data-number="26.2.1.2">
 <h4 data-number="26.2.1.2" class="anchored" data-anchor-id="d-adiabatic-mhd"><span class="header-section-number">26.2.1.2</span> 1D Adiabatic MHD</h4>
-<p>Given <a href="fluid.html#eq-ideal-mhd">Equation&nbsp;<span>5.48</span></a>,</p>
+<p>Given <a href="fluid.html#eq-ideal-mhd" class="quarto-xref">Equation&nbsp;<span>5.49</span></a>,</p>
 <p><span class="math display">\[
 \begin{aligned}
 \rho &amp;= 1 \\
@@ -671,15 +718,17 @@ v_{x,\mathrm{slow}} &amp;= \sqrt{\frac{1}{2}\left[v_s^2 + v_A^2 - \sqrt{(v_s^2 +
 6.708136850795449e-01
 -4.216370213557841e-01
 -1.490711984999860e-01 ]</code></pre>
-<p>The parameters are summarized in <a href="#tbl-linear-wave-1d-mhd">Table&nbsp;<span>26.3</span></a>.</p>
-<div id="tbl-linear-wave-1d-mhd" class="tbl-parent quarto-layout-panel anchored">
-<div class="panel-caption table-caption">
-<p>Table&nbsp;26.3: 1D adiabatic MHD linear wave parameters</p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-linear-wave-1d-mhd-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-linear-wave-1d-mhd" style="flex-basis: 100.0%;justify-content: center;">
+<p>The parameters are summarized in <a href="#tbl-linear-wave-1d-mhd" class="quarto-xref">Table&nbsp;<span>26.3</span></a>.</p>
+<div id="tbl-linear-wave-1d-mhd" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-linear-wave-1d-mhd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;26.3: 1D adiabatic MHD linear wave parameters
+</figcaption>
+<div aria-describedby="tbl-linear-wave-1d-mhd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <table class="table">
-<caption>(a) fast magnetosonic wave</caption>
+<caption>fast magnetosonic wave</caption>
 <colgroup>
 <col style="width: 30%">
 <col style="width: 35%">
@@ -737,10 +786,10 @@ v_{x,\mathrm{slow}} &amp;= \sqrt{\frac{1}{2}\left[v_s^2 + v_A^2 - \sqrt{(v_s^2 +
 </table>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-linear-wave-1d-mhd-2" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-linear-wave-1d-mhd" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <table class="table">
-<caption>(b) Alfvén wave</caption>
+<caption>Alfvén wave</caption>
 <colgroup>
 <col style="width: 30%">
 <col style="width: 35%">
@@ -798,10 +847,10 @@ v_{x,\mathrm{slow}} &amp;= \sqrt{\frac{1}{2}\left[v_s^2 + v_A^2 - \sqrt{(v_s^2 +
 </table>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-linear-wave-1d-mhd-3" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-linear-wave-1d-mhd" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <table class="table">
-<caption>(c) slow magnetosonic wave</caption>
+<caption>slow magnetosonic wave</caption>
 <colgroup>
 <col style="width: 30%">
 <col style="width: 35%">
@@ -860,6 +909,8 @@ v_{x,\mathrm{slow}} &amp;= \sqrt{\frac{1}{2}\left[v_s^2 + v_A^2 - \sqrt{(v_s^2 +
 </div>
 </div>
 </div>
+</figure>
+</div>
 <p>In some cases, we need to convert from conserved variables to other set of variables, e.g.&nbsp;<span class="math inline">\((n,\mathbf{u},p,\mathbf{B})\)</span>. The number density perturbation is <span id="eq-number-mass-density-conversion"><span class="math display">\[
 \delta n = \frac{\delta \rho}{m} = \frac{\rho_0}{m}A\sin 2\pi x
 \tag{26.1}\]</span></span> Assuming background <span class="math inline">\(u_0=0\)</span>, <span id="eq-velocity-momentumflux-conversion"><span class="math display">\[
@@ -891,7 +942,7 @@ p &amp;= (\gamma-1)\left[ \mathcal{E} - \frac{\rho u^2}{2} - \frac{B^2}{2\mu_0} 
 <section id="anisotropic-mhd" class="level3" data-number="26.2.3">
 <h3 data-number="26.2.3" class="anchored" data-anchor-id="anisotropic-mhd"><span class="header-section-number">26.2.3</span> Anisotropic MHD</h3>
 <p>This test is taken from <span class="citation" data-cites="daldorff2014two">(<a href="#ref-daldorff2014two" role="doc-biblioref">Daldorff et al. 2014</a>)</span>. The parallel and perpendicular pressures vary differently in the collisionless plasma even if the unperturbed plasma has isotropic pressure. The isotropic MHD solutions are not valid in models like anisotropic MHD, hybrid, or PIC.</p>
-<p>The following equations are an exact solution of the anisotropic MHD equations (<a href="fluid.html#eq-ideal-mhd">Equation&nbsp;<span>5.48</span></a> but replace the energy equation with two pressure equations as in <a href="fluid.html#eq-6-moment-fluids">Equation&nbsp;<span>5.14</span></a>) <span class="math display">\[
+<p>The following equations are an exact solution of the anisotropic MHD equations (<a href="fluid.html#eq-ideal-mhd" class="quarto-xref">Equation&nbsp;<span>5.49</span></a> but replace the energy equation with two pressure equations as in <a href="fluid.html#eq-6-moment-fluids" class="quarto-xref">Equation&nbsp;<span>5.14</span></a>) <span class="math display">\[
 \begin{aligned}
 \rho &amp;= \rho_0\left[ 1 + \delta\sin(kx-\omega t) \right] \\
 u_x &amp;= V_f \delta\sin(kx-\omega t) \\
@@ -905,7 +956,7 @@ B_z &amp;= 0
 \end{aligned}
 \]</span> where <span class="math inline">\(p = \frac{p_\parallel + 2p_\perp}{3}\)</span> and <span class="math display">\[
 V_f = \frac{\omega}{k} = \sqrt{\frac{B_0^2 + 2 p_0}{\rho_0}}
-\]</span> is the propagation speed of the fast wave moving perpendicular relative to the magnetic field direction. This corresponds to a case where <span class="math inline">\(\theta = 90^\circ\)</span> in <a href="wave.html#sec-fast_slow"><span>Section&nbsp;7.7.4</span></a>. Note that <span class="math inline">\(p\)</span> and <span class="math inline">\(p_\parallel\)</span> have different wave amplitudes, i.e.&nbsp;this solution is different from the isotropic (collisional) fast wave. Also note the <span class="math inline">\(2p_0\)</span> (actually <span class="math inline">\(2p_\perp\)</span>) term instead of the usual <span class="math inline">\(\gamma p\)</span> term in the phase speed.</p>
+\]</span> is the propagation speed of the fast wave moving perpendicular relative to the magnetic field direction. This corresponds to a case where <span class="math inline">\(\theta = 90^\circ\)</span> in <a href="wave.html#sec-fast_slow" class="quarto-xref"><span>Section 7.7.4</span></a>. Note that <span class="math inline">\(p\)</span> and <span class="math inline">\(p_\parallel\)</span> have different wave amplitudes, i.e.&nbsp;this solution is different from the isotropic (collisional) fast wave. Also note the <span class="math inline">\(2p_0\)</span> (actually <span class="math inline">\(2p_\perp\)</span>) term instead of the usual <span class="math inline">\(\gamma p\)</span> term in the phase speed.</p>
 <p>Initially, we set <span class="math inline">\(\rho_0 = 1, p_0 = 4.5\times 10^{-4}\)</span> and <span class="math inline">\(B_0 = 0.04\)</span> which results in <span class="math inline">\(V_f=0.05\)</span>. The wavelength is set to <span class="math inline">\(\lambda=32\)</span> so that <span class="math inline">\(k=2\pi/\lambda\)</span>. The above solution also satisfies the Vlasov-Maxwell equations solved by a kinetic solver if the ion and electron gyro-radii are small relative to the wavelength <span class="math inline">\(\lambda\)</span> and the propagation speed <span class="math inline">\(V_\mathrm{ph}\)</span> is much less than the speed of light <span class="math inline">\(c\)</span>.</p>
 </section>
 <section id="circularly-polarized-alfvén-wave" class="level3" data-number="26.2.4">
@@ -937,7 +988,7 @@ B_y &amp;= B_\parallel\sin\alpha + B_\perp\cos\alpha
 \frac{v_1}{B_1} = \frac{V_A}{B_0}
 \]</span></p>
 <p>For 2D the computational domain is of size <span class="math inline">\(L_x = 2L_y\)</span>, with <span class="math inline">\(N_x = 2N_y\)</span>. Thus, the grid is rectangular, but each cell is square. The wave propagates along the diagonal of the grid, at an angle <span class="math inline">\(\alpha = \tan^{-1}(0.5) \approx 26.6\)</span> degrees with respect to the x-axis. Since the wave does not propagate along the diagonals of the grid cells, we guarantee the x- and y-fluxes are different; that is the problem is truly multi-dimensional.</p>
-<p>The wave is an exact nonlinear solution to the MHD equations, allowing one to test the algorithm in the nonlinear regime.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Although nonlinear amplitude Alfvén waves are subject to a parametric instability (<a href="nonlinear.html#sec-parametric"><span>Section&nbsp;13.4</span></a>) which causes them to decay into magnetosonic waves, the instability should not be present for the circularly polarized Alfvén waves. Since the problem is smooth, it can be used for convergence testing. Running the test with smaller pressure (higher β) and/or larger amplitudes is a good test of how robust is the algorithm.</p>
+<p>The wave is an exact nonlinear solution to the MHD equations, allowing one to test the algorithm in the nonlinear regime.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Although nonlinear amplitude Alfvén waves are subject to a parametric instability (<a href="nonlinear.html#sec-parametric" class="quarto-xref"><span>Section 13.4</span></a>) which causes them to decay into magnetosonic waves, the instability should not be present for the circularly polarized Alfvén waves. Since the problem is smooth, it can be used for convergence testing. Running the test with smaller pressure (higher β) and/or larger amplitudes is a good test of how robust is the algorithm.</p>
 <p>See more in <a href="https://www.astro.princeton.edu/~jstone/Athena/tests/cp-alfven-wave/cp-alfven.html">reference</a> and <span class="citation" data-cites="toth2000b">(<a href="#ref-toth2000b" role="doc-biblioref">Tóth 2000</a>)</span>.</p>
 </section>
 <section id="whistler-wave" class="level3" data-number="26.2.5">
@@ -949,10 +1000,10 @@ u_z &amp;= +\delta u\sin(kx-\omega t) \\
 B_y &amp;= +\delta B\cos(kx-\omega t) \\
 B_z &amp;= -\delta B\sin(kx-\omega t)
 \end{aligned}
-\tag{26.5}\]</span></span> where the wave speed is (<a href="wave.html#eq-R-wave-phase-speed">Equation&nbsp;<span>7.23</span></a>) <span class="math display">\[
+\tag{26.5}\]</span></span> where the wave speed is (<a href="wave.html#eq-R-wave-phase-speed" class="quarto-xref">Equation&nbsp;<span>7.23</span></a>) <span class="math display">\[
 v_\mathrm{ph} = \frac{\omega}{k} = \frac{W}{2} + \sqrt{\frac{B_x^2}{\rho} + \frac{W^2}{4}},\quad W=\frac{m}{e}\frac{kB_x}{\rho}
 \]</span></p>
-<p>Note that the wave speed depends on the wave number <span class="math inline">\(k\)</span>. The magnetic and velocity perturbations are related as (This is different from the usual Alfvénicity <a href="turbulence.html#eq-Alfvenity">Equation&nbsp;<span>14.2</span></a>??? But it reduces to the Alfvénicity condition if <span class="math inline">\(v_\mathrm{ph}=v_A=B_x/\sqrt{rho}\)</span>.) <span id="eq-R-whistler-B-v"><span class="math display">\[
+<p>Note that the wave speed depends on the wave number <span class="math inline">\(k\)</span>. The magnetic and velocity perturbations are related as (This is different from the usual Alfvénicity <a href="turbulence.html#eq-Alfvenity" class="quarto-xref">Equation&nbsp;<span>14.2</span></a>??? But it reduces to the Alfvénicity condition if <span class="math inline">\(v_\mathrm{ph}=v_A=B_x/\sqrt{rho}\)</span>.) <span id="eq-R-whistler-B-v"><span class="math display">\[
 \frac{\delta u}{\delta B} = \frac{B_x}{v_\mathrm{ph}\rho}
 \tag{26.6}\]</span></span></p>
 <p>We set <span class="math inline">\(\rho=1, u_x=0, B_x = 0.2\)</span> and <span class="math inline">\(p=5.12\times 10^{-4}\)</span>, and wavelength <span class="math inline">\(\lambda = 32\)</span>. This results in <span class="math inline">\(v_\mathrm{ph}=0.22059\)</span> that is about 10% faster than the Alfvén speed <span class="math inline">\(V_A=0.2\)</span>, so the Hall term is small but not negligible at this wavelength. The amplitude of the transverse magnetic field perturbation is set to <span class="math inline">\(\delta B = 0.01\)</span> which is 5% of the background field.</p>
@@ -965,7 +1016,7 @@ v_\mathrm{ph} = \frac{\omega}{k} = \frac{W}{2} + \sqrt{\frac{B_x^2}{\rho} + \fra
 </ul>
 <p>such that the kinetic dispersion relation reduces to the Hall MHD dispersion relation for the right-hand polarized whistler waves.</p>
 <p><span class="citation" data-cites="tenerani2023dispersive">(<a href="#ref-tenerani2023dispersive" role="doc-biblioref">Tenerani et al. 2023</a>)</span> shows the Alfvénic wave dispersion and damping relations with respect to <span class="math inline">\(\lambda/d_i\)</span>. When we get close to but not necessarily below the ion inertial length (for <span class="math inline">\(\beta\sim 1\)</span>, <span class="math inline">\(d_i\)</span> and <span class="math inline">\(r_{iL}\)</span> are on the same order), these effects already take place from both Hall MHD and hybrid simulations.</p>
-<p>What I observe while doing this low-<span class="math inline">\(\beta\)</span> test with the hybrid-Vlasov code Vlasiator is that without the Hall term the wave profile will be quickly distorted starting from the trailing edge of the peaks and troughs of all quantities; with the Hall term the wave profile can be maintained much longer, and of course the phase speed is <span class="math inline">\(v_W\)</span> which is faster than <span class="math inline">\(v_A\)</span> as in the ideal MHD case. In <a href="fluid.html#sec-mhd-ohm"><span>Section&nbsp;5.6.1</span></a>, we learned that the Hall term in the Ohm’s law can be neglected under two cases, neither of which apply in this test as shown by the comparison of <span class="math inline">\(V_A\)</span> and <span class="math inline">\(v_W\)</span> above. This implies an important fact that in certain parameter spaces the classical Alfvén waves never exist; we may observe Alfvénic fluctuations (i.e.&nbsp;correlations between <span class="math inline">\(\delta\mathbf{u}\)</span> and <span class="math inline">\(\delta\mathbf{B}\)</span>), but they may belong to whistler waves (R-waves), EMIC waves (L-waves), or KAWs.</p>
+<p>What I observe while doing this low-<span class="math inline">\(\beta\)</span> test with the hybrid-Vlasov code Vlasiator is that without the Hall term the wave profile will be quickly distorted starting from the trailing edge of the peaks and troughs of all quantities; with the Hall term the wave profile can be maintained much longer, and of course the phase speed is <span class="math inline">\(v_W\)</span> which is faster than <span class="math inline">\(v_A\)</span> as in the ideal MHD case. In <a href="fluid.html#sec-mhd-ohm" class="quarto-xref"><span>Section 5.6.1</span></a>, we learned that the Hall term in the Ohm’s law can be neglected under two cases, neither of which apply in this test as shown by the comparison of <span class="math inline">\(V_A\)</span> and <span class="math inline">\(v_W\)</span> above. This implies an important fact that in certain parameter spaces the classical Alfvén waves never exist; we may observe Alfvénic fluctuations (i.e.&nbsp;correlations between <span class="math inline">\(\delta\mathbf{u}\)</span> and <span class="math inline">\(\delta\mathbf{B}\)</span>), but they may belong to whistler waves (R-waves), EMIC waves (L-waves), or KAWs.</p>
 </section>
 <section id="light-wave" class="level3" data-number="26.2.6">
 <h3 data-number="26.2.6" class="anchored" data-anchor-id="light-wave"><span class="header-section-number">26.2.6</span> Light wave</h3>
@@ -1074,11 +1125,15 @@ B_{1z} &amp;= \psi_0\Big(\frac{2\pi}{L_x}\Big)\sin(2\pi x/L_x)\cos(\pi z/L_z)
 \end{aligned}
 \]</span></p>
 <p>In normalized units <span class="math inline">\(\psi_0 = 0.1\)</span>, which produces an initial island width which is comparable to the initial width of the current layer. The rationale for such a large initial perturbation is to put the system in the nonlinear regime of magnetic reconnection from the beginning of the simulation.</p>
-<p>The initial setup is shown in <a href="#fig-GEM-currentsheet">Figure&nbsp;<span>26.1</span></a>.</p>
-<div id="fig-GEM-currentsheet" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/current_sheet_initial.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;26.1: Initial density and magnetic field in the GEM current sheet setup.</figcaption>
+<p>The initial setup is shown in <a href="#fig-GEM-currentsheet" class="quarto-xref">Figure&nbsp;<span>26.1</span></a>.</p>
+<div id="fig-GEM-currentsheet" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-GEM-currentsheet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/current_sheet_initial.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-GEM-currentsheet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26.1: Initial density and magnetic field in the GEM current sheet setup.
+</figcaption>
 </figure>
 </div>
 <section id="why-do-we-need-to-resolve-ion-inertial-length" class="level4" data-number="26.6.1.1">
@@ -1110,7 +1165,7 @@ B_{1z} &amp;= \psi_0\Big(\frac{2\pi}{L_x}\Big)\sin(2\pi x/L_x)\cos(\pi z/L_z)
 <h3 data-number="26.7.1" class="anchored" data-anchor-id="magnetic-field-loop"><span class="header-section-number">26.7.1</span> Magnetic field loop</h3>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-birn2001gem" class="csl-entry" role="listitem">
 Birn, J, JF Drake, MA Shay, BN Rogers, RE Denton, M Hesse, M Kuznetsova, et al. 2001. <span>“Geospace Environmental Modeling (GEM) Magnetic Reconnection Challenge.”</span> <em>Journal of Geophysical Research: Space Physics</em> 106 (A3): 3715–19. <a href="https://doi.org/10.1029/1999JA900449">https://doi.org/10.1029/1999JA900449</a>.
 </div>
@@ -1180,6 +1235,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -1246,13 +1328,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1331,10 +1415,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1344,8 +1427,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1358,6 +1450,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1401,6 +1612,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1426,6 +1638,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1487,12 +1725,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../contents/raytracing.html" class="pagination-link">
+      <a href="../contents/raytracing.html" class="pagination-link  aria-label=" &lt;span="" tracing&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ray Tracing</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../contents/inductance.html" class="pagination-link">
+      <a href="../contents/inductance.html" class="pagination-link" aria-label="<span class='chapter-number'>27</span>&nbsp; <span class='chapter-title'>Inductance</span>">
         <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Inductance</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1501,4 +1739,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/test.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

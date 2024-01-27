@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -68,7 +69,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -77,6 +84,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -86,6 +94,33 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -94,12 +129,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/introduction.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/introduction.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -109,12 +144,12 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -315,7 +350,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -331,7 +366,7 @@ div.csl-indent {
   <li><a href="#spatial-scales" id="toc-spatial-scales" class="nav-link" data-scroll-target="#spatial-scales"><span class="header-section-number">2.7</span> Spatial Scales</a></li>
   <li><a href="#how-to-study-plasma-physics" id="toc-how-to-study-plasma-physics" class="nav-link" data-scroll-target="#how-to-study-plasma-physics"><span class="header-section-number">2.8</span> How to Study Plasma Physics</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/introduction.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/introduction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -351,7 +386,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <ul>
 <li>What is plasma?</li>
@@ -473,7 +510,7 @@ k_B T\gg \frac{e^2}{4\pi\epsilon_0 n^{-1/3}}\Rightarrow KE\gg PE
 \frac{n_i}{n_n}\approx 10^{-122}
 \]</span></p>
 <p>As the temperature is raised, the degree of ionization remains low until <span class="math inline">\(U_i\)</span> is only a few times <span class="math inline">\(k_B T\)</span>. Then <span class="math inline">\(n_i/n_e\)</span> rises abruptly, and the gas is in a plasma state. Further increase in temperature makes <span class="math inline">\(n_n\)</span> less than <span class="math inline">\(n_i\)</span>, and the plasma eventually becomes fully ionized. This is the reason plasmas exist in astronomical bodies with temperatures of millions of degrees, but not on the earth. Life could not easily coexist with a plasma — at least, plasma of the type we are talking about. The natural occurrence of plasmas at high temperatures is the reason for the designation “the fourth state of matter”.</p>
-<p>Although we do not intend to emphasize the Saha equation, we should point out its physical meaning. Atoms in a gas have a spread of thermal energies, and an atom is ionized when, by chance, it suffers a collision of high enough energy to knock out an electron. In a cold gas, such energetic collisions occur infrequently, since an atom must be accelerated to much higher than the average energy by a series of “favorable” collisions. The exponential factor in <a href="#eq-saha">Equation&nbsp;<span>2.1</span></a> expresses the fact that the number of fast atoms falls exponentially with <span class="math inline">\(U_i/k_BT\)</span>. Once an atom is ionized, it remains charged until it meets an electron; it then very likely recombines with the electron to become neutral again. The recombination rate clearly depends on the density of electrons, which we can take as equal to <span class="math inline">\(n_i\)</span>. ni. The equilibrium ion fraction, therefore, should decrease with <span class="math inline">\(n_i\)</span>; and this is the reason for the factor <span class="math inline">\(ni^{-1}\)</span> on the right-hand side of <a href="#eq-saha">Equation&nbsp;<span>2.1</span></a>. The plasma in the interstellar medium owes its existence to the low value of <span class="math inline">\(n_i\)</span> (about 1 per <span class="math inline">\(\text{cm}^3\)</span>), and hence the low recombination rate.</p>
+<p>Although we do not intend to emphasize the Saha equation, we should point out its physical meaning. Atoms in a gas have a spread of thermal energies, and an atom is ionized when, by chance, it suffers a collision of high enough energy to knock out an electron. In a cold gas, such energetic collisions occur infrequently, since an atom must be accelerated to much higher than the average energy by a series of “favorable” collisions. The exponential factor in <a href="#eq-saha" class="quarto-xref">Equation&nbsp;<span>2.1</span></a> expresses the fact that the number of fast atoms falls exponentially with <span class="math inline">\(U_i/k_BT\)</span>. Once an atom is ionized, it remains charged until it meets an electron; it then very likely recombines with the electron to become neutral again. The recombination rate clearly depends on the density of electrons, which we can take as equal to <span class="math inline">\(n_i\)</span>. ni. The equilibrium ion fraction, therefore, should decrease with <span class="math inline">\(n_i\)</span>; and this is the reason for the factor <span class="math inline">\(ni^{-1}\)</span> on the right-hand side of <a href="#eq-saha" class="quarto-xref">Equation&nbsp;<span>2.1</span></a>. The plasma in the interstellar medium owes its existence to the low value of <span class="math inline">\(n_i\)</span> (about 1 per <span class="math inline">\(\text{cm}^3\)</span>), and hence the low recombination rate.</p>
 </section>
 <section id="definition-of-plasma" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="definition-of-plasma"><span class="header-section-number">2.2</span> Definition of Plasma</h2>
@@ -500,9 +537,9 @@ E_\text{av} = \frac{\int_{-\infty}^\infty \frac{1}{2}mv^2f(v)\mathrm{d}v}{\int_{
 <p>Defining <span class="math inline">\(y=v/v_\text{th}\)</span> and <span id="eq-thermal_speed"><span class="math display">\[
 v_\text{th} = \left( 2k_B T/m \right)^{1/2}
 \tag{2.4}\]</span></span></p>
-<p>we can write <a href="#eq-maxwellian_1d">Equation&nbsp;<span>2.2</span></a> as <span class="math display">\[
+<p>we can write <a href="#eq-maxwellian_1d" class="quarto-xref">Equation&nbsp;<span>2.2</span></a> as <span class="math display">\[
 f(v) = A \exp(-v^2/v_\text{th}^2)
-\]</span> and <a href="#eq-average_kinetic_energy">Equation&nbsp;<span>2.3</span></a> as <span class="math display">\[
+\]</span> and <a href="#eq-average_kinetic_energy" class="quarto-xref">Equation&nbsp;<span>2.3</span></a> as <span class="math display">\[
 E_\text{av} = \frac{\frac{1}{2}mA v_\text{th}^3 \int_{-\infty}^\infty [\exp(-y^2)]y^2\mathrm{d}y}{A v_\text{th}\int_{-\infty}^\infty [\exp(-y^2)]\mathrm{d}y}
 \]</span></p>
 <p>The integral in the numerator is integrable by parts: <span class="math display">\[
@@ -558,7 +595,7 @@ f(\mathbf{x},\mathbf{v})=n_0\Big( \frac{m}{2\pi kT}\Big)^{3/2}\exp\Big( -\frac{\
 <p>The LTE distribution is in a Maxwellian shape, <span class="math display">\[
 f(\mathbf{r},\mathbf{v}_j)=n_j(\mathbf{r})\Big( \frac{m}{2\pi k_BT}\Big)^{3/2}\exp\Big( -\frac{mv^2}{2k_BT}\Big)
 \]</span></p>
-<p>Substitute into <a href="#eq-LTE_Vlasov">Equation&nbsp;<span>2.5</span></a>, we have <span class="math display">\[
+<p>Substitute into <a href="#eq-LTE_Vlasov" class="quarto-xref">Equation&nbsp;<span>2.5</span></a>, we have <span class="math display">\[
 \begin{aligned}
 (\mathbf{v}_j\cdot\nabla)n_j +\frac{\mathbf{v}_j\cdot\nabla(q\phi)}{k_BT_j}n_j=0 \\
 \Rightarrow n_j(\mathbf{r}) = n_{j0} \exp\Big[ -\frac{q_j\phi_j(\mathbf{r})}{k_BT_j} \Big]
@@ -592,26 +629,30 @@ f(\mathbf{r},\mathbf{v}_j)=n_j(\mathbf{r})\Big( \frac{m}{2\pi k_BT}\Big)^{3/2}\e
 <p>Anticipate when <span class="math inline">\(r\rightarrow 0\)</span>, <span class="math inline">\(\phi(r)\rightarrow \frac{q_T}{4\pi\epsilon_0 r}\approx \frac{A}{r}\)</span>. So <span class="math display">\[
 \phi(r)=\frac{q_t}{4\pi\epsilon_0r}e^{-r/\lambda_D}
 \]</span></p>
-<div id="fig-electric_potential" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/ElectricPotential.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.1: Electric potential.</figcaption>
+<div id="fig-electric-potential" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-electric-potential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/ElectricPotential.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-electric-potential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: Electric potential.
+</figcaption>
 </figure>
 </div>
-<p>The electric potential drops very quickly (<a href="#fig-electric_potential">Figure&nbsp;<span>2.1</span></a>). In other words, if you insert a charge into a neutral plasma, its potential will only effect within a small range. Recall the Gauss`s law, <span class="math display">\[
+<p>The electric potential drops very quickly (<a href="#fig-electric-potential" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>). In other words, if you insert a charge into a neutral plasma, its potential will only effect within a small range. Recall the Gauss’s law, <span class="math display">\[
 \oint\mathbf{E}\cdot \mathrm{d}\mathbf{A}=\frac{Q_T}{\epsilon_0}\rightarrow\textrm{ as }R\rightarrow \infty, \textrm{ E goes to zero.}
 \]</span></p>
-<p>The following are useful forms of <a href="#eq-debye_length">Equation&nbsp;<span>2.6</span></a>: <span class="math display">\[
+<p>The following are useful forms of <a href="#eq-debye_length" class="quarto-xref">Equation&nbsp;<span>2.6</span></a>: <span class="math display">\[
 \begin{aligned}
-\lambda_D &amp;= 69 (T_e/n)^{1/2}\,\text{m},\quad T_e \text{ in K} \\
-\lambda_D &amp;= 7430 (k_B T_e/n)^{1/2}\,\text{m},\quad k_BT_e \text{ in eV}
+\lambda_D &amp;= 69 (T_e/n)^{1/2}\,\text{m},\quad T_e\,\text{in K} \\
+\lambda_D &amp;= 7430 (k_B T_e/n)^{1/2}\,\text{m},\quad k_BT_e\,\text{in eV}
 \end{aligned}
 \]</span></p>
 <p>We are now in a position to define “quasineutrality.” If the dimensions <span class="math inline">\(L\)</span> of a system are much larger than <span class="math inline">\(\lambda_D\)</span>, then whenever local concentrations of charge arise or external potentials are introduced into the system, these are shielded out in a distance short compared with <span class="math inline">\(L\)</span>, leaving the bulk of the plasma free of large electric potentials or fields. Outside of the sheath on the wall or on an obstacle, <span class="math inline">\(\nabla^2\phi\)</span> is very small, and <span class="math inline">\(n_i\)</span> is equal to <span class="math inline">\(n_e\)</span>. It takes only a small charge imbalance to give rise to potentials of the order of <span class="math inline">\(k_BT/e\)</span>. The plasma is “quasineutral”; that is, neutral enough so that one can take <span class="math inline">\(n_i\simeq n_e\simeq n\)</span>, where <span class="math inline">\(n\)</span> is a common density called the <em>plasma density</em>, but not so neutral that all the interesting electromagnetic forces vanish. Plasma may be considered neutral over a length scale larger than Debye length.</p>
 <p>Additional comments:</p>
 <ol type="1">
 <li>Plasma acts like dielectron.</li>
-<li>There is a plasma sheath near to where materials contact, inside which charge neutrality is violated. This will be discussed in <a href="nonlinear.html#sec-sheath"><span>Section&nbsp;13.1</span></a>.</li>
+<li>There is a plasma sheath near to where materials contact, inside which charge neutrality is violated. This will be discussed in <a href="nonlinear.html#sec-sheath" class="quarto-xref"><span>Section 13.1</span></a>.</li>
 </ol>
 </section>
 <section id="criteria-for-plasmas" class="level2" data-number="2.5">
@@ -632,7 +673,7 @@ f(\mathbf{r},\mathbf{v}_j)=n_j(\mathbf{r})\Big( \frac{m}{2\pi k_BT}\Big)^{3/2}\e
 <p><span class="math inline">\(\omega_p\)</span> corresponds to the typical electrostatic oscillation frequency of a given species in response to a small charge separation. For instance, consider a one-dimensional situation in which a slab consisting entirely of one charge species is displaced from its quasi-neutral position by an infinitesimal distance <span class="math inline">\(\delta x\)</span>. The resulting charge density which develops on the leading face of the slab is <span class="math inline">\(\sigma=e\,n\,\delta x\)</span>. An equal and opposite charge density develops on the opposite face. The <span class="math inline">\(x\)</span>-directed electric field generated inside the slab is of magnitude <span class="math inline">\(E_x= -\sigma/\epsilon_0 =- e\,n\,\delta x/\epsilon_0\)</span>. Thus, Newton’s law applied to an individual particle inside the slab yields <span class="math display">\[
 m\,\frac{\mathrm{d}^2 \delta x}{\mathrm{d}t^2} = e\,E_x = -m\,\omega_p^{~2}\,\delta x
 \]</span> giving <span class="math inline">\(\delta x = \delta x_0\,\cos\omega_p t\)</span>.</p>
-<p>Plasma frequency is closely associated with plasma oscillation and waves. A more thorough derivation is given in <a href="wave.html#sec-oscillations"><span>Section&nbsp;7.3</span></a>. Note that plasma oscillations will only be observed if the plasma system is studied over time periods <span class="math inline">\(\tau\)</span> longer than the plasma period <span class="math inline">\(\tau_p\equiv 1/\omega_p\)</span>, and if external actions change the system at a rate no faster than <span class="math inline">\(\omega_p\)</span>. In the opposite case, one is clearly studying something other than plasma physics (e.g., nuclear reactions), and the system cannot not usefully be considered to be a plasma. Likewise, observations over length-scales <span class="math inline">\(L\)</span> shorter than the distance <span class="math inline">\(v_t\,\tau_p\)</span> traveled by a typical plasma particle during a plasma period will also not detect plasma behaviour. In this case, particles will exit the system before completing a plasma oscillation. This distance, which is the spatial equivalent to <span class="math inline">\(\tau_p\)</span>, is called the <em>Debye length</em>, and takes the form <span class="math display">\[
+<p>Plasma frequency is closely associated with plasma oscillation and waves. A more thorough derivation is given in <a href="wave.html#sec-oscillations" class="quarto-xref"><span>Section 7.3</span></a>. Note that plasma oscillations will only be observed if the plasma system is studied over time periods <span class="math inline">\(\tau\)</span> longer than the plasma period <span class="math inline">\(\tau_p\equiv 1/\omega_p\)</span>, and if external actions change the system at a rate no faster than <span class="math inline">\(\omega_p\)</span>. In the opposite case, one is clearly studying something other than plasma physics (e.g., nuclear reactions), and the system cannot not usefully be considered to be a plasma. Likewise, observations over length-scales <span class="math inline">\(L\)</span> shorter than the distance <span class="math inline">\(v_t\,\tau_p\)</span> traveled by a typical plasma particle during a plasma period will also not detect plasma behaviour. In this case, particles will exit the system before completing a plasma oscillation. This distance, which is the spatial equivalent to <span class="math inline">\(\tau_p\)</span>, is called the <em>Debye length</em>, and takes the form <span class="math display">\[
 \lambda_D \equiv \sqrt{T/m}\,\,\omega_p^{-1}.
 \]</span></p>
 <p>Note that <span class="math display">\[
@@ -642,7 +683,7 @@ m\,\frac{\mathrm{d}^2 \delta x}{\mathrm{d}t^2} = e\,E_x = -m\,\omega_p^{~2}\,\de
 \tag{2.8}\]</span></span> and <span class="math display">\[
 \frac{\tau_p}{\tau}\ll 1
 \]</span></p>
-<p>Here, <span class="math inline">\(\tau\)</span> and <span class="math inline">\(L\)</span> represent the typical time-scale and length-scale of the process under investigation. It should be noted that, despite the conventional requirement <a href="#eq-length_limit">Equation&nbsp;<span>2.8</span></a>, plasma physics is capable of considering structures on the Debye scale. The most important example of this is the Debye sheath: i.e., the boundary layer which surrounds a plasma confined by a material surface.</p>
+<p>Here, <span class="math inline">\(\tau\)</span> and <span class="math inline">\(L\)</span> represent the typical time-scale and length-scale of the process under investigation. It should be noted that, despite the conventional requirement <a href="#eq-length_limit" class="quarto-xref">Equation&nbsp;<span>2.8</span></a>, plasma physics is capable of considering structures on the Debye scale. The most important example of this is the Debye sheath: i.e., the boundary layer which surrounds a plasma confined by a material surface.</p>
 <p>Let <span class="math inline">\(V_A=B/\sqrt{\mu_0 \rho}\)</span> be the Alfvén speed and <span class="math inline">\(\omega_{c}=q\, B/m\)</span> be the ion gyro-frequency. We have this convenient relation <span id="eq-frequency-ratio"><span class="math display">\[
 \frac{\omega_p}{\omega_{c}} = \frac{c}{V_A}
 \tag{2.9}\]</span></span></p>
@@ -676,7 +717,7 @@ r_L = \frac{p}{qB} = \frac{\gamma m v_\perp}{qB}
 <p>There is no universal theory for plasma physics due to the multi-scale problems. All useful equations are derived under certain scaling approximations —</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-bellan2008fundamentals" class="csl-entry" role="listitem">
 Bellan, Paul M. 2008. <em>Fundamentals of Plasma Physics</em>. Cambridge University Press.
 </div>
@@ -725,6 +766,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -793,13 +861,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -878,10 +948,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -891,8 +960,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -905,6 +983,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -948,6 +1145,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -973,6 +1171,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1034,12 +1258,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../contents/about.html" class="pagination-link">
+      <a href="../contents/about.html" class="pagination-link  aria-label=" &lt;span="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../contents/math.html" class="pagination-link">
+      <a href="../contents/math.html" class="pagination-link" aria-label="<span class='chapter-number'>3</span>&nbsp; <span class='chapter-title'>Math</span>">
         <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1048,4 +1272,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/introduction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

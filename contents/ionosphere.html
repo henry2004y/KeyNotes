@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -68,7 +69,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -77,6 +84,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -86,6 +94,33 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -94,12 +129,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/ionosphere.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/ionosphere.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Ionosphere</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -109,12 +144,12 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -315,7 +350,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -334,7 +369,7 @@ div.csl-indent {
   </ul></li>
   <li><a href="#ionosphere-waveguide" id="toc-ionosphere-waveguide" class="nav-link" data-scroll-target="#ionosphere-waveguide"><span class="header-section-number">19.4</span> Ionosphere Waveguide</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/ionosphere.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/ionosphere.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -354,9 +389,11 @@ div.csl-indent {
   </div>
   
 
+
 </header>
 
-<p>Ionosphere is like a transition region from neutral gas to plasma. Therefore, collisions as well as kinetic effects may become important. <a href="diffres.html#sec-collision_ionized"><span>Section&nbsp;6.8</span></a> presents some basic physics related to the collisional effect in the ionosphere.</p>
+
+<p>Ionosphere is like a transition region from neutral gas to plasma. Therefore, collisions as well as kinetic effects may become important. <a href="diffres.html#sec-collision_ionized" class="quarto-xref"><span>Section 6.8</span></a> presents some basic physics related to the collisional effect in the ionosphere.</p>
 <section id="current-systems" class="level2" data-number="19.1">
 <h2 data-number="19.1" class="anchored" data-anchor-id="current-systems"><span class="header-section-number">19.1</span> Current Systems</h2>
 <p>Electric fields associated with the viscous interaction and reconnection-driven plasma flow are transmitted along field lines to the ionosphere where they drive currents through the ionosphere. The high latitude FAC are known as <em>region-1 currents</em>, while the lower latitude currents are called <em>region-2 currents</em>. The ionospheric current connecting these two FAC systems flows parallel to the projected electric field and is called the <em>Pedersen current</em>. Since the Pedersen current flows through a resistive ionosphere in the direction of the electric field it causes Ohmic heating <span class="math inline">\(\mathbf{j}\cdot\mathbf{E}&gt;0\)</span>. The two shells of FAC form a solenoid so that the magnetic perturbations they create are confined to the region between them and cannot be detected on the ground. Because of the interaction of the motion of ionized gases with the neutral atmosphere, the ions and electrons undergo different drift motion. Ions, due to higher collision rates with the neutral atmosphere, have a component of motion perpendicular to the <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift direction, while the electrons generally follow <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span>. The non-dissipative (<span class="math inline">\(\mathbf{j}\cdot\mathbf{E}=0\)</span>) Hall current flows at right angles to both the electric and magnetic fields. The magnetic effects of the Hall current driven by the region-1 and 2 currents can be observed on the ground and are known as the DP-2 current system.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
@@ -375,14 +412,14 @@ div.csl-indent {
 <ol type="1">
 <li><p>The magnetospheric FACs are mapped along the field lines from the inner boundary to the ionosphere assuming <span class="math inline">\(j_\parallel/B=\text{const.}\)</span>, which are the input to the ionospheric potential equation <span class="citation" data-cites="raeder1995">(<a href="#ref-raeder1995" role="doc-biblioref">Raeder, Walker, and Ashour-Abdalla 1995</a>)</span> <span id="eq-ionosphere_potential"><span class="math display">\[
 \nabla\cdot(\pmb{\Sigma}\cdot\nabla\Phi) = -j_\parallel\sin I
-\tag{19.1}\]</span></span> where <span class="math inline">\(\pmb{\Sigma}\)</span> is the conductance tensor, <span class="math inline">\(\Phi\)</span> is the electric potential, <span class="math inline">\(j_\parallel\)</span> is the mapped FAC density with the downward considered positive and corrected for flux tube convergence, and <span class="math inline">\(I\)</span> is the inclination of the dipole field at the ionosphere, <span class="math inline">\(\sin I=\cos(\frac{\pi}{2}-I)=\hat{b}\cdot\hat{r}\)</span>. The derivation from the charge conservation can be found in <a href="diffres.html#sec-conductivity"><span>Section&nbsp;6.8.7</span></a>. There is another form derived by [Wolf 1983]: <span id="eq-ionosphere_potential2"><span class="math display">\[
+\tag{19.1}\]</span></span> where <span class="math inline">\(\pmb{\Sigma}\)</span> is the conductance tensor, <span class="math inline">\(\Phi\)</span> is the electric potential, <span class="math inline">\(j_\parallel\)</span> is the mapped FAC density with the downward considered positive and corrected for flux tube convergence, and <span class="math inline">\(I\)</span> is the inclination of the dipole field at the ionosphere, <span class="math inline">\(\sin I=\cos(\frac{\pi}{2}-I)=\hat{b}\cdot\hat{r}\)</span>. The derivation from the charge conservation can be found in <a href="diffres.html#sec-conductivity" class="quarto-xref"><span>Section 6.8.7</span></a>. There is another form derived by [Wolf 1983]: <span id="eq-ionosphere_potential2"><span class="math display">\[
 \nabla_\perp\cdot
 \begin{pmatrix} \sigma_P/\cos^2\delta &amp; -\sigma_H\cos\delta \\ \sigma_H/\cos\delta &amp; \sigma_P \end{pmatrix} \cdot\nabla_\perp\Phi =
 j_\parallel\cos\delta
 \tag{19.2}\]</span></span> where <span class="math inline">\(\delta\)</span> is the magnetic field dip angle: <span class="math display">\[
 \cos\delta = -2\frac{\cos\theta}{\sqrt{1+3\cos^2\theta}}
 \]</span> for the northern hemisphere, where <span class="math inline">\(\theta\)</span> is the polar angle (magnetic colatitude). I DON’T KNOW THE RELATION BETWEEN THESE TWO!</p></li>
-<li><p><a href="#eq-ionosphere_potential">Equation&nbsp;<span>19.1</span></a> is solved on the surface of a sphere <span class="math inline">\(r=r_\text{ion}\)</span>. Commonly there are two types of boundary conditions: (1) <span class="math inline">\(\Phi=0\)</span> at the equator <span class="citation" data-cites="raeder1995">(<a href="#ref-raeder1995" role="doc-biblioref">Raeder, Walker, and Ashour-Abdalla 1995</a>)</span>, or (2) constant potential at or near the low‐latitude boundary (e.g.&nbsp;LFM, BATSRUS). From here, one can either choose a static analytic model of Hall and Pederson conductance that accounts for multiple physics, or simply adopt a uniform Pederson conductance, or the height-integrated conductivity, <span class="math inline">\(\Sigma_p = 5\,\text{Siemens}\)</span>, while the Hall conductance <span class="math inline">\(\Sigma_H\)</span> is assumed to be zero. The latter one is simplified to solve <span class="math display">\[
+<li><p><a href="#eq-ionosphere_potential" class="quarto-xref">Equation&nbsp;<span>19.1</span></a> is solved on the surface of a sphere <span class="math inline">\(r=r_\text{ion}\)</span>. Commonly there are two types of boundary conditions: (1) <span class="math inline">\(\Phi=0\)</span> at the equator <span class="citation" data-cites="raeder1995">(<a href="#ref-raeder1995" role="doc-biblioref">Raeder, Walker, and Ashour-Abdalla 1995</a>)</span>, or (2) constant potential at or near the low‐latitude boundary (e.g.&nbsp;LFM, BATSRUS). From here, one can either choose a static analytic model of Hall and Pederson conductance that accounts for multiple physics, or simply adopt a uniform Pederson conductance, or the height-integrated conductivity, <span class="math inline">\(\Sigma_p = 5\,\text{Siemens}\)</span>, while the Hall conductance <span class="math inline">\(\Sigma_H\)</span> is assumed to be zero. The latter one is simplified to solve <span class="math display">\[
 \nabla^2\Phi = -j_\parallel\sin I/\Sigma_p
 \]</span></p></li>
 </ol>
@@ -391,18 +428,22 @@ j_\parallel\cos\delta
 \Sigma_{P,H} = \sqrt{(\Sigma_{P,H}^{e-})^2 + (\Sigma_{P,H}^{\text{UV}})^2}
 \]</span></p>
 <p>This is because <span class="math inline">\(\sigma_{P,H}\propto n_e\)</span>, which in a stationary state is proportional to the square root of the production rate, and it is the production rates that can be summed linearly. (???)</p>
-<p>Does this look well? Not yet. We know that while the high‐latitude ionospheric convection is driven by the solar wind and magnetosphere interaction, at lower latitudes atmospheric neutral winds start to dominate. The next level approximation needs to take this into account. Because there is a gap between <span class="math inline">\(r_\text{ion}\)</span> and <span class="math inline">\(r_\text{in}\)</span>, the ionospheric footprint of their grid has a low‐latitude boundary somewhere in the midlatitudes, e.g., 45° when <span class="math inline">\(r_\text{in}\sim 2\,\text{R}_\text{E}\)</span> (<a href="#fig-MI_BC">Figure&nbsp;<span>19.1</span></a>). Global magnetospheric models, unless they are fully coupled to models of the inner magnetosphere and the ionosphere, lack details of the ionospheric convection at latitudes equatorward of their low‐latitude ionospheric boundary. To some extent, such details can be translated to the global model via the low‐latitude boundary condition used to solve <a href="#eq-ionosphere_potential2">Equation&nbsp;<span>19.2</span></a>. The easy way is to set the ionospheric potential to zero everywhere on the boundary. This corresponds to no flow across the boundary in the ionosphere or the inner boundary of the magnetosphere simulation in the equatorial plane. The choice of this boundary condition is usually justified by the argument that it helps to shield the inner magnetosphere from the cross‐tail electric field.</p>
-<div id="fig-MI_BC" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/MI_coupling_BC.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;19.1: A schematic depiction of the inner boundary of the magnetosphere simulation and its ionospheric mapping. The location of the low‐latitude boundary of the ionospheric grid is determined by the radius of the inner MHD boundary mapped along the dipole field from the equator. Point A (at 45°) denotes a typical location of the low‐latitude boundary, where the STANDARD and NEUMANN boundary conditions are applied, while point B is where the LOWERBC boundary condition is applied. The three inset plots at the bottom depict schematically the configuration of velocity and electric field vectors with respect to the surface of the ionosphere in a meridional plane. The inset plot titles identify the type of the boundary condition and the point where it is applied. Adopted from <span class="citation" data-cites="merkin2010">(<a href="#ref-merkin2010" role="doc-biblioref">Merkin and Lyon 2010</a>)</span>.</figcaption>
+<p>Does this look well? Not yet. We know that while the high‐latitude ionospheric convection is driven by the solar wind and magnetosphere interaction, at lower latitudes atmospheric neutral winds start to dominate. The next level approximation needs to take this into account. Because there is a gap between <span class="math inline">\(r_\text{ion}\)</span> and <span class="math inline">\(r_\text{in}\)</span>, the ionospheric footprint of their grid has a low‐latitude boundary somewhere in the midlatitudes, e.g., 45° when <span class="math inline">\(r_\text{in}\sim 2\,\text{R}_\text{E}\)</span> (<a href="#fig-MI-BC" class="quarto-xref">Figure&nbsp;<span>19.1</span></a>). Global magnetospheric models, unless they are fully coupled to models of the inner magnetosphere and the ionosphere, lack details of the ionospheric convection at latitudes equatorward of their low‐latitude ionospheric boundary. To some extent, such details can be translated to the global model via the low‐latitude boundary condition used to solve <a href="#eq-ionosphere_potential2" class="quarto-xref">Equation&nbsp;<span>19.2</span></a>. The easy way is to set the ionospheric potential to zero everywhere on the boundary. This corresponds to no flow across the boundary in the ionosphere or the inner boundary of the magnetosphere simulation in the equatorial plane. The choice of this boundary condition is usually justified by the argument that it helps to shield the inner magnetosphere from the cross‐tail electric field.</p>
+<div id="fig-MI-BC" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-MI-BC-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/MI_coupling_BC.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-MI-BC-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.1: A schematic depiction of the inner boundary of the magnetosphere simulation and its ionospheric mapping. The location of the low‐latitude boundary of the ionospheric grid is determined by the radius of the inner MHD boundary mapped along the dipole field from the equator. Point A (at 45°) denotes a typical location of the low‐latitude boundary, where the STANDARD and NEUMANN boundary conditions are applied, while point B is where the LOWERBC boundary condition is applied. The three inset plots at the bottom depict schematically the configuration of velocity and electric field vectors with respect to the surface of the ionosphere in a meridional plane. The inset plot titles identify the type of the boundary condition and the point where it is applied. Adopted from <span class="citation" data-cites="merkin2010">(<a href="#ref-merkin2010" role="doc-biblioref">Merkin and Lyon 2010</a>)</span>.
+</figcaption>
 </figure>
 </div>
 <p><span class="citation" data-cites="merkin2010">(<a href="#ref-merkin2010" role="doc-biblioref">Merkin and Lyon 2010</a>)</span> tested three different boundary conditions for the potential equation:</p>
 <ul>
 <li>STANDARD: Dirichlet, the potential at the low‐latitude boundary is set to zero.</li>
 <li>NEUMANN: the electric field component normal to the low‐latitude boundary was set to zero. This condition requires all ionospheric plasma to move normal to the boundary.</li>
-<li>LOWERBC: Dirichlet, but the location of the low‐latitude boundary was moved to 2° above the equator, thus allowing the plasma to move across the magnetosphere inner boundary. (???) <a href="#eq-ionosphere_potential2_spherical">Equation&nbsp;<span>19.3</span></a> is singular at <span class="math inline">\(\theta=\pi/2\)</span>, which is why the calculation has to stop just short of the equator. (???)</li>
+<li>LOWERBC: Dirichlet, but the location of the low‐latitude boundary was moved to 2° above the equator, thus allowing the plasma to move across the magnetosphere inner boundary. (???) <a href="#eq-ionosphere_potential2_spherical" class="quarto-xref">Equation&nbsp;<span>19.3</span></a> is singular at <span class="math inline">\(\theta=\pi/2\)</span>, which is why the calculation has to stop just short of the equator. (???)</li>
 </ul>
 <ol start="3" type="1">
 <li><p>Sparse linear algebra, GMRES together with an imcomplete LU preconditioner (default for many modern solvers) are usually applied to solve the potential equation. This is generally an easy equation to solve mathematically.</p></li>
@@ -412,7 +453,7 @@ j_\parallel\cos\delta
 <h3 data-number="19.2.1" class="anchored" data-anchor-id="caveats"><span class="header-section-number">19.2.1</span> Caveats</h3>
 <ul>
 <li>The mapping assumes conservation, which is not perfect. In practice <span class="math inline">\(r_\text{in}\sim 4\,\text{R}_\text{E}\)</span> is a minimum requirement for reasonable FACs.</li>
-<li>Most numerical codes couples a Cartesian grid to a spherical ionosphere grid, while some couples a spherical grid to a spherical grid. For magnetosphere simulations we need a relatively simple but super fast electric potential solver, therefore structured mesh is often adopted. If a spherical grid is used, care must be taken near the pole since it is a singular from the grid but not physics. <a href="#eq-ionosphere_potential2">Equation&nbsp;<span>19.2</span></a> under spherical coordinates is written as</li>
+<li>Most numerical codes couples a Cartesian grid to a spherical ionosphere grid, while some couples a spherical grid to a spherical grid. For magnetosphere simulations we need a relatively simple but super fast electric potential solver, therefore structured mesh is often adopted. If a spherical grid is used, care must be taken near the pole since it is a singular from the grid but not physics. <a href="#eq-ionosphere_potential2" class="quarto-xref">Equation&nbsp;<span>19.2</span></a> under spherical coordinates is written as</li>
 </ul>
 <p><span id="eq-ionosphere_potential2_spherical"><span class="math display">\[
 \begin{aligned}
@@ -471,7 +512,7 @@ N &amp;= \frac{S}{RM}
 <p>A brief introduction can be found on <a href="https://en.wikipedia.org/wiki/Earth%E2%80%93ionosphere_waveguide">wiki</a>.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-merkin2010" class="csl-entry" role="listitem">
 Merkin, VG, and JG Lyon. 2010. <span>“Effects of the Low-Latitude Ionospheric Boundary Condition on the Global Magnetosphere.”</span> <em>Journal of Geophysical Research: Space Physics</em> 115 (A10). <a href="https://doi.org/10.1029/2010JA015461">https://doi.org/10.1029/2010JA015461</a>.
 </div>
@@ -529,6 +570,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -597,13 +665,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -682,10 +752,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -695,8 +764,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -709,6 +787,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -752,6 +949,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -777,6 +975,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -838,12 +1062,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../contents/magnetosphere.html" class="pagination-link">
+      <a href="../contents/magnetosphere.html" class="pagination-link  aria-label=" &lt;span="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Magnetosphere</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../contents/radiationbelt.html" class="pagination-link">
+      <a href="../contents/radiationbelt.html" class="pagination-link" aria-label="<span class='chapter-number'>20</span>&nbsp; <span class='chapter-title'>Radiation Belt</span>">
         <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -852,4 +1076,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/ionosphere.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -49,7 +49,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -58,6 +64,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -67,6 +74,33 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -75,12 +109,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/gyrokinetics.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/gyrokinetics.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -90,12 +124,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -296,7 +330,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -317,7 +351,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">11.5</span> Applications</a></li>
   <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations"><span class="header-section-number">11.6</span> Limitations</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/gyrokinetics.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/gyrokinetics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -337,7 +371,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>This is taken from the slide given by Frank Jenko from Max-Planck-Institut für Plasmaphysik.</p>
 <p>Gyrokinetics is a theory for describing plasmas at a much finer level. If kinetic effects (e.g.&nbsp;finite Larmor radius, Landau damping, magnetic trapping etc.) play a role, MHD is not applicable, and one has to use a kinetic description.</p>
@@ -377,24 +413,32 @@ n = \bar{N}_0 + \bar{\nabla}\cdot\Big( \frac{c\bar{N}_0}{B\Omega}\bar{\nabla}_\p
 <p>Note that</p>
 <ul>
 <li>In Vlasov equation in the guiding center coordinates, the <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift, gradient drift and curvature drift all appears but the polarization drift is missing.</li>
-<li>In <a href="#eq-gk_density">Equation&nbsp;<span>11.1</span></a>, only the polarization term correction appears. From Hamilton’s mechanics, all term that has a explicit time dependency will not contribute here since it will break the energy conservation of the system.</li>
+<li>In <a href="#eq-gk_density" class="quarto-xref">Equation&nbsp;<span>11.1</span></a>, only the polarization term correction appears. From Hamilton’s mechanics, all term that has a explicit time dependency will not contribute here since it will break the energy conservation of the system.</li>
 </ul>
 </section>
 <section id="the-gyrokinetic-ordering" class="level2" data-number="11.3">
 <h2 data-number="11.3" class="anchored" data-anchor-id="the-gyrokinetic-ordering"><span class="header-section-number">11.3</span> The Gyrokinetic Ordering</h2>
 <section id="from-kinetics-to-gyrokinetics" class="level3" data-number="11.3.1">
 <h3 data-number="11.3.1" class="anchored" data-anchor-id="from-kinetics-to-gyrokinetics"><span class="header-section-number">11.3.1</span> From Kinetics to Gyrokinetics</h3>
-<div id="fig-kinetics2gk" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/kinetics2gyrokinetics.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;11.1: Charged particle orbit in a magnetic field pointing into the plane with electrostatic potential fluctuations.</figcaption>
+<div id="fig-kinetics2gk" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-kinetics2gk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/kinetics2gyrokinetics.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kinetics2gk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.1: Charged particle orbit in a magnetic field pointing into the plane with electrostatic potential fluctuations.
+</figcaption>
 </figure>
 </div>
-<p><a href="#fig-kinetics2gk">Figure&nbsp;<span>11.1</span></a> shows the basic idea of gyrokinetic approximation. There is a strong magnetic field pointing into the plane. The electrostatic potential fluctuations are shown by the colored contours. The particle orbit is composed of two parts: a fast gyromotion and a slow <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift. In gyrokinetics we simply remove the fast gyromotion and introduce charged rings as quasiparticles, i.e.&nbsp;go from particle to gyrocenter coordinates.</p>
-<div id="fig-gk_approximation" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/gyrokinetic_approximation.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;11.2: Gyrokinetic approximation.</figcaption>
+<p><a href="#fig-kinetics2gk" class="quarto-xref">Figure&nbsp;<span>11.1</span></a> shows the basic idea of gyrokinetic approximation. There is a strong magnetic field pointing into the plane. The electrostatic potential fluctuations are shown by the colored contours. The particle orbit is composed of two parts: a fast gyromotion and a slow <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift. In gyrokinetics we simply remove the fast gyromotion and introduce charged rings as quasiparticles, i.e.&nbsp;go from particle to gyrocenter coordinates.</p>
+<div id="fig-gk-approximation" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gk-approximation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/gyrokinetic_approximation.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gk-approximation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.2: Gyrokinetic approximation.
+</figcaption>
 </figure>
 </div>
 <ul>
@@ -478,7 +522,7 @@ H &amp;= \frac{m}{2}v^2 + e\phi(\mathbf{x},t)
 \dot{\mu} &amp;= 0
 \end{aligned}
 \tag{11.3}\]</span></span></p>
-<p><a href="#eq-gk_euler_lagrange">Equation&nbsp;<span>11.3</span></a> contains all the drifts we have seen in <a href="single.html"><span>Chapter&nbsp;4</span></a>.</p>
+<p><a href="#eq-gk_euler_lagrange" class="quarto-xref">Equation&nbsp;<span>11.3</span></a> contains all the drifts we have seen in <a href="single.html" class="quarto-xref"><span>Chapter 4</span></a>.</p>
 <p>Applying the gyrokinetic approximation, the effective gyroaveraged potential over one gyroperiod can be written using Fourier transform (???):</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -506,9 +550,9 @@ f(\mathbf{x},\mathbf{v},t) = f_M(\epsilon) + \delta f(\mathbf{x},\mathbf{v},t)
 \end{aligned}
 \tag{11.4}\]</span></span></p>
 <p>and <span class="math inline">\(&lt;...&gt;_\alpha\)</span> denotes averaging over the gyrophase angle, <span class="math inline">\(\alpha\)</span>. Here, the field variables are the scalar and vector potentials, <span class="math inline">\(\delta\phi\)</span> and <span class="math inline">\(\delta\mathbf{A}\)</span>, with <span class="math inline">\(\delta A_\parallel=\delta\mathbf{A}\cdot\mathbf{b}_0\)</span> and the <span class="math inline">\(\nabla\cdot\delta\mathbf{A}=0\)</span> Coulomb gauge. The operator <span class="math inline">\(e^{-\mathbf{r}_L\cdot\nabla}\)</span>, meanwhile, represents the transformation between the particle and guiding center positions.</p>
-<p>The corresponding field equations are the Poisson’s equation and the parallel Ampère’s law, <span class="math inline">\(\nabla^2 \delta A_\parallel = -4\pi\delta J_\parallel/c\)</span>. In the low-frequency and <span class="math inline">\(|k\lambda_D|^2\ll 1\)</span> limit with <span class="math inline">\(\lambda_D\)</span> being the Debye length, Poisson’s equation can be approximated as the quasi-neutrality condition; <span class="math inline">\(\sum_j n_{0j}q_j&lt;\delta f_j&gt;_v\simeq 0\)</span>. Here, <span class="math inline">\(&lt;...&gt;_v = \int \mathrm{d}\mathbf{v} (...)\)</span> is the velocity-space integral, and subscript <span class="math inline">\(j\)</span> runs over the particle species. Meanwhile, substituting the parallel Ampère’s law into the <span class="math inline">\(\nabla\cdot\delta\mathbf{J}\simeq 0\)</span> quasi-neutrality condition as derived by <a href="#eq-gk_linear">Equation&nbsp;<span>11.4</span></a> yields a generalized linear gyrokinetic vorticity equation, which is often convenient to use in studying shear/kinetic Alfvén wave dynamics.</p>
+<p>The corresponding field equations are the Poisson’s equation and the parallel Ampère’s law, <span class="math inline">\(\nabla^2 \delta A_\parallel = -4\pi\delta J_\parallel/c\)</span>. In the low-frequency and <span class="math inline">\(|k\lambda_D|^2\ll 1\)</span> limit with <span class="math inline">\(\lambda_D\)</span> being the Debye length, Poisson’s equation can be approximated as the quasi-neutrality condition; <span class="math inline">\(\sum_j n_{0j}q_j&lt;\delta f_j&gt;_v\simeq 0\)</span>. Here, <span class="math inline">\(&lt;...&gt;_v = \int \mathrm{d}\mathbf{v} (...)\)</span> is the velocity-space integral, and subscript <span class="math inline">\(j\)</span> runs over the particle species. Meanwhile, substituting the parallel Ampère’s law into the <span class="math inline">\(\nabla\cdot\delta\mathbf{J}\simeq 0\)</span> quasi-neutrality condition as derived by <a href="#eq-gk_linear" class="quarto-xref">Equation&nbsp;<span>11.4</span></a> yields a generalized linear gyrokinetic vorticity equation, which is often convenient to use in studying shear/kinetic Alfvén wave dynamics.</p>
 <p><strong>Linear kinetic Alfvén wave properties</strong></p>
-<p>(WARNING: SUPER HARD TO FOLLOW!) For plane wave <span class="math inline">\(\omega,\mathbf{k}\)</span> perturbations, <a href="#eq-gk_linear">Equation&nbsp;<span>11.4</span></a> gives:</p>
+<p>(WARNING: SUPER HARD TO FOLLOW!) For plane wave <span class="math inline">\(\omega,\mathbf{k}\)</span> perturbations, <a href="#eq-gk_linear" class="quarto-xref">Equation&nbsp;<span>11.4</span></a> gives:</p>
 <p><span class="math display">\[
 \delta g_\mathbf{k} = -\frac{q}{T}f_M J_0(k_\perp \mathbf{r}_L) \frac{\omega}{k_\parallel v_\parallel - \omega}\Big( \delta\phi - \frac{v_\parallel}{c}\delta A_\parallel \Big)_\mathbf{k}
 \]</span></p>
@@ -531,11 +575,11 @@ f(\mathbf{x},\mathbf{v},t) = f_M(\epsilon) + \delta f(\mathbf{x},\mathbf{v},t)
 <p><span id="eq-gk_linear_quasi_neutrality_derive"><span class="math display">\[
 \sum_j\Big( \frac{n_0 q^2}{T_0} \Big)_j \{ \delta\phi_\mathbf{k} + \Gamma_{0kj}[\xi_{kj}Z_{kj}\delta\phi_\mathbf{k} - (1+\xi_{kj}Z_{kj}\delta\Psi_\mathbf{k})] \} = 0
 \tag{11.5}\]</span></span></p>
-<p>Here, <span class="math inline">\(\xi_{kj}=\omega/|k_\parallel|v_{tj},Z_{kj}=Z(\xi_{kj})\)</span> with <span class="math inline">\(Z\)</span> being the well-known plasma dispersion function (<a href="kinetic.html#eq-plasma_dispersion_function">Equation&nbsp;<span>8.33</span></a>), and <span class="math inline">\(\Gamma_{0kj} = I_0(b_{kj})\exp(-b_{kj})\)</span> with <span class="math inline">\(I_0\)</span> the modified Bessel function and <span class="math inline">\(b_{kj}=k_\perp^2 r_{Lj}/2 = k_\perp^2(T_j/m_j)/\Omega_j^2\)</span>. The linear gyrokinetic vorticity equation, meanwhile, is given by: (Chen and Hasegawa 1991)</p>
+<p>Here, <span class="math inline">\(\xi_{kj}=\omega/|k_\parallel|v_{tj},Z_{kj}=Z(\xi_{kj})\)</span> with <span class="math inline">\(Z\)</span> being the well-known plasma dispersion function (<a href="kinetic.html#eq-plasma_dispersion_function" class="quarto-xref">Equation&nbsp;<span>8.33</span></a>), and <span class="math inline">\(\Gamma_{0kj} = I_0(b_{kj})\exp(-b_{kj})\)</span> with <span class="math inline">\(I_0\)</span> the modified Bessel function and <span class="math inline">\(b_{kj}=k_\perp^2 r_{Lj}/2 = k_\perp^2(T_j/m_j)/\Omega_j^2\)</span>. The linear gyrokinetic vorticity equation, meanwhile, is given by: (Chen and Hasegawa 1991)</p>
 <p><span id="eq-gk_linear_vorticity"><span class="math display">\[
 i\frac{c^2}{4\pi\omega}k_\parallel^2 k_\perp^2 \delta\Psi_\mathbf{k} - i \sum_j\Big( \frac{n_0q^2}{T_0} \Big)_j (1-\Gamma_{0kj})\omega\delta\phi_\mathbf{k} = 0
 \tag{11.6}\]</span></span></p>
-<p>Nothing that, for KAW, <span class="math inline">\(|k_\perp r_{Li}| \sim\mathcal{O}(1)\)</span> and <span class="math inline">\(|k_\perp r_{Le}|\ll 1\)</span> and, thus, <span class="math inline">\(\Gamma_{0ke}\simeq 1\)</span>, <a href="#eq-gk_linear_quasi_neutrality_derive">Equation&nbsp;<span>11.5</span></a> and <a href="#eq-gk_linear_vorticity">Equation&nbsp;<span>11.6</span></a> then become</p>
+<p>Nothing that, for KAW, <span class="math inline">\(|k_\perp r_{Li}| \sim\mathcal{O}(1)\)</span> and <span class="math inline">\(|k_\perp r_{Le}|\ll 1\)</span> and, thus, <span class="math inline">\(\Gamma_{0ke}\simeq 1\)</span>, <a href="#eq-gk_linear_quasi_neutrality_derive" class="quarto-xref">Equation&nbsp;<span>11.5</span></a> and <a href="#eq-gk_linear_vorticity" class="quarto-xref">Equation&nbsp;<span>11.6</span></a> then become</p>
 <p><span id="eq-gk_linear_par_potential"><span class="math display">\[
 \begin{aligned}
 \epsilon_{s\mathbf{k}} \delta\phi_\mathbf{k} &amp;= [1+\xi_{ke}Z_{ke}+\tau(1+\Gamma_k \xi_{ki}Z_ki)]\delta\phi_\mathbf{k} \\
@@ -547,7 +591,7 @@ i\frac{c^2}{4\pi\omega}k_\parallel^2 k_\perp^2 \delta\Psi_\mathbf{k} - i \sum_j\
 \omega^2 \delta\phi_\mathbf{k} = k_\parallel^2 v_A^2 \frac{b_k}{1-\Gamma_k}\delta\Psi_\mathbf{k}
 \tag{11.8}\]</span></span></p>
 <p>Here, <span class="math inline">\(\tau=T_{0e}/T_{0i}, b_k=b_{ki}, \Gamma_k=\Gamma_{0ki}\)</span>, and <span class="math inline">\(\epsilon_{s\mathbf{k}}\)</span> is the dielectric constant for the slow-sound (ion-acoustic) wave (SSW).</p>
-<p>It is also instructive, as done in some literatures, to define the effective parallel potential, <span class="math inline">\(\delta\phi_{\parallel\mathbf{k}}=\delta\phi_\mathbf{k} - \delta\Psi_\mathbf{k}\)</span>, and rewrite <a href="#eq-gk_linear_par_potential">Equation&nbsp;<span>11.7</span></a> and <a href="#eq-gk_linear_vorticity_approxi">Equation&nbsp;<span>11.8</span></a> as</p>
+<p>It is also instructive, as done in some literatures, to define the effective parallel potential, <span class="math inline">\(\delta\phi_{\parallel\mathbf{k}}=\delta\phi_\mathbf{k} - \delta\Psi_\mathbf{k}\)</span>, and rewrite <a href="#eq-gk_linear_par_potential" class="quarto-xref">Equation&nbsp;<span>11.7</span></a> and <a href="#eq-gk_linear_vorticity_approxi" class="quarto-xref">Equation&nbsp;<span>11.8</span></a> as</p>
 <p><span id="eq-gk_linear_par_potential2"><span class="math display">\[
 \epsilon_{s\mathbf{k}} \delta\phi_{\parallel\mathbf{k}} = -\tau(1-\Gamma_k)\delta\Psi_\mathbf{k}
 \tag{11.9}\]</span></span></p>
@@ -555,7 +599,7 @@ i\frac{c^2}{4\pi\omega}k_\parallel^2 k_\perp^2 \delta\Psi_\mathbf{k} - i \sum_j\
 <p><span id="eq-gk_linear_vorticity_approxi2"><span class="math display">\[
 \Big[ \omega^2 - k_\parallel^2v_A^2\frac{b_k}{1-\Gamma_k} \Big] \delta\Psi_\mathbf{k} = -\omega^2\delta\phi_{\parallel\mathbf{k}}
 \tag{11.10}\]</span></span></p>
-<p><a href="#eq-gk_linear_par_potential2">Equation&nbsp;<span>11.9</span></a> and <a href="#eq-gk_linear_vorticity_approxi2">Equation&nbsp;<span>11.10</span></a> demonstrate the coupling between SAW and SSW via the finite <span class="math inline">\(|k_\perp r_{Ls}|\)</span> term. In the <span class="math inline">\(|k_\perp r_{Li}|\sim\mathcal{O}(1)\)</span> short-wavelength limit, SAW evolves into KAW due to both the finite <span class="math inline">\(|k_\perp r_{Li}|\)</span> and <span class="math inline">\(|k_\perp r_{Ls}|\)</span> effects. (???) More specifically, the coupled KAW-SSW dispersion relation becomes</p>
+<p><a href="#eq-gk_linear_par_potential2" class="quarto-xref">Equation&nbsp;<span>11.9</span></a> and <a href="#eq-gk_linear_vorticity_approxi2" class="quarto-xref">Equation&nbsp;<span>11.10</span></a> demonstrate the coupling between SAW and SSW via the finite <span class="math inline">\(|k_\perp r_{Ls}|\)</span> term. In the <span class="math inline">\(|k_\perp r_{Li}|\sim\mathcal{O}(1)\)</span> short-wavelength limit, SAW evolves into KAW due to both the finite <span class="math inline">\(|k_\perp r_{Li}|\)</span> and <span class="math inline">\(|k_\perp r_{Ls}|\)</span> effects. (???) More specifically, the coupled KAW-SSW dispersion relation becomes</p>
 <p><span id="eq-gk_linear_SAW_SSW"><span class="math display">\[
 \omega_\mathbf{k}^2\Big[ 1-\frac{\tau(1-\Gamma_k)}{\epsilon_{s\mathbf{k}}} \Big] = k_\parallel^2 v_A^2 \frac{b_k}{1-\Gamma_k}
 \tag{11.11}\]</span></span></p>
@@ -563,7 +607,7 @@ i\frac{c^2}{4\pi\omega}k_\parallel^2 k_\perp^2 \delta\Psi_\mathbf{k} - i \sum_j\
 <p><span class="math display">\[
 \epsilon_{s\mathbf{k}} \simeq 1+\tau(1-\Gamma_k) \equiv \sigma_k
 \]</span></p>
-<p>From <a href="#eq-gk_linear_SAW_SSW">Equation&nbsp;<span>11.11</span></a>, we then have</p>
+<p>From <a href="#eq-gk_linear_SAW_SSW" class="quarto-xref">Equation&nbsp;<span>11.11</span></a>, we then have</p>
 <p><span id="eq-gk_linear_SAW_SSW_approxi"><span class="math display">\[
 \omega_{\mathbf{k}}^2 \simeq k_\parallel^2 v_A^2\frac{\sigma_k b_k}{1-\Gamma_k}
 \tag{11.12}\]</span></span></p>
@@ -575,8 +619,8 @@ i\frac{c^2}{4\pi\omega}k_\parallel^2 k_\perp^2 \delta\Psi_\mathbf{k} - i \sum_j\
 <p><span id="eq-gk_linear_polarization_par"><span class="math display">\[
 \bigg\lvert \frac{c\delta E_\parallel}{\delta\mathbf{B}_\perp} \bigg\rvert = v_A \bigg\lvert \frac{k_\parallel}{k_\perp}\tau \bigg\rvert\Big[ \frac{b_k(1-\Gamma_k)}{\sigma_k} \Big]^{1/2}
 \tag{11.14}\]</span></span></p>
-<p>ADD PLOTS for <a href="#eq-gk_linear_SAW_SSW_approxi">Equation&nbsp;<span>11.12</span></a>, <a href="#eq-gk_linear_polarization_perp">Equation&nbsp;<span>11.13</span></a>, and <a href="#eq-gk_linear_polarization_par">Equation&nbsp;<span>11.14</span></a>!!!</p>
-<p><a href="#eq-gk_linear_polarization_par">Equation&nbsp;<span>11.14</span></a> show that, for a fixed <span class="math inline">\(|k_\parallel/k_\perp|, |\delta E_\parallel/\delta\mathbf{B}_\perp|\)</span> increases with <span class="math inline">\(b_k\)</span>. Since wave-particel energy and momentum exchanges are proportional to <span class="math inline">\(|\delta E_\parallel|\)</span>, short-wavelength KAW are, thus, expected to play crucial roles in the heating, acceleration, and transport of charged particles.</p>
+<p>ADD PLOTS for <a href="#eq-gk_linear_SAW_SSW_approxi" class="quarto-xref">Equation&nbsp;<span>11.12</span></a>, <a href="#eq-gk_linear_polarization_perp" class="quarto-xref">Equation&nbsp;<span>11.13</span></a>, and <a href="#eq-gk_linear_polarization_par" class="quarto-xref">Equation&nbsp;<span>11.14</span></a>!!!</p>
+<p><a href="#eq-gk_linear_polarization_par" class="quarto-xref">Equation&nbsp;<span>11.14</span></a> show that, for a fixed <span class="math inline">\(|k_\parallel/k_\perp|, |\delta E_\parallel/\delta\mathbf{B}_\perp|\)</span> increases with <span class="math inline">\(b_k\)</span>. Since wave-particel energy and momentum exchanges are proportional to <span class="math inline">\(|\delta E_\parallel|\)</span>, short-wavelength KAW are, thus, expected to play crucial roles in the heating, acceleration, and transport of charged particles.</p>
 <p>In addition to having a significant <span class="math inline">\(\delta E_\parallel\)</span>, another important property of KAW, in contrast to SAW, is that KAW has a finite perpendicular (to <span class="math inline">\(\mathbf{B}_0\)</span>) group velocity, <span class="math inline">\(\mathbf{v}_{g\perp}\)</span>. Assuming <span class="math inline">\(|k_\perp r_{Li}|^2\ll 1\)</span>, we have, letting <span class="math inline">\(\omega_A^2\equiv k_\parallel^2 v_A^2\)</span>:</p>
 <p><span id="eq-gk_linear_KAW_kperp_large"><span class="math display">\[
 \omega_\mathbf{k}^2 \simeq \omega_A^2(1+k_\perp^2 \hat{r}^2)
@@ -590,22 +634,26 @@ i\frac{c^2}{4\pi\omega}k_\parallel^2 k_\perp^2 \delta\Psi_\mathbf{k} - i \sum_j\
 \mathbf{v}_{g\perp}=\frac{\partial \omega_\mathbf{k}}{\partial \mathbf{k}_\perp}\simeq \frac{\omega_A^2}{\omega_\mathbf{k}}\hat{r}^2\mathbf{k}_\perp
 \tag{11.17}\]</span></span></p>
 <p><strong>Linear mode conversion of KAW</strong></p>
-<p><a href="#eq-gk_linear_KAW_kperp_large">Equation&nbsp;<span>11.15</span></a> has a significant implication in non-uniform plasmas. Consider, again, a slab plasma with a non-uniform <span class="math inline">\(\omega_A^2(x)\)</span> and <span class="math inline">\(k_\perp^2 = k_x^2(x)\)</span> being the WKB wavenumber in the non-uniformity <span class="math inline">\(x\)</span>-direction. <a href="#eq-gk_linear_KAW_kperp_large">Equation&nbsp;<span>11.15</span></a> then indicates that KAW is propagating (<span class="math inline">\(k_x^2&gt;0\)</span>) in the <span class="math inline">\(\omega_\mathbf{k}^2&gt;\omega_A^2(x)\)</span> region, and it is cutoff (<span class="math inline">\(k_x^2&lt;0\)</span>) in the <span class="math inline">\(\omega_\mathbf{k}^2&lt;\omega_A^2(x)\)</span> region. That <span class="math inline">\(\mathbf{v}_{g\perp}\)</span> is finite also suggests that, in constrast to SAW, an initial smooth perturbation will not only evolve into short wavelengths, but also propagate toward the lower <span class="math inline">\(\omega_A^2(x)\)</span> region. These features are illustrated in <a href="#fig-gk_KAW_evolution">Figure&nbsp;<span>11.3</span></a>(b); where the spatial-temporal evolution of KAW is solved explicitly according to the following wave equation: (DO IT MYSELF!!!)</p>
+<p><a href="#eq-gk_linear_KAW_kperp_large" class="quarto-xref">Equation&nbsp;<span>11.15</span></a> has a significant implication in non-uniform plasmas. Consider, again, a slab plasma with a non-uniform <span class="math inline">\(\omega_A^2(x)\)</span> and <span class="math inline">\(k_\perp^2 = k_x^2(x)\)</span> being the WKB wavenumber in the non-uniformity <span class="math inline">\(x\)</span>-direction. <a href="#eq-gk_linear_KAW_kperp_large" class="quarto-xref">Equation&nbsp;<span>11.15</span></a> then indicates that KAW is propagating (<span class="math inline">\(k_x^2&gt;0\)</span>) in the <span class="math inline">\(\omega_\mathbf{k}^2&gt;\omega_A^2(x)\)</span> region, and it is cutoff (<span class="math inline">\(k_x^2&lt;0\)</span>) in the <span class="math inline">\(\omega_\mathbf{k}^2&lt;\omega_A^2(x)\)</span> region. That <span class="math inline">\(\mathbf{v}_{g\perp}\)</span> is finite also suggests that, in constrast to SAW, an initial smooth perturbation will not only evolve into short wavelengths, but also propagate toward the lower <span class="math inline">\(\omega_A^2(x)\)</span> region. These features are illustrated in <a href="#fig-gk-KAW-evolution" class="quarto-xref">Figure&nbsp;<span>11.3</span></a>(b); where the spatial-temporal evolution of KAW is solved explicitly according to the following wave equation: (DO IT MYSELF!!!)</p>
 <p><span id="eq-gk_linear_KAW_governing"><span class="math display">\[
 \Big[ \hat{r}^2\frac{\partial^2}{\partial x^2} - 1 - \frac{1}{\omega_A^2(x)}\frac{\partial^2}{\partial t^2} \Big] \delta B_y(x,t) = 0
 \tag{11.18}\]</span></span></p>
-<p><a href="#eq-gk_linear_KAW_governing">Equation&nbsp;<span>11.18</span></a> can be readily derived from <a href="#eq-gk_linear_KAW_kperp_large">Equation&nbsp;<span>11.15</span></a> by letting <span class="math inline">\(\omega_\mathbf{k}=i\partial/\partial t\)</span> and <span class="math inline">\(k_\perp=-i\partial/\partial x\)</span>. The spatial profile of <span class="math inline">\(\omega_A^2(x)/\omega^2 = 1/(1+x^2/L^2)\)</span> is shown in <a href="#fig-gk_KAW_evolution">Figure&nbsp;<span>11.3</span></a>(a), with <span class="math inline">\(L\)</span> indicating the profile length-scale, so that the KAW wave-packet frequency is assumed to be consistent with the SAW frequency at <span class="math inline">\(x=0\)</span>. <a href="#fig-gk_KAW_evolution">Figure&nbsp;<span>11.3</span></a>(b) shows the propagation of the KAW wave-packet in the direction of radial non-uniformity, consistent with <a href="#eq-gk_linear_KAW_group">Equation&nbsp;<span>11.17</span></a>.</p>
-<div id="fig-gk_KAW_evolution" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/gk_kaw_propagation.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;11.3: (a) Spatial dependence of <span class="math inline">\(\omega_A^2\)</span>. (b) Propagation of the KAW wave-packet in the non-uniformity direction.</figcaption>
+<p><a href="#eq-gk_linear_KAW_governing" class="quarto-xref">Equation&nbsp;<span>11.18</span></a> can be readily derived from <a href="#eq-gk_linear_KAW_kperp_large" class="quarto-xref">Equation&nbsp;<span>11.15</span></a> by letting <span class="math inline">\(\omega_\mathbf{k}=i\partial/\partial t\)</span> and <span class="math inline">\(k_\perp=-i\partial/\partial x\)</span>. The spatial profile of <span class="math inline">\(\omega_A^2(x)/\omega^2 = 1/(1+x^2/L^2)\)</span> is shown in <a href="#fig-gk-KAW-evolution" class="quarto-xref">Figure&nbsp;<span>11.3</span></a>(a), with <span class="math inline">\(L\)</span> indicating the profile length-scale, so that the KAW wave-packet frequency is assumed to be consistent with the SAW frequency at <span class="math inline">\(x=0\)</span>. <a href="#fig-gk-KAW-evolution" class="quarto-xref">Figure&nbsp;<span>11.3</span></a>(b) shows the propagation of the KAW wave-packet in the direction of radial non-uniformity, consistent with <a href="#eq-gk_linear_KAW_group" class="quarto-xref">Equation&nbsp;<span>11.17</span></a>.</p>
+<div id="fig-gk-KAW-evolution" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gk-KAW-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/gk_kaw_propagation.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gk-KAW-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.3: (a) Spatial dependence of <span class="math inline">\(\omega_A^2\)</span>. (b) Propagation of the KAW wave-packet in the non-uniformity direction.
+</figcaption>
 </figure>
 </div>
-<p>That there exists a finite perpendicular group velocity also implies, in the steady state, the removal of “singular” resonance and linear mode conversion process (Hasegawa and Chen 1976, see also <a href="flr.html"><span>Chapter&nbsp;12</span></a>). More specifically, the corresponding wave equation is given by:</p>
+<p>That there exists a finite perpendicular group velocity also implies, in the steady state, the removal of “singular” resonance and linear mode conversion process (Hasegawa and Chen 1976, see also <a href="flr.html" class="quarto-xref"><span>Chapter 12</span></a>). More specifically, the corresponding wave equation is given by:</p>
 <p><span id="eq-gk_linear_KAW_governing2"><span class="math display">\[
 \Big[\hat{r}^2\frac{\partial^2}{\partial x^2} + \Big( \frac{\omega_0^2}{\omega_A^2(x)} - 1 \Big) \Big]\delta\hat{B}_y(x) = \delta\hat{B}_{y0}
 \tag{11.19}\]</span></span></p>
-<p>Here, <span class="math inline">\(\omega_0\)</span> is the external driving frequency. In the ideal SAW (<span class="math inline">\(\hat{r}\rightarrow 0\)</span>) limit, there is the resonance singularity at <span class="math inline">\(x_0\)</span>, where <span class="math inline">\(\omega_0^2 = \omega_A^2(x_0)\)</span>. Noting that, near <span class="math inline">\(x=x_0\)</span>, <span class="math inline">\(\omega_A^2(x)\simeq \omega_0^2 + (\omega_A^2)^\prime(x_0)(x-x_0)\equiv \omega_0^2 - (\omega_0^2/L_A)(x-x_0)\)</span>, <a href="#eq-gk_linear_KAW_governing2">Equation&nbsp;<span>11.19</span></a> can be approximated as an inhomogeneous Airy equation and solved analytically. <a href="#eq-gk_linear_KAW_governing2">Equation&nbsp;<span>11.19</span></a> can then be solved, with appropriate boundary conditions, by connecting the solutions valid away from the <span class="math inline">\(x=x_0\)</span> resonance layer via the analytic solution of the inhomogeneous Airy equation valid near <span class="math inline">\(x=x_0\)</span> (Hasegawa and Chen 1975, 1976). The solutions away from the singular layer are given by:</p>
+<p>Here, <span class="math inline">\(\omega_0\)</span> is the external driving frequency. In the ideal SAW (<span class="math inline">\(\hat{r}\rightarrow 0\)</span>) limit, there is the resonance singularity at <span class="math inline">\(x_0\)</span>, where <span class="math inline">\(\omega_0^2 = \omega_A^2(x_0)\)</span>. Noting that, near <span class="math inline">\(x=x_0\)</span>, <span class="math inline">\(\omega_A^2(x)\simeq \omega_0^2 + (\omega_A^2)^\prime(x_0)(x-x_0)\equiv \omega_0^2 - (\omega_0^2/L_A)(x-x_0)\)</span>, <a href="#eq-gk_linear_KAW_governing2" class="quarto-xref">Equation&nbsp;<span>11.19</span></a> can be approximated as an inhomogeneous Airy equation and solved analytically. <a href="#eq-gk_linear_KAW_governing2" class="quarto-xref">Equation&nbsp;<span>11.19</span></a> can then be solved, with appropriate boundary conditions, by connecting the solutions valid away from the <span class="math inline">\(x=x_0\)</span> resonance layer via the analytic solution of the inhomogeneous Airy equation valid near <span class="math inline">\(x=x_0\)</span> (Hasegawa and Chen 1975, 1976). The solutions away from the singular layer are given by:</p>
 <p><span id="eq-inhomogeneous_by_sol"><span class="math display">\[
 \delta\hat{B}_y(x) = \left\{
 \begin{array}{lr}
@@ -618,14 +666,18 @@ i\frac{c^2}{4\pi\omega}k_\parallel^2 k_\perp^2 \delta\Psi_\mathbf{k} - i \sum_j\
 <p><span class="math display">\[
 \epsilon_A(x) = \frac{\omega_0^2}{\omega_A^2(x)} - 1
 \]</span></p>
-<p>The corresponding numerical solutions are plotted in <a href="#fig-gk_KAW_MHD">Figure&nbsp;<span>11.4</span></a>. (I DON’T UNDERSTAND!!!)</p>
-<div id="fig-gk_KAW_MHD" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/gk_kaw_propagation.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;11.4: Illustration of ideal MHD (dashed blue line) and KAW (red line) solutions, which asymptotically match <a href="#eq-inhomogeneous_by_sol">Equation&nbsp;<span>11.20</span></a> for <span class="math inline">\(|x-x_0|/\Delta_0\gg 1\)</span>. The Airy swelling factor is evident from the normalization of the ordinate.</figcaption>
+<p>The corresponding numerical solutions are plotted in <a href="#fig-gk-KAW-MHD" class="quarto-xref">Figure&nbsp;<span>11.4</span></a>. (I DON’T UNDERSTAND!!!)</p>
+<div id="fig-gk-KAW-MHD" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gk-KAW-MHD-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/gk_kaw_propagation.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gk-KAW-MHD-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.4: Illustration of ideal MHD (dashed blue line) and KAW (red line) solutions, which asymptotically match <a href="#eq-inhomogeneous_by_sol" class="quarto-xref">Equation&nbsp;<span>11.20</span></a> for <span class="math inline">\(|x-x_0|/\Delta_0\gg 1\)</span>. The Airy swelling factor is evident from the normalization of the ordinate.
+</figcaption>
 </figure>
 </div>
-<p>Both the analytical results and mode conversion process exhibit two important features. One is, instead of being singular, the amplitude at <span class="math inline">\(x=x_0\)</span> (where <span class="math inline">\(\omega_A(x_0) = \omega_0\)</span>) is amplified by the Airy swelling factor <span class="math inline">\((L_A/\hat{r})^{2/3}\)</span>. Here, we recall <span class="math inline">\(L_A\)</span> is the scale length of <span class="math inline">\(\omega_A\)</span> and <span class="math inline">\(\hat{r}\)</span>, from <a href="#eq-gk_linear_KAW_scale">Equation&nbsp;<span>11.16</span></a>, is of <span class="math inline">\(\mathcal{O}(r_{Li})\)</span>, and, hence, <span class="math inline">\(|L_A/\hat{r}|\gg 1\)</span>. The other is the singularity at <span class="math inline">\(x=x_0\)</span> is being replaced by the Airy scale length <span class="math inline">\(\Delta_0=(\hat{r}^2L_A)^{1/3}\)</span>. Recalling, from <a href="wave.html#eq-mhd_alfven_wavenumber_nonuniform">Equation&nbsp;<span>7.34</span></a>, <span class="math inline">\(|k_x|\simeq |\omega_A^\prime| t\simeq (\omega/L_A)t\)</span>, there then exists a KAW formation time scale given by <span class="math inline">\((\omega_0/L_A)t_0\simeq 1/\Delta_0\)</span>; i.e., <span class="math inline">\(\omega_0 t_0\simeq (L_A/\hat{r})^{2/3}\)</span>. Taking, for an example, a typical laboratory plasma, <span class="math inline">\(L_A/\hat{r}\simeq\mathcal{O}(10^3)\)</span>, we have <span class="math inline">\(\omega_0 t_0\simeq\mathcal{O}(10^2)\)</span>, suggesting that it is reasonable to anticipate, in the presence of SAW continuous spectrum, the appearance of KAW in such plasmas.</p>
+<p>Both the analytical results and mode conversion process exhibit two important features. One is, instead of being singular, the amplitude at <span class="math inline">\(x=x_0\)</span> (where <span class="math inline">\(\omega_A(x_0) = \omega_0\)</span>) is amplified by the Airy swelling factor <span class="math inline">\((L_A/\hat{r})^{2/3}\)</span>. Here, we recall <span class="math inline">\(L_A\)</span> is the scale length of <span class="math inline">\(\omega_A\)</span> and <span class="math inline">\(\hat{r}\)</span>, from <a href="#eq-gk_linear_KAW_scale" class="quarto-xref">Equation&nbsp;<span>11.16</span></a>, is of <span class="math inline">\(\mathcal{O}(r_{Li})\)</span>, and, hence, <span class="math inline">\(|L_A/\hat{r}|\gg 1\)</span>. The other is the singularity at <span class="math inline">\(x=x_0\)</span> is being replaced by the Airy scale length <span class="math inline">\(\Delta_0=(\hat{r}^2L_A)^{1/3}\)</span>. Recalling, from <a href="wave.html#eq-mhd_alfven_wavenumber_nonuniform" class="quarto-xref">Equation&nbsp;<span>7.34</span></a>, <span class="math inline">\(|k_x|\simeq |\omega_A^\prime| t\simeq (\omega/L_A)t\)</span>, there then exists a KAW formation time scale given by <span class="math inline">\((\omega_0/L_A)t_0\simeq 1/\Delta_0\)</span>; i.e., <span class="math inline">\(\omega_0 t_0\simeq (L_A/\hat{r})^{2/3}\)</span>. Taking, for an example, a typical laboratory plasma, <span class="math inline">\(L_A/\hat{r}\simeq\mathcal{O}(10^3)\)</span>, we have <span class="math inline">\(\omega_0 t_0\simeq\mathcal{O}(10^2)\)</span>, suggesting that it is reasonable to anticipate, in the presence of SAW continuous spectrum, the appearance of KAW in such plasmas.</p>
 <p>The main mode identification method for KAWs is based on the measurement of the wave polarization, <span class="math inline">\(|c\delta\mathbf{E}_\perp/v_A\delta\mathbf{B}_\perp|\)</span>. Observations can be found from <em>Van Allen Probes</em> in the Earth’s inner magnetosphere and the <em>Cluster</em> satellites in the solar wind.</p>
 </section>
 <section id="nonlinear-gyrokinetics" class="level3" data-number="11.4.2">
@@ -671,7 +723,7 @@ f = f_0 + \delta f = f_0 + f_1 + f_2 + ...
 <p><span class="math display">\[
 \frac{q}{mc}(\mathbf{v}\times\mathbf{B}_0)\cdot\frac{\partial f_0}{\partial\mathbf{v}} = \Omega(\mathbf{v}_\perp\times\hat{b}_0)\cdot\frac{\partial f_0}{\partial\mathbf{v}} = 0
 \]</span></p>
-<p>If we tranform to a cylindrical coordinates in velocity space (<a href="kmhd.html#eq-kmhd_cylindrical_vspace">Equation&nbsp;<span>10.8</span></a>), this can be written as</p>
+<p>If we tranform to a cylindrical coordinates in velocity space (<a href="kmhd.html#eq-kmhd_cylindrical_vspace" class="quarto-xref">Equation&nbsp;<span>10.8</span></a>), this can be written as</p>
 <p><span class="math display">\[
 (\mathbf{v}_\perp\times\hat{b}_0)\cdot\frac{\partial f_0}{\partial\mathbf{v}} = -\frac{\partial f_0}{\partial\theta} = 0
 \]</span></p>
@@ -835,6 +887,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -901,13 +980,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -986,10 +1067,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -999,8 +1079,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1013,6 +1102,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1056,6 +1264,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1081,6 +1290,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1142,12 +1377,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../contents/kmhd.html" class="pagination-link">
+      <a href="../contents/kmhd.html" class="pagination-link  aria-label=" &lt;span="" mhd&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../contents/flr.html" class="pagination-link">
+      <a href="../contents/flr.html" class="pagination-link" aria-label="<span class='chapter-number'>12</span>&nbsp; <span class='chapter-title'>Field Line Resonance</span>">
         <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1156,4 +1391,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/gyrokinetics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

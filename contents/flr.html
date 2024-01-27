@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -102,7 +103,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -111,6 +118,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -120,6 +128,33 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -128,12 +163,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/flr.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/flr.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -143,12 +178,12 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -349,7 +384,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -368,7 +403,7 @@ div.csl-indent {
   <li><a href="#nonlinear-effects" id="toc-nonlinear-effects" class="nav-link" data-scroll-target="#nonlinear-effects"><span class="header-section-number">12.5</span> Nonlinear Effects</a></li>
   <li><a href="#d-flr" id="toc-d-flr" class="nav-link" data-scroll-target="#d-flr"><span class="header-section-number">12.6</span> 3D FLR</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/flr.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/flr.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -388,7 +423,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <p>The resonant mode coupling is one of major physical processes in the space plasmas including the magnetic reconnection and collisionless shock wave. The field line resonance describes <em>the resonant interaction between compressional fast waves and shear Alfvén waves in a non-uniform plasma</em> such as the Earth magnetosphere. The concept of this resonant mode coupling was first outlined by Tsutomu Tamao in 1961 and later discussed in his seminal paper on hydromagnetic coupling resonances (Tamao, 1965). Experimental work by John Samson+ (1971) made resonant mode coupling the current paradigm of planetary magnetospheric ULF wave research. Thinking of magnetosphere as a microwave oven: instead of heating food with microwaves, we heat Earth with EM waves.</p>
 <section id="historial-review" class="level2" data-number="12.1">
@@ -402,12 +439,12 @@ div.csl-indent {
 <li>In the 1980s the cavity model was proposed to link the discrete frequencies to the eigenmodes if we treated the magnetosphere as a cavity.</li>
 <li>In the 1985s the waveguide model was proposed based on the cavity idea to loose the constrain in the azimuthal direction. This could explain many ground observation of discrete frequency, large amplitude Pc5 waves but satellite measurements often saw small amplitude Pc3/4 waves. Unlike field line resonances, which are described by a single eigennumber (<span class="math inline">\(k_z\)</span>), cavity modes have three eigennumbers, corresponding to the number of wavelengths along a field line (<span class="math inline">\(k_z\)</span>), azimuthally around the Earth (<span class="math inline">\(k_y\)</span>), and radially between the magnetopause (or bow shock) and the inner reflection point (<span class="math inline">\(n\)</span>). It is argued in the 1990s that if the lowest order mode has a frequency of, say, 2 mHz, then above perhaps 10 mHz the higher order modes will be so numerous and close in frequency that they could probably not be resolved in the data given their inherent width and the frequency resolution of a typical spectrum. Rather they would appear as a continuum. As a continuum, they can not be responsible for exciting discrete frequencies in this higher frequency band (corresponding to Pc3/4). Maybe the waveguide model is only relevant to Pc5 pulsations?</li>
 </ul>
-<p>Now, the big question is: where do the quantized numbers of the observed ULF waves come from [Kivelson &amp; Southwood, 1986]?Researchers borrowed ideas from ionospheric radio propagation, laser fusion and plasma physics and came up with the names <em>cavity</em> and <em>waveguide</em>. For the box model that we will discuss in the next section, if the z boundaries are perfectly reflecting, wave fields must have standing structure in the z direction, and allowed parallel wave numbers are quantized (<span class="math inline">\(k_z = m\pi/c\)</span>, as in <a href="#eq-flr_xz_quantized">Equation&nbsp;<span>12.19</span></a>). If the boundaries are weakly absorptive, the parallel wave numbers are complex, but the real parts are still quantized as above. If we impose periodic boundary conditions in the y direction, the wavenumber in <span class="math inline">\(y\)</span>, <span class="math inline">\(k_y\)</span>, needs to be quantized as well.</p>
+<p>Now, the big question is: where do the quantized numbers of the observed ULF waves come from [Kivelson &amp; Southwood, 1986]?Researchers borrowed ideas from ionospheric radio propagation, laser fusion and plasma physics and came up with the names <em>cavity</em> and <em>waveguide</em>. For the box model that we will discuss in the next section, if the z boundaries are perfectly reflecting, wave fields must have standing structure in the z direction, and allowed parallel wave numbers are quantized (<span class="math inline">\(k_z = m\pi/c\)</span>, as in <a href="#eq-flr_xz_quantized" class="quarto-xref">Equation&nbsp;<span>12.19</span></a>). If the boundaries are weakly absorptive, the parallel wave numbers are complex, but the real parts are still quantized as above. If we impose periodic boundary conditions in the y direction, the wavenumber in <span class="math inline">\(y\)</span>, <span class="math inline">\(k_y\)</span>, needs to be quantized as well.</p>
 <p>Another question: if these discretized frequencies correspond to standing waves propagating along the field lines, at the footprints (i.e.&nbsp;ground measurements) the amplitudes shall be the smallest? Why are we still able to observe that on the ground?</p>
 </section>
 <section id="theory" class="level2" data-number="12.2">
 <h2 data-number="12.2" class="anchored" data-anchor-id="theory"><span class="header-section-number">12.2</span> Theory</h2>
-<p>The theory starts from linearized cold MHD <a href="wave.html#eq-mhd_cold_e_wave">Equation&nbsp;<span>7.27</span></a> and <a href="wave.html#eq-mhd_cold_b_wave">Equation&nbsp;<span>7.28</span></a>.</p>
+<p>The theory starts from linearized cold MHD <a href="wave.html#eq-mhd_cold_e_wave" class="quarto-xref">Equation&nbsp;<span>7.27</span></a> and <a href="wave.html#eq-mhd_cold_b_wave" class="quarto-xref">Equation&nbsp;<span>7.28</span></a>.</p>
 <section id="axisymmetric-spherical-coordinates" class="level3" data-number="12.2.1">
 <h3 data-number="12.2.1" class="anchored" data-anchor-id="axisymmetric-spherical-coordinates"><span class="header-section-number">12.2.1</span> Axisymmetric Spherical Coordinates</h3>
 <p>First, let’s treat the problem in spherical coordinates <span class="math inline">\((r,\theta,\phi)\)</span>, as done by <span class="citation" data-cites="radoski1966">(<a href="#ref-radoski1966" role="doc-biblioref">Radoski and Carovillano 1966</a>)</span>.</p>
@@ -425,10 +462,14 @@ div.csl-indent {
 <p><span class="math inline">\(B_{1r}, B_{1\theta}, E_\phi, u_r, u_\theta, j_\phi ;\, \nabla\cdot\mathbf{E} = \frac{1}{r\sin\theta}\frac{\partial E_\phi}{\partial \phi}\equiv 0\)</span></p>
 <p>The name of the set were originally based on the magnetic field perturbation directions. One insight into these two sets of variables can be gained from the Poynting vector <span class="math inline">\(\mathbf{S}\)</span>. The simplest MHD Ohm’s law constrains the electric field <span class="math inline">\(\mathbf{E}\)</span> to be perpendicular to the background magnetic field <span class="math inline">\(\mathbf{B}_0\)</span>. For the toroidal mode, <span class="math inline">\(\mathbf{E}\)</span> lies in a meridional plane and <span class="math inline">\(B_{1\phi}\)</span> is out of plane, so <span class="math inline">\(\mathbf{S}\)</span> is directed along the field lines. For the poloidal mode, <span class="math inline">\(\mathbf{S}\)</span> is in a meridional plane and parallel to the wave vector <span class="math inline">\(\mathbf{k}\)</span>, because <span class="math display">\[\mathbf{B}_1 = -i\mathbf{k}\times\mathbf{E}\Rightarrow \mathbf{S}\parallel\mathbf{E}\times\mathbf{B}_1 \parallel \mathbf{E}\times(\mathbf{k}\times\mathbf{E})=E^2\mathbf{k} - \cancel{(\mathbf{E}\cdot\mathbf{k})}\mathbf{E} \parallel \mathbf{k}
 \]</span> for a transverse EM wave (<span class="math inline">\(\mathbf{E}\perp\mathbf{k}\)</span>). Thus the toroidal mode is an Alfvén mode with dispersion relation <span class="math inline">\(\omega = V_A k \cos\theta\)</span>, <span class="math inline">\(\mathbf{S} \parallel \mathbf{B}_0\)</span>, while poloidal mode is a fast mode with dispersion relation <span class="math inline">\(\omega = V_A k\)</span>, <span class="math inline">\(\mathbf{S} \parallel \mathbf{k}\)</span>.</p>
-<p>To clarify my early misunderstanding: <em>a toroidal mode is not propagating in the toroidal direction</em>! Similarly, <em>a poloidal mode does not propagate in the poloidal direction</em>. In fact, it is more common to have a fast poloidal mode propagating in the azimuthal direction, then coupling to the Alfvén toroidal mode along the ambient magnetic field direction, then being observed on the ground. <a href="#tbl-toroidal-poloidal-ULF">Table&nbsp;<span>12.1</span></a> from <span class="citation" data-cites="zong2017interaction">(<a href="#ref-zong2017interaction" role="doc-biblioref">Zong, Rankin, and Zhou 2017</a>)</span> summarizes properties of toroidal and poloidal mode standing ULF waves.</p>
-<div id="tbl-toroidal-poloidal-ULF" class="anchored">
+<p>To clarify my early misunderstanding: <em>a toroidal mode is not propagating in the toroidal direction</em>! Similarly, <em>a poloidal mode does not propagate in the poloidal direction</em>. In fact, it is more common to have a fast poloidal mode propagating in the azimuthal direction, then coupling to the Alfvén toroidal mode along the ambient magnetic field direction, then being observed on the ground. <a href="#tbl-toroidal-poloidal-ULF" class="quarto-xref">Table&nbsp;<span>12.1</span></a> from <span class="citation" data-cites="zong2017interaction">(<a href="#ref-zong2017interaction" role="doc-biblioref">Zong, Rankin, and Zhou 2017</a>)</span> summarizes properties of toroidal and poloidal mode standing ULF waves.</p>
+<div id="tbl-toroidal-poloidal-ULF" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-toroidal-poloidal-ULF-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;12.1: Properties of toroidal and poloidal mode standing ULF wave
+</figcaption>
+<div aria-describedby="tbl-toroidal-poloidal-ULF-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
-<caption>Table&nbsp;12.1: Properties of toroidal and poloidal mode standing ULF wave</caption>
 <colgroup>
 <col style="width: 18%">
 <col style="width: 29%">
@@ -465,7 +506,9 @@ div.csl-indent {
 </tbody>
 </table>
 </div>
-<p>For the axisymmetric poloidal electric field <span class="math inline">\(E_\phi \sim e^{i\omega t}\)</span>, <a href="wave.html#eq-mhd_cold_e_wave">Equation&nbsp;<span>7.27</span></a> becomes (I HAVEN‘T DERIVED THIS!) <span class="math display">\[
+</figure>
+</div>
+<p>For the axisymmetric poloidal electric field <span class="math inline">\(E_\phi \sim e^{i\omega t}\)</span>, <a href="wave.html#eq-mhd_cold_e_wave" class="quarto-xref">Equation&nbsp;<span>7.27</span></a> becomes (I HAVEN‘T DERIVED THIS!) <span class="math display">\[
 B_0^2[\nabla^2 - (r^2 \sin^2\theta)^{-1}] E_\phi = -\mu_0 \rho \omega^2 E_\phi
 \]</span></p>
 <p>This is the decoupled poloidal wave equation. For a dipole field, <span class="math inline">\(B_0^2 = \frac{M^2(1+3\mu^2)}{r^6}\)</span>, where <span class="math inline">\(M\)</span> is the magnetic moment and <span class="math inline">\(\mu = \cos\theta\)</span> is the colatitude. A solution for <span class="math inline">\(E_\phi\)</span> is sought after a separation of the unknowns of the form <span class="math display">\[
@@ -484,13 +527,17 @@ a_{l} &amp;= \frac{5l(l+1)-6}{(2l-1)(2l+3)} \\
 a_{l-2} &amp;= \frac{3(l-2)(l-1)}{2(2l-3)(2l-1)}
 \end{aligned}
 \]</span></p>
-<p>From <a href="#eq-poloidal_spherical_sol">Equation&nbsp;<span>12.2</span></a>, we know that radial amplitudes of opposite parity do not couple. Since only <span class="math inline">\(l\ge 1\)</span> occurs in <a href="#eq-poloidal_spherical_assump">Equation&nbsp;<span>12.1</span></a>, there are two fundamental unknown radial amplitudes: one for odd <span class="math inline">\(l\)</span> and one for even <span class="math inline">\(l\)</span>.</p>
+<p>From <a href="#eq-poloidal_spherical_sol" class="quarto-xref">Equation&nbsp;<span>12.2</span></a>, we know that radial amplitudes of opposite parity do not couple. Since only <span class="math inline">\(l\ge 1\)</span> occurs in <a href="#eq-poloidal_spherical_assump" class="quarto-xref">Equation&nbsp;<span>12.1</span></a>, there are two fundamental unknown radial amplitudes: one for odd <span class="math inline">\(l\)</span> and one for even <span class="math inline">\(l\)</span>.</p>
 <p>We assume perfect reflection at the boundaries so that the transverse components of <span class="math inline">\(E\)</span>, i.e.&nbsp;<span class="math inline">\(E_\theta\)</span> and <span class="math inline">\(E_\phi\)</span>, are zeros. The walls are assumed to be rigid so that <span class="math inline">\(u_r = 0\)</span>. The normal component of <span class="math inline">\(\mathbf{B}_1\)</span> also vanishes from the governing equations.</p>
 <p>The toroidal wave equation seems to be too complicated for me following Radoski’s derivations…</p>
-<div id="fig-flr_harmonics" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/FLR_toroidal_poloidal_harmonics.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;12.1: Cartoons showing the oscillation of a field line in the two lowest frequency toroidal modes (left) and poloidal modes (right). On the left the field line is drawn stretched out from north to south, and we look towards the Earth as the field line is displaced east and west. On the right, the dipolar field line is displaced within its meridian plane so all magnetic perturbations are radial. Note that for the toroidal mode, the magnetic perturbations (AD) have the opposite sense north and south in the fundamental and the same sense in the second harmonic. The opposite is true of the AH perturbation in the poloidal mode.</figcaption>
+<div id="fig-flr-harmonics" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flr-harmonics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/FLR_toroidal_poloidal_harmonics.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flr-harmonics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.1: Cartoons showing the oscillation of a field line in the two lowest frequency toroidal modes (left) and poloidal modes (right). On the left the field line is drawn stretched out from north to south, and we look towards the Earth as the field line is displaced east and west. On the right, the dipolar field line is displaced within its meridian plane so all magnetic perturbations are radial. Note that for the toroidal mode, the magnetic perturbations (AD) have the opposite sense north and south in the fundamental and the same sense in the second harmonic. The opposite is true of the AH perturbation in the poloidal mode.
+</figcaption>
 </figure>
 </div>
 <p>From the boundary condition, the length <span class="math inline">\(l\)</span> of the field line between two reflection point must be a multiple of half the wavelength <span class="math inline">\(\lambda\)</span>, implying <span class="math display">\[
@@ -511,22 +558,30 @@ n\lambda = 2l,\quad n = 1,2,3,...
 <p><span class="math display">\[
 i\omega \mathbf{B}_0\cdot\mathbf{B}_1 = \frac{1}{r}(\mathbf{B}\times\nabla)_\phi (rE_\phi) - imB^2\frac{u_\phi}{r}
 \]</span></p>
-<p>The first two equations are from the momentum equation. <span class="math inline">\(\mathbf{B}_0\cdot\nabla\)</span> is the derivative along the direction of <span class="math inline">\(\mathbf{B}\)</span>. These are wave equations coupled by the terms on the RHS which depend on <span class="math inline">\(\mathbf{B}_0\cdot\mathbf{B}_1\)</span>, the compressional part of the magnetic perturbation. The third equation is from Faraday’s law and Ohm’s law. It shows how <span class="math inline">\(\mathbf{B}_0\cdot\mathbf{B}_1\)</span>, <span class="math inline">\(E_\phi\)</span> and <span class="math inline">\(u_\phi\)</span> are related and closes the set. Since the transverse dispersion relation depends only on <span class="math inline">\(k_\parallel\)</span>, it is tempting to think of the LHS of <a href="#eq-cylindrical_mhd_toroidal">Equation&nbsp;<span>12.3</span></a> and <a href="#eq-cylindrical_mhd_poloidal">Equation&nbsp;<span>12.4</span></a> as representing pseudo-transverse mode oscillations, and the RHS as representing the coupling due to the fast mode which has a compressional component. When <span class="math inline">\(m\neq 0\)</span>, the phase variation of the toroidal mode in the <span class="math inline">\(\phi\)</span> direction leads to a compressional perturbation in the magnetic field. The polarizations of the toroidal and poloidal oscillations are no longer orthogonal, and thus there is coupling.</p>
-<p>If <span class="math inline">\(m = 0\)</span> the RHS of <a href="#eq-cylindrical_mhd_toroidal">Equation&nbsp;<span>12.3</span></a> vanishes. The LHS then describes a mode in which the electric field is purely radial and the magnetic and velocity perturbations are azimuthal. Magnetic L shells decouple and each shell oscillates azimuthally independently of each other. This is the Alfvénic <em>toroidal</em> mode. If <span class="math inline">\(m\rightarrow\infty\)</span>, for the RHS to remain finite, <span class="math inline">\(\mathbf{B}_0\cdot\mathbf{B}_1\rightarrow0\)</span> so the RHS of <a href="#eq-cylindrical_mhd_poloidal">Equation&nbsp;<span>12.4</span></a> vanishes. <a href="#eq-cylindrical_mhd_poloidal">Equation&nbsp;<span>12.4</span></a> then describes a mode in which <span class="math inline">\(\mathbf{E}\)</span> is azimuthal and <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{b}\)</span> are contained in a meridian plane. This is the compressional <em>poloidal</em> mode.</p>
+<p>The first two equations are from the momentum equation. <span class="math inline">\(\mathbf{B}_0\cdot\nabla\)</span> is the derivative along the direction of <span class="math inline">\(\mathbf{B}\)</span>. These are wave equations coupled by the terms on the RHS which depend on <span class="math inline">\(\mathbf{B}_0\cdot\mathbf{B}_1\)</span>, the compressional part of the magnetic perturbation. The third equation is from Faraday’s law and Ohm’s law. It shows how <span class="math inline">\(\mathbf{B}_0\cdot\mathbf{B}_1\)</span>, <span class="math inline">\(E_\phi\)</span> and <span class="math inline">\(u_\phi\)</span> are related and closes the set. Since the transverse dispersion relation depends only on <span class="math inline">\(k_\parallel\)</span>, it is tempting to think of the LHS of <a href="#eq-cylindrical_mhd_toroidal" class="quarto-xref">Equation&nbsp;<span>12.3</span></a> and <a href="#eq-cylindrical_mhd_poloidal" class="quarto-xref">Equation&nbsp;<span>12.4</span></a> as representing pseudo-transverse mode oscillations, and the RHS as representing the coupling due to the fast mode which has a compressional component. When <span class="math inline">\(m\neq 0\)</span>, the phase variation of the toroidal mode in the <span class="math inline">\(\phi\)</span> direction leads to a compressional perturbation in the magnetic field. The polarizations of the toroidal and poloidal oscillations are no longer orthogonal, and thus there is coupling.</p>
+<p>If <span class="math inline">\(m = 0\)</span> the RHS of <a href="#eq-cylindrical_mhd_toroidal" class="quarto-xref">Equation&nbsp;<span>12.3</span></a> vanishes. The LHS then describes a mode in which the electric field is purely radial and the magnetic and velocity perturbations are azimuthal. Magnetic L shells decouple and each shell oscillates azimuthally independently of each other. This is the Alfvénic <em>toroidal</em> mode. If <span class="math inline">\(m\rightarrow\infty\)</span>, for the RHS to remain finite, <span class="math inline">\(\mathbf{B}_0\cdot\mathbf{B}_1\rightarrow0\)</span> so the RHS of <a href="#eq-cylindrical_mhd_poloidal" class="quarto-xref">Equation&nbsp;<span>12.4</span></a> vanishes. <a href="#eq-cylindrical_mhd_poloidal" class="quarto-xref">Equation&nbsp;<span>12.4</span></a> then describes a mode in which <span class="math inline">\(\mathbf{E}\)</span> is azimuthal and <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{b}\)</span> are contained in a meridian plane. This is the compressional <em>poloidal</em> mode.</p>
 </section>
 <section id="cartesian-box-model" class="level3" data-number="12.2.3">
 <h3 data-number="12.2.3" class="anchored" data-anchor-id="cartesian-box-model"><span class="header-section-number">12.2.3</span> Cartesian Box Model</h3>
-<p>Earliest theories had cold ideal MHD equations <a href="wave.html#eq-mhd_cold_e_wave">Equation&nbsp;<span>7.27</span></a> or <a href="wave.html#eq-mhd_cold_b_wave">Equation&nbsp;<span>7.28</span></a> expressed in the spherical or cylindrical coordinates, which are not easy to solve. As we will see, the essence of FLR can be obtained in the Cartesian coordinates. We simplify the actual dayside magnetosphere, which like a compressed dipole, to something we can solve analytically. Imagine a field line with both footpoints connecting to the conducting ionosphere, we can map this curved field line into a straight line extending along <span class="math inline">\(z\)</span>. In the <span class="math inline">\(x\)</span>-direction, the outer boundary is the magnetopause, and the inner boundary is the reflection point (plasmapause or ionosphere). The <span class="math inline">\(y\)</span>-direction represents the azimuthal direction, therefore at the front of the magnetosphere it is more aligned with the <span class="math inline">\(y\)</span>-direction in GSE/GSM and at the flanks/sides it is more aligned with the <span class="math inline">\(x\)</span>-direction. If the length in <span class="math inline">\(y\)</span> is finite (<span class="math inline">\(b &lt; \infty\)</span>), we call it a <em>cavity</em>; if the length in <span class="math inline">\(y\)</span> is infinite (<span class="math inline">\(b\rightarrow \infty\)</span>), we call it a <em>waveguide</em>. The names cavity and waveguide are inherited from electrodynamics. This is shown in the schematic <a href="#fig-box_mapping">Figure&nbsp;<span>12.2</span></a> and <a href="#fig-box_config">Figure&nbsp;<span>12.3</span></a>.</p>
-<div id="fig-box_mapping" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/box_model_mapping.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;12.2: From one of Southwood &amp; Kivelson’s paper.</figcaption>
+<p>Earliest theories had cold ideal MHD equations <a href="wave.html#eq-mhd_cold_e_wave" class="quarto-xref">Equation&nbsp;<span>7.27</span></a> or <a href="wave.html#eq-mhd_cold_b_wave" class="quarto-xref">Equation&nbsp;<span>7.28</span></a> expressed in the spherical or cylindrical coordinates, which are not easy to solve. As we will see, the essence of FLR can be obtained in the Cartesian coordinates. We simplify the actual dayside magnetosphere, which like a compressed dipole, to something we can solve analytically. Imagine a field line with both footpoints connecting to the conducting ionosphere, we can map this curved field line into a straight line extending along <span class="math inline">\(z\)</span>. In the <span class="math inline">\(x\)</span>-direction, the outer boundary is the magnetopause, and the inner boundary is the reflection point (plasmapause or ionosphere). The <span class="math inline">\(y\)</span>-direction represents the azimuthal direction, therefore at the front of the magnetosphere it is more aligned with the <span class="math inline">\(y\)</span>-direction in GSE/GSM and at the flanks/sides it is more aligned with the <span class="math inline">\(x\)</span>-direction. If the length in <span class="math inline">\(y\)</span> is finite (<span class="math inline">\(b &lt; \infty\)</span>), we call it a <em>cavity</em>; if the length in <span class="math inline">\(y\)</span> is infinite (<span class="math inline">\(b\rightarrow \infty\)</span>), we call it a <em>waveguide</em>. The names cavity and waveguide are inherited from electrodynamics. This is shown in the schematic <a href="#fig-box-mapping" class="quarto-xref">Figure&nbsp;<span>12.2</span></a> and <a href="#fig-box-config" class="quarto-xref">Figure&nbsp;<span>12.3</span></a>.</p>
+<div id="fig-box-mapping" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-box-mapping-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/box_model_mapping.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-box-mapping-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.2: From one of Southwood &amp; Kivelson’s paper.
+</figcaption>
 </figure>
 </div>
-<div id="fig-box_config" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/box_model_config.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;12.3: From one of Southwood &amp; Kivelson’s paper.</figcaption>
+<div id="fig-box-config" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-box-config-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/box_model_config.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-box-config-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.3: From one of Southwood &amp; Kivelson’s paper.
+</figcaption>
 </figure>
 </div>
 <p>Along the <span class="math inline">\(z\)</span>-direction, we impose the ionospheric boundary for closed field lines <span class="math inline">\(u_x = u_y = B_{1z} = 0\)</span>. Because of the ideal MHD assumption, the electric field along the field lines <span class="math inline">\(E_z = 0\)</span>. In the <span class="math inline">\(y\)</span>-direction, we impose either a periodic boundary condition for the cavity model that leads to a quantized wavenumber <span class="math inline">\(k_y\)</span>, or a infinite boundary. In the <span class="math inline">\(x\)</span> direction, the boundaries are provided by large <span class="math inline">\(V_A\)</span> gradients at both the outer boundary <span class="math inline">\(x_m\)</span> (magnetopause) and the inner boundary <span class="math inline">\(x_t\)</span> (plasmapause). We impose a reflective boundary <span class="math inline">\(u_x = 0\)</span> at <span class="math inline">\(x = x_t, x_m\)</span>. <em>The inhomogeity in <span class="math inline">\(x\)</span> means that we can only consider Fourier components in the <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> directions</em>. Therefore, we seek wave modes of the form <span class="math inline">\(\propto \exp[i(k_y y + k_z z - \omega t)]\)</span> with the ansatz</p>
@@ -540,7 +595,7 @@ i\omega \mathbf{B}_0\cdot\mathbf{B}_1 = \frac{1}{r}(\mathbf{B}\times\nabla)_\phi
 \mathbf{u} &amp;= \mathbf{u}_0 + \mathbf{u}_1 = \mathbf{u}_1
 \end{aligned}
 \]</span></p>
-<p>The linearized momentum <a href="wave.html#eq-mhd_cold">Equation&nbsp;<span>7.26</span></a> gives</p>
+<p>The linearized momentum <a href="wave.html#eq-mhd_cold" class="quarto-xref">Equation&nbsp;<span>7.26</span></a> gives</p>
 <p><span class="math display">\[
 \begin{aligned}
 \rho\Big(\frac{\partial\mathbf{u}}{\partial t} + \cancel{\mathbf{u}\cdot\nabla\mathbf{u}}\Big) &amp;= \mathbf{j}\times\mathbf{B} \\
@@ -591,7 +646,7 @@ B_{1y} &amp;= \frac{1}{\omega}(k_z E_x) \\
 B_{1z} &amp;= \frac{1}{\omega}\Big(-i\frac{\partial E_y}{\partial x} - k_y E_x\Big)
 \end{aligned}
 \tag{12.6}\]</span></span></p>
-<p>Substituting <a href="#eq-flr_faraday_linear">Equation&nbsp;<span>12.6</span></a> into <a href="#eq-flr_momentum">Equation&nbsp;<span>12.5</span></a> gives</p>
+<p>Substituting <a href="#eq-flr_faraday_linear" class="quarto-xref">Equation&nbsp;<span>12.6</span></a> into <a href="#eq-flr_momentum" class="quarto-xref">Equation&nbsp;<span>12.5</span></a> gives</p>
 <p><span class="math display">\[
 \begin{aligned}
 -i \omega \rho \mu_0 \frac{E_y}{B} = -\frac{\partial}{\partial x}\Big[ B  \frac{1}{\omega}\Big(-i\frac{\partial E_y}{\partial x} - k_y E_x\Big) \Big] + i k_z B \frac{-k_z}{\omega} E_y \\
@@ -611,26 +666,30 @@ B_{1z} &amp;= \frac{1}{\omega}\Big(-i\frac{\partial E_y}{\partial x} - k_y E_x\B
 (R^2 - k_y^2 -k_z^2)E_x + i k_y\frac{\partial E_y}{\partial x} = 0
 \end{aligned}
 \tag{12.7}\]</span></span></p>
-<p>Eliminating <span class="math inline">\(E_x\)</span> from <a href="#eq-flr_ex_ey">Equation&nbsp;<span>12.7</span></a> gives</p>
+<p>Eliminating <span class="math inline">\(E_x\)</span> from <a href="#eq-flr_ex_ey" class="quarto-xref">Equation&nbsp;<span>12.7</span></a> gives</p>
 <p><span id="eq-flr_wave_ey"><span class="math display">\[
 \frac{\partial^2}{\partial x^2}E_y - k_y^2 \frac{\partial}{\partial x}R^2(x)\frac{1}{(R^2 - k_z^2)(R^2 - k_z^2 - k_y^2)}\frac{\partial E_y}{\partial x} + (R^2 - k_z^2 - k_y^2)E_y = 0
 \tag{12.8}\]</span></span></p>
-<p>There is a very important observation about polarization from <a href="#eq-flr_ex_ey">Equation&nbsp;<span>12.7</span></a>: <span id="eq-flr_polarization"><span class="math display">\[
+<p>There is a very important observation about polarization from <a href="#eq-flr_ex_ey" class="quarto-xref">Equation&nbsp;<span>12.7</span></a>: <span id="eq-flr_polarization"><span class="math display">\[
 \frac{E_x}{E_y} = -\frac{ik_y}{R^2-k_y^2-k_z^2}\frac{\partial E_y}{\partial x}\frac{1}{E_y}
 \tag{12.9}\]</span></span></p>
 <p>Our familiar fast MHD wave is <em>no longer linearly polarized in a nonuniform plasma</em>! A key thing on the RHS is the dependence on the sign of <span class="math inline">\(k_y\)</span> as well as <span class="math inline">\(\partial E_y/\partial x\)</span>. For fast waves propagating in opposite directions (i.e.&nbsp;eastward and westward in the azimuthal direction), the sense of polarization (RH, LH) will change as <span class="math inline">\(k_y\)</span> changes sign across local noon. Right at the resonance point where <span class="math inline">\(R^2 - k_z^2 - k_y^2 = 0\)</span>, we get linearly polarized Alfvén wave. <span class="math inline">\(\partial E_y/\partial x\)</span> changes sign across the resonance point, thus we also have another change in polarization detected on the ground for different L-shells (or magnetic latitudes).</p>
-<div id="fig-flr_polarization" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/FLR_ground_Pc5_1974.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;12.4: The variation of amplitude and the sense of polarization of Pc5’s seen at high latitudes with latitude and magnetic local time. (After [Samson +, 1974].)</figcaption>
+<div id="fig-flr-polarization" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flr-polarization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/FLR_ground_Pc5_1974.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flr-polarization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.4: The variation of amplitude and the sense of polarization of Pc5’s seen at high latitudes with latitude and magnetic local time. (After [Samson +, 1974].)
+</figcaption>
 </figure>
 </div>
-<p><a href="#eq-flr_wave_ey">Equation&nbsp;<span>12.8</span></a> can also be written as a second order differential equation of <span class="math inline">\(B_{1z}\)</span>, the compressional component of the magnetic field (see <a href="math.html#eq-perturb_b">Equation&nbsp;<span>3.7</span></a>), as <span class="citation" data-cites="kivelson1985resonant">(<a href="#ref-kivelson1985resonant" role="doc-biblioref">Kivelson and Southwood 1985</a>)</span> did in proposing the idea of cavity modes: <span class="math display">\[
+<p><a href="#eq-flr_wave_ey" class="quarto-xref">Equation&nbsp;<span>12.8</span></a> can also be written as a second order differential equation of <span class="math inline">\(B_{1z}\)</span>, the compressional component of the magnetic field (see <a href="math.html#eq-perturb_b" class="quarto-xref">Equation&nbsp;<span>3.7</span></a>), as <span class="citation" data-cites="kivelson1985resonant">(<a href="#ref-kivelson1985resonant" role="doc-biblioref">Kivelson and Southwood 1985</a>)</span> did in proposing the idea of cavity modes: <span class="math display">\[
 \frac{\partial^2 B_{1z}}{\partial x^2} - \frac{ \frac{\partial R^2}{\partial x}}{R^2 - k_z^2}\frac{\partial B_{1z}}{\partial x} + ( R^2 - k_y^2 - k_z^2 ) B_{1z} = 0
 \]</span> or equivalently, <span id="eq-flr_wave_bz"><span class="math display">\[
 \frac{\partial^2 B_{1z}}{\partial x^2} - \frac{\omega^2 \partial V_A^{-2}/\partial x}{\omega^2/V_A^2 - k_z^2}\frac{\partial B_{1z}}{\partial x} + \Big( \frac{\omega^2}{V_A^2} - k_y^2 - k_z^2 \Big) B_{1z} = 0
 \tag{12.10}\]</span></span></p>
-<p>Let us first get some intuitions about <a href="#eq-flr_wave_ey">Equation&nbsp;<span>12.8</span></a> (following <span class="citation" data-cites="glassmeier1999">(<a href="#ref-glassmeier1999" role="doc-biblioref">Glassmeier et al. 1999</a>)</span>, but note that there are sign errors and wrong equations in the original paper!). This equation exhibits strong singularities found in the denominator of its second term, much as first described by Tamao (1965). The following solutions are possible. If <span class="math inline">\(R^2 - k_z^2 - k_y^2 &gt; 0\)</span>, from which <span class="math inline">\(R^2 - k_z^2 &gt; 0\)</span> follows, no singularities appear. Assuming <span class="math inline">\(k_y \approx 0\)</span>, the above equation reduces to <span class="math display">\[
+<p>Let us first get some intuitions about <a href="#eq-flr_wave_ey" class="quarto-xref">Equation&nbsp;<span>12.8</span></a> (following <span class="citation" data-cites="glassmeier1999">(<a href="#ref-glassmeier1999" role="doc-biblioref">Glassmeier et al. 1999</a>)</span>, but note that there are sign errors and wrong equations in the original paper!). This equation exhibits strong singularities found in the denominator of its second term, much as first described by Tamao (1965). The following solutions are possible. If <span class="math inline">\(R^2 - k_z^2 - k_y^2 &gt; 0\)</span>, from which <span class="math inline">\(R^2 - k_z^2 &gt; 0\)</span> follows, no singularities appear. Assuming <span class="math inline">\(k_y \approx 0\)</span>, the above equation reduces to <span class="math display">\[
 \frac{\partial^2}{\partial x^2}E_y + (R^2 - k_z^2)E_y = 0
 \]</span></p>
 <p>For a linear density profile, i.e.&nbsp;<span class="math inline">\(R^2 = \alpha_0^2 + \alpha^2 x\)</span>, with the definition of the turning point <span class="math inline">\(x_t\)</span> via <span class="math inline">\(R^2 = k_z^2\)</span>, and the transformation <span class="math inline">\(s = \alpha^{2/3}(x-x_t)&gt;0\)</span>, <span class="math display">\[
@@ -642,7 +701,7 @@ B_{1z} &amp;= \frac{1}{\omega}\Big(-i\frac{\partial E_y}{\partial x} - k_y E_x\B
 <p><span class="math display">\[
 \frac{\partial^2 E_y}{\partial s^2} + sE_y = 0
 \]</span></p>
-<p>This is the Airy or Stokes equation (<a href="math.html#sec-airy"><span>Section&nbsp;3.11.1</span></a>) with the two principal solutions displayed in <span class="quarto-unresolved-ref">?fig-airy_flr</span>. The solution <span class="math inline">\(Bi(s)\)</span> is unphysical as it implies unlimited growth of <span class="math inline">\(E_y\)</span> behind the turning point at <span class="math inline">\(s=0\)</span>. Thus <span class="math inline">\(E_y(s) = Ai(s)\)</span> is the required solution. The turning point actually is the point of total reflection of the wave field. Its appearance can be understood on the following grounds. The “effective” local wavenumber in <span class="math inline">\(x\)</span> is given by <span id="eq-flr_kx_effective"><span class="math display">\[
+<p>This is the Airy or Stokes equation (<a href="math.html#sec-airy" class="quarto-xref"><span>Section 3.11.1</span></a>) with the two principal solutions displayed in <span class="quarto-unresolved-ref">?fig-airy-flr</span>. The solution <span class="math inline">\(Bi(s)\)</span> is unphysical as it implies unlimited growth of <span class="math inline">\(E_y\)</span> behind the turning point at <span class="math inline">\(s=0\)</span>. Thus <span class="math inline">\(E_y(s) = Ai(s)\)</span> is the required solution. The turning point actually is the point of total reflection of the wave field. Its appearance can be understood on the following grounds. The “effective” local wavenumber in <span class="math inline">\(x\)</span> is given by <span id="eq-flr_kx_effective"><span class="math display">\[
 k_x^2(x, \omega) = \frac{\omega^2}{V_A^2(x)} - k_y^2 - k_z^2
 \tag{12.11}\]</span></span></p>
 <p>If <span class="math inline">\(V_A^2\)</span> increases with <span class="math inline">\(x\)</span>, that is with <span class="math inline">\(s\)</span> in the Airy function plot, <span class="math inline">\(k_x^2\)</span> has to decrease as <span class="math inline">\(\omega, k_y\)</span> and <span class="math inline">\(k_z\)</span> stay constant. Eventually <span class="math inline">\(k_x^2\)</span> may become negative, which implies an imaginary wave number <span class="math inline">\(k_x\)</span>. At this turning point the wave will be reflected.</p>
@@ -650,8 +709,8 @@ k_x^2(x, \omega) = \frac{\omega^2}{V_A^2(x)} - k_y^2 - k_z^2
 <p>Next if <span class="math inline">\(R^2 - k_z^2 - k_y^2 &lt; 0\)</span>, <span class="math inline">\(R^2 - k_z^2 = 0\)</span> may occur. Assuming again a linear density profile, defining a resonance point <span class="math inline">\(x_r\)</span> via <span class="math inline">\(R^2 = k_z^2\)</span>, and <span class="math inline">\(s = x-x_r\)</span>, the electric field perturbation transforms close to the resonance point <span class="math inline">\(x - x_r = 0\)</span> into <span id="eq-flr_wave_ey_perturbation"><span class="math display">\[
 \frac{\partial^2 E_y}{\partial s^2} - \frac{1}{s}\frac{s_t}{s-s_t}\frac{\partial E_y}{\partial s} + \alpha^2(s-s_t) E_y = 0
 \tag{12.12}\]</span></span> where <span class="math inline">\(s_t = k_y^2/\alpha^2\)</span>.</p>
-<p>At the resonance point its solution exhibits a clear singularity with unlimited growth of <span class="math inline">\(E_y\)</span>. In front of the turning point <span class="math inline">\(s&gt;s_t\)</span> the solution is similar to an Airy function, while behind it singular behaviour is observed at the resonance point <span class="math inline">\(s=0\)</span>. I do not show the solution BECAUSE I DON’T KNOW HOW TO WRITE IT DOWN! But let us now follow <span class="citation" data-cites="kivelson1985resonant">(<a href="#ref-kivelson1985resonant" role="doc-biblioref">Kivelson and Southwood 1985</a>)</span> and check the equivalent perturbation <a href="#eq-flr_wave_bz">Equation&nbsp;<span>12.10</span></a> for <span class="math inline">\(B_{1z}\)</span>.</p>
-<p>When we also assume linear mass density variation with <span class="math inline">\(x\)</span> in <a href="#eq-flr_wave_bz">Equation&nbsp;<span>12.10</span></a> such that <span class="math display">\[
+<p>At the resonance point its solution exhibits a clear singularity with unlimited growth of <span class="math inline">\(E_y\)</span>. In front of the turning point <span class="math inline">\(s&gt;s_t\)</span> the solution is similar to an Airy function, while behind it singular behaviour is observed at the resonance point <span class="math inline">\(s=0\)</span>. I do not show the solution BECAUSE I DON’T KNOW HOW TO WRITE IT DOWN! But let us now follow <span class="citation" data-cites="kivelson1985resonant">(<a href="#ref-kivelson1985resonant" role="doc-biblioref">Kivelson and Southwood 1985</a>)</span> and check the equivalent perturbation <a href="#eq-flr_wave_bz" class="quarto-xref">Equation&nbsp;<span>12.10</span></a> for <span class="math inline">\(B_{1z}\)</span>.</p>
+<p>When we also assume linear mass density variation with <span class="math inline">\(x\)</span> in <a href="#eq-flr_wave_bz" class="quarto-xref">Equation&nbsp;<span>12.10</span></a> such that <span class="math display">\[
 \begin{aligned}
 R^2 - k_z^2 &amp;= \alpha^2(x - x_r) \\
 R^2 - k_z^2 - k_y^2 &amp;= \alpha^2(x-x_t)
@@ -659,28 +718,36 @@ R^2 - k_z^2 - k_y^2 &amp;= \alpha^2(x-x_t)
 \]</span> where <span class="math inline">\(x_r = k_z^2/\alpha^2\)</span>, <span class="math inline">\(x_t = (k_z^2 + k_y^2)/\alpha^2 = x_r + k_y^2/\alpha^2\)</span>, we have <span id="eq-flr_bz_perturbation"><span class="math display">\[
 \frac{\partial^2 B_{1z}}{\partial x^2} - \frac{1}{x-x_r}\frac{\partial B_{1z}}{\partial x} + \alpha^2(x-x_t)B_{1z} = 0
 \tag{12.13}\]</span></span></p>
-<p>The solution of <a href="#eq-flr_bz_perturbation">Equation&nbsp;<span>12.13</span></a> is discussed by <span class="citation" data-cites="kivelson1986coupling">(<a href="#ref-kivelson1986coupling" role="doc-biblioref">1986</a>)</span>. The singular point where <span class="math inline">\(x=x_r\)</span> and <span class="math inline">\(R^2=k_z^2\)</span> corresponds to the <em>resonance point</em> where the wave frequency matches the Alfvén mode frequency. The point where <span class="math inline">\(x=x_t\)</span> and <span class="math inline">\(R^2=k_y^2 + k_z^2\)</span> is the <em>turning point</em> of the equation. When <span class="math inline">\(x&gt;x_t\)</span>, any wave described by the equation oscillates with <span class="math inline">\(x\)</span>; when <span class="math inline">\(x&lt;x_t\)</span> independent solutions grow or evanesce with <span class="math inline">\(x\)</span> on each side of the resonance singularity <span class="math inline">\(x_r\)</span>.</p>
+<p>The solution of <a href="#eq-flr_bz_perturbation" class="quarto-xref">Equation&nbsp;<span>12.13</span></a> is discussed by <span class="citation" data-cites="kivelson1986coupling">(<a href="#ref-kivelson1986coupling" role="doc-biblioref">1986</a>)</span>. The singular point where <span class="math inline">\(x=x_r\)</span> and <span class="math inline">\(R^2=k_z^2\)</span> corresponds to the <em>resonance point</em> where the wave frequency matches the Alfvén mode frequency. The point where <span class="math inline">\(x=x_t\)</span> and <span class="math inline">\(R^2=k_y^2 + k_z^2\)</span> is the <em>turning point</em> of the equation. When <span class="math inline">\(x&gt;x_t\)</span>, any wave described by the equation oscillates with <span class="math inline">\(x\)</span>; when <span class="math inline">\(x&lt;x_t\)</span> independent solutions grow or evanesce with <span class="math inline">\(x\)</span> on each side of the resonance singularity <span class="math inline">\(x_r\)</span>.</p>
 <p>Series solutions valid in the neighborhood of <span class="math inline">\(x=x_r\)</span> and <span class="math inline">\(x=x_t\)</span> have been derived by a variety of authors. The Frobenius method of solution of partial differential equations can be used to find solutions valid near <span class="math inline">\(x_r\)</span>, where the analytic solution is of the form <span id="eq-flr_bz_analytic"><span class="math display">\[
 R_t(x) = k_y^2(x-x_r)^2 + \mathcal{O}[(x-x_r)^4]
 \tag{12.14}\]</span></span> and the singular solution is of the form <span id="eq-flr_bz_singular"><span class="math display">\[
 s_t(x) = 1 + \frac{1}{2}R_t(x)\ln(x_r - x) + \mathcal{O}[(x-x_r)^2]
 \tag{12.15}\]</span></span></p>
-<p>For <span class="math inline">\(k_y^2=\alpha^{4/3}\)</span>, the two solutions for <span class="math inline">\(B_{1z}\)</span> is shown in <a href="#fig-flr_b1z_solutions">Figure&nbsp;<span>12.5</span></a>. On the far right side of the plot the functions are close to spatial quadrature and have zeros whose spacing decreases with increasing <span class="math inline">\(x\)</span>. In this regime, as we will mention later, the WKB approximation is good and the amplitude and phase are proportional to <span class="math inline">\(s^{1/4}\)</span> and <span class="math inline">\(s^{3/2}\)</span>, respectively. The amplitudes have been plotted just such that an incoming wave from large <span class="math inline">\(x\)</span> would be represented by <span class="math inline">\(R_t(x)+iS_t(x)\)</span> if a time variation <span class="math inline">\(e^{-i\omega t}\)</span> is specified. The corresponding mode propagating toward large <span class="math inline">\(x\)</span> would be <span class="math inline">\(R_t(x)-iS_t(x)\)</span>. Thus <span class="math inline">\(R_t(x), S_t(x)\)</span> represent standing wave forms. However, the presence of the resonance (at the far left of the plots) preludes there being perfect reflection or perfect standing wave solutions.</p>
-<div id="fig-flr_b1z_solutions" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/b1z_solutions.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;12.5: Two independent solutions of <a href="#eq-flr_bz_perturbation">Equation&nbsp;<span>12.13</span></a> for <span class="math inline">\(x &gt; x_r\)</span>. The particular pair illustrated are solutions for the case <span class="math inline">\(\lambda^2/\alpha^{4/3}=1\)</span> for which <span class="math inline">\(x_t/x_r = 2\)</span>. The dashed curve is the solution that is analytic at the singular point (cf. <a href="#eq-flr_bz_analytic">Equation&nbsp;<span>12.14</span></a>). The solution plotted as a solid curve is finite at the singularity with infinite derivatives as evident from <a href="#eq-flr_bz_singular">Equation&nbsp;<span>12.15</span></a>. Amplitudes have been selected to match at large <span class="math inline">\(x\)</span> where the oscillating solutions are in spatial quadrature.</figcaption>
+<p>For <span class="math inline">\(k_y^2=\alpha^{4/3}\)</span>, the two solutions for <span class="math inline">\(B_{1z}\)</span> is shown in <a href="#fig-flr-b1z-solutions" class="quarto-xref">Figure&nbsp;<span>12.5</span></a>. On the far right side of the plot the functions are close to spatial quadrature and have zeros whose spacing decreases with increasing <span class="math inline">\(x\)</span>. In this regime, as we will mention later, the WKB approximation is good and the amplitude and phase are proportional to <span class="math inline">\(s^{1/4}\)</span> and <span class="math inline">\(s^{3/2}\)</span>, respectively. The amplitudes have been plotted just such that an incoming wave from large <span class="math inline">\(x\)</span> would be represented by <span class="math inline">\(R_t(x)+iS_t(x)\)</span> if a time variation <span class="math inline">\(e^{-i\omega t}\)</span> is specified. The corresponding mode propagating toward large <span class="math inline">\(x\)</span> would be <span class="math inline">\(R_t(x)-iS_t(x)\)</span>. Thus <span class="math inline">\(R_t(x), S_t(x)\)</span> represent standing wave forms. However, the presence of the resonance (at the far left of the plots) preludes there being perfect reflection or perfect standing wave solutions.</p>
+<div id="fig-flr-b1z-solutions" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flr-b1z-solutions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/b1z_solutions.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flr-b1z-solutions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.5: Two independent solutions of <a href="#eq-flr_bz_perturbation" class="quarto-xref">Equation&nbsp;<span>12.13</span></a> for <span class="math inline">\(x &gt; x_r\)</span>. The particular pair illustrated are solutions for the case <span class="math inline">\(\lambda^2/\alpha^{4/3}=1\)</span> for which <span class="math inline">\(x_t/x_r = 2\)</span>. The dashed curve is the solution that is analytic at the singular point (cf. <a href="#eq-flr_bz_analytic" class="quarto-xref">Equation&nbsp;<span>12.14</span></a>). The solution plotted as a solid curve is finite at the singularity with infinite derivatives as evident from <a href="#eq-flr_bz_singular" class="quarto-xref">Equation&nbsp;<span>12.15</span></a>. Amplitudes have been selected to match at large <span class="math inline">\(x\)</span> where the oscillating solutions are in spatial quadrature.
+</figcaption>
 </figure>
 </div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode jl code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@sco</span> KeyNotes.<span class="fu">plot_b1z_ode</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The following physical interpretation is tempting. The MHD wave propagating into the magnetosphere is a fast mode wave generated by, e.g.&nbsp;plasma instabilities at the magnetopause. Eventually the wave reaches the turning point where reflection occurs. If conditions are favourable, that is if a resonance point occurs, part of the fast mode wave energy can tunnel into the resonance, where coupling from the fast mode disturbance into an Alfvén mode perturbation takes place. The resonance point <em>always</em> lies beyond the turning point, but energy tunnels to the resonance point and the reflection is found to be less than perfect. This scenario is schematically shown in <a href="#fig-flr_schematic">Figure&nbsp;<span>12.6</span></a>, where the reflection or turning point is assumed to coincide with the magnetopause. The point of maximum coupling or “resonant mode coupling” is given by <span class="math inline">\(\omega = k_\parallel V_A(x)\)</span>, where <span class="math inline">\(\omega\)</span> is the fast mode wave frequency, <span class="math inline">\(k_\parallel\)</span> is the field-aligned component of the fast mode wave vector and <span class="math inline">\(V_A(x)\)</span> is the local Alfvén velocity. This is also the Alfvén dispersion relation.</p>
-<div id="fig-flr_schematic" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/FLR_schematic.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;12.6: Schematic view of the field line resonance, driven by unstable surface wave.</figcaption>
+<p>The following physical interpretation is tempting. The MHD wave propagating into the magnetosphere is a fast mode wave generated by, e.g.&nbsp;plasma instabilities at the magnetopause. Eventually the wave reaches the turning point where reflection occurs. If conditions are favourable, that is if a resonance point occurs, part of the fast mode wave energy can tunnel into the resonance, where coupling from the fast mode disturbance into an Alfvén mode perturbation takes place. The resonance point <em>always</em> lies beyond the turning point, but energy tunnels to the resonance point and the reflection is found to be less than perfect. This scenario is schematically shown in <a href="#fig-flr-schematic" class="quarto-xref">Figure&nbsp;<span>12.6</span></a>, where the reflection or turning point is assumed to coincide with the magnetopause. The point of maximum coupling or “resonant mode coupling” is given by <span class="math inline">\(\omega = k_\parallel V_A(x)\)</span>, where <span class="math inline">\(\omega\)</span> is the fast mode wave frequency, <span class="math inline">\(k_\parallel\)</span> is the field-aligned component of the fast mode wave vector and <span class="math inline">\(V_A(x)\)</span> is the local Alfvén velocity. This is also the Alfvén dispersion relation.</p>
+<div id="fig-flr-schematic" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flr-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/FLR_schematic.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flr-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.6: Schematic view of the field line resonance, driven by unstable surface wave.
+</figcaption>
 </figure>
 </div>
-<p><a href="#eq-flr_wave_bz">Equation&nbsp;<span>12.10</span></a> has a long history that appeared first in the context of a radio wave obliquely incident on a region of increasing electron density, all the way back to 1951, as mentioned in <span class="citation" data-cites="kivelson1986coupling">(<a href="#ref-kivelson1986coupling" role="doc-biblioref">Kivelson and Southwood 1986</a>)</span>. It also appears in calculating the absorption of laser energy by a plasma and heating a plasma by radio wave injection to excite internal Alfvén waves. Energy is absorbed at the location in the plasma corresponding to the singular point of the governing differential <a href="#eq-flr_wave_bz">Equation&nbsp;<span>12.10</span></a> or its equivalent. Without the introduction of additional effects such as dissipation or dispersion near resonance, the singularity in the differential equation implies that the amplitude of the Alfvén wave grows secularly.</p>
+<p><a href="#eq-flr_wave_bz" class="quarto-xref">Equation&nbsp;<span>12.10</span></a> has a long history that appeared first in the context of a radio wave obliquely incident on a region of increasing electron density, all the way back to 1951, as mentioned in <span class="citation" data-cites="kivelson1986coupling">(<a href="#ref-kivelson1986coupling" role="doc-biblioref">Kivelson and Southwood 1986</a>)</span>. It also appears in calculating the absorption of laser energy by a plasma and heating a plasma by radio wave injection to excite internal Alfvén waves. Energy is absorbed at the location in the plasma corresponding to the singular point of the governing differential <span class="quarto-unresolved-ref">?eq-flr-wave-bz</span> or its equivalent. Without the introduction of additional effects such as dissipation or dispersion near resonance, the singularity in the differential equation implies that the amplitude of the Alfvén wave grows secularly.</p>
 <p>Some studies (e.g. <span class="citation" data-cites="kivelson1986coupling">Wright (<a href="#ref-wright1994" role="doc-biblioref">1994</a>)</span>) prefer to use plasma displacement <span class="math inline">\(\pmb{\xi}\)</span> instead of <span class="math inline">\(\mathbf{u}\)</span>, where <span class="math inline">\(\mathbf{u} = \dot{\pmb{\xi}}\)</span>, and perturbed magnetic field component <span class="math inline">\(B_{1z}\)</span> to describe the model: <span id="eq-flr_box_displacement_b1z"><span class="math display">\[
 \begin{aligned}
 \frac{1}{V_A^2}\frac{\partial^2 \xi_x}{\partial t^2} - \frac{\partial \xi_x}{\partial z^2} &amp;= -\frac{1}{B_0}\frac{\partial B_{1z}}{\partial x} \\
@@ -688,14 +755,14 @@ s_t(x) = 1 + \frac{1}{2}R_t(x)\ln(x_r - x) + \mathcal{O}[(x-x_r)^2]
 B_{1z} &amp;= - B_0 \Big( \frac{\partial \xi_x}{\partial x} + \frac{\partial \xi_y}{\partial y} \Big)
 \end{aligned}
 \tag{12.16}\]</span></span></p>
-<p>This equation set is equivalent to <a href="wave.html#eq-mhd_cold_b_wave">Equation&nbsp;<span>7.28</span></a>. The first two equations are the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> component of the momentum equation, and the last equation is the magnetic field advection equation (Faraday’s law + Ohm’s law). Recall that <span class="math inline">\(B_{1z}\)</span> is the compressional perturbation to the ambient magnetic field, and <span class="math inline">\(\xi_y\)</span> corresponds to <span class="math inline">\(u_y\)</span> which is the toroidal Alfvénic perturbation. Then on the RHS of the second equation, it is the azimuthal gradient in the fast mode <span class="math inline">\(\partial B_{1z}/\partial y\)</span> that drives the response in the azimuthal place displacement <span class="math inline">\(\xi_y\)</span>; the LHS is a simple harmonic oscillator and the RHS is the forcing term. Since we are seeking for solutions of the form <span class="math inline">\(e^{i(k_y y + k_z z - \omega t)}\)</span>, we can see that:</p>
+<p>This equation set is equivalent to <a href="wave.html#eq-mhd_cold_b_wave" class="quarto-xref">Equation&nbsp;<span>7.28</span></a>. The first two equations are the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> component of the momentum equation, and the last equation is the magnetic field advection equation (Faraday’s law + Ohm’s law). Recall that <span class="math inline">\(B_{1z}\)</span> is the compressional perturbation to the ambient magnetic field, and <span class="math inline">\(\xi_y\)</span> corresponds to <span class="math inline">\(u_y\)</span> which is the toroidal Alfvénic perturbation. Then on the RHS of the second equation, it is the azimuthal gradient in the fast mode <span class="math inline">\(\partial B_{1z}/\partial y\)</span> that drives the response in the azimuthal place displacement <span class="math inline">\(\xi_y\)</span>; the LHS is a simple harmonic oscillator and the RHS is the forcing term. Since we are seeking for solutions of the form <span class="math inline">\(e^{i(k_y y + k_z z - \omega t)}\)</span>, we can see that:</p>
 <ul>
 <li>if <span class="math inline">\(k_y=0\)</span> for the fast mode, then there are no azimuthal gradients to drive FLRs and hence you get no wave coupling;</li>
 <li>if <span class="math inline">\(k_y \rightarrow \infty\)</span>, then <span class="math inline">\(\xi_y \rightarrow 0\)</span> and <span class="math inline">\(\xi_x\)</span> describes a decoupled poloidal Alfvén wave.</li>
 <li>if <span class="math inline">\(k_y \neq 0\)</span> or <span class="math inline">\(\infty\)</span>, the wave modes are coupled together and energy initially in the fast mode may mode convert to Alfvén wave energy on localized field lines.</li>
 </ul>
 <p><strong>Uniform density and background magnetic field</strong></p>
-<p>Let <span class="math inline">\(\rho = \text{const.}\)</span>, <span class="math inline">\(V_A = \text{const.}\)</span>. From <a href="#eq-flr_box_displacement_b1z">Equation&nbsp;<span>12.16</span></a>, <span class="math display">\[
+<p>Let <span class="math inline">\(\rho = \text{const.}\)</span>, <span class="math inline">\(V_A = \text{const.}\)</span>. From <a href="#eq-flr_box_displacement_b1z" class="quarto-xref">Equation&nbsp;<span>12.16</span></a>, <span class="math display">\[
 \begin{aligned}
 \ddot{B_{1z}} &amp;= - B_0 \Big( \frac{\partial \ddot{\xi_x}}{\partial x} + \frac{\partial \ddot{\xi_y}}{\partial y} \Big) = V_A^2 \Big( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} \Big) B_{1z} \\ &amp;= V_A^2 \nabla^2 B_{1z}
 \end{aligned}
@@ -703,7 +770,7 @@ B_{1z} &amp;= - B_0 \Big( \frac{\partial \xi_x}{\partial x} + \frac{\partial \xi
 <p>Consider normal modes of waveguides of the form <span class="math inline">\(e^{\mathbf{k}\cdot\mathbf{r} - i\omega t}\)</span>, where <span class="math inline">\(\mathbf{k} = (k_x, k_y, k_z)\)</span>. The dispersion relation for the fast mode is then <span id="eq-flr_uniform_fast"><span class="math display">\[
 \omega^2 = V_A^2 (k_x^2 + k_y^2 + k_z^2)
 \tag{12.17}\]</span></span></p>
-<p>In an infinite medium this relation gives nondispersive propagation. Since we are interested primarily in propagation along the waveguide (i.e., in the <span class="math inline">\(y\)</span> direction) we shall define <span class="math inline">\(v_p\)</span> and <span class="math inline">\(v_g\)</span> to be the phase and group velocities along <span class="math inline">\(\hat{y}\)</span>. Employing <a href="#eq-flr_uniform_fast">Equation&nbsp;<span>12.17</span></a> gives <span class="math display">\[
+<p>In an infinite medium this relation gives nondispersive propagation. Since we are interested primarily in propagation along the waveguide (i.e., in the <span class="math inline">\(y\)</span> direction) we shall define <span class="math inline">\(v_p\)</span> and <span class="math inline">\(v_g\)</span> to be the phase and group velocities along <span class="math inline">\(\hat{y}\)</span>. Employing <a href="#eq-flr_uniform_fast" class="quarto-xref">Equation&nbsp;<span>12.17</span></a> gives <span class="math display">\[
 \begin{aligned}
 v_p &amp;= \frac{\omega}{k_y} = \frac{k}{k_y}V_A \\
 v_g &amp;= \frac{\partial\omega}{\partial k_y} = \frac{k_y}{k}V_A
@@ -717,46 +784,54 @@ k_x &amp;= \pm n \pi / a,\, &amp;n = 1,2,3... \\
 k_z &amp;= \pm m \pi / c,\, &amp;m = 1,2,3...
 \end{aligned}
 \tag{12.19}\]</span></span> where <span class="math inline">\(a\)</span> is the box length in x and <span class="math inline">\(c\)</span> is the box length in z (i.e.&nbsp;length of the field lines).</p>
-<p>Given values of <span class="math inline">\(k_x\)</span> and <span class="math inline">\(k_z\)</span>, we may use <a href="#eq-flr_uniform_fast">Equation&nbsp;<span>12.17</span></a> to find <span class="math inline">\(k_y\)</span> as a function of <span class="math inline">\(\omega\)</span>, <span class="math display">\[
+<p>Given values of <span class="math inline">\(k_x\)</span> and <span class="math inline">\(k_z\)</span>, we may use <a href="#eq-flr_uniform_fast" class="quarto-xref">Equation&nbsp;<span>12.17</span></a> to find <span class="math inline">\(k_y\)</span> as a function of <span class="math inline">\(\omega\)</span>, <span class="math display">\[
 k_y^2 = \frac{\omega^2}{V_A^2} - k_x^2 - k_y^2
 \]</span></p>
 <p>If <span class="math inline">\(k_y\)</span> is real then the mode may propagate along the guide. However, if we believe that the boundary at <span class="math inline">\(x = x_m = a\)</span> is not a reflector but is driven, it would be appropriate to impose a wavenumber <span class="math inline">\(k_y\)</span> along the outer boundary and solve for <span class="math inline">\(k_x\)</span> given <span class="math inline">\(k_z\)</span>. This is the case when the magnetopause is driven by the Kelvin-Helmholtz instability (i.e.&nbsp;<span class="math inline">\(k_y\)</span> given by the surface waves), which was proposed in the 1970s to be the driver of field line resonances. In this situation <span class="math inline">\(k_x\)</span> is found to be imaginary, and the mode is evanescent (exponentially decaying) in <span class="math inline">\(x\)</span>.</p>
 <p><strong>Nonuniform density and magnetic field</strong></p>
-<p>The simplest assumptions in this case would be <span class="math inline">\(\rho = \rho(x)\)</span>, <span class="math inline">\(\mathbf{B}_0 = B_0\hat{z}\)</span>, and that the Alfvén speed <span class="math inline">\(V_A\)</span> is monotonically decreasing with <span class="math inline">\(x\)</span>, <span class="math inline">\(\partial V_A / \partial x &lt; 0\)</span>. Then again we get <a href="#eq-flr_wave_bz">Equation&nbsp;<span>12.10</span></a>. Solving this equation for given boundary conditions in <span class="math inline">\(x\)</span> yields a set of orthogonal eigenfunctions <span class="math inline">\(B_{1z}(x)\)</span> and eigenfrequencies.</p>
+<p>The simplest assumptions in this case would be <span class="math inline">\(\rho = \rho(x)\)</span>, <span class="math inline">\(\mathbf{B}_0 = B_0\hat{z}\)</span>, and that the Alfvén speed <span class="math inline">\(V_A\)</span> is monotonically decreasing with <span class="math inline">\(x\)</span>, <span class="math inline">\(\partial V_A / \partial x &lt; 0\)</span>. Then again we get <a href="#eq-flr_wave_bz" class="quarto-xref">Equation&nbsp;<span>12.10</span></a>. Solving this equation for given boundary conditions in <span class="math inline">\(x\)</span> yields a set of orthogonal eigenfunctions <span class="math inline">\(B_{1z}(x)\)</span> and eigenfrequencies.</p>
 <p>First of all, we shall notice that a singularity/resonance occurs at <span class="math inline">\(x_r\)</span> where <span id="eq-flr_resonance_dispersion"><span class="math display">\[
 \omega^2 = k_z^2 V_A^2(x_r)
 \tag{12.20}\]</span></span></p>
-<p>Across <span class="math inline">\(x_r\)</span> there will be a <span class="math inline">\(180^\circ\)</span> phase shift for the perturbed terms (<a href="#eq-flr_polarization">Equation&nbsp;<span>12.9</span></a>). Energy is been absorbed at the resonance point from fast mode to Alfvén mode. Dissipation is required, otherwise the amplitude of the Alfvén wave grows secularly. Ionospheric dissipation near the resonant field line is likely to be one important process limiting the growth of the resonance amplitude.</p>
+<p>Across <span class="math inline">\(x_r\)</span> there will be a <span class="math inline">\(180^\circ\)</span> phase shift for the perturbed terms (<a href="#eq-flr_polarization" class="quarto-xref">Equation&nbsp;<span>12.9</span></a>). Energy is been absorbed at the resonance point from fast mode to Alfvén mode. Dissipation is required, otherwise the amplitude of the Alfvén wave grows secularly. Ionospheric dissipation near the resonant field line is likely to be one important process limiting the growth of the resonance amplitude.</p>
 <p>Secondly, there is a turning point at <span class="math inline">\(x_t\)</span> defined via <span class="math inline">\(k_x^2 = 0\)</span> (fixed <span class="math inline">\(k_y, k_z, \omega\)</span>): <span id="eq-flr_turning_dispersion"><span class="math display">\[
 \omega^2 = (k_y^2 + k_z^2)V_A^2(x_t)
 \tag{12.21}\]</span></span></p>
-<p>On the right of <span class="math inline">\(x_t\)</span>, the positive exponent represents a wave propagating in the positive <span class="math inline">\(x\)</span> direction towards the magnetopause, and the negative exponent represents one propagating away from the magnetopause. This is like an imperfect standing wave solution. Across <span class="math inline">\(x_t\)</span> on the left, the oscillating solutions convert to a decaying solution and an exponentially growing solution (<a href="math.html#sec-airy"><span>Section&nbsp;3.11.1</span></a>).</p>
-<p>If the Alfvén speed <span class="math inline">\(V_A\)</span> is monotonically decreasing with <span class="math inline">\(x\)</span>, from <a href="#eq-flr_resonance_dispersion">Equation&nbsp;<span>12.20</span></a> and <a href="#eq-flr_turning_dispersion">Equation&nbsp;<span>12.21</span></a> we always have <span class="math inline">\(0 &lt; x_r &lt; x_t &lt; x_m\)</span>. In the low Alfvén speed region <span class="math inline">\([x_t, x_m]\)</span> the fast mode may propagate, while in the high Alfvén speed region <span class="math inline">\([0, x_t]\)</span> the fast mode is evanescent. Thus the resonant singularity <span class="math inline">\(x_r\)</span> is in the evanescent tail of the fast mode.</p>
-<p>The first-order derivative term in <a href="#eq-flr_wave_bz">Equation&nbsp;<span>12.10</span></a> dominate near <span class="math inline">\(x=x_r\)</span>, but is small in the propagating interval <span class="math inline">\([x_t, x_m]\)</span>. This is particularly true in the WKB limit (<a href="math.html#sec-WKB"><span>Section&nbsp;3.11</span></a>), where we consider waves of short wavelength in <span class="math inline">\(x\)</span>; i.e.&nbsp;second-order derivative term is much larger than the first-order derivative term. In the lowest order WKB analysis we may neglect the first-order derivatives and solve <span id="eq-flr_wave_bz_wkb"><span class="math display">\[
+<p>On the right of <span class="math inline">\(x_t\)</span>, the positive exponent represents a wave propagating in the positive <span class="math inline">\(x\)</span> direction towards the magnetopause, and the negative exponent represents one propagating away from the magnetopause. This is like an imperfect standing wave solution. Across <span class="math inline">\(x_t\)</span> on the left, the oscillating solutions convert to a decaying solution and an exponentially growing solution (<a href="math.html#sec-airy" class="quarto-xref"><span>Section 3.11.1</span></a>).</p>
+<p>If the Alfvén speed <span class="math inline">\(V_A\)</span> is monotonically decreasing with <span class="math inline">\(x\)</span>, from <a href="#eq-flr_resonance_dispersion" class="quarto-xref">Equation&nbsp;<span>12.20</span></a> and <a href="#eq-flr_turning_dispersion" class="quarto-xref">Equation&nbsp;<span>12.21</span></a> we always have <span class="math inline">\(0 &lt; x_r &lt; x_t &lt; x_m\)</span>. In the low Alfvén speed region <span class="math inline">\([x_t, x_m]\)</span> the fast mode may propagate, while in the high Alfvén speed region <span class="math inline">\([0, x_t]\)</span> the fast mode is evanescent. Thus the resonant singularity <span class="math inline">\(x_r\)</span> is in the evanescent tail of the fast mode.</p>
+<p>The first-order derivative term in <a href="#eq-flr_wave_bz" class="quarto-xref">Equation&nbsp;<span>12.10</span></a> dominate near <span class="math inline">\(x=x_r\)</span>, but is small in the propagating interval <span class="math inline">\([x_t, x_m]\)</span>. This is particularly true in the WKB limit (<a href="math.html#sec-WKB" class="quarto-xref"><span>Section 3.11</span></a>), where we consider waves of short wavelength in <span class="math inline">\(x\)</span>; i.e.&nbsp;second-order derivative term is much larger than the first-order derivative term. In the lowest order WKB analysis we may neglect the first-order derivatives and solve <span id="eq-flr_wave_bz_wkb"><span class="math display">\[
 \frac{\partial^2 B_{1z}}{\partial x^2} + \Big( \frac{\omega^2}{V_A^2} - k_y^2 - k_z^2 \Big) B_{1z} = 0
 \tag{12.22}\]</span></span> and the WKB solution is given in the form <span class="math display">\[
 B_{1z}(x) = A k_x^{-1/2} e^{i\int k_x dx} + B k_x^{-1/2}e^{-i\int k_x dx}
-\]</span> where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are constants, and <span class="math inline">\(k_x\)</span> is the “effective” wavenumber defined in <a href="#eq-flr_kx_effective">Equation&nbsp;<span>12.11</span></a>, an explicit function of <span class="math inline">\(x\)</span>.</p>
-<p>The Bohr-Sommerfeld (or phase integral, <a href="math.html#sec-stokes_application"><span>Section&nbsp;3.11.4</span></a>) condition which the quasi-standing wave must satisfy between <span class="math inline">\(x_t\)</span> and <span class="math inline">\(x_m\)</span> is <span id="eq-cavity_eigen_wkb"><span class="math display">\[
+\]</span> where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are constants, and <span class="math inline">\(k_x\)</span> is the “effective” wavenumber defined in <a href="#eq-flr_kx_effective" class="quarto-xref">Equation&nbsp;<span>12.11</span></a>, an explicit function of <span class="math inline">\(x\)</span>.</p>
+<p>The Bohr-Sommerfeld (or phase integral, <a href="math.html#sec-stokes_application" class="quarto-xref"><span>Section 3.11.4</span></a>) condition which the quasi-standing wave must satisfy between <span class="math inline">\(x_t\)</span> and <span class="math inline">\(x_m\)</span> is <span id="eq-cavity_eigen_wkb"><span class="math display">\[
 \int_{x_t}^{x_m} k_x(x,\omega_n) dx = (n+\alpha)\pi\qquad n = 1,2,3...
 \tag{12.23}\]</span></span> where <span class="math inline">\(x_m = a\)</span> is the location of the outer boundary in <span class="math inline">\(x\)</span> and the phase factor <span class="math inline">\(\alpha\)</span> is determined by the boundary conditions in <span class="math inline">\(x\)</span>. For a perfect reflector at <span class="math inline">\(a\)</span> (<span class="math inline">\(\xi_x=0\)</span>) and evanescent decay at small x, we find <span class="math inline">\(\alpha = -1/4\)</span>. If there is a resonance in the waveguide, it will modify <span class="math inline">\(\alpha\)</span>; however, since the resonance is in the evanescent tail there will be no leading order change in <span class="math inline">\(\alpha\)</span>.</p>
-<p><a href="#eq-cavity_eigen_wkb">Equation&nbsp;<span>12.23</span></a> is an integral relation for the eigenfrequencies of the fast mode: we specify <span class="math inline">\(k_y\)</span>, <span class="math inline">\(k_z\)</span>, and <span class="math inline">\(n\)</span> (the mode number in x), then find the n-th eigenfrequency <span class="math inline">\(\omega_n\)</span> as that frequency for which the criterion is met. Once we compute <span class="math inline">\(\omega_n\)</span>, we can then compute the locations of the excited field line <span class="math inline">\(x_r\)</span> from <a href="#eq-flr_resonance_dispersion">Equation&nbsp;<span>12.20</span></a>. These are the most observable discrete modes.</p>
-<div id="fig-flr_wright" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/FLR_waveguides_Wright.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;12.7: From Wright 1992.</figcaption>
+<p><a href="#eq-cavity_eigen_wkb" class="quarto-xref">Equation&nbsp;<span>12.23</span></a> is an integral relation for the eigenfrequencies of the fast mode: we specify <span class="math inline">\(k_y\)</span>, <span class="math inline">\(k_z\)</span>, and <span class="math inline">\(n\)</span> (the mode number in x), then find the n-th eigenfrequency <span class="math inline">\(\omega_n\)</span> as that frequency for which the criterion is met. Once we compute <span class="math inline">\(\omega_n\)</span>, we can then compute the locations of the excited field line <span class="math inline">\(x_r\)</span> from <a href="#eq-flr_resonance_dispersion" class="quarto-xref">Equation&nbsp;<span>12.20</span></a>. These are the most observable discrete modes.</p>
+<div id="fig-flr-wright" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flr-wright-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/FLR_waveguides_Wright.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flr-wright-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.7: From Wright 1992.
+</figcaption>
 </figure>
 </div>
-<div id="fig-flr_samson" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/FLR_waveguides_Samson.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;12.8: From <span class="citation" data-cites="samson1992field">(<a href="#ref-samson1992field" role="doc-biblioref">Samson et al. 1992</a>)</span>.</figcaption>
+<div id="fig-flr-samson" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flr-samson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/FLR_waveguides_Samson.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flr-samson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.8: From <span class="citation" data-cites="samson1992field">(<a href="#ref-samson1992field" role="doc-biblioref">Samson et al. 1992</a>)</span>.
+</figcaption>
 </figure>
 </div>
 <p><strong>Driven FLR vs Cavity Modes vs Waveguide Modes</strong></p>
 <p>The surface wave driven FLR seems reasonable. However, the biggest problem for this hypothesis to be valid is that the mapped phase speeds to the magnetopause were too high compared to in-situ measurements. In addition, in spite of numerous magnetopause crossings by ISEE 1 and 2, regular oscillations of the magnetopause corresponding to the Kelvin-Helmholtz waves were not seen. These two facts indicated that we should seek for a new explanation for the driver.</p>
 <p>In the 1980s, cavity modes and waveguide modes were proposed to remove the constraint on driven FLR. The analogy of a magnetosphere to a cavity came before the analogy to a waveguide. In a cavity model the azimuthal direction <span class="math inline">\(\phi\)</span> or the <span class="math inline">\(y\)</span> direction in the box geometry is finite, and the wavenumber <span class="math inline">\(k_y\)</span> is determined by the given scale size <span class="math inline">\(b\)</span>. In the axisymmetric cylindrical coordinates <span class="math inline">\((r,\phi,z)\)</span>, where <span class="math inline">\(\phi\)</span> is the azimuthal angle and <span class="math inline">\(z\)</span> is the coordinate along the field lines, the field has the form <span class="math inline">\(\sim e^{im\phi},\, m=0,1,2\)</span>. This is a weak point of the theory because the magnetosphere is far from axisymmetric and there are no other obvious boundaries to define the cavity. If the system is similar to a waveguide, then <span class="math inline">\(k_y\)</span> can have a continuum of values, and the waveguide allows propagation over a wide band of frequencies.</p>
-<p>If instead we use a waveguide model, the azimuthal direction (or <span class="math inline">\(y\)</span>-direction) will have no imposed boundary condition. Theoretically a continuum of wave modes <span class="math inline">\(k_y\)</span> can excite FLR, and the discrete resonance frequencies are determined by the Bohr-Sommerfeld condition <a href="#eq-cavity_eigen_wkb">Equation&nbsp;<span>12.23</span></a> where harmonics of toroidal and poloidal are given by <span class="math inline">\(k_z\)</span>. The discrete frequency spectrum of the fast waveguide modes is suitable for driving a series of Alfvén resonance; however, it is not obvious that the continuous frequency spectrum of the modes will be able to drive resonances at discrete frequencies. A key observation to make waveguide mode more valid is that <em>only small <span class="math inline">\(k_y\)</span> contributes to the resonance</em>. (<span class="citation" data-cites="walker1992spatial">(<a href="#ref-walker1992spatial" role="doc-biblioref">Walker et al. 1992</a>)</span>,[Wright 1992], <span class="citation" data-cites="wright1994">(<a href="#ref-wright1994" role="doc-biblioref">Wright 1994</a>)</span>). If <span class="math inline">\(k_y\)</span> is not fixed (but <span class="math inline">\(k_z\)</span> is fixed), then <a href="#eq-cavity_eigen_wkb">Equation&nbsp;<span>12.23</span></a> is the dispersion relation for the waveguide expressing <span class="math inline">\(\omega\)</span> as a function of <span class="math inline">\(k_y\)</span>. The Alfvén speed is a strong function of the L shell, typically <span class="math inline">\(\sim L^{-3}\)</span>. Thus, if the turning point <span class="math inline">\(x_t\)</span> is reasonably deep within the magnetosphere, the range over which <span class="math inline">\(\omega^2/V_A^2 \gg k_y^2 + k_z^2\)</span> contributes most significantly to the integral <a href="#eq-cavity_eigen_wkb">Equation&nbsp;<span>12.23</span></a>. The result is that over a wide range of wavelengths the frequency is very insensitive to <span class="math inline">\(k_y\)</span>. Only when <span class="math inline">\(k_y\)</span> is quite large this is not true, and then the turning point is near the magnetopause, and the wave does not penetrate very deeply into the magnetosphere. Each waveguide mode has a phase velocity <span class="math inline">\(\omega/k_y\)</span> and a group velocity <span class="math inline">\(\mathrm{d}\omega/dk_y\)</span>. Since <a href="#eq-cavity_eigen_wkb">Equation&nbsp;<span>12.23</span></a> defines <span class="math inline">\(\omega\)</span> as a function of <span class="math inline">\(k_y\)</span>, we can substitute <a href="#eq-flr_kx_effective">Equation&nbsp;<span>12.11</span></a> into <a href="#eq-cavity_eigen_wkb">Equation&nbsp;<span>12.23</span></a> and differentiate with respect to <span class="math inline">\(k_y\)</span> (assuming <span class="math inline">\(\alpha\)</span> is a constant): <span class="math display">\[
+<p>If instead we use a waveguide model, the azimuthal direction (or <span class="math inline">\(y\)</span>-direction) will have no imposed boundary condition. Theoretically a continuum of wave modes <span class="math inline">\(k_y\)</span> can excite FLR, and the discrete resonance frequencies are determined by the Bohr-Sommerfeld condition <a href="#eq-cavity_eigen_wkb" class="quarto-xref">Equation&nbsp;<span>12.23</span></a> where harmonics of toroidal and poloidal are given by <span class="math inline">\(k_z\)</span>. The discrete frequency spectrum of the fast waveguide modes is suitable for driving a series of Alfvén resonance; however, it is not obvious that the continuous frequency spectrum of the modes will be able to drive resonances at discrete frequencies. A key observation to make waveguide mode more valid is that <em>only small <span class="math inline">\(k_y\)</span> contributes to the resonance</em>. (<span class="citation" data-cites="walker1992spatial">(<a href="#ref-walker1992spatial" role="doc-biblioref">Walker et al. 1992</a>)</span>,[Wright 1992], <span class="citation" data-cites="wright1994">(<a href="#ref-wright1994" role="doc-biblioref">Wright 1994</a>)</span>). If <span class="math inline">\(k_y\)</span> is not fixed (but <span class="math inline">\(k_z\)</span> is fixed), then <a href="#eq-cavity_eigen_wkb" class="quarto-xref">Equation&nbsp;<span>12.23</span></a> is the dispersion relation for the waveguide expressing <span class="math inline">\(\omega\)</span> as a function of <span class="math inline">\(k_y\)</span>. The Alfvén speed is a strong function of the L shell, typically <span class="math inline">\(\sim L^{-3}\)</span>. Thus, if the turning point <span class="math inline">\(x_t\)</span> is reasonably deep within the magnetosphere, the range over which <span class="math inline">\(\omega^2/V_A^2 \gg k_y^2 + k_z^2\)</span> contributes most significantly to the integral <a href="#eq-cavity_eigen_wkb" class="quarto-xref">Equation&nbsp;<span>12.23</span></a>. The result is that over a wide range of wavelengths the frequency is very insensitive to <span class="math inline">\(k_y\)</span>. Only when <span class="math inline">\(k_y\)</span> is quite large this is not true, and then the turning point is near the magnetopause, and the wave does not penetrate very deeply into the magnetosphere. Each waveguide mode has a phase velocity <span class="math inline">\(\omega/k_y\)</span> and a group velocity <span class="math inline">\(\mathrm{d}\omega/dk_y\)</span>. Since <a href="#eq-cavity_eigen_wkb" class="quarto-xref">Equation&nbsp;<span>12.23</span></a> defines <span class="math inline">\(\omega\)</span> as a function of <span class="math inline">\(k_y\)</span>, we can substitute <a href="#eq-flr_kx_effective" class="quarto-xref">Equation&nbsp;<span>12.11</span></a> into <a href="#eq-cavity_eigen_wkb" class="quarto-xref">Equation&nbsp;<span>12.23</span></a> and differentiate with respect to <span class="math inline">\(k_y\)</span> (assuming <span class="math inline">\(\alpha\)</span> is a constant): <span class="math display">\[
 \begin{aligned}
 \frac{\partial}{\partial k_y}\int_{x_t}^{x_m}\Big(\frac{\omega^2}{V_A(x)^2}-k_y^2 - k_z^2\Big)^{1/2}dx = 0 \\
 \int_{x_t}^{x_m}\frac{1}{2}k_x^{-1}\Big( \frac{1}{V_A^2}\frac{\partial \omega^2}{\partial k_y} - 2k_y \Big)dx = 0 \\
@@ -769,7 +844,7 @@ v_p v_g \equiv \frac{\omega}{k_y}\frac{\mathrm{d}\omega}{dk_y} = \frac{\int_{x_t
 <p>The RHS is the reciprocal of the weighted mean of <span class="math inline">\(V_A^{-2}\)</span> with weighting function <span class="math inline">\(k_x^{-1}\)</span>. Thus we can write <span id="eq-flr_waveguide_relation_modified"><span class="math display">\[
 v_p v_g = \left&lt;V_A^{-2}\right&gt;^{-1}
 \tag{12.24}\]</span></span></p>
-<p>In a uniform waveguide filled with plasma for which the Alfvén speed was <span class="math inline">\(V_A\)</span> the well-known waveguide relation <a href="#eq-flr_waveguide_relation">Equation&nbsp;<span>12.18</span></a> would be recovered. In this more complicated case where the Alfvén speed is not constant throughout the waveguide the RHS of <a href="#eq-flr_waveguide_relation_modified">Equation&nbsp;<span>12.24</span></a> is an appropriately weight mean of <span class="math inline">\(V_A^{-2}\)</span>. In general the phase velocity <span class="math inline">\(v_p\)</span> is much larger than the mean Alfvén velocity in the guide, and the group velocity <span class="math inline">\(v_g\)</span> is much smaller. This is also consistent with the weak dependence of <span class="math inline">\(\omega\)</span> on <span class="math inline">\(k_y\)</span> such that <span class="math inline">\(v_g\)</span> is small. The consequence is that even if the ends of the guide are open, the time taken for energy to be propagated along it is long compared with the period of the oscillations.</p>
+<p>In a uniform waveguide filled with plasma for which the Alfvén speed was <span class="math inline">\(V_A\)</span> the well-known waveguide relation <a href="#eq-flr_waveguide_relation" class="quarto-xref">Equation&nbsp;<span>12.18</span></a> would be recovered. In this more complicated case where the Alfvén speed is not constant throughout the waveguide the RHS of <a href="#eq-flr_waveguide_relation_modified" class="quarto-xref">Equation&nbsp;<span>12.24</span></a> is an appropriately weight mean of <span class="math inline">\(V_A^{-2}\)</span>. In general the phase velocity <span class="math inline">\(v_p\)</span> is much larger than the mean Alfvén velocity in the guide, and the group velocity <span class="math inline">\(v_g\)</span> is much smaller. This is also consistent with the weak dependence of <span class="math inline">\(\omega\)</span> on <span class="math inline">\(k_y\)</span> such that <span class="math inline">\(v_g\)</span> is small. The consequence is that even if the ends of the guide are open, the time taken for energy to be propagated along it is long compared with the period of the oscillations.</p>
 <p>Therefore, the waveguide model proposes the following explanation. Disturbances in the solar wind move along the magnetopause, producing a disturbance on the boundary which is propagated tailward with speed <span class="math inline">\(v_w\)</span>. Generally <span class="math inline">\(v_w \gg V_A\)</span>. Such a disturbance is likely to excite waveguide modes with phase velocities equal to <span class="math inline">\(v_w\)</span>. Because the frequency of the modes is very insensitive to <span class="math inline">\(k_y\)</span>, the same frequencies (determined by eigenmodes in <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span>) are excited no matter what the velocity. The disturbance moving with the wave can feed energy continuously into it. This then requires <span class="math display">\[
 k_y = \frac{\omega}{v_w}
 \]</span> i.e., <em>the azimuthal wavenumber is determined by the velocity of the source rather than by a boundary condition on <span class="math inline">\(y\)</span></em>. Thus we have a discrete value of wavenumber and a discrete fast mode frequency spectrum, without relying on the resonance modes from the cavity model.</p>
@@ -779,7 +854,7 @@ k_y = \frac{\omega}{v_w}
 <section id="energy-consideration" class="level2" data-number="12.3">
 <h2 data-number="12.3" class="anchored" data-anchor-id="energy-consideration"><span class="header-section-number">12.3</span> Energy Consideration</h2>
 <p>???</p>
-<p>The energy that is carried into the magnetosphere across the background field by the non-guided fast mode is accumulated in the plane of resonant mode coupling (i.e.&nbsp;the y–z plane through <span class="math inline">\(x_r\)</span> in <a href="#fig-box_config">Figure&nbsp;<span>12.3</span></a>) in the form of the guided Alfvén wave. It is this localized accumulation of energy due to resonant mode coupling between a non-guided mode and a guided mode that constitutes a field line resonance. This wave energy accumulation can be described by <span class="math display">\[
+<p>The energy that is carried into the magnetosphere across the background field by the non-guided fast mode is accumulated in the plane of resonant mode coupling (i.e.&nbsp;the y–z plane through <span class="math inline">\(x_r\)</span> in <a href="#fig-box-config" class="quarto-xref">Figure&nbsp;<span>12.3</span></a>) in the form of the guided Alfvén wave. It is this localized accumulation of energy due to resonant mode coupling between a non-guided mode and a guided mode that constitutes a field line resonance. This wave energy accumulation can be described by <span class="math display">\[
 \frac{\partial w}{\partial t} + \nabla\cdot\mathbf{S} = -h
 \]</span> where <span class="math inline">\(w\)</span> is the wave energy density, <span class="math inline">\(\mathbf{S}\)</span> is the Poynting flux, and <span class="math inline">\(h\)</span> a dissipation term, describing energy loss due to e.g.&nbsp;ionospheric Joule heating. As the background parameters only vary in the radial direction, this equation reduces to <span class="math display">\[
 \frac{\partial w}{\partial t} = -\frac{\mathrm{d}}{\mathrm{d}r}S_x - h
@@ -794,20 +869,20 @@ k_y = \frac{\omega}{v_w}
 </section>
 <section id="sec-flr-nonMHD" class="level2" data-number="12.4">
 <h2 data-number="12.4" class="anchored" data-anchor-id="sec-flr-nonMHD"><span class="header-section-number">12.4</span> Non-MHD Effects</h2>
-<p>As been shown in previous sections, some features of the wave absorption can be simply understood using a cold fluid approach. In the cold plasma description, the Alfvén resonance is a singularity of the compressional wave <a href="#eq-flr_wave_bz">Equation&nbsp;<span>12.10</span></a>. The compressional wave equation may be solved by analytic continuation around the Alfvén resonance singularity in which case there is a loss of Poynting flux at the resonance and wave energy is converted to an Alfvén wave. Alternatively, a kinetic description of the mode conversion process involves two propagating modes, i.e.&nbsp;the compressional wave and the dispersive kinetic Alfvén wave, which couple near the resonance location with energy converted from the former to the latter. If we then consider a hot plasma, as the temperature increases the <em>Doppler shift</em> will spread the resonance leading to a more extended coupling region. Thus the inclusion of finite-temperature and <span class="math inline">\(E_\parallel\)</span> (in KAWs) can remove the singularity in the cold fluid model, and the energy absored by the Alfvén resonance shows up as electron heating near the resonance.</p>
+<p>As been shown in previous sections, some features of the wave absorption can be simply understood using a cold fluid approach. In the cold plasma description, the Alfvén resonance is a singularity of the compressional wave <a href="#eq-flr_wave_bz" class="quarto-xref">Equation&nbsp;<span>12.10</span></a>. The compressional wave equation may be solved by analytic continuation around the Alfvén resonance singularity in which case there is a loss of Poynting flux at the resonance and wave energy is converted to an Alfvén wave. Alternatively, a kinetic description of the mode conversion process involves two propagating modes, i.e.&nbsp;the compressional wave and the dispersive kinetic Alfvén wave, which couple near the resonance location with energy converted from the former to the latter. If we then consider a hot plasma, as the temperature increases the <em>Doppler shift</em> will spread the resonance leading to a more extended coupling region. Thus the inclusion of finite-temperature and <span class="math inline">\(E_\parallel\)</span> (in KAWs) can remove the singularity in the cold fluid model, and the energy absored by the Alfvén resonance shows up as electron heating near the resonance.</p>
 <p>As a recap, in a plasma with a 1‐D inhomogeneity in the background plasma parameters along the direction perpendicular to the magnetic field, the linearized MHD equations can be expressed in terms of <span class="math inline">\(\delta p_1 = B_0\delta B_\parallel + \delta p\)</span> and <span class="math inline">\(\delta B_\perp\)</span> by a coupled system of equations <span id="eq-mhd-1d-inhomogeneous-P-Bperp1"><span class="math display">\[
 -i k_\parallel\left( 1-\frac{k_\parallel^2 c_s^2}{\omega^2} \right) \delta p_1 = \left( 1+\frac{c_s^2}{v_A^2}-\frac{k_\parallel^2 c_s^2}{\omega^2} \right) B_0^2 \nabla_\perp\cdot\left( \frac{\delta \mathbf{B}_\perp}{B_0} \right)
 \tag{12.25}\]</span></span> and <span id="eq-mhd-1d-inhomogeneous-P-Bperp2"><span class="math display">\[
 \left( \omega^2 - k_\parallel^2 V_A^2 \right) B_0 \delta\mathbf{B}_\perp = ik_\parallel v_A^2 \nabla_\perp \delta p_1
 \tag{12.26}\]</span></span></p>
-<p>In higher frequency cases, the Alfvén resonance condition <a href="#eq-flr_resonance_dispersion">Equation&nbsp;<span>12.20</span></a> is modified as <span id="eq-alfven-resonance-2fluid"><span class="math display">\[
+<p>In higher frequency cases, the Alfvén resonance condition <a href="#eq-flr_resonance_dispersion" class="quarto-xref">Equation&nbsp;<span>12.20</span></a> is modified as <span id="eq-alfven-resonance-2fluid"><span class="math display">\[
 \omega^2 = k_\parallel^2 V_A^2(1-\omega^2/\omega_{ci}^2)^2
 \tag{12.27}\]</span></span> because of the finite ion Larmor radius effects [Stix, 1992].</p>
 <p>The Alfvén resonance singularity can be removed by including non‐MHD effects such as electron inertia or ion Larmor radius corrections.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>Using the two-fluid theory, <a href="#eq-mhd-1d-inhomogeneous-P-Bperp2">Equation&nbsp;<span>12.26</span></a> can be replaced by <span id="eq-2fluid-1d-inhomogeneous-P-Bperp3"><span class="math display">\[
+<p>Using the two-fluid theory, <a href="#eq-mhd-1d-inhomogeneous-P-Bperp2" class="quarto-xref">Equation&nbsp;<span>12.26</span></a> can be replaced by <span id="eq-2fluid-1d-inhomogeneous-P-Bperp3"><span class="math display">\[
 \left[ \omega^2(1-\lambda_e^2\nabla_\perp^2) -k_\parallel^2 v_A^2(1-r_{Ls}^2\nabla_\perp^2) \right] B_0\delta B_\perp = ik_\parallel v_A^2\nabla_\perp \delta p_1
 \tag{12.28}\]</span></span> which includes electron inertial effects with <span class="math inline">\(\lambda_e = c/\omega_{pe}\)</span> being the plasma skin depth or electron inertial length, and electron pressure effects on the <em>ion acoustic Larmor radius scale</em> <span class="math inline">\(r_{Ls}^2= k_B T_E/m_i\Omega_i^2\)</span>. The relative importance of electron pressure versus electron inertial effects is determined by <span class="math inline">\(r_{Ls}/\lambda_e\)</span>: the pressure effect is dominant if <span class="math inline">\(r_{Ls}/\lambda_e = nk_B T_e/\mu_0 B^2 \sqrt{m_i/m_e} &gt; 1\)</span>, which occurs when <span class="math inline">\(\beta_e / 2 &gt; \sqrt{m_e/m_i} = 0.02\)</span>. Near the magnetopause, electron inertial effects are typically not important except at locations where <span class="math inline">\(k_\parallel \rightarrow 0\)</span> such as in a sheared field or reconnection geometry.</p>
-<p>Thus what’s usually been considered to remove the singularity is the ion kinetic effects, where we end up coupling fast waves with kinetic Alfvén waves of the dispersion relation <a href="wave.html#eq-kaw_dispersion_ion_approxi">Equation&nbsp;<span>7.78</span></a>. Using the kinetic theory <a href="#eq-mhd-1d-inhomogeneous-P-Bperp2">Equation&nbsp;<span>12.26</span></a> can be modified as <span id="eq-kinetic-1d-inhomogeneous-P-Bperp"><span class="math display">\[
+<p>Thus what’s usually been considered to remove the singularity is the ion kinetic effects, where we end up coupling fast waves with kinetic Alfvén waves of the dispersion relation <a href="wave.html#eq-kaw_dispersion_ion_approxi" class="quarto-xref">Equation&nbsp;<span>7.78</span></a>. Using the kinetic theory <a href="#eq-mhd-1d-inhomogeneous-P-Bperp2" class="quarto-xref">Equation&nbsp;<span>12.26</span></a> can be modified as <span id="eq-kinetic-1d-inhomogeneous-P-Bperp"><span class="math display">\[
 \left[ \omega^2 \hat{K}_1 - k_\parallel^2 v_A^2\left( 1+\frac{T_e}{T_i}\hat{K}_2 \right) \right] B_0\delta B_\perp = ik_\parallel v_A^2\nabla_\perp \delta p_1
 \tag{12.29}\]</span></span> where <span class="math display">\[
 \begin{aligned}
@@ -815,21 +890,21 @@ k_y = \frac{\omega}{v_w}
 \hat{K}_2 = ???
 \end{aligned}
 \]</span></p>
-<p>It can shown that under certain approximations (Pade approximation and <span class="math inline">\(\zeta_e\ll 1\)</span>), the left hand side of <a href="#eq-kinetic-1d-inhomogeneous-P-Bperp">Equation&nbsp;<span>12.29</span></a> becomes the kinetic Alfvén wave <span id="eq-1d-kaw"><span class="math display">\[
+<p>It can shown that under certain approximations (Pade approximation and <span class="math inline">\(\zeta_e\ll 1\)</span>), the left hand side of <a href="#eq-kinetic-1d-inhomogeneous-P-Bperp" class="quarto-xref">Equation&nbsp;<span>12.29</span></a> becomes the kinetic Alfvén wave <span id="eq-1d-kaw"><span class="math display">\[
 k_\parallel^2 v_A^2 \left[ 1 + \left(1+\frac{T_e}{T_i}\right)k_\perp^2 r_{iL}^2 \right] = ik_\parallel v_A^2\nabla_\perp \delta p_1
 \tag{12.30}\]</span></span></p>
 <p>Ion Landau damping may be important when <span class="math inline">\(\zeta_i = \omega/\sqrt{2}k_\parallel v_{i,th} \sim 1\)</span> (I can feel this from Bellan, but how exactly???).</p>
-<p>From the cold MHD theory the nonzero azimuthal/y wavenumber is necessary for wave coupling (<a href="#eq-flr_box_displacement_b1z">Equation&nbsp;<span>12.16</span></a>). However, finite-frequency effects can remove the decoupling when <span class="math inline">\(k_y=0\)</span>, as orginally noted by <span class="citation" data-cites="karney1979alfven">(<a href="#ref-karney1979alfven" role="doc-biblioref">1979</a>)</span>. The energy absorption rate can be expressed as a function of <span class="math inline">\(k_y\)</span> and <span class="math inline">\(k_z\)</span> so even if <span class="math inline">\(k_y=0\)</span>, as long as <span class="math inline">\(k_z l^2 (\omega/\Omega_i)\neq 0\)</span> (<span class="math inline">\(l\)</span> is a length scale related to <span class="math inline">\(\omega, v_A, \Omega_i\)</span>, and <span class="math inline">\(k_z\)</span>), we can still get energy absorption.</p>
+<p>From the cold MHD theory the nonzero azimuthal/y wavenumber is necessary for wave coupling (<a href="#eq-flr_box_displacement_b1z" class="quarto-xref">Equation&nbsp;<span>12.16</span></a>). However, finite-frequency effects can remove the decoupling when <span class="math inline">\(k_y=0\)</span>, as orginally noted by <span class="citation" data-cites="karney1979alfven">(<a href="#ref-karney1979alfven" role="doc-biblioref">1979</a>)</span>. The energy absorption rate can be expressed as a function of <span class="math inline">\(k_y\)</span> and <span class="math inline">\(k_z\)</span> so even if <span class="math inline">\(k_y=0\)</span>, as long as <span class="math inline">\(k_z l^2 (\omega/\Omega_i)\neq 0\)</span> (<span class="math inline">\(l\)</span> is a length scale related to <span class="math inline">\(\omega, v_A, \Omega_i\)</span>, and <span class="math inline">\(k_z\)</span>), we can still get energy absorption.</p>
 </section>
 <section id="nonlinear-effects" class="level2" data-number="12.5">
 <h2 data-number="12.5" class="anchored" data-anchor-id="nonlinear-effects"><span class="header-section-number">12.5</span> Nonlinear Effects</h2>
-<p>Cold ions theory and an extension to finite <span class="math inline">\(k_\perp r_{iL}\)</span> predict that a pump KAW can nonlinearly decay into an ion acoustic mode and a lower-sideband daughter KAW through a parametric instability (<a href="nonlinear.html#sec-parametric"><span>Section&nbsp;13.4</span></a>).</p>
+<p>Cold ions theory and an extension to finite <span class="math inline">\(k_\perp r_{iL}\)</span> predict that a pump KAW can nonlinearly decay into an ion acoustic mode and a lower-sideband daughter KAW through a parametric instability (<a href="nonlinear.html#sec-parametric" class="quarto-xref"><span>Section 13.4</span></a>).</p>
 </section>
 <section id="d-flr" class="level2" data-number="12.6">
 <h2 data-number="12.6" class="anchored" data-anchor-id="d-flr"><span class="header-section-number">12.6</span> 3D FLR</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-glassmeier1999" class="csl-entry" role="listitem">
 Glassmeier, Karl-Heinz, Carsten Othmer, Rüdiger Cramm, Martin Stellmacher, and Mark Engebretson. 1999. <span>“Magnetospheric Field Line Resonances: A Comparative Planetology Approach.”</span> <em>Surveys in Geophysics</em> 20 (1): 61–109. <a href="https://doi.org/10.1023/A:1006659717963">https://doi.org/10.1023/A:1006659717963</a>.
 </div>
@@ -913,6 +988,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -979,13 +1081,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1064,10 +1168,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1077,8 +1180,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1091,6 +1203,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1134,6 +1365,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1159,6 +1391,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1220,12 +1478,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../contents/gyrokinetics.html" class="pagination-link">
+      <a href="../contents/gyrokinetics.html" class="pagination-link  aria-label=" &lt;span="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../contents/nonlinear.html" class="pagination-link">
+      <a href="../contents/nonlinear.html" class="pagination-link" aria-label="<span class='chapter-number'>13</span>&nbsp; <span class='chapter-title'>Nonlinear Effects</span>">
         <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1234,4 +1492,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/flr.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

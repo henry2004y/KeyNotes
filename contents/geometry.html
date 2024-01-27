@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -68,7 +69,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -77,6 +84,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -86,6 +94,33 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -94,12 +129,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/geometry.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/geometry.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -109,12 +144,12 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -315,7 +350,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -339,7 +374,7 @@ div.csl-indent {
   <li><a href="#flux-rope-identification" id="toc-flux-rope-identification" class="nav-link" data-scroll-target="#flux-rope-identification"><span class="header-section-number">15.6</span> Flux Rope Identification</a></li>
   <li><a href="#magnetospause-identification" id="toc-magnetospause-identification" class="nav-link" data-scroll-target="#magnetospause-identification"><span class="header-section-number">15.7</span> Magnetospause Identification</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/geometry.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/geometry.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -359,7 +394,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <p>This chapter introduces the topology-related concepts in plasma physics, including ropes, knots, boundaries, and null points. Usually, observers and modelers have different views of topology because of the tools at hand: observers have probes which give measurements as a function of both time and space, while modelers have full spatial-temporal information under the given resolution. It always amazes me how observers can deduce the general picture of plasma structures with such limited data. Incorporating observation experience into physics as well as diagnosing numerical simulations with physics are our main goals in studing geometry.</p>
 <p>Generally speaking, there are two ways of tackling the geometry problems: physics-based methods and statistical methods (classical and machine learning). We may find harmony when combining these two families and reach optimal results.</p>
@@ -371,10 +408,14 @@ div.csl-indent {
 <li><p>Minimum Gradient Analysis (MGA): In MGA, local orthogonal coordinate directions can be obtained from eigenvectors of <span class="math inline">\(\overleftrightarrow{G}\overleftrightarrow{G}^\intercal\)</span>.</p></li>
 </ul>
 <p>MGA produces a set of basis vectors that are analogous with the ones from Minimum Variance Analysis (<a href="https://henry2004y.github.io/VisAnaJulia/dev/man/analysis/#Minimum-Variance-Analysis-1">MVA</a>), with the eigenvector corresponding to the largest eigenvalue aligned with the vector that has maximal variation (which is denoted by <span class="math inline">\(\hat{L}_\mathrm{MGA}\)</span>), the second one corresponding to the intermediate (<span class="math inline">\(\hat{M}_\mathrm{MGA}\)</span>) and third the least variation (<span class="math inline">\(\hat{N}_\mathrm{MGA}\)</span>). MDD produces a set of basis vectors where the eigenvector corresponding to the largest eigenvalue shows the direction of the displacement which produces the largest variation in <span class="math inline">\(\mathbf{B}\)</span> (the cross-sheet direction in a Harris current sheet; <span class="math inline">\(\hat{L}_\mathrm{MDD}\)</span>), idem with smaller eigenvalues (<span class="math inline">\(\hat{M}_\mathrm{MDD}\)</span> and <span class="math inline">\(\hat{N}_\mathrm{MDD}\)</span>, respectively). Both of these eigensystems have the same eigenvalues, but the eigenvectors differ and are not necessarily aligned with each others. We note here that for a one-dimensional structure, both of these eigensystem have only one well-defined eigenvector, and that for a 1D current sheet structure, the well-defined eigenvectors of different bases are orthogonal to each others, as shown in Figure~<span class="math inline">\(\ref{fig:shirepro}\)</span>.</p>
-<div id="fig-mva_mdd" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/MVA_MDD.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;15.1: a) MVA (MGA) and b) MDD eigenvectors <span class="math inline">\(\vec{n}_\mathrm{max},\vec{n}_\mathrm{mid},\vec{n}_\mathrm{min}\)</span>, corresponding to largest, middle and minimum eigenvalues in a 1-D current sheet.</figcaption>
+<div id="fig-mva-mdd" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mva-mdd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/MVA_MDD.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mva-mdd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15.1: a) MVA (MGA) and b) MDD eigenvectors <span class="math inline">\(\vec{n}_\mathrm{max},\vec{n}_\mathrm{mid},\vec{n}_\mathrm{min}\)</span>, corresponding to largest, middle and minimum eigenvalues in a 1-D current sheet.
+</figcaption>
 </figure>
 </div>
 <section id="dimensionality" class="level3" data-number="15.1.1">
@@ -399,10 +440,14 @@ div.csl-indent {
 <section id="reconnection-identification" class="level2" data-number="15.2">
 <h2 data-number="15.2" class="anchored" data-anchor-id="reconnection-identification"><span class="header-section-number">15.2</span> Reconnection Identification</h2>
 <p>Here we present analytical fields for an X-point configuration and an O-point configuration, respectively.</p>
-<div id="fig-x_o_points" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/x_o_point.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;15.2: Example of (a) O-point and (b) X-point.</figcaption>
+<div id="fig-x-o-points" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-x-o-points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/x_o_point.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-x-o-points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15.2: Example of (a) O-point and (b) X-point.
+</figcaption>
 </figure>
 </div>
 <section id="d" class="level3" data-number="15.2.1">
@@ -416,10 +461,14 @@ div.csl-indent {
 \mathbf{B} = B_x\hat{x} + B_z\hat{z} = \hat{y}\times\nabla\psi
 \]</span></p>
 <p>The null points are simple saddle points and extremas of the flux function.</p>
-<div id="fig-mva_mdd" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/MVA_MDD.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;15.3: Neutral point classification in a well-defined local coordinate system. On the plane where <span class="math inline">\(B_L=0\)</span> and on the subset of that plane where <span class="math inline">\(B_N = 0\)</span>, the O-points have <span class="math inline">\(\partial{}B_N/\partial{}L &lt; 0\)</span>, and X-points <span class="math inline">\(\partial{}B_N/\partial{}L &gt; 0\)</span>. Note that this classification assumes a right-handed coordinate system.</figcaption>
+<div id="fig-mva-mdd" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mva-mdd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/MVA_MDD.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mva-mdd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15.3: Neutral point classification in a well-defined local coordinate system. On the plane where <span class="math inline">\(B_L=0\)</span> and on the subset of that plane where <span class="math inline">\(B_N = 0\)</span>, the O-points have <span class="math inline">\(\partial B_N/\partial L &lt; 0\)</span>, and X-points <span class="math inline">\(\partial B_N/\partial L &gt; 0\)</span>. Note that this classification assumes a right-handed coordinate system.
+</figcaption>
 </figure>
 </div>
 </section>
@@ -438,21 +487,29 @@ div.csl-indent {
 \partial_x u &amp; \partial_y u \\ \partial_x v &amp; \partial_y v
 \end{pmatrix}\Bigg\rvert_{x_0, y_0}
 \tag{15.1}\]</span></span></p>
-<p>As seen in <a href="#fig-critical-pts-2d">Figure&nbsp;<span>15.4</span></a> these 6 different types are classified by the sign of the real and imaginary part of the eigenvalues. The real part of the eigenvalue gives rise to an attraction (if <span class="math inline">\(RE &lt; 0\)</span>) or a repulsion (if <span class="math inline">\(RE &gt; 0\)</span>). The imaginary part of the eigenvalue give rise to a rotation of vector field around the critical point. When we have an imaginary eigenvalue we are left with an entirely rotational vector field around the critical point.</p>
-<div id="fig-critical-pts-2d" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/critical_points_2d.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;15.4: Classification of critical points, here Re1/Re2 is the real part of the first/second eigenvalue and Im1/Im2 is the imaginary part of the first/second eigenvalue.</figcaption>
+<p>As seen in <a href="#fig-critical-pts-2d" class="quarto-xref">Figure&nbsp;<span>15.4</span></a> these 6 different types are classified by the sign of the real and imaginary part of the eigenvalues. The real part of the eigenvalue gives rise to an attraction (if <span class="math inline">\(RE &lt; 0\)</span>) or a repulsion (if <span class="math inline">\(RE &gt; 0\)</span>). The imaginary part of the eigenvalue give rise to a rotation of vector field around the critical point. When we have an imaginary eigenvalue we are left with an entirely rotational vector field around the critical point.</p>
+<div id="fig-critical-pts-2d" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-critical-pts-2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/critical_points_2d.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-critical-pts-2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15.4: Classification of critical points, here Re1/Re2 is the real part of the first/second eigenvalue and Im1/Im2 is the imaginary part of the first/second eigenvalue.
+</figcaption>
 </figure>
 </div>
 <p>The most important critical point is the <em>saddle point</em> here we have a combination of attraction in one direction and repulsion in the other. The importance of saddle points as we shall see in the next section is that the tangent curves near a critical point determine the global structure of the flow.</p>
 <p>A critical point is called <em>hyperbolic</em> if it does not have any eigenvalues with zero real part. Hyperbolic critical points are structurally stable, i.e., a small perturbation does not change their topology.</p>
 <p>Besides critical points there are also so-called attachment/detachment nodes. These are points on the wall of an object where tangent curves terminate or begin.</p>
-<p>In 3D, the most common (i.e., nondegenerate) types of critical points are sources, sinks, repelling saddles, and attracting saddles, visualized in <a href="#fig-critical-pts-3d">Figure&nbsp;<span>15.5</span></a> (<span class="citation" data-cites="bujack2021open">(<a href="#ref-bujack2021open" role="doc-biblioref">Bujack et al. 2021</a>)</span>). Each of these types may imply a rotating pattern in a certain plane depending on the presence of eigenvalues with nonzero imaginary part. This gives rise to the eight cases shown in the figure. A 2D separatrix and two 1D separatrices originate or terminate at a saddle (if the 2D separatrix originates at the saddle, then the 1D separatrices terminate at the saddle, and vice-versa). The directions along which the separatrices approach the saddle are given by the eigenvectors of <span class="math inline">\(\nabla v\)</span>. The 1D separatrices are computed by placing two seeds at a small user-defined offset of the saddle in the direction of the eigenvectors of <span class="math inline">\(\nabla v\)</span> corresponding to the eigenvalue whose sign appears only once. The trajectories from these seeds are integrated as explained above. The 2D separatrix is computed by placing eight seeds at a small user-defined offset of the saddle in the plane spanned by the eigenvectors of ∇v corresponding to the eigenvalues whose signs appear twice. These seeds are the base for integrating a surface — the separatrix.</p>
-<div id="fig-critical-pts-3d" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/critical_points_3d.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;15.5: The different types of nondegenerate 3D critical points visualized with streamlines color coded in red/blue for forward/backward integration and line integral convolution in the plane of the common sign. Here the presence of the subscript <span class="math inline">\(i\)</span> means all <span class="math inline">\(i \in (1, 2, 3)\)</span>, and the order of the eigenvalues does not matter.</figcaption>
+<p>In 3D, the most common (i.e., nondegenerate) types of critical points are sources, sinks, repelling saddles, and attracting saddles, visualized in <a href="#fig-critical-pts-3d" class="quarto-xref">Figure&nbsp;<span>15.5</span></a> (<span class="citation" data-cites="bujack2021open">(<a href="#ref-bujack2021open" role="doc-biblioref">Bujack et al. 2021</a>)</span>). Each of these types may imply a rotating pattern in a certain plane depending on the presence of eigenvalues with nonzero imaginary part. This gives rise to the eight cases shown in the figure. A 2D separatrix and two 1D separatrices originate or terminate at a saddle (if the 2D separatrix originates at the saddle, then the 1D separatrices terminate at the saddle, and vice-versa). The directions along which the separatrices approach the saddle are given by the eigenvectors of <span class="math inline">\(\nabla v\)</span>. The 1D separatrices are computed by placing two seeds at a small user-defined offset of the saddle in the direction of the eigenvectors of <span class="math inline">\(\nabla v\)</span> corresponding to the eigenvalue whose sign appears only once. The trajectories from these seeds are integrated as explained above. The 2D separatrix is computed by placing eight seeds at a small user-defined offset of the saddle in the plane spanned by the eigenvectors of ∇v corresponding to the eigenvalues whose signs appear twice. These seeds are the base for integrating a surface — the separatrix.</p>
+<div id="fig-critical-pts-3d" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-critical-pts-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/critical_points_3d.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-critical-pts-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15.5: The different types of nondegenerate 3D critical points visualized with streamlines color coded in red/blue for forward/backward integration and line integral convolution in the plane of the common sign. Here the presence of the subscript <span class="math inline">\(i\)</span> means all <span class="math inline">\(i \in (1, 2, 3)\)</span>, and the order of the eigenvalues does not matter.
+</figcaption>
 </figure>
 </div>
 <p>The most important input parameters are the distance in which the separatrices are seeded away from the saddles and the parameters that are handed off to the streamline and streamsurface integrators, like step sizes and maximum number of steps.</p>
@@ -467,10 +524,14 @@ div.csl-indent {
 <li>Classifying them based on the eigenvalues of their Jacobian</li>
 <li>Seeding separatrices in a small offset of the saddles in the direction of their eigenvectors</li>
 </ul>
-<div id="fig-separatrices-2d" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/separatries_identification.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;15.6: Identification of separatrices in 2D.</figcaption>
+<div id="fig-separatrices-2d" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-separatrices-2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/separatries_identification.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-separatrices-2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15.6: Identification of separatrices in 2D.
+</figcaption>
 </figure>
 </div>
 <p>In 3D, instead of lines we may have separatrix surfaces.</p>
@@ -527,7 +588,7 @@ H = \int_V \mathbf{A}\cdot\mathbf{B} - \mathbf{A}_0\cdot\mathbf{B}_0 dV
 </section>
 <section id="sec-cross_helicity" class="level2" data-number="15.5">
 <h2 data-number="15.5" class="anchored" data-anchor-id="sec-cross_helicity"><span class="header-section-number">15.5</span> Cross Helicity</h2>
-<p>The cross helicity measures the imbalance between interacting waves, which is important in MHD turbulence (<a href="turbulence.html#sec-turbulence_cross_helicity"><span>Section&nbsp;14.1.5</span></a>). It is given by <span id="eq-cross_helicity"><span class="math display">\[
+<p>The cross helicity measures the imbalance between interacting waves, which is important in MHD turbulence (<a href="turbulence.html#sec-turbulence_cross_helicity" class="quarto-xref"><span>Section 14.1.5</span></a>). It is given by <span id="eq-cross_helicity"><span class="math display">\[
 H_C = \int_V \mathbf{v}\cdot\mathbf{B} dV
 \tag{15.5}\]</span></span></p>
 <p>In ideal MHD, the rate of change of <span class="math inline">\(H_C\)</span> is <span class="math display">\[
@@ -555,7 +616,7 @@ H_C = \int_V \mathbf{v}\cdot\mathbf{B} dV
 \]</span></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-bujack2021open" class="csl-entry" role="listitem">
 Bujack, Roxana, Karen Tsai, Steven K Morley, and Etienne Bresciani. 2021. <span>“Open Source Vector Field Topology.”</span> <em>SoftwareX</em> 15: 100787. <a href="https://doi.org/10.1016/j.softx.2021.100787">https://doi.org/10.1016/j.softx.2021.100787</a>.
 </div>
@@ -620,6 +681,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -688,13 +776,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -773,10 +863,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -786,8 +875,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -800,6 +898,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -843,6 +1060,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -868,6 +1086,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -929,12 +1173,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../contents/turbulence.html" class="pagination-link">
+      <a href="../contents/turbulence.html" class="pagination-link  aria-label=" &lt;span="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../contents/solarwind.html" class="pagination-link">
+      <a href="../contents/solarwind.html" class="pagination-link" aria-label="<span class='chapter-number'>16</span>&nbsp; <span class='chapter-title'>Solar Wind</span>">
         <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solar Wind</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -943,4 +1187,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/geometry.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

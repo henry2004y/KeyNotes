@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -102,7 +103,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -111,6 +118,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -120,6 +128,33 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -128,12 +163,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/math.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/math.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -143,12 +178,12 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -349,7 +384,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -385,7 +420,7 @@ div.csl-indent {
   </ul></li>
   <li><a href="#wavelet-analysis" id="toc-wavelet-analysis" class="nav-link" data-scroll-target="#wavelet-analysis"><span class="header-section-number">3.14</span> Wavelet Analysis</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/math.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/math.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -405,7 +440,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <section id="vector-identities" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="vector-identities"><span class="header-section-number">3.1</span> Vector Identities</h2>
@@ -566,16 +603,20 @@ f(\omega)=\Big(\oint_C-\int_{C_R}\Big)\frac{dv e^{iv}}{v-\omega}=2\pi i e^{i\ome
 &amp;=1-\frac{{\omega_{pe}}^2}{k^2}\Big[  P\int_{-\infty}^{\infty}dv\frac{\partial g(v)\partial v}{v-\omega/k}+i\pi\frac{\partial g(v)}{\partial v}\big|_{v=\frac{\omega}{k}} \Big]
 \end{aligned}
 \]</span></p>
-<p>where <span class="math inline">\(P\)</span> denotes the principle value integral. This is the same as <a href="kinetic.html#eq-landau_residue">Equation&nbsp;<span>8.31</span></a> that will be discussed in <a href="kinetic.html#sec-landau"><span>Section&nbsp;8.5</span></a>.</p>
+<p>where <span class="math inline">\(P\)</span> denotes the principle value integral. This is the same as <a href="kinetic.html#eq-landau_residue" class="quarto-xref">Equation&nbsp;<span>8.31</span></a> that will be discussed in <a href="kinetic.html#sec-landau" class="quarto-xref"><span>Section 8.5</span></a>.</p>
 </section>
 <section id="electromagnetic-four-potential" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="electromagnetic-four-potential"><span class="header-section-number">3.5</span> Electromagnetic Four-Potential</h2>
 <p>An <a href="https://en.wikipedia.org/wiki/Electromagnetic_four-potential">electromagnetic four-potential</a> is a relativistic vector function from which the electromagnetic field can be derived. It combines both an electric scalar potential and a magnetic vector potential into a single four-vector.</p>
 <p>As measured in a given frame of reference, and for a given gauge, the first component of the electromagnetic four-potential is conventionally taken to be the electric scalar potential, and the other three components make up the magnetic vector potential. While both the scalar and vector potential depend upon the frame, the electromagnetic four-potential is Lorentz covariant.</p>
 <p>The electromagnetic four-potential can be defined as:</p>
-<div id="tbl-em-four-potential" class="anchored">
+<div id="tbl-em-four-potential" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-em-four-potential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.1: Electromagnetic four-potential
+</figcaption>
+<div aria-describedby="tbl-em-four-potential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
-<caption>Table&nbsp;3.1: Electromagnetic four-potential</caption>
 <colgroup>
 <col style="width: 38%">
 <col style="width: 61%">
@@ -594,11 +635,17 @@ f(\omega)=\Big(\oint_C-\int_{C_R}\Big)\frac{dv e^{iv}}{v-\omega}=2\pi i e^{i\ome
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 <p>in which <span class="math inline">\(\phi\)</span> is the electric potential, and <span class="math inline">\(\mathbf{A}\)</span> is the magnetic potential (a vector potential).</p>
 <p>The electric and magnetic fields associated with these four-potentials are:</p>
-<div id="tbl-em-fields-four-potential" class="anchored">
+<div id="tbl-em-fields-four-potential" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-em-fields-four-potential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.2: Electromagnetic fields from the four-potential
+</figcaption>
+<div aria-describedby="tbl-em-fields-four-potential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
-<caption>Table&nbsp;3.2: Electromagnetic fields from the four-potential</caption>
 <colgroup>
 <col style="width: 38%">
 <col style="width: 61%">
@@ -620,6 +667,8 @@ f(\omega)=\Big(\oint_C-\int_{C_R}\Big)\frac{dv e^{iv}}{v-\omega}=2\pi i e^{i\ome
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
 </div>
 </section>
 <section id="helmholtzs-theorem" class="level2" data-number="3.6">
@@ -648,10 +697,14 @@ f(\omega)=\Big(\oint_C-\int_{C_R}\Big)\frac{dv e^{iv}}{v-\omega}=2\pi i e^{i\ome
 <section id="toroidal-and-poloidal-decomposition" class="level2" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="toroidal-and-poloidal-decomposition"><span class="header-section-number">3.7</span> Toroidal and Poloidal Decomposition</h2>
 <p>The earliest use of these terms cited by the Oxford English Dictionary (OED) is by Walter M. Elsasser (1946) in the context of the generation of the Earth’s magnetic field by currents in the core, with “toroidal” being parallel to lines of latitude and “poloidal” being in the direction of the magnetic field (i.e.&nbsp;towards the poles).</p>
-<div id="fig-toroidal_poloidal" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/toroidal_poloidal.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.1: Toroidal-Poloidal Decomposition.</figcaption>
+<div id="fig-toroidal-poloidal" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-toroidal-poloidal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/toroidal_poloidal.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-toroidal-poloidal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Toroidal-Poloidal Decomposition.
+</figcaption>
 </figure>
 </div>
 <p>The OED also records the later usage of these terms in the context of toroidally confined plasmas, as encountered in magnetic confinement fusion. In the plasma context, the toroidal direction is the long way around the torus, the corresponding coordinate being denoted by z in the slab approximation or <span class="math inline">\(\zeta\)</span> or <span class="math inline">\(\phi\)</span> in magnetic coordinates; the poloidal direction is the short way around the torus, the corresponding coordinate being denoted by y in the slab approximation or <span class="math inline">\(\theta\)</span> in magnetic coordinates. (The third direction, normal to the magnetic surfaces, is often called the “radial direction”, denoted by x in the slab approximation and variously <span class="math inline">\(\psi\)</span>, <span class="math inline">\(\chi\)</span>, r, <span class="math inline">\(\rho\)</span>, or <span class="math inline">\(s\)</span> in magnetic coordinates.)</p>
@@ -780,7 +833,7 @@ G(x,0)&amp;=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}dk=\frac{1}{2i\pi x}e^{i
 <p>Thus <span id="eq-perturb_k_bhat"><span class="math display">\[
 \mathbf{k}\cdot\hat{\mathbf{b}} = \mathbf{k}\cdot\frac{\delta \mathbf{B}_\perp}{B} = \frac{k_\perp \delta B_\perp}{B} = -k_\parallel\frac{\delta B_\parallel}{B} = -k_\parallel\frac{\delta B}{B}
 \tag{3.9}\]</span></span></p>
-<p>These seemingly trivial relations have profound implications in physics. <a href="#eq-perturb_b">Equation&nbsp;<span>3.7</span></a> tells us that the perturbation of magnetic field magnitude has only contribution from the parallel component, which is why in satellite observations people only look at parallel perturbations for compressional wave modes. <a href="#eq-perturb_bhat">Equation&nbsp;<span>3.8</span></a> tells us that the perturbation in the unit vector is only related to the perpendicular fluctuations.</p>
+<p>These seemingly trivial relations have profound implications in physics. <a href="#eq-perturb_b" class="quarto-xref">Equation&nbsp;<span>3.7</span></a> tells us that the perturbation of magnetic field magnitude has only contribution from the parallel component, which is why in satellite observations people only look at parallel perturbations for compressional wave modes. <a href="#eq-perturb_bhat" class="quarto-xref">Equation&nbsp;<span>3.8</span></a> tells us that the perturbation in the unit vector is only related to the perpendicular fluctuations.</p>
 </section>
 <section id="sec-WKB" class="level2" data-number="3.11">
 <h2 data-number="3.11" class="anchored" data-anchor-id="sec-WKB"><span class="header-section-number">3.11</span> Wave Equations</h2>
@@ -791,14 +844,14 @@ G(x,0)&amp;=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}dk=\frac{1}{2i\pi x}e^{i
 <p><span class="math display">\[
 \frac{\mathrm{d}^2\varphi}{\mathrm{d}x^2} + \frac{2m}{\hbar^2}\big[ E-U(x)\big]\varphi= 0
 \]</span></p>
-<p>Schrödinger Equation appears in the nonlinear wave studies (<a href="nonlinear.html"><span>Chapter&nbsp;13</span></a>).</p>
+<p>Schrödinger Equation appears in the nonlinear wave studies (<a href="nonlinear.html" class="quarto-xref"><span>Chapter 13</span></a>).</p>
 <ul>
 <li>Shear Alfvén wave:</li>
 </ul>
 <p><span class="math display">\[
 \frac{\mathrm{d}}{\mathrm{d}x}\Big\{ \rho_0 \big[ \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A(x))^2 \big]\frac{dE}{\mathrm{d}x} \Big\} - k^2\rho_0 \big[ \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2 - g\frac{1}{\rho_0}\frac{\mathrm{d}\rho_0}{\mathrm{d}x} \big]E = 0
 \]</span></p>
-<p>The Shear Alfvén wave equation appears in nonuniform ideal MHD (<a href="wave.html#eq-mhd_cold_e_wave">Equation&nbsp;<span>7.27</span></a>, <a href="flr.html#eq-flr_wave_ey">Equation&nbsp;<span>12.8</span></a>).</p>
+<p>The Shear Alfvén wave equation appears in nonuniform ideal MHD (<a href="wave.html#eq-mhd_cold_e_wave" class="quarto-xref">Equation&nbsp;<span>7.27</span></a>, <a href="flr.html#eq-flr_wave_ey" class="quarto-xref">Equation&nbsp;<span>12.8</span></a>).</p>
 <ul>
 <li>EM waves in non-magnetized plasma, O mode:</li>
 </ul>
@@ -821,7 +874,7 @@ u(x) = E(x) e^{-\frac{1}{2}\int^x a_1(x)\mathrm{d}x}
 k^2(x) = a_2(x) - \frac{{a_1}^2}{4} -\frac{1}{2}\frac{\mathrm{d} a_1(x)}{\mathrm{d}x}
 \]</span></p>
 <p>Note that the lower bound of the integral is left on purpose to account for a constant. We will concentrate at special points, i.e.&nbsp;zeros (cutoff) and poles (resonance) of <span class="math inline">\(k^2(x)\equiv \frac{\omega^2}{c^2}n^2(x)\)</span>.</p>
-<p>First, we will introduce <em>Wentzel–Kramers–Brillouin-Jeffreys</em> (<a href="https://en.wikipedia.org/wiki/WKB_approximation">WKBJ</a>) solution to <a href="#eq-2nd_ODE">Equation&nbsp;<span>3.11</span></a>: <span class="math display">\[
+<p>First, we will introduce <em>Wentzel–Kramers–Brillouin-Jeffreys</em> (<a href="https://en.wikipedia.org/wiki/WKB_approximation">WKBJ</a>) solution to <a href="#eq-2nd_ODE" class="quarto-xref">Equation&nbsp;<span>3.11</span></a>: <span class="math display">\[
 E(x) \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x^\prime)\mathrm{d}x^\prime}.
 \]</span></p>
 <p><em>Proof</em>.</p>
@@ -854,7 +907,7 @@ x(t)\sim\frac{1}{\sqrt{\Omega}}e^{\pm i \Phi(t)} \sim\frac{1}{\sqrt{\Omega}} e^{
 <p>Note:</p>
 <ol type="1">
 <li>There is no lower limit to the integral, because it is like adding a constant.</li>
-<li>This solution is valid if <span class="math inline">\(k\cdot L &gt; O(3)\)</span>, where <span class="math inline">\(L\)</span> is the length scale over which <span class="math inline">\(k^2(x)\)</span> changes appreciably. (???)Formally the condition should be <span class="math inline">\(kL\gg 1\)</span>. Apparently near resonance (<span class="math inline">\(k\rightarrow\infty\)</span>), the condition breaks down, then how do we reconcile the solution? There are more discussions coming up and applications in <a href="wave.html"><span>Chapter&nbsp;7</span></a> and <a href="flr.html"><span>Chapter&nbsp;12</span></a>.</li>
+<li>This solution is valid if <span class="math inline">\(k\cdot L &gt; O(3)\)</span>, where <span class="math inline">\(L\)</span> is the length scale over which <span class="math inline">\(k^2(x)\)</span> changes appreciably. (???)Formally the condition should be <span class="math inline">\(kL\gg 1\)</span>. Apparently near resonance (<span class="math inline">\(k\rightarrow\infty\)</span>), the condition breaks down, then how do we reconcile the solution? There are more discussions coming up and applications in <a href="wave.html" class="quarto-xref"><span>Chapter 7</span></a> and <a href="flr.html" class="quarto-xref"><span>Chapter 12</span></a>.</li>
 </ol>
 <section id="sec-airy" class="level3" data-number="3.11.1">
 <h3 data-number="3.11.1" class="anchored" data-anchor-id="sec-airy"><span class="header-section-number">3.11.1</span> Airy Function</h3>
@@ -876,7 +929,7 @@ k^2(x) \approx -{k_0}^2 a(x-x_t)
 <p>If we choose <span class="math inline">\(l\)</span> s.t. <span class="math inline">\(l^3 {k_0}^2 a =1\)</span> (non-dimensional treatment), we obtain <span id="eq-stokes"><span class="math display">\[
 \frac{\mathrm{d}^2 E}{\mathrm{d}\zeta^2} - \zeta E(\zeta) = 0
 \tag{3.12}\]</span></span></p>
-<p>which is equivalent to the case where <span class="math inline">\(k^2(\zeta)=-\zeta\)</span> that shows the linear approximation. <a href="#eq-stokes">Equation&nbsp;<span>3.12</span></a>, known as the <em>Airy equation</em> or <em>Stokes equation</em>, is the simplest second-order linear differential equation with a turning point (a point where the character of the solutions changes from oscillatory to exponential). From the WKBJ theory, we get the solution <span class="math display">\[
+<p>which is equivalent to the case where <span class="math inline">\(k^2(\zeta)=-\zeta\)</span> that shows the linear approximation. <a href="#eq-stokes" class="quarto-xref">Equation&nbsp;<span>3.12</span></a>, known as the <em>Airy equation</em> or <em>Stokes equation</em>, is the simplest second-order linear differential equation with a turning point (a point where the character of the solutions changes from oscillatory to exponential). From the WKBJ theory, we get the solution <span class="math display">\[
 E_{\text{WKBJ}} \sim \frac{1}{\sqrt{k(x)}}e^{\pm i\int^x k(x^\prime)\mathrm{d}x^\prime}
 = \left\{
 \begin{array}{rl}
@@ -890,7 +943,7 @@ E = &amp;a_0\Big\{ 1+\frac{\zeta^3}{3\cdot2} +\frac{\zeta^6}{6\cdot5\cdot3\cdot2
 &amp;+a_1\Big\{ \zeta+\frac{\zeta^4}{4\cdot3} +\frac{\zeta^7}{7\cdot6\cdot4\cdot3} + \frac{\zeta^{10}}{10\cdot9\cdot7\cdot6\cdot4\cdot3} + ...  \Big\}
 \end{aligned}
 \]</span> which contains the two arbitrary constants <span class="math inline">\(a_0\)</span> and <span class="math inline">\(a_1\)</span>, and is therefore the most general solution. The series are convergent for all <span class="math inline">\(\zeta\)</span>, which confirms that every solution of Stokes Equation is finite, continuous and single valued.</p>
-<p>This form is usually not easy to interpret in physical sense. Besides this, we can find a more useful solution to <a href="#eq-stokes">Equation&nbsp;<span>3.12</span></a> using the integral representation. An equivalent but maybe more intuitive approach is to solve <a href="#eq-stokes">Equation&nbsp;<span>3.12</span></a> with Fourier transform; a coefficient <span class="math inline">\(2\pi\)</span> naturally appears. Both approaches reach the same results.</p>
+<p>This form is usually not easy to interpret in physical sense. Besides this, we can find a more useful solution to <a href="#eq-stokes" class="quarto-xref">Equation&nbsp;<span>3.12</span></a> using the integral representation. An equivalent but maybe more intuitive approach is to solve <a href="#eq-stokes" class="quarto-xref">Equation&nbsp;<span>3.12</span></a> with Fourier transform; a coefficient <span class="math inline">\(2\pi\)</span> naturally appears. Both approaches reach the same results.</p>
 <p>Write <span class="math display">\[
 E(\zeta) = \int_a^b \mathrm{d}t e^{t\zeta} f(t)
 \]</span> where the integral represents a path in the complex t plane from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>. Then <span class="math display">\[
@@ -900,7 +953,7 @@ E(\zeta) = \int_a^b \mathrm{d}t e^{t\zeta} f(t)
 &amp;=e^{t\zeta} f(t) \Big|_a^b -\int_a^b dte^{t\zeta} f^\prime(t)
 \end{aligned}
 \]</span></p>
-<p>The limits <span class="math inline">\(a,b\)</span> are be chosen so that the first term vanishes at both limits. Then <a href="#eq-stokes">Equation&nbsp;<span>3.12</span></a> is satisfied if</p>
+<p>The limits <span class="math inline">\(a,b\)</span> are be chosen so that the first term vanishes at both limits. Then <a href="#eq-stokes" class="quarto-xref">Equation&nbsp;<span>3.12</span></a> is satisfied if</p>
 <p><span class="math display">\[
 \left\{
 \begin{array}{l}
@@ -919,7 +972,7 @@ E(\zeta) = \int_a^b \mathrm{d}t Ae^{t\zeta-\frac{1}{3}t^3}
 \Leftrightarrow 2\pi n -\frac{1}{2}\pi &lt; 3 \arg{t} &lt; 2\pi n + \frac{1}{2}\pi
 \end{aligned}
 \]</span></p>
-<p>where <span class="math inline">\(n\)</span> is an integer. <a href="#fig-stokes_sol">Figure&nbsp;<span>3.2</span></a> is a diagram of the complex t-plane, and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> must each be at <span class="math inline">\(\infty\)</span> in one of the shaded sectors. They cannot both be in the same sector, for then the integral would be zero. Hence the contour may be chosen in three ways, as shown by the three curves <span class="math inline">\(C_1,C_2,C_3\)</span>, and the solution would be</p>
+<p>where <span class="math inline">\(n\)</span> is an integer. <a href="#fig-stokes-sol" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> is a diagram of the complex t-plane, and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> must each be at <span class="math inline">\(\infty\)</span> in one of the shaded sectors. They cannot both be in the same sector, for then the integral would be zero. Hence the contour may be chosen in three ways, as shown by the three curves <span class="math inline">\(C_1,C_2,C_3\)</span>, and the solution would be</p>
 <p><span class="math display">\[
 E(\zeta) = \int_{C_1,C_2,C_3} \mathrm{d}t\ e^{t\zeta-\frac{1}{3}t^3}
 \]</span></p>
@@ -928,10 +981,14 @@ E(\zeta) = \int_{C_1,C_2,C_3} \mathrm{d}t\ e^{t\zeta-\frac{1}{3}t^3}
 \int_{C_1} = \int_{C_2} + \int_{C_3}
 \]</span></p>
 <p>and therefore there are only two independent solutions.</p>
-<div id="fig-stokes_sol" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/Stokes_Sol_In_Complex_Plane.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.2: Solution to Stokes Equation in complex t-plane.</figcaption>
+<div id="fig-stokes-sol" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-stokes-sol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/Stokes_Sol_In_Complex_Plane.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stokes-sol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Solution to Stokes Equation in complex t-plane.
+</figcaption>
 </figure>
 </div>
 <p><em>Proof</em>.</p>
@@ -958,7 +1015,7 @@ Ai(\zeta) &amp;= \frac{1}{2\pi i}\int_{C_1} \mathrm{d}t e^{-\frac{1}{3}t^3 + \ze
 Bi(\zeta) &amp;= \frac{1}{2\pi} \Big[\int_{C_2}+\int_{C_3}\Big]\mathrm{d}t e^{-\frac{1}{3}t^3 + \zeta t}
 \end{aligned}
 \tag{3.13}\]</span></span></p>
-<p>Obviously he took the Fourier transform such that a coefficient <span class="math inline">\(2\pi\)</span> naturally appears. In <a href="#eq-airy_func">Equation&nbsp;<span>3.13</span></a>, the contour <span class="math inline">\(C_1\)</span> can be distorted so as to coincide with the imaginary t-axis for almost its whole length. It must be displaced slightly to the left of this axis at its ends to remain in the shaded region at infinity. Let <span class="math inline">\(t=is\)</span>. Then the Airy function of the first kind in <a href="#eq-airy_func">Equation&nbsp;<span>3.13</span></a> becomes</p>
+<p>Obviously he took the Fourier transform such that a coefficient <span class="math inline">\(2\pi\)</span> naturally appears. In <a href="#eq-airy_func" class="quarto-xref">Equation&nbsp;<span>3.13</span></a>, the contour <span class="math inline">\(C_1\)</span> can be distorted so as to coincide with the imaginary t-axis for almost its whole length. It must be displaced slightly to the left of this axis at its ends to remain in the shaded region at infinity. Let <span class="math inline">\(t=is\)</span>. Then the Airy function of the first kind in <a href="#eq-airy_func" class="quarto-xref">Equation&nbsp;<span>3.13</span></a> becomes</p>
 <p><span class="math display">\[
 \begin{aligned}
 Ai(\zeta) &amp;= \frac{1}{2\pi}\int_{-\infty}^{\infty}e^{i(\zeta s+\frac{1}{3}s^3)}ds \\
@@ -1121,34 +1178,38 @@ n! &amp;\approx \int_0^\infty \mathrm{d}t\ e^{-n+n\ln{n}-\frac{1}{2n}(t-t_s)^2} 
 <p><span id="eq-WKBJ_uniform_valid_sol"><span class="math display">\[
 E(x) = \frac{1}{\sqrt{\zeta^\prime(x)}}Ai(\zeta)
 \tag{3.16}\]</span></span></p>
-<p>where the prime denotes a derivative. For large values of <span class="math inline">\(\zeta\)</span>, we can use the asymptotic formula of <span class="math inline">\(Ai\)</span> <a href="#eq-airy_approxi_positive">Equation&nbsp;<span>3.14</span></a>, and notice that</p>
+<p>where the prime denotes a derivative. For large values of <span class="math inline">\(\zeta\)</span>, we can use the asymptotic formula of <span class="math inline">\(Ai\)</span> <a href="#eq-airy_approxi_positive" class="quarto-xref">Equation&nbsp;<span>3.14</span></a>, and notice that</p>
 <p><span class="math display">\[
 \begin{aligned}
 -\zeta^{1/2}\zeta^\prime = ik(x) \\
 \zeta^\prime(x) = -i \frac{k(x)}{\zeta^{1/2}}
 \end{aligned}
 \]</span></p>
-<p>we can see that <a href="#eq-WKBJ_uniform_valid_sol">Equation&nbsp;<span>3.16</span></a> reduces to the standard WKBJ solutions for large values of <span class="math inline">\(\zeta\)</span></p>
+<p>we can see that <a href="#eq-WKBJ_uniform_valid_sol" class="quarto-xref">Equation&nbsp;<span>3.16</span></a> reduces to the standard WKBJ solutions for large values of <span class="math inline">\(\zeta\)</span></p>
 <p><span class="math display">\[
 E(x)= \frac{1}{\sqrt{\zeta^\prime(x)}}Ai(\zeta) \sim \frac{1}{\sqrt{k(x)}} e^{-\frac{2}{3}\zeta^{3/2}} = \frac{1}{\sqrt{k(x)}}e^{ i \int_0^x k(x^\prime)\mathrm{d}x^\prime}
 \]</span></p>
-<p>We can also show that <a href="#eq-WKBJ_uniform_valid_sol">Equation&nbsp;<span>3.16</span></a> is valid for small values of <span class="math inline">\(\zeta\)</span>, i.e.&nbsp;near the turning point at <span class="math inline">\(x=0\)</span>. (Hint: Near <span class="math inline">\(x=0\)</span>, <span class="math inline">\(k^2(x)\)</span> may be approximated by a linear function of <span class="math inline">\(x\)</span>. This linear approximation then yields <span class="math inline">\(\zeta(x)\)</span> as a linear function of <span class="math inline">\(x\)</span> according to <a href="#eq-WKBJ_uniform_valid_sol">Equation&nbsp;<span>3.16</span></a>.)</p>
+<p>We can also show that <a href="#eq-WKBJ_uniform_valid_sol" class="quarto-xref">Equation&nbsp;<span>3.16</span></a> is valid for small values of <span class="math inline">\(\zeta\)</span>, i.e.&nbsp;near the turning point at <span class="math inline">\(x=0\)</span>. (Hint: Near <span class="math inline">\(x=0\)</span>, <span class="math inline">\(k^2(x)\)</span> may be approximated by a linear function of <span class="math inline">\(x\)</span>. This linear approximation then yields <span class="math inline">\(\zeta(x)\)</span> as a linear function of <span class="math inline">\(x\)</span> according to <a href="#eq-WKBJ_uniform_valid_sol" class="quarto-xref">Equation&nbsp;<span>3.16</span></a>.)</p>
 <p><em>Ex</em>. Choose a smooth plasma density profile which monotonically increases with <span class="math inline">\(x\)</span> s.t.</p>
 <p><span class="math display">\[
 \frac{\omega_{pe}^2(x)}{\omega^2} = 1 + \tanh{x}
 \]</span></p>
-<p>and launch a wave of frequency <span class="math inline">\(\omega\)</span> from <span class="math inline">\(x=-\infty\)</span>, the vacuum region, toward the positive <span class="math inline">\(x\)</span>-direction with <span class="math inline">\(\frac{\omega^2}{c^2} = 10 \text{m}^{-2}\)</span>. (This is like launching a wave from low <span class="math inline">\(B\)</span> region into high <span class="math inline">\(B\)</span> region.) Numerically integrate the wave equation <a href="#eq-ODE_Omode">Equation&nbsp;<span>3.10</span></a>,</p>
+<p>and launch a wave of frequency <span class="math inline">\(\omega\)</span> from <span class="math inline">\(x=-\infty\)</span>, the vacuum region, toward the positive <span class="math inline">\(x\)</span>-direction with <span class="math inline">\(\frac{\omega^2}{c^2} = 10 \text{m}^{-2}\)</span>. (This is like launching a wave from low <span class="math inline">\(B\)</span> region into high <span class="math inline">\(B\)</span> region.) Numerically integrate the wave equation <a href="#eq-ODE_Omode" class="quarto-xref">Equation&nbsp;<span>3.10</span></a>,</p>
 <p><span class="math display">\[
 \frac{\mathrm{d}^2 E}{\mathrm{d}x^2} + \frac{\omega^2}{c^2} \Big[ 1-\frac{{\omega_{pe}(x)}^2}{\omega^2} \Big]E = 0
 \]</span></p>
-<p>from some large positive values of <span class="math inline">\(x\)</span>, we get the results in <a href="#fig-Omode_sol">Figure&nbsp;<span>3.3</span></a>.</p>
-<div id="fig-Omode_sol" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/WKBJ_sol_Omode.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.3: Comparison between the WKBJ solution, uniformly valid solution and numerical integral solution for the O-mode with monotonically increasing density with <span class="math inline">\(x\)</span>.</figcaption>
+<p>from some large positive values of <span class="math inline">\(x\)</span>, we get the results in <a href="#fig-Omode-sol" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>.</p>
+<div id="fig-Omode-sol" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Omode-sol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/WKBJ_sol_Omode.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Omode-sol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: Comparison between the WKBJ solution, uniformly valid solution and numerical integral solution for the O-mode with monotonically increasing density with <span class="math inline">\(x\)</span>.
+</figcaption>
 </figure>
 </div>
-<p>We know that away from <span class="math inline">\(x_t\)</span>, WKBJ solution works. To the left of <span class="math inline">\(x_t\)</span> (with <span class="math inline">\(\zeta&lt;-3\)</span>), <a href="#eq-airy_approxi_negative">Equation&nbsp;<span>3.15</span></a> gives</p>
+<p>We know that away from <span class="math inline">\(x_t\)</span>, WKBJ solution works. To the left of <span class="math inline">\(x_t\)</span> (with <span class="math inline">\(\zeta&lt;-3\)</span>), <a href="#eq-airy_approxi_negative" class="quarto-xref">Equation&nbsp;<span>3.15</span></a> gives</p>
 <p><span class="math display">\[
 Ai(\zeta) = \frac{1}{2i\sqrt{\pi}|\zeta|^{1/4}}\Big[ e^{i \frac{2}{3}|\zeta|^{3/2}+i\frac{\pi}{4}} - e^{-\frac{2}{3}|\zeta|^{3/2}-i\frac{\pi}{4}} \Big]
 \]</span></p>
@@ -1199,7 +1260,7 @@ E = \sinh{z}=\frac{1}{2}(e^z-e^{-z}) \Rightarrow
 \end{aligned}
 \]</span></p>
 <p>Note that if a solution is exponentially growing in one direction, its asymptotic solution can contain an arbitrary amount of the exponentially decaying solution; that is, specifying an asymptotic growing solution in one direction cannot completely specify the solution in the entire complex plane.</p>
-<p>The two linearly independent approximate solutions to Airy <a href="#eq-stokes">Equation&nbsp;<span>3.12</span></a> are the Airy function approximations from WKBJ method:</p>
+<p>The two linearly independent approximate solutions to Airy <a href="#eq-stokes" class="quarto-xref">Equation&nbsp;<span>3.12</span></a> are the Airy function approximations from WKBJ method:</p>
 <p><span class="math display">\[
 \begin{aligned}
 &amp;\frac{\mathrm{d}^2 E}{\mathrm{d}\zeta^2} - \zeta E = 0 \\
@@ -1218,19 +1279,27 @@ E = \sinh{z}=\frac{1}{2}(e^z-e^{-z}) \Rightarrow
 \zeta^{3/2} \text{is purely real} \iff (|\zeta|e^{i\theta})^{3/2} \text{is purely real} \iff \sin{\frac{3}{2}\theta} = 0,\ \theta=0,\pm\frac{2}{3}\pi,\pm\frac{4}{3}\pi
 \end{aligned}
 \]</span></p>
-<p>The lines in the complex plane on which WKBJ solution is purely growing/decaying exponentially are called <em>Stokes lines</em> (<a href="#fig-stokes_line">Figure&nbsp;<span>3.4</span></a>). It is accompanied with <em>anti-Stokes lines</em> (in the opposite direction to Stokes lines), on which WKBJ solution is purely oscillatory. The exponentially growing solution on Stokes lines is called the <em>dominant solution</em>; the decaying solution on Stokes lines is called the <em>sub-dominant/recessive solution</em>. The sub-dominant solution will always becomes dominant in a neighboring Stokes line. However, the inverse is not true. (It may contain an amount of sub-dominant solution.) Each term changes from dominant to subdominant, or the reverse, when <span class="math inline">\(\zeta\)</span> crosses an anti-Stokes line???</p>
-<div id="fig-stokes_line" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/StokesLine.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.4: Stokes lines and anti-Stokes lines for WKBJ solution of Airy Equation.</figcaption>
+<p>The lines in the complex plane on which WKBJ solution is purely growing/decaying exponentially are called <em>Stokes lines</em> (<a href="#fig-stokes-line" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>). It is accompanied with <em>anti-Stokes lines</em> (in the opposite direction to Stokes lines), on which WKBJ solution is purely oscillatory. The exponentially growing solution on Stokes lines is called the <em>dominant solution</em>; the decaying solution on Stokes lines is called the <em>sub-dominant/recessive solution</em>. The sub-dominant solution will always becomes dominant in a neighboring Stokes line. However, the inverse is not true. (It may contain an amount of sub-dominant solution.) Each term changes from dominant to subdominant, or the reverse, when <span class="math inline">\(\zeta\)</span> crosses an anti-Stokes line???</p>
+<div id="fig-stokes-line" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-stokes-line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/StokesLine.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stokes-line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: Stokes lines and anti-Stokes lines for WKBJ solution of Airy Equation.
+</figcaption>
 </figure>
 </div>
 <p>Even though we say “arbitrary”, the analytic solution in the whole complex plane possess a limit on that amount. The next question would be: how much exponentially decaying solution can you add to the exponentially growing solution? (Note that the asympotic series is also a divergent series: more terms don’t lead to high resolution accuracy! I have questions on this part???)</p>
-<p>For the asymptotic approximation solution of Airy <a href="#eq-stokes">Equation&nbsp;<span>3.12</span></a>, we need to define <span class="math inline">\(\arg(\zeta)\)</span> properly to make it single value. Let us choose the branch cut <span class="math inline">\(-\pi\le\arg{\zeta}&lt;\pi\)</span>. The complex plane is demonstrated in <a href="#fig-stokes_line_Zplane">Figure&nbsp;<span>3.5</span></a>.</p>
-<div id="fig-stokes_line_Zplane" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/StokesLine_Zplane.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.5: Marked Stokes lines and regions for Airy solution.</figcaption>
+<p>For the asymptotic approximation solution of Airy <a href="#eq-stokes" class="quarto-xref">Equation&nbsp;<span>3.12</span></a>, we need to define <span class="math inline">\(\arg(\zeta)\)</span> properly to make it single value. Let us choose the branch cut <span class="math inline">\(-\pi\le\arg{\zeta}&lt;\pi\)</span>. The complex plane is demonstrated in <a href="#fig-stokes-line-Zplane" class="quarto-xref">Figure&nbsp;<span>3.5</span></a>.</p>
+<div id="fig-stokes-line-Zplane" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-stokes-line-Zplane-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/StokesLine_Zplane.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stokes-line-Zplane-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: Marked Stokes lines and regions for Airy solution.
+</figcaption>
 </figure>
 </div>
 <p>Let us start from region I. The solution in region I is</p>
@@ -1286,15 +1355,15 @@ A_1 \\ B_1
 <h3 data-number="3.11.4" class="anchored" data-anchor-id="sec-stokes_application"><span class="header-section-number">3.11.4</span> Application of Stokes Lines</h3>
 <p><em>Ex</em>.1 Reflection Coefficient from Stokes Constant ???</p>
 <p><em>Ex</em>.2 O-mode</p>
-<p>For EM O-mode wave in a non-magnetized plasma, the governing <a href="#eq-ODE_Omode">Equation&nbsp;<span>3.10</span></a> is rewritten here</p>
+<p>For EM O-mode wave in a non-magnetized plasma, the governing <a href="#eq-ODE_Omode" class="quarto-xref">Equation&nbsp;<span>3.10</span></a> is rewritten here</p>
 <p><span class="math display">\[
 \frac{\mathrm{d}^2 E}{dz^2} +k^2 E = 0,\quad k^2 = \frac{\omega^2}{c^2}\Big[ 1-\frac{{\omega_p}^2(z)}{\omega^2} \Big]
 \]</span></p>
-<p>Let the turning point be <span class="math inline">\(z=z_t\)</span>. Near <span class="math inline">\(z_t\)</span>, let <span class="math inline">\(k^2(z)=-p^2(z)(z-z_t)\)</span> (<a href="#fig-Omode_sol">Figure&nbsp;<span>3.3</span></a>), where <span class="math inline">\(p(z)\)</span> is real and positive for all real <span class="math inline">\(z\)</span>. Then</p>
+<p>Let the turning point be <span class="math inline">\(z=z_t\)</span>. Near <span class="math inline">\(z_t\)</span>, let <span class="math inline">\(k^2(z)=-p^2(z)(z-z_t)\)</span> (<a href="#fig-Omode-sol" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>), where <span class="math inline">\(p(z)\)</span> is real and positive for all real <span class="math inline">\(z\)</span>. Then</p>
 <p><span class="math display">\[
 k=\pm i p(z)(z-z_t)^{1/2}
 \]</span></p>
-<p>In the following we need to choose sign s.t. <span class="math inline">\(k\)</span> is real and positive on the anti-Stokes line <span class="math inline">\(AS_1\)</span>. (The figure of complex z plane is the same as <a href="#fig-stokes_line_Zplane">Figure&nbsp;<span>3.5</span></a> except that the center point is <span class="math inline">\(z=z_t\)</span>. <span class="math inline">\(AS_1\)</span> is the dashed line.)</p>
+<p>In the following we need to choose sign s.t. <span class="math inline">\(k\)</span> is real and positive on the anti-Stokes line <span class="math inline">\(AS_1\)</span>. (The figure of complex z plane is the same as <a href="#fig-stokes-line-Zplane" class="quarto-xref">Figure&nbsp;<span>3.5</span></a> except that the center point is <span class="math inline">\(z=z_t\)</span>. <span class="math inline">\(AS_1\)</span> is the dashed line.)</p>
 <p>To make <span class="math inline">\(z\)</span> single value, define <span class="math inline">\(-\pi\le\arg{(z-z_t)}&lt;\pi\)</span>. On <span class="math inline">\(AS_1\)</span>,</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -1327,17 +1396,21 @@ E_{S_2} \sim\frac{1}{\sqrt{k}}e^{-i\omega t}\Big[ \underbrace{e^{-i\int_{z_t}^z 
 <p>where the first term represents the reflected wave, and the second term represents the incident wave. Since the magnitude of the incident and reflected wave is the same, the reflection coefficient should be 1, and the absorption coefficient should be 0. (In fact, there is a transmitted wave that is exponentially decay. WKBJ method cannot resolve this exponentially small value.)</p>
 <p><em>Ex</em>.3 Bohr-Sommerfield Quantization Rule</p>
 <p>This is the classical potential well problem, where the two boundaries are <span class="math inline">\(z=z_1\)</span> and <span class="math inline">\(z=z_2\)</span>.</p>
-<div id="fig-potential_well" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/Potential_well.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.6: Potential well.</figcaption>
+<div id="fig-potential-well" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-potential-well-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/Potential_well.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-potential-well-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.6: Potential well.
+</figcaption>
 </figure>
 </div>
 <p>Schrödinger equation reads</p>
 <p><span class="math display">\[
 \frac{\mathrm{d}^2\Psi}{dz^2} - \frac{2m}{{\hbar}^2}\big[ E-V(z)\big]\Psi = 0
 \]</span></p>
-<p>Imagine there is an potential well between <span class="math inline">\(z_1\)</span> and <span class="math inline">\(z_2\)</span> shown in <a href="#fig-potential_well">Figure&nbsp;<span>3.6</span></a>: what are the allowable energy state?</p>
+<p>Imagine there is an potential well between <span class="math inline">\(z_1\)</span> and <span class="math inline">\(z_2\)</span> shown in <a href="#fig-potential-well" class="quarto-xref">Figure&nbsp;<span>3.6</span></a>: what are the allowable energy state?</p>
 <p>In this case, <span class="math inline">\(k^2 = -\frac{2m}{{\hbar}^2}\big[ E-V(z)\big]\)</span>. Wave travelling to the right has positive <span class="math inline">\(k(z)\)</span>, while wave travelling to the left has negative <span class="math inline">\(k(z)\)</span>. Following the discussion of reflection coefficient,</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -1414,7 +1487,7 @@ i|k| &amp; z&lt;z_1
 &amp;= \frac{1}{\sqrt{k}}\Big\{ e^{-i\int_{z_2}^z kdz^\prime}\cdot e^{-i\int_{z_1}^{z_2}kdz^\prime} - ie^{i\int_{z_2}^z kdz^\prime}\cdot e^{i\int_{z_1}^{z_2}kdz^\prime} \Big\}
 \end{aligned}
 \tag{3.19}\]</span></span></p>
-<p>Because the solution is analytic, <a href="#eq-psi_I_1">Equation&nbsp;<span>3.18</span></a> and <a href="#eq-psi_I_2">Equation&nbsp;<span>3.19</span></a> should be equal, therefore</p>
+<p>Because the solution is analytic, <a href="#eq-psi_I_1" class="quarto-xref">Equation&nbsp;<span>3.18</span></a> and <a href="#eq-psi_I_2" class="quarto-xref">Equation&nbsp;<span>3.19</span></a> should be equal, therefore</p>
 <p><span class="math display">\[
 \begin{aligned}
 &amp;\frac{1}{e^{-i\int_{z_1}^{z_2}kdz^\prime}} = \frac{i}{-ie^{i\int_{z_1}^{z_2}kdz^\prime}} \\
@@ -1451,8 +1524,8 @@ i|k| &amp; z_1&lt;z&lt;z_2 \\
 E\sim \frac{1}{\sqrt{k}}e^{-i\omega t+i \int_{z_2}^z kdz^\prime}
 \tag{3.21}\]</span></span></p>
 <p>represents the outgoing wave propagating to <span class="math inline">\(z=\infty\)</span>.</p>
-<p>On <span class="math inline">\(S_2\)</span>, solution <a href="#eq-tunnel_AS1">Equation&nbsp;<span>3.21</span></a> behaves like <span class="math inline">\(E\sim e^{\int_b^z |k|dz^\prime}\)</span> which is dominant on <span class="math inline">\(S_2\)</span> with respect to <span class="math inline">\(z=z_2\)</span>. Thus, on <span class="math inline">\(S_1\)</span>, it is subdominant.</p>
-<p>On crossing <span class="math inline">\(S_1\)</span> from <span class="math inline">\(AS_1\)</span>, solution <a href="#eq-tunnel_AS1">Equation&nbsp;<span>3.21</span></a> remains valid. In fact, it is valid in the region bounded by <span class="math inline">\(S_1\)</span>, <span class="math inline">\(S_2\)</span> and <span class="math inline">\(S_3\)</span>. Note that it is subdominant on <span class="math inline">\(S_2\)</span> with respect to <span class="math inline">\(z=z_1\)</span> (because we just showed that it is dominant on <span class="math inline">\(S_2\)</span> with respect to <span class="math inline">\(z=z_2\)</span>). Thus, we rewrite the solution as</p>
+<p>On <span class="math inline">\(S_2\)</span>, solution <a href="#eq-tunnel_AS1" class="quarto-xref">Equation&nbsp;<span>3.21</span></a> behaves like <span class="math inline">\(E\sim e^{\int_b^z |k|dz^\prime}\)</span> which is dominant on <span class="math inline">\(S_2\)</span> with respect to <span class="math inline">\(z=z_2\)</span>. Thus, on <span class="math inline">\(S_1\)</span>, it is subdominant.</p>
+<p>On crossing <span class="math inline">\(S_1\)</span> from <span class="math inline">\(AS_1\)</span>, solution <a href="#eq-tunnel_AS1" class="quarto-xref">Equation&nbsp;<span>3.21</span></a> remains valid. In fact, it is valid in the region bounded by <span class="math inline">\(S_1\)</span>, <span class="math inline">\(S_2\)</span> and <span class="math inline">\(S_3\)</span>. Note that it is subdominant on <span class="math inline">\(S_2\)</span> with respect to <span class="math inline">\(z=z_1\)</span> (because we just showed that it is dominant on <span class="math inline">\(S_2\)</span> with respect to <span class="math inline">\(z=z_2\)</span>). Thus, we rewrite the solution as</p>
 <p><span class="math display">\[
 E\sim \frac{1}{\sqrt{k}}e^{-i\omega t + i\int_{z_2}^{z_1} kdz^\prime}\cdot \underbrace{e^{i\int_{z_1}^z kdz^\prime}}_{\text{subdominant on }\ S_2 w.r.t\ z=a}
 \]</span></p>
@@ -1461,7 +1534,7 @@ E\sim \frac{1}{\sqrt{k}}e^{-i\omega t + i\int_{z_2}^{z_1} kdz^\prime}\cdot \unde
 E\sim \frac{1}{\sqrt{k}}e^{-i\omega t + i\int_{z_2}^{z_1} kdz^\prime} \big[ \underbrace{e^{i\int_{z_1}^z kdz^\prime}}_{\text{dominant on }S_3} + \underbrace{ie^{-i\int_{z_1}^z kdz^\prime}}_{\text{subdominant on }S_3}  \big]
 \]</span></p>
 <p>where we pick up the Stokes constant <span class="math inline">\(i\)</span> and the subdominant solution, represented by the last term of the solution.</p>
-<p>Now, this is the solution on <span class="math inline">\(AS_4\)</span> (<span class="math inline">\(z&lt;z_1\)</span>). Referring to <a href="#eq-tunnel_k">Equation&nbsp;<span>3.20</span></a>, we see that the first term of the solution represents the reflected wave, and the second term the incident wave from <span class="math inline">\(z=-\infty\)</span>. Since the incident wave and reflected wave have equal amplitude, we have</p>
+<p>Now, this is the solution on <span class="math inline">\(AS_4\)</span> (<span class="math inline">\(z&lt;z_1\)</span>). Referring to <a href="#eq-tunnel_k" class="quarto-xref">Equation&nbsp;<span>3.20</span></a>, we see that the first term of the solution represents the reflected wave, and the second term the incident wave from <span class="math inline">\(z=-\infty\)</span>. Since the incident wave and reflected wave have equal amplitude, we have</p>
 <p><span class="math display">\[
 |R|^2 = 1
 \]</span></p>
@@ -1520,7 +1593,7 @@ E\sim \frac{1}{\sqrt{k}}e^{-i\omega t- i \int_0^z kdz^\prime}
 <p><span id="eq-wave_AS3"><span class="math display">\[
 E\sim  \frac{1}{\sqrt{k}} e^{-i\omega t- i \int_0^z i|k|dz^\prime} \sim \frac{1}{\sqrt{k}} e^{-i\omega t + \int_0^z |k|dz^\prime}
 \tag{3.23}\]</span></span></p>
-<p>on <span class="math inline">\(S_1\)</span>. Thus, it is dominant on <span class="math inline">\(S_1\)</span> with respect to <span class="math inline">\(z=0\)</span>; it is subdominant on the neighboring Stokes line <span class="math inline">\(S_2\)</span>. Thus solution <a href="#eq-wave_AS3">Equation&nbsp;<span>3.23</span></a> remains valid upon crosing Stokes line <span class="math inline">\(S_2\)</span>. It is the solution in region I, bounded by <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_2\)</span>. Since it is dominant on <span class="math inline">\(S_1\)</span> with respect to <span class="math inline">\(z=0\)</span>, it is subdominant on <span class="math inline">\(S_1\)</span> with respect to <span class="math inline">\(z=a\)</span>. So we can write it as</p>
+<p>on <span class="math inline">\(S_1\)</span>. Thus, it is dominant on <span class="math inline">\(S_1\)</span> with respect to <span class="math inline">\(z=0\)</span>; it is subdominant on the neighboring Stokes line <span class="math inline">\(S_2\)</span>. Thus solution <a href="#eq-wave_AS3" class="quarto-xref">Equation&nbsp;<span>3.23</span></a> remains valid upon crosing Stokes line <span class="math inline">\(S_2\)</span>. It is the solution in region I, bounded by <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_2\)</span>. Since it is dominant on <span class="math inline">\(S_1\)</span> with respect to <span class="math inline">\(z=0\)</span>, it is subdominant on <span class="math inline">\(S_1\)</span> with respect to <span class="math inline">\(z=a\)</span>. So we can write it as</p>
 <p><span class="math display">\[
 E \sim \frac{1}{\sqrt{k}}e^{-i\omega t - i\int_0^a kdz^\prime}\cdot \underbrace{e^{-i\int_a^z kdz^\prime}}_{\text{subdominant on }\ S_1\ w.r.t.\ z=a}
 \]</span></p>
@@ -1738,24 +1811,24 @@ H \equiv \left( \sum_i P_i \dot{Q}_i \right) - L
 <p>The Lagrangian for a charged particle in an electromagnetic field is <span id="eq-lagrangian-charged-particle"><span class="math display">\[
 L = \frac{mv^2}{2} + q\mathbf{v}\cdot\mathbf{A}(\mathbf{x},t) - q\phi(\mathbf{x},t)
 \tag{3.28}\]</span></span></p>
-<p>The validity of <a href="#eq-lagrangian-charged-particle">Equation&nbsp;<span>3.28</span></a> will now be established by showing that it generates the Lorentz equation when inserted into Lagrange’s equation. Since no symmetry is assumed, there is no reason to use any special coordinate system and so ordinary Cartesian coordinates will be used as the canonical coordinates, in which case <a href="#eq-canonical-momentum">Equation&nbsp;<span>3.25</span></a> gives the canonical momentum as <span class="math display">\[
+<p>The validity of <a href="#eq-lagrangian-charged-particle" class="quarto-xref">Equation&nbsp;<span>3.28</span></a> will now be established by showing that it generates the Lorentz equation when inserted into Lagrange’s equation. Since no symmetry is assumed, there is no reason to use any special coordinate system and so ordinary Cartesian coordinates will be used as the canonical coordinates, in which case <a href="#eq-canonical-momentum" class="quarto-xref">Equation&nbsp;<span>3.25</span></a> gives the canonical momentum as <span class="math display">\[
 \mathbf{P} = m\mathbf{v} + q\mathbf{A}(\mathbf{x},t)
 \]</span></p>
-<p>The left-hand side of <a href="#eq-lagrange">Equation&nbsp;<span>3.24</span></a> becomes <span class="math display">\[
+<p>The left-hand side of <a href="#eq-lagrange" class="quarto-xref">Equation&nbsp;<span>3.24</span></a> becomes <span class="math display">\[
 \frac{\mathrm{d}\mathbf{P}}{\mathrm{d}t} = m\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} + q\left( \frac{\partial\mathbf{A}}{\partial t} + \mathbf{v}\cdot\nabla\mathbf{A} \right)
-\]</span> while the right-hand side of <a href="#eq-lagrange">Equation&nbsp;<span>3.24</span></a> becomes <span class="math display">\[
+\]</span> while the right-hand side of <a href="#eq-lagrange" class="quarto-xref">Equation&nbsp;<span>3.24</span></a> becomes <span class="math display">\[
 \begin{aligned}
 \frac{\partial L}{\partial\mathbf{x}} &amp;= q\nabla(\mathbf{v}\cdot\mathbf{A}) - q\nabla\phi = q(\mathbf{v}\cdot\nabla\mathbf{A} + \mathbf{v}\times\nabla\times\mathbf{A}) - q\nabla\phi \\
 &amp;= q(\mathbf{v}\cdot\nabla\mathbf{A} + \mathbf{v}\times\mathbf{B}) - q\nabla\phi
 \end{aligned}
 \]</span></p>
-<p>Equating the above two expressions gives the Lorentz equation, where the electric field is defined as <span class="math inline">\(\mathbf{E}=-\partial\mathbf{A}/\partial t - \nabla\phi\)</span> in accordance with Faraday’s law. This proves that <a href="#eq-lagrangian-charged-particle">Equation&nbsp;<span>3.28</span></a> is mathematically equivalent to the Lorentz equation when used with the principle of least action.</p>
+<p>Equating the above two expressions gives the Lorentz equation, where the electric field is defined as <span class="math inline">\(\mathbf{E}=-\partial\mathbf{A}/\partial t - \nabla\phi\)</span> in accordance with Faraday’s law. This proves that <a href="#eq-lagrangian-charged-particle" class="quarto-xref">Equation&nbsp;<span>3.28</span></a> is mathematically equivalent to the Lorentz equation when used with the principle of least action.</p>
 <p>The Hamiltonian associated with this Lagrangian is, in Cartesian coordinates, <span id="eq-hamiltonian-charged-particle"><span class="math display">\[
 \begin{aligned}
 H &amp;= \mathbf{P}\cdot\mathbf{v} - L = \frac{mv^2}{2} + q\phi \\
 &amp;= \frac{\left(\mathbf{P} - q\mathbf{A}(\mathbf{x},t)\right)^2}{2m} + q\phi(\mathbf{x},t)
 \end{aligned}
-\tag{3.29}\]</span></span> where the last line is the form more suitable for use with Hamilton’s equations, i.e., <span class="math inline">\(H=H(\mathbf{x},\mathbf{P},t)\)</span>. <a href="#eq-hamiltonian-charged-particle">Equation&nbsp;<span>3.29</span></a> also shows that <span class="math inline">\(H\)</span> is, as promised, the particle energy. If generalized coordinates are used, the energy can be written in a general form as <span class="math inline">\(E=H(Q,P,t)\)</span>. <a href="#eq-hamiltonian-time-derivative">Equation&nbsp;<span>3.27</span></a> showed that even though both <span class="math inline">\(Q\)</span> and <span class="math inline">\(P\)</span> depend on time, the energy depends on time only if <span class="math inline">\(H\)</span> explicitly depends on time. Thus, in a situation where <span class="math inline">\(H\)</span> does not explicitly depend on time, the energy would have the form <span class="math inline">\(E=H(Q(t),P(t)) = \mathrm{const}\)</span>.</p>
+\tag{3.29}\]</span></span> where the last line is the form more suitable for use with Hamilton’s equations, i.e., <span class="math inline">\(H=H(\mathbf{x},\mathbf{P},t)\)</span>. <a href="#eq-hamiltonian-charged-particle" class="quarto-xref">Equation&nbsp;<span>3.29</span></a> also shows that <span class="math inline">\(H\)</span> is, as promised, the particle energy. If generalized coordinates are used, the energy can be written in a general form as <span class="math inline">\(E=H(Q,P,t)\)</span>. <a href="#eq-hamiltonian-time-derivative" class="quarto-xref">Equation&nbsp;<span>3.27</span></a> showed that even though both <span class="math inline">\(Q\)</span> and <span class="math inline">\(P\)</span> depend on time, the energy depends on time only if <span class="math inline">\(H\)</span> explicitly depends on time. Thus, in a situation where <span class="math inline">\(H\)</span> does not explicitly depend on time, the energy would have the form <span class="math inline">\(E=H(Q(t),P(t)) = \mathrm{const}\)</span>.</p>
 <p>It is important to realize that both canonical momentum and energy depend on the reference frame. For example, a bullet fired in an airplane in the direction opposite to the airplane motion, and with a speed equal to the airplane’s speed, has a large energy as measured in the airplane frame, but zero energy as measured by an observer on the ground. A more subtle example (of importance to later analysis of waves and Landau damping) occurs when <span class="math inline">\(\mathbf{A}\)</span> and/or <span class="math inline">\(\phi\)</span> has a wave-like dependence, e.g., <span class="math inline">\(\phi(\mathbf{x},t)=\phi(\mathbf{x}-\mathbf{v}_{\mathrm{ph}}t)\)</span>, where <span class="math inline">\(\mathbf{v}_{\mathrm{ph}}\)</span> is the wave phase velocity. This potential is time-dependent in the lab frame and so the associated Lagrangian has an explicit dependence on time in the lab frame, which implies that <em>energy is not a constant of the motion in the lab frame</em>. In contrast, <span class="math inline">\(\phi\)</span> is time-independent in the wave frame and so the energy is a <em>constant of the motion</em> in the wave frame. Existence of a constant of the motion reduces the complexity of the system of equations and typically makes it possible to integrate at least one equation in closed form. Thus, it is advantageous to analyze the system in the frame having the most constants of the motion.</p>
 </section>
 </section>
@@ -1770,7 +1843,7 @@ H &amp;= \mathbf{P}\cdot\mathbf{v} - L = \frac{mv^2}{2} + q\phi \\
 <p>Check the <a href="https://henry2004y.github.io/blog/wavelet/">notes from my blog</a> and the references therein.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-budden1961radio" class="csl-entry" role="listitem">
 Budden, Kenneth George. 1961. <em>Radio Waves in the Ionosphere</em>. <em>Radio Waves in the Ionosphere</em>.
 </div>
@@ -1819,6 +1892,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -1887,13 +1987,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1972,10 +2074,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1985,8 +2086,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1999,6 +2109,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2042,6 +2271,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2067,6 +2297,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2128,12 +2384,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../contents/introduction.html" class="pagination-link">
+      <a href="../contents/introduction.html" class="pagination-link  aria-label=" &lt;span="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../contents/single.html" class="pagination-link">
+      <a href="../contents/single.html" class="pagination-link" aria-label="<span class='chapter-number'>4</span>&nbsp; <span class='chapter-title'>Single-Particle Motions</span>">
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -2142,4 +2398,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/math.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

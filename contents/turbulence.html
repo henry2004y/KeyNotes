@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -68,7 +69,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -77,6 +84,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -86,6 +94,33 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -94,12 +129,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/turbulence.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/turbulence.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -109,12 +144,12 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -315,7 +350,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -337,7 +372,7 @@ div.csl-indent {
   </ul></li>
   <li><a href="#turbulence-and-reconnection" id="toc-turbulence-and-reconnection" class="nav-link" data-scroll-target="#turbulence-and-reconnection"><span class="header-section-number">14.3</span> Turbulence and Reconnection</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/turbulence.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/turbulence.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -357,7 +392,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <p>Turbulence is perhaps the most beautiful unsolved problem of classical physics. History of turbulence in interplanetary space is, perhaps, even more interesting since its knowledge proceeds together with the human conquest of space. The behavior of a flow which rebels against the deterministic rules of classical dynamics is called <em>turbulent</em>. Practically turbulence appears everywhere when the velocity of the flow is high enough. At a first sight turbulence looks strongly irregular and chaotic, both in space and time: it seems to be impossible to predict any future state of the motion. However, it is interesting to recognize the fact that, when we take a picture of a turbulent flow at a given time, we see the presence of a lot of <em>different turbulent structures of all sizes</em> which are actively present during the motion. We recognize that the gross features of the flow are reproducible but details are not predictable. We have to use a <em>statistical approach</em> to turbulence, just as it is done to describe stochastic processes, even if the problem is born within the strange dynamics of a deterministic system.</p>
 <p>Small fluctuations in plasmas lead to turbulence, and turbulent eddies can very effectively transport mass, momentum and heat from the hot core across confining magnetic field lines out to the cooler plasma edge. Predicting this phenomenon of turbulent-transport is essential for solar wind study and the understanding and development of fusion reactors.</p>
@@ -406,7 +443,7 @@ div.csl-indent {
 \nabla\cdot\delta\mathbf{z}^\pm = 0
 \tag{14.4}\]</span></span></p>
 <p>The zero divergence means that there are no forcing or dissipation terms.</p>
-<p><a href="#eq-mhd_elsassar">Equation&nbsp;<span>14.3</span></a> unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term (<span class="math inline">\(v_A\)</span> constant?) that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence.</p>
+<p><a href="#eq-mhd_elsassar" class="quarto-xref">Equation&nbsp;<span>14.3</span></a> unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term (<span class="math inline">\(v_A\)</span> constant?) that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence.</p>
 </section>
 <section id="critical-balance" class="level3" data-number="14.1.3">
 <h3 data-number="14.1.3" class="anchored" data-anchor-id="critical-balance"><span class="header-section-number">14.1.3</span> Critical balance</h3>
@@ -430,7 +467,7 @@ E(k_\parallel) &amp;\propto k_\parallel^{-2}
 </section>
 <section id="sec-turbulence_cross_helicity" class="level3" data-number="14.1.5">
 <h3 data-number="14.1.5" class="anchored" data-anchor-id="sec-turbulence_cross_helicity"><span class="header-section-number">14.1.5</span> Normalized cross helicity</h3>
-<p>Cross helicity is the difference in energy between <span class="math inline">\(\mathbf{z}^+\)</span> and <span class="math inline">\(\mathbf{z}^-\)</span> fluctuations (<a href="geometry.html#sec-cross_helicity"><span>Section&nbsp;15.5</span></a>). The normalized cross helicity is <span id="eq-cross_helicity_normalized"><span class="math display">\[
+<p>Cross helicity is the difference in energy between <span class="math inline">\(\mathbf{z}^+\)</span> and <span class="math inline">\(\mathbf{z}^-\)</span> fluctuations (<a href="geometry.html#sec-cross_helicity" class="quarto-xref"><span>Section 15.5</span></a>). The normalized cross helicity is <span id="eq-cross_helicity_normalized"><span class="math display">\[
 \sigma_c = \frac{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2}{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2} = \frac{2\delta\mathbf{v}\cdot\delta\mathbf{b}}{|\delta\mathbf{v}|^2 + |\delta\mathbf{b}|^2}
 \tag{14.6}\]</span></span></p>
 <ul>
@@ -438,14 +475,18 @@ E(k_\parallel) &amp;\propto k_\parallel^{-2}
 <li><span class="math inline">\(|\sigma_c|\lesssim 1\)</span>: imbalanced turbulence</li>
 <li><span class="math inline">\(|\sigma_c|=0\)</span>: balanced turbulence (or non-Alfvénic fluctuations)</li>
 </ul>
-<p>The solar wind is typically imbalanced towards the anti-sunward direction. From <a href="#eq-residual_energy_normalized">Equation&nbsp;<span>14.5</span></a> and <a href="#eq-cross_helicity_normalized">Equation&nbsp;<span>14.6</span></a> we can easily see that <span class="math display">\[
+<p>The solar wind is typically imbalanced towards the anti-sunward direction. From <a href="#eq-residual_energy_normalized" class="quarto-xref">Equation&nbsp;<span>14.5</span></a> and <a href="#eq-cross_helicity_normalized" class="quarto-xref">Equation&nbsp;<span>14.6</span></a> we can easily see that <span class="math display">\[
 \sqrt{\sigma_r^2 + \sigma_c^2} \le 1
 \]</span></p>
-<p>The observed distribution is shown in <a href="#fig-turbulence_residual_energy_cross_helicity">Figure&nbsp;<span>14.1</span></a>. Note, however, <span class="math inline">\(\sigma_r\)</span> depends on how you evaluate <span class="math inline">\(\delta{b}\)</span>. In the MHD case <span class="math inline">\(\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}\)</span> is used, but in the kinetic case there will be an extra coefficient. The results look pretty different!</p>
-<div id="fig-turbulence_residual_energy_cross_helicity" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/solarwind_residual_energy_cross_helicity.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;14.1: Solar wind normalized residual energy and cross helicity statistics from Chen+ 2013.</figcaption>
+<p>The observed distribution is shown in <a href="#fig-turbulence-residual-energy-cross-helicity" class="quarto-xref">Figure&nbsp;<span>14.1</span></a>. Note, however, <span class="math inline">\(\sigma_r\)</span> depends on how you evaluate <span class="math inline">\(\delta{b}\)</span>. In the MHD case <span class="math inline">\(\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}\)</span> is used, but in the kinetic case there will be an extra coefficient. The results look pretty different!</p>
+<div id="fig-turbulence-residual-energy-cross-helicity" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-turbulence-residual-energy-cross-helicity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/solarwind_residual_energy_cross_helicity.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-turbulence-residual-energy-cross-helicity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.1: Solar wind normalized residual energy and cross helicity statistics from Chen+ 2013.
+</figcaption>
 </figure>
 </div>
 <p>Observation from 1 AU (WIND) show that the non-Alfvénic wind typically has small alpha-proton relative drift and nearly equal temperatures of both ionic components. In terms of occurrence, there is no significant difference for a typical solar wind speed of 300 km/s, but for high speed solar wind there is a higher probability for large <span class="math inline">\(|\sigma_c|\)</span> of being Alfvénic.</p>
@@ -474,23 +515,31 @@ E(k_\parallel) &amp;\propto k_\parallel^{-2}
 k = \frac{2\pi f_\text{sc}}{v_\text{SW}}
 \]</span></p>
 <p>This is often not appropriate in the magnetosheath, and modified Taylor’s hypothesis is required close to the Sun.</p>
-<div id="fig-turbulence_v_b" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/turbulence_par_perp_L1.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;14.2: Wave scale from typical L1 satellite solar wind observation.</figcaption>
+<div id="fig-turbulence-v-b" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-turbulence-v-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/turbulence_par_perp_L1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-turbulence-v-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.2: Wave scale from typical L1 satellite solar wind observation.
+</figcaption>
 </figure>
 </div>
-<p>The wavenumber <span class="math inline">\(k\)</span> determined from Taylor’s hypothesis is really the flow-aligned component of <span class="math inline">\(\mathbf{k}\)</span>. For a given angle <span class="math inline">\(\theta_{vb}\)</span>, one cannot distinguish <span class="math inline">\(k_\perp\)</span> and <span class="math inline">\(k_\parallel\)</span>; these can be possibly measured for small (<span class="math inline">\(\sim 0^\circ\)</span> for <span class="math inline">\(k_\parallel\)</span>) and large (<span class="math inline">\(\sim 90^\circ\)</span> for <span class="math inline">\(k_\perp\)</span>) at different times. In the solar wind, <span class="math inline">\(P(k_\perp) \gg P(k_\parallel)\)</span>, where <span class="math inline">\(P\)</span> is the power of perturbation. For a Parker spiral-like magnetic field at 1 AU, the angle between <span class="math inline">\(\mathbf{B}_0\)</span> and <span class="math inline">\(\mathbf{v}_\text{sw}\)</span> is rarely small (<span class="math inline">\(\sim 45^\circ\)</span>), the power spectra are typically dominated by the contribution from the <span class="math inline">\(k_\perp\)</span> fluctuations (<a href="#fig-turbulence_v_b">Figure&nbsp;<span>14.2</span></a>).</p>
+<p>The wavenumber <span class="math inline">\(k\)</span> determined from Taylor’s hypothesis is really the flow-aligned component of <span class="math inline">\(\mathbf{k}\)</span>. For a given angle <span class="math inline">\(\theta_{vb}\)</span>, one cannot distinguish <span class="math inline">\(k_\perp\)</span> and <span class="math inline">\(k_\parallel\)</span>; these can be possibly measured for small (<span class="math inline">\(\sim 0^\circ\)</span> for <span class="math inline">\(k_\parallel\)</span>) and large (<span class="math inline">\(\sim 90^\circ\)</span> for <span class="math inline">\(k_\perp\)</span>) at different times. In the solar wind, <span class="math inline">\(P(k_\perp) \gg P(k_\parallel)\)</span>, where <span class="math inline">\(P\)</span> is the power of perturbation. For a Parker spiral-like magnetic field at 1 AU, the angle between <span class="math inline">\(\mathbf{B}_0\)</span> and <span class="math inline">\(\mathbf{v}_\text{sw}\)</span> is rarely small (<span class="math inline">\(\sim 45^\circ\)</span>), the power spectra are typically dominated by the contribution from the <span class="math inline">\(k_\perp\)</span> fluctuations (<a href="#fig-turbulence-v-b" class="quarto-xref">Figure&nbsp;<span>14.2</span></a>).</p>
 </section>
 <section id="solar-wind-power-spectrum" class="level3" data-number="14.2.2">
 <h3 data-number="14.2.2" class="anchored" data-anchor-id="solar-wind-power-spectrum"><span class="header-section-number">14.2.2</span> Solar Wind Power Spectrum</h3>
-<div id="fig-solarwind_power_spectrum" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/solarwind_power_spectrum.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;14.3: Solar wind power spectrum from Kiyoni+, 2015.</figcaption>
+<div id="fig-solarwind-power-spectrum" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-solarwind-power-spectrum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/solarwind_power_spectrum.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-solarwind-power-spectrum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.3: Solar wind power spectrum from Kiyoni+, 2015.
+</figcaption>
 </figure>
 </div>
-<p>When we plot the solar wind power spectrum (<span class="math inline">\(\delta|\mathbf{B}|\)</span>), it is usually representative of <span class="math inline">\(k_\perp\)</span>. There are three distinct power-law ranges in the spectrum from spacecraft solar wind observations (<a href="#fig-solarwind_power_spectrum">Figure&nbsp;<span>14.3</span></a>):</p>
+<p>When we plot the solar wind power spectrum (<span class="math inline">\(\delta|\mathbf{B}|\)</span>), it is usually representative of <span class="math inline">\(k_\perp\)</span>. There are three distinct power-law ranges in the spectrum from spacecraft solar wind observations (<a href="#fig-solarwind-power-spectrum" class="quarto-xref">Figure&nbsp;<span>14.3</span></a>):</p>
 <ul>
 <li>Injection range:
 <ul>
@@ -509,14 +558,18 @@ k = \frac{2\pi f_\text{sc}}{v_\text{SW}}
 <ul>
 <li>Scales at which particles are heated</li>
 <li>Typically <span class="math inline">\(f^{-2.8}\)</span> spectrum</li>
-<li>Possibly KAW (<a href="wave.html#sec-kaw"><span>Section&nbsp;7.8.4</span></a>) or whistler mode (<a href="wave.html#sec-CPDR"><span>Section&nbsp;7.6</span></a>) turbulence</li>
+<li>Possibly KAW (<a href="wave.html#sec-kaw" class="quarto-xref"><span>Section 7.8.4</span></a>) or whistler mode (<a href="wave.html#sec-CPDR" class="quarto-xref"><span>Section 7.6</span></a>) turbulence</li>
 </ul></li>
 </ul>
-<p>When we move to smaller scales, anisotropy increases. This is demonstrated in <a href="#fig-turbulence_scale">Figure&nbsp;<span>14.4</span></a> as a result of <span class="math inline">\(k_\perp \gg k_\parallel\)</span>, which is also why gyrokinetics is the theory for turbulence. Isotropic MHD is inadequate in turbulence study because of this major drawback.</p>
-<div id="fig-turbulence_scale" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/turbulence_par_perp_scale.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;14.4: Demonstration of parallel and perpendicular length scales of turbulence.</figcaption>
+<p>When we move to smaller scales, anisotropy increases. This is demonstrated in <a href="#fig-turbulence-scale" class="quarto-xref">Figure&nbsp;<span>14.4</span></a> as a result of <span class="math inline">\(k_\perp \gg k_\parallel\)</span>, which is also why gyrokinetics is the theory for turbulence. Isotropic MHD is inadequate in turbulence study because of this major drawback.</p>
+<div id="fig-turbulence-scale" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-turbulence-scale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/turbulence_par_perp_scale.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-turbulence-scale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.4: Demonstration of parallel and perpendicular length scales of turbulence.
+</figcaption>
 </figure>
 </div>
 <p>Fluctuation modes in the inertial range consists of 90% incompressible (Alfvén) modes and 10% compressible slow/mirror modes. Alfvénic turbulence is thought to be passive to the compressive modes: compressive modes scatter off Alfvén modes without affecting them significantly (i.e.&nbsp;being decoupled from each other). The compressive modes are expected to damp <span class="math inline">\(\sim k_\parallel v_A\)</span>. Since <span class="math inline">\(k_\perp \gg k_\parallel\)</span>, the damp is not significant for compressive modes, so they tend to be more anisotropic than the Alfvénic turbulence.</p>
@@ -533,7 +586,7 @@ k = \frac{2\pi f_\text{sc}}{v_\text{SW}}
 <p>If there are spectral breaks in the power spectrum diagram (PSD), especially near the characteristic frequencies, they may indicate local cyclotron resonance, which is related to wave-particle interactions. Some researchers have found from MMS tail current sheet observations that in the reconnection outflow regions, energy is deposited in the form of kinetic Alfvén waves in low-frequency <span class="math inline">\(f_{ci}\)</span> ion cyclotron scale and fast/slow waves in high-frequency low-hybrid scale.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-bruno2013solar" class="csl-entry" role="listitem">
 Bruno, Roberto, and Vincenzo Carbone. 2013. <span>“The Solar Wind as a Turbulence Laboratory.”</span> <em>Living Reviews in Solar Physics</em> 10 (1): 1–208. <a href="https://doi.org/10.12942/lrsp-2013-2">https://doi.org/10.12942/lrsp-2013-2</a>.
 </div>
@@ -585,6 +638,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -653,13 +733,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -738,10 +820,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -751,8 +832,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -765,6 +855,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -808,6 +1017,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -833,6 +1043,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -894,12 +1130,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../contents/nonlinear.html" class="pagination-link">
+      <a href="../contents/nonlinear.html" class="pagination-link  aria-label=" &lt;span="" effects&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../contents/geometry.html" class="pagination-link">
+      <a href="../contents/geometry.html" class="pagination-link" aria-label="<span class='chapter-number'>15</span>&nbsp; <span class='chapter-title'>Geometry</span>">
         <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Geometry</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -908,4 +1144,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/turbulence.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

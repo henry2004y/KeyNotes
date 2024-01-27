@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -49,7 +49,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -58,6 +64,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -67,6 +74,33 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -75,12 +109,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/nonlinear.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/nonlinear.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -90,12 +124,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/henry2004y/KeyNotes/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -296,7 +330,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -335,7 +369,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-nonlinear-schrödinger-equation" id="toc-the-nonlinear-schrödinger-equation" class="nav-link" data-scroll-target="#the-nonlinear-schrödinger-equation"><span class="header-section-number">13.7.2</span> The Nonlinear Schrödinger Equation</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/nonlinear.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/nonlinear.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -355,7 +389,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>In many experiments waves are no longer describable by the linear theory by the time they are observed. Consider, for instance, the case of drift waves. Because they are unstable, drift waves would, according to linear theory, increase their amplitude exponentially. This period of growth is not normally observed — since one usually does not know when to start looking — but instead one observes the waves only after they have grown to a large, steady amplitude. The fact that the waves are no longer growing means that the linear thoery is no longer valid, and some <em>nonlinear</em> effect is limiting the amplitude. Theoretical explanation of this elementary observation has proved to be a surprisingly difficult problem, since the observed amplitude at saturation is rather small.</p>
 <p>A wave can undergo a number of changes when its amplitude gets large. It can change its shape — say, from a sine wave to a lopsided triangular waveform. This is the same as saying that Fourier components at other frequencies (or wave numbers) are generated. Ultimately, the wave can “break”, like ocean waves on a beach, converting the wave energy into thermal energy of the particles. A large wave can trap particles in its potential troughs, thus changing the properties of the medium in which it propagates (e.g.&nbsp;nonlinear Landau damping). If a plasma is so strongly excited that a continuous spectrum of frequencies is present, it is in a state of <em>turbulence</em>. This state must be described statistically, as in the case of hydrodynamics. An important consequence of plasma turbulence is <em>anomalous resistivity</em>, in which electrons are slowed down by collisions with random electric field fluctuations, rather than with ions. This effect is used for ohmic heating of a plasma to temperature so high that ordinary resistivity is insufficient.</p>
@@ -372,14 +408,18 @@ ul.task-list li input[type="checkbox"] {
 <li><em>Wave-particle interactions</em>.</li>
 </ol>
 <ul>
-<li>Particle trapping can lead to nonlinear damping (<a href="kinetic.html#sec-landau_damping"><span>Section&nbsp;8.6</span></a>).</li>
-<li>A classic example is the quasilinear effect, in which the equilibrium of the plasma is changed by the waves. Consider the case of a plasma with an electron beam (Fig.8-1). Since the distribution function has a region where <span class="math inline">\(df_0/dv\)</span> is positive, the system has inverse Landau damping, and plasma oscillations with <span class="math inline">\(v_\phi\)</span> in the positive-slope region are unstable (<a href="kinetic.html#eq-landau">Equation&nbsp;<span>8.32</span></a>). The resonant electrons are the first to be affected by wave-particle interactions, and their distribution function will be changed by the wave electric field. The waves are stabilized when <span class="math inline">\(f_e(v)\)</span> is flattened by the waves, as shown by the dashed line in Fig.8-1 <a href="#fig-unstable_f">Figure&nbsp;<span>13.1</span></a>, so tha the new equilibrium distribution no longer has a positive slope.</li>
-<li>Plasma wave echoes (<a href="#sec-echo"><span>Section&nbsp;13.5</span></a>).</li>
+<li>Particle trapping can lead to nonlinear damping (<a href="kinetic.html#sec-landau_damping" class="quarto-xref"><span>Section 8.6</span></a>).</li>
+<li>A classic example is the quasilinear effect, in which the equilibrium of the plasma is changed by the waves. Consider the case of a plasma with an electron beam (Fig.8-1). Since the distribution function has a region where <span class="math inline">\(df_0/dv\)</span> is positive, the system has inverse Landau damping, and plasma oscillations with <span class="math inline">\(v_\phi\)</span> in the positive-slope region are unstable (<a href="kinetic.html#eq-landau" class="quarto-xref">Equation&nbsp;<span>8.32</span></a>). The resonant electrons are the first to be affected by wave-particle interactions, and their distribution function will be changed by the wave electric field. The waves are stabilized when <span class="math inline">\(f_e(v)\)</span> is flattened by the waves, as shown by the dashed line in Fig.8-1 <a href="#fig-unstable-f" class="quarto-xref">Figure&nbsp;<span>13.1</span></a>, so tha the new equilibrium distribution no longer has a positive slope.</li>
+<li>Plasma wave echoes (<a href="#sec-echo" class="quarto-xref"><span>Section 13.5</span></a>).</li>
 </ul>
-<div id="fig-unstable_f" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/unstable_f.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.1: A double-humped, unstable electron distribution.</figcaption>
+<div id="fig-unstable-f" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-unstable-f-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/unstable_f.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-unstable-f-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.1: A double-humped, unstable electron distribution.
+</figcaption>
 </figure>
 </div>
 <ol start="3" type="1">
@@ -391,22 +431,30 @@ ul.task-list li input[type="checkbox"] {
 <p>Although problems still remain to be solved in the linear theory of waves and instabilities, the mainstream of plasma research has turned to the much less well understood area of nonlinear phenomena. The examples in the following sections will give an idea of some of the effects that have been studied in theory and in experiment.</p>
 <section id="sec-sheath" class="level2" data-number="13.1">
 <h2 data-number="13.1" class="anchored" data-anchor-id="sec-sheath"><span class="header-section-number">13.1</span> The Necessity for Sheaths</h2>
-<p>In all practical plasma devices, the plasma is contained in a vacuum chamber of finite size. What happens to the plasma at the wall? For simplicity, let us confine our attention to a one-dimensional model with no magnetic field <a href="#fig-sheath">Figure&nbsp;<span>13.2</span></a>. Suppose there is no appreciable electric field inside the plasma; we can then let the potential <span class="math inline">\(\phi\)</span> be zero there. When ions and electrons hit the wall, they recombine and are lost. Since electrons have much higher thermal velocities than ions, they are lost faster and leave the plasma with a net positive charge. The plasma must then have potential positive with respect to the wall; i.e., the wall potential <span class="math inline">\(\phi_w\)</span> is negative. This potential cannot be distributed over the entire plasma, since Debye shielding will confine the potential variation to a layer of the order of several Debye lengths in thickness. This layer, which must exist on all cold walls with which the plasma is in contact, is called a sheath. The function of a sheath is to form a potential barrier so that the more mobile species, usually electrons, is confined. electrostatically. The height of the barrier adjusts itself so that the flux of electrons that wave enough energy to go over the barrier to the wall is just equal to the flux of ions reaching the wall.</p>
-<div id="fig-sheath" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/sheath.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.2: The plasma potential <span class="math inline">\(\phi\)</span> forms sheaths near the walls so that electrons are reflected. The Coulomb barrier <span class="math inline">\(e\phi_w\)</span> adjusts itself that equal numbers of ions and electrons reach the walls per second.</figcaption>
+<p>In all practical plasma devices, the plasma is contained in a vacuum chamber of finite size. What happens to the plasma at the wall? For simplicity, let us confine our attention to a one-dimensional model with no magnetic field <a href="#fig-sheath" class="quarto-xref">Figure&nbsp;<span>13.2</span></a>. Suppose there is no appreciable electric field inside the plasma; we can then let the potential <span class="math inline">\(\phi\)</span> be zero there. When ions and electrons hit the wall, they recombine and are lost. Since electrons have much higher thermal velocities than ions, they are lost faster and leave the plasma with a net positive charge. The plasma must then have potential positive with respect to the wall; i.e., the wall potential <span class="math inline">\(\phi_w\)</span> is negative. This potential cannot be distributed over the entire plasma, since Debye shielding will confine the potential variation to a layer of the order of several Debye lengths in thickness. This layer, which must exist on all cold walls with which the plasma is in contact, is called a sheath. The function of a sheath is to form a potential barrier so that the more mobile species, usually electrons, is confined. electrostatically. The height of the barrier adjusts itself so that the flux of electrons that wave enough energy to go over the barrier to the wall is just equal to the flux of ions reaching the wall.</p>
+<div id="fig-sheath" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sheath-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/sheath.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sheath-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.2: The plasma potential <span class="math inline">\(\phi\)</span> forms sheaths near the walls so that electrons are reflected. The Coulomb barrier <span class="math inline">\(e\phi_w\)</span> adjusts itself that equal numbers of ions and electrons reach the walls per second.
+</figcaption>
 </figure>
 </div>
 <section id="the-planar-sheath-equation" class="level3" data-number="13.1.1">
 <h3 data-number="13.1.1" class="anchored" data-anchor-id="the-planar-sheath-equation"><span class="header-section-number">13.1.1</span> The Planar Sheath Equation</h3>
-<div id="fig-sheath_potential" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/sheath_potential.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.3: The potential <span class="math inline">\(\phi\)</span> in a planar sheath. Cold ions are assumed to enter the sheath with a uniform velocity <span class="math inline">\(u_0\)</span>.</figcaption>
+<div id="fig-sheath-potential" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sheath-potential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/sheath_potential.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sheath-potential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.3: The potential <span class="math inline">\(\phi\)</span> in a planar sheath. Cold ions are assumed to enter the sheath with a uniform velocity <span class="math inline">\(u_0\)</span>.
+</figcaption>
 </figure>
 </div>
-<p>Recall that the Debye length is derived from linearing Poisson’s equation. To examine the exact behavior of <span class="math inline">\(\phi(x)\)</span> in the sheath, we must treat the nonlinear problem: we shall find that there is not always a solution. <a href="#fig-sheath_potential">Figure&nbsp;<span>13.3</span></a> shows the situation near one of the walls. At the plane <span class="math inline">\(x=0\)</span>, ions are imagined to enter the sheath region from the main plasma with a drift velocity <span class="math inline">\(u_0\)</span>. This drift is needed to accout for the loss of ions to the wall from the region in which they were created by ionization. For simplicity, we assume <span class="math inline">\(T_i=0\)</span>, so that all ions have the velocity <span class="math inline">\(u_0\)</span> at <span class="math inline">\(x=0\)</span>. We consider the steady state problem in a collisionless sheath region. The potential <span class="math inline">\(\phi\)</span> is assumed to decrease monotonically with <span class="math inline">\(x\)</span>. Actually, <span class="math inline">\(\phi\)</span> could have spatial oscillations, and then there would be trapped particles in the steady state. This does not happend in practice because dissipative processes tend to destroy any such highly organized state.</p>
+<p>Recall that the Debye length is derived from linearing Poisson’s equation. To examine the exact behavior of <span class="math inline">\(\phi(x)\)</span> in the sheath, we must treat the nonlinear problem: we shall find that there is not always a solution. <a href="#fig-sheath-potential" class="quarto-xref">Figure&nbsp;<span>13.3</span></a> shows the situation near one of the walls. At the plane <span class="math inline">\(x=0\)</span>, ions are imagined to enter the sheath region from the main plasma with a drift velocity <span class="math inline">\(u_0\)</span>. This drift is needed to accout for the loss of ions to the wall from the region in which they were created by ionization. For simplicity, we assume <span class="math inline">\(T_i=0\)</span>, so that all ions have the velocity <span class="math inline">\(u_0\)</span> at <span class="math inline">\(x=0\)</span>. We consider the steady state problem in a collisionless sheath region. The potential <span class="math inline">\(\phi\)</span> is assumed to decrease monotonically with <span class="math inline">\(x\)</span>. Actually, <span class="math inline">\(\phi\)</span> could have spatial oscillations, and then there would be trapped particles in the steady state. This does not happend in practice because dissipative processes tend to destroy any such highly organized state.</p>
 <p>If <span class="math inline">\(u(x)\)</span> is the ion velocity, conservation of energy requires</p>
 <p><span id="eq-sheath_u"><span class="math display">\[
 \begin{aligned}
@@ -441,7 +489,7 @@ n_e(x) = n_0 \exp(e\phi/k_B T_e)
 </section>
 <section id="the-bohm-sheath-criterion" class="level3" data-number="13.1.2">
 <h3 data-number="13.1.2" class="anchored" data-anchor-id="the-bohm-sheath-criterion"><span class="header-section-number">13.1.2</span> The Bohm Sheath Criterion</h3>
-<p><a href="#eq-sheath2">Equation&nbsp;<span>13.4</span></a> can be integrated once by multiplying both sides by <span class="math inline">\(\chi^\prime\)</span>:</p>
+<p><a href="#eq-sheath2" class="quarto-xref">Equation&nbsp;<span>13.4</span></a> can be integrated once by multiplying both sides by <span class="math inline">\(\chi^\prime\)</span>:</p>
 <p><span class="math display">\[
 \int_0^\xi \chi^\prime \chi^{\prime\prime}\mathrm{d}\xi_1 = \int_0^\xi \Big( 1+\frac{2\chi}{\mu^2} \Big)^{-1/2} \chi^\prime \mathrm{d}\xi_1 - \int_0^\xi e^{-\chi} \chi^\prime \mathrm{d}\xi_1
 \]</span></p>
@@ -449,7 +497,7 @@ n_e(x) = n_0 \exp(e\phi/k_B T_e)
 <p><span id="eq-sheath_int1"><span class="math display">\[
 \frac{1}{2}({\chi^\prime}^2 - {\chi_0^\prime}^2) = \mu^2 \Big[ \big(1 + \frac{2\chi}{\mu^2} \big)^{1/2} - 1 \Big] + e^{-\chi} -1
 \tag{13.5}\]</span></span></p>
-<p>If <span class="math inline">\(\mathbf{E}=0\)</span> in the plasma, we must set <span class="math inline">\(\chi_0^\prime=0\)</span> at <span class="math inline">\(\xi=0\)</span>. A second integration to find <span class="math inline">\(\chi\)</span> would have to be done numerically; but whatever the answer is, the right-hand side of <a href="#eq-sheath_int1">Equation&nbsp;<span>13.5</span></a> must be positive for all <span class="math inline">\(\chi\)</span>. In particular, for <span class="math inline">\(\chi\ll 1\)</span>, we can expand the right-hand terms in Taylor series:</p>
+<p>If <span class="math inline">\(\mathbf{E}=0\)</span> in the plasma, we must set <span class="math inline">\(\chi_0^\prime=0\)</span> at <span class="math inline">\(\xi=0\)</span>. A second integration to find <span class="math inline">\(\chi\)</span> would have to be done numerically; but whatever the answer is, the right-hand side of <a href="#eq-sheath_int1" class="quarto-xref">Equation&nbsp;<span>13.5</span></a> must be positive for all <span class="math inline">\(\chi\)</span>. In particular, for <span class="math inline">\(\chi\ll 1\)</span>, we can expand the right-hand terms in Taylor series:</p>
 <p><span id="eq-sheath_bohm"><span class="math display">\[
 \begin{aligned}
 \mu^2 \Big[ 1+\frac{\chi}{\mu^2}-\frac{1}{2}\frac{\chi^2}{\mu^4}+ ... -1 \Big] + 1-\chi+\frac{1}{2}\chi^2+...-1 &gt; 0 \\
@@ -458,11 +506,15 @@ n_e(x) = n_0 \exp(e\phi/k_B T_e)
 \end{aligned}
 \tag{13.6}\]</span></span></p>
 <p>This inequality is know as the <em>Bohm sheath criterion</em>. It says that ions must enter the sheath with a velocity greater than the acoustic velocity <span class="math inline">\(v_s\)</span>. To give the ions this directed velocity <span class="math inline">\(u_0\)</span>, there must be a finite electric field in the plasma. Our assumption that <span class="math inline">\(\chi^\prime=0\)</span> at <span class="math inline">\(\xi=0\)</span> is therefore only an approximate one, made possible by the fact that the scale of the sheath region is usually much smaller than the scale of the main plasma region in which the ions are accelerated. The value of <span class="math inline">\(u_0\)</span> is somewhat arbitrary, depending on where we choose to put the boundary <span class="math inline">\(x=0\)</span> between the plasma and the sheath. Of course, the ion flux <span class="math inline">\(n_0u_0\)</span> is fixed by the ion production rate, so if <span class="math inline">\(u_0\)</span> is varies, the value of <span class="math inline">\(n_0\)</span> at <span class="math inline">\(x=0\)</span> will vary inversely with <span class="math inline">\(u_0\)</span>. If the ions have finite temperature, the critical drift velocity <span class="math inline">\(u_0\)</span> will be somewhat lower.</p>
-<p>The physical reason for the Bohm criterion is easily seen from a plot of the ion and electron densities vs.&nbsp;<span class="math inline">\(\chi\)</span> <a href="#fig-sheath_n_variation">Figure&nbsp;<span>13.4</span></a>. The electron density <span class="math inline">\(n_e\)</span> falls exponentially with <span class="math inline">\(\chi\)</span>, according to the Boltzmann relation. The ion density also falls, since the ions are accelerated by the sheath potential. If the ions start with a large energy, <span class="math inline">\(n_i(\chi)\)</span> falls slowly, since the sheath field causes a relatively minor change in the ions’ velocity. If the ions start with a small energy, <span class="math inline">\(n_i(\chi)\)</span> falls fast, and can go belwo the <span class="math inline">\(n_e\)</span> curve. In that case, <span class="math inline">\(n_e-n_i\)</span> is positive near <span class="math inline">\(\chi=0\)</span>; and <a href="#eq-sheath2">Equation&nbsp;<span>13.4</span></a> tells us that <span class="math inline">\(\phi(x)\)</span> must curve upward, in contradiction to the requirement that the sheath must repel electrons. In order for this not to happen, the slope of <span class="math inline">\(n_i(\chi)\)</span> at <span class="math inline">\(\chi=0\)</span> must be smaller (in absolute value) than that of <span class="math inline">\(n_e(\chi)\)</span>; this condition is identical with the condition <span class="math inline">\(\mu^2&gt;1\)</span>.</p>
-<div id="fig-sheath_n_variation" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/sheath_n_variation.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.4: Variation of ion and electron density (logarithmic scale) with normalized potential <span class="math inline">\(\chi\)</span> in a sheath. The ion density is dwawn for two caes: <span class="math inline">\(u_0\)</span> greater than and <span class="math inline">\(u_0\)</span> less than the critical velocity.</figcaption>
+<p>The physical reason for the Bohm criterion is easily seen from a plot of the ion and electron densities vs.&nbsp;<span class="math inline">\(\chi\)</span> <span class="quarto-unresolved-ref">?fig-sheath-n-variation</span>. The electron density <span class="math inline">\(n_e\)</span> falls exponentially with <span class="math inline">\(\chi\)</span>, according to the Boltzmann relation. The ion density also falls, since the ions are accelerated by the sheath potential. If the ions start with a large energy, <span class="math inline">\(n_i(\chi)\)</span> falls slowly, since the sheath field causes a relatively minor change in the ions’ velocity. If the ions start with a small energy, <span class="math inline">\(n_i(\chi)\)</span> falls fast, and can go belwo the <span class="math inline">\(n_e\)</span> curve. In that case, <span class="math inline">\(n_e-n_i\)</span> is positive near <span class="math inline">\(\chi=0\)</span>; and <a href="#eq-sheath2" class="quarto-xref">Equation&nbsp;<span>13.4</span></a> tells us that <span class="math inline">\(\phi(x)\)</span> must curve upward, in contradiction to the requirement that the sheath must repel electrons. In order for this not to happen, the slope of <span class="math inline">\(n_i(\chi)\)</span> at <span class="math inline">\(\chi=0\)</span> must be smaller (in absolute value) than that of <span class="math inline">\(n_e(\chi)\)</span>; this condition is identical with the condition <span class="math inline">\(\mu^2&gt;1\)</span>.</p>
+<div id="fig-sheath_n_variation" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sheath_n_variation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/sheath_n_variation.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sheath_n_variation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.4: Variation of ion and electron density (logarithmic scale) with normalized potential <span class="math inline">\(\chi\)</span> in a sheath. The ion density is dwawn for two caes: <span class="math inline">\(u_0\)</span> greater than and <span class="math inline">\(u_0\)</span> less than the critical velocity.
+</figcaption>
 </figure>
 </div>
 </section>
@@ -497,11 +549,11 @@ n_e(x) = n_0 \exp(e\phi/k_B T_e)
 J = \frac{4}{9}\Big( \frac{2e}{m_i} \Big)^{1/2} \frac{\epsilon_0|\phi_w|^{3/2}}{\mathrm{d}^2}
 \tag{13.7}\]</span></span></p>
 <p>This is just the well-known Child-Langmuir law of space-charge-limited current in a plane diode.</p>
-<p>The potential variation in a plasma-wall system can be divided into three parts. Nearest the wall is an electron-free region whose thickness <span class="math inline">\(\mathrm{d}\)</span> given by <a href="#eq-child_langmuir">Equation&nbsp;<span>13.7</span></a>. Here <span class="math inline">\(J\)</span> is determined by the ion production rate, and <span class="math inline">\(\phi_w\)</span> is determined by the equility of electron and ion fluxes. Next comes a region in which <span class="math inline">\(n_e\)</span> is appreciable; as shown in the linear theory from which the scale of Debye length is derived. Finally, there is a region with much larger scale length, the “presheath”, in which the ions are accelerated to the required velocity <span class="math inline">\(u_0\)</span> by a potential drop <span class="math inline">\(|\phi|\ge \frac{1}{2}k_B T_E/e\)</span>. Depending on the experiment, the scale of the presheath may be set by the plasma radius, the collisional mean free path, or the ionization mechanism. The potential distribution, of course, varies smoothly; the division into three regions is made only for convenience and is made possible by the disparity in scale lengths. In the early days of gas discharges, sheaths could be observed as dark layers where no electrons were present to excite atoms to emission. Subsequently, the potential variation has been measured by the electrostatic deflection of a thin electron beam shot parallel to a wall.</p>
+<p>The potential variation in a plasma-wall system can be divided into three parts. Nearest the wall is an electron-free region whose thickness <span class="math inline">\(\mathrm{d}\)</span> given by <a href="#eq-child_langmuir" class="quarto-xref">Equation&nbsp;<span>13.7</span></a>. Here <span class="math inline">\(J\)</span> is determined by the ion production rate, and <span class="math inline">\(\phi_w\)</span> is determined by the equility of electron and ion fluxes. Next comes a region in which <span class="math inline">\(n_e\)</span> is appreciable; as shown in the linear theory from which the scale of Debye length is derived. Finally, there is a region with much larger scale length, the “presheath”, in which the ions are accelerated to the required velocity <span class="math inline">\(u_0\)</span> by a potential drop <span class="math inline">\(|\phi|\ge \frac{1}{2}k_B T_E/e\)</span>. Depending on the experiment, the scale of the presheath may be set by the plasma radius, the collisional mean free path, or the ionization mechanism. The potential distribution, of course, varies smoothly; the division into three regions is made only for convenience and is made possible by the disparity in scale lengths. In the early days of gas discharges, sheaths could be observed as dark layers where no electrons were present to excite atoms to emission. Subsequently, the potential variation has been measured by the electrostatic deflection of a thin electron beam shot parallel to a wall.</p>
 </section>
 <section id="electrostatic-probes" class="level3" data-number="13.1.4">
 <h3 data-number="13.1.4" class="anchored" data-anchor-id="electrostatic-probes"><span class="header-section-number">13.1.4</span> Electrostatic Probes</h3>
-<p>The sheath criterion <a href="#eq-sheath_bohm">Equation&nbsp;<span>13.6</span></a> can be used to estimate the flux of ions to a negatively biased probe in a plasma. If the probe has a surface area <span class="math inline">\(A\)</span>, and if the ions entering the sheath have a drift velocity <span class="math inline">\(u_0\ge (k_B T_e/m_i)^{1/2}\)</span>, then the ion current collected is</p>
+<p>The sheath criterion <a href="#eq-sheath_bohm" class="quarto-xref">Equation&nbsp;<span>13.6</span></a> can be used to estimate the flux of ions to a negatively biased probe in a plasma. If the probe has a surface area <span class="math inline">\(A\)</span>, and if the ions entering the sheath have a drift velocity <span class="math inline">\(u_0\ge (k_B T_e/m_i)^{1/2}\)</span>, then the ion current collected is</p>
 <p><span class="math display">\[
 I = n_s e A(k_B T_e/m_i)^{1/2}
 \]</span></p>
@@ -528,13 +580,17 @@ I_B \simeq \frac{1}{2}n_0 e A (k_B T_e/m_i)^{1/2}
 <p>(Normal space plasma textbooks discuss this part starting from R-H relations. I don’t like that.)</p>
 <section id="the-sagdeev-potential" class="level3" data-number="13.2.1">
 <h3 data-number="13.2.1" class="anchored" data-anchor-id="the-sagdeev-potential"><span class="header-section-number">13.2.1</span> The Sagdeev Potential</h3>
-<div id="fig-shock_potential" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/shock_potential.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.5: Typical potential distribution in an ion acoustic shock wave. The wave moves to the left, so that in the wave frame ions stream into the wave from the left with velocity <span class="math inline">\(u_0\)</span>.</figcaption>
+<div id="fig-shock-potential" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shock-potential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/shock_potential.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shock-potential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.5: Typical potential distribution in an ion acoustic shock wave. The wave moves to the left, so that in the wave frame ions stream into the wave from the left with velocity <span class="math inline">\(u_0\)</span>.
+</figcaption>
 </figure>
 </div>
-<p><a href="#fig-shock_potential">Figure&nbsp;<span>13.5</span></a> shows the idealized potential profile of an ion acoustic shock wave. The reason for this shape will be given presently. The wave is traveling to the left with a velocity <span class="math inline">\(u_0\)</span>. If we go to the frame moving with the wave, the function <span class="math inline">\(\phi(x)\)</span> will be constant in time, and we will see a stream of plasma impinging on the wave from the left with a velocity <span class="math inline">\(u_0\)</span>. For simplicity, let <span class="math inline">\(T_i\)</span> be zero, so that all the ions are incident with the same velocity <span class="math inline">\(u_0\)</span>, and let hte electrons be Maxwellian. Since the shock moves much more slowly than the electron thermal speed, the shift in the center velocity of the Maxwellian can be neglected. The velocity of the ions in the shock wave is, from energy conservation,</p>
+<p><a href="#fig-shock-potential" class="quarto-xref">Figure&nbsp;<span>13.5</span></a> shows the idealized potential profile of an ion acoustic shock wave. The reason for this shape will be given presently. The wave is traveling to the left with a velocity <span class="math inline">\(u_0\)</span>. If we go to the frame moving with the wave, the function <span class="math inline">\(\phi(x)\)</span> will be constant in time, and we will see a stream of plasma impinging on the wave from the left with a velocity <span class="math inline">\(u_0\)</span>. For simplicity, let <span class="math inline">\(T_i\)</span> be zero, so that all the ions are incident with the same velocity <span class="math inline">\(u_0\)</span>, and let hte electrons be Maxwellian. Since the shock moves much more slowly than the electron thermal speed, the shift in the center velocity of the Maxwellian can be neglected. The velocity of the ions in the shock wave is, from energy conservation,</p>
 <p><span class="math display">\[
 u = \Big( u_0^2 - \frac{2e\phi}{m_i} \Big)^{1/2}
 \]</span></p>
@@ -546,7 +602,7 @@ n_i = \frac{n_0 u_0}{u} = n_0 \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{-1/2}
 <p><span class="math display">\[
 \epsilon_0\frac{\mathrm{d}^2\phi}{\mathrm{d}x^2} = e(n_e - n_i) = en_0\Big[ \exp\Big( \frac{e\phi}{k_B T_e} \Big) - \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{1/2} \Big]
 \]</span></p>
-<p>This is, of course, the same <a href="#eq-sheath1">Equation&nbsp;<span>13.3</span></a> as we had for a sheath. A shock wave is no more than a sheath moving through a plasma. We now introduce the dimensionless variables</p>
+<p>This is, of course, the same <a href="#eq-sheath1" class="quarto-xref">Equation&nbsp;<span>13.3</span></a> as we had for a sheath. A shock wave is no more than a sheath moving through a plasma. We now introduce the dimensionless variables</p>
 <p><span class="math display">\[
 \chi\equiv \frac{e\phi}{k_B T_e}\quad \xi\equiv\frac{x}{\lambda_D} = x\Big( \frac{n_0 e^2}{\epsilon_0 k_B T_e} \Big)^{1/2}\quad \mu\equiv\frac{u_0}{(k_B T_e/m_i)^{1/2}}
 \]</span></p>
@@ -554,42 +610,50 @@ n_i = \frac{n_0 u_0}{u} = n_0 \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{-1/2}
 <p><span id="eq-sheath3"><span class="math display">\[
 \chi^{\prime\prime} = e^{\chi} - \Big( 1 - \frac{2\chi}{\mu^2} \Big)^{-1/2} = -\frac{dV(\chi)}{\mathrm{d}\chi}
 \tag{13.8}\]</span></span></p>
-<p>which differs from the sheath <a href="#eq-sheath2">Equation&nbsp;<span>13.4</span></a> only because of the change in sign of <span class="math inline">\(\chi\)</span>.</p>
-<p>The behavior of the solution of <a href="#eq-sheath3">Equation&nbsp;<span>13.8</span></a> was made clear by R. Z. Sagdeev, who used an analogy to an oscillator in a potential well. The displacement <span class="math inline">\(x\)</span> of an oscillator subjected to a force <span class="math inline">\(-mdV(x)/\mathrm{d}x\)</span> is given by</p>
+<p>which differs from the sheath <a href="#eq-sheath2" class="quarto-xref">Equation&nbsp;<span>13.4</span></a> only because of the change in sign of <span class="math inline">\(\chi\)</span>.</p>
+<p>The behavior of the solution of <a href="#eq-sheath3" class="quarto-xref">Equation&nbsp;<span>13.8</span></a> was made clear by R. Z. Sagdeev, who used an analogy to an oscillator in a potential well. The displacement <span class="math inline">\(x\)</span> of an oscillator subjected to a force <span class="math inline">\(-mdV(x)/\mathrm{d}x\)</span> is given by</p>
 <p><span class="math display">\[
 \ddot{x} = -dV/\mathrm{d}x
 \]</span></p>
-<p>If the right-hand side of <a href="#eq-sheath3">Equation&nbsp;<span>13.8</span></a> is defined as <span class="math inline">\(-dV/\mathrm{d}x\)</span>, the equation is the same as that of an oscillator, with the potential <span class="math inline">\(\chi\)</span> playing the role of <span class="math inline">\(\chi\)</span>, and <span class="math inline">\(\mathrm{d}/\mathrm{d}\xi\)</span> replacing <span class="math inline">\(\mathrm{d}/\mathrm{d}t\)</span>. The quasipotential <span class="math inline">\(V(\chi)\)</span> is sometimes called the Sagdeev potential. The function <span class="math inline">\(V(x)\)</span> can be found from <a href="#eq-sheath3">Equation&nbsp;<span>13.8</span></a> by integration with the boundary condition <span class="math inline">\(V(\chi)=0\)</span> at <span class="math inline">\(\chi=0\)</span>:</p>
+<p>If the right-hand side of <a href="#eq-sheath3" class="quarto-xref">Equation&nbsp;<span>13.8</span></a> is defined as <span class="math inline">\(-dV/\mathrm{d}x\)</span>, the equation is the same as that of an oscillator, with the potential <span class="math inline">\(\chi\)</span> playing the role of <span class="math inline">\(\chi\)</span>, and <span class="math inline">\(\mathrm{d}/\mathrm{d}\xi\)</span> replacing <span class="math inline">\(\mathrm{d}/\mathrm{d}t\)</span>. The quasipotential <span class="math inline">\(V(\chi)\)</span> is sometimes called the Sagdeev potential. The function <span class="math inline">\(V(x)\)</span> can be found from <a href="#eq-sheath3" class="quarto-xref">Equation&nbsp;<span>13.8</span></a> by integration with the boundary condition <span class="math inline">\(V(\chi)=0\)</span> at <span class="math inline">\(\chi=0\)</span>:</p>
 <p><span id="eq-sagdeev_potential"><span class="math display">\[
 V(\chi) = 1-e^\chi + \mu^2 \Big[ 1 - \Big( 1-\frac{2\chi}{\mu^2} \Big)^{1/2} \Big]
 \tag{13.9}\]</span></span></p>
-<p>For <span class="math inline">\(\mu\)</span> lying in a certain range, this function has the shape shown in <a href="#fig-shock_quasipotential">Figure&nbsp;<span>13.6</span></a>. If this were a real well, a particle entering from the left will go to the right-hand side of the well (<span class="math inline">\(x&gt;0\)</span>), reflect, and return to <span class="math inline">\(x=0\)</span>, making a single transit. Similarly, a quasiparticle in our analogy will make a single excursion to positive <span class="math inline">\(\chi\)</span> and return to <span class="math inline">\(\chi =0\)</span>, as shown in <a href="#fig-shock_soliton">Figure&nbsp;<span>13.7</span></a>. Such a pulse is called a <em>soliton</em>: it is a potential and density disturbance propagating to the left in <a href="#fig-shock_soliton">Figure&nbsp;<span>13.7</span></a> with velocity <span class="math inline">\(u_0\)</span>. (I DON’T FULLY UNDERSTAND!!!)</p>
-<div id="fig-shock_quasipotential" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/shock_quasipotential.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.6: The Sagdeev potential <span class="math inline">\(V(\chi)\)</span>. The upper arrow is the trajectory of a quasiparticle describing a soliton: it is reflected at the right and returns. The lower arrows show the motion of a quasiparticle that has lost energy and is trapped in the potential well. The bouncing back and forth describes the oscillations behind a shock front.</figcaption>
+<p>For <span class="math inline">\(\mu\)</span> lying in a certain range, this function has the shape shown in <a href="#fig-shock-quasipotential" class="quarto-xref">Figure&nbsp;<span>13.6</span></a>. If this were a real well, a particle entering from the left will go to the right-hand side of the well (<span class="math inline">\(x&gt;0\)</span>), reflect, and return to <span class="math inline">\(x=0\)</span>, making a single transit. Similarly, a quasiparticle in our analogy will make a single excursion to positive <span class="math inline">\(\chi\)</span> and return to <span class="math inline">\(\chi =0\)</span>, as shown in <a href="#fig-shock-soliton" class="quarto-xref">Figure&nbsp;<span>13.7</span></a>. Such a pulse is called a <em>soliton</em>: it is a potential and density disturbance propagating to the left in <a href="#fig-shock-soliton" class="quarto-xref">Figure&nbsp;<span>13.7</span></a> with velocity <span class="math inline">\(u_0\)</span>. (I DON’T FULLY UNDERSTAND!!!)</p>
+<div id="fig-shock-quasipotential" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shock-quasipotential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/shock_quasipotential.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shock-quasipotential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.6: The Sagdeev potential <span class="math inline">\(V(\chi)\)</span>. The upper arrow is the trajectory of a quasiparticle describing a soliton: it is reflected at the right and returns. The lower arrows show the motion of a quasiparticle that has lost energy and is trapped in the potential well. The bouncing back and forth describes the oscillations behind a shock front.
+</figcaption>
 </figure>
 </div>
-<div id="fig-shock_soliton" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/shock_soliton.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.7: The potential in a soliton moving to the left.</figcaption>
+<div id="fig-shock-soliton" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shock-soliton-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/shock_soliton.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shock-soliton-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.7: The potential in a soliton moving to the left.
+</figcaption>
 </figure>
 </div>
-<p>Now, if a particle suffers a loss of energy while in the well, it will never return to <span class="math inline">\(x=0\)</span> but will oscillate (in time) about some positive value of <span class="math inline">\(x\)</span>. Similarly, a little dissipation will make the potential of a shock wave oscillate (in space) about some positive value of <span class="math inline">\(\phi\)</span>. This is exactly the behavoir depicted in <a href="#fig-shock_potential">Figure&nbsp;<span>13.5</span></a>. Actually, dissipation is not needed for this: reflection of ions from the shock front has the same effect. To understand this, imagine that the ions have a small thermal spread in energy and that the height <span class="math inline">\(e\phi\)</span> of the wave front is just large enough to reflect some of the ions back to the left, while the rest go over the potential hill to the right. The reflected ions cause an increase in ion density in the upstream region to the left of the shock front (<a href="#fig-shock_potential">Figure&nbsp;<span>13.5</span></a>). This means that the quantity</p>
+<p>Now, if a particle suffers a loss of energy while in the well, it will never return to <span class="math inline">\(x=0\)</span> but will oscillate (in time) about some positive value of <span class="math inline">\(x\)</span>. Similarly, a little dissipation will make the potential of a shock wave oscillate (in space) about some positive value of <span class="math inline">\(\phi\)</span>. This is exactly the behavoir depicted in <a href="#fig-shock-potential" class="quarto-xref">Figure&nbsp;<span>13.5</span></a>. Actually, dissipation is not needed for this: reflection of ions from the shock front has the same effect. To understand this, imagine that the ions have a small thermal spread in energy and that the height <span class="math inline">\(e\phi\)</span> of the wave front is just large enough to reflect some of the ions back to the left, while the rest go over the potential hill to the right. The reflected ions cause an increase in ion density in the upstream region to the left of the shock front (<a href="#fig-shock-potential" class="quarto-xref">Figure&nbsp;<span>13.5</span></a>). This means that the quantity</p>
 <p><span class="math display">\[
 \chi^\prime = \frac{1}{n_0}\int_0^\xi (n_e - n_i)\mathrm{d}\xi_1
 \]</span></p>
-<p>is decreased. Since <span class="math inline">\(\chi^\prime\)</span> is the analog of <span class="math inline">\(\mathrm{d}x/\mathrm{d}t\)</span> in the oscillator problem, our virtual oscillator has lost velocity and is trapped in the potential well of <a href="#fig-shock_quasipotential">Figure&nbsp;<span>13.6</span></a>.</p>
+<p>is decreased. Since <span class="math inline">\(\chi^\prime\)</span> is the analog of <span class="math inline">\(\mathrm{d}x/\mathrm{d}t\)</span> in the oscillator problem, our virtual oscillator has lost velocity and is trapped in the potential well of <a href="#fig-shock-quasipotential" class="quarto-xref">Figure&nbsp;<span>13.6</span></a>.</p>
 </section>
 <section id="the-critical-mach-numbers" class="level3" data-number="13.2.2">
 <h3 data-number="13.2.2" class="anchored" data-anchor-id="the-critical-mach-numbers"><span class="header-section-number">13.2.2</span> The Critical Mach Numbers</h3>
-<p>Solutions of either the soliton type or the wave-train type exist only for a range of <span class="math inline">\(\mu\)</span>. A lower limit for <span class="math inline">\(\mu\)</span> is given by the condition that <span class="math inline">\(V(\chi)\)</span> be a potential well, rather than a hill. Expanding <a href="#eq-sagdeev_potential">Equation&nbsp;<span>13.9</span></a> for <span class="math inline">\(\chi\ll 1\)</span> yields</p>
+<p>Solutions of either the soliton type or the wave-train type exist only for a range of <span class="math inline">\(\mu\)</span>. A lower limit for <span class="math inline">\(\mu\)</span> is given by the condition that <span class="math inline">\(V(\chi)\)</span> be a potential well, rather than a hill. Expanding <a href="#eq-sagdeev_potential" class="quarto-xref">Equation&nbsp;<span>13.9</span></a> for <span class="math inline">\(\chi\ll 1\)</span> yields</p>
 <p><span class="math display">\[
 \mu^2 &gt; 1 \quad u_0&gt;(k_BT_e/m_i)^{1/2}
 \]</span></p>
-<p>This is exactly the same, both physically and mathematically, as the Bohm criterion for the existence of a sheath (<a href="#eq-sheath_bohm">Equation&nbsp;<span>13.6</span></a>).</p>
-<p>An upper limit to <span class="math inline">\(\mu\)</span> is imposed by the condition that the function <span class="math inline">\(V(\chi)\)</span> of <a href="#fig-shock_quasipotential">Figure&nbsp;<span>13.6</span></a> must cross the <span class="math inline">\(\chi\)</span> axis for <span class="math inline">\(\chi&gt;0\)</span>; otherwise, the virtual particle will not be reflected, and the potential will rise indefinitely. From <a href="#eq-sagdeev_potential">Equation&nbsp;<span>13.9</span></a>, we require</p>
+<p>This is exactly the same, both physically and mathematically, as the Bohm criterion for the existence of a sheath (<a href="#eq-sheath_bohm" class="quarto-xref">Equation&nbsp;<span>13.6</span></a>).</p>
+<p>An upper limit to <span class="math inline">\(\mu\)</span> is imposed by the condition that the function <span class="math inline">\(V(\chi)\)</span> of <a href="#fig-shock-quasipotential" class="quarto-xref">Figure&nbsp;<span>13.6</span></a> must cross the <span class="math inline">\(\chi\)</span> axis for <span class="math inline">\(\chi&gt;0\)</span>; otherwise, the virtual particle will not be reflected, and the potential will rise indefinitely. From <a href="#eq-sagdeev_potential" class="quarto-xref">Equation&nbsp;<span>13.9</span></a>, we require</p>
 <p><span class="math display">\[
 e^\chi - 1 &lt; \mu^2 \Big[ 1- \big( 1-\frac{2\chi}{\mu^2} \Big)^{1/2} \Big]
 \]</span></p>
@@ -598,11 +662,15 @@ e^\chi - 1 &lt; \mu^2 \Big[ 1- \big( 1-\frac{2\chi}{\mu^2} \Big)^{1/2} \Big]
 \exp(\mu^2/2) - 1 &lt; \mu \quad\text{or}\quad \mu &lt; 1.6
 \]</span></p>
 <p>This is the upper critical Mach number. Shock waves in a cold-ion plasma therefore exist only for <span class="math inline">\(1&lt;\mu&lt;1.6\)</span>.</p>
-<p>As in the case of sheaths, the physical situation is best explained by a diagram of <span class="math inline">\(n_i\)</span> and <span class="math inline">\(n_e\)</span> vs.&nbsp;<span class="math inline">\(\chi\)</span> (<a href="#fig-shock_n">Figure&nbsp;<span>13.8</span></a>). This diagram differs from <a href="#fig-sheath_n_variation">Figure&nbsp;<span>13.4</span></a> because of the change of sign of <span class="math inline">\(\phi\)</span>. Since the ions are now decelerated rather than accelerated, <span class="math inline">\(n_i\)</span> will appraoch infinity at <span class="math inline">\(\chi=\mu^2/2\)</span>. The lowe critical Mach number ensures that the <span class="math inline">\(n_i\)</span> curve lies below the <span class="math inline">\(n_e\)</span> curve at small <span class="math inline">\(\chi\)</span>, so that the potential <span class="math inline">\(\phi(x)\)</span> starts off with the right sign for its curvature. When the curve <span class="math inline">\(n_{i1}\)</span> crosses the <span class="math inline">\(n_e\)</span> curve, the soliton (<a href="#fig-shock_soliton">Figure&nbsp;<span>13.7</span></a>) has an inflection point. Finally, when <span class="math inline">\(\chi\)</span> is large enough that the areas under the <span class="math inline">\(n_i\)</span> and <span class="math inline">\(n_e\)</span> curves are equal, the soliton reaches a peak, and the <span class="math inline">\(n_{i1}\)</span> and <span class="math inline">\(n_e\)</span> curves are retraced as <span class="math inline">\(\chi\)</span> goes back to zero. The equality of the areas ensures that the net charge in the soliton is zero; therefore, there is no electric field outside. If <span class="math inline">\(\mu\)</span> is larger than 1.6, we have the curve <span class="math inline">\(n_{i2}\)</span>, in which the area under the curve is too small even when <span class="math inline">\(\chi\)</span> has reached its maximum value of <span class="math inline">\(\mu^2/2\)</span>.</p>
-<div id="fig-shock_n" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/shock_n.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.8: Variation of ion and electron density (logarithmic scale) with normalized potential <span class="math inline">\(\chi\)</span> in a soliton. The ion density is drawn for two cases: Mach number greater than and less than 1.6.</figcaption>
+<p>As in the case of sheaths, the physical situation is best explained by a diagram of <span class="math inline">\(n_i\)</span> and <span class="math inline">\(n_e\)</span> vs.&nbsp;<span class="math inline">\(\chi\)</span> (<a href="#fig-shock-n" class="quarto-xref">Figure&nbsp;<span>13.8</span></a>). This diagram differs from <span class="quarto-unresolved-ref">?fig-sheath-n-variation</span> because of the change of sign of <span class="math inline">\(\phi\)</span>. Since the ions are now decelerated rather than accelerated, <span class="math inline">\(n_i\)</span> will appraoch infinity at <span class="math inline">\(\chi=\mu^2/2\)</span>. The lowe critical Mach number ensures that the <span class="math inline">\(n_i\)</span> curve lies below the <span class="math inline">\(n_e\)</span> curve at small <span class="math inline">\(\chi\)</span>, so that the potential <span class="math inline">\(\phi(x)\)</span> starts off with the right sign for its curvature. When the curve <span class="math inline">\(n_{i1}\)</span> crosses the <span class="math inline">\(n_e\)</span> curve, the soliton (<a href="#fig-shock-soliton" class="quarto-xref">Figure&nbsp;<span>13.7</span></a>) has an inflection point. Finally, when <span class="math inline">\(\chi\)</span> is large enough that the areas under the <span class="math inline">\(n_i\)</span> and <span class="math inline">\(n_e\)</span> curves are equal, the soliton reaches a peak, and the <span class="math inline">\(n_{i1}\)</span> and <span class="math inline">\(n_e\)</span> curves are retraced as <span class="math inline">\(\chi\)</span> goes back to zero. The equality of the areas ensures that the net charge in the soliton is zero; therefore, there is no electric field outside. If <span class="math inline">\(\mu\)</span> is larger than 1.6, we have the curve <span class="math inline">\(n_{i2}\)</span>, in which the area under the curve is too small even when <span class="math inline">\(\chi\)</span> has reached its maximum value of <span class="math inline">\(\mu^2/2\)</span>.</p>
+<div id="fig-shock-n" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shock-n-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/shock_n.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shock-n-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.8: Variation of ion and electron density (logarithmic scale) with normalized potential <span class="math inline">\(\chi\)</span> in a soliton. The ion density is drawn for two cases: Mach number greater than and less than 1.6.
+</figcaption>
 </figure>
 </div>
 </section>
@@ -612,11 +680,15 @@ e^\chi - 1 &lt; \mu^2 \Big[ 1- \big( 1-\frac{2\chi}{\mu^2} \Big)^{1/2} \Big]
 <p><span class="math display">\[
 v_p = \Big( \frac{k_B T_e + \gamma_i k_B T_i}{m_i} \Big)^{1/2} = \Big( \frac{k_B T_e}{m_i} \Big)^{1/2}
 \]</span></p>
-<p>corresponding to <span class="math inline">\(\mu=1\)</span>. How, then, can one create shocks with <span class="math inline">\(\mu&gt;1\)</span>? One must remember that the above phase velocity was a linear result valid only at small amplitudes. As the amplitude is increased, an ion wave speeds up and also changes from a sine wave to a sawtooth shape with a steep leading edge (<a href="#fig-wave_steepening">Figure&nbsp;<span>13.9</span></a>). The reason is that the wave electric field has accelerated the ions. In <a href="#fig-wave_steepening">Figure&nbsp;<span>13.9</span></a>, ions at the peak of the potential distribution have a large velocity in the direction of <span class="math inline">\(v_\phi\)</span> than those at the trough, since they have just experienced a period of acceleration as the wave passed by. In linear theory, this difference in velocity is taken into account, but not the displacement resulting from it. In nonlinear theory, it is easy to see that the ions at the peak are shifted to the right, while those at the trough are shifted to the left, thus steepening the wave shape. Since the density perturbation is in pahse with the potential, more ions are accelerated to the right than to the left, and the wave causes a net mass flow in the direction of propagation. This causes the wave velocity to exceed the acoustic speed in the undisturbed plasma, so that <span class="math inline">\(\mu\)</span> is larger than unity.</p>
-<div id="fig-wave_steepening" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/wave_steepening.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.9: A large-amplitude ion wave steepens so that the leading edge has a large slope than the trailing edge.</figcaption>
+<p>corresponding to <span class="math inline">\(\mu=1\)</span>. How, then, can one create shocks with <span class="math inline">\(\mu&gt;1\)</span>? One must remember that the above phase velocity was a linear result valid only at small amplitudes. As the amplitude is increased, an ion wave speeds up and also changes from a sine wave to a sawtooth shape with a steep leading edge (<a href="#fig-wave-steepening" class="quarto-xref">Figure&nbsp;<span>13.9</span></a>). The reason is that the wave electric field has accelerated the ions. In <a href="#fig-wave-steepening" class="quarto-xref">Figure&nbsp;<span>13.9</span></a>, ions at the peak of the potential distribution have a large velocity in the direction of <span class="math inline">\(v_\phi\)</span> than those at the trough, since they have just experienced a period of acceleration as the wave passed by. In linear theory, this difference in velocity is taken into account, but not the displacement resulting from it. In nonlinear theory, it is easy to see that the ions at the peak are shifted to the right, while those at the trough are shifted to the left, thus steepening the wave shape. Since the density perturbation is in pahse with the potential, more ions are accelerated to the right than to the left, and the wave causes a net mass flow in the direction of propagation. This causes the wave velocity to exceed the acoustic speed in the undisturbed plasma, so that <span class="math inline">\(\mu\)</span> is larger than unity.</p>
+<div id="fig-wave-steepening" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wave-steepening-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/wave_steepening.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wave-steepening-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.9: A large-amplitude ion wave steepens so that the leading edge has a large slope than the trailing edge.
+</figcaption>
 </figure>
 </div>
 </section>
@@ -673,8 +745,8 @@ m\left&lt; \frac{\mathrm{d}\mathbf{v}_2}{\mathrm{d}t}\right&gt; = -\frac{e^2}{m\
 <p><span id="eq-ponderomotive"><span class="math display">\[
 \mathbf{F}_{NL} = -\frac{\omega_p^2}{\omega^2}\nabla\frac{\left&lt;\epsilon_0 E^2\right&gt;}{2}
 \tag{13.11}\]</span></span></p>
-<p>If the wave is electromagnetic, the second term in <a href="#eq-motion_e_2nd">Equation&nbsp;<span>13.10</span></a> is dominant, and the physical mechanism for <span class="math inline">\(\mathbf{F}_{NL}\)</span> is as follows. Electrons oscillate in the direction of <span class="math inline">\(\mathbf{E}\)</span>, but the wave magnetic field distorts their orbits. That is, the Lorentz force <span class="math inline">\(-e\mathbf{v}\times\mathbf{B}\)</span> pushes the electrons in the direction of <span class="math inline">\(\mathbf{k}\)</span> (since <span class="math inline">\(\mathbf{v}\)</span> is in the direction of <span class="math inline">\(\mathbf{E}\)</span>, and <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> is in the direction of <span class="math inline">\(\mathbf{k}\)</span>). The phases of <span class="math inline">\(\mathbf{v}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> are such that the motion does not average to zero over an oscillation, but there is a secular drift along <span class="math inline">\(\mathbf{k}\)</span>. If the wave has uniform amplitude, no force is needed to maintain this drift; but if the wave amplitude varies, the electrons will pile up in regions of small amplitude, and a force is needed to overcome the space charge. This is why the effective force <span class="math inline">\(\mathbf{F}_{NL}\)</span> is proportional to the <em>gradient</em> of <span class="math inline">\(\left&lt;E^2 \right&gt;\)</span>. Since the drift for each electron is the same, <span class="math inline">\(\mathbf{F}_{NL}\)</span> is proportional to the density — hence the factor <span class="math inline">\(\omega_p^2/\omega^2\)</span>.</p>
-<p>If the wave is electrostatic, the first term in <a href="#eq-motion_e_2nd">Equation&nbsp;<span>13.10</span></a> is dominant. Then the physical mechanism is simply that an electron oscillating along <span class="math inline">\(\mathbf{k}\parallel\mathbf{E}\)</span> moves farther in the half-cycle when it is moving from a strong-field region to a weak-field region than vice versa, so there is a net drift.</p>
+<p>If the wave is electromagnetic, the second term in <a href="#eq-motion_e_2nd" class="quarto-xref">Equation&nbsp;<span>13.10</span></a> is dominant, and the physical mechanism for <span class="math inline">\(\mathbf{F}_{NL}\)</span> is as follows. Electrons oscillate in the direction of <span class="math inline">\(\mathbf{E}\)</span>, but the wave magnetic field distorts their orbits. That is, the Lorentz force <span class="math inline">\(-e\mathbf{v}\times\mathbf{B}\)</span> pushes the electrons in the direction of <span class="math inline">\(\mathbf{k}\)</span> (since <span class="math inline">\(\mathbf{v}\)</span> is in the direction of <span class="math inline">\(\mathbf{E}\)</span>, and <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> is in the direction of <span class="math inline">\(\mathbf{k}\)</span>). The phases of <span class="math inline">\(\mathbf{v}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> are such that the motion does not average to zero over an oscillation, but there is a secular drift along <span class="math inline">\(\mathbf{k}\)</span>. If the wave has uniform amplitude, no force is needed to maintain this drift; but if the wave amplitude varies, the electrons will pile up in regions of small amplitude, and a force is needed to overcome the space charge. This is why the effective force <span class="math inline">\(\mathbf{F}_{NL}\)</span> is proportional to the <em>gradient</em> of <span class="math inline">\(\left&lt;E^2 \right&gt;\)</span>. Since the drift for each electron is the same, <span class="math inline">\(\mathbf{F}_{NL}\)</span> is proportional to the density — hence the factor <span class="math inline">\(\omega_p^2/\omega^2\)</span>.</p>
+<p>If the wave is electrostatic, the first term in <a href="#eq-motion_e_2nd" class="quarto-xref">Equation&nbsp;<span>13.10</span></a> is dominant. Then the physical mechanism is simply that an electron oscillating along <span class="math inline">\(\mathbf{k}\parallel\mathbf{E}\)</span> moves farther in the half-cycle when it is moving from a strong-field region to a weak-field region than vice versa, so there is a net drift.</p>
 <p>Although <span class="math inline">\(\mathbf{F}_{NL}\)</span> acts mainly on the electrons, the force is ultimately transmitted to the ions, since it is a low-frequency or dc effect. When electrons are bunched by <span class="math inline">\(\mathbf{F}_{NL}\)</span>, a charge-separation field <span class="math inline">\(\mathbf{E}_{cs}\)</span> is created. The total force felt by the electrons is</p>
 <p><span class="math display">\[
 \mathbf{F}_e = -e\mathbf{E}_{cs} + \mathbf{F}_{NL}
@@ -684,11 +756,15 @@ m\left&lt; \frac{\mathrm{d}\mathbf{v}_2}{\mathrm{d}t}\right&gt; = -\frac{e^2}{m\
 \mathbf{F}_i = e\mathbf{E}_{cs}
 \]</span></p>
 <p>Summing the last two equations, we find that the force on the plasma is <span class="math inline">\(\mathbf{F}_{NL}\)</span>.</p>
-<p>A direct effect of <span class="math inline">\(\mathbf{F}_{NL}\)</span> is the <a href="https://en.wikipedia.org/wiki/Self-focusing#Plasma_self-focusing">self-focusing of laser light in a plasma</a>. In <a href="#fig-laser_self-focusing">Figure&nbsp;<span>13.10</span></a> we see that a laser beam of finite diameter causes a radially directed ponderomotive force in a plasma. This force moves plasma out of the beam, so that <span class="math inline">\(\omega_p\)</span> is lower and hte dielectric constant <span class="math inline">\(\epsilon\)</span> is higher inside the beam than outside. The plasma then acts as a convex lens, focusing the beam to a smaller diameter.</p>
-<div id="fig-laser_self-focusing" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/laser_focusing.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.10: Self-focusing of a laser beam is caused by the ponderomotive force.</figcaption>
+<p>A direct effect of <span class="math inline">\(\mathbf{F}_{NL}\)</span> is the <a href="https://en.wikipedia.org/wiki/Self-focusing#Plasma_self-focusing">self-focusing of laser light in a plasma</a>. In <a href="#fig-laser-self-focusing" class="quarto-xref">Figure&nbsp;<span>13.10</span></a> we see that a laser beam of finite diameter causes a radially directed ponderomotive force in a plasma. This force moves plasma out of the beam, so that <span class="math inline">\(\omega_p\)</span> is lower and hte dielectric constant <span class="math inline">\(\epsilon\)</span> is higher inside the beam than outside. The plasma then acts as a convex lens, focusing the beam to a smaller diameter.</p>
+<div id="fig-laser-self-focusing" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-laser-self-focusing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/laser_focusing.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-laser-self-focusing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.10: Self-focusing of a laser beam is caused by the ponderomotive force.
+</figcaption>
 </figure>
 </div>
 </section>
@@ -701,13 +777,17 @@ m\left&lt; \frac{\mathrm{d}\mathbf{v}_2}{\mathrm{d}t}\right&gt; = -\frac{e^2}{m\
 </iframe>
 <section id="coupled-oscillators" class="level3" data-number="13.4.1">
 <h3 data-number="13.4.1" class="anchored" data-anchor-id="coupled-oscillators"><span class="header-section-number">13.4.1</span> Coupled Oscillators</h3>
-<div id="fig-parametric_amplifier" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/parametric_amplifier.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.11: A mechanical analog of a parametric instability.</figcaption>
+<div id="fig-parametric-amplifier" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-parametric-amplifier-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/parametric_amplifier.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-parametric-amplifier-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.11: A mechanical analog of a parametric instability.
+</figcaption>
 </figure>
 </div>
-<p>Consider the mechanical model of <a href="#fig-parametric_amplifier">Figure&nbsp;<span>13.11</span></a>, in which two oscillators M1 and M2 are coupled to a bar resting on a pivot. The pivot P is made to slide back and forth at a frequency <span class="math inline">\(\omega_0\)</span>, while the natural frequencies of the oscillators are <span class="math inline">\(\omega_1\)</span> and <span class="math inline">\(\omega_2\)</span>. It is clear that, in the absence of friction, the pivot encounters no resistance as long as M1 and M2 are not moving. Furthermore, if P is not moving and M2 is put into motion, M1 will move; but as long as ω2 is not the natural frequency of M1, the amplitude will be small. Suppose now that both P and M2 are set into motion. The displacement of M1 is proportional to the product of the displacement of M2 and the length of the lever arm and, hence, will vary in time as <span class="math display">\[
+<p>Consider the mechanical model of <a href="#fig-parametric-amplifier" class="quarto-xref">Figure&nbsp;<span>13.11</span></a>, in which two oscillators M1 and M2 are coupled to a bar resting on a pivot. The pivot P is made to slide back and forth at a frequency <span class="math inline">\(\omega_0\)</span>, while the natural frequencies of the oscillators are <span class="math inline">\(\omega_1\)</span> and <span class="math inline">\(\omega_2\)</span>. It is clear that, in the absence of friction, the pivot encounters no resistance as long as M1 and M2 are not moving. Furthermore, if P is not moving and M2 is put into motion, M1 will move; but as long as ω2 is not the natural frequency of M1, the amplitude will be small. Suppose now that both P and M2 are set into motion. The displacement of M1 is proportional to the product of the displacement of M2 and the length of the lever arm and, hence, will vary in time as <span class="math display">\[
 \cos\omega_2 t \cos\omega_0 t = \frac{1}{2}\cos[(\omega_2 + \omega_0)t] + \frac{1}{2}\cos[(\omega_2 - \omega_0)t]
 \]</span></p>
 <p>If <span class="math inline">\(\omega_1\)</span> is equal to either <span class="math inline">\(\omega_2+\omega_0\)</span> or <span class="math inline">\(\omega_2-\omega_0\)</span>, M1 will be resonantly excited and will grow to large amplitude. Once M1 starts oscillating, M2 will also gain energy, because one of the beat frequencies of <span class="math inline">\(\omega_1\)</span> with <span class="math inline">\(\omega_0\)</span> is just <span class="math inline">\(\omega_2\)</span>. Thus, once either oscillator is started, each will be excited by the other, and the system is unstable. The energy, of course, comes from the “pump” P, which encounters resistance once the rod is slanted. If the pump is strong enough, its oscillation amplitude is unaffected by M1 and M2; the instability can then be treated by a linear theory. In a plasma, the oscillators P, M1, and M2 may be different types of waves.</p>
@@ -722,7 +802,7 @@ m\left&lt; \frac{\mathrm{d}\mathbf{v}_2}{\mathrm{d}t}\right&gt; = -\frac{e^2}{m\
 \tag{13.13}\]</span></span> where <span class="math inline">\(c_1\)</span> is a constant indicating the strength of the coupling. A similar equation holds for <span class="math inline">\(x_2\)</span>: <span id="eq-oscillator_x2"><span class="math display">\[
 \ddot{x}_2 + \omega_1^2 x_2 = c_2x_1E_0
 \tag{13.14}\]</span></span></p>
-<p>Let <span class="math inline">\(x_1=\bar{x}_1 \cos\omega t\)</span>, <span class="math inline">\(x_2=\bar{x}_2 \cos\omega^\prime t\)</span>, and <span class="math inline">\(E_0=\bar{E}_0 \cos\omega_0 t\)</span>. <a href="#eq-oscillator_x2">Equation&nbsp;<span>13.14</span></a> becomes <span class="math display">\[
+<p>Let <span class="math inline">\(x_1=\bar{x}_1 \cos\omega t\)</span>, <span class="math inline">\(x_2=\bar{x}_2 \cos\omega^\prime t\)</span>, and <span class="math inline">\(E_0=\bar{E}_0 \cos\omega_0 t\)</span>. <a href="#eq-oscillator_x2" class="quarto-xref">Equation&nbsp;<span>13.14</span></a> becomes <span class="math display">\[
 \begin{aligned}
 (\omega_2^2 - {\omega^\prime}^2)\bar{x}_2\cos\omega^\prime t &amp;= c_2\bar{E}_0\bar{x}_1\cos\omega_0 t\cos\omega t \\
 &amp;= c_2\bar{E}_0\bar{x}_1 \frac{1}{2}\{ \cos[(\omega_0 + \omega)t] + \cos[(\omega_0 - \omega)t]  \}
@@ -732,14 +812,14 @@ m\left&lt; \frac{\mathrm{d}\mathbf{v}_2}{\mathrm{d}t}\right&gt; = -\frac{e^2}{m\
 \omega^\prime = \omega_0\pm\omega
 \tag{13.15}\]</span></span></p>
 <p>In the absence of nonlinear interactions, <span class="math inline">\(x_2\)</span> can only have the frequency <span class="math inline">\(\omega_2\)</span>, so we must have <span class="math inline">\(ω^\prime = \omega_2\)</span>. However, the driving terms can cause a frequency shift so that <span class="math inline">\(ω^\prime\)</span> is only approximately equal to <span class="math inline">\(\omega_2\)</span>. Furthermore, <span class="math inline">\(\omega^\prime\)</span> can be complex, since there is damping (which has been neglected so far for simplicity), or there can be growth (if there is an instability). In either case, <span class="math inline">\(x_2\)</span> is an oscillator with finite Q and can respond to a range of frequencies about <span class="math inline">\(\omega_2\)</span>. If <span class="math inline">\(\omega\)</span> is small, one can see from that both choices for <span class="math inline">\(\omega^\prime\)</span> may lie within the bandwidth of <span class="math inline">\(x_2\)</span>, and one must allow for the existence of two oscillators, <span class="math inline">\(x_2(\omega_0+\omega)\)</span> and <span class="math inline">\(x_2(\omega_0 - \omega)\)</span>.</p>
-<p>Now let <span class="math inline">\(x_1 = \bar{x}_1\cos\omega^{\prime\prime}t\)</span> and <span class="math inline">\(x_2 = \bar{x}_2\cos[(\omega_0\pm \omega)t]\)</span> and insert into <a href="#eq-oscillator_x1">Equation&nbsp;<span>13.13</span></a>: <span id="eq-oscillator_momentum"><span class="math display">\[
+<p>Now let <span class="math inline">\(x_1 = \bar{x}_1\cos\omega^{\prime\prime}t\)</span> and <span class="math inline">\(x_2 = \bar{x}_2\cos[(\omega_0\pm \omega)t]\)</span> and insert into <a href="#eq-oscillator_x1" class="quarto-xref">Equation&nbsp;<span>13.13</span></a>: <span id="eq-oscillator_momentum"><span class="math display">\[
 \begin{aligned}
 &amp;(\omega_1^2 - {\omega^{\prime\prime}}^2)\bar{x}_1\cos\omega^{\prime\prime} t \\
 &amp;= c_1\bar{E}_0\bar{x}_2\frac{1}{2}\big(\cos\{[\omega_0 + (\omega_0\pm\omega)]t\} + \cos\{ [\omega_0 - (\omega_0\pm\omega)]t \}  \big)\\
 &amp;= c_1\bar{E}_0\bar{x}_2\frac{1}{2}\big(\cos[(2\omega_0 \pm\omega) t] + \cos\omega t  \big)
 \end{aligned}
 \tag{13.16}\]</span></span></p>
-<p>The driving terms can excite not only the original oscillation <span class="math inline">\(x_1(\omega)\)</span>, but also new frequencies <span class="math inline">\(\omega^{\prime\prime} = 2\omega_0\pm\omega\)</span>. We shall consider the case <span class="math inline">\(|\omega_0| \gg |\omega_1|\)</span>, so that <span class="math inline">\(2\omega_0\pm\omega\)</span> lies outside the range of frequencies to which <span class="math inline">\(x_1\)</span> can respond, and <span class="math inline">\(x_1(2\omega_0\pm\omega)\)</span> can be neglected. We therefore have three oscillators, <span class="math inline">\(x_1(\omega)\)</span>, <span class="math inline">\(x_2(\omega_0-\omega)\)</span>, and <span class="math inline">\(x_2(\omega_0+\omega)\)</span>, which are coupled by <a href="#eq-oscillator_x1">Equation&nbsp;<span>13.13</span></a> and <a href="#eq-oscillator_x2">Equation&nbsp;<span>13.14</span></a>: <span id="eq-oscillator_energy"><span class="math display">\[
+<p>The driving terms can excite not only the original oscillation <span class="math inline">\(x_1(\omega)\)</span>, but also new frequencies <span class="math inline">\(\omega^{\prime\prime} = 2\omega_0\pm\omega\)</span>. We shall consider the case <span class="math inline">\(|\omega_0| \gg |\omega_1|\)</span>, so that <span class="math inline">\(2\omega_0\pm\omega\)</span> lies outside the range of frequencies to which <span class="math inline">\(x_1\)</span> can respond, and <span class="math inline">\(x_1(2\omega_0\pm\omega)\)</span> can be neglected. We therefore have three oscillators, <span class="math inline">\(x_1(\omega)\)</span>, <span class="math inline">\(x_2(\omega_0-\omega)\)</span>, and <span class="math inline">\(x_2(\omega_0+\omega)\)</span>, which are coupled by <a href="#eq-oscillator_x1" class="quarto-xref">Equation&nbsp;<span>13.13</span></a> and <a href="#eq-oscillator_x2" class="quarto-xref">Equation&nbsp;<span>13.14</span></a>: <span id="eq-oscillator_energy"><span class="math display">\[
 \begin{aligned}
 (\omega_1^2 - \omega^2)x_1(\omega) - c_1E_0(\omega_0)[ x_2(\omega_0-\omega) + x_2(\omega_0 + \omega) ] &amp;= 0 \\
 [\omega_2^2 - (\omega_0-\omega)^2]x_2(\omega_0-\omega) - c_2E_0(\omega_0)x_1(\omega) &amp;= 0 \\
@@ -754,38 +834,42 @@ c_2E_0 &amp; 0 &amp; (\omega_0+\omega)^2 - \omega_2^2
 \end{vmatrix} = 0
 \tag{13.18}\]</span></span></p>
 <p>A solution with <span class="math inline">\(\Im(\omega)&gt;0\)</span> would indicate an instability.</p>
-<p>For small frequency shifts and small damping or growth rates, we can set <span class="math inline">\(\omega\)</span> and <span class="math inline">\(\omega^\prime\)</span> approximately equal to the undisturbed frequencies <span class="math inline">\(\omega_1\)</span> and <span class="math inline">\(\omega_2\)</span>. <a href="#eq-oscillator_frequency_matching">Equation&nbsp;<span>13.15</span></a> then gives a frequency matching condition: <span id="eq-oscillator_frequency_matching2"><span class="math display">\[
+<p>For small frequency shifts and small damping or growth rates, we can set <span class="math inline">\(\omega\)</span> and <span class="math inline">\(\omega^\prime\)</span> approximately equal to the undisturbed frequencies <span class="math inline">\(\omega_1\)</span> and <span class="math inline">\(\omega_2\)</span>. <a href="#eq-oscillator_frequency_matching" class="quarto-xref">Equation&nbsp;<span>13.15</span></a> then gives a frequency matching condition: <span id="eq-oscillator_frequency_matching2"><span class="math display">\[
 \omega_0 \approx \omega_2 \pm \omega_1
 \tag{13.19}\]</span></span></p>
 <p>When the oscillators are waves in a plasma, <span class="math inline">\(\omega t\)</span> must be replaced by <span class="math inline">\(\omega t - \mathbf{k}\cdot\mathbf{r}\)</span>. There is then also a wavelength matching condition <span id="eq-oscillator_frequency_matching3"><span class="math display">\[
 \mathbf{k}_0 \approx \mathbf{k}_2 \pm \mathbf{k}_1
-\tag{13.20}\]</span></span> describing spatial beats; that is, the periodicity of points of constructive and destructive interference in space. The two conditions <a href="#eq-oscillator_frequency_matching2">Equation&nbsp;<span>13.19</span></a> and <a href="#eq-oscillator_frequency_matching3">Equation&nbsp;<span>13.20</span></a> are easily understood by analogy with quantum mechanics. Multiplying the former by Planck’s constant <span class="math inline">\(\hbar\)</span>, we have <span class="math display">\[
+\tag{13.20}\]</span></span> describing spatial beats; that is, the periodicity of points of constructive and destructive interference in space. The two conditions <a href="#eq-oscillator_frequency_matching2" class="quarto-xref">Equation&nbsp;<span>13.19</span></a> and <a href="#eq-oscillator_frequency_matching3" class="quarto-xref">Equation&nbsp;<span>13.20</span></a> are easily understood by analogy with quantum mechanics. Multiplying the former by Planck’s constant <span class="math inline">\(\hbar\)</span>, we have <span class="math display">\[
 \hbar\omega_0 = \hbar\omega_2 \pm \hbar\omega_1
 \]</span></p>
-<p><span class="math inline">\(E_0\)</span> and <span class="math inline">\(x_2\)</span> may, for instance, be electromagnetic waves, so that <span class="math inline">\(\hbar\omega_0\)</span> and <span class="math inline">\(\hbar\omega_2\)</span> are the photon energies. The oscillator <span class="math inline">\(x_1\)</span> may be a Langmuir wave, or plasmon, with energy <span class="math inline">\(\hbar\omega_1\)</span>. <a href="#eq-oscillator_energy">Equation&nbsp;<span>13.17</span></a> simply states the conservation of energy. Similarly, <a href="#eq-oscillator_momentum">Equation&nbsp;<span>13.16</span></a> states the conservation of momentum <span class="math inline">\(\hbar\mathbf{k}\)</span>.</p>
-<p>For plasma waves, the simultaneous satisfaction of <a href="#eq-oscillator_frequency_matching">Equation&nbsp;<span>13.15</span></a> and <a href="#eq-oscillator_momentum">Equation&nbsp;<span>13.16</span></a> in one-dimensional problems is possible only for certain combinations of waves. The required relationships are best seen on an <span class="math inline">\(\omega-k\)</span> diagram <a href="#fig-parallelogram_construction">Figure&nbsp;<span>13.12</span></a>. (A) shows the dispersion curves of an electron plasma wave <span class="math inline">\(\omega_2\)</span> (Bohm-Gross wave) and an ion acoustic wave <span class="math inline">\(\omega_1\)</span>. A large-amplitude electron wave <span class="math inline">\((\omega_0, \mathbf{k}_0)\)</span> can decay into a backward moving electron wave <span class="math inline">\((\omega_2, \mathbf{k}_2)\)</span> and an ion wave <span class="math inline">\((\omega_1, \mathbf{k}_1)\)</span>. The parallelogram construction ensures that <span class="math inline">\(\omega_0 = \omega_1 + \omega_2\)</span> and <span class="math inline">\(\mathbf{k}_0 = \mathbf{k}_1 + \mathbf{k}_2\)</span>. The positions of <span class="math inline">\((\omega_0, \mathbf{k}_0)\)</span> and <span class="math inline">\((\omega_2, \mathbf{k}_2)\)</span> on the electron curve must be adjusted so that the difference vector lies on the ion curve. Note that an electron wave cannot decay into two other electron waves, because there is no way to make the difference vector lie on the electron curve.</p>
+<p><span class="math inline">\(E_0\)</span> and <span class="math inline">\(x_2\)</span> may, for instance, be electromagnetic waves, so that <span class="math inline">\(\hbar\omega_0\)</span> and <span class="math inline">\(\hbar\omega_2\)</span> are the photon energies. The oscillator <span class="math inline">\(x_1\)</span> may be a Langmuir wave, or plasmon, with energy <span class="math inline">\(\hbar\omega_1\)</span>. <a href="#eq-oscillator_energy" class="quarto-xref">Equation&nbsp;<span>13.17</span></a> simply states the conservation of energy. Similarly, <a href="#eq-oscillator_momentum" class="quarto-xref">Equation&nbsp;<span>13.16</span></a> states the conservation of momentum <span class="math inline">\(\hbar\mathbf{k}\)</span>.</p>
+<p>For plasma waves, the simultaneous satisfaction of <a href="#eq-oscillator_frequency_matching" class="quarto-xref">Equation&nbsp;<span>13.15</span></a> and <a href="#eq-oscillator_momentum" class="quarto-xref">Equation&nbsp;<span>13.16</span></a> in one-dimensional problems is possible only for certain combinations of waves. The required relationships are best seen on an <span class="math inline">\(\omega-k\)</span> diagram <a href="#fig-parallelogram-construction" class="quarto-xref">Figure&nbsp;<span>13.12</span></a>. (A) shows the dispersion curves of an electron plasma wave <span class="math inline">\(\omega_2\)</span> (Bohm-Gross wave) and an ion acoustic wave <span class="math inline">\(\omega_1\)</span>. A large-amplitude electron wave <span class="math inline">\((\omega_0, \mathbf{k}_0)\)</span> can decay into a backward moving electron wave <span class="math inline">\((\omega_2, \mathbf{k}_2)\)</span> and an ion wave <span class="math inline">\((\omega_1, \mathbf{k}_1)\)</span>. The parallelogram construction ensures that <span class="math inline">\(\omega_0 = \omega_1 + \omega_2\)</span> and <span class="math inline">\(\mathbf{k}_0 = \mathbf{k}_1 + \mathbf{k}_2\)</span>. The positions of <span class="math inline">\((\omega_0, \mathbf{k}_0)\)</span> and <span class="math inline">\((\omega_2, \mathbf{k}_2)\)</span> on the electron curve must be adjusted so that the difference vector lies on the ion curve. Note that an electron wave cannot decay into two other electron waves, because there is no way to make the difference vector lie on the electron curve.</p>
 <p>B shows the parallelogram construction for the “parametric decay” instability. Here, <span class="math inline">\((\omega_0, \mathbf{k}_0)\)</span> is an incident electromagnetic wave of large phase velocity <span class="math inline">\((\omega_0/k_0\approx c)\)</span>. It excites an electron wave and an ion wave moving in opposite directions. Since <span class="math inline">\(|\mathbf{k}_0|\)</span> is small, we have <span class="math inline">\(|\mathbf{k}_1|\approx -|\mathbf{k}_2|\)</span> and <span class="math inline">\(\omega_0=\omega_1+\omega_2\)</span> for this instability.</p>
 <p>C shows the <span class="math inline">\(\omega-k\)</span> diagram for the “parametric backscattering” instability, in which a light wave excites an ion wave and another light wave moving in the opposite direction. This can also happen when the ion wave is replaced by a plasma wave. By analogy with similar phenomena in solid state physics, these processes are called, respectively, “stimulated Brillouin scattering” and “stimulated Raman scattering.”</p>
 <p>D represents the two-plasmon decay instability of an electromagnetic wave. Note that the two decay waves are both electron plasma waves, so that frequency matching can occur only if <span class="math inline">\(\omega_0\simeq 2\omega_p\)</span>. Expressed in terms of density, this condition is equivalent to <span class="math inline">\(n\simeq n_c/4\)</span>, when <span class="math inline">\(n_c\)</span> is the critical density associated with <span class="math inline">\(\omega_0\)</span> (<span class="math inline">\(n_C = m\epsilon_0 \omega_0^2/e^2\)</span>). This instability can therefore be expected to occur only near the “quarter-critical” layer of an inhomogeneous plasma.</p>
-<div id="fig-parallelogram_construction" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/parallelogram_construction.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.12: Parallelogram constructions showing the <span class="math inline">\(\omega-\)</span> and <span class="math inline">\(k-\)</span>maching conditions for four parametrix instabilities: (A) electron decay instability, (B) parametric decay instability, (C) stimulated Brillouin backscattering instability, and (D) two-plasmon decay instability.</figcaption>
+<div id="fig-parallelogram-construction" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-parallelogram-construction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/parallelogram_construction.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-parallelogram-construction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.12: Parallelogram constructions showing the <span class="math inline">\(\omega-\)</span> and <span class="math inline">\(k-\)</span>maching conditions for four parametrix instabilities: (A) electron decay instability, (B) parametric decay instability, (C) stimulated Brillouin backscattering instability, and (D) two-plasmon decay instability.
+</figcaption>
 </figure>
 </div>
 </section>
 <section id="instability-threshold" class="level3" data-number="13.4.3">
 <h3 data-number="13.4.3" class="anchored" data-anchor-id="instability-threshold"><span class="header-section-number">13.4.3</span> Instability Threshold</h3>
-<p>Parametric instabilities will occur at any amplitude if there is no damping, but in practice even a small amount of either collisional or Landau damping will prevent the instability unless the pump wave is rather strong. To calculate the threshold, one must introduce the damping rates <span class="math inline">\(\Gamma_1\)</span> and <span class="math inline">\(\Gamma_2\)</span> of the oscillators <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>. <a href="#eq-oscillator">Equation&nbsp;<span>13.12</span></a> then becomes <span class="math display">\[
+<p>Parametric instabilities will occur at any amplitude if there is no damping, but in practice even a small amount of either collisional or Landau damping will prevent the instability unless the pump wave is rather strong. To calculate the threshold, one must introduce the damping rates <span class="math inline">\(\Gamma_1\)</span> and <span class="math inline">\(\Gamma_2\)</span> of the oscillators <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>. <a href="#eq-oscillator" class="quarto-xref">Equation&nbsp;<span>13.12</span></a> then becomes <span class="math display">\[
 \ddot{x_1} + \omega_1^2 x_1 + 2\Gamma_1 \dot{x_1} = 0
 \]</span></p>
-<p>For instance, if <span class="math inline">\(x_1\)</span> is the displacement of a spring damped by friction, the last term represents a force proportional to the velocity. If <span class="math inline">\(x_1\)</span> is the electron density in a plasma wave damped by electron–neutral collisions, <span class="math inline">\(\Gamma_1\)</span> is <span class="math inline">\(v_c/2\)</span> (???) Examination of <a href="#eq-oscillator_x1">Equation&nbsp;<span>13.13</span></a>, <a href="#eq-oscillator_x2">Equation&nbsp;<span>13.14</span></a>, and <a href="#eq-oscillator_dispersion">Equation&nbsp;<span>13.18</span></a> will show that it is all right to use exponential notation and let <span class="math inline">\(\mathrm{d}/\mathrm{d}t \rightarrow i\omega\)</span> for <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>, as long as we keep <span class="math inline">\(E_0\)</span> real and allow <span class="math inline">\(\bar{x}_1\)</span> and <span class="math inline">\(\bar{x}_2\)</span> to be complex. <a href="#eq-oscillator_x1">Equation&nbsp;<span>13.13</span></a> and <a href="#eq-oscillator_x2">Equation&nbsp;<span>13.14</span></a> become <span id="eq-parametric_damping"><span class="math display">\[
+<p>For instance, if <span class="math inline">\(x_1\)</span> is the displacement of a spring damped by friction, the last term represents a force proportional to the velocity. If <span class="math inline">\(x_1\)</span> is the electron density in a plasma wave damped by electron–neutral collisions, <span class="math inline">\(\Gamma_1\)</span> is <span class="math inline">\(v_c/2\)</span> (???) Examination of <a href="#eq-oscillator_x1" class="quarto-xref">Equation&nbsp;<span>13.13</span></a>, <a href="#eq-oscillator_x2" class="quarto-xref">Equation&nbsp;<span>13.14</span></a>, and <a href="#eq-oscillator_dispersion" class="quarto-xref">Equation&nbsp;<span>13.18</span></a> will show that it is all right to use exponential notation and let <span class="math inline">\(\mathrm{d}/\mathrm{d}t \rightarrow i\omega\)</span> for <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>, as long as we keep <span class="math inline">\(E_0\)</span> real and allow <span class="math inline">\(\bar{x}_1\)</span> and <span class="math inline">\(\bar{x}_2\)</span> to be complex. <a href="#eq-oscillator_x1" class="quarto-xref">Equation&nbsp;<span>13.13</span></a> and <a href="#eq-oscillator_x2" class="quarto-xref">Equation&nbsp;<span>13.14</span></a> become <span id="eq-parametric_damping"><span class="math display">\[
 \begin{aligned}
 (\omega_1^2 - \omega^2 - 2i\omega\Gamma_1)x_1(\omega) &amp;= c_1 x_2 E_0 \\
 [\omega_2^2 - (\omega-\omega_0)^2 2i(\omega-\omega_0)\Gamma_2]x_2(\omega-\omega_0) &amp;= c_2 x_1 E_0
 \end{aligned}
 \tag{13.21}\]</span></span></p>
-<p>We further restrict ourselves to the simple case of two waves — that is, when <span class="math inline">\(\omega\simeq\omega_1\)</span> and <span class="math inline">\(\omega_0 - \omega\simeq\omega_2\)</span> but <span class="math inline">\(\omega_0+\omega\)</span> is far enough from <span class="math inline">\(\omega_2\)</span> to be nonresonant — in which case the third row and column of <a href="#eq-oscillator_dispersion">Equation&nbsp;<span>13.18</span></a> can be ignored. If we now express <span class="math inline">\(x_1, x_2\)</span>, and <span class="math inline">\(E_0\)</span> in terms of their peak values, as in <a href="#eq-oscillator_momentum">Equation&nbsp;<span>13.16</span></a>, a factor of 1/2 appears on the right-hand sides of <a href="#eq-parametric_damping">Equation&nbsp;<span>13.21</span></a>. Discarding the nonresonant terms and eliminating <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> from <a href="#eq-parametric_damping">Equation&nbsp;<span>13.21</span></a>, we obtain <span class="math display">\[
+<p>We further restrict ourselves to the simple case of two waves — that is, when <span class="math inline">\(\omega\simeq\omega_1\)</span> and <span class="math inline">\(\omega_0 - \omega\simeq\omega_2\)</span> but <span class="math inline">\(\omega_0+\omega\)</span> is far enough from <span class="math inline">\(\omega_2\)</span> to be nonresonant — in which case the third row and column of <a href="#eq-oscillator_dispersion" class="quarto-xref">Equation&nbsp;<span>13.18</span></a> can be ignored. If we now express <span class="math inline">\(x_1, x_2\)</span>, and <span class="math inline">\(E_0\)</span> in terms of their peak values, as in <a href="#eq-oscillator_momentum" class="quarto-xref">Equation&nbsp;<span>13.16</span></a>, a factor of 1/2 appears on the right-hand sides of <a href="#eq-parametric_damping" class="quarto-xref">Equation&nbsp;<span>13.21</span></a>. Discarding the nonresonant terms and eliminating <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> from <a href="#eq-parametric_damping" class="quarto-xref">Equation&nbsp;<span>13.21</span></a>, we obtain <span class="math display">\[
 (\omega^2 - \omega_1^2 +2i\omega\Gamma_1)[(\omega_0-\omega)^2 - \omega_2^2 - 2i(\omega_0-\omega)\Gamma_2] = \frac{1}{4}c_1c_2\bar{E}_0^2
 \]</span></p>
 <p>At threshold, we may set <span class="math inline">\(\Im(\omega)=0\)</span>. The lowest threshold will occur at exact frequency matching; i.e., <span class="math inline">\(\omega=\omega_1,\omega_0-\omega=\omega_2\)</span>. Then the last equation gives <span class="math display">\[
@@ -795,20 +879,24 @@ c_1c_2(\bar{E}_0^2)_{\text{threshold}} = 16\omega_1\omega_2\Gamma_1\Gamma_2
 </section>
 <section id="physical-mechanism" class="level3" data-number="13.4.4">
 <h3 data-number="13.4.4" class="anchored" data-anchor-id="physical-mechanism"><span class="header-section-number">13.4.4</span> Physical Mechanism</h3>
-<p>The parametric excitation of waves can be understood very simply in terms of the ponderomotive force (<a href="#sec-ponderomotive"><span>Section&nbsp;13.3</span></a>). As an illustration, consider the case of an electromagnetic wave <span class="math inline">\((\omega_0, \mathbf{k}_0)\)</span> driving an electron plasma wave <span class="math inline">\((\omega_2, \mathbf{k}_2)\)</span> and a low-frequency ion wave <span class="math inline">\((\omega_1, \mathbf{k}_1)\)</span> (fig-parallelogram_construction B). Since <span class="math inline">\(\omega_1\)</span> is small, <span class="math inline">\(\omega_0\)</span> must be close to <span class="math inline">\(\omega_p\)</span>. However, the behavior is quite different for <span class="math inline">\(\omega_0&lt;\omega_p\)</span> than for <span class="math inline">\(\omega_0&gt;\omega_p\)</span>. The former case gives rise to the “oscillating two-stream” instability (which will be treated in detail), and the latter to the “parametric decay” instability.</p>
-<div id="fig-oscillating_2stream" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="../images/oscillating_2stream.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;13.13: Physical mechanism of the oscillating two-stream instability.</figcaption>
+<p>The parametric excitation of waves can be understood very simply in terms of the ponderomotive force (<a href="#sec-ponderomotive" class="quarto-xref"><span>Section 13.3</span></a>). As an illustration, consider the case of an electromagnetic wave <span class="math inline">\((\omega_0, \mathbf{k}_0)\)</span> driving an electron plasma wave <span class="math inline">\((\omega_2, \mathbf{k}_2)\)</span> and a low-frequency ion wave <span class="math inline">\((\omega_1, \mathbf{k}_1)\)</span> (fig-parallelogram-construction B). Since <span class="math inline">\(\omega_1\)</span> is small, <span class="math inline">\(\omega_0\)</span> must be close to <span class="math inline">\(\omega_p\)</span>. However, the behavior is quite different for <span class="math inline">\(\omega_0&lt;\omega_p\)</span> than for <span class="math inline">\(\omega_0&gt;\omega_p\)</span>. The former case gives rise to the “oscillating two-stream” instability (which will be treated in detail), and the latter to the “parametric decay” instability.</p>
+<div id="fig-oscillating-2stream" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-oscillating-2stream-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/oscillating_2stream.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-oscillating-2stream-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.13: Physical mechanism of the oscillating two-stream instability.
+</figcaption>
 </figure>
 </div>
-<p>Suppose there is a density perturbation in the plasma of the form <span class="math inline">\(n_1\cos k_1 x\)</span>; this perturbation can occur spontaneously as one component of the thermal noise. Let the pump wave have an electric field <span class="math inline">\(E_0\cos\omega_0 t\)</span> in the <span class="math inline">\(x\)</span> direction, as shown in <a href="#fig-oscillating_2stream">Figure&nbsp;<span>13.13</span></a>. In the absence of a dc field <span class="math inline">\(\mathbf{B}_0\)</span>, the pump wave follows the relation <span class="math inline">\(\omega_0^2 = \omega_p^2 + c^2k_0^2\)</span>, so that <span class="math inline">\(k_0\approx 0\)</span> for <span class="math inline">\(\omega_0\approx\omega_p\)</span>. We may therefore regard <span class="math inline">\(E_0\)</span> as spatially uniform. If <span class="math inline">\(\omega_0\)</span> is less than <span class="math inline">\(\omega_p\)</span> (HOW IS THIS POSSIBLE???), which is the resonant frequency of the cold electron fluid, the electrons will move in the direction opposite to <span class="math inline">\(E_0\)</span>, while the ions do not move on the time scale of <span class="math inline">\(\omega_0\)</span>. The density ripple then causes a charge separation, as shown in <a href="#fig-oscillating_2stream">Figure&nbsp;<span>13.13</span></a>. The electrostatic charges create a field <span class="math inline">\(E_1\)</span>, which oscillates at the frequency <span class="math inline">\(\omega_0\)</span>. The ponderomotive force due to the total field is given by <a href="#eq-ponderomotive">Equation&nbsp;<span>13.11</span></a>: <span class="math display">\[
+<p>Suppose there is a density perturbation in the plasma of the form <span class="math inline">\(n_1\cos k_1 x\)</span>; this perturbation can occur spontaneously as one component of the thermal noise. Let the pump wave have an electric field <span class="math inline">\(E_0\cos\omega_0 t\)</span> in the <span class="math inline">\(x\)</span> direction, as shown in <a href="#fig-oscillating-2stream" class="quarto-xref">Figure&nbsp;<span>13.13</span></a>. In the absence of a dc field <span class="math inline">\(\mathbf{B}_0\)</span>, the pump wave follows the relation <span class="math inline">\(\omega_0^2 = \omega_p^2 + c^2k_0^2\)</span>, so that <span class="math inline">\(k_0\approx 0\)</span> for <span class="math inline">\(\omega_0\approx\omega_p\)</span>. We may therefore regard <span class="math inline">\(E_0\)</span> as spatially uniform. If <span class="math inline">\(\omega_0\)</span> is less than <span class="math inline">\(\omega_p\)</span> (HOW IS THIS POSSIBLE???), which is the resonant frequency of the cold electron fluid, the electrons will move in the direction opposite to <span class="math inline">\(E_0\)</span>, while the ions do not move on the time scale of <span class="math inline">\(\omega_0\)</span>. The density ripple then causes a charge separation, as shown in <a href="#fig-oscillating-2stream" class="quarto-xref">Figure&nbsp;<span>13.13</span></a>. The electrostatic charges create a field <span class="math inline">\(E_1\)</span>, which oscillates at the frequency <span class="math inline">\(\omega_0\)</span>. The ponderomotive force due to the total field is given by <a href="#eq-ponderomotive" class="quarto-xref">Equation&nbsp;<span>13.11</span></a>: <span class="math display">\[
 \mathbf{F}_{NL} = -\frac{\omega_p^2}{\omega^2}\nabla\frac{\left&lt; (E_0 + E_1)^2\right&gt;}{2}\epsilon_0
 \]</span></p>
 <p>Since E0 is uniform and much larger than <span class="math inline">\(E_1\)</span>, only the cross term is important: <span class="math display">\[
 \mathbf{F}_{NL} = -\frac{\omega_p^2}{\omega^2}\frac{\partial}{\partial x}\frac{\left&lt;2E_0E_1\right&gt;}{2}\epsilon_0
 \]</span></p>
-<p>This force does not average to zero, since E1 changes sign with E0. As seen in fig-oscillating_2stream, <span class="math inline">\(F_{NL}\)</span> is zero at the peaks and troughs of <span class="math inline">\(n_1\)</span> but is large where <span class="math inline">\(\nabla n_1\)</span> is large. This spatial distribution causes <span class="math inline">\(F_{NL}\)</span> to push electrons from regions of low density to regions of high density. The resulting de electric field drags the ions along also, and the density perturbation grows. The threshold value of <span class="math inline">\(F_{NL}\)</span> is the value just sufficient to overcome the pressure <span class="math inline">\(\nabla n_{i1}(k_BT_i + k_BT_e)\)</span>, which tends to smooth the density. The density ripple does not propagate, so that <span class="math inline">\(\Re(\omega_1)=0\)</span>. This is called the <em>oscillating two-stream instability</em> because the sloshing electrons have a time-averaged distribution function which is double-peaked, as in the two-stream instability (Sect. ???).</p>
+<p>This force does not average to zero, since E1 changes sign with E0. As seen in <a href="#fig-oscillating-2stream" class="quarto-xref">Figure&nbsp;<span>13.13</span></a>, <span class="math inline">\(F_{NL}\)</span> is zero at the peaks and troughs of <span class="math inline">\(n_1\)</span> but is large where <span class="math inline">\(\nabla n_1\)</span> is large. This spatial distribution causes <span class="math inline">\(F_{NL}\)</span> to push electrons from regions of low density to regions of high density. The resulting de electric field drags the ions along also, and the density perturbation grows. The threshold value of <span class="math inline">\(F_{NL}\)</span> is the value just sufficient to overcome the pressure <span class="math inline">\(\nabla n_{i1}(k_BT_i + k_BT_e)\)</span>, which tends to smooth the density. The density ripple does not propagate, so that <span class="math inline">\(\Re(\omega_1)=0\)</span>. This is called the <em>oscillating two-stream instability</em> because the sloshing electrons have a time-averaged distribution function which is double-peaked, as in the two-stream instability (Sect. ???).</p>
 </section>
 <section id="the-oscillating-two-stream-instability" class="level3" data-number="13.4.5">
 <h3 data-number="13.4.5" class="anchored" data-anchor-id="the-oscillating-two-stream-instability"><span class="header-section-number">13.4.5</span> The Oscillating Two-Stream Instability</h3>
@@ -824,7 +912,7 @@ c_1c_2(\bar{E}_0^2)_{\text{threshold}} = 16\omega_1\omega_2\Gamma_1\Gamma_2
 </section>
 <section id="nonlinear-landau-damping" class="level2" data-number="13.6">
 <h2 data-number="13.6" class="anchored" data-anchor-id="nonlinear-landau-damping"><span class="header-section-number">13.6</span> Nonlinear Landau Damping</h2>
-<p>When the amplitude of an electron or ion wave excited, say, by a grid is followed in space, it is often found that the decay is not exponential, as predicted by linear theory, if the amplitude is large. Instead, one typically finds that the amplitude decays, grows again, and then oscillates before settling down to a steady value. Although other effects may also be operative, these oscillations in amplitude are exactly what would be expected from the nonlinear effect of particle trapping discussed in <a href="kinetic.html#sec-landau_damping"><span>Section&nbsp;8.6</span></a>.</p>
+<p>When the amplitude of an electron or ion wave excited, say, by a grid is followed in space, it is often found that the decay is not exponential, as predicted by linear theory, if the amplitude is large. Instead, one typically finds that the amplitude decays, grows again, and then oscillates before settling down to a steady value. Although other effects may also be operative, these oscillations in amplitude are exactly what would be expected from the nonlinear effect of particle trapping discussed in <a href="kinetic.html#sec-landau_damping" class="quarto-xref"><span>Section 8.6</span></a>.</p>
 </section>
 <section id="equations-of-nonlinear-plasma-physics" class="level2" data-number="13.7">
 <h2 data-number="13.7" class="anchored" data-anchor-id="equations-of-nonlinear-plasma-physics"><span class="header-section-number">13.7</span> Equations of Nonlinear Plasma Physics</h2>
@@ -840,7 +928,7 @@ c_1c_2(\bar{E}_0^2)_{\text{threshold}} = 16\omega_1\omega_2\Gamma_1\Gamma_2
 <p><span id="eq-nonlinear_schrödinger"><span class="math display">\[
 i\frac{\partial\psi}{\partial t} + p\frac{\partial^2\psi}{\partial x^2} + q|\psi|^2\psi = 0
 \tag{13.22}\]</span></span></p>
-<p>where <span class="math inline">\(\psi\)</span> is the wave amplitude, <span class="math inline">\(i=\sqrt(-1)\)</span>, and <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are coefficients whose physical significance will be explained shortly. <a href="#eq-nonlinear_schrödinger">Equation&nbsp;<span>13.22</span></a> differs from the usual Schrödinger equation</p>
+<p>where <span class="math inline">\(\psi\)</span> is the wave amplitude, <span class="math inline">\(i=\sqrt(-1)\)</span>, and <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are coefficients whose physical significance will be explained shortly. <a href="#eq-nonlinear_schrödinger" class="quarto-xref">Equation&nbsp;<span>13.22</span></a> differs from the usual Schrödinger equation</p>
 <p><span class="math display">\[
 i\hbar\frac{\partial\psi}{\partial t} + \frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2} - V(x,t)\psi = 0
 \]</span></p>
@@ -892,6 +980,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -960,13 +1075,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1045,10 +1162,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1058,8 +1174,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1072,6 +1197,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1115,6 +1359,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1140,6 +1385,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1201,12 +1472,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../contents/flr.html" class="pagination-link">
+      <a href="../contents/flr.html" class="pagination-link  aria-label=" &lt;span="" line="" resonance&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../contents/turbulence.html" class="pagination-link">
+      <a href="../contents/turbulence.html" class="pagination-link" aria-label="<span class='chapter-number'>14</span>&nbsp; <span class='chapter-title'>Turbulence</span>">
         <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Turbulence</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1215,4 +1486,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/nonlinear.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
