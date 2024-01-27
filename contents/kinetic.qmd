@@ -12,9 +12,9 @@ Particles in the upper half-plane always move to the right, since they have a po
 
 The fluid theory we have been using so far is the simplest description of a plasma; it is indeed fortunate that this approximation is sufficiently accurate to describe the majority of observed phenomena. There are some phenomena, however, for which a fluid treatment is inadequate. At any given time, each particle has a specific position and velocity. We can therefore characterize the instantaneous configuration of a large number of particles by specifying the density of particles at each point $x, v$ in phase-space. The function prescribing the instantaneous density of particles in phase-space is called the _distribution function_ and is denoted by $f(x, v, t)$. Thus, $f(x, v, t)\mathrm{d}x\mathrm{d}v$ is the number of particles at time $t$ having positions in the range between $x$ and $x+dx$ and velocities in the range between $v$ and $v+dv$. As time progresses, the particle motion and acceleration causes the number of particles in these $x$ and $v$ ranges to change and so $f$ will change. This temporal evolution of $f$ gives a description of the system more detailed than a fluid description, but less detailed than following the trajectory of each individual particle. Using the evolution of $f$ to characterize the system does not keep track of the trajectories of individual particles, but rather characterizes classes of particles having the same $x, v$.
 
-In fluid theory, the dependent variables are functions of only four independent variables: $x, y, z,$ and $t$. This is possible because the velocity distribution of each species is assumed to be Maxwellian everywhere and can therefore be uniquely specified by only one number, the temperature $T$. Since collisions can be rare in high-temperature plasmas, deviations from thermal equilibrium can be maintained for relatively long times. As an example, consider two velocity distributions $f_1(v_x)$ and $f_2(v_x)$ in a one-dimensional system (@fig-distributions_1d). These two distributions will have entirely different behaviors, but as long as the areas under the curves are the same, fluid theory does not distinguish between them.
+In fluid theory, the dependent variables are functions of only four independent variables: $x, y, z,$ and $t$. This is possible because the velocity distribution of each species is assumed to be Maxwellian everywhere and can therefore be uniquely specified by only one number, the temperature $T$. Since collisions can be rare in high-temperature plasmas, deviations from thermal equilibrium can be maintained for relatively long times. As an example, consider two velocity distributions $f_1(v_x)$ and $f_2(v_x)$ in a one-dimensional system (@fig-distributions-1d). These two distributions will have entirely different behaviors, but as long as the areas under the curves are the same, fluid theory does not distinguish between them.
 
-![Examples of non-Maxwellian distribution functions](../images/distributions_nonmaxwellian_1d.png){#fig-distributions_1d}
+![Examples of non-Maxwellian distribution functions](../images/distributions_nonmaxwellian_1d.png){#fig-distributions-1d}
 
 When we consider velocity distributions in 3D, we have seven independent variables: $f = f(\mathbf{r}, \mathbf{v}, t)$.
 By $f(\mathbf{r}, \mathbf{v}, t)$, we mean that the number of particles per meter cubed at position $\mathbf{r}$ and time $t$ with velocity components between $v_x$ and $v_x + dv_x$, $v_y$ and $v_y + dv_y$, and $v_z$ and $v_z + dv_z$ is
@@ -24,9 +24,9 @@ $$
 
 ### Moments of the distribution function
 
-![Moments give weighted averages of the particles in the shaded vertical strip.](../images/distribution_moments.png){#fig-distribution_moments}
+![Moments give weighted averages of the particles in the shaded vertical strip.](../images/distribution_moments.png){#fig-distribution-moments}
 
-Let us count the particles in the shaded vertical strip in @fig-distribution_moments. The number of particles in this strip is the number of particles lying between $x$ and $x + \mathrm{d}x$, where $x$ is the location of the left-hand side of the strip and $x + \mathrm{d}x$ is the location of the right-hand side. The number of particles in the strip is equivalently defined as $n(x, t)\mathrm{d}x$, where $n(x)$ is the density of particles at $x$. Thus we see that $\int f(x, v)\mathrm{d}v = n(x)$ the transition from a phase-space description (i.e., $x, v$ are independent variables) to a conventional description (i.e., only $x$ is an independent variable) involves “integrating out” the velocity dependence to obtain a quantity (e.g., density) depending only on position. Since the number of particles is finite, and since $f$ is a positive quantity, $f$ must vanish as $v\rightarrow\pm\infty$.
+Let us count the particles in the shaded vertical strip in @fig-distribution-moments. The number of particles in this strip is the number of particles lying between $x$ and $x + \mathrm{d}x$, where $x$ is the location of the left-hand side of the strip and $x + \mathrm{d}x$ is the location of the right-hand side. The number of particles in the strip is equivalently defined as $n(x, t)\mathrm{d}x$, where $n(x)$ is the density of particles at $x$. Thus we see that $\int f(x, v)\mathrm{d}v = n(x)$ the transition from a phase-space description (i.e., $x, v$ are independent variables) to a conventional description (i.e., only $x$ is an independent variable) involves “integrating out” the velocity dependence to obtain a quantity (e.g., density) depending only on position. Since the number of particles is finite, and since $f$ is a positive quantity, $f$ must vanish as $v\rightarrow\pm\infty$.
 
 In three-dimension, the density is now a function of four scalar variables, $n=n(\mathbf{r}, t)$, which is the integral of the distribution function over the velocity space:
 $$
@@ -122,11 +122,11 @@ $$
 g(v) = 4\pi n (m/2\pi k_B T)^{3/2} v^2 \exp(-v^2/v_{th}^2)
 $$ {#eq-g_dist}
 
-@fig-f_g shows the difference between $g(v)$ and a one-dimensional Maxwellian distribution $f(v_x)$. Although $f(v_x)$ is maximum for $v_x=0$, $g(v)$ is zero for $v=0$.
+@fig-f-g shows the difference between $g(v)$ and a one-dimensional Maxwellian distribution $f(v_x)$. Although $f(v_x)$ is maximum for $v_x=0$, $g(v)$ is zero for $v=0$.
 
 ::: {.content-visible unless-format="pdf"}
 
-![One- and three-dimensional Maxwellian velocity distributions.](../images/f_g.png){#fig-f_g}
+![One- and three-dimensional Maxwellian velocity distributions.](../images/f_g.png){#fig-f-g}
 
 :::
 
@@ -322,9 +322,9 @@ $$ {#eq-maxwellian-distribution-N}
 
 ### Vlasov equation {#sec-vlasov}
 
-![A box within phase-space having width $\mathrm{d}x$ and height $\mathrm{d}v$.](../images/phase_space_box.png){#fig-phase_space_box}
+![A box within phase-space having width $\mathrm{d}x$ and height $\mathrm{d}v$.](../images/phase_space_box.png){#fig-phase-space-box}
 
-Now consider the rate of change of the number of particles inside a small box in phase-space, such as is shown in @fig-phase_space_box. Defining $a(x, v, t)$ to be the acceleration of a particle, it is seen that the particle flux in the horizontal direction is $fv$ and the particle flux in the vertical direction is $fa$. Thus, the particle fluxes into the four sides of the box are:
+Now consider the rate of change of the number of particles inside a small box in phase-space, such as is shown in @fig-phase-space-box. Defining $a(x, v, t)$ to be the acceleration of a particle, it is seen that the particle flux in the horizontal direction is $fv$ and the particle flux in the vertical direction is $fa$. Thus, the particle fluxes into the four sides of the box are:
 
 1. flux into left side of box is $f(x, v, t)v\mathrm{d}v$
 2. flux into right side of box is $-f(x+\mathrm{d}x, v, t)v\mathrm{d}v$
@@ -390,11 +390,10 @@ $$
 ### Boltzmann equation
 
 It was shown in ??? that the cumulative effect of grazing collisions dominates the cumulative effect of the more infrequently occurring large-angle collisions. In order to see how collisions affect the Vlasov equation, let us now
-temporarily imagine that the grazing collisions are replaced by an equivalent sequence of abrupt large scattering angle encounters as shown in @fig-phase_space_collision. Two particles involved in a collision do not significantly change their positions during the course of a collision, but they do substantially change their velocities. For
-example, a particle making a head-on collision with an equal mass stationary particle will stop after the collision, while the target particle will assume the velocity of the incident particle. If we draw the detailed phase-space trajectories characterized by a collision between two particles we see that each particle has a sudden change in its vertical coordinate (i.e., velocity) but no change in its horizontal coordinate (i.e., position). The collision-induced velocity jump occurs very fast so that if the phase-space trajectories were recorded with a "movie
-camera" having insufficient framing rate to catch the details of the jump, the resulting movie would show particles being spontaneously created or annihilated within given volumes of phase-space (e.g., within the boxes shown in @fig-phase_space_collision).
+temporarily imagine that the grazing collisions are replaced by an equivalent sequence of abrupt large scattering angle encounters as shown in @fig-phase-space-collision. Two particles involved in a collision do not significantly change their positions during the course of a collision, but they do substantially change their velocities. For
+example, a particle making a head-on collision with an equal mass stationary particle will stop after the collision, while the target particle will assume the velocity of the incident particle. If we draw the detailed phase-space trajectories characterized by a collision between two particles we see that each particle has a sudden change in its vertical coordinate (i.e., velocity) but no change in its horizontal coordinate (i.e., position). The collision-induced velocity jump occurs very fast so that if the phase-space trajectories were recorded with a "movie camera" having insufficient framing rate to catch the details of the jump, the resulting movie would show particles being spontaneously created or annihilated within given volumes of phase-space (e.g., within the boxes shown in @fig-phase-space-collision).
 
-![Detailed view of collisions causing "jumps" in phase-space.](../images/distribution_collision.png){#fig-phase_space_collision}
+![Detailed view of collisions causing "jumps" in phase-space.](../images/distribution_collision.png){#fig-phase-space-collision}
 
 The details of these individual jumps in phase-space are complicated and yet of little interest since all we really want to know is the cumulative effect of many collisions. It is therefore both efficient and sufficient to follow the trajectories on the slow time scale while accounting for the apparent "creation" or "annihilation" of particles by inserting a collision operator on the right-hand side of the Vlasov equation. In the example shown here it is seen that when a particle is apparently "created" in one box, another particle must be simultaneously "annihilated" in another box at the same $x$ coordinate but a different $v$ coordinate (of course, what is actually happening is that a single particle is suddenly moving from one box to the other). This coupling of the annihilation and creation rates in different boxes constrains the form of the collision operator. We will not attempt to derive collision operators in this chapter but will simply discuss the constraints on these operators. From a more formal point of view, collisions are characterized by constrained sources and sinks for particles in phase-space and inclusion of
 collisions in the Vlasov equation causes the Vlasov equation to assume the form
@@ -442,20 +441,20 @@ $$ {#eq-fokker_planck}
 This is called the _Fokker-Planck equation_; it takes into account binary Coulomb collisions only. Here, $\Delta\mathbf{v}$ is the change of velocity in a collision, and @eq-fokker_planck is a shorthand way of writing a rather complicated expression.
 The colon operator $\mathbf{a}\mathbf{b}:\mathbf{c}\mathbf{d} = a_ib_jc_id_j$.
 
-The fact that $\mathrm{d}f/\mathrm{d}t$ is constant in the absence of collisions means that particles follow the contours of constant $f$ as they move around in phase space. As an example of how these contours can be used, consider the beam-plasma instability of Section ???. In the unperturbed plasma, the electrons all have velocity $v_0$, and the contour of constant $f$ is a straight line. The function $f(x, v_x)$ is a wall rising out of the plane of the paper at $v_x=v_0$. The electrons move along the trajectory shown. When a wave develops, the electric field $\mathbf{E}_1$ causes electrons to suffer changes in $v_x$ as they stream along. The trajectory then develops a sinusoidal ripple (@fig-beam_e_dist_1d B). This ripple travels at the phase velocity, not the particle velocity. Particles stay on the curve as they move relative to the wave. If $\mathbf{E}_1$ becomes very large as the wave grows, and if there are a few collisions, some electrons will be trapped in the electrostatic potential of the wave. In coordinate space, the wave potential appears as in @fig-wave_potential. In phase space, $f(x, v_x)$ will have peaks wherever there is a potential trough (@fig-contour_dist). Since the contours of $f$ are also electron trajectories, one sees that some electrons move in closed orbits in phase space; these are just the trapped electrons.
+The fact that $\mathrm{d}f/\mathrm{d}t$ is constant in the absence of collisions means that particles follow the contours of constant $f$ as they move around in phase space. As an example of how these contours can be used, consider the beam-plasma instability of Section ???. In the unperturbed plasma, the electrons all have velocity $v_0$, and the contour of constant $f$ is a straight line. The function $f(x, v_x)$ is a wall rising out of the plane of the paper at $v_x=v_0$. The electrons move along the trajectory shown. When a wave develops, the electric field $\mathbf{E}_1$ causes electrons to suffer changes in $v_x$ as they stream along. The trajectory then develops a sinusoidal ripple (@fig-beam-e-dist-1d B). This ripple travels at the phase velocity, not the particle velocity. Particles stay on the curve as they move relative to the wave. If $\mathbf{E}_1$ becomes very large as the wave grows, and if there are a few collisions, some electrons will be trapped in the electrostatic potential of the wave. In coordinate space, the wave potential appears as in @fig-wave-potential. In phase space, $f(x, v_x)$ will have peaks wherever there is a potential trough (@fig-contour-dist). Since the contours of $f$ are also electron trajectories, one sees that some electrons move in closed orbits in phase space; these are just the trapped electrons.
 
 ::: {.content-visible unless-format="pdf"}
 
-![(A) Representation in one-dimensional phase space of a beam of electrons all with the same velocity $v_0$. The distribution function $f(x, v_x)$ is infinite along the line and zero elsewhere. The line is also the trajectory of individual electrons, which move in the direction of the arrow. (B) when a plasma wave exists in the electron beam. The entire pattern moves to the right with the phase velocity of the wave. If the observer goes to the frame of the wave, the pattern would stand still, and electrons would be seen to trace the curve with the velocity $v_0-v_\phi$.](../images/beam_e_dist_1d.png){#fig-beam_e_dist_1d}
+![(A) Representation in one-dimensional phase space of a beam of electrons all with the same velocity $v_0$. The distribution function $f(x, v_x)$ is infinite along the line and zero elsewhere. The line is also the trajectory of individual electrons, which move in the direction of the arrow. (B) when a plasma wave exists in the electron beam. The entire pattern moves to the right with the phase velocity of the wave. If the observer goes to the frame of the wave, the pattern would stand still, and electrons would be seen to trace the curve with the velocity $v_0-v_\phi$.](../images/beam_e_dist_1d.png){#fig-beam-e-dist-1d}
 
-![The potential of a plasma wave, as seen by an electron. The pattern moves with the velocity $v_\phi$. An electron with small velocity relative to the wave would be trapped in a potential trough and be carried along with the wave.](../images/wave_potential.png){#fig-wave_potential}
+![The potential of a plasma wave, as seen by an electron. The pattern moves with the velocity $v_\phi$. An electron with small velocity relative to the wave would be trapped in a potential trough and be carried along with the wave.](../images/wave_potential.png){#fig-wave-potential}
 
-![Electron trajectories, or contours of constant $f$, as seen in the wave frame, in which the pattern is stationary. This type of diagram, appropriate for finite distributions $f(v)$, is easier to understand than the $\delta$-function distribution of @fig-beam_e_dist_1d.](../images/contour_dist.png){#fig-contour_dist}
+![Electron trajectories, or contours of constant $f$, as seen in the wave frame, in which the pattern is stationary. This type of diagram, appropriate for finite distributions $f(v)$, is easier to understand than the $\delta$-function distribution of @fig-beam-e-dist-1d.](../images/contour_dist.png){#fig-contour-dist}
 
 :::
 
 Electron trapping is a nonlinear phenomenon which cannot be treated by straightforward solution of the Vlasov equation. However, electron trajectories can be followed on a computer, and the results are often presented in the form
-of a plot like @fig-contour_dist.
+of a plot like @fig-contour-dist.
 
 ADD A TWO STREAM INSTABILITY PHASE ANIMATION!
 
