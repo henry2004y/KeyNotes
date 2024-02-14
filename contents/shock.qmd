@@ -312,16 +312,22 @@ $$
 v_{x1}B_{y1} - v_{y1}B_{x1} = 0
 $$ {#eq-HT_frame_up}
 
-In other words, it is convenient to transform to a frame which moves at the local $\mathbf{E}\times\mathbf{B}$ velocity of the plasma.[^HT_frame] It immediately follows from the jump condition of the magnetic convection equation that
+In other words, it is convenient to transform to a frame which moves at the local $\mathbf{E}\times\mathbf{B}$ velocity of the plasma. The key idea is to extract the velocity component perpendicular to $\mathbf{B}_1$ from $\mathbf{v}_1$:
+$$
+\begin{aligned}
+\mathbf{v}_{\mathrm{dHT}} = \mathbf{v}_1 - (\mathbf{v}_1 \cdot \mathbf{b}_1)\mathbf{b}_1 \\
+\mathbf{v}_1^\prime = \mathbf{v}_1 - \mathbf{v}_\mathrm{dHT} = (\mathbf{v}_1 \cdot \mathbf{b}_1)\mathbf{b}_1
+\end{aligned}
+$$
 
-[^HT_frame]: for a parallel shock, the HT frame can be just itself; for a perpendicular shock, the HT frame can be chosen by shifting the velocity by $\mathbf{v}_1$ s.t. $\mathbf{v}_1 = 0$.
+Note that the transformation is not unique, since one can always add a parallel velocity component. It immediately follows from the 2nd jump condition of @eq-RH_planar_sol that
 
 $$
 v_{x2}B_{y2} - v_{y2}B_{x2} = 0
 $$ {#eq-HT_frame_down}
 or $|\mathbf{v}_2\times \mathbf{B}_2|=0$. Thus, in the de Hoffmann-Teller frame, the upstream plasma flow is parallel to the upstream magnetic field, and the downstream plasma flow is also parallel to the downstream magnetic field. Furthermore, the magnetic contribution to the jump condition @eq-RH_planar_sol (last eq.) becomes identically zero, which is a considerable simplification.
 
-@eq-HT_frame_up and @eq-HT_frame_down can be combined with the general jump conditions @eq-RH_planar_sol to give
+@eq-HT_frame_up and @eq-HT_frame_down can be combined with the general jump conditions @eq-RH_planar_sol to give[^tangential]
 $$
 \begin{aligned}
 \frac{\rho_2}{\rho_1}&=r \\
@@ -339,6 +345,8 @@ $$
 & -r\sin^2\theta_1 v_{1}^2 v_{A1}^2 \{ [\gamma+(2-\gamma)r]v_{1}^2 - [(\gamma+1) - (\gamma-1)r]r\, v_{A1}^2 \}
 \end{aligned}
 $$ {#eq-shock_adiabatic}
+
+[^tangential]: One way to define the tangential direction $\hat{t}$ is to use $\mathbf{v}_{t1}$ as a reference: $\mathbf{v}_{t1} = \mathbf{v}_1 - (\mathbf{v}_1 \cdot \hat{n})\hat{n}$. Then $\hat{t} = \mathbf{v}_{t1} / |\mathbf{v}_{t1}|$. Note that both the normal and tangential components are signed numbers.
 
 [^normal]: The shock normal points from downstream to upstream, and the plasma flow points from upstream to downstream. Usually we take an angle smaller than $90^\circ$, so the definition would be $\theta_1 = \cos^{-1}(-\mathbf{v}_1 \cdot\hat{n}/|\mathbf{v}_1|)$.
 
