@@ -761,11 +761,17 @@ M_1^{\,2} &gt; 1 + \frac{2}{\gamma\,\beta_1}
 <p>Let us now consider the general case in which the plasma velocities and the magnetic fields on each side of the shock are neither parallel nor perpendicular to the shock front. It is convenient to transform into the so-called <em>de Hoffmann-Teller frame</em> in which <span class="math inline">\(|\mathbf{v}_1\times \mathbf{B}_1|=0\)</span>, or <span id="eq-HT_frame_up"><span class="math display">\[
 v_{x1}B_{y1} - v_{y1}B_{x1} = 0
 \tag{17.12}\]</span></span></p>
-<p>In other words, it is convenient to transform to a frame which moves at the local <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> velocity of the plasma.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> It immediately follows from the jump condition of the magnetic convection equation that</p>
+<p>In other words, it is convenient to transform to a frame which moves at the local <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> velocity of the plasma. The key idea is to extract the velocity component perpendicular to <span class="math inline">\(\mathbf{B}_1\)</span> from <span class="math inline">\(\mathbf{v}_1\)</span>: <span class="math display">\[
+\begin{aligned}
+\mathbf{v}_{\mathrm{dHT}} = \mathbf{v}_1 - (\mathbf{v}_1 \cdot \mathbf{b}_1)\mathbf{b}_1 \\
+\mathbf{v}_1^\prime = \mathbf{v}_1 - \mathbf{v}_\mathrm{dHT} = (\mathbf{v}_1 \cdot \mathbf{b}_1)\mathbf{b}_1
+\end{aligned}
+\]</span></p>
+<p>Note that the transformation is not unique, since one can always add a parallel velocity component. It immediately follows from the 2nd jump condition of <a href="#eq-RH_planar_sol" class="quarto-xref">Equation&nbsp;<span>17.2</span></a> that</p>
 <p><span id="eq-HT_frame_down"><span class="math display">\[
 v_{x2}B_{y2} - v_{y2}B_{x2} = 0
 \tag{17.13}\]</span></span> or <span class="math inline">\(|\mathbf{v}_2\times \mathbf{B}_2|=0\)</span>. Thus, in the de Hoffmann-Teller frame, the upstream plasma flow is parallel to the upstream magnetic field, and the downstream plasma flow is also parallel to the downstream magnetic field. Furthermore, the magnetic contribution to the jump condition <a href="#eq-RH_planar_sol" class="quarto-xref">Equation&nbsp;<span>17.2</span></a> (last eq.) becomes identically zero, which is a considerable simplification.</p>
-<p><a href="#eq-HT_frame_up" class="quarto-xref">Equation&nbsp;<span>17.12</span></a> and <a href="#eq-HT_frame_down" class="quarto-xref">Equation&nbsp;<span>17.13</span></a> can be combined with the general jump conditions <a href="#eq-RH_planar_sol" class="quarto-xref">Equation&nbsp;<span>17.2</span></a> to give <span id="eq-oblique_shock_relation"><span class="math display">\[
+<p><a href="#eq-HT_frame_up" class="quarto-xref">Equation&nbsp;<span>17.12</span></a> and <a href="#eq-HT_frame_down" class="quarto-xref">Equation&nbsp;<span>17.13</span></a> can be combined with the general jump conditions <a href="#eq-RH_planar_sol" class="quarto-xref">Equation&nbsp;<span>17.2</span></a> to give<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> <span id="eq-oblique_shock_relation"><span class="math display">\[
 \begin{aligned}
 \frac{\rho_2}{\rho_1}&amp;=r \\
 \frac{B_{x\,2}}{B_{x\,1}} &amp;= 1 \\
@@ -1449,7 +1455,7 @@ Zhang, Hui, Qiugang Zong, Hyunju Connor, Peter Delamere, Gábor Facskó, Desheng
 <ol>
 <li id="fn1"><p>I don’t quite understand this. From <a href="#fig-critical-mach-number-mhd-perp-shock" class="quarto-xref">Figure&nbsp;<span>17.2</span></a>, it is clear that above the critical Mach number, <span class="math inline">\(V_{2n} &lt; c_{2ms}^+\)</span> is true.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>so it depends on the upstream sound speed?<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>for a parallel shock, the HT frame can be just itself; for a perpendicular shock, the HT frame can be chosen by shifting the velocity by <span class="math inline">\(\mathbf{v}_1\)</span> s.t. <span class="math inline">\(\mathbf{v}_1 = 0\)</span>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>One way to define the tangential direction <span class="math inline">\(\hat{t}\)</span> is to use <span class="math inline">\(\mathbf{v}_{t1}\)</span> as a reference: <span class="math inline">\(\mathbf{v}_{t1} = \mathbf{v}_1 - (\mathbf{v}_1 \cdot \hat{n})\hat{n}\)</span>. Then <span class="math inline">\(\hat{t} = \mathbf{v}_{t1} / |\mathbf{v}_{t1}|\)</span>. Note that both the normal and tangential components are signed numbers.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>The shock normal points from downstream to upstream, and the plasma flow points from upstream to downstream. Usually we take an angle smaller than <span class="math inline">\(90^\circ\)</span>, so the definition would be <span class="math inline">\(\theta_1 = \cos^{-1}(-\mathbf{v}_1 \cdot\hat{n}/|\mathbf{v}_1|)\)</span>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>This is a very strong indication that Alfvén waves are involved in switch-on/off shocks!<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p>If the typical Vlasiator simulation values are used, <span class="math inline">\(B=5\,\mathrm{nT}\)</span>, <span class="math inline">\(n=10^6/\mathrm{cc}\)</span>, <span class="math inline">\(v_A = 109\,\mathrm{km/s}\)</span>, <span class="math inline">\(\Delta v \sim 650\,\mathrm{km/s}\)</span>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
