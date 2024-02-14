@@ -46,7 +46,7 @@ Let us move into the rest frame of the shock. For a 1D shock, suppose that the s
 
 ::: {.content-visible unless-format="pdf"}
 
-![A planar shock, where the velocity and magnetic fields upstream and downstream of the shock all lie in the $x$-$y$ plane.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img2110.png){#fig-planar-shock}
+![A planar shock, where the velocity and magnetic fields upstream and downstream of the shock all lie in the $x$-$y$ plane.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img3056.png){#fig-planar-shock}
 
 :::
 
@@ -326,19 +326,21 @@ $$
 \begin{aligned}
 \frac{\rho_2}{\rho_1}&=r \\
 \frac{B_{x\,2}}{B_{x\,1}} &= 1 \\
-\frac{B_{y\,2}}{B_{y\,1}} &= r\left(\frac{v_{1}^{\,2} - \cos^2\theta_1\,v_{A\,1}^{\,2}}{v_{1}^{\,2}-r\,\cos^2\theta_1\,v_{A\,1}^{\,2}}\right) \\
+\frac{B_{y\,2}}{B_{y\,1}} &= r\frac{v_{1}^{2} - v_{A\,1}^{2}}{v_{1}^{2} - r\,v_{A\,1}^{2}} \\
 \frac{v_{x\,2}}{v_{x\,1}} &= \frac{1}{r} \\
-\frac{v_{y\,2}}{v_{y\,1}} &= \frac{v_{1}^{\,2} -\cos^2\theta_1\, v_{A\,1}^{\,2}}{v_{1}^{\,2}-r\,\cos^2\theta_1\,v_{A\,1}^{\,2}} \\
-\frac{p_2}{p_1} &= 1+\frac{\gamma v_1^2(r-1)}{v_{s1}^2 r}\left[1-\frac{r v_{A1}^2 [(r+1)v_1^2 - 2r v_{A1}^2\cos^2\theta_1]}{2(v_1^2 -r v_{A1}^2\cos^2\theta_1)^2} \right]
+\frac{v_{y\,2}}{v_{y\,1}} &= \frac{v_{1}^{2} - v_{A\,1}^{2}}{v_{1}^{2}-r\,v_{A\,1}^{2}} \\
+\frac{p_2}{p_1} &= 1+\frac{\gamma v_1^2\cos^2\theta_1(r-1)}{v_{s1}^2 r}\left[1 - \frac{r v_{A1}^2 \sin^2\theta_1[(r+1)v_1^2 - 2r v_{A1}^2]}{2\cos^2\theta_1(v_1^2 - r\,v_{A\,1}^2)^2} \right]
 \end{aligned}
 $$ {#eq-oblique_shock_relation}
-where $v_1 = v_{x1}=v_1\cos\theta_1$ is the component of the upstream velocity normal to the shock front, and $\theta_1$ is the angle subtended between the upstream plasma flow and the shock front normal. Finally, given the compression ratio, $r$, the square of the normal upstream velocity, $v_1^{\,2}$, is a real root of a cubic equation known as the _shock adiabatic_:
+where $v_{x,1}=v_1\cos\theta_1$ is the component of the upstream velocity normal to the shock front, and $\theta_1$ is the angle subtended between the upstream plasma flow and the shock front normal.[^normal] Finally, given the compression ratio, $r$, the square of the normal upstream velocity, $v_1^{\,2}$, is a real root of a cubic equation known as the _shock adiabatic_:
 $$
 \begin{aligned}
-0 = & (v_1^2 - r\cos^2\theta_1 v_{A1}^2)^2\{ [(\gamma+1) - (\gamma-1)r]v_1^2 - 2r v_{s1}^2 \} \\
-& r\sin^2\theta_1 v_1^2 v_{A1}^2 \{ [\gamma+(2-\gamma)r]v_1^2 - [(\gamma+1) - (\gamma-1)r]r\cos^2\theta_1 v_{A1}^2 \}
+0 = & (v_{1}^2 - r v_{A1}^2)^2\{ [(\gamma+1) - (\gamma-1)r]v_{1}^2\cos^2\theta_1 - 2r v_{s1}^2 \} \\
+& -r\sin^2\theta_1 v_{1}^2 v_{A1}^2 \{ [\gamma+(2-\gamma)r]v_{1}^2 - [(\gamma+1) - (\gamma-1)r]r\, v_{A1}^2 \}
 \end{aligned}
 $$ {#eq-shock_adiabatic}
+
+[^normal]: The shock normal points from downstream to upstream, and the plasma flow points from upstream to downstream. Usually we take an angle smaller than $90^\circ$, so the definition would be $\theta_1 = \cos^{-1}(-\mathbf{v}_1 \cdot\hat{n}/|\mathbf{v}_1|)$.
 
 As before, the second law of thermodynamics mandates that $r>1$.
 
@@ -362,7 +364,7 @@ In other words, a fast wave travels faster than an intermediate wave, which trav
 
 ::: {.content-visible unless-format="pdf"}
 
-![Characteristic plasma flow patterns across the three different types of MHD shock in the shock rest frame.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img2229.png){#fig-mhd-shock-rest-frame}
+![Characteristic plasma flow patterns across the three different types of MHD shock in the shock rest frame.](https://farside.ph.utexas.edu/teaching/plasma/lectures/img3180.png){#fig-mhd-shock-rest-frame}
 
 :::
 
