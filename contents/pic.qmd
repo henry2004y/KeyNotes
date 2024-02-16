@@ -3,28 +3,22 @@
 ## Phase Space Sampling
 
 Let $\hat{f}(\mathbf{z})$ be a general probability density function with normalization:
-
 $$
 \int_\Omega \hat{f}(\mathbf{z})dV = 1
 $$
 
 Now sample the phase space with $N$ markers according to $\hat{f}(\mathbf{z})$ then the _marker distribution_, $g$ is:
-
 $$
 g(\mathbf{z}) = N\hat{f}(\mathbf{z})
 $$
-
 and the phase space volume element occupied by a marker is
-
 $$
 dV_i = \frac{1}{g(\mathbf{z}_i)}
 $$
-
 where $\mathbf{z}_i$ is the phase space coordinate of the marker and $dV_i$ the volume element occupied by it.
 
 Define the weight of a marker as the number of physical particles in the corresponding phase space volume occupied by
 the marker:
-
 $$
 w_i = f(\mathbf{z}_i)dV_i = \frac{f(\mathbf{z}_i)}{g(\mathbf{z}_i)}
 $$
@@ -32,19 +26,50 @@ $$
 This marker distribution can represent the total $f$ or the $\delta f$. (???)
 
 We can now take moments of the distribution function in the phase space (such as density), and the Monte Carlo approximation to the integration is as follows:
-
 $$
 M(A) = \int_\Omega A(\mathbf{z})f(\mathbf{z})dV = \sum_{i=1}^{N}A(\mathbf{z}_i)w_i + \mathcal{\frac{1}{\sqrt{N}}}
 $$
-
 where $N$ is the number of markers in the phase space region $\Omega$. This Monte Carlo approximation makes the particle simulation feasible for a number of problems, even in 3D, at the cost of introducing an error on the order of $N^{-1/2}$.
+
+## Artificial Scalings
+
+Common scales to characterize the plasma system:
+
+* Global scales of the system $d_g$, characterized by the magnetopause standoff distance in the magnetosphere, some fraction of the solar radius in the corona, or system length for Tokamak.
+* Ion kinetic scales characterized by the ion inertial length $d_i$
+$$
+d_i = \sqrt{\frac{m_i}{n_i q_i^2 \mu_0}} = \frac{m_i}{q_i}\sqrt{\frac{1}{\rho_i \mu_0}}
+$$
+
+and the ion gyroradius
+$$
+r_i = \frac{m_i v_{\mathrm{th},i}}{q_i B} = \frac{m_i}{q_i}\frac{\sqrt{p_i/\rho_i}}{B}
+$$
+
+* Electron kinetic scales characterized by the electron skin depth $d_e$
+$$
+d_e = \sqrt{\frac{m_e}{n_e q_e^2 \mu_0}} = \frac{m_e}{q_e}\sqrt{\frac{1}{\rho_e \mu_0}}
+$$
+
+* The smallest plasma scale characterized by the Debye length $\lambda_D$
+$$
+\lambda_D = \sqrt{\frac{\epsilon_0 v_{\mathrm{th},e}^2}{q_e^2 n_e}} = \frac{m_e}{q_e}\frac{\epsilon_0 p_e}{\rho_e}
+$$
+where $v_{\mathrm{th},e}=\sqrt{p_e / \rho_e}$ is the electron thermal velocity.
+
+Typically, $d_i$ are orders of magnitude smaller than $d_g$, and $d_e$ is even smaller. If we are interested in the interplay between the global plasma system and the kinetic processes, it is a natural question to ask how the behavior of the system depends on the ratio $d_g∕d_i$. For example, in Ganymede's magnetosphere $d_g∕d_i \sim 10$ and the kinetic effects have non-negligible contributions to the global system. On the other hand, if $d_g∕d_i$ is a very large number, then the kinetic effects will be mostly limited in a small region.[^debate]
+
+[^debate]: Reconnection can lead to wave generation, which is a process of energy and momentum conversion from the kinetic region to the global scale. Foreshock waves are also triggered by the kinetic processes and have a global impact. Therefore, this statement requires extra consideration.
+
+For quasi-neutral plasmas, $n_i = n_e \rightarrow \rho_i/\rho_e = m_i/m_e$, $q_i = q_e$, $p_i = p_e$. The ion scales are $\sqrt{m_i/m_e}$ times larger than the corresponding electron scales. For a proton-electron plasma, $\sqrt{d_i/d_e} \approx 43$. A standard trick to reduce the computational requirement is to artificially reduce the mass ratio to a smaller value ($1836 \ge d_i/d_e \ge 25$). In terms of reconnection, we have found only a relatively weak dependence of the process on the mass ratio. In practice almost all numerical studies, especially in 3-D, use a reduced ion-electron mass ratio.
+
+@toth2017scaling proposed another scaling methods to increase the ion and electron mass-to-charge ratios by a kinetic scaling factor $f$ while keeping the MHD quantities, the mass densities $\rho_e$ and $\rho_i$, the pressures $p_e$ and $p_i$, the bulk velocities $u_e$ and $u_i$, the magnetic field B, and the various constants $\epsilon_0, \mu_0$, and c unchanged. A nice property of this scaling method is that the characteristic speeds (bulk velocity, thermal velocity, Alfvén speed) are not modified; in other words, this _kinetic scaling_ has no effect on ideal/resistive MHD. A direct implication of this scaling is the solution on the kinetic scales is similar for different values of f, but the spatial and temporal scales are proportional to f.
 
 ## Computational Cost
 
 The key feature that makes PIC more feasible than the brute-force nbody method is the reduction of computational cost. Given $N$ macro-particles in the system, a brute force method has a complexity of $\mathcal{O}(N^2)$, and a PIC method has $\mathcal{O}(N\log N)$. A rough idea how this is possible can be obtained by ignoring the pair interactions and consider collective effects especially for those particles at a large distance.
 
-A commonly used trick is to introduce a reduced ion-to-electron mass ratio. In a 3D simulation, the cost scales with $(m_i/m_e)^3$. However, note that in low mass ratio runs (e.g. $m_i/m_e=25$), the thermal speed of the electrons may be
-comparable to the Alfvén speed which causes higher wave decay through Landau damping on the electrons.
+A commonly used trick is to introduce a reduced ion-to-electron mass ratio. In a 3D simulation, the cost scales with $(m_i/m_e)^3$. However, note that in low mass ratio runs (e.g. $m_i/m_e=25$), the thermal speed of the electrons may be comparable to the Alfvén speed which causes higher wave decay through Landau damping on the electrons.
 
 ## δf Method {#sec-delta_f}
 
