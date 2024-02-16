@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -338,8 +358,9 @@ window.Quarto = {
    
   <ul>
   <li><a href="#phase-space-sampling" id="toc-phase-space-sampling" class="nav-link active" data-scroll-target="#phase-space-sampling"><span class="header-section-number">23.1</span> Phase Space Sampling</a></li>
-  <li><a href="#computational-cost" id="toc-computational-cost" class="nav-link" data-scroll-target="#computational-cost"><span class="header-section-number">23.2</span> Computational Cost</a></li>
-  <li><a href="#sec-delta_f" id="toc-sec-delta_f" class="nav-link" data-scroll-target="#sec-delta_f"><span class="header-section-number">23.3</span> δf Method</a></li>
+  <li><a href="#artificial-scalings" id="toc-artificial-scalings" class="nav-link" data-scroll-target="#artificial-scalings"><span class="header-section-number">23.2</span> Artificial Scalings</a></li>
+  <li><a href="#computational-cost" id="toc-computational-cost" class="nav-link" data-scroll-target="#computational-cost"><span class="header-section-number">23.3</span> Computational Cost</a></li>
+  <li><a href="#sec-delta_f" id="toc-sec-delta_f" class="nav-link" data-scroll-target="#sec-delta_f"><span class="header-section-number">23.4</span> δf Method</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/pic.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -367,37 +388,53 @@ window.Quarto = {
 
 <section id="phase-space-sampling" class="level2" data-number="23.1">
 <h2 data-number="23.1" class="anchored" data-anchor-id="phase-space-sampling"><span class="header-section-number">23.1</span> Phase Space Sampling</h2>
-<p>Let <span class="math inline">\(\hat{f}(\mathbf{z})\)</span> be a general probability density function with normalization:</p>
-<p><span class="math display">\[
+<p>Let <span class="math inline">\(\hat{f}(\mathbf{z})\)</span> be a general probability density function with normalization: <span class="math display">\[
 \int_\Omega \hat{f}(\mathbf{z})dV = 1
 \]</span></p>
-<p>Now sample the phase space with <span class="math inline">\(N\)</span> markers according to <span class="math inline">\(\hat{f}(\mathbf{z})\)</span> then the <em>marker distribution</em>, <span class="math inline">\(g\)</span> is:</p>
-<p><span class="math display">\[
+<p>Now sample the phase space with <span class="math inline">\(N\)</span> markers according to <span class="math inline">\(\hat{f}(\mathbf{z})\)</span> then the <em>marker distribution</em>, <span class="math inline">\(g\)</span> is: <span class="math display">\[
 g(\mathbf{z}) = N\hat{f}(\mathbf{z})
-\]</span></p>
-<p>and the phase space volume element occupied by a marker is</p>
-<p><span class="math display">\[
+\]</span> and the phase space volume element occupied by a marker is <span class="math display">\[
 dV_i = \frac{1}{g(\mathbf{z}_i)}
-\]</span></p>
-<p>where <span class="math inline">\(\mathbf{z}_i\)</span> is the phase space coordinate of the marker and <span class="math inline">\(dV_i\)</span> the volume element occupied by it.</p>
-<p>Define the weight of a marker as the number of physical particles in the corresponding phase space volume occupied by the marker:</p>
-<p><span class="math display">\[
+\]</span> where <span class="math inline">\(\mathbf{z}_i\)</span> is the phase space coordinate of the marker and <span class="math inline">\(dV_i\)</span> the volume element occupied by it.</p>
+<p>Define the weight of a marker as the number of physical particles in the corresponding phase space volume occupied by the marker: <span class="math display">\[
 w_i = f(\mathbf{z}_i)dV_i = \frac{f(\mathbf{z}_i)}{g(\mathbf{z}_i)}
 \]</span></p>
 <p>This marker distribution can represent the total <span class="math inline">\(f\)</span> or the <span class="math inline">\(\delta f\)</span>. (???)</p>
-<p>We can now take moments of the distribution function in the phase space (such as density), and the Monte Carlo approximation to the integration is as follows:</p>
-<p><span class="math display">\[
+<p>We can now take moments of the distribution function in the phase space (such as density), and the Monte Carlo approximation to the integration is as follows: <span class="math display">\[
 M(A) = \int_\Omega A(\mathbf{z})f(\mathbf{z})dV = \sum_{i=1}^{N}A(\mathbf{z}_i)w_i + \mathcal{\frac{1}{\sqrt{N}}}
-\]</span></p>
-<p>where <span class="math inline">\(N\)</span> is the number of markers in the phase space region <span class="math inline">\(\Omega\)</span>. This Monte Carlo approximation makes the particle simulation feasible for a number of problems, even in 3D, at the cost of introducing an error on the order of <span class="math inline">\(N^{-1/2}\)</span>.</p>
+\]</span> where <span class="math inline">\(N\)</span> is the number of markers in the phase space region <span class="math inline">\(\Omega\)</span>. This Monte Carlo approximation makes the particle simulation feasible for a number of problems, even in 3D, at the cost of introducing an error on the order of <span class="math inline">\(N^{-1/2}\)</span>.</p>
 </section>
-<section id="computational-cost" class="level2" data-number="23.2">
-<h2 data-number="23.2" class="anchored" data-anchor-id="computational-cost"><span class="header-section-number">23.2</span> Computational Cost</h2>
+<section id="artificial-scalings" class="level2" data-number="23.2">
+<h2 data-number="23.2" class="anchored" data-anchor-id="artificial-scalings"><span class="header-section-number">23.2</span> Artificial Scalings</h2>
+<p>Common scales to characterize the plasma system:</p>
+<ul>
+<li>Global scales of the system <span class="math inline">\(d_g\)</span>, characterized by the magnetopause standoff distance in the magnetosphere, some fraction of the solar radius in the corona, or system length for Tokamak.</li>
+<li>Ion kinetic scales characterized by the ion inertial length <span class="math inline">\(d_i\)</span> <span class="math display">\[
+d_i = \sqrt{\frac{m_i}{n_i q_i^2 \mu_0}} = \frac{m_i}{q_i}\sqrt{\frac{1}{\rho_i \mu_0}}
+\]</span></li>
+</ul>
+<p>and the ion gyroradius <span class="math display">\[
+r_i = \frac{m_i v_{\mathrm{th},i}}{q_i B} = \frac{m_i}{q_i}\frac{\sqrt{p_i/\rho_i}}{B}
+\]</span></p>
+<ul>
+<li><p>Electron kinetic scales characterized by the electron skin depth <span class="math inline">\(d_e\)</span> <span class="math display">\[
+d_e = \sqrt{\frac{m_e}{n_e q_e^2 \mu_0}} = \frac{m_e}{q_e}\sqrt{\frac{1}{\rho_e \mu_0}}
+\]</span></p></li>
+<li><p>The smallest plasma scale characterized by the Debye length <span class="math inline">\(\lambda_D\)</span> <span class="math display">\[
+\lambda_D = \sqrt{\frac{\epsilon_0 v_{\mathrm{th},e}^2}{q_e^2 n_e}} = \frac{m_e}{q_e}\frac{\epsilon_0 p_e}{\rho_e}
+\]</span> where <span class="math inline">\(v_{\mathrm{th},e}=\sqrt{p_e / \rho_e}\)</span> is the electron thermal velocity.</p></li>
+</ul>
+<p>Typically, <span class="math inline">\(d_i\)</span> are orders of magnitude smaller than <span class="math inline">\(d_g\)</span>, and <span class="math inline">\(d_e\)</span> is even smaller. If we are interested in the interplay between the global plasma system and the kinetic processes, it is a natural question to ask how the behavior of the system depends on the ratio <span class="math inline">\(d_g∕d_i\)</span>. For example, in Ganymede’s magnetosphere <span class="math inline">\(d_g∕d_i \sim 10\)</span> and the kinetic effects have non-negligible contributions to the global system. On the other hand, if <span class="math inline">\(d_g∕d_i\)</span> is a very large number, then the kinetic effects will be mostly limited in a small region.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>For quasi-neutral plasmas, <span class="math inline">\(n_i = n_e \rightarrow \rho_i/\rho_e = m_i/m_e\)</span>, <span class="math inline">\(q_i = q_e\)</span>, <span class="math inline">\(p_i = p_e\)</span>. The ion scales are <span class="math inline">\(\sqrt{m_i/m_e}\)</span> times larger than the corresponding electron scales. For a proton-electron plasma, <span class="math inline">\(\sqrt{d_i/d_e} \approx 43\)</span>. A standard trick to reduce the computational requirement is to artificially reduce the mass ratio to a smaller value (<span class="math inline">\(1836 \ge d_i/d_e \ge 25\)</span>). In terms of reconnection, we have found only a relatively weak dependence of the process on the mass ratio. In practice almost all numerical studies, especially in 3-D, use a reduced ion-electron mass ratio.</p>
+<p><span class="citation" data-cites="toth2017scaling">Tóth et al. (<a href="#ref-toth2017scaling" role="doc-biblioref">2017</a>)</span> proposed another scaling methods to increase the ion and electron mass-to-charge ratios by a kinetic scaling factor <span class="math inline">\(f\)</span> while keeping the MHD quantities, the mass densities <span class="math inline">\(\rho_e\)</span> and <span class="math inline">\(\rho_i\)</span>, the pressures <span class="math inline">\(p_e\)</span> and <span class="math inline">\(p_i\)</span>, the bulk velocities <span class="math inline">\(u_e\)</span> and <span class="math inline">\(u_i\)</span>, the magnetic field B, and the various constants <span class="math inline">\(\epsilon_0, \mu_0\)</span>, and c unchanged. A nice property of this scaling method is that the characteristic speeds (bulk velocity, thermal velocity, Alfvén speed) are not modified; in other words, this <em>kinetic scaling</em> has no effect on ideal/resistive MHD. A direct implication of this scaling is the solution on the kinetic scales is similar for different values of f, but the spatial and temporal scales are proportional to f.</p>
+</section>
+<section id="computational-cost" class="level2" data-number="23.3">
+<h2 data-number="23.3" class="anchored" data-anchor-id="computational-cost"><span class="header-section-number">23.3</span> Computational Cost</h2>
 <p>The key feature that makes PIC more feasible than the brute-force nbody method is the reduction of computational cost. Given <span class="math inline">\(N\)</span> macro-particles in the system, a brute force method has a complexity of <span class="math inline">\(\mathcal{O}(N^2)\)</span>, and a PIC method has <span class="math inline">\(\mathcal{O}(N\log N)\)</span>. A rough idea how this is possible can be obtained by ignoring the pair interactions and consider collective effects especially for those particles at a large distance.</p>
 <p>A commonly used trick is to introduce a reduced ion-to-electron mass ratio. In a 3D simulation, the cost scales with <span class="math inline">\((m_i/m_e)^3\)</span>. However, note that in low mass ratio runs (e.g.&nbsp;<span class="math inline">\(m_i/m_e=25\)</span>), the thermal speed of the electrons may be comparable to the Alfvén speed which causes higher wave decay through Landau damping on the electrons.</p>
 </section>
-<section id="sec-delta_f" class="level2" data-number="23.3">
-<h2 data-number="23.3" class="anchored" data-anchor-id="sec-delta_f"><span class="header-section-number">23.3</span> δf Method</h2>
+<section id="sec-delta_f" class="level2" data-number="23.4">
+<h2 data-number="23.4" class="anchored" data-anchor-id="sec-delta_f"><span class="header-section-number">23.4</span> δf Method</h2>
 <p>Consider the growth rate of a single unstable wave in a 1D-1V Vlasov-Poisson system of plasma. The energy conservation leads to</p>
 <p><span class="math display">\[
 \frac{\mathrm{d}}{dt}\Big(\frac{\epsilon_0}{2}E(x)^2\Big) + \int q v E(x)f(x,v)dv = 0
@@ -426,6 +463,17 @@ w\propto \delta f,\quad w_j = \frac{\delta f(x_j, v_j)}{f(x_j, v_j)}
 <p>Since now the particle weight is proportional to <span class="math inline">\(\delta f/f\)</span>, the system noise would be significantly reduced by <span class="math inline">\((\delta f/f)^2\)</span>; in other words, for the same noise level the number of macro-particles required would be reduced by <span class="math inline">\((\delta f/f)^2\)</span>, which is typically <span class="math inline">\(\mathcal{O}(10^6)\)</span>. Of course this requires the prior assumption <span class="math inline">\(|\delta f| \ll f\)</span> to be valid.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-toth2017scaling" class="csl-entry" role="listitem">
+Tóth, Gábor, Yuxi Chen, Tamas I Gombosi, Paul Cassak, Stefano Markidis, and Ivy Bo Peng. 2017. <span>“Scaling the Ion Inertial Length and Its Implications for Modeling Reconnection in Global Simulations.”</span> <em>Journal of Geophysical Research: Space Physics</em> 122 (10): 10–336. <a href="https://doi.org/10.1002/2017JA024189">https://doi.org/10.1002/2017JA024189</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Reconnection can lead to wave generation, which is a process of energy and momentum conversion from the kinetic region to the global scale. Foreshock waves are also triggered by the kinetic processes and have a global impact. Therefore, this statement requires extra consideration.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
