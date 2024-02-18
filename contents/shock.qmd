@@ -314,7 +314,7 @@ $$
 v_{x1}B_{y1} - v_{y1}B_{x1} = 0
 $$ {#eq-HT_frame_up}
 
-In other words, it is convenient to transform to a frame which moves at the local $\mathbf{E}\times\mathbf{B}$ velocity of the plasma. The key idea is to extract the velocity component perpendicular to $\mathbf{B}_1$ from $\mathbf{v}_1$:
+In other words, it is convenient to transform to a frame which moves at the local $\mathbf{E}\times\mathbf{B}$ velocity of the plasma. The key idea is to extract the velocity component perpendicular to $\mathbf{B}_1$ from $\mathbf{v}_1$. One possibility is to just remove the perpendicular part:
 $$
 \begin{aligned}
 \mathbf{v}_{\mathrm{dHT}} = \mathbf{v}_1 - (\mathbf{v}_1 \cdot \mathbf{b}_1)\mathbf{b}_1 \\
@@ -322,7 +322,22 @@ $$
 \end{aligned}
 $$
 
-Note that the transformation is not unique, since one can always add a parallel velocity component. It immediately follows from the 2nd jump condition of @eq-RH_planar_sol that
+Note that the transformation is not unique, since one can always add a parallel velocity component. Although the above transformation is correct, it introduces two issues:
+
+1. The ram pressure $\rho V_n^2$ is changed between the two coordinates.
+2. @eq-shock_adiabatic may not possess a valid solution given certain parameters (e.g. $\mathrm{MA}_1 = 5, \theta_1 = 65^\circ$ will give $r<1$.)
+
+To fix this, we can use another transformation:
+$$
+\begin{aligned}
+\mathbf{v}_{\mathrm{dHT}} = \mathbf{v}_1 - \frac{V_x}{B_x}\mathbf{B} \\
+\mathbf{v}_1^\prime = \mathbf{v}_1 - \mathbf{v}_\mathrm{dHT} = \frac{V_x}{B_x}\mathbf{B}
+\end{aligned}
+$$
+
+A nice property of this transformation is that the normal velocity component is kept the same, so is the ram pressure. Therefore, we can apply the same quantities in the lab frame as in the de Hoffmann-Teller frame.
+
+Taking @eq-HT_frame_up into the 2nd jump condition of @eq-RH_planar_sol gives
 $$
 v_{x2}B_{y2} - v_{y2}B_{x2} = 0
 $$ {#eq-HT_frame_down}
