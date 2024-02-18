@@ -323,7 +323,6 @@ $$
 $$
 
 Note that the transformation is not unique, since one can always add a parallel velocity component. It immediately follows from the 2nd jump condition of @eq-RH_planar_sol that
-
 $$
 v_{x2}B_{y2} - v_{y2}B_{x2} = 0
 $$ {#eq-HT_frame_down}
@@ -337,10 +336,10 @@ $$
 \frac{B_{y\,2}}{B_{y\,1}} &= r\frac{v_{1}^{2} - v_{A\,1}^{2}}{v_{1}^{2} - r\,v_{A\,1}^{2}} \\
 \frac{v_{x\,2}}{v_{x\,1}} &= \frac{1}{r} \\
 \frac{v_{y\,2}}{v_{y\,1}} &= \frac{v_{1}^{2} - v_{A\,1}^{2}}{v_{1}^{2}-r\,v_{A\,1}^{2}} \\
-\frac{p_2}{p_1} &= 1+\frac{\gamma v_1^2\cos^2\theta_1(r-1)}{v_{s1}^2 r}\left[1 - \frac{r v_{A1}^2 \sin^2\theta_1[(r+1)v_1^2 - 2r v_{A1}^2]}{2\cos^2\theta_1(v_1^2 - r\,v_{A\,1}^2)^2} \right]
+\frac{p_2}{p_1} &= 1+\frac{\gamma v_1^2 (r-1)}{v_{s1}^2 r}\left[\cos^2\theta_1 - \frac{r v_{A1}^2 \sin^2\theta_1[(r+1)v_1^2 - 2r v_{A1}^2]}{2(v_1^2 - r\,v_{A\,1}^2)^2} \right]
 \end{aligned}
 $$ {#eq-oblique_shock_relation}
-where $v_{x,1}=v_1\cos\theta_1$ is the component of the upstream velocity normal to the shock front, and $\theta_1$ is the angle subtended between the upstream plasma flow and the shock front normal.[^normal] Finally, given the compression ratio, $r$, the square of the normal upstream velocity, $v_1^{\,2}$, is a real root of a cubic equation known as the _shock adiabatic_:
+where $v_{x,1}=v_1\cos\theta_1$ is the component of the upstream velocity normal to the shock front, and $\theta_1$ is the angle subtended between the upstream plasma flow and the shock front normal.[^normal][^coordinate] Finally, given the compression ratio, $r$, the square of the normal upstream velocity, $v_1^{\,2}$, is a real root of a cubic equation known as the _shock adiabatic_:
 $$
 \begin{aligned}
 0 = & (v_{1}^2 - r v_{A1}^2)^2\{ [(\gamma+1) - (\gamma-1)r]v_{1}^2\cos^2\theta_1 - 2r v_{s1}^2 \} \\
@@ -351,6 +350,8 @@ $$ {#eq-shock_adiabatic}
 [^tangential]: One way to define the tangential direction $\hat{t}$ is to use $\mathbf{v}_{t1}$ as a reference: $\mathbf{v}_{t1} = \mathbf{v}_1 - (\mathbf{v}_1 \cdot \hat{n})\hat{n}$. Then $\hat{t} = \mathbf{v}_{t1} / |\mathbf{v}_{t1}|$. Note that both the normal and tangential components are signed numbers.
 
 [^normal]: The shock normal points from downstream to upstream, and the plasma flow points from upstream to downstream. Usually we take an angle smaller than $90^\circ$, so the definition would be $\theta_1 = \cos^{-1}(-\mathbf{v}_1 \cdot\hat{n}/|\mathbf{v}_1|)$.
+
+[^coordinate]: Note that the velocity is defined in the dHT frame, not the lab frame! dHT is used here simply because the jump conditions are easier to solve. Also note that the jump conditions solved under the dHT frame is different from the lab frame!
 
 As before, the second law of thermodynamics mandates that $r>1$.
 
