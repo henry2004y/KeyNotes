@@ -174,18 +174,18 @@ $$
 E_\text{av} = \frac{\int_{-\infty}^\infty \frac{1}{2}mv^2f(v)\mathrm{d}v}{\int_{-\infty}^\infty f(v)\mathrm{d}v}
 $$ {#eq-average_kinetic_energy}
 
-Defining $y=v/v_\text{th}$ and
+Defining $y=v/v_\text{t}$ and
 $$
-v_\text{th} = \left( 2k_B T/m \right)^{1/2}
+v_\text{t} = \left( 2k_B T/m \right)^{1/2}
 $$ {#eq-thermal_speed}
 
 we can write @eq-maxwellian_1d as
 $$
-f(v) = A \exp(-v^2/v_\text{th}^2)
+f(v) = A \exp(-v^2/v_\text{t}^2)
 $$
 and @eq-average_kinetic_energy as
 $$
-E_\text{av} = \frac{\frac{1}{2}mA v_\text{th}^3 \int_{-\infty}^\infty [\exp(-y^2)]y^2\mathrm{d}y}{A v_\text{th}\int_{-\infty}^\infty [\exp(-y^2)]\mathrm{d}y}
+E_\text{av} = \frac{\frac{1}{2}mA v_\text{t}^3 \int_{-\infty}^\infty [\exp(-y^2)]y^2\mathrm{d}y}{A v_\text{t}\int_{-\infty}^\infty [\exp(-y^2)]\mathrm{d}y}
 $$
 
 The integral in the numerator is integrable by parts:
@@ -198,7 +198,7 @@ $$
 
 Canceling the integrals, we have
 $$
-E_\text{av} = \frac{\frac{1}{2}mA v_\text{th}^3\frac{1}{2}}{A v_\text{th}} = \frac{1}{4}m v_\text{th}^2 = \frac{1}{2}k_B T
+E_\text{av} = \frac{\frac{1}{2}mA v_\text{t}^3\frac{1}{2}}{A v_\text{t}} = \frac{1}{4}m v_\text{t}^2 = \frac{1}{2}k_B T
 $$
 
 Thus the average kinetic energy is $\frac{1}{2}k_B T$.
@@ -399,21 +399,29 @@ $$ {#eq-frequency-ratio}
 
 ## Spatial Scales
 
-_Ion inertial length_: the scale at which ions decouple from electrons and the magnetic field becomes frozen into the electron fluid rather than the bulk plasma.
+- _Ion inertial length_: the scale at which ions decouple from electrons and the magnetic field becomes frozen into the electron fluid rather than the bulk plasma.
 $$
-d_i = \frac{c}{\omega_{pi}} = \frac{V_A}{\omega_{ci}}
+d_i = \frac{c}{\omega_{pi}} = \frac{V_{Ai}}{\omega_{ci}}
 $$ {#eq-i-inertial-length}
+where $V_{Ai}$ is the ion Alfvén speed.
 
-_Electron inertial length_: the scale over which the electron distribution function can change substantially. ???
+- _Electron inertial length (plasma skin depth)_ : the scale over which the electron distribution function can change substantially, or the depth in a plasma to which electromagnetic radiation can penetrate. 
 $$
-r_e = \frac{v_A}{\omega_{pe}}
+r_e = \frac{c}{\omega_{pe}} = \frac{V_{Ae}}{\omega_{ce}}
 $$ {#eq-e-inertial-length}
+where $V_{Ae}$ is the electron Alfvén speed.
 
-_Gyroradius_: also known as Larmor radius, the scale of gyration around the magnetic field
+- _Ion gyroradius_: also known as Larmor radius, the scale of ion gyration around the magnetic field
 $$
-r_L = \frac{v_{\perp, th}}{\omega_{c}} = \frac{mv_{\perp, th}}{qB}
+r_L = \frac{v_{\perp, ti}}{\omega_{c}} = \frac{mv_{\perp, ti}}{qB}
 $$ {#eq-gyroradius}
-where $v_{th} = \sqrt{p/\rho}$ is the thermal speed.
+where $v_{\perp, ti} = \sqrt{p_{\perp i}/\rho}$ is the perpendicular ion thermal speed.
+
+- _Electron gyroradius_: the scale of electron gyration around the magnetic field
+$$
+r_L = \frac{v_{\perp, te}}{\omega_{c}} = \frac{mv_{\perp, te}}{qB}
+$$ {#eq-gyroradius}
+where $v_{\perp, te} = \sqrt{p_{\perp e}/\rho}$ is the perpendicular ion thermal speed.
 
 One convenient relation between the inertial length and the gyroradius is
 $$
@@ -432,6 +440,16 @@ $$
 &= 3.3 \frac{\gamma m c^2 / [\mathrm{GeV}]\cdot v_\perp/c}{q/e \cdot B/[\mathrm{T}]}
 \end{aligned}
 $$ {#eq-gyroradius-astro}
+
+- _Debye length_: the scale over which electric fields are screened out by a redistribution of the electrons:
+$$
+\lambda_{D}=\sqrt{\frac{\epsilon_0 k_B T^\ast}{e^2 n}}
+$$
+where $T^\ast=\Big( \frac{1}{T_e}+\frac{1}{T_i} \Big)^{-1}$. Even in quasineutral cold plasma, where ion contribution virtually seems to be larger due to lower ion temperature, the ion term is actually often dropped, giving
+$$
+\lambda_{D}=\sqrt{\frac{\epsilon_0 k_B T_e}{e^2 n}}
+$$
+which is only valid when the mobility of ions is negligible compared to the process's timescale.
 
 ## How to Study Plasma Physics
 
