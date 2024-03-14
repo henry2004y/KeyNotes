@@ -534,13 +534,13 @@ A = n\left( \frac{m}{2\pi k_B T} \right)^{1/2}
 <p>The width of the distribution is characterized by the constant <span class="math inline">\(T\)</span>, which we call the temperature. To see the exact meaning of <span class="math inline">\(T\)</span>, we can compute the average kinetic energy of particles in this distribution: <span id="eq-average_kinetic_energy"><span class="math display">\[
 E_\text{av} = \frac{\int_{-\infty}^\infty \frac{1}{2}mv^2f(v)\mathrm{d}v}{\int_{-\infty}^\infty f(v)\mathrm{d}v}
 \tag{2.3}\]</span></span></p>
-<p>Defining <span class="math inline">\(y=v/v_\text{th}\)</span> and <span id="eq-thermal_speed"><span class="math display">\[
-v_\text{th} = \left( 2k_B T/m \right)^{1/2}
+<p>Defining <span class="math inline">\(y=v/v_\text{t}\)</span> and <span id="eq-thermal_speed"><span class="math display">\[
+v_\text{t} = \left( 2k_B T/m \right)^{1/2}
 \tag{2.4}\]</span></span></p>
 <p>we can write <a href="#eq-maxwellian_1d" class="quarto-xref">Equation&nbsp;<span>2.2</span></a> as <span class="math display">\[
-f(v) = A \exp(-v^2/v_\text{th}^2)
+f(v) = A \exp(-v^2/v_\text{t}^2)
 \]</span> and <a href="#eq-average_kinetic_energy" class="quarto-xref">Equation&nbsp;<span>2.3</span></a> as <span class="math display">\[
-E_\text{av} = \frac{\frac{1}{2}mA v_\text{th}^3 \int_{-\infty}^\infty [\exp(-y^2)]y^2\mathrm{d}y}{A v_\text{th}\int_{-\infty}^\infty [\exp(-y^2)]\mathrm{d}y}
+E_\text{av} = \frac{\frac{1}{2}mA v_\text{t}^3 \int_{-\infty}^\infty [\exp(-y^2)]y^2\mathrm{d}y}{A v_\text{t}\int_{-\infty}^\infty [\exp(-y^2)]\mathrm{d}y}
 \]</span></p>
 <p>The integral in the numerator is integrable by parts: <span class="math display">\[
 \begin{aligned}
@@ -549,7 +549,7 @@ E_\text{av} = \frac{\frac{1}{2}mA v_\text{th}^3 \int_{-\infty}^\infty [\exp(-y^2
 \end{aligned}
 \]</span></p>
 <p>Canceling the integrals, we have <span class="math display">\[
-E_\text{av} = \frac{\frac{1}{2}mA v_\text{th}^3\frac{1}{2}}{A v_\text{th}} = \frac{1}{4}m v_\text{th}^2 = \frac{1}{2}k_B T
+E_\text{av} = \frac{\frac{1}{2}mA v_\text{t}^3\frac{1}{2}}{A v_\text{t}} = \frac{1}{4}m v_\text{t}^2 = \frac{1}{2}k_B T
 \]</span></p>
 <p>Thus the average kinetic energy is <span class="math inline">\(\frac{1}{2}k_B T\)</span>.</p>
 <p>It is easy to extend this result to three dimensions. Maxwell’s distribution is then <span class="math display">\[
@@ -690,27 +690,39 @@ m\,\frac{\mathrm{d}^2 \delta x}{\mathrm{d}t^2} = e\,E_x = -m\,\omega_p^{~2}\,\de
 </section>
 <section id="spatial-scales" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="spatial-scales"><span class="header-section-number">2.7</span> Spatial Scales</h2>
-<p><em>Ion inertial length</em>: the scale at which ions decouple from electrons and the magnetic field becomes frozen into the electron fluid rather than the bulk plasma. <span id="eq-i-inertial-length"><span class="math display">\[
-d_i = \frac{c}{\omega_{pi}} = \frac{V_A}{\omega_{ci}}
-\tag{2.10}\]</span></span></p>
-<p><em>Electron inertial length</em>: the scale over which the electron distribution function can change substantially. ??? <span id="eq-e-inertial-length"><span class="math display">\[
-r_e = \frac{v_A}{\omega_{pe}}
-\tag{2.11}\]</span></span></p>
-<p><em>Gyroradius</em>: also known as Larmor radius, the scale of gyration around the magnetic field <span id="eq-gyroradius"><span class="math display">\[
-r_L = \frac{v_{\perp, th}}{\omega_{c}} = \frac{mv_{\perp, th}}{qB}
-\tag{2.12}\]</span></span> where <span class="math inline">\(v_{th} = \sqrt{p/\rho}\)</span> is the thermal speed.</p>
+<ul>
+<li><p><em>Ion inertial length</em>: the scale at which ions decouple from electrons and the magnetic field becomes frozen into the electron fluid rather than the bulk plasma. <span id="eq-i-inertial-length"><span class="math display">\[
+d_i = \frac{c}{\omega_{pi}} = \frac{V_{Ai}}{\omega_{ci}}
+\tag{2.10}\]</span></span> where <span class="math inline">\(V_{Ai}\)</span> is the ion Alfvén speed.</p></li>
+<li><p><em>Electron inertial length (plasma skin depth)</em> : the scale over which the electron distribution function can change substantially, or the depth in a plasma to which electromagnetic radiation can penetrate. <span id="eq-e-inertial-length"><span class="math display">\[
+r_e = \frac{c}{\omega_{pe}} = \frac{V_{Ae}}{\omega_{ce}}
+\tag{2.11}\]</span></span> where <span class="math inline">\(V_{Ae}\)</span> is the electron Alfvén speed.</p></li>
+<li><p><em>Ion gyroradius</em>: also known as Larmor radius, the scale of ion gyration around the magnetic field <span id="eq-gyroradius"><span class="math display">\[
+r_L = \frac{v_{\perp, ti}}{\omega_{c}} = \frac{mv_{\perp, ti}}{qB}
+\tag{2.12}\]</span></span> where <span class="math inline">\(v_{\perp, ti} = \sqrt{p_{\perp i}/\rho}\)</span> is the perpendicular ion thermal speed.</p></li>
+<li><p><em>Electron gyroradius</em>: the scale of electron gyration around the magnetic field <span id="eq-gyroradius"><span class="math display">\[
+r_L = \frac{v_{\perp, te}}{\omega_{c}} = \frac{mv_{\perp, te}}{qB}
+\tag{2.13}\]</span></span> where <span class="math inline">\(v_{\perp, te} = \sqrt{p_{\perp e}/\rho}\)</span> is the perpendicular ion thermal speed.</p></li>
+</ul>
 <p>One convenient relation between the inertial length and the gyroradius is <span id="eq-length-ratio"><span class="math display">\[
 \frac{r_L}{d_i} = \frac{v_{ti}}{v_A} = \sqrt{\beta/2}
-\tag{2.13}\]</span></span></p>
+\tag{2.14}\]</span></span></p>
 <p>In the relativistic case, the gyroradius is given as <span id="eq-gyroradius-relativistic"><span class="math display">\[
 r_L = \frac{p}{qB} = \frac{\gamma m v_\perp}{qB}
-\tag{2.14}\]</span></span> where <span class="math inline">\(\gamma\)</span> is the Lorentz factor. For astroparticle studies, people love to use [GeV] for particle energy and normalize the velocity and charge to c and e, respectively. Therefore, <span id="eq-gyroradius-astro"><span class="math display">\[
+\tag{2.15}\]</span></span> where <span class="math inline">\(\gamma\)</span> is the Lorentz factor. For astroparticle studies, people love to use [GeV] for particle energy and normalize the velocity and charge to c and e, respectively. Therefore, <span id="eq-gyroradius-astro"><span class="math display">\[
 \begin{aligned}
 \frac{r_L}{[\mathrm{m}]} &amp;= \frac{\gamma m c^2/ [\mathrm{J}] \cdot v_\perp / c}{q/e \cdot B/[\mathrm{T}]}\cdot\frac{1}{ce} \\
 &amp;= \frac{\gamma m c^2 / [\mathrm{GeV}]\cdot v_\perp/c}{q/e \cdot B/[\mathrm{T}]}\cdot \frac{10^9}{c} \\
 &amp;= 3.3 \frac{\gamma m c^2 / [\mathrm{GeV}]\cdot v_\perp/c}{q/e \cdot B/[\mathrm{T}]}
 \end{aligned}
-\tag{2.15}\]</span></span></p>
+\tag{2.16}\]</span></span></p>
+<ul>
+<li><em>Debye length</em>: the scale over which electric fields are screened out by a redistribution of the electrons: <span class="math display">\[
+\lambda_{D}=\sqrt{\frac{\epsilon_0 k_B T^\ast}{e^2 n}}
+\]</span> where <span class="math inline">\(T^\ast=\Big( \frac{1}{T_e}+\frac{1}{T_i} \Big)^{-1}\)</span>. Even in quasineutral cold plasma, where ion contribution virtually seems to be larger due to lower ion temperature, the ion term is actually often dropped, giving <span class="math display">\[
+\lambda_{D}=\sqrt{\frac{\epsilon_0 k_B T_e}{e^2 n}}
+\]</span> which is only valid when the mobility of ions is negligible compared to the process’s timescale.</li>
+</ul>
 </section>
 <section id="how-to-study-plasma-physics" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="how-to-study-plasma-physics"><span class="header-section-number">2.8</span> How to Study Plasma Physics</h2>
