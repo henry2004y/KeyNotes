@@ -443,13 +443,18 @@ $$ {#eq-gyroradius-astro}
 
 - _Debye length_: the scale over which electric fields are screened out by a redistribution of the electrons:
 $$
-\lambda_{D}=\sqrt{\frac{\epsilon_0 k_B T^\ast}{e^2 n}}
+\lambda_{D}=\sqrt{\frac{\epsilon_0 k_B T^\ast}{e^2 n_e}}
 $$
 where $T^\ast=\Big( \frac{1}{T_e}+\frac{1}{T_i} \Big)^{-1}$. Even in quasineutral cold plasma, where ion contribution virtually seems to be larger due to lower ion temperature, the ion term is actually often dropped, giving
 $$
-\lambda_{D}=\sqrt{\frac{\epsilon_0 k_B T_e}{e^2 n}}
+\lambda_{D}=\sqrt{\frac{\epsilon_0 k_B T_e}{e^2 n}}= \frac{m_e}{q_e}\frac{\sqrt{\epsilon_0 P_e}}{\rho_e} = \sqrt{\frac{\epsilon_0 v_{te}}{e^2 n_e}}
 $$
-which is only valid when the mobility of ions is negligible compared to the process's timescale.
+where $v_{te} = \sqrt{P_e/\rho_e}$, which is only valid when the mobility of ions is negligible compared to the process's timescale.
+
+A useful relation between the electron inertial length and the Debye length is
+$$
+\lambda_D = \frac{v_{te}}{c} d_e
+$$ {#eq-de-lambdaD}
 
 ## How to Study Plasma Physics
 
