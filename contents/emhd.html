@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Key Notes in Plasma Physics - 15&nbsp; Turbulence</title>
+<title>Key Notes in Plasma Physics - 8&nbsp; EMHD</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -50,8 +30,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../contents/geometry.html" rel="next">
-<link href="../contents/nonlinear.html" rel="prev">
+<link href="../contents/kinetic.html" rel="next">
+<link href="../contents/wave.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -91,35 +71,6 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -132,7 +83,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/turbulence.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Turbulence</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/emhd.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">EMHD</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -211,7 +162,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/emhd.html" class="sidebar-item-text sidebar-link">
+  <a href="../contents/emhd.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">EMHD</span></span></a>
   </div>
 </li>
@@ -253,7 +204,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link active">
+  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
   </div>
 </li>
@@ -363,29 +314,17 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#mhd" id="toc-mhd" class="nav-link active" data-scroll-target="#mhd"><span class="header-section-number">15.1</span> MHD</a>
-  <ul class="collapse">
-  <li><a href="#navierstokes-equation-and-reynolds-number" id="toc-navierstokes-equation-and-reynolds-number" class="nav-link" data-scroll-target="#navierstokes-equation-and-reynolds-number"><span class="header-section-number">15.1.1</span> Navier–Stokes equation and Reynolds number</a></li>
-  <li><a href="#coupling-between-charged-fluid-and-magnetic-field" id="toc-coupling-between-charged-fluid-and-magnetic-field" class="nav-link" data-scroll-target="#coupling-between-charged-fluid-and-magnetic-field"><span class="header-section-number">15.1.2</span> Coupling between charged fluid and magnetic field</a></li>
-  <li><a href="#critical-balance" id="toc-critical-balance" class="nav-link" data-scroll-target="#critical-balance"><span class="header-section-number">15.1.3</span> Critical balance</a></li>
-  <li><a href="#residual-energy" id="toc-residual-energy" class="nav-link" data-scroll-target="#residual-energy"><span class="header-section-number">15.1.4</span> Residual energy</a></li>
-  <li><a href="#sec-turbulence_cross_helicity" id="toc-sec-turbulence_cross_helicity" class="nav-link" data-scroll-target="#sec-turbulence_cross_helicity"><span class="header-section-number">15.1.5</span> Normalized cross helicity</a></li>
-  </ul></li>
-  <li><a href="#solar-wind-turbulence" id="toc-solar-wind-turbulence" class="nav-link" data-scroll-target="#solar-wind-turbulence"><span class="header-section-number">15.2</span> Solar Wind Turbulence</a>
-  <ul class="collapse">
-  <li><a href="#taylors-hypothesis" id="toc-taylors-hypothesis" class="nav-link" data-scroll-target="#taylors-hypothesis"><span class="header-section-number">15.2.1</span> Taylor’s hypothesis</a></li>
-  <li><a href="#solar-wind-power-spectrum" id="toc-solar-wind-power-spectrum" class="nav-link" data-scroll-target="#solar-wind-power-spectrum"><span class="header-section-number">15.2.2</span> Solar Wind Power Spectrum</a></li>
-  </ul></li>
-  <li><a href="#turbulence-and-reconnection" id="toc-turbulence-and-reconnection" class="nav-link" data-scroll-target="#turbulence-and-reconnection"><span class="header-section-number">15.3</span> Turbulence and Reconnection</a></li>
+  <li><a href="#key-concepts-in-emhd" id="toc-key-concepts-in-emhd" class="nav-link active" data-scroll-target="#key-concepts-in-emhd"><span class="header-section-number">8.1</span> Key Concepts in EMHD</a></li>
+  <li><a href="#equations-of-emhd" id="toc-equations-of-emhd" class="nav-link" data-scroll-target="#equations-of-emhd"><span class="header-section-number">8.2</span> Equations of EMHD</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/turbulence.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/emhd.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-turbulence" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Turbulence</span></span></h1>
+<h1 class="title"><span id="sec-emhd" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">EMHD</span></span></h1>
 </div>
 
 
@@ -402,204 +341,26 @@ window.Quarto = {
 </header>
 
 
-<p>Turbulence is perhaps the most beautiful unsolved problem of classical physics. History of turbulence in interplanetary space is, perhaps, even more interesting since its knowledge proceeds together with the human conquest of space. The behavior of a flow which rebels against the deterministic rules of classical dynamics is called <em>turbulent</em>. Practically turbulence appears everywhere when the velocity of the flow is high enough. At a first sight turbulence looks strongly irregular and chaotic, both in space and time: it seems to be impossible to predict any future state of the motion. However, it is interesting to recognize the fact that, when we take a picture of a turbulent flow at a given time, we see the presence of a lot of <em>different turbulent structures of all sizes</em> which are actively present during the motion. We recognize that the gross features of the flow are reproducible but details are not predictable. We have to use a <em>statistical approach</em> to turbulence, just as it is done to describe stochastic processes, even if the problem is born within the strange dynamics of a deterministic system.</p>
-<p>Small fluctuations in plasmas lead to turbulence, and turbulent eddies can very effectively transport mass, momentum and heat from the hot core across confining magnetic field lines out to the cooler plasma edge. Predicting this phenomenon of turbulent-transport is essential for solar wind study and the understanding and development of fusion reactors.</p>
-<p>Turbulence became an experimental science since Osborne Reynolds who, at the end of 19th century, observed and investigated experimentally the transition from laminar to turbulent flow. He noticed that the flow inside a pipe becomes turbulent every time a single parameter, a combination of the mass density <span class="math inline">\(\rho\)</span>, viscosity coefficient <span class="math inline">\(\eta\)</span>, a characteristic velocity <span class="math inline">\(U\)</span>, and length <span class="math inline">\(L\)</span>, would increase. This parameter <span class="math inline">\(\text{Re} = UL\rho/\eta\)</span> is now called the <em>Reynolds number</em>. When <span class="math inline">\(\text{Re}\)</span> increases beyond a certain threshold of the order of <span class="math inline">\(\text{Re}\simeq 4000\)</span>, the flow becomes turbulent.</p>
-<p>Predictability in turbulence can be recast at a statistical level. In other words, when we look at two different samples of turbulence, even collected within the same medium, we can see that details look very different. What is actually common is a generic stochastic behavior. This means that the global statistical behavior does not change going from one sample to the other. <em>Fully developed turbulent flows are extremely sensitive to small perturbations but have statistical properties that are insensitive to perturbations</em>. Fluctuations of a certain stochastic variable <span class="math inline">\(\psi\)</span> are defined as the difference from the average value <span class="math inline">\(\delta\psi = \psi - \left&lt; \psi \right&gt;\)</span>, where brackets mean some averaging process. There are, at least, three different kinds of averaging procedures that may be used to obtain statistically-averaged properties of turbulence:</p>
-<ol type="1">
-<li>Space averaging over flows that are statistically homogeneous over scales larger than those of fluctuations.</li>
-<li>Ensemble averaging where average is taken over an ensemble of turbulent flows prepared under nearly identical external conditions. Each member of the ensemble is called a <em>realization</em>.</li>
-<li>Time averaging, which is useful only if the turbulence is statistically stationary over time scales much larger than the time scale of fluctuations. In practice, because of the convenience offered by locating a probe at a fixed point in space and integrating in time, experimental results are usually obtained as time averages. The ergodic theorem (Halmos, 1956) assures that time averages coincide with ensemble averages under some standard conditions.</li>
-</ol>
-<p>A different property of turbulence is that <em>all dynamically interesting scales are excited</em>, that is, <em>energy is spread over all scales</em> and a kind of self-similarity is observed.</p>
-<p>Since fully developed turbulence involves a hierarchy of scales, a large number of interacting degrees of freedom are involved. Then, there should be an asymptotic statistical state of turbulence that is independent on the details of the flow. Hopefully, this asymptotic state depends, perhaps in a critical way, only on simple statistical properties like energy spectra, as much as in statistical mechanics equilibrium where the statistical state is determined by the energy spectrum (Huang, 1987). Of course, we cannot expect that the statistical state would determine the details of individual realizations, because realizations need not to be given the same weight in different ensembles with the same low-order statistical properties.</p>
-<p>It should be emphasized that there are no firm mathematical arguments for the existence of an asymptotic statistical state. Reproducible statistical results are obtained from observations, that is, it is suggested experimentally and from physical plausibility. Apart from physical plausibility, it is embarrassing that such an important feature of fully developed turbulence, as the existence of a statistical stability, should remain unsolved. However, such is the complex nature of turbulence.</p>
-<section id="mhd" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="mhd"><span class="header-section-number">15.1</span> MHD</h2>
-<p>Nunov highly recommended a review <span class="citation" data-cites="schekochihin_2022">(<a href="#ref-schekochihin_2022" role="doc-biblioref">Schekochihin 2022</a>)</span>. Another nice reference for the solar wind turbulence is presented <span class="citation" data-cites="bruno2013solar">(<a href="#ref-bruno2013solar" role="doc-biblioref">Bruno and Carbone 2013</a>)</span>, where I cite many materials in this note.</p>
-<section id="navierstokes-equation-and-reynolds-number" class="level3" data-number="15.1.1">
-<h3 data-number="15.1.1" class="anchored" data-anchor-id="navierstokes-equation-and-reynolds-number"><span class="header-section-number">15.1.1</span> Navier–Stokes equation and Reynolds number</h3>
-</section>
-<section id="coupling-between-charged-fluid-and-magnetic-field" class="level3" data-number="15.1.2">
-<h3 data-number="15.1.2" class="anchored" data-anchor-id="coupling-between-charged-fluid-and-magnetic-field"><span class="header-section-number">15.1.2</span> Coupling between charged fluid and magnetic field</h3>
-<p>Elsässer variables are used to extract the Alfvénic component from MHD. They are defined as <span id="eq-Elsässer-vars"><span class="math display">\[
-\begin{aligned}
-\mathbf{z}^+ &amp;= \mathbf{v} + \mathbf{b} \\
-\mathbf{z}^- &amp;= \mathbf{v} - \mathbf{b}
-\end{aligned}
-\tag{15.1}\]</span></span> where <span class="math inline">\(\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}\)</span>.</p>
-<p>The perturbations are written as <span class="math display">\[
-\begin{aligned}
-\delta\mathbf{z}^+ &amp;= \delta\mathbf{v} + \delta\mathbf{b} \\
-\delta\mathbf{z}^- &amp;= \delta\mathbf{v} - \delta\mathbf{b}
-\end{aligned}
-\]</span></p>
-<p><span class="math inline">\(\mathbf{z}^\pm\)</span> corresponds to anti-parallel/parallel propagating modes:</p>
+<p><em>Electron Magnetohydrodynamics (EMHD)</em> is a specialized branch of plasma physics that focuses on the behavior of plasmas at very small spatial scales and very short timescales, where the motion of electrons becomes dominant over the heavier ions. Since electrons are much lighter and more agile than ions, they can exhibit unique behaviors in the presence of magnetic fields, leading to phenomena not captured by standard magnetohydrodynamics (MHD).</p>
+<section id="key-concepts-in-emhd" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="key-concepts-in-emhd"><span class="header-section-number">8.1</span> Key Concepts in EMHD</h2>
 <ul>
-<li>Parallel wave: <span class="math inline">\(\delta\mathbf{v}=-\delta\mathbf{b}\Rightarrow \delta\mathbf{z}^+=0, \delta\mathbf{z}^-=2\delta\mathbf{v}\)</span></li>
-<li>Anti-parallel wave: <span class="math inline">\(\delta\mathbf{v}=\delta\mathbf{b}\Rightarrow \delta\mathbf{z}^+=2\delta\mathbf{v}, \delta\mathbf{z}^-=0\)</span></li>
-</ul>
-<p>The Alfvénicity condition <span id="eq-Alfvenity"><span class="math display">\[
-\delta\mathbf{v}=\pm\delta\mathbf{b}=\pm\delta\mathbf{B}/\sqrt{\mu_0\rho_0}
-\tag{15.2}\]</span></span> often appears in the context of discussing Alfvén waves.</p>
-<p>The incompressible MHD wave equation in fluctuating Elsässer form is: <span id="eq-mhd_elsassar"><span class="math display">\[
-\frac{\partial\delta\mathbf{z}^\pm}{\partial t} \mp v_A\nabla_\parallel\delta\mathbf{z}^\pm + \delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm = -\nabla p
-\tag{15.3}\]</span></span></p>
-<p><span id="eq-elsassar_divergence"><span class="math display">\[
-\nabla\cdot\delta\mathbf{z}^\pm = 0
-\tag{15.4}\]</span></span></p>
-<p>The zero divergence means that there are no forcing or dissipation terms.</p>
-<p><a href="#eq-mhd_elsassar" class="quarto-xref">Equation&nbsp;<span>15.3</span></a> unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term (<span class="math inline">\(v_A\)</span> constant?) that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence.</p>
-</section>
-<section id="critical-balance" class="level3" data-number="15.1.3">
-<h3 data-number="15.1.3" class="anchored" data-anchor-id="critical-balance"><span class="header-section-number">15.1.3</span> Critical balance</h3>
-<p>If we match the Alfvén (linear) timescale, <span class="math inline">\(\tau_A \sim l_\parallel/v_A\)</span>, with the nonlinear timescale, <span class="math inline">\(\tau_{nl}\sim l_\perp/\delta z\)</span>, we have the so-called <em>critical balance</em> <span class="math display">\[
-\tau_A = \tau_{nl}
-\]</span></p>
-<p>Assume a constant energy cascade rate <span class="math inline">\(\epsilon\sim \delta z^2/\tau_{nl}\)</span>, and an energy injection rate at scale L <span class="math inline">\(\epsilon_L\sim v_A^2/\tau_{nl}=v_A^3/L\)</span>. When we match the two rates and … (I have some memory from Nunov’s lecture at Nordita), we have <span class="math inline">\(k_\parallel\propto k_\perp^{2/3}\)</span>. This means that anisotropy grows with decreasing scale. The power spectra are given as <span class="math display">\[
-\begin{aligned}
-E(k_\perp) &amp;\propto k_\perp^{-5/3} \\
-E(k_\parallel) &amp;\propto k_\parallel^{-2}
-\end{aligned}
-\]</span></p>
-<p>The critical balance scalings were seen in observations when analysed with local mean field techniques [Chen 2016]. However, why this is the case in nature is still under debate.</p>
-</section>
-<section id="residual-energy" class="level3" data-number="15.1.4">
-<h3 data-number="15.1.4" class="anchored" data-anchor-id="residual-energy"><span class="header-section-number">15.1.4</span> Residual energy</h3>
-<p>Residual energy is the difference in energy between magnetic and velocity fluctuations. The normalized residual energy is <span id="eq-residual_energy_normalized"><span class="math display">\[
-\sigma_r = \frac{|\delta\mathbf{v}|^2 - |\delta\mathbf{b}|^2}{|\delta\mathbf{v}|^2 + |\delta\mathbf{b}|^2}
-\tag{15.5}\]</span></span></p>
-<p><span class="math inline">\(\sigma_r\)</span> is zero for an Alfvén wave but is generally negative (<span class="math inline">\(|\delta\mathbf{b}|^2 &gt; |\delta\mathbf{v}|^2\)</span>) at MHD scales for solar wind observations, meaning that they are mostly likely turbulence but not waves.</p>
-</section>
-<section id="sec-turbulence_cross_helicity" class="level3" data-number="15.1.5">
-<h3 data-number="15.1.5" class="anchored" data-anchor-id="sec-turbulence_cross_helicity"><span class="header-section-number">15.1.5</span> Normalized cross helicity</h3>
-<p>Cross helicity is the difference in energy between <span class="math inline">\(\mathbf{z}^+\)</span> and <span class="math inline">\(\mathbf{z}^-\)</span> fluctuations (<a href="geometry.html#sec-cross_helicity" class="quarto-xref"><span>Section 16.5</span></a>). The normalized cross helicity is <span id="eq-cross_helicity_normalized"><span class="math display">\[
-\sigma_c = \frac{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2}{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2} = \frac{2\delta\mathbf{v}\cdot\delta\mathbf{b}}{|\delta\mathbf{v}|^2 + |\delta\mathbf{b}|^2}
-\tag{15.6}\]</span></span></p>
-<ul>
-<li><span class="math inline">\(|\sigma_c|=1\)</span>: unidirectional Alfvén waves (no turbulence)</li>
-<li><span class="math inline">\(|\sigma_c|\lesssim 1\)</span>: imbalanced turbulence</li>
-<li><span class="math inline">\(|\sigma_c|=0\)</span>: balanced turbulence (or non-Alfvénic fluctuations)</li>
-</ul>
-<p>The solar wind is typically imbalanced towards the anti-sunward direction. From <a href="#eq-residual_energy_normalized" class="quarto-xref">Equation&nbsp;<span>15.5</span></a> and <a href="#eq-cross_helicity_normalized" class="quarto-xref">Equation&nbsp;<span>15.6</span></a> we can easily see that <span class="math display">\[
-\sqrt{\sigma_r^2 + \sigma_c^2} \le 1
-\]</span></p>
-<p>The observed distribution is shown in <a href="#fig-turbulence-residual-energy-cross-helicity" class="quarto-xref">Figure&nbsp;<span>15.1</span></a>. Note, however, <span class="math inline">\(\sigma_r\)</span> depends on how you evaluate <span class="math inline">\(\delta{b}\)</span>. In the MHD case <span class="math inline">\(\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}\)</span> is used, but in the kinetic case there will be an extra coefficient. The results look pretty different!</p>
-<div id="fig-turbulence-residual-energy-cross-helicity" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-turbulence-residual-energy-cross-helicity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/solarwind_residual_energy_cross_helicity.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-turbulence-residual-energy-cross-helicity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.1: Solar wind normalized residual energy and cross helicity statistics from Chen+ 2013.
-</figcaption>
-</figure>
-</div>
-<p>Observation from 1 AU (WIND) show that the non-Alfvénic wind typically has small alpha-proton relative drift and nearly equal temperatures of both ionic components. In terms of occurrence, there is no significant difference for a typical solar wind speed of 300 km/s, but for high speed solar wind there is a higher probability for large <span class="math inline">\(|\sigma_c|\)</span> of being Alfvénic.</p>
-<ul>
-<li>Non-Alfvénic solar winds
-<ul>
-<li>slower and lower in abundance, <span class="math inline">\(n_\alpha/n_p &lt; 4%\)</span></li>
-<li><span class="math inline">\(v_p - v_\alpha \sim 0\)</span></li>
-<li><span class="math inline">\(T_p \sim T_\alpha\)</span></li>
-<li>could be formed by the interchange-recnnection near the Sun</li>
-</ul></li>
-<li>Alfvénic solar winds
-<ul>
-<li><span class="math inline">\(n_{\mathrm{He}}/n_{\mathrm{p}}\sim 4%\)</span> and does not depend on the proton velocity</li>
-<li>alpha particles are about 4 times hotter than protons.</li>
-<li>originates from the coronal holes</li>
-</ul></li>
+<li><p>Fast Electron Motion: Electrons move much faster than ions due to their lower mass. This translates to a separation of timescales in EMHD; you study rapid electron dynamics while assuming the ions form a relatively stationary background.</p></li>
+<li><p>Magnetic Field “Freezing”: In standard MHD, the magnetic field lines are considered to be “frozen” into the plasma. In EMHD, this concept breaks down at small scales as electrons can move independently of the magnetic field lines.</p></li>
+<li><p>Whistler Waves: EMHD supports a unique type of plasma wave called a whistler wave. These waves are electromagnetic oscillations that propagate along magnetic field lines, driven by the motion of electrons.</p></li>
+<li><p>Hall Effect: Electrons, due to their small mass, are readily deflected by magnetic fields. This deflection, the basis of the Hall effect, leads to the generation of electric currents perpendicular to both the magnetic field and the direction of electron flow. These currents play a role in phenomena like magnetic reconnection.</p></li>
 </ul>
 </section>
-</section>
-<section id="solar-wind-turbulence" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="solar-wind-turbulence"><span class="header-section-number">15.2</span> Solar Wind Turbulence</h2>
-<section id="taylors-hypothesis" class="level3" data-number="15.2.1">
-<h3 data-number="15.2.1" class="anchored" data-anchor-id="taylors-hypothesis"><span class="header-section-number">15.2.1</span> Taylor’s hypothesis</h3>
-<p>Solar wind is a supersonic flow (<span class="math inline">\(v_A/v_{\text{SW}}\ll 1\)</span>), with advection timescale much shorter than any dynamical timescales in the plasma. This means that for spacecraft observations, the time series represents an instantaneous spatial cut through the solar wind plasma. We can thus relate spacecraft frequency, <span class="math inline">\(f_{\text{sc}}\)</span>, to wavenumber in the plasma frame, <span class="math inline">\(k\)</span>, in a simple way via <span class="math display">\[
-k = \frac{2\pi f_\text{sc}}{v_\text{SW}}
-\]</span></p>
-<p>This is often not appropriate in the magnetosheath, and modified Taylor’s hypothesis is required close to the Sun.</p>
-<div id="fig-turbulence-v-b" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-turbulence-v-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/turbulence_par_perp_L1.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-turbulence-v-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.2: Wave scale from typical L1 satellite solar wind observation.
-</figcaption>
-</figure>
-</div>
-<p>The wavenumber <span class="math inline">\(k\)</span> determined from Taylor’s hypothesis is really the flow-aligned component of <span class="math inline">\(\mathbf{k}\)</span>. For a given angle <span class="math inline">\(\theta_{vb}\)</span>, one cannot distinguish <span class="math inline">\(k_\perp\)</span> and <span class="math inline">\(k_\parallel\)</span>; these can be possibly measured for small (<span class="math inline">\(\sim 0^\circ\)</span> for <span class="math inline">\(k_\parallel\)</span>) and large (<span class="math inline">\(\sim 90^\circ\)</span> for <span class="math inline">\(k_\perp\)</span>) at different times. In the solar wind, <span class="math inline">\(P(k_\perp) \gg P(k_\parallel)\)</span>, where <span class="math inline">\(P\)</span> is the power of perturbation. For a Parker spiral-like magnetic field at 1 AU, the angle between <span class="math inline">\(\mathbf{B}_0\)</span> and <span class="math inline">\(\mathbf{v}_\text{sw}\)</span> is rarely small (<span class="math inline">\(\sim 45^\circ\)</span>), the power spectra are typically dominated by the contribution from the <span class="math inline">\(k_\perp\)</span> fluctuations (<a href="#fig-turbulence-v-b" class="quarto-xref">Figure&nbsp;<span>15.2</span></a>).</p>
-</section>
-<section id="solar-wind-power-spectrum" class="level3" data-number="15.2.2">
-<h3 data-number="15.2.2" class="anchored" data-anchor-id="solar-wind-power-spectrum"><span class="header-section-number">15.2.2</span> Solar Wind Power Spectrum</h3>
-<div id="fig-solarwind-power-spectrum" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-solarwind-power-spectrum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/solarwind_power_spectrum.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-solarwind-power-spectrum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.3: Solar wind power spectrum from Kiyoni+, 2015.
-</figcaption>
-</figure>
-</div>
-<p>When we plot the solar wind power spectrum (<span class="math inline">\(\delta|\mathbf{B}|\)</span>), it is usually representative of <span class="math inline">\(k_\perp\)</span>. There are three distinct power-law ranges in the spectrum from spacecraft solar wind observations (<a href="#fig-solarwind-power-spectrum" class="quarto-xref">Figure&nbsp;<span>15.3</span></a>):</p>
+<section id="equations-of-emhd" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="equations-of-emhd"><span class="header-section-number">8.2</span> Equations of EMHD</h2>
+<p>The core equations of EMHD differ from standard MHD.</p>
 <ul>
-<li>Injection range:
-<ul>
-<li>Large amplitude, low frequency Alfvén waves originating from the Sun.</li>
-<li>The <span class="math inline">\(f^{-1}\)</span> spectrum is known as the “pink noise”.</li>
-<li>Non-interacting</li>
-<li>Inject energy to the MHD cascade at higher frequencies</li>
-</ul></li>
-<li>Inertial range:
-<ul>
-<li>Mostly incompressible Alfvénic turbulence.</li>
-<li><span class="math inline">\(\sim f^{-5/3}\)</span> spectrum (Kolmogorov type)</li>
-<li>a cascade of energy to smaller scales</li>
-</ul></li>
-<li>Kinetic range:
-<ul>
-<li>Scales at which particles are heated</li>
-<li>Typically <span class="math inline">\(f^{-2.8}\)</span> spectrum</li>
-<li>Possibly KAW (<a href="wave.html#sec-kaw" class="quarto-xref"><span>Section 7.9.4</span></a>) or whistler mode (<a href="wave.html#sec-CPDR" class="quarto-xref"><span>Section 7.7</span></a>) turbulence</li>
-</ul></li>
+<li><p>Generalized Ohm’s Law: Describes electron flow, including the Hall effect and pressure gradient terms absent in ideal MHD Ohm’s Law.</p></li>
+<li><p>Momentum Equation for Electrons: Governs electron motion under the influence of electric and magnetic fields, as well as pressure gradients.</p></li>
+<li><p>Maxwell’s Equations: Describe the evolution of the electric and magnetic fields, just as in standard MHD.</p></li>
 </ul>
-<p>When we move to smaller scales, anisotropy increases. This is demonstrated in <a href="#fig-turbulence-scale" class="quarto-xref">Figure&nbsp;<span>15.4</span></a> as a result of <span class="math inline">\(k_\perp \gg k_\parallel\)</span>, which is also why gyrokinetics is the theory for turbulence. Isotropic MHD is inadequate in turbulence study because of this major drawback.</p>
-<div id="fig-turbulence-scale" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-turbulence-scale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/turbulence_par_perp_scale.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-turbulence-scale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.4: Demonstration of parallel and perpendicular length scales of turbulence.
-</figcaption>
-</figure>
-</div>
-<p>Fluctuation modes in the inertial range consists of 90% incompressible (Alfvén) modes and 10% compressible slow/mirror modes. Alfvénic turbulence is thought to be passive to the compressive modes: compressive modes scatter off Alfvén modes without affecting them significantly (i.e.&nbsp;being decoupled from each other). The compressive modes are expected to damp <span class="math inline">\(\sim k_\parallel v_A\)</span>. Since <span class="math inline">\(k_\perp \gg k_\parallel\)</span>, the damp is not significant for compressive modes, so they tend to be more anisotropic than the Alfvénic turbulence.</p>
-</section>
-</section>
-<section id="turbulence-and-reconnection" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="turbulence-and-reconnection"><span class="header-section-number">15.3</span> Turbulence and Reconnection</h2>
-<p>Turbulence and magnetic reconnection can be mutually driven, but the underlying nature of energy dissipation, intrinsic turbulence waves, and magnetic field topologies in turbulent magnetic reconnection is still poorly understood.</p>
-<p>To study turbulence and reconnection together, one need to confirm several things beforehand:</p>
-<ol type="1">
-<li><p>The existence of reconnection, from identifying magnetic null point, plasma inflow and outflow, and the diffusion regions.</p></li>
-<li><p>The existence of turbulence, by looking at the magnetic field power spectrum and confirm the cascades. From satellite data, this is done by taking a time interval, performing FFT, and check the characteristic frequency scales such as the ion cyclotron frequency <span class="math inline">\(f_{ci}\)</span>, the lower hybrid frequency <span class="math inline">\(f_{ln}\)</span>, etc.</p></li>
-</ol>
-<p>If there are spectral breaks in the power spectrum diagram (PSD), especially near the characteristic frequencies, they may indicate local cyclotron resonance, which is related to wave-particle interactions. Some researchers have found from MMS tail current sheet observations that in the reconnection outflow regions, energy is deposited in the form of kinetic Alfvén waves in low-frequency <span class="math inline">\(f_{ci}\)</span> ion cyclotron scale and fast/slow waves in high-frequency low-hybrid scale.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-bruno2013solar" class="csl-entry" role="listitem">
-Bruno, Roberto, and Vincenzo Carbone. 2013. <span>“The Solar Wind as a Turbulence Laboratory.”</span> <em>Living Reviews in Solar Physics</em> 10 (1): 1–208. <a href="https://doi.org/10.12942/lrsp-2013-2">https://doi.org/10.12942/lrsp-2013-2</a>.
-</div>
-<div id="ref-schekochihin_2022" class="csl-entry" role="listitem">
-Schekochihin, Alexander A. 2022. <span>“MHD Turbulence: A Biased Review.”</span> <em>Journal of Plasma Physics</em> 88 (5): 155880501. <a href="https://doi.org/10.1017/S0022377822000721">https://doi.org/10.1017/S0022377822000721</a>.
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -1158,13 +919,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../contents/nonlinear.html" class="pagination-link" aria-label="Nonlinear Effects">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span>
+      <a href="../contents/wave.html" class="pagination-link" aria-label="Waves">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Waves</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../contents/geometry.html" class="pagination-link" aria-label="Geometry">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Geometry</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../contents/kinetic.html" class="pagination-link" aria-label="Kinetic Theory">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1173,4 +934,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/turbulence.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/emhd.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
