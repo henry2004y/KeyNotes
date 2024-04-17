@@ -372,6 +372,8 @@ window.Quarto = {
   <li><a href="#quasilinear-theory" id="toc-quasilinear-theory" class="nav-link active" data-scroll-target="#quasilinear-theory"><span class="header-section-number">23.1</span> Quasilinear Theory</a>
   <ul class="collapse">
   <li><a href="#derivation-of-the-fokker-planck-equation" id="toc-derivation-of-the-fokker-planck-equation" class="nav-link" data-scroll-target="#derivation-of-the-fokker-planck-equation"><span class="header-section-number">23.1.1</span> Derivation of the Fokker-Planck equation</a></li>
+  <li><a href="#the-diffusion-approximation" id="toc-the-diffusion-approximation" class="nav-link" data-scroll-target="#the-diffusion-approximation"><span class="header-section-number">23.1.2</span> The diffusion approximation</a></li>
+  <li><a href="#computation-of-transport-coefficients" id="toc-computation-of-transport-coefficients" class="nav-link" data-scroll-target="#computation-of-transport-coefficients"><span class="header-section-number">23.1.3</span> Computation of transport coefficients</a></li>
   </ul></li>
   <li><a href="#test-particle-simulation" id="toc-test-particle-simulation" class="nav-link" data-scroll-target="#test-particle-simulation"><span class="header-section-number">23.2</span> Test Particle Simulation</a></li>
   </ul>
@@ -482,6 +484,41 @@ D_{\mu \mu} \equiv \frac{\langle (\Delta \mu )^{2} \rangle }{2 \Delta t}
 \]</span> to be added to the right-hand side of <a href="#eq-fokker-planck" class="quarto-xref">Equation&nbsp;<span>23.13</span></a>.</p>
 <p>In summary, under the influence of a turbulent magnetic field, charged particles are performing a random walk in pitch-angle which in the ensemble average results in diffusion in pitch-angle (cosine).</p>
 </section>
+<section id="the-diffusion-approximation" class="level3" data-number="23.1.2">
+<h3 data-number="23.1.2" class="anchored" data-anchor-id="the-diffusion-approximation"><span class="header-section-number">23.1.2</span> The diffusion approximation</h3>
+<p>Particle transport can be conveniently categorised if the mean-square displacement in direction i, <span class="math inline">\(\langle \Delta x_i^2 \rangle\)</span>, has a power law dependence,<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> <span id="eq-diffusion-power-law"><span class="math display">\[
+\langle \Delta {r}_{i}^{2} \rangle \propto (\Delta t)^{\alpha}
+\tag{23.15}\]</span></span> as <span class="math display">\[
+\begin{array}{r@{\quad } l}
+\alpha &lt; 1: &amp; \text{sub-diffusive,} \\
+\alpha = 1: &amp; \text{diffusive,} \\
+\alpha &gt; 1:&amp; \text{super-diffusive, in particular} \\
+\alpha = 2: &amp; \text{ballistic.}
+\end{array}
+\]</span></p>
+<p>It seems clear that transport in any perturbative theory with <span class="math inline">\(|\mathbf{\delta B}| \ll |\langle \mathbf{B} \rangle|\)</span> must be ballistic at early enough times: Particles just gyrate around <span class="math inline">\(\langle\mathbf{B}\rangle\)</span> and <span class="math inline">\(\langle \Delta z^{2} \rangle = (v \mu \Delta t)^{2}\)</span> while <span class="math inline">\(\langle \Delta x^{2} \rangle = \langle \Delta y^{2} \rangle = 0\)</span> when integrated over full gyroperiods. At late times, that is for <span class="math inline">\(t \gg D_{\mu\mu}^{-1}\)</span>, we would expect diffusive behaviour for the transport along the field.</p>
+<p>In order to formalise this picture, we derive a spatial diffusion equation from the Fokker-Planck <a href="#eq-fokker-planck" class="quarto-xref">Equation&nbsp;<span>23.13</span></a>. To this end, we decompose <span class="math inline">\(\langle f\rangle\)</span> into an isotropic part, <span class="math inline">\(g\)</span>, and an anisotropic part, <span class="math inline">\(h\)</span>, <span class="math display">\[
+\langle f \rangle (p, \mu, t) = g(p, t) + h(p, \mu, t)
+\]</span> where <span class="math display">\[
+g(p, t) = \frac{1}{2}\int_{-1}^{1} \mathrm{d}\mu \langle f \rangle (p, \mu, t)
+\]</span> and <span class="math display">\[
+\int_{-1}^{1} \mathrm{d}\mu\, h(p, \mu, t) = 0
+\]</span></p>
+<p>If <span class="math inline">\(g\)</span> varies only slowly with time and position, <span class="math display">\[
+g \left / \frac{\partial g}{\partial t} \right . \gg \tau_{\text{sc}} \quad \text{and} \quad g \left / \frac{\partial g}{\partial z} \right . \gg \lambda_{\text{sc}}
+\]</span> where <span class="math inline">\(\tau_{\text{sc}} \sim D_{\mu \mu }^{-1}\)</span> and <span class="math inline">\(\lambda_{\text{sc}} \sim v \tau_{\text{sc}}\)</span> are the scattering time and mean-free path, respectively, the phase space density will be very isotropic, <span class="math inline">\(h\ll g\)</span>. In this case, we can derive a spatial diffusion equation for the isotropic part <span class="math inline">\(g\)</span> (e.g.&nbsp;Hasselmann and Wibberenz 1970), <span id="eq-isotropic-diffusion"><span class="math display">\[
+\frac{\partial g}{\partial t} - \frac{\partial }{\partial z} \left( \kappa_{\parallel} \frac{\partial g}{\partial z} \right) = 0
+\tag{23.16}\]</span></span> with the parallel diffusion coefficient <span id="eq-parallel-diffusion-coef"><span class="math display">\[
+\kappa_{\parallel} = \frac{v^{2}}{8} \int_{-1}^{1} \mathrm{d} \mu \frac{(1- \ \mu^{2})^{2}}{D_{\mu\mu}}
+\tag{23.17}\]</span></span></p>
+<p>Furthermore, we would expect the anisotropic part <span class="math inline">\(h\)</span> to be dominated by the <em>dipole anisotropy</em> (???), that is <span class="math inline">\(h\approx h_1\mu\)</span> with <span id="eq-dipole-anisotropy"><span class="math display">\[
+h_{1} = \frac{3}{2} \int_{-1}^{1} \mathrm{d} \mu \, \mu \, h(\mu) = - \frac{2}{v} \kappa_{\parallel} \frac{\partial g}{\partial z}
+\tag{23.18}\]</span></span></p>
+</section>
+<section id="computation-of-transport-coefficients" class="level3" data-number="23.1.3">
+<h3 data-number="23.1.3" class="anchored" data-anchor-id="computation-of-transport-coefficients"><span class="header-section-number">23.1.3</span> Computation of transport coefficients</h3>
+<p>So far, we have not specified the functional form of the Fokker-Planck coefficients, e.g.&nbsp;the pitch-angle diffusion coefficient <span class="math inline">\(D_{\mu\mu}\)</span>, and its dependence on the two-point correlation function of turbulence <span class="math inline">\(P_{ij}(\mathbf{k})\)</span> that emerges in the derivation of the Fokker-Planck <a href="#eq-fokker-planck" class="quarto-xref">Equation&nbsp;<span>23.13</span></a>.</p>
+</section>
 </section>
 <section id="test-particle-simulation" class="level2" data-number="23.2">
 <h2 data-number="23.2" class="anchored" data-anchor-id="test-particle-simulation"><span class="header-section-number">23.2</span> Test Particle Simulation</h2>
@@ -512,6 +549,7 @@ Mertsch, Philipp. 2020. <span>“Test Particle Simulations of Cosmic Rays.”</s
 <ol>
 <li id="fn1"><p>In CGS units, the electric and magnetic fields have the same unit.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Strictly speaking, the correlation lengths and times are tensors because of the vector nature of the magnetic field in the two-point functions; here, however, we only require them for order of magnitude arguments, so we do not distinguish the different components.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>In particle transport, ballistic refers to the movement of particles with minimal influence from their environment. Imagine a particle traveling on a frictionless, straight path, almost like a bullet. That’s ballistic transport!<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
