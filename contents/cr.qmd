@@ -17,7 +17,131 @@ The success and popularity of QLT can be ascribed to its conceptual simplicity a
 
 ### Derivation of the Fokker-Planck equation
 
+For self-consistency, I will repeat all the equations here instead of linking to other parts of the note. Philipp Mertsch uses CGS unit in the following equations.
 
+Charged particles in electric and magnetic fields $\mathbf{E}$ and $\mathbf{B}$ are subject to the Lorentz force,
+$$
+\mathbf{F}_L = e\left( \mathbf{E} + \mathbf{v}\times\mathbf{B}/c \right)
+$$ {#eq-lorentz-force-cgs}
+
+It is customary to decompose the magnetic field into a large-scale, homogeneous, regular background field, $\langle \mathbf{B} \rangle$ and a small-scale, turbulent, random field $\delta\mathbf{B}$, that is $\mathbf{B} = \langle\mathbf{B}\rangle$ with $\langle\delta\mathbf{B}\rangle = 0$. The angled brackets denote averages over an ensemble of turbulent magnetic fields.
+
+Without loss of generality, we assume in the following that the regular field is oriented along the z-direction, $\langle\mathbf{B}\rangle = B_z\hat{z}$, unless stated otherwise. Large-scale electric fields are usually ignored, $\langle\mathbf{E}\rangle = 0$, as the large mobility of charges in astrophysical plasmas is efficiently shielding against regular electric fields (that is on scales much larger than the Debye length). Small-scale electric fields $\delta\mathbf{E}$ are necessarily present, but from Faraday’s induction law, their magnitude can be estimated to be $|\delta\mathbf{E}| \sim ( v_{\text{A}} / c) |\delta\mathbf{B}|$ with $v_\text{A}$ the Alfvén velocity and $v_A/c \ll 1$ in most astrophysical environments.[^cgs_em] Thus, to lowest order in $(v_\text{A}/c)$, there is no electric field and as the magnetic force is not performing any work on the particle, particle energy is consequently conserved. Note that at higher orders in $(v_\text{A}/c)$, the particle energy can change in a second-order Fermi type process. For simplicity, we constrain ourselves here to considering the lowest order case which results in pitch-angle scattering.
+
+[^cgs_em]: In CGS units, the electric and magnetic fields have the same unit.
+
+A charged particle in a magnetic field forms a Hamiltonian system as long as dissipative processes (or any form of energy losses) can be ignored. A consequence of this is _Liouville’s theorem_, that is the conservation of phase space volume under canonical transformations. As time evolution is a canonical transformation, phases space volume is conserved in time. Together with particle number conservation this implies the conservation of phase space density $f = f(\mathbf{r},\mathbf{p},t)$. This is conveniently captured by what we will call _Liouville’s equation_,
+$$
+\frac{\mathrm{d}f}{\mathrm{d}t} = \frac{\partial f}{\partial t} + \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} \cdot \mathbf{\nabla}_{\mathbf{r}} f + \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} \cdot \mathbf{\nabla}_{\mathbf{p}} f = 0
+$$ {#eq-liouville}
+encoding the incompressibility of the phase space flow. Here,
+$$
+\frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = \mathbf{v},\quad \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} = e\left( \mathbf{E} + \frac{\mathbf{v}\times\mathbf{B}}{c} \right)
+$$ {#eq-charge-particle-motion}
+are the equations of motion. Note that a necessary condition for a Hamiltonian system is that the forces are conservative and differentiable ("p-divergence-free", see more in [@bellan2008fundamentals]).
+
+A collisionless plasma under the influence of external $\mathbf{E}$ and $\mathbf{B}$ fields is an example of a Hamiltonian system. Its Hamiltonian is (Jackson 1998)
+$$
+H = \sqrt{(c\mathbf{P} - e\mathbf{A})^2 + m^2c^4} + e\phi
+$$ {#eq-charge-particle-hamiltonian}
+where $\mathbf{P} = \mathbf{p} + (e/c)\mathbf{A}$ is the canonical momentum, $\mathbf{A}$ the potential vector, m the particle mass, e its charge and $\phi$ the electric potential. Therefore, the phase space density of this collisionless plasma satisfies @eq-liouville and substituting the Lorentz force, @eq-lorentz-force-cgs, in @eq-liouville gives the Vlasov equation,
+$$
+\frac{\partial f}{\partial t} + \frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} \cdot \mathbf{\nabla}_{\mathbf{r}} f + e \left ( \mathbf{E} + \frac{\mathbf{v} \times \mathbf{B}}{c} \right ) \cdot \mathbf{\nabla}_{\mathbf{p}} f = 0
+$$ {#eq-vlasov-cgs}
+which together with Maxwell's equations forms the basis of plasma kinetic theory. For a collisional plasma, a term needs to be added to the right-hand side, the famous collision operator. For a collisionless plasma (as appropriate for CRs) the right-hand side remains zero.
+
+Considering turbulent fields, the phase space density also becomes a random field, $f = \langle f\rangle + \delta f$, with an expectation value, $\langle f \rangle$, and fluctuations around it, $\delta f$, that satisfy $\langle \delta f \rangle=0$.
+
+In any realistic astrophysical situation, it is of course impossible to know the small-scale turbulent field at all positions in order to exactly solve @eq-vlasov-cgs. Instead, one can only hope to predict statistical moments of the phase space density for a statistical ensemble of turbulent magnetic fields. Traditionally, one is mostly interested in the first moment, the ensemble average, while higher order moments is also possible to obtain.
+
+For the reason explained above, we will ignore $\mathbf{E}$ in the following. Averaging @eq-vlasov-cgs we find (Jokipii 1972)
+$$
+\begin{aligned}
+\frac{\mathrm{d} \langle f \rangle}{\mathrm{d} t} &= \frac{\partial \langle f \rangle }{\partial t} + \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} \cdot \mathbf{\nabla}_{\mathbf{r}} \langle f \rangle + e \frac{\mathbf{v} \times \langle \mathbf {B} \rangle}{c} \cdot \mathbf{\nabla}_{\mathbf{p}} \langle f \rangle \\
+&= - \left \langle e \frac{\mathbf{v} \times \mathbf{\delta B}}{c} \cdot \nabla _{\mathbf{p}} \delta f \right \rangle \neq 0
+\end{aligned}
+$$ {#eq-vlasov-averaged-cgs}
+
+Note that unlike the phase space density $f$, the ensemble averaged phase space density $\langle f \rangle$ is not conserved, $\mathrm{d}\langle f\rangle /\mathrm{d}t \neq 0$. (More on this later!)
+
+One way to glean some physical insight from @eq-vlasov-averaged-cgs is to identify its right-hand-side with a damping term, (Earl+ 1988; Webb 1989),
+$$
+\left \langle e \frac{\mathbf{v} \times \mathbf{\delta B}}{c} \cdot \nabla_{\mathbf{p}} \delta f \right \rangle \to \nu \left( \langle f \rangle - \frac{1}{4\pi}\int\mathrm{d}\hat{\mathbf{p}} \, \langle f \rangle \right)
+$$
+(where $\hat{\mathbf{p}}=\mathbf{p}/|\mathbf{p}|$), that is driving the phase space density towards isotropy at a rate $\nu$, an approach that can also be motivated by gas kinetic theory (Bhatnagar+ 1954). This way, @eq-vlasov-averaged-cgs can be solved and shown to lead to a spatial diffusion equation. The parallel diffusion coefficient can be identified as $\kappa_\parallel = v^2 / (3\nu)$ whereas the perpendicular diffusion coefficient satisfies $\kappa_\perp / \kappa_\parallel = (1 + \Omega^2 / \nu^2)^{-1}$, a result referred to as the _classical scattering limit_ (Gleeson 1969). Here, $\Omega$ is the particle’s gyrofrequency.
+
+In QLT, however, a more systematic solution for $f$ is sought through an equation for the temporal evolution of the fluctuations $\delta f$. Such an equation can be obtained by subtracting the ensemble-averaged Vlasov @eq-vlasov-averaged-cgs from the original Vlasov @eq-vlasov-cgs,
+$$
+\begin{aligned}
+& \frac{\partial \delta f}{\partial t} + \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} \cdot \mathbf{\nabla}_{\mathbf{r}} \delta f + e \left(\frac{\mathbf{v} \times \langle \mathbf{B}\rangle}{c}\right) \cdot \mathbf{\nabla}_{\mathbf{p}} \delta f \\
+& \simeq -e \left(\frac{\mathbf{v} \times \mathbf{\delta B}}{c} \right) \cdot \mathbf{\nabla}_{\mathbf{p}} \langle f \rangle
+\end{aligned}
+$$ {#eq-vlasov-fluctuation-cgs}
+Here, we have chosen to ignore the difference
+$$
+e \frac{\mathbf{v} \times \mathbf{\delta B}}{c} \cdot \nabla_{\mathbf{p}} \delta f - \left \langle e \frac{\mathbf{v} \times \mathbf{\delta B}}{c} \cdot \nabla_{\mathbf{p}} \delta f \right \rangle
+$$
+which is second order in perturbed quantities, $\delta\mathbf{B}$ and $\delta f$. This assumes, of course, that $|\delta\mathbf{B}|\ll |\langle \mathbf{B} \rangle|$ and therefore $\delta f \ll \langle f \rangle$. @eq-vlasov-fluctuation-cgs can now be integrated with the method of characteristics, the formal solution being
+$$
+\delta f = \delta f_{0} - \int _{t_{0}}^{t} \mathrm {d} t' \left[ e \left( \frac{\mathbf{v} \times \mathbf{\delta B}}{c} \right) \cdot \mathbf{\nabla}_{\mathbf{p}} \langle f \rangle \right]_{P(t')}
+$$ {#eq-f-fluctuation-solution}
+Here, $\delta f_{0} \equiv \delta f(\mathbf{r}, \mathbf{p}, t_{0})$ denotes the phase space density at time $t_0$ and the subscript $P(t')$ indicates that positions and momenta in the square brackets are to be evaluated along the characteristics of @eq-vlasov-fluctuation-cgs, that is the solutions of the equations of motions, @eq-charge-particle-motion with $\mathbf{B}$ replaced by the regular field $\langle\mathbf{B}\rangle$ only (and again no electric field). These solutions $P$ are commonly referred to as _unperturbed orbits_ or _unperturbed trajectories_. For the homogeneous regular magnetic field $\langle\mathbf{B}\rangle = B_z\hat{z}$ assumed here they are of course helices along the z-direction.
+
+We can now substitue @eq-f-fluctuation-solution into @eq-vlasov-averaged-cgs,
+$$
+\begin{aligned}
+& \frac{\partial \langle f \rangle }{\partial t} + \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} \cdot \mathbf{\nabla}_{\mathbf{r}} \langle f \rangle + e \frac{\mathbf{v} \times \langle \mathbf {B} \rangle}{c} \cdot \mathbf{\nabla}_{\mathbf{p}} \langle f \rangle \\
+&\simeq \int _{t_{0}}^{t} \!\! \mathrm {d} t' \! \left \langle e \frac{\mathbf{v} \! \times \! \mathbf{\delta B}}{c} \! \cdot \! \nabla _{\mathbf{p}} \left [ e \frac{\mathbf{v} \! \times \! \mathbf{\delta B}}{c} \! \cdot \! \mathbf{\nabla}_{\mathbf{p}} \langle f \rangle \right ]_{P(t')} \right \rangle
+\end{aligned}
+$$ {#eq-vlasov-averaged-cgs2}
+where we have dropped the term $\propto \delta f_0$. At this stage, we can already see that the right-hand side will lead to diffusion terms (courtesy of the two momentum derivatives) and that it depends on the turbulent magnetic field’s two-point function, integrated along the unperturbed trajectory $P(t')$. To make further progress, we consider the momentum $\mathbf{p}$ in spherical coordinates, that is $\mathbf{p} = p\left( \sqrt{1-\mu^2}\cos\phi, \sqrt{1-\mu^2}\sin\phi, \mu \right)^T$ and introduce the correlation lengths $l_c$ and correlation times $\tau_c$ of the turbulent magnetic field, defined through[^correlation]
+$$
+\langle \delta B^{2} \rangle l_{\text{c}} \equiv \int _{0}^{\infty} \mathrm {d} \Delta r \, \langle \delta B(\mathbf{r}) \delta B(\mathbf{r}+\mathbf{\Delta r}) \rangle
+$$ {#eq-turbulence-correlation-length}
+$$
+\langle \delta B^{2} \rangle \tau_{\text{c}} \equiv \int _{0}^{\infty} \mathrm {d} \Delta t \, \langle \delta B(t) \delta B(t+\Delta t) \rangle
+$$ {#eq-turbulence-correlation-time}
+Here, $\delta B(t)$ is short-hand for $\left[\delta B(\mathbf{r}) \right]_{P(t)}$, that is $\delta B(\mathbf{r})$ evaluated along the unperturbed trajectory at time t.
+
+[^correlation]: Strictly speaking, the correlation lengths and times are tensors because of the vector nature of the magnetic field in the two-point functions; here, however, we only require them for order of magnitude arguments, so we do not distinguish the different components.
+
+The right-hand side of @eq-vlasov-averaged-cgs2 is still rather unwieldy and further progress requires a number of assumptions. In addition to
+
+1. Smallness of perturbations, $|\mathbf{\delta B}| \ll |\langle \mathbf{B} \rangle|$
+
+these are:
+
+2. Gyrotropy: The ensemble-averaged phase space density $\langle f \rangle$ does not depend on the azimuthal angle $\phi$, so $\langle f \rangle (\mathbf{r}, p, \mu, \phi, t) \to \langle f \rangle (\mathbf{r}, p, \mu, t)$.
+
+3. Adiabatic approximation: The phase space density only varies on time-scales much larger than the correlation time of the turbulent magnetic field, $\tau_c$,
+$$
+\langle f \rangle \left / \frac{\partial \langle f \rangle }{\partial t} \right . \gg \tau _{\text{c}}
+$$ {#eq-adiabatic-approx}
+
+4. Finite correlation times: The correlation times of the turbulent magnetic field are much larger than the Larmor time, $\tau_c \gg \Omega^{-1}$.
+
+5. Homogeneous and stationary turbulence.
+
+Under these conditions, the ensemble averaged Vlasov equation ultimately results in a Fokker-Planck type equation (Fokker 1914; Planck 1917), also known as the Kolmogorov forward (Kolmogorov 1931) or as the Smoluchowski equation (Bogoliubov and Krylov 1939), describing diffusion in pitch-angle,
+$$
+\frac{\partial \langle f \rangle }{\partial t} + v \mu \frac{\partial \langle f \rangle }{\partial z} = \frac{\partial }{\partial \mu } \left ( D_{\mu \mu } \frac{\partial \langle f \rangle }{\partial \mu } \right ) \, .
+$$ {#eq-fokker-planck}
+
+Following the approach sketched above, the pitch-angle diffusion coefficient,
+$$
+D_{\mu \mu} \equiv \frac{\langle (\Delta \mu )^{2} \rangle }{2 \Delta t}
+$$ {#eq-pitch-angle-diffusion-coef}
+can be expressed in terms of the correlation function of the magnetic field. (HOW???)
+
+If we had not decided to ignore any electric field, additional terms would have appeared in the Fokker-Planck @eq-fokker-planck,  relating to changes in momentum $\mathbf{p}$ and pitch-angle, with diffusion coefficients $D_{\mu p} = D_{p\mu}$ and $D_{pp}$ defined analogously to @eq-pitch-angle-diffusion-coef.
+
+We have furthermore assumed that $v_A / v \ll 1$ in order for $D_{xx}, D_{yy}, D_{xy}$ and $D_{yx}$ to be negligible. Not doing so, would have resulted in the additional terms
+$$
+\frac{\partial}{\partial x} \left (D_{xx} \frac{\partial \langle f \rangle }{\partial x} + D_{xy} \frac{\partial \langle f \rangle }{\partial y} \right ) + \frac{\partial}{\partial y} \left (D_{yx} \frac{\partial \langle f \rangle }{\partial x} + D_{yy} \frac{\partial \langle f \rangle }{\partial y} \right )
+$$
+to be added to the right-hand side of @eq-fokker-planck.
+
+In summary, under the influence of a turbulent magnetic field, charged particles are performing a random walk in pitch-angle which in the ensemble average results in diffusion in pitch-angle (cosine).
 
 ## Test Particle Simulation
 
