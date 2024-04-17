@@ -1,0 +1,34 @@
+# Cosmic Ray {#sec-cosmic-ray}
+
+Cosmic rays (CRs), that is the population of charged, relativistic particles with non-thermal spectra, are ubiquitous in the Universe. They pervade systems of all sizes, from stellar systems to whole galaxies, from galaxy clusters to the intercluster medium.
+Modelling of cosmic ray transport and interpretation of cosmic ray data ultimately rely on a solid understanding of the interactions of charged particles with turbulent magnetic fields.
+
+@mertsch2020test presents a thorough guide of performing test particle simulation for cosmic rays.
+
+## Quasilinear Theory
+
+More than 50 years since its inception, _quasi-linear theory (QLT)_ [@jokipii1966cosmic; Kennel and Engelmann 1966; Hall and Sturrock 1967; Hasselmann and Wibberenz 1970] is still very much the paradigm for phenomenological applications to Galactic cosmic rays. In QLT, the Fokker-Planck equation for the temporal evolution of the phase space density of CRs is derived in a perturbative approach where the force on a particle due to a turbulent magnetic field is evaluated along the unperturbed trajectory in a regular background field. The Fokker-Planck coefficients, most prominently the components of the spatial diffusion tensor, can be computed for a given model of turbulence, parametrised by the two-point function of the turbulent magnetic field. Famously, in QLT the interactions between plasma waves and particles are found to be resonant, meaning that particles of a certain gyroradius $r_L = v/\Omega$, $\Omega$ denoting the gyrofrequency, are only affected by waves with a wavenumber k that satisfies $k r_L \mu \approx 1$ (for low-frequency waves like Alfvén waves), where $\mu$ is the cosine of the pitch-angle, that is the angle between the particle momentum $\mathbf{p}$ and the regular magnetic field $\left<\mathbf{B}\right>$, $\mu \equiv \mathbf{p}\cdot\left< \mathbf{B} \right> / (|\mathbf{p}||\left< \mathbf{B} \right>|)$.
+
+While some of QLT’s predictions are qualitatively confirmed by data, e.g. the rigidity-dependence of the diffusion coefficients, there are a number of concerns. The most famous one is the $90^\circ$ problem: Due to the resonance condition, particles with pitch-angle close to $90^\circ$ ($\mu\approx 0$) can only be in resonance with very large wavenumbers k which for the usual turbulent spectra contain little energy. In the limit $\mu\rightarrow 0$, the scattering rate vanishes and particles cannot change direction along the background field resulting in _ballistic_ transport. This is obviously at variance with the diffusive transport inferred from observations.
+
+The root cause of the $90^\circ$ problem is the assumption of unperturbed trajectories in QLT. This is remedied in non-linear theories, where the decay of correlations leads to a broadening of the resonance condition which allows for efficient enough scattering through $90^\circ$. However, any such extension of QLT requires additional assumptions, for instance on the form of temporal decorrelation of the particle’s trajectory.
+
+The success and popularity of QLT can be ascribed to its conceptual simplicity and validity in a number of important environments, including the solar wind, the interstellar medium and galaxy clusters. In addition, QLT is simple in principle and thus allows for a straight-forward computation of the transport parameters, albeit it can become arbitrarily complex in practice. Finally, these results can be found to agree with inferences from observations, e.g. the normalisation and power law shape of the Galactic diffusion coefficient.
+
+### Derivation of the Fokker-Planck equation
+
+
+
+## Test Particle Simulation
+
+In the absence of a widely accepted extension of quasi-linear theory, wave-particle interactions must also be studied in numerical simulations where the equations of motion are directly solved in a realisation of the turbulent magnetic field. The applications of such test particle simulations of cosmic rays are manifold: testing transport theories, computing parameters like diffusion coefficients or making predictions for phenomena beyond standard diffusion theories, e.g. for cosmic ray small-scale anisotropies.
+
+Ideally, one would test these non-linear theories beyond QLT by comparing their predictions with data from observations. While this approach is being followed by the heliospheric community, a difficulty remains in that the actual turbulence (if known) turns out to be much more complex than what is routinely assumed in analytical transport theories. Alternatively, transport theories can be tested by comparing their predictions with those from numerical experiments.
+
+Test particle simulations compute the transport of high-energy charged particles through prescribed EM fields without taking into account the effect of the high-energy particles on the EM fields. To this end, a realisation of the turbulent magnetic field is generated and the equations of motion are solved for test particles, that is the contributions of the CR particles to the EM fields are ignored. Given the trajectories of a large enough number of test particles, one can numerically compute the Fokker-Planck coefficients.
+
+In addition to testing transport theories by comparing the analytically computed diffusion coefficients to simulated ones, there are at least two more applications of test particle simulations:
+
+1. For sources at distances closer or similar to the scattering mean free path, the diffusive transport theory is not necessarily applicable. An often-cited pathology of computing solutions to the diffusion equation is superluminal propagation speeds. Lately, there has been increased interest in the transition between the ballistic and diffusive phases of transport and test particle simulations allow exploring this transition for given turbulent EM fields.
+
+2. Analytical transport theories usually make predictions only for the ensemble-averaged phase-space density and it is usually assumed that the observed phase-space densities are close to the ensemble average. This has now been called into question, in particular in view of the observation of small-scale anisotropies observed in the arrival directions of TeV-PeV CRs. Test particle simulations naturally simulate CR distributions for individual realisations of the turbulent fields and thus provide direct access to such stochasticity effects.
