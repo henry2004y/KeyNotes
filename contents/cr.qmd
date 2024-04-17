@@ -143,6 +143,61 @@ to be added to the right-hand side of @eq-fokker-planck.
 
 In summary, under the influence of a turbulent magnetic field, charged particles are performing a random walk in pitch-angle which in the ensemble average results in diffusion in pitch-angle (cosine).
 
+### The diffusion approximation
+
+Particle transport can be conveniently categorised if the mean-square displacement in direction i, $\langle \Delta x_i^2 \rangle$, has a power law dependence,[^ballistic]
+$$
+\langle \Delta {r}_{i}^{2} \rangle \propto (\Delta t)^{\alpha}
+$$ {#eq-diffusion-power-law}
+as
+$$
+\begin{array}{r@{\quad } l}
+\alpha < 1: & \text{sub-diffusive,} \\
+\alpha = 1: & \text{diffusive,} \\
+\alpha > 1:& \text{super-diffusive, in particular} \\
+\alpha = 2: & \text{ballistic.}
+\end{array}
+$$
+
+[^ballistic]: In particle transport, ballistic refers to the movement of particles with minimal influence from their environment. Imagine a particle traveling on a frictionless, straight path, almost like a bullet. That's ballistic transport!
+
+It seems clear that transport in any perturbative theory with $|\mathbf{\delta B}| \ll |\langle \mathbf{B} \rangle|$ must be ballistic at early enough times: Particles just gyrate around $\langle\mathbf{B}\rangle$ and $\langle \Delta z^{2} \rangle = (v \mu \Delta t)^{2}$ while $\langle \Delta x^{2} \rangle = \langle \Delta y^{2} \rangle = 0$ when integrated over full gyroperiods. At late times, that is for $t \gg D_{\mu\mu}^{-1}$, we would expect diffusive behaviour for the transport along the field.
+
+In order to formalise this picture, we derive a spatial diffusion equation from the Fokker-Planck @eq-fokker-planck. To this end, we decompose $\langle f\rangle$ into an isotropic part, $g$, and an anisotropic part, $h$,
+$$
+\langle f \rangle (p, \mu, t) = g(p, t) + h(p, \mu, t)
+$$
+where
+$$
+g(p, t) = \frac{1}{2}\int_{-1}^{1} \mathrm{d}\mu \langle f \rangle (p, \mu, t)
+$$
+and
+$$
+\int_{-1}^{1} \mathrm{d}\mu\, h(p, \mu, t) = 0
+$$
+
+If $g$ varies only slowly with time and position,
+$$
+g \left / \frac{\partial g}{\partial t} \right . \gg \tau_{\text{sc}} \quad \text{and} \quad g \left / \frac{\partial g}{\partial z} \right . \gg \lambda_{\text{sc}}
+$$
+where $\tau_{\text{sc}} \sim D_{\mu \mu }^{-1}$ and $\lambda_{\text{sc}} \sim v \tau_{\text{sc}}$ are the scattering time and mean-free path, respectively, the phase space density will be very isotropic, $h\ll g$. In this case, we can derive a spatial diffusion equation for the isotropic part $g$ (e.g. Hasselmann and Wibberenz 1970),
+$$
+\frac{\partial g}{\partial t} - \frac{\partial }{\partial z} \left( \kappa_{\parallel} \frac{\partial g}{\partial z} \right) = 0
+$$ {#eq-isotropic-diffusion}
+with the parallel diffusion coefficient
+$$
+\kappa_{\parallel} = \frac{v^{2}}{8} \int_{-1}^{1} \mathrm{d} \mu \frac{(1- \ \mu^{2})^{2}}{D_{\mu\mu}}
+$$ {#eq-parallel-diffusion-coef}
+
+Furthermore, we would expect the anisotropic part $h$ to be dominated by the _dipole anisotropy_ (???), that is $h\approx h_1\mu$ with
+$$
+h_{1} = \frac{3}{2} \int_{-1}^{1} \mathrm{d} \mu \, \mu \, h(\mu) = - \frac{2}{v} \kappa_{\parallel} \frac{\partial g}{\partial z}
+$$ {#eq-dipole-anisotropy}
+
+### Computation of transport coefficients
+
+So far, we have not specified the functional form of the Fokker-Planck coefficients, e.g. the pitch-angle diffusion coefficient $D_{\mu\mu}$, and its dependence on the two-point correlation function of turbulence $P_{ij}(\mathbf{k})$ that emerges in the derivation of the Fokker-Planck @eq-fokker-planck.
+
 ## Test Particle Simulation
 
 In the absence of a widely accepted extension of quasi-linear theory, wave-particle interactions must also be studied in numerical simulations where the equations of motion are directly solved in a realisation of the turbulent magnetic field. The applications of such test particle simulations of cosmic rays are manifold: testing transport theories, computing parameters like diffusion coefficients or making predictions for phenomena beyond standard diffusion theories, e.g. for cosmic ray small-scale anisotropies.
