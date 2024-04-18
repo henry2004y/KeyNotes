@@ -42,7 +42,7 @@ The dielectric constant $\epsilon$ is a quantity which appears in electrostatic 
 
 ## Plasma Oscillations {#sec-oscillations}
 
-If the electrons in a plasma are displaced from a uniform background of ions, electric fields will be built up in such a direction as to restore the neutrality of the plasma by pulling the electrons back to their original positions. Because of their inertia, the electrons will overshoot and oscillate around their equilibrium positions with a characteristic frequency known as the _plasma frequency_. This oscillation is so fast that the massive ions do not have time to respond to the oscillating field and may be considered as fixed. In Fig. 4.2 (ADD IT!), the open rectangles represent typical elements of the ion fluid, and the darkened rectangles the alternately displaced elements of the electron fluid. The resulting charge bunching causes a spatially periodic $\mathbf{E}$ field, which tends to restore the electrons to their neutral positions.
+If the electrons in a plasma are displaced from a uniform background of ions, electric fields will be built up in such a direction as to restore the neutrality of the plasma by pulling the electrons back to their original positions. Because of their inertia, the electrons will overshoot and oscillate around their equilibrium positions with a characteristic frequency known as the _plasma frequency_. This oscillation, also known as the Langmuir oscillation, is so fast that the massive ions do not have time to respond to the oscillating field and may be considered as fixed. In Fig. 4.2 (ADD IT!), the open rectangles represent typical elements of the ion fluid, and the darkened rectangles the alternately displaced elements of the electron fluid. The resulting charge bunching causes a spatially periodic $\mathbf{E}$ field, which tends to restore the electrons to their neutral positions.
 
 ::: {.content-visible unless-format="pdf"}
 
@@ -115,21 +115,29 @@ $$
 \end{aligned}
 $$
 
-The time derivative $\partial/\partial t$ can therefore be replaced by $-i\omega$, and the gradient $\nabla$ by $ik\hat{x}$. Now the linearized equations become
+The time derivative $\partial/\partial t$ can therefore be replaced by $-i\omega$, and the gradient $\nabla$ by $ik\hat{x}$. Now the linearized equations
 $$
 \begin{aligned}
--im\omega n_1 &= -n_0 ik u_1 \\
--i\omega u_1 &= -eE_1 \\
--ik\epsilon_0 E_1 &= -en_1
+\frac{\partial n_1}{\partial t} &= -n_0\frac{\partial u_1}{\partial x} \\
+\frac{\partial u_1}{\partial t} &= -\frac{e}{m}E_1 \\
+\frac{\partial E_1}{\partial x} &= -\frac{e}{\epsilon_0}n_1
 \end{aligned}
+$$ {#eq-langmuir-linear}
+become
+$$
+\begin{aligned}
+-i\omega n_1 &= -n_0 ik u_1 \\
+-im\omega u_1 &= -eE_1 \\
+ik\epsilon_0 E_1 &= -en_1
+\end{aligned}
+$$ {#eq-langmuir-linear-fourier}
+
+Eliminating $u_1$ and $E_1$, we have
+$$
+n_1 = \frac{n_0 e^2}{\epsilon_0 m\omega^2}n_1
 $$
 
-Eliminating $n_1$ and $E_1$, we have
-$$
--m\omega u_1 = -i\frac{n_0e^2}{\epsilon_0 \omega}u_1
-$$
-
-If $u_1$ does not vanish, we must have
+If $n_1$ does not vanish, we must have
 $$
 \omega^2 = \frac{n_0 e^2}{\epsilon_0 m}
 $$

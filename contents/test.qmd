@@ -384,7 +384,7 @@ These parameters are chosen to satisfy
 
 such that the kinetic dispersion relation reduces to the Hall MHD dispersion relation for the right-hand polarized whistler waves.
 
-[@tenerani2023dispersive] shows the Alfvénic wave dispersion and damping relations with respect to $\lambda/d_i$. When we get close to  but not necessarily below the ion inertial length (for $\beta\sim 1$, $d_i$ and $r_{iL}$ are on the same order), these effects already take place from both Hall MHD and hybrid simulations.
+[@tenerani2023dispersive] shows the Alfvénic wave dispersion and damping relations with respect to $\lambda/d_i$. When we get close to but not necessarily below the ion inertial length (for $\beta\sim 1$, $d_i$ and $r_{iL}$ are on the same order), these effects already take place from both Hall MHD and hybrid simulations.
 
 What I observe while doing this low-$\beta$ test with the hybrid-Vlasov code Vlasiator is that without the Hall term the wave profile will be quickly distorted starting from the trailing edge of the peaks and troughs of all quantities; with the Hall term the wave profile can be maintained much longer, and of course the phase speed is $v_W$ which is faster than $v_A$ as in the ideal MHD case. In @sec-mhd-ohm, we learned that the Hall term in the Ohm's law can be neglected under two cases, neither of which apply in this test as shown by the comparison of $V_A$ and $v_W$ above. This implies an important fact that in certain parameter spaces the classical Alfvén waves never exist; we may observe Alfvénic fluctuations (i.e. correlations between $\delta\mathbf{u}$ and $\delta\mathbf{B}$), but they may belong to whistler waves (R-waves), EMIC waves (L-waves), or KAWs.
 
@@ -393,6 +393,32 @@ What I observe while doing this low-$\beta$ test with the hybrid-Vlasov code Vla
 ### Firehose instability
 
 ### Mirror mode instability
+
+### Langmuir wave
+
+Langmuir wave is a rapid electrostatic oscillation in plasma driven by Coulomb force. We assume immobile ions. From the fluid perspective, the governing equations are given in @eq-langmuir-linear:
+$$
+\begin{aligned}
+\frac{\partial n_1}{\partial t} &= -n_0\frac{\partial u_1}{\partial x} \\
+\frac{\partial u_1}{\partial t} &= -\frac{e}{m}E_1 \\
+\frac{\partial E_1}{\partial x} &= -\frac{e}{\epsilon_0}n_1
+\end{aligned}
+$$
+
+The third equation can be alternatively written using the electric potential $\phi$ which is defined via $\mathbf{E} = -\nabla \phi = -\partial \phi/\partial x$,
+$$
+\frac{\partial^2 \phi}{\partial x^2} = \frac{e}{\epsilon_0}n_1
+$$
+
+Langmuir oscillation can be driven self-consistently if there is a density perturbation in electrons, i.e. local charge imbalance. A classical test is to set the 1D spatial domain between $[0,2\pi]$ with 512 points, and time step $\Delta t = 0.01$. The initial perturbation density is $n_1 = 0.02n_0\cos(x)$, where $n_0$ is the uniform background electron density. Temperature is set to 0. Total simulation time is 100.
+
+The electron equation of motion is
+$$
+\begin{aligned}
+m\frac{\mathrm{d}v}{\mathrm{d}t} &= -e E \\
+\frac{\mathrm{d}x}{\mathrm{d}t} &= v
+\end{aligned}
+$$
 
 ## Shock Tests
 
