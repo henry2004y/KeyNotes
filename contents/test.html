@@ -381,6 +381,7 @@ window.Quarto = {
   <li><a href="#light-wave" id="toc-light-wave" class="nav-link" data-scroll-target="#light-wave"><span class="header-section-number">28.2.6</span> Light wave</a></li>
   <li><a href="#firehose-instability" id="toc-firehose-instability" class="nav-link" data-scroll-target="#firehose-instability"><span class="header-section-number">28.2.7</span> Firehose instability</a></li>
   <li><a href="#mirror-mode-instability" id="toc-mirror-mode-instability" class="nav-link" data-scroll-target="#mirror-mode-instability"><span class="header-section-number">28.2.8</span> Mirror mode instability</a></li>
+  <li><a href="#langmuir-wave" id="toc-langmuir-wave" class="nav-link" data-scroll-target="#langmuir-wave"><span class="header-section-number">28.2.9</span> Langmuir wave</a></li>
   </ul></li>
   <li><a href="#shock-tests" id="toc-shock-tests" class="nav-link" data-scroll-target="#shock-tests"><span class="header-section-number">28.3</span> Shock Tests</a>
   <ul class="collapse">
@@ -1012,7 +1013,7 @@ u_z &amp;= +\delta u\sin(kx-\omega t) \\
 B_y &amp;= +\delta B\cos(kx-\omega t) \\
 B_z &amp;= -\delta B\sin(kx-\omega t)
 \end{aligned}
-\tag{28.5}\]</span></span> where the wave speed is (<a href="wave.html#eq-R-wave-phase-speed" class="quarto-xref">Equation&nbsp;<span>7.23</span></a>) <span class="math display">\[
+\tag{28.5}\]</span></span> where the wave speed is (<a href="wave.html#eq-R-wave-phase-speed" class="quarto-xref">Equation&nbsp;<span>7.25</span></a>) <span class="math display">\[
 v_\mathrm{ph} = \frac{\omega}{k} = \frac{W}{2} + \sqrt{\frac{B_x^2}{\rho} + \frac{W^2}{4}},\quad W=\frac{m}{e}\frac{kB_x}{\rho}
 \]</span></p>
 <p>Note that the wave speed depends on the wave number <span class="math inline">\(k\)</span>. The magnetic and velocity perturbations are related as (This is different from the usual Alfvénicity <a href="turbulence.html#eq-Alfvenity" class="quarto-xref">Equation&nbsp;<span>15.2</span></a>??? But it reduces to the Alfvénicity condition if <span class="math inline">\(v_\mathrm{ph}=v_A=B_x/\sqrt{\rho}\)</span>.) <span id="eq-R-whistler-B-v"><span class="math display">\[
@@ -1038,6 +1039,26 @@ v_\mathrm{ph} = \frac{\omega}{k} = \frac{W}{2} + \sqrt{\frac{B_x^2}{\rho} + \fra
 </section>
 <section id="mirror-mode-instability" class="level3" data-number="28.2.8">
 <h3 data-number="28.2.8" class="anchored" data-anchor-id="mirror-mode-instability"><span class="header-section-number">28.2.8</span> Mirror mode instability</h3>
+</section>
+<section id="langmuir-wave" class="level3" data-number="28.2.9">
+<h3 data-number="28.2.9" class="anchored" data-anchor-id="langmuir-wave"><span class="header-section-number">28.2.9</span> Langmuir wave</h3>
+<p>Langmuir wave is a rapid electrostatic oscillation in plasma driven by Coulomb force. We assume immobile ions. From the fluid perspective, the governing equations are given in <a href="wave.html#eq-langmuir-linear" class="quarto-xref">Equation&nbsp;<span>7.2</span></a>: <span class="math display">\[
+\begin{aligned}
+\frac{\partial n_1}{\partial t} &amp;= -n_0\frac{\partial u_1}{\partial x} \\
+\frac{\partial u_1}{\partial t} &amp;= -\frac{e}{m}E_1 \\
+\frac{\partial E_1}{\partial x} &amp;= -\frac{e}{\epsilon_0}n_1
+\end{aligned}
+\]</span></p>
+<p>The third equation can be alternatively written using the electric potential <span class="math inline">\(\phi\)</span> which is defined via <span class="math inline">\(\mathbf{E} = -\nabla \phi = -\partial \phi/\partial x\)</span>, <span class="math display">\[
+\frac{\partial^2 \phi}{\partial x^2} = \frac{e}{\epsilon_0}n_1
+\]</span></p>
+<p>Langmuir oscillation can be driven self-consistently if there is a density perturbation in electrons, i.e.&nbsp;local charge imbalance. A classical test is to set the 1D spatial domain between <span class="math inline">\([0,2\pi]\)</span> with 512 points, and time step <span class="math inline">\(\Delta t = 0.01\)</span>. The initial perturbation density is <span class="math inline">\(n_1 = 0.02n_0\cos(x)\)</span>, where <span class="math inline">\(n_0\)</span> is the uniform background electron density. Temperature is set to 0. Total simulation time is 100.</p>
+<p>The electron equation of motion is <span class="math display">\[
+\begin{aligned}
+m\frac{\mathrm{d}v}{\mathrm{d}t} &amp;= -e E \\
+\frac{\mathrm{d}x}{\mathrm{d}t} &amp;= v
+\end{aligned}
+\]</span></p>
 </section>
 </section>
 <section id="shock-tests" class="level2" data-number="28.3">

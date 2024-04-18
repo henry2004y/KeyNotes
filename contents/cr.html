@@ -375,6 +375,8 @@ window.Quarto = {
   <li><a href="#the-diffusion-approximation" id="toc-the-diffusion-approximation" class="nav-link" data-scroll-target="#the-diffusion-approximation"><span class="header-section-number">23.1.2</span> The diffusion approximation</a></li>
   <li><a href="#computation-of-transport-coefficients" id="toc-computation-of-transport-coefficients" class="nav-link" data-scroll-target="#computation-of-transport-coefficients"><span class="header-section-number">23.1.3</span> Computation of transport coefficients</a></li>
   <li><a href="#turbulence-geometries-and-spectra" id="toc-turbulence-geometries-and-spectra" class="nav-link" data-scroll-target="#turbulence-geometries-and-spectra"><span class="header-section-number">23.1.4</span> Turbulence geometries and spectra</a></li>
+  <li><a href="#field-line-random-walk" id="toc-field-line-random-walk" class="nav-link" data-scroll-target="#field-line-random-walk"><span class="header-section-number">23.1.5</span> Field-line random walk</a></li>
+  <li><a href="#short-comings-of-qlt" id="toc-short-comings-of-qlt" class="nav-link" data-scroll-target="#short-comings-of-qlt"><span class="header-section-number">23.1.6</span> Short-comings of QLT</a></li>
   </ul></li>
   <li><a href="#test-particle-simulation" id="toc-test-particle-simulation" class="nav-link" data-scroll-target="#test-particle-simulation"><span class="header-section-number">23.2</span> Test Particle Simulation</a></li>
   </ul>
@@ -471,7 +473,7 @@ e \frac{\mathbf{v} \times \mathbf{\delta B}}{c} \cdot \nabla_{\mathbf{p}} \delta
 \langle f \rangle \left / \frac{\partial \langle f \rangle }{\partial t} \right . \gg \tau _{\text{c}}
 \tag{23.12}\]</span></span></p></li>
 <li><p>Finite correlation times: The correlation times of the turbulent magnetic field are much larger than the Larmor time, <span class="math inline">\(\tau_c \gg \Omega^{-1}\)</span>.</p></li>
-<li><p>Homogeneous and stationary turbulence.</p></li>
+<li><p>Homogeneous and stationary turbulence: the statistical moments are invariant under translations in space and time. In natural language, it means that the statistics of turbulence do not depend on when and where to take measurements.</p></li>
 </ol>
 <p>Under these conditions, the ensemble averaged Vlasov equation ultimately results in a Fokker-Planck type equation (Fokker 1914; Planck 1917), also known as the Kolmogorov forward (Kolmogorov 1931) or as the Smoluchowski equation (Bogoliubov and Krylov 1939), describing diffusion in pitch-angle, <span id="eq-fokker-planck"><span class="math display">\[
 \frac{\partial \langle f \rangle }{\partial t} + v \mu \frac{\partial \langle f \rangle }{\partial z} = \frac{\partial }{\partial \mu } \left ( D_{\mu \mu } \frac{\partial \langle f \rangle }{\partial \mu } \right ) \, .
@@ -535,6 +537,100 @@ D_{\mu\mu} = \frac{1}{ B_{z} ^{2} r_{\text{g}}^{2}} \int_{0}^{\infty }\mathrm{d}
 </section>
 <section id="turbulence-geometries-and-spectra" class="level3" data-number="23.1.4">
 <h3 data-number="23.1.4" class="anchored" data-anchor-id="turbulence-geometries-and-spectra"><span class="header-section-number">23.1.4</span> Turbulence geometries and spectra</h3>
+<p>To make further progress, we need to specify the turbulence correlation tensor <span class="math inline">\(\mathcal{P}_{ij}\)</span>. In the derivation of the Fokker-Planck equation we had to assume that turbulence is homogeneous and stationary (assumption 5). In this case, the field can be represented very economically in Fourier space. To this end, we introduce the Fourier transform pair <span id="eq-turbulence-B-fourier"><span class="math display">\[
+\begin{aligned}
+\delta \tilde{B}_{j}(\mathbf{k}, t) &amp;= (2\pi)^{-3/2} \int_{-\infty }^{\infty} \mathrm{d}^{3} r \, \delta B_{j}(\mathbf{r}, t) \mathrm{e} ^{\imath \mathbf{k} \cdot \mathbf{r}} \\
+\delta B_{j}(\mathbf{x}, t) &amp;= (2\pi)^{-3/2} \int_{-\infty}^{\infty} \mathrm{d}^{3} k \, \delta \tilde{B}_{j}(\mathbf{k}, t) \mathrm{e} ^{-\imath \mathbf{k} \cdot \mathbf{r}}
+\end{aligned}
+\tag{23.24}\]</span></span></p>
+<p>Note that for the magnetic field to have real values, <span class="math inline">\(\delta B_{j}(\mathbf{r}) = \delta B^{*}_{j}(\mathbf{r})\)</span>, requires a relation between the Fourier components and their complex conjugates, <span class="math display">\[
+\delta \tilde{B}^{*}_{j}(\mathbf{k}) = \delta \tilde{B}_{j}(-\mathbf{k})
+\]</span></p>
+<p>The homogeneity and stationarity now guarantee that the two-point functions <span class="math inline">\(\langle \delta B_{i}(\mathbf{r}, t) \delta B_{j}(\mathbf{r}', t') \rangle\)</span> depend on the positions <span class="math inline">\(\mathbf{r}\)</span> and <span class="math inline">\(\mathbf{r}'\)</span> and times <span class="math inline">\(t\)</span> and <span class="math inline">\(t'\)</span> only through the differences <span class="math inline">\(\Delta \mathbf{r} \equiv (\mathbf{r} - \mathbf{r}')\)</span> and <span class="math inline">\((t-t')\)</span>. It is then easy to see that the two-point function in Fourier space is diagonal, <span class="math display">\[
+\begin{aligned}
+&amp; \langle \delta \tilde{B}_{i}(\mathbf{k}, t) \delta \tilde{B}^{*}_{j}(\mathbf{k}', t') \rangle \\ &amp;= \! (2 \pi )^{-3} \!\!\! \int \!\! \mathrm {d} ^{3} r \, \mathrm {e} ^{ \imath \mathbf{k} \cdot \mathbf{r}} \!\!\! \int \!\! \mathrm {d} ^{3} r' \mathrm {e} ^{-\imath \mathbf{k}' \cdot \mathbf{r}'} \!\! \langle \delta B_{i}(\mathbf{r}, t) \delta B_{j}(\mathbf{r}'\!, t') \rangle \\
+&amp;= \delta ^{(3)} (\mathbf{k} - \mathbf{k}') P_{ij}(\mathbf{k}, t-t')
+\end{aligned}
+\]</span> where the turbulence correlation tensor <span class="math inline">\(P_{ij}(\mathbf{k}, \Delta t)\)</span> is the Fourier transform of the coordinate space two-point function <span id="eq-turbulence-correlation-tensor"><span class="math display">\[
+\begin{aligned}
+P_{ij}(\mathbf{k}, \Delta t) \equiv &amp; (2 \pi )^{-3/2} \int _{-\infty}^{\infty} \mathrm {d} ^{3} (\Delta r) \, \mathrm {e} ^{\imath \mathbf{k} \cdot \Delta \mathbf{r}} \\ &amp; \times \langle \delta B_{i}(\mathbf{r}, t) \delta B_{j}(\mathbf{r} - \Delta \mathbf{r}\!, t') \rangle
+\end{aligned}
+\tag{23.25}\]</span></span></p>
+<p>It contains all the (statistical) information on the magnetic turbulence that enters into the computation of the Fokker-Planck coefficients:</p>
+<ul>
+<li>information on the turbulence geometry, for instance whether there is a preferred direction for the propagation of waves;</li>
+<li>information on the turbulence spectrum, that is the distribution of energy among different turbulent scales;</li>
+<li>information on the time-dependence of the correlations.</li>
+</ul>
+<p>Oftentimes, it is assumed that <span class="math inline">\(P_{ij}(\mathbf{k}, \Delta t)\)</span> factorises into a magnetostatic correlation tensor <span class="math inline">\(P_{ij}(\mathbf{k}) \equiv P_{ij}(\mathbf{k}, 0)\)</span> independent of time and a time-dependent dynamical correlation function <span class="math inline">\(\Gamma(\mathbf{k}, \Delta t)\)</span>, <span id="eq-turbulence-correlation-tensor-decomposition"><span class="math display">\[
+P_{ij}(\mathbf{k}, \Delta t) = P_{ij}(\mathbf{k}) \Gamma (\mathbf{k}, \Delta t)
+\tag{23.26}\]</span></span></p>
+<p>In the magnetostatic approximation, we ignore any time-dependence altogether, so <span class="math display">\[
+\Gamma \equiv 1
+\]</span></p>
+<p>While in reality <span class="math inline">\(P_{ij}\)</span> may be arbitrarily complicated, three turbulence geometries have dominated much of the literature, both in analytical studies of transport coefficients and numerical test particle simulations. These three geometries are conceptually simple and particularly amenable to analytical computations of the components of the diffusion tensor and the other Fokker-Planck coefficients:</p>
+<ul>
+<li>3D isotropic turbulence</li>
+<li>slab turbulence</li>
+<li>a composition of slab and 2D isotropic turbulence</li>
+</ul>
+<section id="d-isotropic-turbulence" class="level4" data-number="23.1.4.1">
+<h4 data-number="23.1.4.1" class="anchored" data-anchor-id="d-isotropic-turbulence"><span class="header-section-number">23.1.4.1</span> 3D isotropic turbulence</h4>
+<p>For 3D isotropic turbulence the magnetostatic correlation tensor takes the form (Batchelor 1982) <span id="eq-correlation-tensor-3disotropic"><span class="math display">\[
+P^{\text{3D}}_{ij}(\mathbf{k}) = g^{\text{3D}}(k) \left( \delta _{ij} - \frac{k_{i} k_{j}}{k^{2}} + \imath \sigma(k) \epsilon_{ijm} \frac{k_{m}}{k} \right)
+\tag{23.27}\]</span></span></p>
+<p>The k-dependent real functions <span class="math inline">\(g^{\text{3D}}(k)\)</span> and <span class="math inline">\(\sigma(k)\)</span> allow modelling of the overall spectrum and of a wavenumber-dependent helicity, respectively. Note that for linearly polarised waves <span class="math inline">\(\sigma(k)\equiv 0\)</span>. The normalization of <span class="math inline">\(g^{\text{3D}}(k)\)</span> is fixed by requiring <span id="eq-isotropic-normalization"><span class="math display">\[
+\begin{aligned}
+\delta B^{2} &amp;\equiv \langle \mathbf{\delta B}^{2}(\mathbf{x}) \rangle \! = \!\! \int \mathrm {d} ^{3} k \left ( P^{\text{3D}}_{xx}(\mathbf{k}) + P^{\text{3D}}_{yy}( \mathbf{k}) + P^{\text{3D}}_{zz}(\mathbf{k}) \right ) \\ &amp;= 2 \int \mathrm {d} ^{3} k \, g^{\text{3D}}(k) = 8 \pi \int _{0}^{\infty } \mathrm {d} k \, k^{2} g^{\text{3D}}(k)
+\end{aligned}
+\tag{23.28}\]</span></span></p>
+</section>
+<section id="slab-turbulence" class="level4" data-number="23.1.4.2">
+<h4 data-number="23.1.4.2" class="anchored" data-anchor-id="slab-turbulence"><span class="header-section-number">23.1.4.2</span> Slab turbulence</h4>
+<p>In slab turbulence, it is assumed that all quantities are independent of the coordinates perpendicular to the background field (x and y) and that the turbulent field has no z-component. Consequently, the wave vectors <span class="math inline">\(\mathbf{k}\parallel \hat{z}\)</span> and if we further demand turbulence to be axisymmetric, the turbulence correlation tensor reads <span id="eq-correlation-tensor-slab"><span class="math display">\[
+P^{\text{slab}}_{ij}(\mathbf{k}) = g^{\text{slab}}(k_{\parallel }) \frac{\delta (k_{\perp })}{k_{\perp }} \left ( \delta _{ij} + \imath \sigma (k_{\parallel }) \epsilon _{ijz} \right )
+\tag{23.29}\]</span></span> for <span class="math inline">\(i, j \in x, y\)</span> and zero otherwise. In our case <span class="math inline">\(k_\parallel = k_z\)</span> and <span class="math inline">\(k_{\perp } = \sqrt{k_{x}^{2} + k_{y}^{2}}\)</span>. Again, <span class="math inline">\(\sigma(k_\parallel)\)</span> allows for wavenumber-dependent helicity, but vanishes for linear polarisation. The normalisation is then <span id="eq-slab-normalization"><span class="math display">\[
+\begin{aligned}
+\delta B^{2} &amp;\equiv \int \mathrm {d} ^{3} k \left ( P^{\text{slab}}_{xx}( \mathbf{k}) + P^{\text{slab}}_{yy}(\mathbf{k}) \right ) \\
+&amp;= 4 \pi \int _{-\infty }^{\infty } \mathrm {d} k_{\parallel } \, g^{ \text{slab}}(k_{\parallel })
+\end{aligned}
+\tag{23.30}\]</span></span></p>
+<p>While slab turbulence might seem rather restrictive a turbulence model, it is quite attractive due to its simplicity. In addition, it could be argued that it is of physical relevance in situations where the turbulence is self-generated by anisotropies in the distribution of CRs (Kulsrud and Pearce 1969; Skilling 1975): It has been shown (e.g.&nbsp;Tademaru 1969) that the modes with wavevectors along the background magnetic field grow fastest.</p>
+</section>
+<section id="composite-slab-2d-isotropic-turbulence" class="level4" data-number="23.1.4.3">
+<h4 data-number="23.1.4.3" class="anchored" data-anchor-id="composite-slab-2d-isotropic-turbulence"><span class="header-section-number">23.1.4.3</span> Composite (slab + 2D isotropic) turbulence</h4>
+</section>
+<section id="turbulence-spectra" class="level4" data-number="23.1.4.4">
+<h4 data-number="23.1.4.4" class="anchored" data-anchor-id="turbulence-spectra"><span class="header-section-number">23.1.4.4</span> Turbulence spectra</h4>
+<p>Having reviewed three simple turbulence geometries, we need to specify the spectral shapes <span class="math inline">\(g(k)\)</span> in order to compute transport coefficients. In cascade models of turbulence, energy is injected on the largest scales in the so-called <em>injection (energy) range</em>. Non-linear interactions transfer energy to smaller scales over the so-called <em>inertial range</em>. At very small scales, the turbulent energy is dissipated in the so-called <em>dissipation range</em>. The scale separating the injection and inertial ranges is called the <em>outer scale of turbulence</em> and the scale separating the inertial and the dissipation range is called the <em>dissipation scale</em>.</p>
+<p>Most studies deal with one of two spectra. The first one is a simple power law with spectral index <span class="math inline">\(q\)</span> and low wavenumber cut-off <span class="math inline">\(k_0\)</span>, corresponding to the outer scale <span class="math inline">\((2\pi/k_0)\)</span>, <span class="math display">\[
+g_{\text{PL}}(k) = \left \{ \textstyle\begin{array}{l@{\quad }l} g_{0} (k/k_{0})^{-q} &amp; \text{for } k \geq k_{0} \, , \\ 0 &amp; \text{otherwise.} \end{array}\displaystyle \right .
+\]</span></p>
+<p>The alternative is a broken power law with a flat spectrum below the wavenumber <span class="math inline">\(k_0\)</span> and a power law slope <span class="math inline">\(q\)</span> above, <span class="math display">\[
+g_{\text{BPL}}(k) = g_{0} \left ( 1 + \left ( \frac{k}{k_{0}} \right )^{1/s} \right )^{-q s} \, .
+\]</span> Here, <span class="math inline">\(s\)</span> is parametrising the softness of the break and <span class="math inline">\(s\to 0\)</span> corresponds to a sharp break. It is assumed that the broken power law form can potentially also capture turbulence in the injection range, that is for <span class="math inline">\(k&lt;k_0\)</span>.</p>
+</section>
+</section>
+<section id="field-line-random-walk" class="level3" data-number="23.1.5">
+<h3 data-number="23.1.5" class="anchored" data-anchor-id="field-line-random-walk"><span class="header-section-number">23.1.5</span> Field-line random walk</h3>
+<p>The computation of the pitch-angle diffusion coefficient in <a href="#eq-TGK" class="quarto-xref">Equation&nbsp;<span>23.20</span></a> and <a href="#eq-pitch-angle-coef" class="quarto-xref">Equation&nbsp;<span>23.22</span></a> is based on an evaluation of the turbulent part of the Lorentz force along trajectories around the homogeneous background field. As long as perturbations are small, this gives the dominant contribution to the parallel diffusion coefficient, <a href="#eq-parallel-diffusion-coef" class="quarto-xref">Equation&nbsp;<span>23.17</span></a>.</p>
+<p>For perpendicular transport, however, there is another important contribution due to the fact that the field line is not perfectly homogeneous. Instead, the large-scale magnetic field evaluated for a particle along a field line changes direction with distance along this field line. Under certain conditions, this movement can be shown to be diffusive, see below. If the movement of the particle due to this effect is included in the computation of the mean-square displacements (or equivalently through the Taylor-Green-Kubo approach), this gives the so-called <em>field-line random walk (FLRW)</em> contribution to perpendicular transport. The contribution without this is oftentimes called the <em>microscopic contribution</em>.</p>
+<p>For slab turbulence, the microscopic diffusion coefficient vanishes (the transport is in fact sub-diffusive), hence FLRW gives the only contribution. For other turbulence geometries, FLRW can also contribute, but might not be dominating.</p>
+<p>Let’s again assume the regular background field <span class="math inline">\(\langle \mathbf{B} \rangle = B_{z} \hat{z}\)</span> to be dominating over the perturbations <span class="math inline">\(\delta\mathbf{B}\)</span>. The equation determining the field line <span class="math inline">\(\{ x(z), y(z) \}\)</span> is <span class="math display">\[
+\frac{\mathrm{d}x}{\mathrm{d}z} = \frac{\delta B_{x}}{B_{z}} \, ,\frac{\mathrm{d}y}{\mathrm{d}z} = \frac{\delta B_{y}}{B_{z}}
+\]</span> This can formally be integrated to obtain the mean square displacement in the perpendicular directions, e.g. <span id="eq-mean-sqr-displacement-perp"><span class="math display">\[
+\langle (\Delta x)^{2} \rangle \! = \! \frac{1}{B_{z}^{2}} \int _{0}^{z} \!\! \! \mathrm {d} z' \!\! \int _{0}^{z} \!\!\! \mathrm {d} z'' \langle \delta B_{x}(\mathbf{r}(z')) \delta B_{x}(\mathbf{r}(z'')) \rangle
+\tag{23.31}\]</span></span></p>
+<p>In slab turbulence, the integrand only depends on z and it is easy to show that the perpendicular mean-square displacement <span class="math inline">\(\langle (\Delta r_{\perp})^{2} \rangle\)</span> is ballistic at small z and diffusive for large z, e.g. <span class="math display">\[
+\langle (\Delta x)^{2} \rangle = \left \{ \textstyle\begin{array}{l@{\quad } l} z^{2} \left ( \delta B_{x} / B_{z} \right )^{2} &amp; \text{for } z \to 0 \, , \\ 2 \kappa _{\text{FLRW}} |z| &amp; \text{for } z \to \infty \, , \end{array}\displaystyle \right .
+\]</span> with the FLRW diffusion coefficient <span class="math display">\[
+\kappa _{\text{FLRW}} = \frac{2 \pi ^{2}}{B_{z}^{2}} g^{\text{slab}}(0)
+\]</span></p>
+<p>In other turbulence geometries, the integrand in <a href="#eq-mean-sqr-displacement-perp" class="quarto-xref">Equation&nbsp;<span>23.31</span></a> also depends on x and y, such that an explicit solution is not possible without further assumptions.</p>
+<p>If particles are assumed to diffuse along field lines, <span class="math inline">\(\langle (\Delta z)^{2} \rangle \propto \Delta t\)</span>, FLRW leads to subdiffusive perpendicular transport, <span class="math inline">\(\langle (\Delta r_{\perp})^{2} \rangle \propto \sqrt{\Delta t}\)</span>, a phenomenon known as <em>compound (sub)diffusion</em> (Jokipii 1966). Compound subdiffusion has been applied to a variety of environments like laboratory plasmas, the heliosphere, near-source transport as well as shock acceleration.</p>
+</section>
+<section id="short-comings-of-qlt" class="level3" data-number="23.1.6">
+<h3 data-number="23.1.6" class="anchored" data-anchor-id="short-comings-of-qlt"><span class="header-section-number">23.1.6</span> Short-comings of QLT</h3>
 </section>
 </section>
 <section id="test-particle-simulation" class="level2" data-number="23.2">

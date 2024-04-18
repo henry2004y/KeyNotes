@@ -523,7 +523,7 @@ D_r(\omega_r,\mathbf{k}) &amp;= 0 \\
 </section>
 <section id="sec-oscillations" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="sec-oscillations"><span class="header-section-number">7.4</span> Plasma Oscillations</h2>
-<p>If the electrons in a plasma are displaced from a uniform background of ions, electric fields will be built up in such a direction as to restore the neutrality of the plasma by pulling the electrons back to their original positions. Because of their inertia, the electrons will overshoot and oscillate around their equilibrium positions with a characteristic frequency known as the <em>plasma frequency</em>. This oscillation is so fast that the massive ions do not have time to respond to the oscillating field and may be considered as fixed. In Fig. 4.2 (ADD IT!), the open rectangles represent typical elements of the ion fluid, and the darkened rectangles the alternately displaced elements of the electron fluid. The resulting charge bunching causes a spatially periodic <span class="math inline">\(\mathbf{E}\)</span> field, which tends to restore the electrons to their neutral positions.</p>
+<p>If the electrons in a plasma are displaced from a uniform background of ions, electric fields will be built up in such a direction as to restore the neutrality of the plasma by pulling the electrons back to their original positions. Because of their inertia, the electrons will overshoot and oscillate around their equilibrium positions with a characteristic frequency known as the <em>plasma frequency</em>. This oscillation, also known as the Langmuir oscillation, is so fast that the massive ions do not have time to respond to the oscillating field and may be considered as fixed. In Fig. 4.2 (ADD IT!), the open rectangles represent typical elements of the ion fluid, and the darkened rectangles the alternately displaced elements of the electron fluid. The resulting charge bunching causes a spatially periodic <span class="math inline">\(\mathbf{E}\)</span> field, which tends to restore the electrons to their neutral positions.</p>
 <div id="fig-langmuir-wave" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-langmuir-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -580,22 +580,28 @@ m\frac{\partial \mathbf{u}_1}{\partial t} = -e\mathbf{E}
 \mathbf{E}_1 &amp;= \mathbf{E}_1 e^{i(kx-\omega t)}\hat{x}
 \end{aligned}
 \]</span></p>
-<p>The time derivative <span class="math inline">\(\partial/\partial t\)</span> can therefore be replaced by <span class="math inline">\(-i\omega\)</span>, and the gradient <span class="math inline">\(\nabla\)</span> by <span class="math inline">\(ik\hat{x}\)</span>. Now the linearized equations become <span class="math display">\[
+<p>The time derivative <span class="math inline">\(\partial/\partial t\)</span> can therefore be replaced by <span class="math inline">\(-i\omega\)</span>, and the gradient <span class="math inline">\(\nabla\)</span> by <span class="math inline">\(ik\hat{x}\)</span>. Now the linearized equations <span id="eq-langmuir-linear"><span class="math display">\[
 \begin{aligned}
--im\omega n_1 &amp;= -n_0 ik u_1 \\
--i\omega u_1 &amp;= -eE_1 \\
--ik\epsilon_0 E_1 &amp;= -en_1
+\frac{\partial n_1}{\partial t} &amp;= -n_0\frac{\partial u_1}{\partial x} \\
+\frac{\partial u_1}{\partial t} &amp;= -\frac{e}{m}E_1 \\
+\frac{\partial E_1}{\partial x} &amp;= -\frac{e}{\epsilon_0}n_1
 \end{aligned}
+\tag{7.2}\]</span></span> become <span id="eq-langmuir-linear-fourier"><span class="math display">\[
+\begin{aligned}
+-i\omega n_1 &amp;= -n_0 ik u_1 \\
+-im\omega u_1 &amp;= -eE_1 \\
+ik\epsilon_0 E_1 &amp;= -en_1
+\end{aligned}
+\tag{7.3}\]</span></span></p>
+<p>Eliminating <span class="math inline">\(u_1\)</span> and <span class="math inline">\(E_1\)</span>, we have <span class="math display">\[
+n_1 = \frac{n_0 e^2}{\epsilon_0 m\omega^2}n_1
 \]</span></p>
-<p>Eliminating <span class="math inline">\(n_1\)</span> and <span class="math inline">\(E_1\)</span>, we have <span class="math display">\[
--m\omega u_1 = -i\frac{n_0e^2}{\epsilon_0 \omega}u_1
-\]</span></p>
-<p>If <span class="math inline">\(u_1\)</span> does not vanish, we must have <span class="math display">\[
+<p>If <span class="math inline">\(n_1\)</span> does not vanish, we must have <span class="math display">\[
 \omega^2 = \frac{n_0 e^2}{\epsilon_0 m}
 \]</span></p>
 <p>The <em>plasma frequency</em> is therefore <span id="eq-plasma_frequency"><span class="math display">\[
 \omega_p = \sqrt{\frac{n_0 e^2}{\epsilon_0 m}} \quad \text{rad/s}
-\tag{7.2}\]</span></span></p>
+\tag{7.4}\]</span></span></p>
 <p>Numerically, one can use the approximate formula <span class="math display">\[
 \omega_p / 2\pi = f_p \approx 9\sqrt{n}\quad \text{m}^{-3}
 \]</span></p>
@@ -606,7 +612,7 @@ f_p\approx 9(10^{18})^{1/2} = 9\times 10^9\,\text{s}^{-1} = 9\,\text{GHz}
 f_{ce}\simeq 28\,\text{GHz/T}
 \]</span></p>
 <p>Thus if <span class="math inline">\(B=0.32\)</span> T and <span class="math inline">\(n=10^{18}\,\text{m}^{-3}\)</span>, the cyclotron frequency is approximately equal to the plasma frequency for electrons.</p>
-<p><a href="#eq-plasma_frequency" class="quarto-xref">Equation&nbsp;<span>7.2</span></a> tells us that if a plasma oscillation is to occur at all, it must have a frequency depending only on <span class="math inline">\(n\)</span>. In particular, <span class="math inline">\(\omega\)</span> does not depend on <span class="math inline">\(k\)</span>, so the group velocity <span class="math inline">\(\mathrm{d}\omega/dk\)</span> is zero. The disturbance does not propagate. How this can happen can be made clear with a mechanical analogy (Fig. 4.3 fig-independent-springs). Imagine a number of heavy balls suspended by springs equally spaced in a line. If all the springs are identical, each ball will oscillate vertically with the same frequency. If the balls are started in the proper phases relative to one another, they can be made to form a wave propagating in either direction. The frequency will be fixed by the springs, but the wavelength can be chosen arbitrarily. The two undisturbed balls at the ends will not be affected, and the initial disturbance does not propagate. Either traveling waves or standing waves can be created, as in the case of a stretched rope. Waves on a rope, however, must propagate because each segment is connected to neighboring segments.</p>
+<p><a href="#eq-plasma_frequency" class="quarto-xref">Equation&nbsp;<span>7.4</span></a> tells us that if a plasma oscillation is to occur at all, it must have a frequency depending only on <span class="math inline">\(n\)</span>. In particular, <span class="math inline">\(\omega\)</span> does not depend on <span class="math inline">\(k\)</span>, so the group velocity <span class="math inline">\(\mathrm{d}\omega/dk\)</span> is zero. The disturbance does not propagate. How this can happen can be made clear with a mechanical analogy (Fig. 4.3 fig-independent-springs). Imagine a number of heavy balls suspended by springs equally spaced in a line. If all the springs are identical, each ball will oscillate vertically with the same frequency. If the balls are started in the proper phases relative to one another, they can be made to form a wave propagating in either direction. The frequency will be fixed by the springs, but the wavelength can be chosen arbitrarily. The two undisturbed balls at the ends will not be affected, and the initial disturbance does not propagate. Either traveling waves or standing waves can be created, as in the case of a stretched rope. Waves on a rope, however, must propagate because each segment is connected to neighboring segments.</p>
 <p>FIGURE: Synthesis of a wave from an assembly of independent oscillators.</p>
 <p>This analogy is not quite accurate, because plasma oscillations have motions in the direction of <span class="math inline">\(\mathbf{k}\)</span> rather than transverse to <span class="math inline">\(\mathbf{k}\)</span>. However, as long as electrons do not collide with ions or with each other, they can still be pictured as independent oscillators moving horizontally (in fig-independent-springs). But what about the electric field? Won’t that extend past the region of initial disturbance and set neighboring layers of plasma into oscillation? In our simple example, it will not, because the electric field due to equal numbers of positive and negative infinite plane charge sheets is zero. In any finite system, however, plasma oscillations will propagate. In Fig. 4.4 ADD IT!, the positive and negative (shaded) regions of a plane plasma oscillation are confined in a cylindrical tube. The fringing electric field causes a coupling of the disturbance to adjacent layers, and the oscillation does not stay localized.</p>
 </section>
@@ -641,7 +647,7 @@ f_{ce}\simeq 28\,\text{GHz/T}
 <section id="es-vs.-em-waves" class="level2" data-number="7.6">
 <h2 data-number="7.6" class="anchored" data-anchor-id="es-vs.-em-waves"><span class="header-section-number">7.6</span> ES vs.&nbsp;EM Waves</h2>
 <p>A practical way to distinguish ES and EM waves is to check <span class="math inline">\(\nabla\times\mathbf{E}\)</span> and <span class="math inline">\(\nabla\cdot\mathbf{E}\)</span>, where <span class="math inline">\(\mathbf{E}\)</span> is the electric field of the wave: * If the curvature is relatively small and the divergence is relatively large, then it is likely to be ES. * Otherwise it is likely to be EM.</p>
-<p>As we will see in <a href="#sec-CPDR" class="quarto-xref"><span>Section 7.7</span></a>, the dielectric function is defined in <a href="#eq-d_e_relation" class="quarto-xref">Equation&nbsp;<span>7.5</span></a>. From other perspectives, the dielectric function shows up in the Ampère’s law as well as the Poisson’s equation <span class="math display">\[
+<p>As we will see in <a href="#sec-CPDR" class="quarto-xref"><span>Section 7.7</span></a>, the dielectric function is defined in <a href="#eq-d_e_relation" class="quarto-xref">Equation&nbsp;<span>7.7</span></a>. From other perspectives, the dielectric function shows up in the Ampère’s law as well as the Poisson’s equation <span class="math display">\[
 \begin{aligned}
 \nabla\times\mathbf{B}=\mu_0\mathbf{j}+\mu_0\epsilon_0\frac{\partial\mathbf{E}}{\partial t}&amp;\equiv\mu_0\pmb{\epsilon}\cdot\frac{\partial \mathbf{E}}{\partial t} \\
 \nabla\cdot(\mathbf{\epsilon_0 \mathbf{E}_1}) + q_j n_j \equiv\nabla\cdot(\pmb{\epsilon}\cdot\mathbf{E}_1) &amp;= 0
@@ -717,68 +723,68 @@ E_{1x} \\ E_{1y} \\ E_{1z}
 \]</span></p>
 <p>where <span class="math inline">\(\mathbf{j}\)</span> is the plasma current due to the motion of the various charged particle species <span class="math inline">\(s\)</span>, with density <span class="math inline">\(n_s\)</span>, charge <span class="math inline">\(q_s\)</span>, and velocity <span class="math inline">\(\mathbf{v}_s\)</span>: <span id="eq-ampere"><span class="math display">\[
 \mathbf{j} = \sum_s n_s q_s\mathbf{v}_s
-\tag{7.3}\]</span></span></p>
-<p>Considering the plasma to be a dielectric with internal currents <span class="math inline">\(\mathbf{j}\)</span>, we may write <a href="#eq-ampere" class="quarto-xref">Equation&nbsp;<span>7.3</span></a> as <span class="math display">\[
+\tag{7.5}\]</span></span></p>
+<p>Considering the plasma to be a dielectric with internal currents <span class="math inline">\(\mathbf{j}\)</span>, we may write <a href="#eq-ampere" class="quarto-xref">Equation&nbsp;<span>7.5</span></a> as <span class="math display">\[
 \nabla\times\mathbf{B} = \mu_0\dot{\mathbf{D}}
 \]</span> where <span id="eq-electric_displacement_field"><span class="math display">\[
 \mathbf{D} = \epsilon_0 \mathbf{E} + \frac{i}{\omega}\mathbf{j}
-\tag{7.4}\]</span></span> is the <strong>electric displacement field</strong> or <strong>electric induction</strong>. It accounts for the effects of <em>bound charge within materials</em> (i.e.&nbsp;plasma). Here we have assumed an <span class="math inline">\(\exp(-i\omega t)\)</span> dependence for all plasma motions. Let the current <span class="math inline">\(\mathbf{j}\)</span> be proportional to <span class="math inline">\(\mathbf{E}\)</span> but not necessarily in the same direction (because of the magnetic field <span class="math inline">\(B_0\hat{\mathbf{z}}\)</span>); we may then define a conductivity tensor <span class="math inline">\(\pmb{\sigma}\)</span> by the relation <span class="math display">\[
+\tag{7.6}\]</span></span> is the <strong>electric displacement field</strong> or <strong>electric induction</strong>. It accounts for the effects of <em>bound charge within materials</em> (i.e.&nbsp;plasma). Here we have assumed an <span class="math inline">\(\exp(-i\omega t)\)</span> dependence for all plasma motions. Let the current <span class="math inline">\(\mathbf{j}\)</span> be proportional to <span class="math inline">\(\mathbf{E}\)</span> but not necessarily in the same direction (because of the magnetic field <span class="math inline">\(B_0\hat{\mathbf{z}}\)</span>); we may then define a conductivity tensor <span class="math inline">\(\pmb{\sigma}\)</span> by the relation <span class="math display">\[
 \mathbf{j} = \pmb{\sigma}\cdot\mathbf{E}
 \]</span></p>
-<p><a href="#eq-electric_displacement_field" class="quarto-xref">Equation&nbsp;<span>7.4</span></a> becomes <span id="eq-d_e_relation"><span class="math display">\[
+<p><a href="#eq-electric_displacement_field" class="quarto-xref">Equation&nbsp;<span>7.6</span></a> becomes <span id="eq-d_e_relation"><span class="math display">\[
 \mathbf{D} = \epsilon\Big( \mathbf{I} + \frac{i}{\epsilon_0\omega}\pmb{\sigma} \Big)\cdot\mathbf{E} = \pmb{\epsilon}\cdot\mathbf{E}
-\tag{7.5}\]</span></span></p>
+\tag{7.7}\]</span></span></p>
 <p>Thus the effective dielectric constant of the plasma is the tensor <span class="math display">\[
 \pmb{\epsilon} = \epsilon_0 (\mathbf{I} + i\pmb{\sigma}/\epsilon_0\omega)
 \]</span></p>
 <p>where <span class="math inline">\(\mathbf{I}\)</span> is the unit tensor. In electromagnetism, a <strong>dielectric</strong> is an electrical insulator that can be polarised by an applied electric field. When a dielectric material is placed in an electric field, electric charges do not flow through the material as they do in an electrical conductor, because they have no loosely bound, or free, electrons that may drift through the material, but instead they shift, only slightly, from their average equilibrium positions, causing dielectric polarisation.</p>
 <p>To evaluate <span class="math inline">\(\pmb{\sigma}\)</span>, we use the linearized fluid equation of motion for species <span class="math inline">\(s\)</span>, neglecting the collision and pressure terms: <span id="eq-motion_linear"><span class="math display">\[
 m_s\frac{\partial \mathbf{v}_s}{\partial t} = q_s(\mathbf{E}+\mathbf{v}_s\times\mathbf{B}_0)
-\tag{7.6}\]</span></span></p>
+\tag{7.8}\]</span></span></p>
 <p>Defining the cyclotron and plasma frequencies for each species as <span class="math display">\[
 \omega_{cs}\equiv\bigg\lvert\frac{q_s B_0}{m_s}\bigg\rvert, \quad \omega_{ps}^2\equiv\bigg\lvert\frac{n_0 q_s^2}{\epsilon_0m_s}\bigg\rvert
 \]</span></p>
-<p>We can separate <a href="#eq-motion_linear" class="quarto-xref">Equation&nbsp;<span>7.6</span></a> into x, y, and z components and solve for <span class="math inline">\(\mathbf{v}_s\)</span>, obtaining <span id="eq-v"><span class="math display">\[
+<p>We can separate <a href="#eq-motion_linear" class="quarto-xref">Equation&nbsp;<span>7.8</span></a> into x, y, and z components and solve for <span class="math inline">\(\mathbf{v}_s\)</span>, obtaining <span id="eq-v"><span class="math display">\[
 \begin{aligned}
 v_{xs} &amp;= \frac{iq_s}{m_s\omega} \frac{E_x\pm i(\omega_{cs}/\omega)E_y}{1-(\omega_{cs}/\omega)^2} \\
 v_{ys} &amp;= \frac{iq_s}{m_s\omega} \frac{E_y\mp i(\omega_{cs}/\omega)E_x}{1-(\omega_{cs}/\omega)^2} \\
 v_{zs} &amp;= \frac{iq_s}{m_s\omega} E_z
 \end{aligned}
-\tag{7.7}\]</span></span> where <span class="math inline">\(\pm\)</span> stands for the sign of <span class="math inline">\(q_s\)</span>. The plasma current is <span class="math display">\[
+\tag{7.9}\]</span></span> where <span class="math inline">\(\pm\)</span> stands for the sign of <span class="math inline">\(q_s\)</span>. The plasma current is <span class="math display">\[
 \mathbf{j} = \sum_s n_{0s}q_s\mathbf{v}_s
 \]</span> so that <span id="eq-current_jx"><span class="math display">\[
 \begin{aligned}
 \frac{i}{\epsilon_0\omega}j_x &amp;= \sum_s \frac{in_{0s}}{\epsilon_0 \omega}\frac{iq_s^2}{m_s\omega}\frac{E_x\pm i(\omega_{cs}/\omega)E_y}{1-(\omega_{cs}/\omega)} \\
 &amp;=\sum_s -\frac{\omega_{ps}^2}{\omega^2}\frac{E_x\pm i(\omega_{cs}/\omega)E_y}{1-(\omega_{cs}/\omega)}
 \end{aligned}
-\tag{7.8}\]</span></span></p>
+\tag{7.10}\]</span></span></p>
 <p>Using the identities <span class="math display">\[
 \begin{aligned}
 \frac{1}{1-(\omega_{cs}/\omega)^2} &amp;= \frac{1}{2}\Big[ \frac{\omega}{\omega\mp\omega_{cs}} + \frac{\omega}{\omega\pm\omega_{cs}} \Big] \\
 \pm\frac{\omega_{cs}/\omega}{1-(\omega_{cs}/\omega)^2} &amp;= \frac{1}{2}\Big[ \frac{\omega}{\omega\mp\omega_{cs}} - \frac{\omega}{\omega\pm\omega_{cs}} \Big],
 \end{aligned}
 \]</span></p>
-<p>we can write <a href="#eq-current_jx" class="quarto-xref">Equation&nbsp;<span>7.8</span></a> as follows: <span id="eq-jx"><span class="math display">\[
+<p>we can write <a href="#eq-current_jx" class="quarto-xref">Equation&nbsp;<span>7.10</span></a> as follows: <span id="eq-jx"><span class="math display">\[
 \begin{aligned}
 \frac{1}{\epsilon_0\omega}j_x &amp;= -\frac{1}{2}\sum_s \frac{\omega_{ps}^2}{\omega^2}\Big[ \Big( \frac{\omega}{\omega\pm\omega_{cs}} + \frac{\omega}{\omega\mp\omega_{cs}} \Big)E_x \\
 &amp;+ \Big( \frac{\omega}{\omega\mp\omega_{cs}} + \frac{\omega}{\omega\pm\omega_{cs}} \Big)iE_y \Big]
 \end{aligned}
-\tag{7.9}\]</span></span></p>
+\tag{7.11}\]</span></span></p>
 <p>Similarly, the <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> components are <span id="eq-jy"><span class="math display">\[
 \begin{aligned}
 \frac{1}{\epsilon_0\omega}j_y &amp;= -\frac{1}{2}\sum_s \frac{\omega_{ps}^2}{\omega^2}\Big[ \Big( \frac{\omega}{\omega\pm\omega_{cs}} + \frac{\omega}{\omega\mp\omega_{cs}} \Big)iE_x \\
 &amp;+ \Big( \frac{\omega}{\omega\mp\omega_{cs}} + \frac{\omega}{\omega\pm\omega_{cs}} \Big)E_y \Big]
 \end{aligned}
-\tag{7.10}\]</span></span></p>
+\tag{7.12}\]</span></span></p>
 <p><span id="eq-jz"><span class="math display">\[
 \frac{i}{\epsilon_0\omega}j_z = -\sum_s\frac{\omega_{ps}^2}{\omega^2}E_z
-\tag{7.11}\]</span></span></p>
-<p>Use of <a href="#eq-jx" class="quarto-xref">Equation&nbsp;<span>7.9</span></a> in <a href="#eq-electric_displacement_field" class="quarto-xref">Equation&nbsp;<span>7.4</span></a> gives <span id="eq-dx"><span class="math display">\[
+\tag{7.13}\]</span></span></p>
+<p>Use of <a href="#eq-jx" class="quarto-xref">Equation&nbsp;<span>7.11</span></a> in <a href="#eq-electric_displacement_field" class="quarto-xref">Equation&nbsp;<span>7.6</span></a> gives <span id="eq-dx"><span class="math display">\[
 \begin{aligned}
 \frac{1}{\epsilon_0}D_x &amp;= E_x -\frac{1}{2}\sum_s \frac{\omega_{ps}^2}{\omega^2}\Big[ \Big( \frac{\omega}{\omega\pm\omega_{cs}} + \frac{\omega}{\omega\mp\omega_{cs}} )E_x \\
 &amp;+ \Big( \frac{\omega}{\omega\mp\omega_{cs}} + \frac{\omega}{\omega\pm\omega_{cs}} )iE_y \Big] \\
 \end{aligned}
-\tag{7.12}\]</span></span></p>
+\tag{7.14}\]</span></span></p>
 <p>We define the convenient abbreviations <span id="eq-stix_notation"><span class="math display">\[
 \begin{aligned}
 R &amp;\equiv 1 - \sum_s\frac{\omega_{ps}^2}{\omega^2}\Big( \frac{\omega}{\omega\pm\omega_{cs}} \Big)\\
@@ -786,34 +792,34 @@ L &amp;\equiv 1 - \sum_s\frac{\omega_{ps}^2}{\omega^2}\Big( \frac{\omega}{\omega
 S &amp;\equiv \frac{1}{2}(R+L)\quad D\equiv \frac{1}{2}(R-L)^\ast \\
 P &amp;\equiv 1-\sum_s\frac{\omega_{ps}^2}{\omega^2}
 \end{aligned}
-\tag{7.13}\]</span></span></p>
-<p>where “R” stands for right, “L” stands for left, “S” stands for sum, “D” stands for difference, and “P” stands for plasma. Do not confuse D with the electric displacement field <span class="math inline">\(\mathbf{D}\)</span>. Using these in <a href="#eq-dx" class="quarto-xref">Equation&nbsp;<span>7.12</span></a> and proceeding similarly with the <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> components, we obtain <span class="math display">\[
+\tag{7.15}\]</span></span></p>
+<p>where “R” stands for right, “L” stands for left, “S” stands for sum, “D” stands for difference, and “P” stands for plasma. Do not confuse D with the electric displacement field <span class="math inline">\(\mathbf{D}\)</span>. Using these in <a href="#eq-dx" class="quarto-xref">Equation&nbsp;<span>7.14</span></a> and proceeding similarly with the <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> components, we obtain <span class="math display">\[
 \begin{aligned}
 \epsilon_0^{-1}D_x &amp;= SE_x -iDE_y \\
 \epsilon_0^{-1}D_y &amp;= iDE_x + SE_y \\
 \epsilon_0^{-1}D_z &amp;= PE_z
 \end{aligned}
 \]</span></p>
-<p>Comparing with <a href="#eq-d_e_relation" class="quarto-xref">Equation&nbsp;<span>7.5</span></a>, we see that <span id="eq-dielectric_matrix"><span class="math display">\[
+<p>Comparing with <a href="#eq-d_e_relation" class="quarto-xref">Equation&nbsp;<span>7.7</span></a>, we see that <span id="eq-dielectric_matrix"><span class="math display">\[
 \pmb{\epsilon} = \epsilon_0\begin{pmatrix}
 S &amp; -iD &amp; 0 \\
 iD &amp; S &amp; 0 \\
 0 &amp; 0 &amp; P
 \end{pmatrix} \equiv \epsilon_0\pmb{\epsilon}_R
-\tag{7.14}\]</span></span></p>
+\tag{7.16}\]</span></span></p>
 <p>We next derive the wave equation by taking the curl of the equation <span class="math inline">\(\nabla\times\mathbf{E} = -\dot{\mathbf{B}}\)</span> and substituting <span class="math inline">\(\nabla\times\mathbf{B}=\mu_0\pmb{\epsilon}\cdot\dot{\mathbf{E}}\)</span>, obtaining <span id="eq-wave1"><span class="math display">\[
 \nabla\times\nabla\times\mathbf{E} = -\mu_0\epsilon_0( \pmb{\epsilon}_R \cdot\ddot{\mathbf{E}} ) = -\frac{1}{c^2}\pmb{\epsilon}_R\cdot\ddot{\mathbf{E}}
-\tag{7.15}\]</span></span></p>
+\tag{7.17}\]</span></span></p>
 <p>Assuming an <span class="math inline">\(\exp(i\mathbf{k}\cdot\mathbf{r})\)</span> spatial dependence of <span class="math inline">\(\mathbf{E}\)</span> and defining a vector index of refraction <span class="math display">\[
 \mathbf{n}=\frac{c}{\omega}\mathbf{k}
 \]</span></p>
-<p>We can write <a href="#eq-wave1" class="quarto-xref">Equation&nbsp;<span>7.15</span></a> as <span id="eq-wave2"><span class="math display">\[
+<p>We can write <a href="#eq-wave1" class="quarto-xref">Equation&nbsp;<span>7.17</span></a> as <span id="eq-wave2"><span class="math display">\[
 \mathbf{n}\times(\mathbf{n}\times\mathbf{E})+\pmb{\epsilon}_R\cdot\mathbf{E} = 0
-\tag{7.16}\]</span></span></p>
+\tag{7.18}\]</span></span></p>
 <p>The uniform plasma is isotropic in the <span class="math inline">\(x-y\)</span> plane, so we may choose the <span class="math inline">\(y\)</span> axis so that <span class="math inline">\(k_y = 0\)</span>, without loss of generality. If <span class="math inline">\(\theta\)</span> is the angle between <span class="math inline">\(\mathbf{k}\)</span> and <span class="math inline">\(\mathbf{B}_0\)</span>, we then have <span class="math display">\[
 n_x = n\sin\theta\quad n_z=n\cos\theta\quad n_y = 0
 \]</span></p>
-<p>The next step is to separate <a href="#eq-wave2" class="quarto-xref">Equation&nbsp;<span>7.16</span></a> into components, using the elements of <span class="math inline">\(\pmb{\epsilon}_R\)</span> given in <a href="#eq-dielectric_matrix" class="quarto-xref">Equation&nbsp;<span>7.14</span></a>. This procedure readily yields <span id="eq-dielectric"><span class="math display">\[
+<p>The next step is to separate <a href="#eq-wave2" class="quarto-xref">Equation&nbsp;<span>7.18</span></a> into components, using the elements of <span class="math inline">\(\pmb{\epsilon}_R\)</span> given in <a href="#eq-dielectric_matrix" class="quarto-xref">Equation&nbsp;<span>7.16</span></a>. This procedure readily yields <span id="eq-dielectric"><span class="math display">\[
 \mathbf{R}\cdot\mathbf{E}\equiv\begin{pmatrix}
 S - n^2\cos\theta &amp; -iD &amp; n^2\sin\theta\cos\theta \\
 iD &amp; S-n^2 &amp; 0 \\
@@ -822,14 +828,14 @@ n^2\sin\theta\cos\theta &amp; 0 &amp; P-n^2\sin^2\theta
 \begin{pmatrix}
 E_x \\ E_y \\ E_z
 \end{pmatrix} = 0
-\tag{7.17}\]</span></span></p>
+\tag{7.19}\]</span></span></p>
 <p>From this it is clear that the <span class="math inline">\(E_x\)</span>, <span class="math inline">\(E_y\)</span> components are coupled to <span class="math inline">\(E_z\)</span> only if one deviates from the principal angles <span class="math inline">\(\theta = 0, 90^\circ\)</span>.</p>
-<p><a href="#eq-dielectric" class="quarto-xref">Equation&nbsp;<span>7.17</span></a> is a set of three simultaneous, homogeneous equations; the condition for the existence of a solution is that the determinant of <span class="math inline">\(\mathbf{R}\)</span> vanish: <span class="math inline">\(||\mathbf{R}||=0\)</span>. We then obtain <span id="eq-dispersion_2ndcol"><span class="math display">\[
+<p><a href="#eq-dielectric" class="quarto-xref">Equation&nbsp;<span>7.19</span></a> is a set of three simultaneous, homogeneous equations; the condition for the existence of a solution is that the determinant of <span class="math inline">\(\mathbf{R}\)</span> vanish: <span class="math inline">\(||\mathbf{R}||=0\)</span>. We then obtain <span id="eq-dispersion_2ndcol"><span class="math display">\[
 \begin{aligned}
 (iD)^2&amp;(P-n^2\sin^2\theta) + (S - n^2)  \\
 &amp;\times [(S-n^2\cos^2\theta)(P-n^2\sin^2\theta)-n^4\sin^2\theta\cos^2\theta] = 0
 \end{aligned}
-\tag{7.18}\]</span></span></p>
+\tag{7.20}\]</span></span></p>
 <p>By replacing <span class="math inline">\(\cos^2\theta\)</span> by <span class="math inline">\(1-\sin^2\theta\)</span>, we can solve for <span class="math inline">\(\sin^2\theta\)</span>, obtaining <span class="math display">\[
 \sin^2\theta = \frac{-P(n^4-2Sn^2+RL)}{n^4(S-P)+n^2(PS-RL)}
 \]</span></p>
@@ -841,7 +847,7 @@ E_x \\ E_y \\ E_z
 \]</span></p>
 <p>Since <span class="math inline">\(2S = R + L\)</span>, the numerator and denominator can be factored to give the cold-plasma dispersion relation <span id="eq-cold_plasma_dispersion"><span class="math display">\[
 \tan^2\theta = \frac{-P(n^2-R)(n^2-L)}{(Sn^2-RL)(n^2-P)}
-\tag{7.19}\]</span></span></p>
+\tag{7.21}\]</span></span></p>
 <section id="wave-modes" class="level3" data-number="7.7.1">
 <h3 data-number="7.7.1" class="anchored" data-anchor-id="wave-modes"><span class="header-section-number">7.7.1</span> Wave Modes</h3>
 <p>The principal modes of cold plasma waves can be recovered by setting <span class="math inline">\(\theta = 0^0\)</span> and <span class="math inline">\(90^\circ\)</span>. When <span class="math inline">\(\theta = 0^\circ\)</span>, <span class="math display">\[
@@ -861,7 +867,7 @@ P(n^2-R)(n^2-L) = 0
 <li><span class="math inline">\(n^2=RL/S\)</span> (extraordinary wave)</li>
 <li><span class="math inline">\(n^2=P\)</span> (ordinary wave)</li>
 </ul>
-<p>By inserting the definitions of <a href="#eq-stix_notation" class="quarto-xref">Equation&nbsp;<span>7.13</span></a>, one can verify that these are identical to the dispersion relations given in separate derivations, with the addition of corrections due to ion motions.</p>
+<p>By inserting the definitions of <a href="#eq-stix_notation" class="quarto-xref">Equation&nbsp;<span>7.15</span></a>, one can verify that these are identical to the dispersion relations given in separate derivations, with the addition of corrections due to ion motions.</p>
 </section>
 <section id="resonances" class="level3" data-number="7.7.2">
 <h3 data-number="7.7.2" class="anchored" data-anchor-id="resonances"><span class="header-section-number">7.7.2</span> Resonances</h3>
@@ -876,7 +882,7 @@ P(n^2-R)(n^2-L) = 0
 </section>
 <section id="cutoffs" class="level3" data-number="7.7.3">
 <h3 data-number="7.7.3" class="anchored" data-anchor-id="cutoffs"><span class="header-section-number">7.7.3</span> Cutoffs</h3>
-<p>The cutoffs can be found by setting <span class="math inline">\(n = 0\)</span> in <a href="#eq-cold_plasma_dispersion" class="quarto-xref">Equation&nbsp;<span>7.19</span></a>. Again using <span class="math inline">\(S^2-D^2 = RL\)</span>, we find that the condition for cutoff is independent of <span class="math inline">\(\theta\)</span>: <span class="math display">\[
+<p>The cutoffs can be found by setting <span class="math inline">\(n = 0\)</span> in <a href="#eq-cold_plasma_dispersion" class="quarto-xref">Equation&nbsp;<span>7.21</span></a>. Again using <span class="math inline">\(S^2-D^2 = RL\)</span>, we find that the condition for cutoff is independent of <span class="math inline">\(\theta\)</span>: <span class="math display">\[
 PRL = 0
 \]</span></p>
 <ul>
@@ -892,7 +898,7 @@ PRL = 0
 \]</span></p>
 <p>Here somehow we can ignore <span class="math inline">\(\omega_{pe}^2\omega_{ci}\)</span> (I DON’T KNOW WHY???) and obtain the positive solution <span id="eq-cutoff_R_freq"><span class="math display">\[
 \omega_{R=0} \approx \frac{\omega_{ce}}{2}\Big[ 1 + \sqrt{1+4\omega_{pe}^2/\omega_{ce}^2}\Big]
-\tag{7.20}\]</span></span></p>
+\tag{7.22}\]</span></span></p>
 <p>In the low density limit, <span class="math inline">\(\omega_p\ll\omega_c\)</span>, <span class="math inline">\((1+x)^{1/2}\approx 1+x/2\)</span> when <span class="math inline">\(x\rightarrow 0\)</span>, <span class="math display">\[
 \omega_{R=0} \approx \omega_{ce}(1+\omega_{pe}^2/\omega_{ce}^2)
 \]</span></p>
@@ -901,7 +907,7 @@ PRL = 0
 \]</span></p>
 <p>Similarly for L-waves, the cutoff frequency can be approximated by <span id="eq-cutoff_L_freq"><span class="math display">\[
 \omega_{L=0} \approx \frac{\omega_{ce}}{2}\Big[ -1 + \sqrt{1+4\omega_{pe}^2/\omega_{ce}^2}\Big]
-\tag{7.21}\]</span></span></p>
+\tag{7.23}\]</span></span></p>
 <p>In the low density limit, <span class="math inline">\(\omega_p\ll\omega_c\)</span>, <span class="math display">\[
 \omega_{L=0} \approx \omega_{pe}^2/\omega_{ce}
 \]</span></p>
@@ -914,7 +920,7 @@ PRL = 0
 </section>
 <section id="polarizations" class="level3" data-number="7.7.4">
 <h3 data-number="7.7.4" class="anchored" data-anchor-id="polarizations"><span class="header-section-number">7.7.4</span> Polarizations</h3>
-<p>The information contained in <a href="#eq-cold_plasma_dispersion" class="quarto-xref">Equation&nbsp;<span>7.19</span></a> is summarized in the Clemmow–Mullaly–Allis (CMA) diagram. One further result, not in the diagram, can be obtained easily from this formulation. The middle line of <a href="#eq-dielectric" class="quarto-xref">Equation&nbsp;<span>7.17</span></a> reads <span class="math display">\[
+<p>The information contained in <a href="#eq-cold_plasma_dispersion" class="quarto-xref">Equation&nbsp;<span>7.21</span></a> is summarized in the Clemmow–Mullaly–Allis (CMA) diagram. One further result, not in the diagram, can be obtained easily from this formulation. The middle line of <a href="#eq-dielectric" class="quarto-xref">Equation&nbsp;<span>7.19</span></a> reads <span class="math display">\[
 iDE_x + (S-n^2)E_y = 0
 \]</span></p>
 <p>Thus the polarization in the plane perpendicular to <span class="math inline">\(\mathbf{B}_0\)</span> is given by <span class="math display">\[
@@ -936,12 +942,12 @@ n^2 = R = 1 - \frac{\omega_{pi}^2}{\omega(\omega+\omega_{ci})} - \frac{\omega_{p
 \frac{k_\parallel^2 c^2}{\omega^2} \simeq \frac{c^2}{V_A^2}\frac{1}{1+\omega/\omega_{ci}} \\
 \frac{k_\parallel^2}{\omega^2} = \frac{1}{V_A^2}\frac{1}{1+\omega/\omega_{ci}}
 \end{aligned}
-\tag{7.22}\]</span></span></p>
-<p><a href="#eq-R-wave-dispersion-1" class="quarto-xref">Equation&nbsp;<span>7.22</span></a> can be arranged into a quasi-quadratic equation for <span class="math inline">\(v_\mathrm{ph}=\omega/k_\parallel\)</span> <span class="math display">\[
+\tag{7.24}\]</span></span></p>
+<p><a href="#eq-R-wave-dispersion-1" class="quarto-xref">Equation&nbsp;<span>7.24</span></a> can be arranged into a quasi-quadratic equation for <span class="math inline">\(v_\mathrm{ph}=\omega/k_\parallel\)</span> <span class="math display">\[
 \frac{\omega^2}{k_\parallel^2} = v_A^2 + v_A^2\frac{\omega}{\omega_{ci}} = v_A^2 + W\frac{\omega}{k_\parallel}
 \]</span> where we denote <span class="math inline">\(W=\frac{v_A^2 k_\parallel}{\omega_{ci}}\)</span>. The solution is then <span id="eq-R-wave-phase-speed"><span class="math display">\[
 v_w = \frac{W}{2} \pm\sqrt{\frac{W^2}{4}+v_A^2}
-\tag{7.23}\]</span></span></p>
+\tag{7.25}\]</span></span></p>
 <p>When <span class="math inline">\(v_A\ll W\)</span>, i.e.&nbsp;<span class="math inline">\(\frac{\omega_{ci}}{k_\parallel}\ll v_A\)</span>, we have <span class="math inline">\(v_w = W\)</span>.</p>
 <p>For <span class="math inline">\(\omega_{ci}\ll\omega\ll\omega_{ce}\)</span>, we can make further simplification: <span class="math display">\[
 k^2c^2 = \omega^2\Big(1+\frac{\omega_{pe}^2}{\omega\omega_{ce}} \Big)
@@ -999,19 +1005,19 @@ Figure&nbsp;7.3: Dispersion relation for a left-handed wave propagating parallel
 <section id="perpendicular-wave-propagation" class="level3" data-number="7.7.7">
 <h3 data-number="7.7.7" class="anchored" data-anchor-id="perpendicular-wave-propagation"><span class="header-section-number">7.7.7</span> Perpendicular Wave Propagation</h3>
 <p>Let us now consider wave propagation, at arbitrary frequencies, perpendicular to the equilibrium magnetic field, i.e.&nbsp;<span class="math inline">\(\theta=90^\circ\)</span>.</p>
-<p>The cutoff frequencies, at which <span class="math inline">\(n^2\)</span> goes to zero, are the roots of <span class="math inline">\(R=0\)</span> and <span class="math inline">\(L=0\)</span> according to <span class="math inline">\(n^2=LR/S\)</span>. In fact, we have already solved these equations in the previous sections (recall that cutoff frequencies do not depend on <span class="math inline">\(\theta\)</span>). There are two cutoff frequencies, <span class="math inline">\(\omega_{R=0}\)</span> and <span class="math inline">\(\omega_{L=0}\)</span>, which are specified by <a href="#eq-cutoff_R_freq" class="quarto-xref">Equation&nbsp;<span>7.20</span></a> and <a href="#eq-cutoff_L_freq" class="quarto-xref">Equation&nbsp;<span>7.21</span></a>, respectively.</p>
+<p>The cutoff frequencies, at which <span class="math inline">\(n^2\)</span> goes to zero, are the roots of <span class="math inline">\(R=0\)</span> and <span class="math inline">\(L=0\)</span> according to <span class="math inline">\(n^2=LR/S\)</span>. In fact, we have already solved these equations in the previous sections (recall that cutoff frequencies do not depend on <span class="math inline">\(\theta\)</span>). There are two cutoff frequencies, <span class="math inline">\(\omega_{R=0}\)</span> and <span class="math inline">\(\omega_{L=0}\)</span>, which are specified by <a href="#eq-cutoff_R_freq" class="quarto-xref">Equation&nbsp;<span>7.22</span></a> and <a href="#eq-cutoff_L_freq" class="quarto-xref">Equation&nbsp;<span>7.23</span></a>, respectively.</p>
 <p>Let us, next, search for the resonant frequencies, at which <span class="math inline">\(n^2\)</span> goes to infinity. According to the previous discussions, the resonant frequencies are solutions of <span id="eq-resonance_perp_wave"><span class="math display">\[
 S = 1 - \frac{\omega_{pe}^2}{\omega^2 - \Omega_e^2} - \frac{\omega_{pi}^2}{\omega^2 - \Omega_i^2} = 0
-\tag{7.24}\]</span></span></p>
+\tag{7.26}\]</span></span></p>
 <p>The roots of this equation can be obtained as follows. First, we note that if the first two terms are equated to zero, we obtain <span class="math inline">\(\omega=\omega_\mathrm{UH}\)</span>, where <span id="eq-upper_hybrid_freq"><span class="math display">\[
 \omega_\mathrm{UH} \equiv \sqrt{\omega_{pe}^2 + \Omega_e^2}
-\tag{7.25}\]</span></span></p>
-<p>If this frequency is substituted into the third term, the result is far less than unity. We conclude that <span class="math inline">\(\omega_\mathrm{UH}\)</span> is a good approximation to one of the roots of <a href="#eq-resonance_perp_wave" class="quarto-xref">Equation&nbsp;<span>7.24</span></a>. To obtain the second root, we make use of the fact that the product of the square of the roots is <span class="math display">\[
+\tag{7.27}\]</span></span></p>
+<p>If this frequency is substituted into the third term, the result is far less than unity. We conclude that <span class="math inline">\(\omega_\mathrm{UH}\)</span> is a good approximation to one of the roots of <a href="#eq-resonance_perp_wave" class="quarto-xref">Equation&nbsp;<span>7.26</span></a>. To obtain the second root, we make use of the fact that the product of the square of the roots is <span class="math display">\[
 \Omega_e^2\,\Omega_i^2 + \omega_{pe}^2\,\Omega_i^2 + \omega_{pi}^2\Omega_e^2 \simeq \Omega_e^2 \Omega_i^2 + \omega_{pi}^2\,\Omega_e^2
 \]</span></p>
 <p>We, thus, obtain <span class="math inline">\(\omega= \omega_\mathrm{LH}\)</span>, where <span id="eq-lower-hybrid-freq"><span class="math display">\[
 \omega_\mathrm{LH} \equiv \sqrt{\frac{\Omega_e^2\Omega_i^2 + \omega_{pi}^2\Omega_e^2}{\omega_{pe}^2 + \Omega_e^2}}
-\tag{7.26}\]</span></span></p>
+\tag{7.28}\]</span></span></p>
 <p>The first resonant frequency, <span class="math inline">\(\omega_\mathrm{UH}\)</span>, is greater than the electron cyclotron or plasma frequencies, and is called the <em>upper hybrid frequency</em>. The second resonant frequency, <span class="math inline">\(\omega_\mathrm{LH}\)</span>, lies between the electron and ion cyclotron frequencies, and is called the <em>lower hybrid frequency</em>. <span class="citation" data-cites="chen2016introduction">(<a href="#ref-chen2016introduction" role="doc-biblioref">F. F. Chen 2016</a>)</span> gave some nice explanations of the physical origins of these frequencies by looking at the electrostatic electron/ion waves perpendicular to <span class="math inline">\(\mathbf{B}\)</span>. At low frequencies, the mode in question reverts to the compressional-Alfvén wave discussed previously. Note that the shear-Alfvén wave does not propagate perpendicular to the magnetic field.</p>
 <p>Using the above information, and the easily demonstrated fact that <span class="math display">\[
 \omega_\mathrm{LH} &lt; \omega_{L=0} &lt; \omega_\mathrm{UH} &lt; \omega_{R=0}
@@ -1042,7 +1048,7 @@ Figure&nbsp;7.4: Dispersion relation for a left-handed wave propagating perpendi
 \nabla\cdot\mathbf{B}_1 = 0 \\
 \nabla\times\mathbf{B}_1 = \mu_0\mathbf{j}
 \end{aligned}
-\tag{7.27}\]</span></span></p>
+\tag{7.29}\]</span></span></p>
 <p>As usual in wave analysis, <span class="math inline">\(\mathbf{u},\mathbf{j},\mathbf{E}\)</span> are treated as perturbations. The MHD wave equation for the electric field can then be obtained, <span class="math display">\[
 \begin{aligned}
 \dot{\mathbf{E}} &amp;= -\dot{\mathbf{u}}\times\mathbf{B}_0 = -\frac{1}{\rho}(\mathbf{j}\times\mathbf{B})\times\mathbf{B}_0 = -\frac{1}{\mu_0\rho}[(\nabla\times\mathbf{B}_1)\times\mathbf{B}_0]\times\mathbf{B}_0 \\
@@ -1050,7 +1056,7 @@ Figure&nbsp;7.4: Dispersion relation for a left-handed wave propagating perpendi
 \end{aligned}
 \]</span> where <span class="math inline">\(\mathbf{V}_A = \mathbf{B}_0 /\sqrt{\mu_0 \rho}\)</span> is the Alfvén velocity, or if we mutate the triad cross terms, <span id="eq-mhd_cold_e_wave"><span class="math display">\[
 \ddot{\mathbf{E}} = \mathbf{V}_A \times [\mathbf{V}_A\times\nabla\times(\nabla\times\mathbf{E})]
-\tag{7.28}\]</span></span></p>
+\tag{7.30}\]</span></span></p>
 <p>Alternatively, we can also get the MHD wave equation for the magnetic field: <span class="math display">\[
 \begin{aligned}
 \left\{ \begin{aligned}
@@ -1061,7 +1067,7 @@ Figure&nbsp;7.4: Dispersion relation for a left-handed wave propagating perpendi
 \end{aligned}
 \]</span> or <span id="eq-mhd_cold_b_wave"><span class="math display">\[
 \ddot{\mathbf{B}_1} = \nabla\times \Big[ \big( (\nabla\times\mathbf{B}_1)\times\mathbf{V}_A \big)\times\mathbf{V}_A \Big]
-\tag{7.29}\]</span></span></p>
+\tag{7.31}\]</span></span></p>
 <p>We will see soon that in cold MHD the slow mode ceases to exist, and the fast mode moves at Alfvén speed, such that along the magnetic field line, we only have a single wave mode.</p>
 </section>
 <section id="hot-mhd" class="level3" data-number="7.8.2">
@@ -1105,11 +1111,11 @@ v_s^2\sin\theta\cos\theta &amp; 0 &amp; -\omega^2/k^2+v_s^2\cos^2\theta
 \begin{pmatrix}
 v_x \\ v_y \\ v_z
 \end{pmatrix} = 0
-\tag{7.30}\]</span></span></p>
+\tag{7.32}\]</span></span></p>
 </section>
 <section id="alfvén-wave" class="level3" data-number="7.8.3">
 <h3 data-number="7.8.3" class="anchored" data-anchor-id="alfvén-wave"><span class="header-section-number">7.8.3</span> Alfvén Wave</h3>
-<p>For any nonzero <span class="math inline">\(v_y\)</span>, the <span class="math inline">\(y\)</span>-component of <a href="#eq-mhd_v_perturbation" class="quarto-xref">Equation&nbsp;<span>7.30</span></a> gives <span class="math display">\[
+<p>For any nonzero <span class="math inline">\(v_y\)</span>, the <span class="math inline">\(y\)</span>-component of <a href="#eq-mhd_v_perturbation" class="quarto-xref">Equation&nbsp;<span>7.32</span></a> gives <span class="math display">\[
 \omega^2 = k^2v_A^2\cos^2\theta = k_\parallel^2 v_A^2
 \]</span> which is known as the <em>Alfvén wave</em>, in a uniform plasma immersed in a uniform background magnetic field with phase speed <span class="math display">\[
 v_p = v_A\cos\theta
@@ -1123,9 +1129,9 @@ p_1 &amp;= 0 \\
 \mathbf{B}_1 &amp;= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = -\frac{k_zB_0v_y}{\omega}\hat{y} = -\frac{\mathbf{v}}{\omega/k_\parallel}B_0 \\
 \mathbf{j} &amp;= \frac{1}{\mu_0}\nabla\times\mathbf{B}_1 = \frac{i\mathbf{k}\times\mathbf{B}_1}{\mu_0}
 \end{aligned}
-\tag{7.31}\]</span></span></p>
+\tag{7.33}\]</span></span></p>
 <p>SAW has a wave vector <span class="math inline">\(\mathbf{k}\)</span> in the XZ-plane. <span class="math inline">\(\mathbf{E}\)</span> shall oscillate in the X-direction; <span class="math inline">\(\mathbf{B}\)</span> shall oscillate in the Y-direction. The electric current of the wave <span class="math inline">\(\mathbf{j}\)</span> lies in the XZ-plane. The timescale of the variations of the wave fields is much longer than the ion gyroperiod <span class="math inline">\(\Omega_i^{-1}\)</span>. In both the perpendicular and parallel directions, the spatial scale of the waves <span class="math inline">\(1/k\)</span> are much larger than ion motion scale <span class="math inline">\(r_{iL}\)</span>. The wave carries a Poynting flux <span class="math inline">\(\mathbf{S} = \mathbf{E}\times\mathbf{B}_1\)</span> strictly parallel to <span class="math inline">\(\mathbf{B}_0\)</span>. The ratio of the wave electric field to the wave magnetic field <span class="math inline">\(|\mathbf{E}|/|\mathbf{B}_1|\)</span> is exactly one Alfvén speed <span class="math inline">\(V_A\)</span>.</p>
-<p><span class="math inline">\(\mathbf{E}\)</span> (or <span class="math inline">\(\mathbf{B}_1\)</span>) in <a href="#eq-mhd_Alfven_perturbations" class="quarto-xref">Equation&nbsp;<span>7.31</span></a> shows that the Alfvén wave in a uniform plasma is a linearly polarized wave if <span class="math inline">\(\mathbf{v}_1 = (0, v_y, 0)\)</span>. If instead we set <span class="math inline">\(\mathbf{k}=(0,0,k)\)</span> (<span class="math inline">\(\theta=0^\circ\)</span>) and <span class="math inline">\(\mathbf{v}_1 = (v_x, v_y, 0)\)</span>, then <span class="math inline">\(\mathbf{k}\cdot\mathbf{v}=0\Rightarrow \rho_1=0\)</span> but <span class="math inline">\(\mathbf{E}=-\mathbf{v}\times\mathbf{B}_0 = kv_y\hat{x} - kv_x\hat{y}\)</span> can be a circularly polarized wave or else. Correlated <span class="math inline">\(\mathbf{B}_1\)</span> and <span class="math inline">\(\mathbf{v}\)</span> corresponds to waves propagating anti-parallel to the <span class="math inline">\(\mathbf{B}_0\)</span> (<span class="math inline">\(\mathbf{k}\cdot\mathbf{B}_0&lt;0\)</span>), and anti-correlated <span class="math inline">\(\mathbf{B}_1\)</span> and <span class="math inline">\(\mathbf{v}\)</span> corresponds to waves propagating parallel to the <span class="math inline">\(\mathbf{B}_0\)</span> (<span class="math inline">\(\mathbf{k}\cdot\mathbf{B}_0&gt;0\)</span>). (This is the same as expressed by the Alfvénicity condition <a href="turbulence.html#eq-Alfvenity" class="quarto-xref">Equation&nbsp;<span>15.2</span></a>.) The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the <em>shear Alfvén wave</em> (SAW). An animation of SAW is shown in <a href="#fig-alfven-wave" class="quarto-xref">Figure&nbsp;<span>7.5</span></a>.</p>
+<p><span class="math inline">\(\mathbf{E}\)</span> (or <span class="math inline">\(\mathbf{B}_1\)</span>) in <a href="#eq-mhd_Alfven_perturbations" class="quarto-xref">Equation&nbsp;<span>7.33</span></a> shows that the Alfvén wave in a uniform plasma is a linearly polarized wave if <span class="math inline">\(\mathbf{v}_1 = (0, v_y, 0)\)</span>. If instead we set <span class="math inline">\(\mathbf{k}=(0,0,k)\)</span> (<span class="math inline">\(\theta=0^\circ\)</span>) and <span class="math inline">\(\mathbf{v}_1 = (v_x, v_y, 0)\)</span>, then <span class="math inline">\(\mathbf{k}\cdot\mathbf{v}=0\Rightarrow \rho_1=0\)</span> but <span class="math inline">\(\mathbf{E}=-\mathbf{v}\times\mathbf{B}_0 = kv_y\hat{x} - kv_x\hat{y}\)</span> can be a circularly polarized wave or else. Correlated <span class="math inline">\(\mathbf{B}_1\)</span> and <span class="math inline">\(\mathbf{v}\)</span> corresponds to waves propagating anti-parallel to the <span class="math inline">\(\mathbf{B}_0\)</span> (<span class="math inline">\(\mathbf{k}\cdot\mathbf{B}_0&lt;0\)</span>), and anti-correlated <span class="math inline">\(\mathbf{B}_1\)</span> and <span class="math inline">\(\mathbf{v}\)</span> corresponds to waves propagating parallel to the <span class="math inline">\(\mathbf{B}_0\)</span> (<span class="math inline">\(\mathbf{k}\cdot\mathbf{B}_0&gt;0\)</span>). (This is the same as expressed by the Alfvénicity condition <a href="turbulence.html#eq-Alfvenity" class="quarto-xref">Equation&nbsp;<span>15.2</span></a>.) The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the <em>shear Alfvén wave</em> (SAW). An animation of SAW is shown in <a href="#fig-alfven-wave" class="quarto-xref">Figure&nbsp;<span>7.5</span></a>.</p>
 <div id="fig-alfven-wave" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-alfven-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1138,14 +1144,14 @@ Figure&nbsp;7.5: Alfvén wave.
 </div>
 <p>To understand what happens physically in an Alfvén wave, recall that this is an electromagnetic wave with a fluctuating magnetic field <span class="math inline">\(\mathbf{B}_1\)</span> given by <span id="eq-alfven-perturb-e-b"><span class="math display">\[
 \nabla\times\mathbf{E}_1 = -\dot{\mathbf{B}}_1\quad E_x=(\omega/k)B_y
-\tag{7.32}\]</span></span></p>
-<p>The small component <span class="math inline">\(B_y\)</span>, when added to <span class="math inline">\(\mathbf{B}_0\)</span>, gives the magnetic field lines a sinuisoidal ripple, shown exaggerated in <a href="#fig-alfven-wave-oscillations" class="quarto-xref">Figure&nbsp;<span>7.6</span></a>. At the point shown, <span class="math inline">\(B_y\)</span> is in the positive <span class="math inline">\(y\)</span> direction, so, according to <a href="#eq-alfven-perturb-e-b" class="quarto-xref">Equation&nbsp;<span>7.32</span></a>, <span class="math inline">\(E_x\)</span> is in the positive <span class="math inline">\(x\)</span> direction if <span class="math inline">\(\omega/k\)</span> is in the <span class="math inline">\(z\)</span> direction. The electric field <span class="math inline">\(E_x\)</span> gives the plasma an <span class="math inline">\(\mathbf{E}_1\times\mathbf{B}_0\)</span> drift in the negative <span class="math inline">\(y\)</span> direction. Since we have taken the limit <span class="math inline">\(\omega^2\ll\Omega_{c}\)</span>, both ions and electrons will have the same drift <span class="math inline">\(v_y\)</span>, obtained from <a href="#sec-CPDR" class="quarto-xref"><span>Section 7.7</span></a> the component <span class="math inline">\(v_y\)</span> under <span class="math inline">\(T_i=0\)</span>: <span id="eq-vxy-CPDR"><span class="math display">\[
+\tag{7.34}\]</span></span></p>
+<p>The small component <span class="math inline">\(B_y\)</span>, when added to <span class="math inline">\(\mathbf{B}_0\)</span>, gives the magnetic field lines a sinuisoidal ripple, shown exaggerated in <a href="#fig-alfven-wave-oscillations" class="quarto-xref">Figure&nbsp;<span>7.6</span></a>. At the point shown, <span class="math inline">\(B_y\)</span> is in the positive <span class="math inline">\(y\)</span> direction, so, according to <a href="#eq-alfven-perturb-e-b" class="quarto-xref">Equation&nbsp;<span>7.34</span></a>, <span class="math inline">\(E_x\)</span> is in the positive <span class="math inline">\(x\)</span> direction if <span class="math inline">\(\omega/k\)</span> is in the <span class="math inline">\(z\)</span> direction. The electric field <span class="math inline">\(E_x\)</span> gives the plasma an <span class="math inline">\(\mathbf{E}_1\times\mathbf{B}_0\)</span> drift in the negative <span class="math inline">\(y\)</span> direction. Since we have taken the limit <span class="math inline">\(\omega^2\ll\Omega_{c}\)</span>, both ions and electrons will have the same drift <span class="math inline">\(v_y\)</span>, obtained from <a href="#sec-CPDR" class="quarto-xref"><span>Section 7.7</span></a> the component <span class="math inline">\(v_y\)</span> under <span class="math inline">\(T_i=0\)</span>: <span id="eq-vxy-CPDR"><span class="math display">\[
 \begin{aligned}
 v_{ix} &amp;= \frac{iq}{m \omega}\left( 1-\frac{\Omega_c^2}{\omega^2} \right)^{-1} E_1 \\
 v_{iy} &amp;= \frac{q}{m\omega}\frac{\Omega_c}{\omega} \left( 1-\frac{\Omega_c^2}{\omega^2} \right)^{-1} E_1
 \end{aligned}
-\tag{7.33}\]</span></span></p>
-<p>Thus, the fluid moves up and down in the y direction. The magnitude of this velocity is <span class="math inline">\(|E_x/B_0|\)</span>. Since the ripple in the field is moving by at the phase velocity <span class="math inline">\(\omega/k\)</span>, the magnetic field is also moving downward at the point indicated in <a href="#fig-alfven-wave-oscillations" class="quarto-xref">Figure&nbsp;<span>7.6</span></a>. The downward velocity of the magnetic field lines is <span class="math inline">\((\omega/k)|B_y/B_0|\)</span>, which, according <a href="#eq-alfven-perturb-e-b" class="quarto-xref">Equation&nbsp;<span>7.32</span></a>, is just equal to the fluid velocity <span class="math inline">\(|E_x/B_0|\)</span>. Thus, the fluid and the field lines oscillate together as if the particles were stuck to the lines. The magnetic field lines act as if they were mass-loaded strings under tension, and an Alfvén wave can be regarded as the propagating disturbance occurring when the strings are plucked. This concept of plasma frozen to the field lines and moving with them is a useful one for understanding many low-frequency plasma phenomena. It can be shown that this notion is an accurate one as long as there is no electric field along <span class="math inline">\(\mathbf{B}\)</span>.</p>
+\tag{7.35}\]</span></span></p>
+<p>Thus, the fluid moves up and down in the y direction. The magnitude of this velocity is <span class="math inline">\(|E_x/B_0|\)</span>. Since the ripple in the field is moving by at the phase velocity <span class="math inline">\(\omega/k\)</span>, the magnetic field is also moving downward at the point indicated in <a href="#fig-alfven-wave-oscillations" class="quarto-xref">Figure&nbsp;<span>7.6</span></a>. The downward velocity of the magnetic field lines is <span class="math inline">\((\omega/k)|B_y/B_0|\)</span>, which, according <a href="#eq-alfven-perturb-e-b" class="quarto-xref">Equation&nbsp;<span>7.34</span></a>, is just equal to the fluid velocity <span class="math inline">\(|E_x/B_0|\)</span>. Thus, the fluid and the field lines oscillate together as if the particles were stuck to the lines. The magnetic field lines act as if they were mass-loaded strings under tension, and an Alfvén wave can be regarded as the propagating disturbance occurring when the strings are plucked. This concept of plasma frozen to the field lines and moving with them is a useful one for understanding many low-frequency plasma phenomena. It can be shown that this notion is an accurate one as long as there is no electric field along <span class="math inline">\(\mathbf{B}\)</span>.</p>
 <div id="fig-alfven-wave-oscillations" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-alfven-wave-oscillations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1156,25 +1162,25 @@ Figure&nbsp;7.6: Relation among the oscillating quantities in an Alfvén wave an
 </figcaption>
 </figure>
 </div>
-<p>It remains for us to see what sustains the electric field <span class="math inline">\(E_x\)</span> which we presupposed was there. As <span class="math inline">\(\mathbf{E}_1\)</span> fluctuates, the ions’ inertia causes them to lag behind the electrons, and there is a polarization drift <span class="math inline">\(\mathbf{v}_p\)</span> in the direction of <span class="math inline">\(\mathbf{E}_1\)</span>. This drift <span class="math inline">\(v_{ix}\)</span> is given by <a href="#eq-vxy-CPDR" class="quarto-xref">Equation&nbsp;<span>7.33</span></a> and causes a current <span class="math inline">\(\mathbf{j}_1\)</span> to flow in the <span class="math inline">\(x\)</span> direction. The resulting <span class="math inline">\(\mathbf{j}_1\times\mathbf{B}_0\)</span> force on the fluid is in the <span class="math inline">\(y\)</span> direction and is <span class="math inline">\(90^\circ\)</span> out of phase with the velocity <span class="math inline">\(\mathbf{v}_1\)</span>. This force perpetuates the oscillation in the same way as in any oscillator where the force is out of phase with the velocity. It is, of course, always the ion inertia that causes an overshoot and a sustained oscillation, but in a plasma the momentum is transferred in a complicated way via the electromagnetic forces.</p>
+<p>It remains for us to see what sustains the electric field <span class="math inline">\(E_x\)</span> which we presupposed was there. As <span class="math inline">\(\mathbf{E}_1\)</span> fluctuates, the ions’ inertia causes them to lag behind the electrons, and there is a polarization drift <span class="math inline">\(\mathbf{v}_p\)</span> in the direction of <span class="math inline">\(\mathbf{E}_1\)</span>. This drift <span class="math inline">\(v_{ix}\)</span> is given by <a href="#eq-vxy-CPDR" class="quarto-xref">Equation&nbsp;<span>7.35</span></a> and causes a current <span class="math inline">\(\mathbf{j}_1\)</span> to flow in the <span class="math inline">\(x\)</span> direction. The resulting <span class="math inline">\(\mathbf{j}_1\times\mathbf{B}_0\)</span> force on the fluid is in the <span class="math inline">\(y\)</span> direction and is <span class="math inline">\(90^\circ\)</span> out of phase with the velocity <span class="math inline">\(\mathbf{v}_1\)</span>. This force perpetuates the oscillation in the same way as in any oscillator where the force is out of phase with the velocity. It is, of course, always the ion inertia that causes an overshoot and a sustained oscillation, but in a plasma the momentum is transferred in a complicated way via the electromagnetic forces.</p>
 <p>In a more realistic geometry for experiments, <span class="math inline">\(\mathbf{E}_1\)</span> would be in the radial direction and <span class="math inline">\(\mathbf{v}_1\)</span> in the azimuthal direction. The motion of the plasma is then incompressible. This is the reason the <span class="math inline">\(\nabla p\)</span> term in the equation of motion could be neglected.</p>
-<p>In a non-uniform plasma, SAW attains the interesting property of a continuous spectrum. To illustrate this feature, let us consider the simplified slab model of a cold plasma with a non-uniform density, <span class="math inline">\(\rho=\rho(x)\)</span>, and a uniform <span class="math inline">\(\mathbf{B}_0 = B_0\hat{z}\)</span>. Assuming at <span class="math inline">\(t=0\)</span> a localized initial perturbation <span class="math inline">\(\mathbf{B}_{1y}(x,t=0) = \exp(-x^2/\Delta x^2)\)</span>, <span class="math inline">\(|k_y\Delta_x|\ll1\)</span>, and <span class="math inline">\(\partial\mathbf{B}_{1y}/\partial t=0\)</span>, the perturbation then evolves according to the following wave equation (<a href="#eq-mhd_cold_b_wave" class="quarto-xref">Equation&nbsp;<span>7.29</span></a>, <span class="math inline">\(B_{1z}=0\)</span> so no coupling between the fast mode and Alfvén mode): <span class="math display">\[
+<p>In a non-uniform plasma, SAW attains the interesting property of a continuous spectrum. To illustrate this feature, let us consider the simplified slab model of a cold plasma with a non-uniform density, <span class="math inline">\(\rho=\rho(x)\)</span>, and a uniform <span class="math inline">\(\mathbf{B}_0 = B_0\hat{z}\)</span>. Assuming at <span class="math inline">\(t=0\)</span> a localized initial perturbation <span class="math inline">\(\mathbf{B}_{1y}(x,t=0) = \exp(-x^2/\Delta x^2)\)</span>, <span class="math inline">\(|k_y\Delta_x|\ll1\)</span>, and <span class="math inline">\(\partial\mathbf{B}_{1y}/\partial t=0\)</span>, the perturbation then evolves according to the following wave equation (<a href="#eq-mhd_cold_b_wave" class="quarto-xref">Equation&nbsp;<span>7.31</span></a>, <span class="math inline">\(B_{1z}=0\)</span> so no coupling between the fast mode and Alfvén mode): <span class="math display">\[
 [\partial_t^2 + \omega_A^2(x)]B_{1y}(x,t) = 0
 \]</span></p>
 <p>Here <span class="math inline">\(\omega_A^2(x) = k_z^2v_A^2(x)\)</span> and the solution is <span id="eq-mhd_alfven_slab_by"><span class="math display">\[
 B_{1y}(x,t) = \hat{B}_{1y}(x,0)\cos[\omega_A(x)t]
-\tag{7.34}\]</span></span></p>
-<p><a href="#eq-mhd_alfven_slab_by" class="quarto-xref">Equation&nbsp;<span>7.34</span></a> shows that every point in <span class="math inline">\(x\)</span> oscillates at a different frequency, <span class="math inline">\(\omega_A(x)\)</span>. With a continuously varying <span class="math inline">\(\omega_A(x)\)</span>; the wave frequency, thus, constitutes a continuous spectrum. While the above result is based on a model with a 1D non-uniformity in x, this general feature of SAW continuous spectrum also holds in magnetized plasmas with 2D or 3D non-uniformities. A good example is geomagnetic pulsations in the Earth’s magnetosphere observed by Engebretson shown in Figure 1 of <span class="citation" data-cites="chen2021physics">(<a href="#ref-chen2021physics" role="doc-biblioref">L. Chen, Zonca, and Lin 2021</a>)</span>.</p>
-<p><a href="#eq-mhd_alfven_slab_by" class="quarto-xref">Equation&nbsp;<span>7.34</span></a> also indicates an unique and important property of SAW continuous spectrum: the spatial structure evolves with time. Specifically, the wave number in the non-uniformity direction is, time asymptotically, given by: <span id="eq-mhd_alfven_wavenumber_nonuniform"><span class="math display">\[
+\tag{7.36}\]</span></span></p>
+<p><a href="#eq-mhd_alfven_slab_by" class="quarto-xref">Equation&nbsp;<span>7.36</span></a> shows that every point in <span class="math inline">\(x\)</span> oscillates at a different frequency, <span class="math inline">\(\omega_A(x)\)</span>. With a continuously varying <span class="math inline">\(\omega_A(x)\)</span>; the wave frequency, thus, constitutes a continuous spectrum. While the above result is based on a model with a 1D non-uniformity in x, this general feature of SAW continuous spectrum also holds in magnetized plasmas with 2D or 3D non-uniformities. A good example is geomagnetic pulsations in the Earth’s magnetosphere observed by Engebretson shown in Figure 1 of <span class="citation" data-cites="chen2021physics">(<a href="#ref-chen2021physics" role="doc-biblioref">L. Chen, Zonca, and Lin 2021</a>)</span>.</p>
+<p><a href="#eq-mhd_alfven_slab_by" class="quarto-xref">Equation&nbsp;<span>7.36</span></a> also indicates an unique and important property of SAW continuous spectrum: the spatial structure evolves with time. Specifically, the wave number in the non-uniformity direction is, time asymptotically, given by: <span id="eq-mhd_alfven_wavenumber_nonuniform"><span class="math display">\[
 |k_x| = \bigg\lvert\frac{\partial \ln B_{1y}}{\partial x}\bigg\rvert \simeq \bigg\lvert\frac{\mathrm{d} \omega_A(x)}{\mathrm{d} x}\bigg\rvert t
-\tag{7.35}\]</span></span></p>
+\tag{7.37}\]</span></span></p>
 <p>That <span class="math inline">\(|k_x|\)</span> increases with <span class="math inline">\(t\)</span> is significant, since it implies that any initially long-scale perturbations will evolve into short scales. This point is illustrated in Figure ??? (CAN I PERFORM THE SIMULATION?); showing the evolution of a smooth <span class="math inline">\(B_{1y}\)</span> at <span class="math inline">\(t=0\)</span> to a spatially fast varying <span class="math inline">\(B_{1y}\)</span> at a later <span class="math inline">\(t\)</span>.</p>
 <p>Another consequence of <span class="math inline">\(|k_x|\)</span> increasing with <span class="math inline">\(t\)</span> is the temporal decay of <span class="math inline">\(B_{1x}\)</span>. From <span class="math inline">\(\nabla\cdot\mathbf{B}_1 \simeq \nabla_\perp\cdot\mathbf{B}_{1\perp}=0\)</span>, we can readily derive that, for <span class="math inline">\(|\omega_A^\prime t|\gg |k_y|\)</span>: <span class="math display">\[
 B_{1x}(x, t)\simeq \frac{k_y}{\omega_A^\prime(x)t}\hat{B}_{1y}(x,0)e^{-i\omega_A(x)t}\Big[ 1+\mathcal{O}\Big( \frac{k_y}{|\omega_A^\prime t|+ ...} \Big) \Big]
 \]</span></p>
 <p>That is, <span class="math inline">\(B_{1x}\)</span> decays temporally due to the phase mixing of increasingly more rapidly varying neighboring perturbations.</p>
 <p>Noting that, as <span class="math inline">\(t\rightarrow\infty\)</span>, <span class="math inline">\(|k_x|\rightarrow\infty\)</span>, it thus suggests that the perturbation will develop singular structures toward the steady state. As we will see in the field line resonance <a href="flr.html" class="quarto-xref"><span>Chapter 13</span></a>, the singularity is reached at the Alfvén resonant point <span class="math inline">\(x_r\)</span>, where <span class="math inline">\(\omega^2=\omega_A^2(x_r)\)</span> along with a finite resonant wave-energy absorption rate. Note that at the isolated extrema of the SAW continuum, <span class="math inline">\(|\omega_A^\prime|=0\)</span>, phase mixing vanishes; consequently, perturbation remains regular and experiences no damping via resonant absorption. This feature has important implications to Alfvén instabilities in laboratory plasmas.</p>
-<p>Space plasmas support a variety of waves, but for heating the plasma and accelerating the electrons and ions, Alfvén waves are a predominant source. Near the Sun, Alfvén waves are excited and propagate outward. They exchange their energy with particles to accelerate them in the form of solar wind and heat the electrons. When perpendicular wavelength of the wave becomes comparable to the ion gyro-radius (<span class="math inline">\(k_\perp r_{Li}\sim 1\)</span>) or inertial length (<span class="math inline">\(k_\perp d_i \sim 1\)</span>) in the case of kinetic Alfvén waves (KAWs, <a href="#sec-kaw" class="quarto-xref"><span>Section 7.9.4</span></a>) or inertial Alfvén waves (IAWs, <a href="#eq-iaw" class="quarto-xref">Equation&nbsp;<span>7.69</span></a>), respectively, then the wave in both the limits has a <em>nonzero parallel electric field</em> component which is responsible for the acceleration of the particles via the Landau mechanism. This is also consistent with the generalized Ohm’s law <a href="fluid.html#eq-genearlized_ohm_law" class="quarto-xref">Equation&nbsp;<span>5.27</span></a>: only when we go beyond Hall MHD can <span class="math inline">\(\mathbf{E}_\parallel\)</span> be nonzero. (WHAT ABOUT <span class="math inline">\(\eta\mathbf{j}\)</span>?) KAW relates to <span class="math inline">\(\frac{\nabla P_e}{ne}\)</span> term, while IAW relates to <span class="math inline">\(\frac{\partial \mathbf{j}}{\partial t}\)</span> term. The key interest is in <span class="math inline">\(E_\parallel\)</span>. KAWs and IAWs have significance not only in space plasmas but also in laboratory plasma such as in fusion reactors.</p>
+<p>Space plasmas support a variety of waves, but for heating the plasma and accelerating the electrons and ions, Alfvén waves are a predominant source. Near the Sun, Alfvén waves are excited and propagate outward. They exchange their energy with particles to accelerate them in the form of solar wind and heat the electrons. When perpendicular wavelength of the wave becomes comparable to the ion gyro-radius (<span class="math inline">\(k_\perp r_{Li}\sim 1\)</span>) or inertial length (<span class="math inline">\(k_\perp d_i \sim 1\)</span>) in the case of kinetic Alfvén waves (KAWs, <a href="#sec-kaw" class="quarto-xref"><span>Section 7.9.4</span></a>) or inertial Alfvén waves (IAWs, <a href="#eq-iaw" class="quarto-xref">Equation&nbsp;<span>7.71</span></a>), respectively, then the wave in both the limits has a <em>nonzero parallel electric field</em> component which is responsible for the acceleration of the particles via the Landau mechanism. This is also consistent with the generalized Ohm’s law <a href="fluid.html#eq-genearlized_ohm_law" class="quarto-xref">Equation&nbsp;<span>5.27</span></a>: only when we go beyond Hall MHD can <span class="math inline">\(\mathbf{E}_\parallel\)</span> be nonzero. (WHAT ABOUT <span class="math inline">\(\eta\mathbf{j}\)</span>?) KAW relates to <span class="math inline">\(\frac{\nabla P_e}{ne}\)</span> term, while IAW relates to <span class="math inline">\(\frac{\partial \mathbf{j}}{\partial t}\)</span> term. The key interest is in <span class="math inline">\(E_\parallel\)</span>. KAWs and IAWs have significance not only in space plasmas but also in laboratory plasma such as in fusion reactors.</p>
 <p>Alfvén wave has very high saturation level, meaning that it takes a long time for the wave to reach the nonlinear phase. (???)</p>
 <p><strong>SAW in a Slab</strong></p>
 <p>We now look deeper into the properties of Alfvén waves in a nonuniform magnetized plasma slab that carries a current flowing along an externally imposed magnetic field <span class="math inline">\(B_{0z}\hat{z}\)</span>, where <span class="math inline">\(B_{0z}\)</span> is assumed to be a constant. First, we formulate the governing equation for the slab geometry, under the ideal MHD condition. Then we show that Alfvén waves are always neutrally stable, with important indication at the end.</p>
@@ -1183,11 +1189,11 @@ B_{1x}(x, t)\simeq \frac{k_y}{\omega_A^\prime(x)t}\hat{B}_{1y}(x,0)e^{-i\omega_A
 \]</span></p>
 <p>The Ampère’s law gives <span id="eq-ampere_slab"><span class="math display">\[
 \nabla\times\mathbf{B}_0 = \mu_0 \mathbf{J}_0 \Rightarrow \frac{\partial B_{0y}}{\partial x}-\frac{\partial B_{0x}}{\partial y} = \frac{\partial B_{0y}}{\partial x} = \mu_0 J_0(x)
-\tag{7.36}\]</span></span></p>
+\tag{7.38}\]</span></span></p>
 <p>From the force balance equation, <span id="eq-force_balance_slab"><span class="math display">\[
 \mathbf{J}_0\times\mathbf{B}_0 = \nabla P_0
-\tag{7.37}\]</span></span></p>
-<p>Substituting <a href="#eq-ampere_slab" class="quarto-xref">Equation&nbsp;<span>7.36</span></a> into <a href="#eq-force_balance_slab" class="quarto-xref">Equation&nbsp;<span>7.37</span></a>, we get <span class="math display">\[
+\tag{7.39}\]</span></span></p>
+<p>Substituting <a href="#eq-ampere_slab" class="quarto-xref">Equation&nbsp;<span>7.38</span></a> into <a href="#eq-force_balance_slab" class="quarto-xref">Equation&nbsp;<span>7.39</span></a>, we get <span class="math display">\[
 \frac{{B_{0y}(x)}^2}{2\mu_0} + P_0(x) = \text{const.}
 \]</span></p>
 <p>Designate all perturbation quantities with a subscript 1, and assume <span class="math inline">\(e^{-i\omega t+ik_y y+ i k_z z}\)</span> dependence for all perturbations (nonuniform in the <span class="math inline">\(x\)</span>-direction, thus no sinuisoidal wave assumption). From linearized Faraday’s law and Ohm’s law in ideal MHD,</p>
@@ -1199,27 +1205,27 @@ B_{1x}(x, t)\simeq \frac{k_y}{\omega_A^\prime(x)t}\hat{B}_{1y}(x,0)e^{-i\omega_A
 \end{aligned}
 \]</span> where we have assumed the plasma is incompressible. Replace <span class="math inline">\(\nabla\)</span> with <span class="math inline">\(i\mathbf{k}\)</span>, <span class="math inline">\(\mathbf{v}_1=i\omega \pmb{\xi}_1\)</span> and take the <span class="math inline">\(x\)</span>-component, we get <span id="eq-mhd_slab_b1x"><span class="math display">\[
 B_{1x} = i(\mathbf{k}\cdot\mathbf{B}_0)\xi_{1x}
-\tag{7.38}\]</span></span> where <span class="math inline">\(\mathbf{k}=\hat{y}k_y+\hat{z}k_z\)</span>.</p>
+\tag{7.40}\]</span></span> where <span class="math inline">\(\mathbf{k}=\hat{y}k_y+\hat{z}k_z\)</span>.</p>
 <p>The MHD force law can be linearized to <span id="eq-mhd_momentum_linearized_slab"><span class="math display">\[
 \rho_0 \frac{\partial \mathbf{v}_1}{\partial t} = -\nabla\Big( p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\Big) + \frac{1}{\mu_0}\big[ (\mathbf{B}_0\cdot\nabla)\mathbf{B}_1 + (\mathbf{B}_1\cdot\nabla)\mathbf{B}_0\big]
-\tag{7.39}\]</span></span></p>
+\tag{7.41}\]</span></span></p>
 <p>Since the plasma is incompressible, <span class="math inline">\(\nabla\cdot\pmb{v}_1=0,\ \dot{\pmb{\xi}}=\mathbf{v}_1\Rightarrow \nabla\cdot\pmb{\xi}=0\)</span>. In addition, <span class="math inline">\(\nabla\cdot\mathbf{B}_1=0\)</span>. We then have <span class="math display">\[
 \begin{aligned}
 \mathbf{k}\cdot\pmb{\xi}_{1yz}&amp;=i\frac{\partial \xi_{1x}}{\partial x} \\
 \mathbf{k}\cdot\pmb{B}_{1yz}&amp;=i\frac{\partial B_{1x}}{\partial x}
 \end{aligned}
-\]</span> where <span class="math inline">\(\pmb{\xi}_{1yz} = (0,\xi_{1y},\xi_{1z})\)</span>, <span class="math inline">\(\mathbf{B}_{1yz}=(0,B_{1y},B_{1z})\)</span>. The <span class="math inline">\(x\)</span>-component of <a href="#eq-mhd_momentum_linearized_slab" class="quarto-xref">Equation&nbsp;<span>7.39</span></a> gives <span id="eq-mhd_momentum_linearized_slab_x"><span class="math display">\[
+\]</span> where <span class="math inline">\(\pmb{\xi}_{1yz} = (0,\xi_{1y},\xi_{1z})\)</span>, <span class="math inline">\(\mathbf{B}_{1yz}=(0,B_{1y},B_{1z})\)</span>. The <span class="math inline">\(x\)</span>-component of <a href="#eq-mhd_momentum_linearized_slab" class="quarto-xref">Equation&nbsp;<span>7.41</span></a> gives <span id="eq-mhd_momentum_linearized_slab_x"><span class="math display">\[
 -\rho_0\omega^2 \xi_{1x} = -\frac{\partial}{\partial x}\Big( p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\Big) +\frac{1}{\mu_0} \big[ (\mathbf{B}_0\cdot\nabla)B_{1x} \big]
-\tag{7.40}\]</span></span></p>
-<p>The dot product of <a href="#eq-mhd_momentum_linearized_slab" class="quarto-xref">Equation&nbsp;<span>7.39</span></a> with <span class="math inline">\(\mathbf{k}\)</span> gives <span id="eq-mhd_momentum_linearized_slab_k"><span class="math display">\[
+\tag{7.42}\]</span></span></p>
+<p>The dot product of <a href="#eq-mhd_momentum_linearized_slab" class="quarto-xref">Equation&nbsp;<span>7.41</span></a> with <span class="math inline">\(\mathbf{k}\)</span> gives <span id="eq-mhd_momentum_linearized_slab_k"><span class="math display">\[
 \begin{aligned}
 -\rho_0 \omega^2 \mathbf{k}\cdot\pmb{\xi}_{1yz} &amp;= ik^2 \Big( p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\Big) + \frac{1}{\mu_0}\big[ i(\mathbf{k}\cdot\mathbf{B}_0)(\mathbf{k}\cdot\mathbf{B}_{1yz}) + B_{1x}\frac{\partial }{\partial x}(\mathbf{k}\cdot\mathbf{B}_0)\big]\\
 -\rho_0 \omega^2 i\frac{\partial \xi_{1x}}{\partial x} &amp;= ik^2 \Big( p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\Big) + \frac{1}{\mu_0}\big[ i(\mathbf{k}\cdot\mathbf{B}_0)(i\frac{\partial B_{1x}}{\partial x}) + B_{1x}\frac{\partial }{\partial x}(\mathbf{k}\cdot\mathbf{B}_0)\big]
 \end{aligned}
-\tag{7.41}\]</span></span></p>
-<p>Finally, canceling <span class="math inline">\(p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\)</span> from <a href="#eq-mhd_momentum_linearized_slab_x" class="quarto-xref">Equation&nbsp;<span>7.40</span></a> and <a href="#eq-mhd_momentum_linearized_slab_k" class="quarto-xref">Equation&nbsp;<span>7.41</span></a> and substituting <span class="math inline">\(B_{1x}\)</span> from <a href="#eq-mhd_slab_b1x" class="quarto-xref">Equation&nbsp;<span>7.38</span></a>, we obtain the governing equation <span id="eq-mhd_slab_governing"><span class="math display">\[
+\tag{7.43}\]</span></span></p>
+<p>Finally, canceling <span class="math inline">\(p_1 + \frac{\mathbf{B}_0\cdot\mathbf{B}_1}{\mu_0}\)</span> from <a href="#eq-mhd_momentum_linearized_slab_x" class="quarto-xref">Equation&nbsp;<span>7.42</span></a> and <a href="#eq-mhd_momentum_linearized_slab_k" class="quarto-xref">Equation&nbsp;<span>7.43</span></a> and substituting <span class="math inline">\(B_{1x}\)</span> from <a href="#eq-mhd_slab_b1x" class="quarto-xref">Equation&nbsp;<span>7.40</span></a>, we obtain the governing equation <span id="eq-mhd_slab_governing"><span class="math display">\[
 \frac{\partial}{\partial x}\Big\{ \rho_0 \big[ \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2\big]\frac{\partial \xi_{1x}}{\partial x}\Big\} -k^2\rho_0 \big[ \omega^2 - (\mathbf{k}\cdot\mathbf{v}_A)^2\big]\xi_{1x}=0
-\tag{7.42}\]</span></span> where <span class="math inline">\(k^2={k_y}^2+ {k_z}^2\)</span>, <span class="math inline">\(\mathbf{v}_A = v_A \mathbf{B}_0/B_0\)</span>, and <span class="math inline">\(v_A=B_0/\sqrt{\mu_0 \rho_0}\)</span> is the local Alfvén speed. This is the governing equation of shear Alfvén waves in a slab geometry derived by Hasegawa and Liu Chen in the 1970s, which is readily compared with Eq.(10.33) in <span class="citation" data-cites="bellan2008fundamentals">(<a href="#ref-bellan2008fundamentals" role="doc-biblioref">Bellan 2008</a>)</span>.</p>
+\tag{7.44}\]</span></span> where <span class="math inline">\(k^2={k_y}^2+ {k_z}^2\)</span>, <span class="math inline">\(\mathbf{v}_A = v_A \mathbf{B}_0/B_0\)</span>, and <span class="math inline">\(v_A=B_0/\sqrt{\mu_0 \rho_0}\)</span> is the local Alfvén speed. This is the governing equation of shear Alfvén waves in a slab geometry derived by Hasegawa and Liu Chen in the 1970s, which is readily compared with Eq.(10.33) in <span class="citation" data-cites="bellan2008fundamentals">(<a href="#ref-bellan2008fundamentals" role="doc-biblioref">Bellan 2008</a>)</span>.</p>
 <p>It is easy to show that this governing equation always yields <em>neutrally stable</em> solutions of SAWs, i.e.&nbsp;<span class="math inline">\(\omega_i=\Im(\omega)=0\)</span>. Multiply it by <span class="math inline">\(\xi_{1x}^\ast\)</span>, and integrate the resultant equation to get <span class="math display">\[
 \int_{-\infty}^{\infty}\mathrm{d}x \rho_0 \big[ \omega^2-(\mathbf{k}\cdot\mathbf{v}_A)^2\big] \Big[ \bigg\lvert \frac{\mathrm{d}\xi_{1x}}{\mathrm{d}x}\bigg\rvert^2 + k^2\lvert\xi_{1x}\rvert^2 \Big] = 0
 \]</span> where we have assumed that <span class="math inline">\(\xi_{1x}\)</span> vanishes on the boundary. This gives <span class="math display">\[
@@ -1230,7 +1236,7 @@ B_{1x} = i(\mathbf{k}\cdot\mathbf{B}_0)\xi_{1x}
 </section>
 <section id="sec-fast_slow" class="level3" data-number="7.8.4">
 <h3 data-number="7.8.4" class="anchored" data-anchor-id="sec-fast_slow"><span class="header-section-number">7.8.4</span> Fast and Slow Wave</h3>
-<p>The <span class="math inline">\(x\)</span>-<span class="math inline">\(z\)</span> components of <a href="#eq-mhd_v_perturbation" class="quarto-xref">Equation&nbsp;<span>7.30</span></a> give <span class="math display">\[
+<p>The <span class="math inline">\(x\)</span>-<span class="math inline">\(z\)</span> components of <a href="#eq-mhd_v_perturbation" class="quarto-xref">Equation&nbsp;<span>7.32</span></a> give <span class="math display">\[
 \begin{aligned}
 (\omega^2-k^2{v_A}^2-{k_x}^2{v_s}^2)v_x -k_x k_z{v_x}^2v_z = 0 \\
 (\omega^2-{k_z}^2{v_s}^2)v_z -k_x k_z{v_s}^2v_x=0
@@ -1241,8 +1247,8 @@ B_{1x} = i(\mathbf{k}\cdot\mathbf{B}_0)\xi_{1x}
 \omega^4-k^2({v_A}^2+{v_s}^2)\omega^2+{k_z}^2{v_s}^2k^2{v_A}^2=0 \\
 \frac{\omega^2}{k^2}=\frac{1}{2}({v_A}^2+{v_s}^2)\pm\frac{1}{2}\sqrt{({v_A}^2+{v_s}^2)^2-4{v_s}^2{v_A}^2\cos^2\theta}
 \end{aligned}
-\tag{7.43}\]</span></span></p>
-<p>“+” corresponds to the fast mode, or magnetosonic mode, and “-” corresponds to the slow mode. The Friedrich graph <a href="#fig-mhd-phase-speed-low-beta" class="quarto-xref">Figure&nbsp;<span>7.7</span></a> is very useful in interpreting <a href="#eq-mhd_fast_slow" class="quarto-xref">Equation&nbsp;<span>7.43</span></a>. Here we only show the case for <span class="math inline">\(v_A&gt;v_s\)</span>; if <span class="math inline">\(v_A&lt;v_S\)</span>, then along the background magnetic field direction <span class="math inline">\(\hat{z}\)</span> the fast wave will have a phase speed <span class="math inline">\(v_\mathrm{ph} = v_s\)</span>, and the slow wave will a phase speed <span class="math inline">\(v_\mathrm{ph} = v_A\)</span> that overlaps with the Alfvén wave. Thus in the high-<span class="math inline">\(\beta\)</span> case slow wave may have a faster phase speed than the Alfvén wave at a proper angle!</p>
+\tag{7.45}\]</span></span></p>
+<p>“+” corresponds to the fast mode, or magnetosonic mode, and “-” corresponds to the slow mode. The Friedrich graph <a href="#fig-mhd-phase-speed-low-beta" class="quarto-xref">Figure&nbsp;<span>7.7</span></a> is very useful in interpreting <a href="#eq-mhd_fast_slow" class="quarto-xref">Equation&nbsp;<span>7.45</span></a>. Here we only show the case for <span class="math inline">\(v_A&gt;v_s\)</span>; if <span class="math inline">\(v_A&lt;v_S\)</span>, then along the background magnetic field direction <span class="math inline">\(\hat{z}\)</span> the fast wave will have a phase speed <span class="math inline">\(v_\mathrm{ph} = v_s\)</span>, and the slow wave will a phase speed <span class="math inline">\(v_\mathrm{ph} = v_A\)</span> that overlaps with the Alfvén wave. Thus in the high-<span class="math inline">\(\beta\)</span> case slow wave may have a faster phase speed than the Alfvén wave at a proper angle!</p>
 <p>Another thing to be careful about is that when you observe a wave propagating at the Alfvén speed along the field line, you need more information to determine the characteristics of the wave:</p>
 <ul>
 <li>Check the <span class="math inline">\(\beta\)</span>-regime as well as the compressionality to determine if it has fast/slow wave component.</li>
@@ -1267,11 +1273,11 @@ p_1 &amp;= \gamma p_0\frac{\rho_1}{\rho_0} = \frac{\gamma p_0}{\omega}\mathbf{k}
 \mathbf{B}_1 &amp;= \frac{\mathbf{k}}{\omega}\times\mathbf{E} = \frac{(\mathbf{k}\cdot\mathbf{v})\mathbf{B}_0 - (\mathbf{k}\cdot\mathbf{B}_0)\mathbf{v}}{\omega} = -\frac{B_0 v_x k_z}{\omega}\hat{x} + \frac{B_0v_xk_x}{\omega}\hat{z} \\
 \mathbf{j} &amp;= \frac{1}{\mu_0}\nabla\times\mathbf{B}_1 = \frac{i\mathbf{k}\times\mathbf{B}_1}{\mu_0}
 \end{aligned}
-\tag{7.44}\]</span></span></p>
+\tag{7.46}\]</span></span></p>
 <p><span class="math inline">\(\mathbf{E}\)</span> shows that the fast/slow modes in a uniform plasma are also linearly polarized. When we have <span class="math inline">\(\theta=90^\circ\)</span> (<a href="#fig-fast-wave" class="quarto-xref">Figure&nbsp;<span>7.8</span></a>), the magnetic perturbation can be simplified to <span class="math display">\[
 \mathbf{B}_1 = \frac{v}{\omega/k_\perp}\mathbf{B}_0
 \]</span> which means that the perturbed magnetic field is always aligned with the background magnetic field.</p>
-<p>The distinction between the fast and slow waves can be further understood by comparing the signs of the wave induced fluctuations in the plasma and magnetic pressures: <span class="math inline">\(p\)</span> and <span class="math inline">\(\mathbf{B}_0\cdot\mathbf{B}/\mu_0\)</span>, respectively. It follows from <a href="#eq-mhd_fast_perturbations" class="quarto-xref">Equation&nbsp;<span>7.44</span></a> that <span class="math display">\[
+<p>The distinction between the fast and slow waves can be further understood by comparing the signs of the wave induced fluctuations in the plasma and magnetic pressures: <span class="math inline">\(p\)</span> and <span class="math inline">\(\mathbf{B}_0\cdot\mathbf{B}/\mu_0\)</span>, respectively. It follows from <a href="#eq-mhd_fast_perturbations" class="quarto-xref">Equation&nbsp;<span>7.46</span></a> that <span class="math display">\[
 \frac{\mathbf{B}_0\cdot\mathbf{B}}{\mu_0} = \frac{\mathbf{k}\cdot\mathbf{v}B_0^2 - (\mathbf{k}\cdot\mathbf{B}_0)(\mathbf{B}_0\cdot\mathbf{v})}{\mu_0\,\omega}
 \]</span></p>
 <p>The <span class="math inline">\(z\)</span>-component of the perturbed momentum equation yields <span class="math display">\[
@@ -1279,7 +1285,7 @@ p_1 &amp;= \gamma p_0\frac{\rho_1}{\rho_0} = \frac{\gamma p_0}{\omega}\mathbf{k}
 \]</span></p>
 <p>Combining the above, we have <span id="eq-mhd-B-P-perturb-relation"><span class="math display">\[
 \frac{\mathbf{B}_0\cdot\mathbf{B}}{\mu_0} = \frac{v_A^2}{v_s^2}\left( 1 - \frac{k^2 v_s^2\cos^2\theta}{\omega^2} \right) p
-\tag{7.45}\]</span></span></p>
+\tag{7.47}\]</span></span></p>
 <p>Hence, <span class="math inline">\(p\)</span> and <span class="math inline">\(\mathbf{B}_0\cdot\mathbf{B}/\mu_0\)</span> have the same sign if <span class="math inline">\(V_\mathrm{ph}=\omega/k&gt;v_s \,\cos\theta\)</span>, and the opposite sign if <span class="math inline">\(V_\mathrm{ph}&lt;v_s\,\cos\theta\)</span>. It is straightforward to show that <span class="math inline">\(v_+&gt; v_s\,\cos\theta\)</span>, and <span class="math inline">\(v_-&lt;v_s\,\cos\theta\)</span>. Thus, we conclude that in the fast magnetosonic wave the pressure and magnetic energy fluctuations reinforce one another, whereas the fluctuations oppose one another in the slow magnetosonic wave.</p>
 <p>The temperature perturbation, based on the equation of state, can be derived as follows: <span id="eq-mhd_fast_wave_T_perturbation"><span class="math display">\[
 \begin{aligned}
@@ -1289,8 +1295,8 @@ T_1 &amp;= T - T_0 = \frac{p_0 + p_1}{(n_0 + n_1)k_B} - \frac{p_0}{n_0 k_B} \\
 &amp;= p_0\frac{1}{k_B}\left[ \frac{(\gamma-1)n_1}{n_0(n_0+n_1)} \right] \\
 &amp;= T_0\left(\gamma-1 \right)\frac{\mathbf{k}\cdot\mathbf{v}}{\omega + \mathbf{k}\cdot\mathbf{v}}
 \end{aligned}
-\tag{7.46}\]</span></span></p>
-<p><a href="#eq-mhd_fast_wave_T_perturbation" class="quarto-xref">Equation&nbsp;<span>7.46</span></a> shows that temperature does not follow the same sinusoidal shape as the perturbed velocity.</p>
+\tag{7.48}\]</span></span></p>
+<p><a href="#eq-mhd_fast_wave_T_perturbation" class="quarto-xref">Equation&nbsp;<span>7.48</span></a> shows that temperature does not follow the same sinusoidal shape as the perturbed velocity.</p>
 <p>Special attention is required for the extreme cases. When <span class="math inline">\(\theta=90^\circ\)</span>, the fast wave phase speed <span class="math inline">\(v_\mathrm{ph}=\sqrt{v_A^2 + v_s^2}\)</span> while the slow wave phase speed <span class="math inline">\(v_\mathrm{ph}=0\)</span>. Slow waves cannot propagate perpendicular to the magnetic field. However, this is still a valid solution with all the slow mode perturbation properties, and you will see in <a href="stability.html#sec-mirror-instability" class="quarto-xref"><span>Section 10.11.2</span></a> and <a href="kmhd.html#sec-mirror" class="quarto-xref"><span>Section 11.2</span></a> that this is named <em>mirror mode</em>. When <span class="math inline">\(\theta=0^\circ\)</span>, the fast wave phase speed <span class="math inline">\(v_\mathrm{ph}=\max(v_A, v_s)\)</span> while the slow wave phase speed <span class="math inline">\(v_\mathrm{ph}=\min(v_A, v_s)\)</span>.</p>
 <p>It is important to understand the nature of fast and slow waves under the <em>cold plasma limit</em>, i.e.&nbsp;in the low-<span class="math inline">\(\beta\)</span> regime where <span class="math inline">\(v_A\gg v_s\)</span> (cold, strong B). If <span class="math inline">\(v_s\rightarrow 0\)</span>, the slow mode ceases to exit (<span class="math inline">\(V_\mathrm{ph}\rightarrow 0\)</span>) and the phase speed of the fast mode becomes <span class="math inline">\(v_p \approx v_A\)</span>. This is often called the <em>compressional Alfvén wave</em>, which is actually a fast wave in the low-<span class="math inline">\(\beta\)</span> limit. If <span class="math inline">\(\beta\)</span> is low but we still have a finite sound speed, the dispersion relation for the slow wave reduces to <span class="math display">\[
 \omega \simeq k\,v_s\,\cos\theta
@@ -1306,14 +1312,14 @@ Figure&nbsp;7.8: Fast wave.
 </figcaption>
 </figure>
 </div>
-<p>Sometimes the fast wave dispersion relation is written in alternative ways. Let <span class="math inline">\(a=\omega/(k_\parallel v_A)=\omega/(k\cos\theta\,v_A)\)</span>. From <a href="#eq-mhd_fast_slow" class="quarto-xref">Equation&nbsp;<span>7.43</span></a>, we have <span id="eq-mhd-fast-angle"><span class="math display">\[
+<p>Sometimes the fast wave dispersion relation is written in alternative ways. Let <span class="math inline">\(a=\omega/(k_\parallel v_A)=\omega/(k\cos\theta\,v_A)\)</span>. From <a href="#eq-mhd_fast_slow" class="quarto-xref">Equation&nbsp;<span>7.45</span></a>, we have <span id="eq-mhd-fast-angle"><span class="math display">\[
 \cos^2\theta = \frac{a^2\left( v_s^2/v_A^2 + 1 \right)-v_s^2/v_A^2}{a^4}
-\tag{7.47}\]</span></span></p>
+\tag{7.49}\]</span></span></p>
 <p>This expression is useful when considering the wave resonance and mode conversions. For example, Alfvén resonance occurs when <span id="eq-mhd-alfven-resonance"><span class="math display">\[
 \omega^2 = k_\parallel^2 v_A^2
-\tag{7.48}\]</span></span> i.e.&nbsp;<span class="math inline">\(a=1\)</span> under the low frequency approximation. In higher frequency cases, the Alfvén resonance condition is modified as <span id="eq-mhd-alfven-resonance-flr"><span class="math display">\[
+\tag{7.50}\]</span></span> i.e.&nbsp;<span class="math inline">\(a=1\)</span> under the low frequency approximation. In higher frequency cases, the Alfvén resonance condition is modified as <span id="eq-mhd-alfven-resonance-flr"><span class="math display">\[
 a = \frac{1}{\left( 1-\omega^2/\Omega_i^2 \right)^2}
-\tag{7.49}\]</span></span> because of the finite ion Larmor radius effects. (The Alfvén resonance singularity can be removed by including non‐MHD effects such as electron inertia or ion Larmor radius corrections.)</p>
+\tag{7.51}\]</span></span> because of the finite ion Larmor radius effects. (The Alfvén resonance singularity can be removed by including non‐MHD effects such as electron inertia or ion Larmor radius corrections.)</p>
 </section>
 <section id="limitations-of-the-mhd-model" class="level3" data-number="7.8.5">
 <h3 data-number="7.8.5" class="anchored" data-anchor-id="limitations-of-the-mhd-model"><span class="header-section-number">7.8.5</span> Limitations of the MHD model</h3>
@@ -1340,8 +1346,8 @@ a = \frac{1}{\left( 1-\omega^2/\Omega_i^2 \right)^2}
 \nabla\times\mathbf{E}_1 = -\frac{\partial\mathbf{B}_1}{\partial t} \\
 \nabla\times\mathbf{B}_1 = \mu_0 \mathbf{j}_1
 \end{aligned}
-\tag{7.50}\]</span></span></p>
-<p>If the dependence of <span class="math inline">\(\mathbf{j}_1\)</span> on <span class="math inline">\(\mathbf{E}_1\)</span> can be determined, then the combination of Ampère’s law and Faraday’s law provides a complete self-consistent description of the coupled fields <span class="math inline">\(\mathbf{E}_1, \mathbf{B}_1\)</span> and hence describes the normal modes. From a mathematical point of view, specifying <span class="math inline">\(\mathbf{j}_1(\mathbf{E}_1)\)</span> means that there are as many equations as dependent variables in the pair of <a href="#eq-maxwell-linearized" class="quarto-xref">Equation&nbsp;<span>7.50</span></a>. The relationship between <span class="math inline">\(\mathbf{j}_1\)</span> and <span class="math inline">\(\mathbf{E}_1\)</span> is determined by the Lorentz equation or some generalization thereof (e.g., drift equations, Vlasov equation, fluid equation of motion). The MHD derivation used the polarization drift to give a relationship between <span class="math inline">\(j_{1\perp}\)</span> and <span class="math inline">\(E_{1\perp}\)</span> but leaves ambiguous the relationship between <span class="math inline">\(j_{1\parallel}\)</span> and <span class="math inline">\(E_{1\parallel}\)</span>.</p>
+\tag{7.52}\]</span></span></p>
+<p>If the dependence of <span class="math inline">\(\mathbf{j}_1\)</span> on <span class="math inline">\(\mathbf{E}_1\)</span> can be determined, then the combination of Ampère’s law and Faraday’s law provides a complete self-consistent description of the coupled fields <span class="math inline">\(\mathbf{E}_1, \mathbf{B}_1\)</span> and hence describes the normal modes. From a mathematical point of view, specifying <span class="math inline">\(\mathbf{j}_1(\mathbf{E}_1)\)</span> means that there are as many equations as dependent variables in the pair of <a href="#eq-maxwell-linearized" class="quarto-xref">Equation&nbsp;<span>7.52</span></a>. The relationship between <span class="math inline">\(\mathbf{j}_1\)</span> and <span class="math inline">\(\mathbf{E}_1\)</span> is determined by the Lorentz equation or some generalization thereof (e.g., drift equations, Vlasov equation, fluid equation of motion). The MHD derivation used the polarization drift to give a relationship between <span class="math inline">\(j_{1\perp}\)</span> and <span class="math inline">\(E_{1\perp}\)</span> but leaves ambiguous the relationship between <span class="math inline">\(j_{1\parallel}\)</span> and <span class="math inline">\(E_{1\parallel}\)</span>.</p>
 <p>The two-fluid equations provide a definite description of the relationship between <span class="math inline">\(j_{1\parallel}\)</span> and <span class="math inline">\(E_{1\parallel}\)</span>. At frequencies well below the cyclotron frequency, decoupling of modes also occurs in the two-fluid description, and this decoupling is more clearly defined and more symmetric than in MHD. The decoupling in a uniform plasma results because the dependence of <span class="math inline">\(\mathbf{j}_1\)</span> on <span class="math inline">\(\mathbf{E}_1\)</span> has the property that <span class="math inline">\(j_{1z}\sim E_{1z}\)</span> and <span class="math inline">\(\mathbf{j}_{1\perp}\sim\mathbf{E}_{1\perp}\)</span>. Thus, for <span class="math inline">\(\omega\ll\omega_{ci}\)</span> there is a simple linear relation between parallel electric field and parallel current and another distinct simple linear relation between perpendicular electric field and perpendicular current; these two linear relations mean that the tensor relating <span class="math inline">\(\mathbf{j}_1\)</span> to <span class="math inline">\(\mathbf{E}_1\)</span> is diagonal (at higher frequencies this is not the case). The decoupling can be seen by supposing that all first order quantities have the dependence <span class="math inline">\(\exp(i\mathbf{k}_\perp\cdot\mathbf{x}+ik_z z)\)</span> where <span class="math inline">\(\mathbf{k}_\perp = k_x\hat{x}+k_y\hat{y}\)</span>. Mode decoupling can be seen by examining <a href="#tbl-par-perp-mode-decoupling" class="quarto-xref">Table&nbsp;<span>7.1</span></a> which lists the electric and magnetic field components:</p>
 <div id="tbl-par-perp-mode-decoupling" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1387,41 +1393,41 @@ Table&nbsp;7.1: Parallel and perpendicular mode decoupling
 <p>This pair of assumptions completes the system of equations, but omits the parallel dynamics associated with the <span class="math inline">\(E_z\)</span> mode and instead replaces this dynamics with an assumption that <span class="math inline">\(j_{z1}\)</span> is determined by some unspecified automatic feedback mechanism. In contrast, the two-fluid equations describe how particle dynamics determines the relationship between <span class="math inline">\(j_{z1}\)</span> and <span class="math inline">\(E_{z1}\)</span>. Thus, while MHD is both simpler and self-consistent, it omits some vital physics.</p>
 <p>The two-fluid model is based on the linearized equations of motion <span id="eq-kaw-2fluid-1"><span class="math display">\[
 m_s n \frac{\partial\mathbf{u}_{s1}}{\partial t} = nq_s\left( \mathbf{E}_1 + \mathbf{u}_{\sigma 1}\times\mathbf{B} \right) - \nabla\cdot\overleftrightarrow{P}_{s1}
-\tag{7.51}\]</span></span></p>
+\tag{7.53}\]</span></span></p>
 <p>Charge neutrality is assumed so that <span class="math inline">\(n_i=n_e=n\)</span>. Also, the pressure terms is <span id="eq-kaw-2fluid-2"><span class="math display">\[
 \nabla\cdot\overleftrightarrow{P}_{s1} = \nabla\cdot
 \begin{bmatrix}
 p_{s\perp 1} &amp;&amp; 0 &amp;&amp; 0 \\ 0 &amp;&amp; p_{s\perp 1} &amp;&amp; 0 \\ 0 &amp;&amp; 0 &amp;&amp; p_{sz1}
 \end{bmatrix} = \nabla_\perp p_{s\perp 1} + \hat{z}\frac{\partial p_{sz1}}{\partial z}
-\tag{7.52}\]</span></span></p>
-<p>Assuming <span class="math inline">\(\omega\ll \omega_{ci}\)</span> implies <span class="math inline">\(\omega\ll \omega_{ce}\)</span> also and so perpendicular motion can be described by drift theory for both ions and electrons. However, here the drift approximation is used for the fluid equations, rather than for a single particle. Following the drift method of analysis, the left hand side of <a href="#eq-kaw-2fluid-1" class="quarto-xref">Equation&nbsp;<span>7.51</span></a> is neglected to first approximation, resulting in <span id="eq-kaw-2fluid-3"><span class="math display">\[
-\mathbf{u}_{s1}\times\mathbf{B} \simeq -\mathbf{E}_{1\perp} + \nabla_\perp p_{s\perp 1}/nq_s
-\tag{7.53}\]</span></span> which may be solved for <span class="math inline">\(\mathbf{u}_{s1}\)</span> to give <span id="eq-kaw-2fluid-4"><span class="math display">\[
-\mathbf{u}_{s\perp 1} = \frac{\mathbf{E}_1\times\mathbf{B}}{B^2} - \frac{\nabla p_{s\perp 1}\times\mathbf{B}}{nq_s B^2}
 \tag{7.54}\]</span></span></p>
-<p>The first term is the single-particle <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift and the second term is called the diamagnetic drift, a fluid effect that does not exist for single-particle motion (<a href="fluid.html#sec-fluid-drift-perp" class="quarto-xref"><span>Section 5.7</span></a>). Because <span class="math inline">\(\mathbf{u}_{s\perp 1}\)</span> is time-dependent there is also a polarization drift. Recalling that the form of the single-particle polarization drift for electric field only is <span class="math inline">\(\mathbf{v}_p=m\dot{\mathbf{E}}_{1\perp}/qB^2\)</span> and using <span class="math inline">\(\mathbf{E}_{1\perp}-\nabla_\perp p_{s\perp 1}/nq_s\)</span> for the fluid model instead of just <span class="math inline">\(\mathbf{E}_{1\perp}\)</span> for single particles (<a href="#eq-kaw-2fluid-3" class="quarto-xref">Equation&nbsp;<span>7.53</span></a>) the fluid polarization drift is obtained. Withe the inclusion of this higher order correction, the perpendicular fluid motion becomes <span id="eq-kaw-2fluid-5"><span class="math display">\[
+<p>Assuming <span class="math inline">\(\omega\ll \omega_{ci}\)</span> implies <span class="math inline">\(\omega\ll \omega_{ce}\)</span> also and so perpendicular motion can be described by drift theory for both ions and electrons. However, here the drift approximation is used for the fluid equations, rather than for a single particle. Following the drift method of analysis, the left hand side of <a href="#eq-kaw-2fluid-1" class="quarto-xref">Equation&nbsp;<span>7.53</span></a> is neglected to first approximation, resulting in <span id="eq-kaw-2fluid-3"><span class="math display">\[
+\mathbf{u}_{s1}\times\mathbf{B} \simeq -\mathbf{E}_{1\perp} + \nabla_\perp p_{s\perp 1}/nq_s
+\tag{7.55}\]</span></span> which may be solved for <span class="math inline">\(\mathbf{u}_{s1}\)</span> to give <span id="eq-kaw-2fluid-4"><span class="math display">\[
+\mathbf{u}_{s\perp 1} = \frac{\mathbf{E}_1\times\mathbf{B}}{B^2} - \frac{\nabla p_{s\perp 1}\times\mathbf{B}}{nq_s B^2}
+\tag{7.56}\]</span></span></p>
+<p>The first term is the single-particle <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift and the second term is called the diamagnetic drift, a fluid effect that does not exist for single-particle motion (<a href="fluid.html#sec-fluid-drift-perp" class="quarto-xref"><span>Section 5.7</span></a>). Because <span class="math inline">\(\mathbf{u}_{s\perp 1}\)</span> is time-dependent there is also a polarization drift. Recalling that the form of the single-particle polarization drift for electric field only is <span class="math inline">\(\mathbf{v}_p=m\dot{\mathbf{E}}_{1\perp}/qB^2\)</span> and using <span class="math inline">\(\mathbf{E}_{1\perp}-\nabla_\perp p_{s\perp 1}/nq_s\)</span> for the fluid model instead of just <span class="math inline">\(\mathbf{E}_{1\perp}\)</span> for single particles (<a href="#eq-kaw-2fluid-3" class="quarto-xref">Equation&nbsp;<span>7.55</span></a>) the fluid polarization drift is obtained. Withe the inclusion of this higher order correction, the perpendicular fluid motion becomes <span id="eq-kaw-2fluid-5"><span class="math display">\[
 \mathbf{u}_{s\perp 1} = \frac{\mathbf{E}_1\times\mathbf{B}}{B^2} - \frac{\nabla p_{s\perp 1}\times\mathbf{B}}{nq_s B^2} + \frac{m_s}{q_s B^2}\dot{\mathbf{E}}_{1\perp} - \frac{m_s}{n q_s^2 B^2}\nabla_\perp \dot{p}_{s\sigma 1}
-\tag{7.55}\]</span></span></p>
+\tag{7.57}\]</span></span></p>
 <p>The last two terms are smaller than the first two terms by the ratio <span class="math inline">\(\omega/\omega_{cs}\)</span> and so may be ignored when the electron and ion fluid velocities are considered separately. However, when the perpendicular current, i.e.&nbsp;<span class="math inline">\(\mathbf{j}_{1\perp} = \sum n q_s \mathbf{u}_{s\perp 1}\)</span> is considered, the electron and ion <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> drift terms cancel so that the polarization terms becomes the leading terms involving the electric field. Because of the mass in the numerator, the ion polarization drift is much larger than the electron polarization drift. Thus, the perpendicular current comes form ion polarization drift and diamagnetic current <span id="eq-kaw-2fluid-current"><span class="math display">\[
 \mu_0\mathbf{j}_{\perp 1} = \frac{\mu_0 nm_i\dot{\mathbf{E}}_{1\perp}}{B^2} - \sum_s \frac{\nabla p_{s\perp 1}\times\mathbf{B}}{B^2} = \frac{1}{v_A^2}\dot{\mathbf{E}}_{\perp 1} - \frac{\mu_0\nabla p_{\perp 1}\times\mathbf{B}}{B^2}
-\tag{7.56}\]</span></span> where <span class="math inline">\(p_{\perp 1}=\sum p_{s\perp 1}\)</span>. The terms involving <span class="math inline">\(\dot{p}_{\perp 1}\)</span> has been dropped because it is small by <span class="math inline">\(\omega/\omega_c\)</span> compared to the <span class="math inline">\(p_{\perp 1}\)</span> term.</p>
+\tag{7.58}\]</span></span> where <span class="math inline">\(p_{\perp 1}=\sum p_{s\perp 1}\)</span>. The terms involving <span class="math inline">\(\dot{p}_{\perp 1}\)</span> has been dropped because it is small by <span class="math inline">\(\omega/\omega_c\)</span> compared to the <span class="math inline">\(p_{\perp 1}\)</span> term.</p>
 <p>The center of mass perpendicular motions is <span class="math display">\[
 \mathbf{U}_{\perp 1} = \frac{\sum m_s n \mathbf{u}_{s\perp 1}}{\sum m_s n}\approx \mathbf{u}_{i\perp 1}
 \]</span></p>
 <p>An important issue for the perpendicular motion is <em>whether <span class="math inline">\(\mathbf{u}_{s\perp 1}\)</span> is compressible or incompressible</em>. Let us temporarily ignore parallel motion and consider the continuity equation <span id="eq-kaw-2fluid-6"><span class="math display">\[
 \frac{\partial n_1}{\partial t} + n\nabla\cdot\mathbf{u}_{s\perp 1} = 0
-\tag{7.57}\]</span></span></p>
+\tag{7.59}\]</span></span></p>
 <p>If <span class="math inline">\(\nabla\cdot\mathbf{u}_{s\perp 1}=0\)</span>, the mode does not involve any density perturbation, i.e.&nbsp;<span class="math inline">\(n_1=0\)</span>, and is said to be an incompressible mode. On the other hand, if <span class="math inline">\(\nabla\cdot\mathbf{u}_{s\perp 1}\neq 0\)</span> then there are fluctuations in density and the mode is said to be compressible.</p>
 <p>To proceed further, consider the vector identity <span class="math display">\[
 \nabla\cdot(\mathbf{F}\times\mathbf{G}) = \mathbf{G}\cdot\nabla\times\mathbf{F} - \mathbf{F}\cdot\nabla\times\mathbf{G}
 \]</span></p>
-<p>If <span class="math inline">\(\mathbf{G}\)</span> is spatially uniform, this identity reduces to <span class="math inline">\(\nabla\cdot(\mathbf{F}\times\mathbf{G}) = \mathbf{G}\cdot\nabla\times\mathbf{F}\)</span> which in turn vanishes if <span class="math inline">\(\mathbf{F}\)</span> is the gradient of a scalar. Taking the divergence of <a href="#eq-kaw-2fluid-5" class="quarto-xref">Equation&nbsp;<span>7.55</span></a> and ignoring the polarization terms (they are of order <span class="math inline">\(\omega/\omega_{ci}\)</span> and are only important when calculating the current which we are not interested in right now) gives <span id="eq-kaw-2fluid-7"><span class="math display">\[
+<p>If <span class="math inline">\(\mathbf{G}\)</span> is spatially uniform, this identity reduces to <span class="math inline">\(\nabla\cdot(\mathbf{F}\times\mathbf{G}) = \mathbf{G}\cdot\nabla\times\mathbf{F}\)</span> which in turn vanishes if <span class="math inline">\(\mathbf{F}\)</span> is the gradient of a scalar. Taking the divergence of <a href="#eq-kaw-2fluid-5" class="quarto-xref">Equation&nbsp;<span>7.57</span></a> and ignoring the polarization terms (they are of order <span class="math inline">\(\omega/\omega_{ci}\)</span> and are only important when calculating the current which we are not interested in right now) gives <span id="eq-kaw-2fluid-7"><span class="math display">\[
 \nabla\cdot\mathbf{u}_{s\perp 1} = \frac{1}{B^2}\mathbf{B}\cdot\nabla\times\mathbf{E}_1 = \frac{1}{B}\hat{z}\cdot\nabla\times\mathbf{E}_1
-\tag{7.58}\]</span></span> to lowest order. Setting <span class="math inline">\(\mathbf{E}_1=-\nabla\phi\)</span> (i.e.&nbsp;assuming that the electric field is electrostatic) would cause the right hand side of <a href="#eq-kaw-2fluid-7" class="quarto-xref">Equation&nbsp;<span>7.58</span></a> to vanish, but such an assumption is overly restrictive because all that matters here is the <span class="math inline">\(z\)</span>-component of <span class="math inline">\(\nabla\times\mathbf{E}_1\)</span>. The <span class="math inline">\(z\)</span>-component of <span class="math inline">\(\nabla\times\mathbf{E}_1\)</span> involves only the perpendicular component of the electric field (i.e.&nbsp;only the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> components of the electric field) and so the least restrictive assumption for the right hand side of <a href="#eq-kaw-2fluid-7" class="quarto-xref">Equation&nbsp;<span>7.58</span></a> to vanish is to have <span class="math inline">\(\mathbf{E}_{1\perp} = -\nabla_\perp \phi\)</span>. Thus, one possibility is to have <span class="math inline">\(\mathbf{E}_{1\perp}=-\nabla_\perp \phi\)</span> in which case the perpendicular electric field is electrostatic in nature and the mode is incompressible.</p>
-<p>The other possibility is to have <span class="math inline">\(\hat{z}\cdot\nabla\times\mathbf{E}_1\neq 0\)</span>. In this case, invoking Faraday’s law reduces <a href="#eq-kaw-2fluid-7" class="quarto-xref">Equation&nbsp;<span>7.58</span></a> to <span id="eq-kaw-2fluid-8"><span class="math display">\[
+\tag{7.60}\]</span></span> to lowest order. Setting <span class="math inline">\(\mathbf{E}_1=-\nabla\phi\)</span> (i.e.&nbsp;assuming that the electric field is electrostatic) would cause the right hand side of <a href="#eq-kaw-2fluid-7" class="quarto-xref">Equation&nbsp;<span>7.60</span></a> to vanish, but such an assumption is overly restrictive because all that matters here is the <span class="math inline">\(z\)</span>-component of <span class="math inline">\(\nabla\times\mathbf{E}_1\)</span>. The <span class="math inline">\(z\)</span>-component of <span class="math inline">\(\nabla\times\mathbf{E}_1\)</span> involves only the perpendicular component of the electric field (i.e.&nbsp;only the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> components of the electric field) and so the least restrictive assumption for the right hand side of <a href="#eq-kaw-2fluid-7" class="quarto-xref">Equation&nbsp;<span>7.60</span></a> to vanish is to have <span class="math inline">\(\mathbf{E}_{1\perp} = -\nabla_\perp \phi\)</span>. Thus, one possibility is to have <span class="math inline">\(\mathbf{E}_{1\perp}=-\nabla_\perp \phi\)</span> in which case the perpendicular electric field is electrostatic in nature and the mode is incompressible.</p>
+<p>The other possibility is to have <span class="math inline">\(\hat{z}\cdot\nabla\times\mathbf{E}_1\neq 0\)</span>. In this case, invoking Faraday’s law reduces <a href="#eq-kaw-2fluid-7" class="quarto-xref">Equation&nbsp;<span>7.60</span></a> to <span id="eq-kaw-2fluid-8"><span class="math display">\[
 \nabla\cdot\mathbf{u}_{s\perp 1} = -\frac{1}{B}\hat{z}\cdot\frac{\partial\mathbf{B}_1}{\partial t} = -\frac{1}{B}\frac{\partial B_{z1}}{\partial t}
-\tag{7.59}\]</span></span></p>
-<p>Combining <a href="#eq-kaw-2fluid-6" class="quarto-xref">Equation&nbsp;<span>7.57</span></a> and <a href="#eq-kaw-2fluid-8" class="quarto-xref">Equation&nbsp;<span>7.59</span></a> and then integrating in time gives <span class="math display">\[
+\tag{7.61}\]</span></span></p>
+<p>Combining <a href="#eq-kaw-2fluid-6" class="quarto-xref">Equation&nbsp;<span>7.59</span></a> and <a href="#eq-kaw-2fluid-8" class="quarto-xref">Equation&nbsp;<span>7.61</span></a> and then integrating in time gives <span class="math display">\[
 \frac{n_1}{n} = \frac{B_{z1}}{B}
 \]</span> which shows that compression/rarefaction is associated with having finite <span class="math inline">\(B_{z1}\)</span> (similar to the argument in <a href="kmhd.html#eq-kmhd_B_perturb" class="quarto-xref">Equation&nbsp;<span>11.17</span></a>).</p>
 <p>In summary, there are two general kinds of behavior:</p>
@@ -1465,96 +1471,96 @@ Table&nbsp;7.2: Incompressible and compressible modes from two-fluid theory.
 </div>
 </figure>
 </div>
-<p><a href="#eq-kaw-2fluid-current" class="quarto-xref">Equation&nbsp;<span>7.56</span></a> provides a relationship between the perpendicular electric field and the perpendicular current. A relationship between the parallel electric field and the parallel current is now required. To obtain this, all vectors are decomposed into components parallel and perpendicular to the equilibrium magnetic field, i.e.&nbsp;<span class="math inline">\(\mathbf{E}_1 = \mathbf{E}_{\perp 1}+E_{z1}\hat{z}, \nabla=\nabla_\perp + \hat{z}\partial_z\)</span> etc. All quantities are assumed to be proportional to <span class="math inline">\(f(x,y)\exp(ik_z z-i\omega t)\)</span>. Thus, Faraday’s law can be written as <span class="math display">\[
+<p><a href="#eq-kaw-2fluid-current" class="quarto-xref">Equation&nbsp;<span>7.58</span></a> provides a relationship between the perpendicular electric field and the perpendicular current. A relationship between the parallel electric field and the parallel current is now required. To obtain this, all vectors are decomposed into components parallel and perpendicular to the equilibrium magnetic field, i.e.&nbsp;<span class="math inline">\(\mathbf{E}_1 = \mathbf{E}_{\perp 1}+E_{z1}\hat{z}, \nabla=\nabla_\perp + \hat{z}\partial_z\)</span> etc. All quantities are assumed to be proportional to <span class="math inline">\(f(x,y)\exp(ik_z z-i\omega t)\)</span>. Thus, Faraday’s law can be written as <span class="math display">\[
 \nabla_\perp\times\mathbf{E}_{\perp 1} + \nabla_\perp\times E_{z1}\hat{z} + \hat{z}\frac{\partial}{\partial z}\times\mathbf{E}_{\perp 1} = -\frac{\partial}{\partial t}\left( \mathbf{B}_{\perp 1} + B_{z1}\hat{z} \right)
 \]</span> which has a parallel component <span class="math display">\[
 \hat{z}\cdot\nabla_\perp\times\mathbf{E}_{\perp 1} = i\omega B_{z1}
 \]</span> and a perpendicular component <span id="eq-kaw-faraday-perp"><span class="math display">\[
 \left( \nabla_\perp E_{z1} - ik_z\mathbf{E}_{\perp 1} \right)\times\hat{z} = i\omega\mathbf{B}_{\perp 1}
-\tag{7.60}\]</span></span></p>
+\tag{7.62}\]</span></span></p>
 <p>Similarly Ampère’s law can be decomposed into <span class="math display">\[
 \hat{z}\cdot\nabla_\perp\times\mathbf{B}_{\perp 1} = \mu_0\mathbf{j}_{z1}
 \]</span> and <span id="eq-kaw-ampere-perp"><span class="math display">\[
 \left( \nabla_\perp B_{z1} - ik_z\mathbf{B}_{\perp 1} \right)\times\hat{z} = \mu_0\mathbf{j}_{\perp 1}
-\tag{7.61}\]</span></span></p>
-<p>Substituting <a href="#eq-kaw-2fluid-current" class="quarto-xref">Equation&nbsp;<span>7.56</span></a> into <a href="#eq-kaw-ampere-perp" class="quarto-xref">Equation&nbsp;<span>7.61</span></a> gives <span class="math display">\[
+\tag{7.63}\]</span></span></p>
+<p>Substituting <a href="#eq-kaw-2fluid-current" class="quarto-xref">Equation&nbsp;<span>7.58</span></a> into <a href="#eq-kaw-ampere-perp" class="quarto-xref">Equation&nbsp;<span>7.63</span></a> gives <span class="math display">\[
 \left( \nabla_\perp B_{z1} - ik_z\mathbf{B}_{\perp 1} \right)\times\hat{z} = \frac{i\omega}{v_A^2}\mathbf{E}_{\perp 1} - \frac{\mu_0 \nabla p_1\times\hat{z}}{B}
 \]</span> or, after re-arrangement, <span id="eq-kaw-E-perp"><span class="math display">\[
 \nabla_\perp\left( B_{z1} + \frac{\mu_0 p_{\perp 1}}{B} \right)\times\hat{z} - ik_z\mathbf{B}_{\perp 1}\times\hat{z} = -\frac{i\omega}{v_A^2}\mathbf{E}_{\perp 1}
-\tag{7.62}\]</span></span></p>
+\tag{7.64}\]</span></span></p>
 <p>The shear and compressional modes are now considered separately.</p>
 <section id="two-fluid-shear-modes" class="level3" data-number="7.9.1">
 <h3 data-number="7.9.1" class="anchored" data-anchor-id="two-fluid-shear-modes"><span class="header-section-number">7.9.1</span> Two-fluid shear modes</h3>
 <p>As discussed above these modes have <span class="math inline">\(B_{z1}=0, \mathbf{E}_{\perp 1}=-\nabla_\perp\phi_1\)</span>, and <span class="math inline">\(\nabla\cdot\mathbf{u}_{s\perp 1}=0\)</span>. We first consider the parallel component of the linearized equation of motion, namely <span id="eq-kaw-2fluid-linearized-par-motion"><span class="math display">\[
 nm_s\frac{\partial u_{sz1}}{\partial t} = nq_sE_{z1} - \frac{\partial p_{s1}}{\partial z}
-\tag{7.63}\]</span></span> where <span class="math inline">\(p_{s1} = \gamma_s n_{s1} k_B T_s\)</span> and <span class="math inline">\(\gamma=1\)</span> if the motion is isothermal and <span class="math inline">\(\gamma_s=3\)</span> if the motion is adiabatic and the compression is one-dimensional. The isothermal case corresponds to <span class="math inline">\(\omega^2/k_z^2\ll k_B T_s/m_s\)</span> and vice versa for the adiabatic case.</p>
+\tag{7.65}\]</span></span> where <span class="math inline">\(p_{s1} = \gamma_s n_{s1} k_B T_s\)</span> and <span class="math inline">\(\gamma=1\)</span> if the motion is isothermal and <span class="math inline">\(\gamma_s=3\)</span> if the motion is adiabatic and the compression is one-dimensional. The isothermal case corresponds to <span class="math inline">\(\omega^2/k_z^2\ll k_B T_s/m_s\)</span> and vice versa for the adiabatic case.</p>
 <p>The continuity equation is <span class="math display">\[
 \frac{\partial n_1}{\partial t} + \nabla\cdot(n\mathbf{u}_{s1}) = 0
 \]</span></p>
 <p>Because the shear mode is incompressible in the perpendicular direction, the continuity equation reduces to <span class="math display">\[
 \frac{\partial n_1}{\partial t} + \frac{\partial}{\partial z}(n_0 u_{sz1}) = 0
 \]</span></p>
-<p>Taking the time derivative of <a href="#eq-kaw-2fluid-linearized-par-motion" class="quarto-xref">Equation&nbsp;<span>7.63</span></a> gives (isothermal?) <span id="eq-kaw-shear-2ndorder-par-motion"><span class="math display">\[
+<p>Taking the time derivative of <a href="#eq-kaw-2fluid-linearized-par-motion" class="quarto-xref">Equation&nbsp;<span>7.65</span></a> gives (isothermal?) <span id="eq-kaw-shear-2ndorder-par-motion"><span class="math display">\[
 \frac{\partial^2 u_{sz1}}{\partial t^2} - \gamma_s\frac{k_B T_s}{m_s}\frac{\partial^2 u_{s z1}}{\partial z^2} = \frac{q_s}{m_s}\frac{\partial E_{z1}}{\partial t}
-\tag{7.64}\]</span></span> which is similar to electron plasma wave and ion acoustic wave dynamics except it has <em>not</em> been assumed that <span class="math inline">\(E_{z1}\)</span> is electrostatic.</p>
-<p>Invoking the assumption that all quantities are of the form <span class="math inline">\(f(x,y)\exp(ik_z z-i\omega t)\)</span> <a href="#eq-kaw-shear-2ndorder-par-motion" class="quarto-xref">Equation&nbsp;<span>7.64</span></a> can be solved to give <span class="math display">\[
+\tag{7.66}\]</span></span> which is similar to electron plasma wave and ion acoustic wave dynamics except it has <em>not</em> been assumed that <span class="math inline">\(E_{z1}\)</span> is electrostatic.</p>
+<p>Invoking the assumption that all quantities are of the form <span class="math inline">\(f(x,y)\exp(ik_z z-i\omega t)\)</span> <a href="#eq-kaw-shear-2ndorder-par-motion" class="quarto-xref">Equation&nbsp;<span>7.66</span></a> can be solved to give <span class="math display">\[
 u_{sz1} = \frac{i\omega q_s}{m_s}\frac{E_{z1}}{\omega^2 - \gamma_s k_z^2 k_B T_s /m_s}
 \]</span> and so the relation between parallel current and parallel electric field is <span class="math display">\[
 \mu_0 j_{z1} = \frac{i\omega}{c^2}E_{z1}\sum_s \frac{\omega_{ps}^2}{\omega^2 - \gamma_s k_z^2 k_B T_s/m_s}
 \]</span></p>
 <p>Using <span class="math inline">\(\hat{z}\cdot\nabla\times\mathbf{B}_1=\nabla\cdot(\mathbf{B}_1\times\hat{z})=\nabla\cdot(\mathbf{B}_{\perp 1}\times\hat{z})\)</span> the parallel component of Ampère’s law becomes for the shear wave <span id="eq-kaw-shear-par-ampere"><span class="math display">\[
 \nabla_\perp\cdot(\mathbf{B}_{\perp 1}\times\hat{z}) = \frac{i\omega}{c^2}E_{z1}\sum_s \frac{\omega_{ps}^2}{\omega^2 - \gamma_s k_z^2 k_B T_s/m_s}
-\tag{7.65}\]</span></span></p>
-<p>Ion acoustic wave physics is embedded in <a href="#eq-kaw-shear-par-ampere" class="quarto-xref">Equation&nbsp;<span>7.65</span></a> as well as shear Alfvén physics. The ion acoustic mode can be retrieved by assuming that the electric field is electrostatic in which case <span class="math inline">\(\mathbf{B}_{\perp 1}\)</span> vanishes (???Why???). For the special case where the electric field is just in the <span class="math inline">\(z\)</span> direction, and assuming that <span class="math inline">\(k_BT_i/m_i\ll \omega^2/k_z^2\ll k_B T_e/m_e\)</span> the right hand side of <a href="#eq-kaw-shear-par-ampere" class="quarto-xref">Equation&nbsp;<span>7.65</span></a> becomes <span class="math display">\[
+\tag{7.67}\]</span></span></p>
+<p>Ion acoustic wave physics is embedded in <a href="#eq-kaw-shear-par-ampere" class="quarto-xref">Equation&nbsp;<span>7.67</span></a> as well as shear Alfvén physics. The ion acoustic mode can be retrieved by assuming that the electric field is electrostatic in which case <span class="math inline">\(\mathbf{B}_{\perp 1}\)</span> vanishes (???Why???). For the special case where the electric field is just in the <span class="math inline">\(z\)</span> direction, and assuming that <span class="math inline">\(k_BT_i/m_i\ll \omega^2/k_z^2\ll k_B T_e/m_e\)</span> the right hand side of <a href="#eq-kaw-shear-par-ampere" class="quarto-xref">Equation&nbsp;<span>7.67</span></a> becomes <span class="math display">\[
 \left( \frac{\omega_{pi}^2}{\omega^2} - \frac{1}{k_z^2\lambda_{De}^2} \right)E_{z1} = 0
 \]</span> which gives the ion acoustic wave <span class="math inline">\(\omega^2=k_z^2 k_B T_e/m_i\)</span> (see <span class="citation" data-cites="chen2016introduction">(<a href="#ref-chen2016introduction" role="doc-biblioref">F. F. Chen 2016</a>)</span> and <span class="citation" data-cites="bellan2008fundamentals">(<a href="#ref-bellan2008fundamentals" role="doc-biblioref">Bellan 2008</a>)</span> Sec.4.2.1). This shows that the acoustic wave is associated with having finite <span class="math inline">\(E_{z1}\)</span> and also requires <span class="math inline">\(T_e\gg T_i\)</span> in order to exist.</p>
-<p>Returning to shear waves, we now assume that the electric field is not electrostatic so <span class="math inline">\(\mathbf{B}_{\perp 1}\)</span> does not vanish and <a href="#eq-kaw-shear-par-ampere" class="quarto-xref">Equation&nbsp;<span>7.65</span></a> has to be considered in its entirety. For shear waves the character of the parallel current changes depending on whether the wave parallel phase velocity is faster or slower than the electron thermal velocity:</p>
+<p>Returning to shear waves, we now assume that the electric field is not electrostatic so <span class="math inline">\(\mathbf{B}_{\perp 1}\)</span> does not vanish and <a href="#eq-kaw-shear-par-ampere" class="quarto-xref">Equation&nbsp;<span>7.67</span></a> has to be considered in its entirety. For shear waves the character of the parallel current changes depending on whether the wave parallel phase velocity is faster or slower than the electron thermal velocity:</p>
 <ol type="1">
 <li>The <span class="math inline">\(\omega^2/k_z^2\gg k_B T_e/m_e\)</span> case is called the <em>inertial limit</em> while</li>
 <li>The <span class="math inline">\(\omega^2/k_z^2\ll k_B T_e/m_e\)</span> case is called the <em>kinetic limit</em>.</li>
 </ol>
-<p>The perpendicular component of Faraday’s law is (<a href="#eq-kaw-faraday-perp" class="quarto-xref">Equation&nbsp;<span>7.60</span></a>) <span id="eq-kaw-faraay-perp2"><span class="math display">\[
+<p>The perpendicular component of Faraday’s law is (<a href="#eq-kaw-faraday-perp" class="quarto-xref">Equation&nbsp;<span>7.62</span></a>) <span id="eq-kaw-faraay-perp2"><span class="math display">\[
 \nabla_\perp E_{z1}\times\hat{z} - ik_z\mathbf{E}_{\perp 1}\times\hat{z} = i\omega\mathbf{B}_{\perp 1}
-\tag{7.66}\]</span></span></p>
-<p>Substitution of <span class="math inline">\(\mathbf{E}_{\perp 1}\)</span> as determined from <a href="#eq-kaw-E-perp" class="quarto-xref">Equation&nbsp;<span>7.62</span></a> into <a href="#eq-kaw-faraay-perp2" class="quarto-xref">Equation&nbsp;<span>7.66</span></a> gives <span class="math display">\[
+\tag{7.68}\]</span></span></p>
+<p>Substitution of <span class="math inline">\(\mathbf{E}_{\perp 1}\)</span> as determined from <a href="#eq-kaw-E-perp" class="quarto-xref">Equation&nbsp;<span>7.64</span></a> into <a href="#eq-kaw-faraay-perp2" class="quarto-xref">Equation&nbsp;<span>7.68</span></a> gives <span class="math display">\[
 -\frac{i\omega}{v_A^2}\nabla_\perp E_{z1}\times\hat{z} - ik_z\left( \frac{\mu_0\nabla p_{\perp 1}}{B}\times\hat{z} - ik_z\mathbf{B}_{\perp 1}\times\hat{z} \right)\times\hat{z} = \frac{\omega^2}{v_A^2}\mathbf{B}_{\perp 1}
 \]</span> which may be solved for <span class="math inline">\(\mathbf{B}_{\perp 1}\)</span> to give <span class="math display">\[
 \mathbf{B}_{\perp 1} = \frac{1}{\omega^2 - k_z^2v_A^2}\left( -i\omega\nabla_\perp E_{z1}\times\hat{z} + ik_zv_A^2\frac{\mu_0\nabla_\perp p_{\perp 1}}{B} \right)
 \]</span> and <span class="math display">\[
 \mathbf{B}_{\perp 1}\times\hat{z} = \frac{1}{\omega^2 - k_z^2v_A^2}\left( i\omega\nabla_\perp E_{z1} + ik_zv_A^2\frac{\mu_0\nabla_\perp p_{\perp 1}}{B}\times\hat{z} \right)
 \]</span></p>
-<p>Substitution of <span class="math inline">\(\mathbf{B}_{\perp 1}\times\hat{z}\)</span> into <a href="#eq-kaw-shear-par-ampere" class="quarto-xref">Equation&nbsp;<span>7.65</span></a> gives <span class="math display">\[
+<p>Substitution of <span class="math inline">\(\mathbf{B}_{\perp 1}\times\hat{z}\)</span> into <a href="#eq-kaw-shear-par-ampere" class="quarto-xref">Equation&nbsp;<span>7.67</span></a> gives <span class="math display">\[
 \nabla_\perp\cdot\left( \frac{1}{\omega^2 - k_z^2v_A^2}\left( \nabla_\perp E_{z1} + k_zv_A^2\frac{\mu_0\nabla_\perp p_{\perp 1}}{\omega B}\times\hat{z} \right) \right) = E_{z1}\sum_s \frac{\omega_{ps}^2/c^2}{\omega^2 - \gamma_s k_z^2 k_B T_s/m_s}
 \]</span></p>
 <p>However, because <span class="math inline">\(\nabla_\perp\cdot(\nabla_\perp p_{\perp 1}\times\hat{z})=\nabla\cdot(\nabla p_{\perp 1}\times\hat{z})=0\)</span> (divergence of a curl) the term involving pressure vanishes, leaving an equation involving <span class="math inline">\(E_{z1}\)</span> only, namely <span id="eq-kaw-shear-fundamental"><span class="math display">\[
 \nabla_\perp\cdot\left( \frac{1}{\omega^2 - k_z^2v_A^2} \nabla_\perp E_{z1}\right) - E_{z1}\sum_s \frac{\omega_{ps}^2/c^2}{\omega^2 - \gamma_s k_z^2 k_B T_s/m_s} = 0
-\tag{7.67}\]</span></span></p>
-<p>This is the fundamental equation for shear waves. On replacing <span class="math inline">\(\nabla_\perp\rightarrow i\mathbf{k}_\perp\)</span>, <a href="#eq-kaw-shear-fundamental" class="quarto-xref">Equation&nbsp;<span>7.67</span></a> becomes <span id="eq-kaw-shear-linerized"><span class="math display">\[
+\tag{7.69}\]</span></span></p>
+<p>This is the fundamental equation for shear waves. On replacing <span class="math inline">\(\nabla_\perp\rightarrow i\mathbf{k}_\perp\)</span>, <a href="#eq-kaw-shear-fundamental" class="quarto-xref">Equation&nbsp;<span>7.69</span></a> becomes <span id="eq-kaw-shear-linerized"><span class="math display">\[
 \frac{k_\perp^2}{\omega^2 - k_z^2v_A^2} + \frac{\omega_{pe}^2}{c^2}\frac{1}{\omega^2 - \gamma_ek_z^2 k_B T_e/m_e} + \frac{\omega_{pi}^2}{c^2}\frac{1}{\omega^2 - \gamma_i k_z^2 k_B T_i/m_i} = 0
-\tag{7.68}\]</span></span></p>
-<p>In the situation where <span class="math inline">\(\omega^2/k_z^2\gg k_B T_e/m_e\)</span>, the second term dominates the third term since <span class="math inline">\(\omega_{pe}^2\gg\omega_{pi}^2\)</span> and so <a href="#eq-kaw-shear-linerized" class="quarto-xref">Equation&nbsp;<span>7.68</span></a> can be recast as <span id="eq-iaw"><span class="math display">\[
+\tag{7.70}\]</span></span></p>
+<p>In the situation where <span class="math inline">\(\omega^2/k_z^2\gg k_B T_e/m_e\)</span>, the second term dominates the third term since <span class="math inline">\(\omega_{pe}^2\gg\omega_{pi}^2\)</span> and so <a href="#eq-kaw-shear-linerized" class="quarto-xref">Equation&nbsp;<span>7.70</span></a> can be recast as <span id="eq-iaw"><span class="math display">\[
 \omega^2 = \frac{k_z^2 v_A^2}{1+k_\perp^2c^2/\omega_{pe}^2}
-\tag{7.69}\]</span></span> which is called the <em>inertial Alfvén wave</em> (IAW). If <span class="math inline">\(k_\perp^2c^2/\omega_{pe}^2\)</span> is not too large, then <span class="math inline">\(\omega/k_z\)</span> is of the order of the Alfvén velocity and the condition <span class="math inline">\(\omega^2\gg k_z^2 k_B T_e/m_e\)</span> corresponds to <span class="math inline">\(v_A^2\gg k_B T_e/m_e\)</span> or <span class="math display">\[
+\tag{7.71}\]</span></span> which is called the <em>inertial Alfvén wave</em> (IAW). If <span class="math inline">\(k_\perp^2c^2/\omega_{pe}^2\)</span> is not too large, then <span class="math inline">\(\omega/k_z\)</span> is of the order of the Alfvén velocity and the condition <span class="math inline">\(\omega^2\gg k_z^2 k_B T_e/m_e\)</span> corresponds to <span class="math inline">\(v_A^2\gg k_B T_e/m_e\)</span> or <span class="math display">\[
 \beta_e = \frac{nk_B T_e}{B^2/2\mu_0}\ll \frac{m_e}{m_i}
 \]</span></p>
 <p>Thus, inertial Alfvén wave shear modes exist only in the ultra-low <span class="math inline">\(\beta\)</span> regime where <span class="math inline">\(\beta_e\ll m_e/m_i\)</span>.</p>
-<p>In the situation where <span class="math inline">\(k_B T_i/m_i \ll \omega^2/k_z^2 \ll k_B T_e/m_e\)</span>, <a href="#eq-kaw-shear-fundamental" class="quarto-xref">Equation&nbsp;<span>7.67</span></a> can be recast as <span id="eq-kaw-1"><span class="math display">\[
+<p>In the situation where <span class="math inline">\(k_B T_i/m_i \ll \omega^2/k_z^2 \ll k_B T_e/m_e\)</span>, <a href="#eq-kaw-shear-fundamental" class="quarto-xref">Equation&nbsp;<span>7.69</span></a> can be recast as <span id="eq-kaw-1"><span class="math display">\[
 \frac{k_\perp^2}{\omega^2 - k_z^2v_A^2} - \frac{\omega_{pe}^2}{c^2}\frac{1}{k_z^2 k_B T_e/m_e} + \frac{\omega_{pi}^2}{c^2}\frac{1}{\omega^2} = 0
-\tag{7.70}\]</span></span></p>
-<p>Because <span class="math inline">\(\omega^2\)</span> appears in the respective denominators of two distinct terms, <a href="#eq-kaw-1" class="quarto-xref">Equation&nbsp;<span>7.70</span></a> is fourth order in <span class="math inline">\(\omega^2\)</span> and so describes in two distinct modes. Let us suppose that the mode in question is much faster than the acoustic velocity, i.e.&nbsp;<span class="math inline">\(\omega^2/k_z^2\gg k_B T_e/m_i\)</span>. In this case the ion term can be dropped and the remaining terms can be re-arranged to give <span class="math display">\[
+\tag{7.72}\]</span></span></p>
+<p>Because <span class="math inline">\(\omega^2\)</span> appears in the respective denominators of two distinct terms, <a href="#eq-kaw-1" class="quarto-xref">Equation&nbsp;<span>7.72</span></a> is fourth order in <span class="math inline">\(\omega^2\)</span> and so describes in two distinct modes. Let us suppose that the mode in question is much faster than the acoustic velocity, i.e.&nbsp;<span class="math inline">\(\omega^2/k_z^2\gg k_B T_e/m_i\)</span>. In this case the ion term can be dropped and the remaining terms can be re-arranged to give <span class="math display">\[
 \omega^2 = k_z^2 v_A^2 \left( 1+\frac{k_\perp^2}{v_A^2}\frac{k_B T_e}{m_e}\frac{c^2}{\omega_{pe}^2} \right)
 \]</span></p>
 <p>This is called the <em>kinetic Alfvén wave</em> (KAW). Using <span id="eq-kaw-fictitious-larmor"><span class="math display">\[
 r_{fL}^2 = \frac{1}{v_A^2}\frac{k_B T_e}{m_e}\frac{c^2}{\omega_{pe}^2} = \frac{1}{\omega_{ci}^2}\frac{k_B T_e}{m_i}
-\tag{7.71}\]</span></span> as a fictitious ion Larmor radius calculated using the electron temperature instead of the ion temperature, the KAW dispersion relation can be expressed more succinctly as <span id="eq-kaw-2"><span class="math display">\[
+\tag{7.73}\]</span></span> as a fictitious ion Larmor radius calculated using the electron temperature instead of the ion temperature, the KAW dispersion relation can be expressed more succinctly as <span id="eq-kaw-2"><span class="math display">\[
 \omega^2 = k_z^2 v_A^2\left( 1+k_\perp^2r_{fL}^2 \right)
-\tag{7.72}\]</span></span></p>
-<p>If <span class="math inline">\(k_\perp^2r_{Ls}^2\)</span> is not too large, then <span class="math inline">\(\omega/k_z\)</span> is again of the order of <span class="math inline">\(v_A\)</span> and so the condition <span class="math inline">\(\omega^2\ll k_z^2k_B T_e/m_e\)</span> corresponds to having <span class="math inline">\(\beta_e\gg m_e/m_i\)</span>. The condition <span class="math inline">\(\omega^2/k_z^2\gg k_B T_e/m_i\)</span> which was also assumed corresponds to assuming that <span class="math inline">\(\beta_e\ll 1\)</span>. Thus, the KAW dispersion relation <a href="#eq-kaw-2" class="quarto-xref">Equation&nbsp;<span>7.72</span></a> is valid in the regime <span class="math inline">\(m_e/m_i\ll \beta_e\ll 1\)</span>.</p>
-<p>Let us now consider the situation where <span class="math inline">\(\omega^2/k_z^2\ll k_B T_i/m_i, k_B T_e/m_e\)</span>. In this case <a href="#eq-kaw-1" class="quarto-xref">Equation&nbsp;<span>7.70</span></a> again reduces to <span id="eq-kaw-3"><span class="math display">\[
-\omega^2 = k_z^2 v_A^2\left( 1+k_\perp^2r_{fL}^2 \right)
-\tag{7.73}\]</span></span> but this time <span id="eq-kaw-fictitious-larmor2"><span class="math display">\[
-r_{fL}^2 = \frac{1}{\omega_{ci}^2}\frac{k_B (T_e+T_i)}{m_i}
 \tag{7.74}\]</span></span></p>
+<p>If <span class="math inline">\(k_\perp^2r_{Ls}^2\)</span> is not too large, then <span class="math inline">\(\omega/k_z\)</span> is again of the order of <span class="math inline">\(v_A\)</span> and so the condition <span class="math inline">\(\omega^2\ll k_z^2k_B T_e/m_e\)</span> corresponds to having <span class="math inline">\(\beta_e\gg m_e/m_i\)</span>. The condition <span class="math inline">\(\omega^2/k_z^2\gg k_B T_e/m_i\)</span> which was also assumed corresponds to assuming that <span class="math inline">\(\beta_e\ll 1\)</span>. Thus, the KAW dispersion relation <a href="#eq-kaw-2" class="quarto-xref">Equation&nbsp;<span>7.74</span></a> is valid in the regime <span class="math inline">\(m_e/m_i\ll \beta_e\ll 1\)</span>.</p>
+<p>Let us now consider the situation where <span class="math inline">\(\omega^2/k_z^2\ll k_B T_i/m_i, k_B T_e/m_e\)</span>. In this case <a href="#eq-kaw-1" class="quarto-xref">Equation&nbsp;<span>7.72</span></a> again reduces to <span id="eq-kaw-3"><span class="math display">\[
+\omega^2 = k_z^2 v_A^2\left( 1+k_\perp^2r_{fL}^2 \right)
+\tag{7.75}\]</span></span> but this time <span id="eq-kaw-fictitious-larmor2"><span class="math display">\[
+r_{fL}^2 = \frac{1}{\omega_{ci}^2}\frac{k_B (T_e+T_i)}{m_i}
+\tag{7.76}\]</span></span></p>
 <p>This situation would describe shear modes in a high <span class="math inline">\(\beta\)</span> plasma (ion thermal velocity faster than Alfvén velocity).</p>
 <p>To summarize: the shear mode has <span class="math inline">\(B_{z1} = 0, E_{z1} \neq 0, j_{z1} \neq 0, E_{\perp 1} = −\nabla \phi_1\)</span> and exists in the form of the inertial Alfvén wave for <span class="math inline">\(\beta_e \ll m_e/m_i\)</span> and in the form of the kinetic Alfvén wave for <span class="math inline">\(\beta_e \gg m_e/m_i\)</span>. The shear mode involves incompressible perpendicular motion, i.e., <span class="math inline">\(\nabla\cdot\mathbf{u}_{s\perp 1} = i\mathbf{k}_\perp \cdot \mathbf{u}_{s\perp 1} = 0\)</span>, which means that <span class="math inline">\(\mathbf{k}_\perp\)</span> is orthogonal to <span class="math inline">\(\mathbf{u}_{s\perp 1}\)</span>. For example, in Cartesian geometry, this means that if <span class="math inline">\(\mathbf{u}_{s\perp 1}\)</span> is in the <span class="math inline">\(x\)</span> direction, then <span class="math inline">\(\mathbf{k}_\perp\)</span> must be in the <span class="math inline">\(y\)</span> direction while in cylindrical geometry, this means that if <span class="math inline">\(\mathbf{u}_{s\perp 1}\)</span> is in the <span class="math inline">\(\theta\)</span> direction, then <span class="math inline">\(\mathbf{k}_\perp\)</span> must be in the <span class="math inline">\(r\)</span> direction. The inertial Alfvén wave is known as a cold plasma wave because its dispersion relation does not depend on temperature (such a mode would exist even in the limit of a cold plasma). The kinetic Alfvén wave depends on the plasma having finite temperature and is therefore called a warm plasma wave. The shear mode can be coupled to ion acoustic modes since both shear and ion acoustic modes involve finite <span class="math inline">\(E_{\parallel 1}\)</span>.</p>
 </section>
@@ -1565,25 +1571,25 @@ r_{fL}^2 = \frac{1}{\omega_{ci}^2}\frac{k_B (T_e+T_i)}{m_i}
 \nabla_\perp\cdot(\mathbf{E}_{\perp 1}\times\hat{z}) &amp;= i\omega B_{z1} \\
 -ik_z\mathbf{E}_{\perp 1}\times\hat{z} &amp;= i\omega \mathbf{B}_{\perp 1}
 \end{aligned}
-\tag{7.75}\]</span></span></p>
-<p>Using <a href="#eq-2fluid-faraday-compressional" class="quarto-xref">Equation&nbsp;<span>7.75</span></a> to substitute for <span class="math inline">\(\mathbf{B}_{\perp 1}\)</span> in <a href="#eq-kaw-E-perp" class="quarto-xref">Equation&nbsp;<span>7.62</span></a> and then solving for <span class="math inline">\(\mathbf{E}_{\perp 1}\)</span> gives <span class="math display">\[
+\tag{7.77}\]</span></span></p>
+<p>Using <a href="#eq-2fluid-faraday-compressional" class="quarto-xref">Equation&nbsp;<span>7.77</span></a> to substitute for <span class="math inline">\(\mathbf{B}_{\perp 1}\)</span> in <a href="#eq-kaw-E-perp" class="quarto-xref">Equation&nbsp;<span>7.64</span></a> and then solving for <span class="math inline">\(\mathbf{E}_{\perp 1}\)</span> gives <span class="math display">\[
 \mathbf{E}_{\perp 1} = \frac{i\omega v_A^2}{\omega^2-k_z^2 v_A^2} \nabla_\perp\left( B_{z1} + \frac{\mu_0 p_{\perp 1}}{B} \right) \times\hat{z}
 \]</span></p>
 <p>Since <span class="math display">\[
 \mathbf{E}_{\perp 1}\times\hat{z} = -\frac{i\omega v_A^2}{\omega^2-k_z^2 v_A^2} \nabla_\perp\left( B_{z1} + \frac{\mu_0 p_{\perp 1}}{B} \right)
 \]</span></p>
-<p><a href="#eq-2fluid-faraday-compressional" class="quarto-xref">Equation&nbsp;<span>7.75</span></a> becomes <span id="eq-2fluid-faraday-compressional2"><span class="math display">\[
+<p><a href="#eq-2fluid-faraday-compressional" class="quarto-xref">Equation&nbsp;<span>7.77</span></a> becomes <span id="eq-2fluid-faraday-compressional2"><span class="math display">\[
 \nabla_\perp\cdot\left( \frac{v_A^2}{\omega^2-k_z^2 v_A^2} \nabla_\perp\left( B_{z1} + \frac{\mu_0 p_{\perp 1}}{B} \right) \right) + B_{z1} = 0
-\tag{7.76}\]</span></span></p>
+\tag{7.78}\]</span></span></p>
 <p>If we assume that the perpendicular motion is adiabatic, then <span class="math display">\[
 \frac{p_{\perp 1}}{p} = \gamma\frac{n_1}{n} = \gamma\frac{B_{z1}}{B}
 \]</span></p>
-<p>Substitute for <span class="math inline">\(p_{\perp 1}\)</span> in <a href="#eq-2fluid-faraday-compressional2" class="quarto-xref">Equation&nbsp;<span>7.76</span></a> gives (???) <span id="eq-2fluid-faraday-compressional3"><span class="math display">\[
+<p>Substitute for <span class="math inline">\(p_{\perp 1}\)</span> in <a href="#eq-2fluid-faraday-compressional2" class="quarto-xref">Equation&nbsp;<span>7.78</span></a> gives (???) <span id="eq-2fluid-faraday-compressional3"><span class="math display">\[
 \nabla_\perp\cdot\left( \frac{v_A^2+c_s^2}{\omega^2-k_z^2 v_A^2} \nabla_\perp B_{z1}\right) + B_{z1} = 0
-\tag{7.77}\]</span></span> where <span class="math display">\[
+\tag{7.79}\]</span></span> where <span class="math display">\[
 c_s^2 = \gamma k_B\frac{T_e + T_i}{m_i}
 \]</span></p>
-<p>On replacing <span class="math inline">\(\nabla_\perp\rightarrow i\mathbf{k}_\perp\)</span>, <a href="#eq-2fluid-faraday-compressional3" class="quarto-xref">Equation&nbsp;<span>7.77</span></a> becomes the dispersion relation <span class="math display">\[
+<p>On replacing <span class="math inline">\(\nabla_\perp\rightarrow i\mathbf{k}_\perp\)</span>, <a href="#eq-2fluid-faraday-compressional3" class="quarto-xref">Equation&nbsp;<span>7.79</span></a> becomes the dispersion relation <span class="math display">\[
 \frac{-k_\perp^2(v_A^2+c_s^2)}{\omega^2 - k_z^2v_A^2} + 1 = 0
 \]</span> or <span class="math display">\[
 \omega^2 = k^2v_A^2 + k_\perp^2 c_s^2
@@ -1591,11 +1597,11 @@ c_s^2 = \gamma k_B\frac{T_e + T_i}{m_i}
 </section>
 <section id="differences-betwen-the-two-fluid-and-mhd-descriptions" class="level3" data-number="7.9.3">
 <h3 data-number="7.9.3" class="anchored" data-anchor-id="differences-betwen-the-two-fluid-and-mhd-descriptions"><span class="header-section-number">7.9.3</span> Differences betwen the two-fluid and MHD descriptions</h3>
-<p>The two-fluid description shows that the Alfvén mode (finite <span class="math inline">\(E_z\)</span>) appears as either an inertial or a kinetic Alfvén wave depending on the plasma <span class="math inline">\(\beta\)</span>; the MHD description assumes that <span class="math inline">\(E_z = 0\)</span> for this mode and does not distinguish between inertial and kinetic modes. The two-fluid description also shows that finite <span class="math inline">\(E_z\)</span> will give ion acoustic modes in the parallel direction which are decoupled. The MHD description predicts a so-called sound wave which differs from the ion acoustic wave because the MHD sound wave does not have the requirement that <span class="math inline">\(T_e \gg T_i\)</span>; the MHD sound wave is an artifact for parallel propagation in a plasma with low collisionality (if the collisions are sufficiently large, then the plasma would behave like a neutral gas). Then MHD description predicts a coupling between oblique sound waves via a square root relation (<a href="#eq-mhd_fast_slow" class="quarto-xref">Equation&nbsp;<span>7.43</span></a>) which does not exist in the two-fluid model.</p>
+<p>The two-fluid description shows that the Alfvén mode (finite <span class="math inline">\(E_z\)</span>) appears as either an inertial or a kinetic Alfvén wave depending on the plasma <span class="math inline">\(\beta\)</span>; the MHD description assumes that <span class="math inline">\(E_z = 0\)</span> for this mode and does not distinguish between inertial and kinetic modes. The two-fluid description also shows that finite <span class="math inline">\(E_z\)</span> will give ion acoustic modes in the parallel direction which are decoupled. The MHD description predicts a so-called sound wave which differs from the ion acoustic wave because the MHD sound wave does not have the requirement that <span class="math inline">\(T_e \gg T_i\)</span>; the MHD sound wave is an artifact for parallel propagation in a plasma with low collisionality (if the collisions are sufficiently large, then the plasma would behave like a neutral gas). Then MHD description predicts a coupling between oblique sound waves via a square root relation (<a href="#eq-mhd_fast_slow" class="quarto-xref">Equation&nbsp;<span>7.45</span></a>) which does not exist in the two-fluid model.</p>
 </section>
 <section id="sec-kaw" class="level3" data-number="7.9.4">
 <h3 data-number="7.9.4" class="anchored" data-anchor-id="sec-kaw"><span class="header-section-number">7.9.4</span> KAW properties</h3>
-<p>The solution of <a href="#eq-mhd_alfven_wavenumber_nonuniform" class="quarto-xref">Equation&nbsp;<span>7.35</span></a> exhibits singularities as <span class="math inline">\(t\rightarrow\infty\)</span> naturally suggests that the microscopic length-scale physics neglected in the ideal MHD fluid description should be included in the long-time-scale dynamics of SAWs. For low-frequency SAWs, one can readily recognize the relevant perpendicular (to <span class="math inline">\(\mathbf{B}_0\)</span>) microscopic scales are either the ion Larmor radius, <span class="math inline">\(r_{iL}=v_{ti}/\omega_{ci}\)</span> with <span class="math inline">\(v_{ti}\)</span> and <span class="math inline">\(\omega_{ci}\)</span> being, respectively, the ion thermal speed and ion cyclotron frequency, and/or <span class="math inline">\(r_{eL}=v_{te}/\omega_{ce}\)</span> with <span class="math inline">\(v_{te}\)</span> being the electron thermal speed. Including the effects of finite <span class="math inline">\(r_{iL}\)</span>, <span class="math inline">\(r_{eL}\)</span> and/or <span class="math inline">\(T_e\)</span> in the SAW dynamics then led to the discovery of the so-called <em>kinetic Alfvén wave</em> (KAW) [Hasegawa and Chen].</p>
+<p>The solution of <a href="#eq-mhd_alfven_wavenumber_nonuniform" class="quarto-xref">Equation&nbsp;<span>7.37</span></a> exhibits singularities as <span class="math inline">\(t\rightarrow\infty\)</span> naturally suggests that the microscopic length-scale physics neglected in the ideal MHD fluid description should be included in the long-time-scale dynamics of SAWs. For low-frequency SAWs, one can readily recognize the relevant perpendicular (to <span class="math inline">\(\mathbf{B}_0\)</span>) microscopic scales are either the ion Larmor radius, <span class="math inline">\(r_{iL}=v_{ti}/\omega_{ci}\)</span> with <span class="math inline">\(v_{ti}\)</span> and <span class="math inline">\(\omega_{ci}\)</span> being, respectively, the ion thermal speed and ion cyclotron frequency, and/or <span class="math inline">\(r_{eL}=v_{te}/\omega_{ce}\)</span> with <span class="math inline">\(v_{te}\)</span> being the electron thermal speed. Including the effects of finite <span class="math inline">\(r_{iL}\)</span>, <span class="math inline">\(r_{eL}\)</span> and/or <span class="math inline">\(T_e\)</span> in the SAW dynamics then led to the discovery of the so-called <em>kinetic Alfvén wave</em> (KAW) [Hasegawa and Chen].</p>
 <p>In KAWs, parallel electric field <span class="math inline">\(E_\parallel\)</span> can be developed and facilitate particle heating, acceleration, and transport, especially for electrons. However, the inverse mechanism is also possible that electrons moving along the magnetic field in the opposite direction, become retarded by this field component and feed their energy into the KAW. For example, Hasegawa [1979] showed that an electron beam moving along an inhomogeneous magnetic field can excite KAWs.</p>
 <p>Excitation of KAWs requires <span class="math inline">\(\beta&lt;1\)</span>. It has been found in the plasma sheet, at the plasma sheet boundary layer (PSBL), and in the inner magnetosphere.</p>
 <p>KAW differ from SAW because the short wavelength requires a significant <span class="math inline">\(E_\parallel\)</span> to maintain charge neutrality due to ion density perturbations caused by the ion polarization drift. When <span class="math inline">\(v_{te}&gt;v_A\)</span>, the parallel electric field counteracts electron pressure that would push the electrons away from the ion density perturbations. When <span class="math inline">\(v_{te}&lt;v_A\)</span>, the electric field must overcome the electron inertia that prevents the electrons from responding rapidly to the ion density perturbations. <span class="math inline">\(E_\parallel\)</span> associated with small-scale KAWs may efficiently accelerate particles on the magnetic field lines. (Chaston+ 2009) presented observations in the magnetotail from the Cluster spacecraft showing that KAWs radiate outward from the X-line with outward energy fluxes equivalent to that contained in the outstreaming ions. Wave-particle energy exchange between KAWs and plasmas near the dayside magnetopause has been confirmed by MMS observations (Gershman+ 2017).</p>
@@ -1608,9 +1614,9 @@ c_s^2 = \gamma k_B\frac{T_e + T_i}{m_i}
 </ul>
 <p>While SAW satisfy <span class="math inline">\(\omega=k_\parallel v_A\)</span>, the dispersion relation of KAW can be written as (Johnson &amp; Cheng, 1997) <span id="eq-kaw_dispersion"><span class="math display">\[
 \omega^2 = k_\parallel^2 v_A^2 \Big[ \frac{1}{1-I_0(k_\perp^2 r_{iL}^2)e^{-k_\perp^2 r_{iL}^2}} + \frac{T_e}{T_i} \Big]k_\perp^2 r_{iL}^2
-\tag{7.78}\]</span></span> where <span class="math inline">\(I_0\)</span> is the modified Bessel function. Using a Padé approximation <span class="math inline">\(I_0(x)e^{-x}\approx 1/(1+x)\)</span> when <span class="math inline">\(x=k_\perp^2r_{iL}^2\sim\mathcal{O}(1)\)</span>, the relation can be simplified to <span id="eq-kaw_dispersion_ion_approxi"><span class="math display">\[
+\tag{7.80}\]</span></span> where <span class="math inline">\(I_0\)</span> is the modified Bessel function. Using a Padé approximation <span class="math inline">\(I_0(x)e^{-x}\approx 1/(1+x)\)</span> when <span class="math inline">\(x=k_\perp^2r_{iL}^2\sim\mathcal{O}(1)\)</span>, the relation can be simplified to <span id="eq-kaw_dispersion_ion_approxi"><span class="math display">\[
 \omega^2 = k_\parallel^2 v_A^2\Big[1+\Big(1+\frac{T_e}{T_i}k_\perp^2r_{iL}^2\Big) \Big] =  k_\parallel^2 v_A^2 [1+k_\perp^2(r_{iL}^2+r_{fL}^2)]
-\tag{7.79}\]</span></span> where <span class="math inline">\(r_{fL}=\sqrt{k_B T_e/m_i}/\omega_{ci}\)</span>. So we recover the two-fluid dispersion relation of KAW <a href="#eq-kaw-2" class="quarto-xref">Equation&nbsp;<span>7.72</span></a>. We can see from <a href="#eq-kaw_dispersion_ion_approxi" class="quarto-xref">Equation&nbsp;<span>7.79</span></a> that the phase speed for KAW is always larger than <span class="math inline">\(v_A\)</span>.</p>
+\tag{7.81}\]</span></span> where <span class="math inline">\(r_{fL}=\sqrt{k_B T_e/m_i}/\omega_{ci}\)</span>. So we recover the two-fluid dispersion relation of KAW <a href="#eq-kaw-2" class="quarto-xref">Equation&nbsp;<span>7.74</span></a>. We can see from <a href="#eq-kaw_dispersion_ion_approxi" class="quarto-xref">Equation&nbsp;<span>7.81</span></a> that the phase speed for KAW is always larger than <span class="math inline">\(v_A\)</span>.</p>
 <p>While SAWs do not have ion density perturbations, KAWs do. In compressibility is only required in the perpendicular direction, but not in the parallel direction w.r.t. the magnetic field.</p>
 <p>The polarizations of KAW can be expressed as <span class="math display">\[
 \left\lvert \frac{\delta \mathbf{E}_\perp}{\delta \mathbf{B}_\perp} \right\rvert = v_A(1+k_\perp^2r_{iL}^2)[1+k_\perp^2(r_{iL}^2+r_{fL}^2)]^{-1/2}
@@ -1638,7 +1644,7 @@ c_s^2 = \gamma k_B\frac{T_e + T_i}{m_i}
 </section>
 <section id="particle-motions" class="level2" data-number="7.11">
 <h2 data-number="7.11" class="anchored" data-anchor-id="particle-motions"><span class="header-section-number">7.11</span> Particle Motions</h2>
-<p>In Fourier transform space, integrating the velocity equations to obtain the coordinates is done by simply dividing by <span class="math inline">\(-i\omega\)</span>. For a simple case where <span class="math inline">\(E_y = E_z = 0\)</span> so that E has only an x-component, we find from <a href="#eq-v" class="quarto-xref">Equation&nbsp;<span>7.7</span></a> <span class="math display">\[
+<p>In Fourier transform space, integrating the velocity equations to obtain the coordinates is done by simply dividing by <span class="math inline">\(-i\omega\)</span>. For a simple case where <span class="math inline">\(E_y = E_z = 0\)</span> so that E has only an x-component, we find from <a href="#eq-v" class="quarto-xref">Equation&nbsp;<span>7.9</span></a> <span class="math display">\[
 \begin{aligned}
 x_s &amp;= -\frac{q_sE_x}{m_s(\omega^2 - \omega_j^2)} \\
 y_s &amp;= \frac{\pm\omega_{cs}}{i\omega}x_s
@@ -1658,48 +1664,48 @@ B_x(z,t) \equiv B_x(z)\,\exp(-i\omega t)
 \]</span></p>
 <p>It can easily be shown (???) that <span class="math inline">\(E_y(z)\)</span> and <span class="math inline">\(B_x(z)\)</span> satisfy the differential equations <span id="eq-wave_nonuniform_e"><span class="math display">\[
 \frac{\mathrm{d}^2 E_y}{\mathrm{d}z^2} + k_0^{~2}\,n^2\,E_y = 0
-\tag{7.80}\]</span></span> and <span id="eq-wave_nonuniform_b"><span class="math display">\[
+\tag{7.82}\]</span></span> and <span id="eq-wave_nonuniform_b"><span class="math display">\[
 \frac{\mathrm{d}\,cB_x}{\mathrm{d}z} = -i\,k_0\,n^2\,E_y
-\tag{7.81}\]</span></span> respectively. Here, <span class="math inline">\(k_0=\omega/c\)</span> is the wave-number in free space. Of course, the actual wave-number is <span class="math inline">\(k=k_0\,n\)</span>.</p>
-<p>The solution to <a href="#eq-wave_nonuniform_e" class="quarto-xref">Equation&nbsp;<span>7.80</span></a> for the case of a homogeneous plasma, for which <span class="math inline">\(n\)</span> is constant, is straightforward: <span id="eq-wave_uniform_sol"><span class="math display">\[
+\tag{7.83}\]</span></span> respectively. Here, <span class="math inline">\(k_0=\omega/c\)</span> is the wave-number in free space. Of course, the actual wave-number is <span class="math inline">\(k=k_0\,n\)</span>.</p>
+<p>The solution to <a href="#eq-wave_nonuniform_e" class="quarto-xref">Equation&nbsp;<span>7.82</span></a> for the case of a homogeneous plasma, for which <span class="math inline">\(n\)</span> is constant, is straightforward: <span id="eq-wave_uniform_sol"><span class="math display">\[
 E_y = A\,e^{\,i\,\phi(z)}
-\tag{7.82}\]</span></span> where <span class="math inline">\(A\)</span> is a constant, and <span id="eq-wave_uniform_phase"><span class="math display">\[
+\tag{7.84}\]</span></span> where <span class="math inline">\(A\)</span> is a constant, and <span id="eq-wave_uniform_phase"><span class="math display">\[
 \phi = \pm k_0\,n\,z
-\tag{7.83}\]</span></span></p>
-<p>The solution <a href="#eq-wave_uniform_sol" class="quarto-xref">Equation&nbsp;<span>7.82</span></a> represents a wave of constant amplitude, <span class="math inline">\(A\)</span>, and phase, <span class="math inline">\(\phi(z)\)</span>. According to <a href="#eq-wave_uniform_phase" class="quarto-xref">Equation&nbsp;<span>7.83</span></a>, there are, in fact, two independent waves which can propagate through the plasma. The upper sign corresponds to a wave which propagates in the <span class="math inline">\(+z\)</span>-direction, whereas the lower sign corresponds to a wave which propagates in the <span class="math inline">\(-z\)</span>-direction. Both waves propagate with the constant phase velocity <span class="math inline">\(c/n\)</span>.</p>
-<p>In general, if <span class="math inline">\(n=n(z)\)</span> then the solution of <a href="#eq-wave_nonuniform_e" class="quarto-xref">Equation&nbsp;<span>7.80</span></a> does not remotely resemble the wave-like solution <a href="#eq-wave_uniform_sol" class="quarto-xref">Equation&nbsp;<span>7.82</span></a>. However, in the limit in which <span class="math inline">\(n(z)\)</span> is a “slowly varying” function of <span class="math inline">\(z\)</span> (exactly how slowly varying is something which will be established later on), we expect to recover wave-like solutions. Let us suppose that <span class="math inline">\(n(z)\)</span> is indeed a “slowly varying” function, and let us try substituting the wave solution <a href="#eq-wave_uniform_sol" class="quarto-xref">Equation&nbsp;<span>7.82</span></a> into <a href="#eq-wave_nonuniform_e" class="quarto-xref">Equation&nbsp;<span>7.80</span></a>. We obtain <span id="eq-wave_nonuniform_phase"><span class="math display">\[
+\tag{7.85}\]</span></span></p>
+<p>The solution <a href="#eq-wave_uniform_sol" class="quarto-xref">Equation&nbsp;<span>7.84</span></a> represents a wave of constant amplitude, <span class="math inline">\(A\)</span>, and phase, <span class="math inline">\(\phi(z)\)</span>. According to <a href="#eq-wave_uniform_phase" class="quarto-xref">Equation&nbsp;<span>7.85</span></a>, there are, in fact, two independent waves which can propagate through the plasma. The upper sign corresponds to a wave which propagates in the <span class="math inline">\(+z\)</span>-direction, whereas the lower sign corresponds to a wave which propagates in the <span class="math inline">\(-z\)</span>-direction. Both waves propagate with the constant phase velocity <span class="math inline">\(c/n\)</span>.</p>
+<p>In general, if <span class="math inline">\(n=n(z)\)</span> then the solution of <a href="#eq-wave_nonuniform_e" class="quarto-xref">Equation&nbsp;<span>7.82</span></a> does not remotely resemble the wave-like solution <a href="#eq-wave_uniform_sol" class="quarto-xref">Equation&nbsp;<span>7.84</span></a>. However, in the limit in which <span class="math inline">\(n(z)\)</span> is a “slowly varying” function of <span class="math inline">\(z\)</span> (exactly how slowly varying is something which will be established later on), we expect to recover wave-like solutions. Let us suppose that <span class="math inline">\(n(z)\)</span> is indeed a “slowly varying” function, and let us try substituting the wave solution <a href="#eq-wave_uniform_sol" class="quarto-xref">Equation&nbsp;<span>7.84</span></a> into <a href="#eq-wave_nonuniform_e" class="quarto-xref">Equation&nbsp;<span>7.82</span></a>. We obtain <span id="eq-wave_nonuniform_phase"><span class="math display">\[
 \left(\frac{\mathrm{d}\phi}{\mathrm{d}z}\right)^2 = k_0^{~2} n^2 +i\,\frac{\mathrm{d}^2\phi} {\mathrm{d}z^2}
-\tag{7.84}\]</span></span></p>
-<p>This is a non-linear differential equation which, in general, is very difficult to solve. However, we note that if <span class="math inline">\(n\)</span> is a constant then <span class="math inline">\(\mathrm{d}^2\phi/\mathrm{d}z^2=0\)</span>. It is, therefore, reasonable to suppose that if <span class="math inline">\(n(z)\)</span> is a “slowly varying” function then the last term on the right-hand side of the above equation can be regarded as being small. Thus, to a first approximation <a href="#eq-wave_nonuniform_phase" class="quarto-xref">Equation&nbsp;<span>7.84</span></a> yields <span class="math display">\[
+\tag{7.86}\]</span></span></p>
+<p>This is a non-linear differential equation which, in general, is very difficult to solve. However, we note that if <span class="math inline">\(n\)</span> is a constant then <span class="math inline">\(\mathrm{d}^2\phi/\mathrm{d}z^2=0\)</span>. It is, therefore, reasonable to suppose that if <span class="math inline">\(n(z)\)</span> is a “slowly varying” function then the last term on the right-hand side of the above equation can be regarded as being small. Thus, to a first approximation <a href="#eq-wave_nonuniform_phase" class="quarto-xref">Equation&nbsp;<span>7.86</span></a> yields <span class="math display">\[
 \frac{\mathrm{d}\phi}{\mathrm{d}z} \simeq \pm k_0\,n
 \]</span> and <span id="eq-wave_nonuniform_phase_approxi"><span class="math display">\[
 \frac{\mathrm{d}^2 \phi}{\mathrm{d}z^2} \simeq \pm k_0\frac{dn}{\mathrm{d}z}
-\tag{7.85}\]</span></span></p>
-<p>It is clear from a comparison of <a href="#eq-wave_nonuniform_phase" class="quarto-xref">Equation&nbsp;<span>7.84</span></a> and <a href="#eq-wave_nonuniform_phase_approxi" class="quarto-xref">Equation&nbsp;<span>7.85</span></a> that <span class="math inline">\(n(z)\)</span> can be regarded as a “slowly varying” function of <span class="math inline">\(z\)</span> as long as its variation length-scale is far longer than the wavelength of the wave. In other words, provided that <span class="math inline">\((dn/\mathrm{d}z)/(k_0\,n^2)\ll 1\)</span>.</p>
-<p>The second approximation to the solution is obtained by substituting <a href="#eq-wave_nonuniform_phase_approxi" class="quarto-xref">Equation&nbsp;<span>7.85</span></a> into the right-hand side of <a href="#eq-wave_nonuniform_phase" class="quarto-xref">Equation&nbsp;<span>7.84</span></a>: <span class="math display">\[
+\tag{7.87}\]</span></span></p>
+<p>It is clear from a comparison of <a href="#eq-wave_nonuniform_phase" class="quarto-xref">Equation&nbsp;<span>7.86</span></a> and <a href="#eq-wave_nonuniform_phase_approxi" class="quarto-xref">Equation&nbsp;<span>7.87</span></a> that <span class="math inline">\(n(z)\)</span> can be regarded as a “slowly varying” function of <span class="math inline">\(z\)</span> as long as its variation length-scale is far longer than the wavelength of the wave. In other words, provided that <span class="math inline">\((dn/\mathrm{d}z)/(k_0\,n^2)\ll 1\)</span>.</p>
+<p>The second approximation to the solution is obtained by substituting <a href="#eq-wave_nonuniform_phase_approxi" class="quarto-xref">Equation&nbsp;<span>7.87</span></a> into the right-hand side of <a href="#eq-wave_nonuniform_phase" class="quarto-xref">Equation&nbsp;<span>7.86</span></a>: <span class="math display">\[
 \frac{\mathrm{d}\phi}{\mathrm{d}z} \simeq \pm \Big(k_0^{~2} n^2 \pm i\,k_0 \frac{dn}{\mathrm{d}z}\Big)^{1/2}
 \]</span></p>
 <p>This gives <span class="math display">\[
 \frac{\mathrm{d}\phi}{\mathrm{d}z} \simeq \pm k_0\,n\Big(1\pm \frac{i}{k_0 n}\Big)^{1/2}\simeq \pm k_0\,n + \frac{i}{2n}\frac{dn}{\mathrm{d}z}
 \]</span> where a binomial expansion has been used. The above expression can be integrated to give <span id="eq-wave_phase_approxi"><span class="math display">\[
 \phi \sim \pm k_0\! \int^z \!n\,\mathrm{d}z +i\,\log(n^{1/2})
-\tag{7.86}\]</span></span></p>
-<p>Substitution of <a href="#eq-wave_phase_approxi" class="quarto-xref">Equation&nbsp;<span>7.86</span></a> into <a href="#eq-wave_uniform_sol" class="quarto-xref">Equation&nbsp;<span>7.82</span></a> yields the final result <span id="eq-wave_nonuniform_sol_e"><span class="math display">\[
-E_y \simeq A\,n^{-1/2}\,\exp (\pm i\, k_0\! \int^z \!n\,\mathrm{d}z )
-\tag{7.87}\]</span></span></p>
-<p>It follows from <a href="#eq-wave_nonuniform_b" class="quarto-xref">Equation&nbsp;<span>7.81</span></a> that <span id="eq-wave_nonuniform_sol_b"><span class="math display">\[
-cB_x\simeq \mp A\, n^{1/2}\exp\Big(\pm i\,k_0 \int^z n \mathrm{d}z\Big) - \frac{iA}{2k_0 n^{3/2}}\frac{dn}{\mathrm{d}z}\exp\Big(\pm i\,k_0 \int^z n \mathrm{d}z\Big)
 \tag{7.88}\]</span></span></p>
+<p>Substitution of <a href="#eq-wave_phase_approxi" class="quarto-xref">Equation&nbsp;<span>7.88</span></a> into <a href="#eq-wave_uniform_sol" class="quarto-xref">Equation&nbsp;<span>7.84</span></a> yields the final result <span id="eq-wave_nonuniform_sol_e"><span class="math display">\[
+E_y \simeq A\,n^{-1/2}\,\exp (\pm i\, k_0\! \int^z \!n\,\mathrm{d}z )
+\tag{7.89}\]</span></span></p>
+<p>It follows from <a href="#eq-wave_nonuniform_b" class="quarto-xref">Equation&nbsp;<span>7.83</span></a> that <span id="eq-wave_nonuniform_sol_b"><span class="math display">\[
+cB_x\simeq \mp A\, n^{1/2}\exp\Big(\pm i\,k_0 \int^z n \mathrm{d}z\Big) - \frac{iA}{2k_0 n^{3/2}}\frac{dn}{\mathrm{d}z}\exp\Big(\pm i\,k_0 \int^z n \mathrm{d}z\Big)
+\tag{7.90}\]</span></span></p>
 <p>Note that the second term is small compared to the first, and can usually be neglected.</p>
-<p>Let us test to what extent <a href="#eq-wave_nonuniform_sol_e" class="quarto-xref">Equation&nbsp;<span>7.87</span></a> is a good solution of <a href="#eq-wave_nonuniform_e" class="quarto-xref">Equation&nbsp;<span>7.80</span></a> by substituting this expression into the left-hand side of the equation. The result is <span class="math display">\[
+<p>Let us test to what extent <a href="#eq-wave_nonuniform_sol_e" class="quarto-xref">Equation&nbsp;<span>7.89</span></a> is a good solution of <a href="#eq-wave_nonuniform_e" class="quarto-xref">Equation&nbsp;<span>7.82</span></a> by substituting this expression into the left-hand side of the equation. The result is <span class="math display">\[
 \frac{A}{n^{1/2}}\Big[ \frac{3}{4}\Big(\frac{1}{n}\frac{dn}{\mathrm{d}z}\Big)^2 - \frac{1}{2n}\frac{\mathrm{d}^2n}{\mathrm{d}z^2} \Big]\exp\Big( \pm i\,k_0\int^z n\,\mathrm{d}z\Big)
 \]</span></p>
-<p>This must be small compared with either term on the left-hand side of <a href="#eq-wave_nonuniform_e" class="quarto-xref">Equation&nbsp;<span>7.80</span></a>. Hence, the condition for <a href="#eq-wave_nonuniform_sol_e" class="quarto-xref">Equation&nbsp;<span>7.87</span></a> to be a good solution of <a href="#eq-wave_nonuniform_e" class="quarto-xref">Equation&nbsp;<span>7.80</span></a> becomes <span id="eq-wave_wkb_condition"><span class="math display">\[
+<p>This must be small compared with either term on the left-hand side of <a href="#eq-wave_nonuniform_e" class="quarto-xref">Equation&nbsp;<span>7.82</span></a>. Hence, the condition for <a href="#eq-wave_nonuniform_sol_e" class="quarto-xref">Equation&nbsp;<span>7.89</span></a> to be a good solution of <a href="#eq-wave_nonuniform_e" class="quarto-xref">Equation&nbsp;<span>7.82</span></a> becomes <span id="eq-wave_wkb_condition"><span class="math display">\[
 \frac{1}{k_0^2}\bigg\lvert \frac{3}{4}\Big(\frac{1}{n^2} \frac{dn}{\mathrm{d}z}\Big)^2 -\frac{1}{2n^3}\frac{\mathrm{d}^2 n}{\mathrm{d}z^2}\bigg\rvert \ll 1
-\tag{7.89}\]</span></span></p>
-<p>The solutions <a href="#eq-wave_nonuniform_sol_e" class="quarto-xref">Equation&nbsp;<span>7.87</span></a> and <a href="#eq-wave_nonuniform_sol_b" class="quarto-xref">Equation&nbsp;<span>7.88</span></a> (without the second term) are most commonly referred to as the <em>WKB</em> solutions, in honour of G. Wentzel, H.A. Kramers, and L. Brillouin, who are credited with independently discovering these solutions (in a quantum mechanical context) in 1926. Actually, H. Jeffries wrote a paper on the WKB solutions (in a wave propagation context) in 1923. Hence, some people call them the WKBJ solutions (or even the JWKB solutions). To be strictly accurate, the WKB solutions were first discussed by Liouville and Green in 1837, and again by Rayleigh in 1912. The advance in science discovery is always a collective achievement.</p>
+\tag{7.91}\]</span></span></p>
+<p>The solutions <a href="#eq-wave_nonuniform_sol_e" class="quarto-xref">Equation&nbsp;<span>7.89</span></a> and <a href="#eq-wave_nonuniform_sol_b" class="quarto-xref">Equation&nbsp;<span>7.90</span></a> (without the second term) are most commonly referred to as the <em>WKB</em> solutions, in honour of G. Wentzel, H.A. Kramers, and L. Brillouin, who are credited with independently discovering these solutions (in a quantum mechanical context) in 1926. Actually, H. Jeffries wrote a paper on the WKB solutions (in a wave propagation context) in 1923. Hence, some people call them the WKBJ solutions (or even the JWKB solutions). To be strictly accurate, the WKB solutions were first discussed by Liouville and Green in 1837, and again by Rayleigh in 1912. The advance in science discovery is always a collective achievement.</p>
 <p>Recall, that when a propagating wave is normally incident on an interface, where the refractive index suddenly changes (for instance, when a light wave propagating through air is normally incident on a glass slab), there is generally significant reflection of the wave. However, according to the WKB solutions, when a propagating wave is normally incident on a medium in which the refractive index changes slowly along the direction of propagation of the wave then the wave is not reflected at all. This is true even if the refractive index varies very substantially along the path of propagation of the wave, as long as it varies slowly. The WKB solutions imply that as the wave propagates through the medium its wave-length gradually changes. In fact, the wave-length at position <span class="math inline">\(z\)</span> is approximately <span class="math inline">\(\lambda(z)= 2\pi/ k_0\,n(z)\)</span>. The WKB solutions also imply that the amplitude of the wave gradually changes as it propagates. The amplitude of the electric field component is inversely proportional to <span class="math inline">\(n^{1/2}\)</span>, whereas the amplitude of the magnetic field component is directly proportional to <span class="math inline">\(n^{1/2}\)</span>. Note, however, that the energy flux in the <span class="math inline">\(z\)</span>-direction, given by the the Poynting vector <span class="math inline">\(-(E_y B_x^\ast +E_y^\ast B_x)/(4\mu_0)\)</span>, remains constant (assuming that <span class="math inline">\(n\)</span> is predominately real).</p>
-<p>Of course, the WKB solutions are only approximations. In reality, a wave propagating into a medium in which the refractive index is a slowly varying function of position is subject to a small amount of reflection. However, it is easily demonstrated that the ratio of the reflected amplitude to the incident amplitude is of order <span class="math inline">\((dn/\mathrm{d}z)/(k_0\,n^2)\)</span>. Thus, as long as the refractive index varies on a much longer length-scale than the wavelength of the radiation, the reflected wave is negligibly small. This conclusion remains valid as long as the inequality <a href="#eq-wave_wkb_condition" class="quarto-xref">Equation&nbsp;<span>7.89</span></a> is satisfied. This inequality obviously breaks down in the vicinity of a point where <span class="math inline">\(n^2=0\)</span>. We would, therefore, expect strong reflection of the incident wave from such a point. Furthermore, the WKB solutions also break down at a point where <span class="math inline">\(n^2\rightarrow\infty\)</span>, since the amplitude of <span class="math inline">\(B_x\)</span> becomes infinite.</p>
+<p>Of course, the WKB solutions are only approximations. In reality, a wave propagating into a medium in which the refractive index is a slowly varying function of position is subject to a small amount of reflection. However, it is easily demonstrated that the ratio of the reflected amplitude to the incident amplitude is of order <span class="math inline">\((dn/\mathrm{d}z)/(k_0\,n^2)\)</span>. Thus, as long as the refractive index varies on a much longer length-scale than the wavelength of the radiation, the reflected wave is negligibly small. This conclusion remains valid as long as the inequality <a href="#eq-wave_wkb_condition" class="quarto-xref">Equation&nbsp;<span>7.91</span></a> is satisfied. This inequality obviously breaks down in the vicinity of a point where <span class="math inline">\(n^2=0\)</span>. We would, therefore, expect strong reflection of the incident wave from such a point. Furthermore, the WKB solutions also break down at a point where <span class="math inline">\(n^2\rightarrow\infty\)</span>, since the amplitude of <span class="math inline">\(B_x\)</span> becomes infinite.</p>
 </section>
 <section id="electron-cyclotron-resonance-heating" class="level3" data-number="7.12.2">
 <h3 data-number="7.12.2" class="anchored" data-anchor-id="electron-cyclotron-resonance-heating"><span class="header-section-number">7.12.2</span> Electron Cyclotron Resonance Heating</h3>
@@ -1998,13 +2004,13 @@ v_{1ix}=\frac{1}{\Omega_i}\frac{\partial}{\partial t}\Big( \frac{E_{1x}}{B_0}\Bi
 </ol>
 <p>The resonance parameters for the Landau and cyclotron resonances are <span id="eq-landau_resonance"><span class="math display">\[
 \xi_\text{L} = \frac{\omega}{k_\parallel v_{\text{th},s}}
-\tag{7.90}\]</span></span></p>
+\tag{7.92}\]</span></span></p>
 <p><span id="eq-cyclotron_resonance"><span class="math display">\[
 \xi_\text{C} = \frac{\omega-\Omega_s}{k_\parallel v_{\text{th},s}}
-\tag{7.91}\]</span></span></p>
+\tag{7.93}\]</span></span></p>
 <p>Here the frequency <span class="math inline">\(\omega\)</span> is measured in the plasma rest frame. <span class="math inline">\(\Omega_s\)</span> denotes the cyclotron frequency of particle species <span class="math inline">\(s\)</span> (ion species and electrons), <span class="math inline">\(k_\parallel\)</span> the parallel component of the wavevector, and <span class="math inline">\(v_{\text{th},s}\)</span> the particle thermal speed of species <span class="math inline">\(s\)</span>. In general, the resonance parameter can be defined for arbitrary harmonics of the cyclotron frequency <span class="math inline">\(m=0,\pm 1,\pm 2,...\)</span>: <span id="eq-harmonic_resonance"><span class="math display">\[
 \xi^{(m)} = \frac{\omega - m\Omega_s}{k_\parallel v_{\text{th},s}}
-\tag{7.92}\]</span></span></p>
+\tag{7.94}\]</span></span></p>
 <div id="fig-wave-particle" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wave-particle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2028,7 +2034,7 @@ K_{wv} = \frac{1}{2}\left[ v_\perp^2 + \left( v_\parallel - \frac{\omega}{k_\par
 <section id="sec-whistler" class="level2" data-number="7.17">
 <h2 data-number="7.17" class="anchored" data-anchor-id="sec-whistler"><span class="header-section-number">7.17</span> Whistler Wave</h2>
 <p>There exist different terminologies for whistler waves in the space and laboratory communities. In space science, a “whistle” is specifically defined as an electromagnetic wave excited by lightning and dispersed while propagating through the ionosphere and magnetosphere. All other excitation mechanisms lead to <em>whistler-mode wave</em>. Depending on their sound and spectrograms they are given many exotic names such as hiss, roar, saucers, chorus, risers, hooks, triggered emissions, etc, which are essentially the same thing with slightly different behaviors. In laboratory plasma physics any wave propagating in the whistler mode is simply called a <em>whistler wave</em>. However, in bounded laboratory plasmas, in particular solid state plasmas, these waves are often called <em>helicons</em>.</p>
-<p>Whistler waves are most often referring to electron whistler waves, also known as electron cyclotron waves. Electron whistler waves are VLF emissions observed in the frequency range between the lower hybrid resonance frequency <span class="math inline">\(\omega_\mathrm{LH}\)</span> (<a href="#eq-lower-hybrid-freq" class="quarto-xref">Equation&nbsp;<span>7.26</span></a>) and electron gyrofrequency <span class="math inline">\(\Omega_\mathrm{e} = eB/m_e\)</span>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> They are a type of electron-scale plasma waves that contribute to electron scattering, acceleration, and energy transport.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> They are driven by the electron temperature anisotropy (<span class="math inline">\(T_{e\perp}/T_{e\parallel}&gt;1\)</span>, and the parallel energy of the resonant electrons exceeds the magnetic energy per electron, <span class="math inline">\(\mathcal{E}_\parallel = \frac{1}{2}m_e v_\parallel^2 &gt; B^2 / 2\mu_0 n_e\)</span>, just like EMIC waves are stimulated by the temperature anisotropy of the ions <span class="citation" data-cites="kennel1966limit">(<a href="#ref-kennel1966limit" role="doc-biblioref">Kennel and Petschek 1966</a>)</span>.) or by electron beams or heat fluxes <span class="citation" data-cites="gary1993theory">(<a href="#ref-gary1993theory" role="doc-biblioref">Gary 1993</a>)</span>, and shape the electron velocity distribution function through wave-particle interactions.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> (Ren+ 2020)</p>
+<p>Whistler waves are most often referring to electron whistler waves, also known as electron cyclotron waves. Electron whistler waves are VLF emissions observed in the frequency range between the lower hybrid resonance frequency <span class="math inline">\(\omega_\mathrm{LH}\)</span> (<a href="#eq-lower-hybrid-freq" class="quarto-xref">Equation&nbsp;<span>7.28</span></a>) and electron gyrofrequency <span class="math inline">\(\Omega_\mathrm{e} = eB/m_e\)</span>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> They are a type of electron-scale plasma waves that contribute to electron scattering, acceleration, and energy transport.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> They are driven by the electron temperature anisotropy (<span class="math inline">\(T_{e\perp}/T_{e\parallel}&gt;1\)</span>, and the parallel energy of the resonant electrons exceeds the magnetic energy per electron, <span class="math inline">\(\mathcal{E}_\parallel = \frac{1}{2}m_e v_\parallel^2 &gt; B^2 / 2\mu_0 n_e\)</span>, just like EMIC waves are stimulated by the temperature anisotropy of the ions <span class="citation" data-cites="kennel1966limit">(<a href="#ref-kennel1966limit" role="doc-biblioref">Kennel and Petschek 1966</a>)</span>.) or by electron beams or heat fluxes <span class="citation" data-cites="gary1993theory">(<a href="#ref-gary1993theory" role="doc-biblioref">Gary 1993</a>)</span>, and shape the electron velocity distribution function through wave-particle interactions.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> (Ren+ 2020)</p>
 <p>Whistler modes are <em>dispersive</em> waves (i.e., group and phase velocities are frequency-dependent), which can propagate oblique to the static magnetic field <span class="math inline">\(\mathbf{B}_0\)</span> up to a limiting “resonance cone” angle, given for electrons by <span class="citation" data-cites="stenzel1999whistler">(<a href="#ref-stenzel1999whistler" role="doc-biblioref">Stenzel 1999</a>)</span> <span class="math display">\[
 \theta_{\mathrm{phase, max}} = \cos^{-1}(\omega/\Omega_e)
 \]</span></p>
@@ -2061,7 +2067,7 @@ K_{wv} = \frac{1}{2}\left[ v_\perp^2 + \left( v_\parallel - \frac{\omega}{k_\par
 \]</span> which easily yields <span class="math display">\[
 \omega = \frac{B_0}{\mu_0 ne} k_z^2
 \]</span></p>
-<p>This is the <span class="math inline">\(v_A\ll W\)</span> case in <a href="#eq-R-wave-phase-speed" class="quarto-xref">Equation&nbsp;<span>7.23</span></a> where <span class="math inline">\(v_w = W\)</span>. For a more complete derivation, see <a href="https://chenshihelio.github.io/notes/Hall_MHD_ion_cyclotron.pdf">Chen Shi’s note</a>. The dispersion relations of whistler and ion cyclotron wave make a pair, similar to the relation between fast and slow magnetosonic waves.</p>
+<p>This is the <span class="math inline">\(v_A\ll W\)</span> case in <a href="#eq-R-wave-phase-speed" class="quarto-xref">Equation&nbsp;<span>7.25</span></a> where <span class="math inline">\(v_w = W\)</span>. For a more complete derivation, see <a href="https://chenshihelio.github.io/notes/Hall_MHD_ion_cyclotron.pdf">Chen Shi’s note</a>. The dispersion relations of whistler and ion cyclotron wave make a pair, similar to the relation between fast and slow magnetosonic waves.</p>
 <p>The dispersion property of whistler waves makes it a problem for hybrid simulations (<a href="hybrid.html#sec-finite_e_mass" class="quarto-xref"><span>Section 26.3</span></a>).</p>
 <div id="fig-whistler-wave" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -2209,7 +2215,7 @@ Wang, Jing, Jiang Yu, Aojun Ren, Zuzheng Chen, Xiaojun Xu, Jun Cui, and Jinbin C
 <li id="fn1"><p>This is different from the definition in optics, which makes it easier to analyze the interaction with particles since the particle gyration handedness around the magnetic field is also defined in the same way.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>HOW TO DERIVE THIS?<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>[Tsurutani and Smith, 1974] said most often they are with a minimum wave power at <span class="math inline">\(0.5 \Omega_\mathrm{e}\)</span>. Is is observation or theory?<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>From <a href="#eq-R-wave-dispersion-1" class="quarto-xref">Equation&nbsp;<span>7.22</span></a> we see the contribution of electron physics in the dispersion relation.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>From <a href="#eq-R-wave-dispersion-1" class="quarto-xref">Equation&nbsp;<span>7.24</span></a> we see the contribution of electron physics in the dispersion relation.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>The derivation for the instability criterion involves kinetic theory, similar to the discussion in <a href="kmhd.html" class="quarto-xref"><span>Chapter 11</span></a>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
