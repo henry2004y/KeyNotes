@@ -15,7 +15,7 @@ The root cause of the $90^\circ$ problem is the assumption of unperturbed trajec
 
 The success and popularity of QLT can be ascribed to its conceptual simplicity and validity in a number of important environments, including the solar wind, the interstellar medium and galaxy clusters. In addition, QLT is simple in principle and thus allows for a straight-forward computation of the transport parameters, albeit it can become arbitrarily complex in practice. Finally, these results can be found to agree with inferences from observations, e.g. the normalisation and power law shape of the Galactic diffusion coefficient.
 
-### Derivation of the Fokker-Planck equation
+### Derivation of the Fokker-Planck equation {#sec-fokker-planck}
 
 For self-consistency, I will repeat all the equations here instead of linking to other parts of the note. Philipp Mertsch uses CGS unit in the following equations.
 
@@ -196,7 +196,33 @@ $$ {#eq-dipole-anisotropy}
 
 ### Computation of transport coefficients
 
-So far, we have not specified the functional form of the Fokker-Planck coefficients, e.g. the pitch-angle diffusion coefficient $D_{\mu\mu}$, and its dependence on the two-point correlation function of turbulence $P_{ij}(\mathbf{k})$ that emerges in the derivation of the Fokker-Planck @eq-fokker-planck.
+So far, we have not specified the functional form of the Fokker-Planck coefficients, e.g. the pitch-angle diffusion coefficient $D_{\mu\mu}$, and its dependence on the two-point correlation function of turbulence $P_{ij}(\mathbf{k})$ that emerges in the derivation of the Fokker-Planck @eq-fokker-planck. An alternative to the derivation of @sec-fokker-planck is to directly compute the Fokker-Planck coefficients from solutions of the equations of motion. In fact, an arbitrary Fokker-Planck coefficient $D_{PQ}$ can be defined in terms of the mean displacements of the variables in question, P and Q. For instance, the pitch-angle diffusion coefficient can be derived as the $t\to\infty$ limit of the running diffusion coefficient,
+$$
+d_{\mu\mu}(t) = \frac{1}{2} \frac{\mathrm{d}}{\mathrm{d}t}\left \langle (\Delta \mu )^{2} \right \rangle
+$$ {#eq-running-diffusion-coef}
+
+This is a consequence of the Taylor-Green-Kubo formula (Taylor 1922; Green 1951; Kubo 1957),
+$$
+D_{\mu\mu} = \int_{0}^{\infty} \mathrm{d} t \langle \dot{\mu}(0) \dot{\mu}(t) \rangle
+$$ {#eq-TGK}
+where the dots denote derivatives with respect to time. For diffusive transport, @eq-pitch-angle-diffusion-coef and @eq-running-diffusion-coef coincide, of course. Moreover, this allows computing the parallel diffusion coefficient $\kappa_\parallel$ without the detour of computing $D_{\mu\mu}$ first and then applying the diffusion approximation, @eq-parallel-diffusion-coef.
+
+From the equations of motion @eq-lorentz-force-cgs, we find (HOW???) 
+$$
+\dot{\mu} = \frac{e}{c p} \left( \mathbf{v} \times \mathbf{B} \right)_{z} = \frac{1}{r_{\text{g}} B_z} \left(v_{x} \delta B_{x}(\mathbf{r}) - v_{y} \delta B_{y}(\mathbf{r}) \right)
+$$ {#eq-pitch-angle-cosine-time-derivative}
+and thus
+$$
+D_{\mu\mu} = \frac{1}{ B_{z} ^{2} r_{\text{g}}^{2}} \int_{0}^{\infty }\mathrm{d} t \left[ v_{x}(t) v_{x}(0) \mathcal{P}_{yy}(t) + v_{y}(t) v_{y}(0) \mathcal{P}_{xx}(t) \right]
+$$ {#eq-pitch-angle-coef}
+
+Here, we have defined
+$$
+\mathcal{P}_{ij}(t) \equiv \langle \delta B_{i}(0) \delta B_{j}(t) \rangle
+$$ {#eq-two-point-func}
+and both the velocities and the magnetic fields are to be evaluated along unperturbed trajectories. Note that the fact that the Fokker-Planck coefficients only depend on the two-point function means that we can constrain ourselves to the Gaussian part of the turbulent magnetic field.
+
+### Turbulence geometries and spectra
 
 ## Test Particle Simulation
 
