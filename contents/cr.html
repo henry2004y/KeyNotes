@@ -371,9 +371,10 @@ window.Quarto = {
   <ul>
   <li><a href="#quasilinear-theory" id="toc-quasilinear-theory" class="nav-link active" data-scroll-target="#quasilinear-theory"><span class="header-section-number">23.1</span> Quasilinear Theory</a>
   <ul class="collapse">
-  <li><a href="#derivation-of-the-fokker-planck-equation" id="toc-derivation-of-the-fokker-planck-equation" class="nav-link" data-scroll-target="#derivation-of-the-fokker-planck-equation"><span class="header-section-number">23.1.1</span> Derivation of the Fokker-Planck equation</a></li>
+  <li><a href="#sec-fokker-planck" id="toc-sec-fokker-planck" class="nav-link" data-scroll-target="#sec-fokker-planck"><span class="header-section-number">23.1.1</span> Derivation of the Fokker-Planck equation</a></li>
   <li><a href="#the-diffusion-approximation" id="toc-the-diffusion-approximation" class="nav-link" data-scroll-target="#the-diffusion-approximation"><span class="header-section-number">23.1.2</span> The diffusion approximation</a></li>
   <li><a href="#computation-of-transport-coefficients" id="toc-computation-of-transport-coefficients" class="nav-link" data-scroll-target="#computation-of-transport-coefficients"><span class="header-section-number">23.1.3</span> Computation of transport coefficients</a></li>
+  <li><a href="#turbulence-geometries-and-spectra" id="toc-turbulence-geometries-and-spectra" class="nav-link" data-scroll-target="#turbulence-geometries-and-spectra"><span class="header-section-number">23.1.4</span> Turbulence geometries and spectra</a></li>
   </ul></li>
   <li><a href="#test-particle-simulation" id="toc-test-particle-simulation" class="nav-link" data-scroll-target="#test-particle-simulation"><span class="header-section-number">23.2</span> Test Particle Simulation</a></li>
   </ul>
@@ -409,8 +410,8 @@ window.Quarto = {
 <p>While some of QLT’s predictions are qualitatively confirmed by data, e.g.&nbsp;the rigidity-dependence of the diffusion coefficients, there are a number of concerns. The most famous one is the <span class="math inline">\(90^\circ\)</span> problem: Due to the resonance condition, particles with pitch-angle close to <span class="math inline">\(90^\circ\)</span> (<span class="math inline">\(\mu\approx 0\)</span>) can only be in resonance with very large wavenumbers k which for the usual turbulent spectra contain little energy. In the limit <span class="math inline">\(\mu\rightarrow 0\)</span>, the scattering rate vanishes and particles cannot change direction along the background field resulting in <em>ballistic</em> transport. This is obviously at variance with the diffusive transport inferred from observations.</p>
 <p>The root cause of the <span class="math inline">\(90^\circ\)</span> problem is the assumption of unperturbed trajectories in QLT. This is remedied in non-linear theories, where the decay of correlations leads to a broadening of the resonance condition which allows for efficient enough scattering through <span class="math inline">\(90^\circ\)</span>. However, any such extension of QLT requires additional assumptions, for instance on the form of temporal decorrelation of the particle’s trajectory.</p>
 <p>The success and popularity of QLT can be ascribed to its conceptual simplicity and validity in a number of important environments, including the solar wind, the interstellar medium and galaxy clusters. In addition, QLT is simple in principle and thus allows for a straight-forward computation of the transport parameters, albeit it can become arbitrarily complex in practice. Finally, these results can be found to agree with inferences from observations, e.g.&nbsp;the normalisation and power law shape of the Galactic diffusion coefficient.</p>
-<section id="derivation-of-the-fokker-planck-equation" class="level3" data-number="23.1.1">
-<h3 data-number="23.1.1" class="anchored" data-anchor-id="derivation-of-the-fokker-planck-equation"><span class="header-section-number">23.1.1</span> Derivation of the Fokker-Planck equation</h3>
+<section id="sec-fokker-planck" class="level3" data-number="23.1.1">
+<h3 data-number="23.1.1" class="anchored" data-anchor-id="sec-fokker-planck"><span class="header-section-number">23.1.1</span> Derivation of the Fokker-Planck equation</h3>
 <p>For self-consistency, I will repeat all the equations here instead of linking to other parts of the note. Philipp Mertsch uses CGS unit in the following equations.</p>
 <p>Charged particles in electric and magnetic fields <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> are subject to the Lorentz force, <span id="eq-lorentz-force-cgs"><span class="math display">\[
 \mathbf{F}_L = e\left( \mathbf{E} + \mathbf{v}\times\mathbf{B}/c \right)
@@ -517,7 +518,23 @@ h_{1} = \frac{3}{2} \int_{-1}^{1} \mathrm{d} \mu \, \mu \, h(\mu) = - \frac{2}{v
 </section>
 <section id="computation-of-transport-coefficients" class="level3" data-number="23.1.3">
 <h3 data-number="23.1.3" class="anchored" data-anchor-id="computation-of-transport-coefficients"><span class="header-section-number">23.1.3</span> Computation of transport coefficients</h3>
-<p>So far, we have not specified the functional form of the Fokker-Planck coefficients, e.g.&nbsp;the pitch-angle diffusion coefficient <span class="math inline">\(D_{\mu\mu}\)</span>, and its dependence on the two-point correlation function of turbulence <span class="math inline">\(P_{ij}(\mathbf{k})\)</span> that emerges in the derivation of the Fokker-Planck <a href="#eq-fokker-planck" class="quarto-xref">Equation&nbsp;<span>23.13</span></a>.</p>
+<p>So far, we have not specified the functional form of the Fokker-Planck coefficients, e.g.&nbsp;the pitch-angle diffusion coefficient <span class="math inline">\(D_{\mu\mu}\)</span>, and its dependence on the two-point correlation function of turbulence <span class="math inline">\(P_{ij}(\mathbf{k})\)</span> that emerges in the derivation of the Fokker-Planck <a href="#eq-fokker-planck" class="quarto-xref">Equation&nbsp;<span>23.13</span></a>. An alternative to the derivation of <a href="#sec-fokker-planck" class="quarto-xref"><span>Section 23.1.1</span></a> is to directly compute the Fokker-Planck coefficients from solutions of the equations of motion. In fact, an arbitrary Fokker-Planck coefficient <span class="math inline">\(D_{PQ}\)</span> can be defined in terms of the mean displacements of the variables in question, P and Q. For instance, the pitch-angle diffusion coefficient can be derived as the <span class="math inline">\(t\to\infty\)</span> limit of the running diffusion coefficient, <span id="eq-running-diffusion-coef"><span class="math display">\[
+d_{\mu\mu}(t) = \frac{1}{2} \frac{\mathrm{d}}{\mathrm{d}t}\left \langle (\Delta \mu )^{2} \right \rangle
+\tag{23.19}\]</span></span></p>
+<p>This is a consequence of the Taylor-Green-Kubo formula (Taylor 1922; Green 1951; Kubo 1957), <span id="eq-TGK"><span class="math display">\[
+D_{\mu\mu} = \int_{0}^{\infty} \mathrm{d} t \langle \dot{\mu}(0) \dot{\mu}(t) \rangle
+\tag{23.20}\]</span></span> where the dots denote derivatives with respect to time. For diffusive transport, <a href="#eq-pitch-angle-diffusion-coef" class="quarto-xref">Equation&nbsp;<span>23.14</span></a> and <a href="#eq-running-diffusion-coef" class="quarto-xref">Equation&nbsp;<span>23.19</span></a> coincide, of course. Moreover, this allows computing the parallel diffusion coefficient <span class="math inline">\(\kappa_\parallel\)</span> without the detour of computing <span class="math inline">\(D_{\mu\mu}\)</span> first and then applying the diffusion approximation, <a href="#eq-parallel-diffusion-coef" class="quarto-xref">Equation&nbsp;<span>23.17</span></a>.</p>
+<p>From the equations of motion <a href="#eq-lorentz-force-cgs" class="quarto-xref">Equation&nbsp;<span>23.1</span></a>, we find (HOW???) <span id="eq-pitch-angle-cosine-time-derivative"><span class="math display">\[
+\dot{\mu} = \frac{e}{c p} \left( \mathbf{v} \times \mathbf{B} \right)_{z} = \frac{1}{r_{\text{g}} B_z} \left(v_{x} \delta B_{x}(\mathbf{r}) - v_{y} \delta B_{y}(\mathbf{r}) \right)
+\tag{23.21}\]</span></span> and thus <span id="eq-pitch-angle-coef"><span class="math display">\[
+D_{\mu\mu} = \frac{1}{ B_{z} ^{2} r_{\text{g}}^{2}} \int_{0}^{\infty }\mathrm{d} t \left[ v_{x}(t) v_{x}(0) \mathcal{P}_{yy}(t) + v_{y}(t) v_{y}(0) \mathcal{P}_{xx}(t) \right]
+\tag{23.22}\]</span></span></p>
+<p>Here, we have defined <span id="eq-two-point-func"><span class="math display">\[
+\mathcal{P}_{ij}(t) \equiv \langle \delta B_{i}(0) \delta B_{j}(t) \rangle
+\tag{23.23}\]</span></span> and both the velocities and the magnetic fields are to be evaluated along unperturbed trajectories. Note that the fact that the Fokker-Planck coefficients only depend on the two-point function means that we can constrain ourselves to the Gaussian part of the turbulent magnetic field.</p>
+</section>
+<section id="turbulence-geometries-and-spectra" class="level3" data-number="23.1.4">
+<h3 data-number="23.1.4" class="anchored" data-anchor-id="turbulence-geometries-and-spectra"><span class="header-section-number">23.1.4</span> Turbulence geometries and spectra</h3>
 </section>
 </section>
 <section id="test-particle-simulation" class="level2" data-number="23.2">
