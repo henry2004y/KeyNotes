@@ -120,7 +120,7 @@ $$ {#eq-adiabatic-approx}
 
 4. Finite correlation times: The correlation times of the turbulent magnetic field are much larger than the Larmor time, $\tau_c \gg \Omega^{-1}$.
 
-5. Homogeneous and stationary turbulence.
+5. Homogeneous and stationary turbulence: the statistical moments are invariant under translations in space and time. In natural language, it means that the statistics of turbulence do not depend on when and where to take measurements.
 
 Under these conditions, the ensemble averaged Vlasov equation ultimately results in a Fokker-Planck type equation (Fokker 1914; Planck 1917), also known as the Kolmogorov forward (Kolmogorov 1931) or as the Smoluchowski equation (Bogoliubov and Krylov 1939), describing diffusion in pitch-angle,
 $$
@@ -223,6 +223,135 @@ $$ {#eq-two-point-func}
 and both the velocities and the magnetic fields are to be evaluated along unperturbed trajectories. Note that the fact that the Fokker-Planck coefficients only depend on the two-point function means that we can constrain ourselves to the Gaussian part of the turbulent magnetic field.
 
 ### Turbulence geometries and spectra
+
+To make further progress, we need to specify the turbulence correlation tensor $\mathcal{P}_{ij}$. In the derivation of the Fokker-Planck equation we had to assume that turbulence is homogeneous and stationary (assumption 5). In this case, the field can be represented very economically in Fourier space. To this end, we introduce the Fourier transform pair
+$$
+\begin{aligned}
+\delta \tilde{B}_{j}(\mathbf{k}, t) &= (2\pi)^{-3/2} \int_{-\infty }^{\infty} \mathrm{d}^{3} r \, \delta B_{j}(\mathbf{r}, t) \mathrm{e} ^{\imath \mathbf{k} \cdot \mathbf{r}} \\
+\delta B_{j}(\mathbf{x}, t) &= (2\pi)^{-3/2} \int_{-\infty}^{\infty} \mathrm{d}^{3} k \, \delta \tilde{B}_{j}(\mathbf{k}, t) \mathrm{e} ^{-\imath \mathbf{k} \cdot \mathbf{r}}
+\end{aligned}
+$$ {#eq-turbulence-B-fourier}
+
+Note that for the magnetic field to have real values, $\delta B_{j}(\mathbf{r}) = \delta B^{*}_{j}(\mathbf{r})$, requires a relation between the Fourier components and their complex conjugates,
+$$
+\delta \tilde{B}^{*}_{j}(\mathbf{k}) = \delta \tilde{B}_{j}(-\mathbf{k})
+$$
+
+The homogeneity and stationarity now guarantee that the two-point functions $\langle \delta B_{i}(\mathbf{r}, t) \delta B_{j}(\mathbf{r}', t') \rangle$ depend on the positions $\mathbf{r}$ and $\mathbf{r}'$ and times $t$ and $t'$ only through the differences $\Delta \mathbf{r} \equiv (\mathbf{r} - \mathbf{r}')$ and $(t-t')$. It is then easy to see that the two-point function in Fourier space is diagonal,
+$$
+\begin{aligned}
+& \langle \delta \tilde{B}_{i}(\mathbf{k}, t) \delta \tilde{B}^{*}_{j}(\mathbf{k}', t') \rangle \\ &= \! (2 \pi )^{-3} \!\!\! \int \!\! \mathrm {d} ^{3} r \, \mathrm {e} ^{ \imath \mathbf{k} \cdot \mathbf{r}} \!\!\! \int \!\! \mathrm {d} ^{3} r' \mathrm {e} ^{-\imath \mathbf{k}' \cdot \mathbf{r}'} \!\! \langle \delta B_{i}(\mathbf{r}, t) \delta B_{j}(\mathbf{r}'\!, t') \rangle \\
+&= \delta ^{(3)} (\mathbf{k} - \mathbf{k}') P_{ij}(\mathbf{k}, t-t')
+\end{aligned}
+$$
+where the turbulence correlation tensor $P_{ij}(\mathbf{k}, \Delta t)$ is the Fourier transform of the coordinate space two-point function
+$$
+\begin{aligned}
+P_{ij}(\mathbf{k}, \Delta t) \equiv & (2 \pi )^{-3/2} \int _{-\infty}^{\infty} \mathrm {d} ^{3} (\Delta r) \, \mathrm {e} ^{\imath \mathbf{k} \cdot \Delta \mathbf{r}} \\ & \times \langle \delta B_{i}(\mathbf{r}, t) \delta B_{j}(\mathbf{r} - \Delta \mathbf{r}\!, t') \rangle
+\end{aligned}
+$$ {#eq-turbulence-correlation-tensor}
+
+It contains all the (statistical) information on the magnetic turbulence that enters into the computation of the Fokker-Planck coefficients:
+
+* information on the turbulence geometry, for instance whether there is a preferred direction for the propagation of waves;
+* information on the turbulence spectrum, that is the distribution of energy among different turbulent scales;
+* information on the time-dependence of the correlations.
+
+Oftentimes, it is assumed that $P_{ij}(\mathbf{k}, \Delta t)$ factorises into a magnetostatic correlation tensor $P_{ij}(\mathbf{k}) \equiv P_{ij}(\mathbf{k}, 0)$ independent of time and a time-dependent dynamical correlation function $\Gamma(\mathbf{k}, \Delta t)$,
+$$
+P_{ij}(\mathbf{k}, \Delta t) = P_{ij}(\mathbf{k}) \Gamma (\mathbf{k}, \Delta t)
+$$ {#eq-turbulence-correlation-tensor-decomposition}
+
+In the magnetostatic approximation, we ignore any time-dependence altogether, so
+$$
+\Gamma \equiv 1
+$$
+
+While in reality $P_{ij}$ may be arbitrarily complicated, three turbulence geometries have dominated much of the literature, both in analytical studies of transport coefficients and numerical test particle simulations. These three geometries are conceptually simple and particularly amenable to analytical computations of the components of the diffusion tensor and the other Fokker-Planck coefficients:
+
+* 3D isotropic turbulence
+* slab turbulence
+* a composition of slab and 2D isotropic turbulence
+
+#### 3D isotropic turbulence
+
+For 3D isotropic turbulence the magnetostatic correlation tensor takes the form (Batchelor 1982)
+$$
+P^{\text{3D}}_{ij}(\mathbf{k}) = g^{\text{3D}}(k) \left( \delta _{ij} - \frac{k_{i} k_{j}}{k^{2}} + \imath \sigma(k) \epsilon_{ijm} \frac{k_{m}}{k} \right)
+$$ {#eq-correlation-tensor-3disotropic}
+
+The k-dependent real functions $g^{\text{3D}}(k)$ and $\sigma(k)$ allow modelling of the overall spectrum and of a wavenumber-dependent helicity, respectively. Note that for linearly polarised waves $\sigma(k)\equiv 0$. The normalization of $g^{\text{3D}}(k)$ is fixed by requiring
+$$
+\begin{aligned}
+\delta B^{2} &\equiv \langle \mathbf{\delta B}^{2}(\mathbf{x}) \rangle \! = \!\! \int \mathrm {d} ^{3} k \left ( P^{\text{3D}}_{xx}(\mathbf{k}) + P^{\text{3D}}_{yy}( \mathbf{k}) + P^{\text{3D}}_{zz}(\mathbf{k}) \right ) \\ &= 2 \int \mathrm {d} ^{3} k \, g^{\text{3D}}(k) = 8 \pi \int _{0}^{\infty } \mathrm {d} k \, k^{2} g^{\text{3D}}(k)
+\end{aligned}
+$$ {#eq-isotropic-normalization}
+
+#### Slab turbulence
+
+In slab turbulence, it is assumed that all quantities are independent of the coordinates perpendicular to the background field (x and y) and that the turbulent field has no z-component. Consequently, the wave vectors $\mathbf{k}\parallel \hat{z}$ and if we further demand turbulence to be axisymmetric, the turbulence correlation tensor reads
+$$
+P^{\text{slab}}_{ij}(\mathbf{k}) = g^{\text{slab}}(k_{\parallel }) \frac{\delta (k_{\perp })}{k_{\perp }} \left ( \delta _{ij} + \imath \sigma (k_{\parallel }) \epsilon _{ijz} \right )
+$$ {#eq-correlation-tensor-slab}
+for $i, j \in x, y$ and zero otherwise. In our case $k_\parallel = k_z$ and $k_{\perp } = \sqrt{k_{x}^{2} + k_{y}^{2}}$. Again, $\sigma(k_\parallel)$ allows for wavenumber-dependent helicity, but vanishes for linear polarisation. The normalisation is then
+$$
+\begin{aligned}
+\delta B^{2} &\equiv \int \mathrm {d} ^{3} k \left ( P^{\text{slab}}_{xx}( \mathbf{k}) + P^{\text{slab}}_{yy}(\mathbf{k}) \right ) \\
+&= 4 \pi \int _{-\infty }^{\infty } \mathrm {d} k_{\parallel } \, g^{ \text{slab}}(k_{\parallel })
+\end{aligned}
+$$ {#eq-slab-normalization}
+
+While slab turbulence might seem rather restrictive a turbulence model, it is quite attractive due to its simplicity. In addition, it could be argued that it is of physical relevance in situations where the turbulence is self-generated by anisotropies in the distribution of CRs (Kulsrud and Pearce 1969; Skilling 1975): It has been shown (e.g. Tademaru 1969) that the modes with wavevectors along the background magnetic field grow fastest.
+
+#### Composite (slab + 2D isotropic) turbulence
+
+
+#### Turbulence spectra
+
+Having reviewed three simple turbulence geometries, we need to specify the spectral shapes $g(k)$ in order to compute transport coefficients. In cascade models of turbulence, energy is injected on the largest scales in the so-called _injection (energy) range_. Non-linear interactions transfer energy to smaller scales over the so-called _inertial range_. At very small scales, the turbulent energy is dissipated in the so-called _dissipation range_. The scale separating the injection and inertial ranges is called the _outer scale of turbulence_ and the scale separating the inertial and the dissipation range is called the _dissipation scale_.
+
+Most studies deal with one of two spectra. The first one is a simple power law with spectral index $q$ and low wavenumber cut-off $k_0$, corresponding to the outer scale $(2\pi/k_0)$,
+$$
+g_{\text{PL}}(k) = \left \{ \textstyle\begin{array}{l@{\quad }l} g_{0} (k/k_{0})^{-q} & \text{for } k \geq k_{0} \, , \\ 0 & \text{otherwise.} \end{array}\displaystyle \right .
+$$
+
+The alternative is a broken power law with a flat spectrum below the wavenumber $k_0$ and a power law slope $q$ above,
+$$
+g_{\text{BPL}}(k) = g_{0} \left ( 1 + \left ( \frac{k}{k_{0}} \right )^{1/s} \right )^{-q s} \, .
+$$
+Here, $s$ is parametrising the softness of the break and $s\to 0$ corresponds to a sharp break. It is assumed that the broken power law form can potentially also capture turbulence in the injection range, that is for $k<k_0$.
+
+### Field-line random walk
+
+The computation of the pitch-angle diffusion coefficient in @eq-TGK and @eq-pitch-angle-coef is based on an evaluation of the turbulent part of the Lorentz force along trajectories around the homogeneous background field. As long as perturbations are small, this gives the dominant contribution to the parallel diffusion coefficient, @eq-parallel-diffusion-coef.
+
+For perpendicular transport, however, there is another important contribution due to the fact that the field line is not perfectly homogeneous. Instead, the large-scale magnetic field evaluated for a particle along a field line changes direction with distance along this field line. Under certain conditions, this movement can be shown to be diffusive, see below. If the movement of the particle due to this effect is included in the computation of the mean-square displacements (or equivalently through the Taylor-Green-Kubo approach), this gives the so-called _field-line random walk (FLRW)_ contribution to perpendicular transport. The contribution without this is oftentimes called the _microscopic contribution_.
+
+For slab turbulence, the microscopic diffusion coefficient vanishes (the transport is in fact sub-diffusive), hence FLRW gives the only contribution. For other turbulence geometries, FLRW can also contribute, but might not be dominating.
+
+Let's again assume the regular background field $\langle \mathbf{B} \rangle = B_{z} \hat{z}$ to be dominating over the perturbations $\delta\mathbf{B}$. The equation determining the field line $\{ x(z), y(z) \}$ is
+$$
+\frac{\mathrm{d}x}{\mathrm{d}z} = \frac{\delta B_{x}}{B_{z}} \, ,\frac{\mathrm{d}y}{\mathrm{d}z} = \frac{\delta B_{y}}{B_{z}}
+$$
+This can formally be integrated to obtain the mean square displacement in the perpendicular directions, e.g.
+$$
+\langle (\Delta x)^{2} \rangle \! = \! \frac{1}{B_{z}^{2}} \int _{0}^{z} \!\! \! \mathrm {d} z' \!\! \int _{0}^{z} \!\!\! \mathrm {d} z'' \langle \delta B_{x}(\mathbf{r}(z')) \delta B_{x}(\mathbf{r}(z'')) \rangle
+$$ {#eq-mean-sqr-displacement-perp}
+
+In slab turbulence, the integrand only depends on z and it is easy to show that the perpendicular mean-square displacement $\langle (\Delta r_{\perp})^{2} \rangle$ is ballistic at small z and diffusive for large z, e.g.
+$$
+\langle (\Delta x)^{2} \rangle = \left \{ \textstyle\begin{array}{l@{\quad } l} z^{2} \left ( \delta B_{x} / B_{z} \right )^{2} & \text{for } z \to 0 \, , \\ 2 \kappa _{\text{FLRW}} |z| & \text{for } z \to \infty \, , \end{array}\displaystyle \right .
+$$
+with the FLRW diffusion coefficient
+$$
+\kappa _{\text{FLRW}} = \frac{2 \pi ^{2}}{B_{z}^{2}} g^{\text{slab}}(0)
+$$
+
+In other turbulence geometries, the integrand in @eq-mean-sqr-displacement-perp also depends on x and y, such that an explicit solution is not possible without further assumptions.
+
+If particles are assumed to diffuse along field lines, $\langle (\Delta z)^{2} \rangle \propto \Delta t$, FLRW leads to subdiffusive perpendicular transport, $\langle (\Delta r_{\perp})^{2} \rangle \propto \sqrt{\Delta t}$, a phenomenon known as _compound (sub)diffusion_ (Jokipii 1966). Compound subdiffusion has been applied to a variety of environments like laboratory plasmas, the heliosphere, near-source transport as well as shock acceleration.
+
+### Short-comings of QLT
 
 ## Test Particle Simulation
 
