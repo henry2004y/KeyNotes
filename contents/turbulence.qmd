@@ -18,6 +18,26 @@ Since fully developed turbulence involves a hierarchy of scales, a large number 
 
 It should be emphasized that there are no firm mathematical arguments for the existence of an asymptotic statistical state. Reproducible statistical results are obtained from observations, that is, it is suggested experimentally and from physical plausibility. Apart from physical plausibility, it is embarrassing that such an important feature of fully developed turbulence, as the existence of a statistical stability, should remain unsolved. However, such is the complex nature of turbulence.
 
+## Weak and Strong Turbulence
+
+Weak turbulence
+
+* Nonlinearity: Interactions between waves or eddies are weak in the sense that the energy in these interactions is much smaller than the total energy of the system.
+* Perturbative Approach: Weak turbulence theory is often treated via a perturbative expansion where nonlinear terms are considered small corrections to the linear behavior of waves. This allows for an analytical treatment of wave-wave interactions.
+* Three-wave interactions: The fundamental interactions involve three waves satisfying resonance conditions in frequency and wavenumber (e.g., two waves combining to form a third wave).
+* Predictability: Since the interactions are weak, the time evolution of the system is relatively predictable, and statistics of the turbulent state can be calculated more directly.
+* Energy Cascades: Energy still gets transferred across scales from large to small, creating a characteristic energy spectrum.
+
+Strong turbulence
+
+* Intense Nonlinearity: Interactions between waves or eddies become comparable in strength to the total energy of the system. Linear wave descriptions break down significantly.
+* Complex Interaction Web: Simple three-wave interactions no longer fully describe the behavior. More complex, multi-wave interactions and turbulent structures play a dominant role.
+* Less Analytical Tractability: Strong turbulence is difficult, often impossible, to fully solve analytically. Numerical simulations and phenomenological modeling become essential tools.
+* Chaotic Behavior: The system can show extreme sensitivity to initial conditions, making long-term predictions about the detailed evolution very challenging.
+* Energy Cascades and Dissipation: The transfer of energy across scales becomes more rapid, and may no longer follow simple power-law energy spectra like in weak turbulence. Dissipation at small scales becomes significant.
+
+In the context of water waves, an example of weak turbulence is the small ripples on a relatively calm pond, and an example of strong turbulence is the crashing waves on a stormy ocean. Intuitively, we can tell that the weak turbulence is easier to describe mathmatically than the strong turbulence.
+
 ## MHD
 
 Nunov highly recommended a review [@schekochihin_2022]. Another nice reference for the solar wind turbulence is presented [@bruno2013solar], where I cite many materials in this note.
@@ -71,20 +91,27 @@ The zero divergence means that there are no forcing or dissipation terms.
 
 ### Critical balance
 
-If we match the Alfvén (linear) timescale, $\tau_A \sim l_\parallel/v_A$, with the nonlinear timescale, $\tau_{nl}\sim l_\perp/\delta z$, we have the so-called _critical balance_
+If we match the Alfvén (linear) timescale, $\tau_A \sim l_\parallel/v_A$ (related to how fast Alfvén waves propagate along magnetic field lines), with the nonlinear timescale, $\tau_{nl}\sim l_\perp/\delta z$ (related to how fast turbulent eddies interact and distort each other),
 $$
 \tau_A = \tau_{nl}
 $$
+we have a way to predict the scaling of energy distribution across different scales, and the relationship between perpendicular and parallel structures in turbulence. This is known as the  _critical balance_ (Goldreich and Sridhar).
 
-Assume a constant energy cascade rate $\epsilon\sim \delta z^2/\tau_{nl}$, and an energy injection rate at scale L $\epsilon_L\sim v_A^2/\tau_{nl}=v_A^3/L$. When we match the two rates and ... (I have some memory from Nunov's lecture at Nordita), we have $k_\parallel\propto k_\perp^{2/3}$. This means that anisotropy grows with decreasing scale. The power spectra are given as
+Assume a constant energy cascade rate $\epsilon\sim \delta z^2/\tau_{nl}$, and an energy injection rate at scale L $\epsilon_L\sim v_A^2/\tau_{nl}=v_A^3/L$. When we match the two rates and ... (I have some memory from Nunov's lecture at Nordita), we have
+$$
+k_\parallel\propto k_\perp^{2/3}
+$$ {#eq-critical-balance}
+This means that anisotropy grows with decreasing scale. It indicates the transition from “weak” to “strong” turbulence, or more accurately a transition from “quasi-linear” to “mode-coupling” processes. The power spectra are given as
 $$
 \begin{aligned}
 E(k_\perp) &\propto k_\perp^{-5/3} \\
 E(k_\parallel) &\propto k_\parallel^{-2}
 \end{aligned}
-$$
+$$ {#eq-critical-balance-spectra}
 
-The critical balance scalings were seen in observations when analysed with local mean field techniques [Chen 2016]. However, why this is the case in nature is still under debate.
+This is among the most influential discoveries related to MHD turbulence, which makes it distinct from gas dynamic Kolmogorov turbulence by taking the magnetic field into account. By separating $k_\parallel$ and $k_\perp$ dynamics, the critical balance theory predicts perpendicular energy spectra @eq-critical-balance-spectra, which is consistent with the solar wind turbulence in the inertial range [Chen 2016]. The theory invoking this concept is now known as the anisotropic MHD turbulence.
+
+However, why this is the case in nature is still under debate.
 
 ### Residual energy
 
