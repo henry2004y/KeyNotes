@@ -1042,7 +1042,7 @@ v_\mathrm{ph} = \frac{\omega}{k} = \frac{W}{2} + \sqrt{\frac{B_x^2}{\rho} + \fra
 </section>
 <section id="langmuir-wave" class="level3" data-number="28.2.9">
 <h3 data-number="28.2.9" class="anchored" data-anchor-id="langmuir-wave"><span class="header-section-number">28.2.9</span> Langmuir wave</h3>
-<p>Langmuir wave is a rapid electrostatic oscillation in plasma driven by Coulomb force. We assume immobile ions. From the fluid perspective, the governing equations are given in <a href="wave.html#eq-langmuir-linear" class="quarto-xref">Equation&nbsp;<span>7.2</span></a>: <span class="math display">\[
+<p>Langmuir wave is a rapid electrostatic oscillation in plasma driven by Coulomb force. Here we assume cold plasma and immobile ions. From the fluid perspective, the governing equations are given in <a href="wave.html#eq-langmuir-linear" class="quarto-xref">Equation&nbsp;<span>7.2</span></a>: <span class="math display">\[
 \begin{aligned}
 \frac{\partial n_1}{\partial t} &amp;= -n_0\frac{\partial u_1}{\partial x} \\
 \frac{\partial u_1}{\partial t} &amp;= -\frac{e}{m}E_1 \\
@@ -1052,7 +1052,14 @@ v_\mathrm{ph} = \frac{\omega}{k} = \frac{W}{2} + \sqrt{\frac{B_x^2}{\rho} + \fra
 <p>The third equation can be alternatively written using the electric potential <span class="math inline">\(\phi\)</span> which is defined via <span class="math inline">\(\mathbf{E} = -\nabla \phi = -\partial \phi/\partial x\)</span>, <span class="math display">\[
 \frac{\partial^2 \phi}{\partial x^2} = \frac{e}{\epsilon_0}n_1
 \]</span></p>
-<p>Langmuir oscillation can be driven self-consistently if there is a density perturbation in electrons, i.e.&nbsp;local charge imbalance. A classical test is to set the 1D spatial domain between <span class="math inline">\([0,2\pi]\)</span> with 512 points, and time step <span class="math inline">\(\Delta t = 0.01\)</span>. The initial perturbation density is <span class="math inline">\(n_1 = 0.02n_0\cos(x)\)</span>, where <span class="math inline">\(n_0\)</span> is the uniform background electron density. Temperature is set to 0. Total simulation time is 100.</p>
+<p>Then the full equations are <span class="math display">\[
+\begin{aligned}
+\frac{\partial n_1}{\partial t} &amp;= -n_0\frac{\partial u_1}{\partial x} \\
+\frac{\partial u_1}{\partial t} &amp;= -\frac{e}{m}\frac{\partial \phi}{\partial x} \\
+\frac{\partial^2 \phi}{\partial x^2} &amp;= \frac{e}{\epsilon_0}n_1
+\end{aligned}
+\]</span></p>
+<p>Langmuir oscillation can be driven self-consistently if there is a density perturbation in electrons, i.e.&nbsp;local charge imbalance. A classical test is to set the 1D periodic spatial domain between <span class="math inline">\([0,2\pi]\)</span> with 512 points, and time step <span class="math inline">\(\Delta t = 0.01\)</span>. The initial perturbation density is <span class="math inline">\(n_1 = 0.02n_0\cos(x)\)</span>, where <span class="math inline">\(n_0\)</span> is the uniform background electron density. Temperature is set to 0. Total simulation time is 100.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>The electron equation of motion is <span class="math display">\[
 \begin{aligned}
 m\frac{\mathrm{d}v}{\mathrm{d}t} &amp;= -e E \\
@@ -1221,6 +1228,7 @@ Tóth, Gábor. 2000. <span>“The ∇<span></span> b= 0 Constraint in Shock-Capt
 <hr>
 <ol>
 <li id="fn1"><p>As opposed to linearly polarized Alfvén wave, which is not an exact solution to the nonlinear MHD equations! Polarization affects decay. Ask Chaitanya for more about this point.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Using a simple finite difference solver, I found that solving E is unstable because the finite difference matrix on the left-hand-side of Poisson’s equation is singular. Solving the electric potential with Laplace’s equation is fine.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
