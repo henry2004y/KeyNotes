@@ -1194,8 +1194,7 @@ compared to the magnetic force, whereas $\beta = \mathcal{O}(1)$ plasmas are tho
 As an extension to the ideal/resistive MHD model, Hall MHD decouples the electron and ion motions by retrieving the Hall term in the generalized Ohm's law
 $$
 \mathbf{E} = -\mathbf{u}\times\mathbf{B}+\eta\mathbf{J}+\frac{1}{en}\mathbf{J}\times\mathbf{B} - \frac{\nabla p_e}{ne}
-$$
-
+$$ {#eq-ohm-law-hall}
 where the first term on the right-hand-side is the convective term, the second is the resistive term, the third is the Hall term, and the fourth is the electron pressure gradient term. The electron pressure scalar is simplified from the electron pressure tensor, which is obtained from an independent electron pressure equation.
 
 The Hall MHD equations are
@@ -1208,23 +1207,25 @@ $$
 \frac{\partial p_e}{\partial t} + \nabla\cdot \left(p_e\mathbf{u}_e \right)&=-(\gamma-1)p_e\nabla\cdot\mathbf{u}_e
 \end{aligned}
 $$ {#eq-hall_mhd}
-
 where $\bar{\bar{I}}$ is the identity matrix, $\rho$ is the mass density, $\mathbf{u}$ is the plasma bulk velocity, $\mathbf{B}$ is the magnetic field, $p_e$ is the electron pressure, $p$ is the ion thermal pressure, $\mathbf{J}=\nabla\times\mathbf{B}/\mu_0$ is the current density, $\epsilon=\rho\mathbf{u}^2/2$ is the hydrodynamic energy density, and $\epsilon_e=\rho\mathbf{u}_e^2/2$ is the electron hydrodynamic energy density. The Hall velocity is defined as
 $$
 \mathbf{v}_H=-\frac{\mathbf{J}}{ne}
-$$
-
+$$ {#eq-hall-velocity}
 and the electron bulk velocity is given by
 $$
 \mathbf{u}_e = \mathbf{u} + \mathbf{v}_H
-$$
+$$ {#eq-hall-electron-velocity}
 
 The total energy density is (I may have a coefficient error here for $p_e$!)
 $$
 e= \frac{1}{2}\rho \mathbf{u}^2+\frac{1}{\gamma-1}(p+p_e)+\frac{\mathbf{B}^2}{2\mu_0}
 $$
-
 where $\gamma$ is the adiabatic index. Note that in Hall MHD only $(\rho,\mathbf{u},\mathbf{B},p,p_e)$ are unknowns; all others are derived quantities.
+
+One important thing to recognize is that while ideal MHD has no intrinsic scales, Hall MHD introduces a new characteristic length scale into the system – the ion skin depth $d_i$. In ideal MHD, when the plasma beta is low, the speed of the shear Alfvén mode and the fast magnetosonic mode become approximately equal. This is known as _degeneracy_, which means it is difficult to distinguish between the two modes, as they essentially travel at the same speed. In Hall MHD, when the wavelength of the waves becomes comparable to $d_i$, the distinction between the shear Alfvén and the fast magnetosonic modes becomes clear:
+
+1. Fast magnetosonic waves (whistler waves) are affected by electron dynamics and propagate at higher frequencies within the Hall-MHD framework.
+2. Shear Alfvén waves (kinetic Alfvén waves, or Alfvén-ion-cyclotron waves) are predominantly driven by ion dynamics and tend to propagate at lower frequencies.
 
 ## Fluid Drifts Perpendicular to B {#sec-fluid-drift-perp}
 
