@@ -296,8 +296,8 @@ $$ {#eq-correlation-tensor-slab}
 for $i, j \in x, y$ and zero otherwise. In our case $k_\parallel = k_z$ and $k_{\perp } = \sqrt{k_{x}^{2} + k_{y}^{2}}$. Again, $\sigma(k_\parallel)$ allows for wavenumber-dependent helicity, but vanishes for linear polarisation. The normalisation is then
 $$
 \begin{aligned}
-\delta B^{2} &\equiv \int \mathrm {d} ^{3} k \left ( P^{\text{slab}}_{xx}( \mathbf{k}) + P^{\text{slab}}_{yy}(\mathbf{k}) \right ) \\
-&= 4 \pi \int _{-\infty }^{\infty } \mathrm {d} k_{\parallel } \, g^{ \text{slab}}(k_{\parallel })
+\delta B^{2} &\equiv \int \mathrm{d} ^{3} k \left( P^{\text{slab}}_{xx}( \mathbf{k}) + P^{\text{slab}}_{yy}(\mathbf{k}) \right) \\
+&= 4 \pi \int _{-\infty}^{\infty} \mathrm{d} k_{\parallel} \, g^{ \text{slab}}(k_{\parallel})
 \end{aligned}
 $$ {#eq-slab-normalization}
 
@@ -320,6 +320,33 @@ $$
 g_{\text{BPL}}(k) = g_{0} \left ( 1 + \left ( \frac{k}{k_{0}} \right )^{1/s} \right )^{-q s} \, .
 $$
 Here, $s$ is parametrising the softness of the break and $s\to 0$ corresponds to a sharp break. It is assumed that the broken power law form can potentially also capture turbulence in the injection range, that is for $k<k_0$.
+
+#### Slab turbulence with broken power law spectrum
+
+The result for the pitch-angle diffusion coefficient in slab turbulence and for the broken power law spectrum (Shalchi 2009) is given as an example.
+$$
+g^{\text{slab}}(k_{\parallel }) = \frac{C \left (q, \frac{1}{2} \right )}{2 \pi k_{0}} \delta B^{2} \left ( 1 + \left ( \frac{k}{k_{0}} \right )^{2} \right )^{-q/2} \, .
+$$ {#eq-g-slab-turbulence}
+
+The function $C(q, s)$ is fixed by the normalisation condition, see @eq-slab-normalization,
+$$
+\begin{aligned}
+\frac{1}{C(q, s)} & \equiv \frac{4}{k_{0}} \int_{0}^{\infty} \mathrm {d} k \, \left ( 1 + \left( \frac{k}{k_{0}} \right )^{1/s} \right)^{-q s} \\
+&= \frac{4}{k_{0}} \frac{\Gamma (s(q-1)) \Gamma (1+s)}{\Gamma (q \, s)}
+\end{aligned}
+$$ {#eq-slab-normalization2}
+
+where $\Gamma (\cdot)$ denotes the gamma function. We have assumed that $q>1$ in order for the k-integral in @eq-slab-normalization2 to converge. For $q=1$, instead, we need to assume a cut-off, that is $g^{\text{slab}} = 0$ for $k_{\parallel} > k_{\text{max}}$.
+
+Substituting @eq-g-slab-turbulence into @eq-correlation-tensor-slab and @eq-pitch-angle-coef, one encouters the resonance function (Schlickeiser 2002)
+$$
+R^{\text{slab}} = \pi \delta (k_{\parallel } \mu v \pm \Omega )
+$$ {#eq-slab-turbulence-resonance}
+
+Eventually, this simplifies to
+$$
+D_{\mu \mu } = \frac{\pi }{2} C \! \left ( \! q, \frac{1}{2} \! \right ) q k_{0} \frac{\delta B^{2}}{B_{z}^{2}} \frac{(1 - \mu ^{2}) \mu ^{q-1} (r_{\text{L}} k_{0})^{q-2}}{(1 + \mu ^{2} (r_{\text{L}} k_{0}))^{q/2}}
+$$ {#eq-diffusion-coef-slab-turbulence}
 
 ### Field-line random walk
 
@@ -352,6 +379,11 @@ In other turbulence geometries, the integrand in @eq-mean-sqr-displacement-perp 
 If particles are assumed to diffuse along field lines, $\langle (\Delta z)^{2} \rangle \propto \Delta t$, FLRW leads to subdiffusive perpendicular transport, $\langle (\Delta r_{\perp})^{2} \rangle \propto \sqrt{\Delta t}$, a phenomenon known as _compound (sub)diffusion_ (Jokipii 1966). Compound subdiffusion has been applied to a variety of environments like laboratory plasmas, the heliosphere, near-source transport as well as shock acceleration.
 
 ### Short-comings of QLT
+
+Despite its popularity, QLT exhibits a number of issues. The most well-known pathology of magnetostatic QLT is its inability to scatter particles through $90^\circ$. While present in a number of turbulence geometries, it is easiest illustrated in slab turbulence where the dependence of the pitch-angle diffusion coefficient $D_{\mu\mu}$ on the spectrum $g^{\text{slab}}(k)$ becomes very simple. In fact, inspecting @eq-diffusion-coef-slab-turbulence we see that $D_{\mu\mu}\to 0$ for $\mu\to 0$.
+
+The root cause for the $90^\circ$ problem is the narrow resonance condition in magnetostatic QLT, $k_{\parallel } \mu \, r_{\text{L}} = \pm 1$ (@eq-slab-turbulence-resonance). Particles at finite $\mu$ are in resonance with waves of finite parallel wavenumber, $k_{\parallel} = \pm 1 / (\mu r_{\text{L}})$. For $\mu\to 0$, however, the resonant parallel wavenumber grows without bounds. With the turbulence spectra being falling power laws, however, there is only little energy at small scales and the pitch-angle scattering rate vanishes. In practice, there is of course no energy at all at scales below the dissipation scale.
+
 
 ## Test Particle Simulation
 
