@@ -678,12 +678,12 @@ $$
 
 Poisson's equation gives
 $$
-\epsilon_0\nabla\cdot\mathbf{E}_1 = ik\epsilon_0 E_x = -en_1 = -e\int\int\int f_1 d^3v
+\epsilon_0\nabla\cdot\mathbf{E}_1 = ik\epsilon_0 E_x = -en_1 = -e\int f_1 d^3v
 $$
 
 Substituting for $f_1$ and dividing by $ik\epsilon_0 E_x$, we have
 $$
-1 = -\frac{e^2}{km\epsilon_0}\int\int\int \frac{\partial f_0/\partial v_x}{\omega - k v_x}d^3v
+1 = -\frac{e^2}{km\epsilon_0}\int \frac{\partial f_0/\partial v_x}{\omega - k v_x}d^3v
 $$
 
 A factor $n_0$ can be factored out if we replace $f_0$ by a normalized function $\hat{f}_0$:
@@ -693,7 +693,7 @@ $$
 
 If $f_0$ is a Maxwellian or some other factorable distribution, the integration over $v_y$ and $v_z$ can be carried out easily. What remains is the one-dimensional distribution $\hat{f}_0(v_x)$. For instance, a one-dimensional Maxwellian distribution is
 $$
-\hat{f}_m(v_x) = \sqrt{\frac{m}{2\pi k_B T}} e^{\frac{-mv_x^2}{2 k_B T}}
+\hat{f}_m(v_x) = \sqrt{\frac{m}{2\pi k_B T}} \exp\left(\frac{-mv_x^2}{2 k_B T}\right)
 $$
 
 Since we are dealing with a one-dimensional problem we may drop the subscript x, begin careful not to confuse $v$ (which is really $v_x$) with the total velocity $v$ used earlier:
@@ -718,11 +718,11 @@ This factor becomes large for $v\rightarrow \pm i \infty$, and the contribution 
 
 Although an exact analysis of this problem is complicated, we can obtain an approximate dispersion relation for the case of large phase velocity and weak damping. In this case, the pole at $\omega/k$ lies near the real $v$ axis. The contour prescribed by Landau is then a straight line along the $\Re(v)$ axis with a small semicircle around the pole. In going around the pole, one obtains $2\pi i$ time half the residue there. Then @eq-dispersion_0th becomes
 $$
-1 = \frac{\omega_p^2}{k^2} \Big[ P\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0/\partial v}{v - (\omega/k)}\mathrm{d}v + i\pi \frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=\omega/k} \Big]
+1 = \frac{\omega_p^2}{k^2} \left[ P\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0/\partial v}{v - (\omega/k)}\mathrm{d}v + i\pi \frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=\omega/k} \right]
 $$ {#eq-landau_residue}
 where $P$ stands for the Cauchy principal value. To evaluate this, we integrate along the real $v$ axis but stop just before encountering the pole. If the phase velocity $v_\phi = \omega/k$ is sufficiently large, as we assume, there will not be much contribution from the neglected part of the contour, since both $\hat{f}_0$ and $\partial\hat{f}_0/\partial v$ are very small there. The integral above can be evaluated by integration by parts:
 $$
-\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0}{\partial v}\frac{\mathrm{d}v}{v - v_\phi} = \Big[ \frac{\hat{f}_0}{v-v_\phi} \Big]_{-\infty}^{\infty} - \int_{-\infty}^{\infty}\frac{-\hat{f}_0 \mathrm{d}v}{(v-v_\phi)^2} = \int_{-\infty}^{\infty}\frac{\hat{f}_0 \mathrm{d}v}{(v-v_\phi)^2}
+\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0}{\partial v}\frac{\mathrm{d}v}{v - v_\phi} = \left[ \frac{\hat{f}_0}{v-v_\phi} \right]_{-\infty}^{\infty} - \int_{-\infty}^{\infty}\frac{-\hat{f}_0 \mathrm{d}v}{(v-v_\phi)^2} = \int_{-\infty}^{\infty}\frac{\hat{f}_0 \mathrm{d}v}{(v-v_\phi)^2}
 $$
 
 Since this is just an average of $(v-v_\phi)^{-2}$ over the distribution, the real part of the dispersion relation can be written
@@ -774,15 +774,15 @@ $$ {#eq-landau}
 
 If $\hat{f}_0$ is a one-dimensional Maxwellian, we have
 $$
-\frac{\partial\hat{f}_0}{\partial v} = (\pi v_{th}^2)^{-1/2} \Big( \frac{-2v}{v_{th}^2} \Big) \exp\Big( \frac{-v^2}{v_{th}^2} \Big) = -\frac{2v}{\sqrt{\pi}v_{th}}\exp\Big( \frac{-v^2}{v_{th}^2} \Big)
+\frac{\partial\hat{f}_0}{\partial v} = (\pi v_{th}^2)^{-1/2} \left( \frac{-2v}{v_{th}^2} \right) \exp\left( \frac{-v^2}{v_{th}^2} \right) = -\frac{2v}{\sqrt{\pi}v_{th}}\exp\left( \frac{-v^2}{v_{th}^2} \right)
 $$
 
 We may approximate $v_\phi$ by $\omega_p/k$ in the coefficient, but in the exponent we must keep the thermal correction in the real part of the dispersion relation. The damping is then given by
 $$
 \begin{aligned}
-\Im(\omega) &= -\frac{\pi}{2}\frac{\omega_p^2}{k^2}\frac{2\omega_p}{k\sqrt{\pi}}\frac{1}{v_{th}^3}\exp\Big( \frac{-\omega^2}{k^2 v_{th}^2} \Big) \\
-&= -\sqrt{\pi}\omega_p \Big( \frac{\omega_p}{kv_{th}} \Big)^3 \exp\Big( \frac{-\omega_p^2}{k^2 v_{th}^2}\Big)\exp\Big( \frac{-3}{2} \Big) \\
-\Im\Big(\frac{\omega}{\omega_p}\Big) &= -0.22 \sqrt{\pi}\Big( \frac{\omega_p}{kv_{th}} \Big)^3 \exp\Big( \frac{-1}{2k^2\lambda_D^2} \Big)
+\Im(\omega) &= -\frac{\pi}{2}\frac{\omega_p^2}{k^2}\frac{2\omega_p}{k\sqrt{\pi}}\frac{1}{v_{th}^3}\exp\left( \frac{-\omega^2}{k^2 v_{th}^2} \right) \\
+&= -\sqrt{\pi}\omega_p \left( \frac{\omega_p}{kv_{th}} \right)^3 \exp\left( \frac{-\omega_p^2}{k^2 v_{th}^2}\right)\exp\left( \frac{-3}{2} \right) \\
+\Im\left(\frac{\omega}{\omega_p}\right) &= -0.22 \sqrt{\pi}\left( \frac{\omega_p}{kv_{th}} \right)^3 \exp\left( \frac{-1}{2k^2\lambda_D^2} \right)
 \end{aligned}
 $$
 
@@ -797,19 +797,16 @@ To see what is responsible for Landau damping, we first notice that $\Im(\omega)
 From this discussion, one can surmise that if $f_0(v)$ contained more fast particles than slow particles, a wave can be excited. Indeed, from the expression of $\omega$ above, it is apparent that $\Im(\omega)$ is positive if $\partial\hat{f}_0/\partial v$ is positive at $v=v_\phi$. Such a distribution is shown in Fig.7-19 (ADD IT!). Waves with $v_\phi$ in the region of positive slope will be unstable, gaining energy at the expense of the particles. This is just the finite-temperature analogy of the two stream instability. When there are two cold ($k_B T=0$) electron streams in motion, $f_0(v)$ consists of two $\delta$-functions. This is clearly unstable because $\partial f_0/\partial v$ is infinite; and indeed, we found the instability from fluid theory. When the streams have fnite temperature, kinetic theory tells us that the relative densities and temperatures of the two stream must be such as to have a region of positive $\partial f_0(v)/\partial v$ between them; more precisely, the total distribution function must have a minimum for instability.
 
 __The physical picture of a surfer catching waves is very appealing, but it is not precise enough to give us a real understanding of Landau damping__. There are actually two kinds of Landau damping. Both kinds are independent of dissipative collisional mechanisms. If a particle is caught in the potential well of a wave, the phenomenon is called "trapping". As in the case of a surfer, particles can indeed gain or lose energy in trapping. However, trapping does not lie within the purview of the linear theory. That this is true can be seen from the equation of motion
-
 $$
 m\ddot{x} = qE(x)
 $$
 
 If one evaluates $E(x)$ by inserting the exact value of $x$, the equation would be nonlinear, since $E(x)$ is somehting like $\sin kx$. What is done in linear theory is to use for $x$ the unperturbed orbit; i.e. $x=x_0 + v_0 t$. Then this becomes linear. This approximation, however, is no longer valid when a particle is trapped. When it encounters a potential hill large enough to reflect it, its velocity and position are, of course, greatly affected by the wave and are not close to their unperturbed values. In fluid theory, the equation of motion is
-
 $$
-m\Big[ \frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)\mathbf{v} \Big] = q\mathbf{E}(x)
+m\left[ \frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)\mathbf{v} \right] = q\mathbf{E}(x)
 $$
 
 Here, $\mathbf{E}(x)$ is to be evaluated in the laboratory frame, which is easy; but to make up for it, there is the $(\mathbf{v}\cdot\nabla)\mathbf{v}$ term. The neglect of $(\mathbf{v}_1\cdot\nabla)\mathbf{v}_1$ in linear theory amounts to the same thing as using unperturbed orbits. In kinetic theory, the nonlinear term that is neglected is, from the first-order Vlasov @eq-vlasov_1st,
-
 $$
 \frac{q}{m}E_1\frac{\partial f_1}{\partial v}
 $$
@@ -821,7 +818,6 @@ When a wave grows to a large amplitude, collisionless damping with trapping does
 ### The Kinetic Energy of a Beam of Electrons
 
 We may divide the electron distribution $f_0(v)$ into a large number of monoenergetic beams. Consider one of these beams: it has unperturbed velocity $u$ and density $n_u$. The velocity $u$ may lie near $v_\phi$, so that this beam may consist of resonant electrons. We now turn on a plasma oscillation $E(x,t)$ and consider the kinetic energy of the beam as it moves through the crests and troughs of the wave. The wave is caused by a self-consistent motion of all the beams together. If $n_u$ is small enough (the number of beams large enough), the beam being examined has a negligible effect on the wave and may be considered as moving in a given field $E(x,t)$. Let
-
 $$
 \begin{aligned}
 E &= E_0\sin(kx-\omega t) = -d\phi/\mathrm{d}t \\
@@ -830,13 +826,11 @@ E &= E_0\sin(kx-\omega t) = -d\phi/\mathrm{d}t \\
 $$
 
 The linearized fluid equation for the beam is
-
 $$
-m\Big(\frac{\partial v_1}{\partial t} + u\frac{\partial v_1}{\partial x} \Big) = -eE_0\sin(kx-\omega t)
+m\left(\frac{\partial v_1}{\partial t} + u\frac{\partial v_1}{\partial x} \right) = -eE_0\sin(kx-\omega t)
 $$
 
 A possible solution is
-
 $$
 v_1 = -\frac{eE_0}{m}\frac{\cos(kx-\omega t)}{\omega-ku}
 $$
@@ -848,7 +842,6 @@ $$
 $$
 
 Since $v_1$ is proportional to $\cos(kx-\omega t)$, we can try $n_1 = \bar{n}_1 \cos(kx-\omega t)$. Substitution of this into the above yields
-
 $$
 n_1 = -n_u\frac{eE_0 k}{m}\frac{\cos(kx-\omega t)}{(\omega-ku)^2}
 $$
@@ -856,7 +849,6 @@ $$
 ($n_1$ and $v_1$ can be shown in a series of phase relation plots as in Fig.7-21)(ADD IT!) one wavelength of $E$ and of the potential $-e\phi$ seen by the beam electrons.
 
 We may now compute the kinetic energy $W_k$ of the beam:
-
 $$
 \begin{aligned}
 W_k &= \frac{1}{2}m(n_u+n_1)(u+v_1)^2 \\
@@ -865,25 +857,20 @@ W_k &= \frac{1}{2}m(n_u+n_1)(u+v_1)^2 \\
 $$
 
 The last three terms contain odd powers of oscillating quantites, so they will vanish when we average over a wavelength. The change in $W_k$ due to the wave is found by subtracting the first term, which is the original energy. The average energy change is then
-
 $$
 \left<\Delta W_k \right> = \frac{1}{2}m\left<n_uv_1^2 + 2un_1v_1\right>
 $$
 
 From the form of $v_1$, we have
-
 $$
 n_u\left< v_1^2 \right> = \frac{1}{2}n_u\frac{e^2E_0^2}{m^2(\omega-ku)^2}
 $$
-
 the factor $\frac{1}{2}$ representing $\left< \cos^2(kx-\omega t) \right>$. Similarly, from the form of $n_1$,
-
 $$
 2u\left< n_1v_1 \right> = n_u\frac{e^2E_0^2 ku}{m^2(\omega - ku)^3}
 $$
 
 Consequently,
-
 $$
 \begin{aligned}
 \left<\Delta W_k \right> &= \frac{1}{4}mn_u \frac{e^2E_0^2}{m^2(\omega - ku)^2}\Big[ 1+\frac{2ku}{\omega-ku} \Big] \\
