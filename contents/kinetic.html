@@ -993,16 +993,16 @@ f_1 &amp;= \frac{ieE_x}{m}\frac{\partial f_0/\partial v_x}{\omega - kv_x}
 \end{aligned}
 \]</span></p>
 <p>Poisson’s equation gives <span class="math display">\[
-\epsilon_0\nabla\cdot\mathbf{E}_1 = ik\epsilon_0 E_x = -en_1 = -e\int\int\int f_1 d^3v
+\epsilon_0\nabla\cdot\mathbf{E}_1 = ik\epsilon_0 E_x = -en_1 = -e\int f_1 d^3v
 \]</span></p>
 <p>Substituting for <span class="math inline">\(f_1\)</span> and dividing by <span class="math inline">\(ik\epsilon_0 E_x\)</span>, we have <span class="math display">\[
-1 = -\frac{e^2}{km\epsilon_0}\int\int\int \frac{\partial f_0/\partial v_x}{\omega - k v_x}d^3v
+1 = -\frac{e^2}{km\epsilon_0}\int \frac{\partial f_0/\partial v_x}{\omega - k v_x}d^3v
 \]</span></p>
 <p>A factor <span class="math inline">\(n_0\)</span> can be factored out if we replace <span class="math inline">\(f_0\)</span> by a normalized function <span class="math inline">\(\hat{f}_0\)</span>: <span class="math display">\[
 1 = -\frac{\omega_p^2}{k}\int_{-\infty}^{\infty}dv_z\int_{-\infty}^{\infty}dv_y\int_{-\infty}^{\infty}\frac{\partial \hat{f}_0(v_x, v_y, v_z)/\partial v_x}{\omega- k v_x}dv_x
 \]</span></p>
 <p>If <span class="math inline">\(f_0\)</span> is a Maxwellian or some other factorable distribution, the integration over <span class="math inline">\(v_y\)</span> and <span class="math inline">\(v_z\)</span> can be carried out easily. What remains is the one-dimensional distribution <span class="math inline">\(\hat{f}_0(v_x)\)</span>. For instance, a one-dimensional Maxwellian distribution is <span class="math display">\[
-\hat{f}_m(v_x) = \sqrt{\frac{m}{2\pi k_B T}} e^{\frac{-mv_x^2}{2 k_B T}}
+\hat{f}_m(v_x) = \sqrt{\frac{m}{2\pi k_B T}} \exp\left(\frac{-mv_x^2}{2 k_B T}\right)
 \]</span></p>
 <p>Since we are dealing with a one-dimensional problem we may drop the subscript x, begin careful not to confuse <span class="math inline">\(v\)</span> (which is really <span class="math inline">\(v_x\)</span>) with the total velocity <span class="math inline">\(v\)</span> used earlier: <span id="eq-dispersion_0th"><span class="math display">\[
 1 = \frac{\omega_p^2}{k^2}\int_{-\infty}^{\infty}\frac{\partial \hat{f}_0/\partial v}{v - \omega/k}\mathrm{d}v
@@ -1016,9 +1016,9 @@ f_1 &amp;= \frac{ieE_x}{m}\frac{\partial f_0/\partial v_x}{\omega - kv_x}
 \]</span></p>
 <p>This factor becomes large for <span class="math inline">\(v\rightarrow \pm i \infty\)</span>, and the contribution from <span class="math inline">\(C_2\)</span> cannot be neglected. Landau showed that when the problem is properly treated as an initial value problem the correct contour to use is the curve <span class="math inline">\(C_1\)</span> passing below the singularity. This integral must in general be evaluated numerically.</p>
 <p>Although an exact analysis of this problem is complicated, we can obtain an approximate dispersion relation for the case of large phase velocity and weak damping. In this case, the pole at <span class="math inline">\(\omega/k\)</span> lies near the real <span class="math inline">\(v\)</span> axis. The contour prescribed by Landau is then a straight line along the <span class="math inline">\(\Re(v)\)</span> axis with a small semicircle around the pole. In going around the pole, one obtains <span class="math inline">\(2\pi i\)</span> time half the residue there. Then <a href="#eq-dispersion_0th" class="quarto-xref">Equation&nbsp;<span>9.30</span></a> becomes <span id="eq-landau_residue"><span class="math display">\[
-1 = \frac{\omega_p^2}{k^2} \Big[ P\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0/\partial v}{v - (\omega/k)}\mathrm{d}v + i\pi \frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=\omega/k} \Big]
+1 = \frac{\omega_p^2}{k^2} \left[ P\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0/\partial v}{v - (\omega/k)}\mathrm{d}v + i\pi \frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=\omega/k} \right]
 \tag{9.31}\]</span></span> where <span class="math inline">\(P\)</span> stands for the Cauchy principal value. To evaluate this, we integrate along the real <span class="math inline">\(v\)</span> axis but stop just before encountering the pole. If the phase velocity <span class="math inline">\(v_\phi = \omega/k\)</span> is sufficiently large, as we assume, there will not be much contribution from the neglected part of the contour, since both <span class="math inline">\(\hat{f}_0\)</span> and <span class="math inline">\(\partial\hat{f}_0/\partial v\)</span> are very small there. The integral above can be evaluated by integration by parts: <span class="math display">\[
-\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0}{\partial v}\frac{\mathrm{d}v}{v - v_\phi} = \Big[ \frac{\hat{f}_0}{v-v_\phi} \Big]_{-\infty}^{\infty} - \int_{-\infty}^{\infty}\frac{-\hat{f}_0 \mathrm{d}v}{(v-v_\phi)^2} = \int_{-\infty}^{\infty}\frac{\hat{f}_0 \mathrm{d}v}{(v-v_\phi)^2}
+\int_{-\infty}^{\infty}\frac{\partial\hat{f}_0}{\partial v}\frac{\mathrm{d}v}{v - v_\phi} = \left[ \frac{\hat{f}_0}{v-v_\phi} \right]_{-\infty}^{\infty} - \int_{-\infty}^{\infty}\frac{-\hat{f}_0 \mathrm{d}v}{(v-v_\phi)^2} = \int_{-\infty}^{\infty}\frac{\hat{f}_0 \mathrm{d}v}{(v-v_\phi)^2}
 \]</span></p>
 <p>Since this is just an average of <span class="math inline">\((v-v_\phi)^{-2}\)</span> over the distribution, the real part of the dispersion relation can be written <span class="math display">\[
 1 = \frac{\omega_p^2}{k^2} \overline{(v-v_\phi)^{-2}}
@@ -1050,13 +1050,13 @@ f_1 &amp;= \frac{ieE_x}{m}\frac{\partial f_0/\partial v_x}{\omega - kv_x}
 \omega = \omega_p\Big( 1 + i\frac{\pi}{2}\frac{\omega_p^2}{k^2}\frac{\partial\hat{f}_0}{\partial v}\biggr\rvert_{v=v_\phi} \Big)
 \tag{9.32}\]</span></span></p>
 <p>If <span class="math inline">\(\hat{f}_0\)</span> is a one-dimensional Maxwellian, we have <span class="math display">\[
-\frac{\partial\hat{f}_0}{\partial v} = (\pi v_{th}^2)^{-1/2} \Big( \frac{-2v}{v_{th}^2} \Big) \exp\Big( \frac{-v^2}{v_{th}^2} \Big) = -\frac{2v}{\sqrt{\pi}v_{th}}\exp\Big( \frac{-v^2}{v_{th}^2} \Big)
+\frac{\partial\hat{f}_0}{\partial v} = (\pi v_{th}^2)^{-1/2} \left( \frac{-2v}{v_{th}^2} \right) \exp\left( \frac{-v^2}{v_{th}^2} \right) = -\frac{2v}{\sqrt{\pi}v_{th}}\exp\left( \frac{-v^2}{v_{th}^2} \right)
 \]</span></p>
 <p>We may approximate <span class="math inline">\(v_\phi\)</span> by <span class="math inline">\(\omega_p/k\)</span> in the coefficient, but in the exponent we must keep the thermal correction in the real part of the dispersion relation. The damping is then given by <span class="math display">\[
 \begin{aligned}
-\Im(\omega) &amp;= -\frac{\pi}{2}\frac{\omega_p^2}{k^2}\frac{2\omega_p}{k\sqrt{\pi}}\frac{1}{v_{th}^3}\exp\Big( \frac{-\omega^2}{k^2 v_{th}^2} \Big) \\
-&amp;= -\sqrt{\pi}\omega_p \Big( \frac{\omega_p}{kv_{th}} \Big)^3 \exp\Big( \frac{-\omega_p^2}{k^2 v_{th}^2}\Big)\exp\Big( \frac{-3}{2} \Big) \\
-\Im\Big(\frac{\omega}{\omega_p}\Big) &amp;= -0.22 \sqrt{\pi}\Big( \frac{\omega_p}{kv_{th}} \Big)^3 \exp\Big( \frac{-1}{2k^2\lambda_D^2} \Big)
+\Im(\omega) &amp;= -\frac{\pi}{2}\frac{\omega_p^2}{k^2}\frac{2\omega_p}{k\sqrt{\pi}}\frac{1}{v_{th}^3}\exp\left( \frac{-\omega^2}{k^2 v_{th}^2} \right) \\
+&amp;= -\sqrt{\pi}\omega_p \left( \frac{\omega_p}{kv_{th}} \right)^3 \exp\left( \frac{-\omega_p^2}{k^2 v_{th}^2}\right)\exp\left( \frac{-3}{2} \right) \\
+\Im\left(\frac{\omega}{\omega_p}\right) &amp;= -0.22 \sqrt{\pi}\left( \frac{\omega_p}{kv_{th}} \right)^3 \exp\left( \frac{-1}{2k^2\lambda_D^2} \right)
 \end{aligned}
 \]</span></p>
 <p>Since <span class="math inline">\(\Im(\omega)\)</span> is negative, there is a collisionless damping of plasma waves; this is called <em>Landau damping</em>. As is evident from the expression, this damping is extremely small for small <span class="math inline">\(k\lambda_D\)</span>, but becomes important for <span class="math inline">\(k\lambda_D = \mathcal{O}(1)\)</span>. This effect is connected with <span class="math inline">\(f_1\)</span>, the distortion of the distribution function caused by the wave.</p>
@@ -1066,67 +1066,54 @@ f_1 &amp;= \frac{ieE_x}{m}\frac{\partial f_0/\partial v_x}{\omega - kv_x}
 <p><strong>The theoretical discovery of wave damping without energy dissipation by collisions is perhaps the most astounding result of plasma physics research</strong>. That this is a real effect has been demonstrated in the laboratory. Although a simple physical explanation for this damping is now available, it is a triumph of applied mathematics that this unexpected effect was first discovered purely mathematically in the course of a careful analysis of a contour integral. Landau damping is a characteristic of collisionless plasmas, but it may also have application in other fields. For instance, in the kinetic treatment of galaxy formation, stars can be considered as atoms of a plasma interacting via gravitational rather than electromagnetic forces. Instabilities of the gas of stars can cause spiral arms to form, but this process is limited by Landau damping.</p>
 <p>To see what is responsible for Landau damping, we first notice that <span class="math inline">\(\Im(\omega)\)</span> arises from the pole at <span class="math inline">\(v=v_\phi\)</span>. Consequently, the effect is connected with those particles in the distribution that have a velocity nearly equal to the phase velocity — the “resonant particles”. These particles travel along with the wave and do not see a rapidly fluctuating electric field: they can, therefore, exchange energy with the wave effectively. The easiest way to understand this exchange of energy is to picture a surfer trying to catch an ocean wave. (Warning: this picture is only for directing our thinking along the right lines; it does not correctly explain the damping.) If the surfboard is not moving, it merely bobs up and down as the wave goes by and does not gain any energy on the average. Similarly, a boat propelled much faster than the wave cannot exchange much energy with the wave. However, if the surfboard has almost the same velocity as the wave, it can be caught and pushed along by the wave; this is, after all, the main purpose of the exercise. In that case, the surfboard gains energy, and therefore the wave must lose energy and is damped. On the other hand, if the surfboard should be moving slightly faster than the wave, it would push on the wave as it moves uphill; then the wave could gain energy. In a plasma, there are electrons both faster and slower than the wave. A Maxwellian distribution, however, has more slow electrons than fast ones. Consequently, there are more particles taking energy from the wave than vice versa, and the wave is damped. As particles with <span class="math inline">\(v\approx v_\phi\)</span> are trapped in the wave, <span class="math inline">\(f(v)\)</span> is flattened near the phase velocity. This distortion is <span class="math inline">\(f_1(v)\)</span> which we calculated. As seen in Fig (ADD IT!), the perturbed distribution function contains the same number of particles but has gained total energy (at the expense of the wave).</p>
 <p>From this discussion, one can surmise that if <span class="math inline">\(f_0(v)\)</span> contained more fast particles than slow particles, a wave can be excited. Indeed, from the expression of <span class="math inline">\(\omega\)</span> above, it is apparent that <span class="math inline">\(\Im(\omega)\)</span> is positive if <span class="math inline">\(\partial\hat{f}_0/\partial v\)</span> is positive at <span class="math inline">\(v=v_\phi\)</span>. Such a distribution is shown in Fig.7-19 (ADD IT!). Waves with <span class="math inline">\(v_\phi\)</span> in the region of positive slope will be unstable, gaining energy at the expense of the particles. This is just the finite-temperature analogy of the two stream instability. When there are two cold (<span class="math inline">\(k_B T=0\)</span>) electron streams in motion, <span class="math inline">\(f_0(v)\)</span> consists of two <span class="math inline">\(\delta\)</span>-functions. This is clearly unstable because <span class="math inline">\(\partial f_0/\partial v\)</span> is infinite; and indeed, we found the instability from fluid theory. When the streams have fnite temperature, kinetic theory tells us that the relative densities and temperatures of the two stream must be such as to have a region of positive <span class="math inline">\(\partial f_0(v)/\partial v\)</span> between them; more precisely, the total distribution function must have a minimum for instability.</p>
-<p><strong>The physical picture of a surfer catching waves is very appealing, but it is not precise enough to give us a real understanding of Landau damping</strong>. There are actually two kinds of Landau damping. Both kinds are independent of dissipative collisional mechanisms. If a particle is caught in the potential well of a wave, the phenomenon is called “trapping”. As in the case of a surfer, particles can indeed gain or lose energy in trapping. However, trapping does not lie within the purview of the linear theory. That this is true can be seen from the equation of motion</p>
-<p><span class="math display">\[
+<p><strong>The physical picture of a surfer catching waves is very appealing, but it is not precise enough to give us a real understanding of Landau damping</strong>. There are actually two kinds of Landau damping. Both kinds are independent of dissipative collisional mechanisms. If a particle is caught in the potential well of a wave, the phenomenon is called “trapping”. As in the case of a surfer, particles can indeed gain or lose energy in trapping. However, trapping does not lie within the purview of the linear theory. That this is true can be seen from the equation of motion <span class="math display">\[
 m\ddot{x} = qE(x)
 \]</span></p>
-<p>If one evaluates <span class="math inline">\(E(x)\)</span> by inserting the exact value of <span class="math inline">\(x\)</span>, the equation would be nonlinear, since <span class="math inline">\(E(x)\)</span> is somehting like <span class="math inline">\(\sin kx\)</span>. What is done in linear theory is to use for <span class="math inline">\(x\)</span> the unperturbed orbit; i.e.&nbsp;<span class="math inline">\(x=x_0 + v_0 t\)</span>. Then this becomes linear. This approximation, however, is no longer valid when a particle is trapped. When it encounters a potential hill large enough to reflect it, its velocity and position are, of course, greatly affected by the wave and are not close to their unperturbed values. In fluid theory, the equation of motion is</p>
-<p><span class="math display">\[
-m\Big[ \frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)\mathbf{v} \Big] = q\mathbf{E}(x)
+<p>If one evaluates <span class="math inline">\(E(x)\)</span> by inserting the exact value of <span class="math inline">\(x\)</span>, the equation would be nonlinear, since <span class="math inline">\(E(x)\)</span> is somehting like <span class="math inline">\(\sin kx\)</span>. What is done in linear theory is to use for <span class="math inline">\(x\)</span> the unperturbed orbit; i.e.&nbsp;<span class="math inline">\(x=x_0 + v_0 t\)</span>. Then this becomes linear. This approximation, however, is no longer valid when a particle is trapped. When it encounters a potential hill large enough to reflect it, its velocity and position are, of course, greatly affected by the wave and are not close to their unperturbed values. In fluid theory, the equation of motion is <span class="math display">\[
+m\left[ \frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)\mathbf{v} \right] = q\mathbf{E}(x)
 \]</span></p>
-<p>Here, <span class="math inline">\(\mathbf{E}(x)\)</span> is to be evaluated in the laboratory frame, which is easy; but to make up for it, there is the <span class="math inline">\((\mathbf{v}\cdot\nabla)\mathbf{v}\)</span> term. The neglect of <span class="math inline">\((\mathbf{v}_1\cdot\nabla)\mathbf{v}_1\)</span> in linear theory amounts to the same thing as using unperturbed orbits. In kinetic theory, the nonlinear term that is neglected is, from the first-order Vlasov <a href="#eq-vlasov_1st" class="quarto-xref">Equation&nbsp;<span>9.29</span></a>,</p>
-<p><span class="math display">\[
+<p>Here, <span class="math inline">\(\mathbf{E}(x)\)</span> is to be evaluated in the laboratory frame, which is easy; but to make up for it, there is the <span class="math inline">\((\mathbf{v}\cdot\nabla)\mathbf{v}\)</span> term. The neglect of <span class="math inline">\((\mathbf{v}_1\cdot\nabla)\mathbf{v}_1\)</span> in linear theory amounts to the same thing as using unperturbed orbits. In kinetic theory, the nonlinear term that is neglected is, from the first-order Vlasov <a href="#eq-vlasov_1st" class="quarto-xref">Equation&nbsp;<span>9.29</span></a>, <span class="math display">\[
 \frac{q}{m}E_1\frac{\partial f_1}{\partial v}
 \]</span></p>
 <p>When the particles are trapped, they reverse their direction of travel relative to the wave, so the distribution function <span class="math inline">\(f(v)\)</span> is greatly disturbed near <span class="math inline">\(v=\omega/k\)</span>. This means that <span class="math inline">\(\partial f_1/\partial v\)</span> is comparable to <span class="math inline">\(\partial f_0/\partial v\)</span>, and the term above is not negligible. Hence, trapping is not in the linear theory.</p>
 <p>When a wave grows to a large amplitude, collisionless damping with trapping does occur. One then finds that the wave does not decay monotonically; rather, the amplitude fluctuates during the decay as the trapped particles bounce back and forth in the potential wells. This is <em>nonlinear</em> Landau damping. Since the result before was derived from a <em>linear</em> theory, it must arise from a different physical effect. The question is: can untrapped electrons moving close to the phase velocity of the wave exchange energy with the wave? Before giving the answer, let us examine the energy of such electrons.</p>
 <section id="the-kinetic-energy-of-a-beam-of-electrons" class="level3" data-number="9.6.1">
 <h3 data-number="9.6.1" class="anchored" data-anchor-id="the-kinetic-energy-of-a-beam-of-electrons"><span class="header-section-number">9.6.1</span> The Kinetic Energy of a Beam of Electrons</h3>
-<p>We may divide the electron distribution <span class="math inline">\(f_0(v)\)</span> into a large number of monoenergetic beams. Consider one of these beams: it has unperturbed velocity <span class="math inline">\(u\)</span> and density <span class="math inline">\(n_u\)</span>. The velocity <span class="math inline">\(u\)</span> may lie near <span class="math inline">\(v_\phi\)</span>, so that this beam may consist of resonant electrons. We now turn on a plasma oscillation <span class="math inline">\(E(x,t)\)</span> and consider the kinetic energy of the beam as it moves through the crests and troughs of the wave. The wave is caused by a self-consistent motion of all the beams together. If <span class="math inline">\(n_u\)</span> is small enough (the number of beams large enough), the beam being examined has a negligible effect on the wave and may be considered as moving in a given field <span class="math inline">\(E(x,t)\)</span>. Let</p>
-<p><span class="math display">\[
+<p>We may divide the electron distribution <span class="math inline">\(f_0(v)\)</span> into a large number of monoenergetic beams. Consider one of these beams: it has unperturbed velocity <span class="math inline">\(u\)</span> and density <span class="math inline">\(n_u\)</span>. The velocity <span class="math inline">\(u\)</span> may lie near <span class="math inline">\(v_\phi\)</span>, so that this beam may consist of resonant electrons. We now turn on a plasma oscillation <span class="math inline">\(E(x,t)\)</span> and consider the kinetic energy of the beam as it moves through the crests and troughs of the wave. The wave is caused by a self-consistent motion of all the beams together. If <span class="math inline">\(n_u\)</span> is small enough (the number of beams large enough), the beam being examined has a negligible effect on the wave and may be considered as moving in a given field <span class="math inline">\(E(x,t)\)</span>. Let <span class="math display">\[
 \begin{aligned}
 E &amp;= E_0\sin(kx-\omega t) = -d\phi/\mathrm{d}t \\
 \phi &amp;= (E_0/k)\cos(kx-\omega t)
 \end{aligned}
 \]</span></p>
-<p>The linearized fluid equation for the beam is</p>
-<p><span class="math display">\[
-m\Big(\frac{\partial v_1}{\partial t} + u\frac{\partial v_1}{\partial x} \Big) = -eE_0\sin(kx-\omega t)
+<p>The linearized fluid equation for the beam is <span class="math display">\[
+m\left(\frac{\partial v_1}{\partial t} + u\frac{\partial v_1}{\partial x} \right) = -eE_0\sin(kx-\omega t)
 \]</span></p>
-<p>A possible solution is</p>
-<p><span class="math display">\[
+<p>A possible solution is <span class="math display">\[
 v_1 = -\frac{eE_0}{m}\frac{\cos(kx-\omega t)}{\omega-ku}
 \]</span></p>
 <p>This is the velocity modulation caused by the wave as the beam electrons move past. To conserve particle flux, there is a corresponding oscillation in density, given by the linearized continuity equation:</p>
 <p><span class="math display">\[
 \frac{\partial n_1}{\partial t} + u\frac{\partial n_1}{\partial x} = -n_u\frac{\partial v_1}{\partial x}
 \]</span></p>
-<p>Since <span class="math inline">\(v_1\)</span> is proportional to <span class="math inline">\(\cos(kx-\omega t)\)</span>, we can try <span class="math inline">\(n_1 = \bar{n}_1 \cos(kx-\omega t)\)</span>. Substitution of this into the above yields</p>
-<p><span class="math display">\[
+<p>Since <span class="math inline">\(v_1\)</span> is proportional to <span class="math inline">\(\cos(kx-\omega t)\)</span>, we can try <span class="math inline">\(n_1 = \bar{n}_1 \cos(kx-\omega t)\)</span>. Substitution of this into the above yields <span class="math display">\[
 n_1 = -n_u\frac{eE_0 k}{m}\frac{\cos(kx-\omega t)}{(\omega-ku)^2}
 \]</span></p>
 <p>(<span class="math inline">\(n_1\)</span> and <span class="math inline">\(v_1\)</span> can be shown in a series of phase relation plots as in Fig.7-21)(ADD IT!) one wavelength of <span class="math inline">\(E\)</span> and of the potential <span class="math inline">\(-e\phi\)</span> seen by the beam electrons.</p>
-<p>We may now compute the kinetic energy <span class="math inline">\(W_k\)</span> of the beam:</p>
-<p><span class="math display">\[
+<p>We may now compute the kinetic energy <span class="math inline">\(W_k\)</span> of the beam: <span class="math display">\[
 \begin{aligned}
 W_k &amp;= \frac{1}{2}m(n_u+n_1)(u+v_1)^2 \\
 &amp;= \frac{1}{2}m(n_u u^2 + n_uv_1^2 +2un_1v_1 + n_1u^2 + 2n_uuv_1 + n_1v_1^2)
 \end{aligned}
 \]</span></p>
-<p>The last three terms contain odd powers of oscillating quantites, so they will vanish when we average over a wavelength. The change in <span class="math inline">\(W_k\)</span> due to the wave is found by subtracting the first term, which is the original energy. The average energy change is then</p>
-<p><span class="math display">\[
+<p>The last three terms contain odd powers of oscillating quantites, so they will vanish when we average over a wavelength. The change in <span class="math inline">\(W_k\)</span> due to the wave is found by subtracting the first term, which is the original energy. The average energy change is then <span class="math display">\[
 \left&lt;\Delta W_k \right&gt; = \frac{1}{2}m\left&lt;n_uv_1^2 + 2un_1v_1\right&gt;
 \]</span></p>
-<p>From the form of <span class="math inline">\(v_1\)</span>, we have</p>
-<p><span class="math display">\[
+<p>From the form of <span class="math inline">\(v_1\)</span>, we have <span class="math display">\[
 n_u\left&lt; v_1^2 \right&gt; = \frac{1}{2}n_u\frac{e^2E_0^2}{m^2(\omega-ku)^2}
-\]</span></p>
-<p>the factor <span class="math inline">\(\frac{1}{2}\)</span> representing <span class="math inline">\(\left&lt; \cos^2(kx-\omega t) \right&gt;\)</span>. Similarly, from the form of <span class="math inline">\(n_1\)</span>,</p>
-<p><span class="math display">\[
+\]</span> the factor <span class="math inline">\(\frac{1}{2}\)</span> representing <span class="math inline">\(\left&lt; \cos^2(kx-\omega t) \right&gt;\)</span>. Similarly, from the form of <span class="math inline">\(n_1\)</span>, <span class="math display">\[
 2u\left&lt; n_1v_1 \right&gt; = n_u\frac{e^2E_0^2 ku}{m^2(\omega - ku)^3}
 \]</span></p>
-<p>Consequently,</p>
-<p><span class="math display">\[
+<p>Consequently, <span class="math display">\[
 \begin{aligned}
 \left&lt;\Delta W_k \right&gt; &amp;= \frac{1}{4}mn_u \frac{e^2E_0^2}{m^2(\omega - ku)^2}\Big[ 1+\frac{2ku}{\omega-ku} \Big] \\
 &amp;= \frac{n_u}{4}\frac{e^2E_0^2}{m}\frac{\omega+ku}{m^2(\omega - ku)^3}
