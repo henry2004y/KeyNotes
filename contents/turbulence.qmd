@@ -42,9 +42,41 @@ In the context of water waves, an example of weak turbulence is the small ripple
 
 Nunov highly recommended a review [@schekochihin_2022]. Another nice reference for the solar wind turbulence is presented [@bruno2013solar], where I cite many materials in this note.
 
-### Navier–Stokes equation and Reynolds number
+Magnetohydrodynamic turbulence concerns the chaotic regimes of magnetofluid flow at high Reynolds number. Magnetohydrodynamics (MHD) deals with what is a quasi-neutral fluid with very high conductivity. The fluid approximation implies that the focus is on macro length-and-time scales which are much larger than the collision length and collision time respectively.
 
+### Incompressible MHD equations
 
+In the context of studying turbulence, the most commonly used math tool is the incompressible MHD equations. Incompressibility means $\nabla\cdot\mathbf{u}=0$, but not necessarily constant density. Physically it means infinite sound speed $V_s \sim \sqrt{\delta p / \delta \rho}\to \infty$, i.e. the density will not change no matter how large the pressure variation is. In many scenarios, assuming constant density is good enough and lead to further simplification of math.[^incompressibility-const]
+
+[^incompressibility-const]: constant density leads to incompressibility, but not vice versa.
+
+The incompressible MHD equations for constant mass density, $\rho=1$, are
+$$
+\begin{aligned}
+\frac{\partial\mathbf{u}}{\partial t} + \mathbf{u}\cdot\nabla\mathbf{u} &= -\nabla P + \mathbf{B}\cdot\nabla\mathbf{B} + \nu\nabla^2\mathbf{u} \\
+\frac{\partial\mathbf{B}}{\partial t} + \mathbf{u}\cdot\nabla\mathbf{B} &= \mathbf{B}\cdot\nabla\mathbf{u} + \eta\nabla^2\mathbf{B} \\
+\nabla\cdot\mathbf{u} &= 0 \\
+\nabla\cdot\mathbf{B} &= 0
+\end{aligned}
+$$ {#eq-constrho-ideal-mhd}
+where $P$ is the total (thermal + magnetic) pressure, $\nu$ is the kinematic viscosity, and $\eta$ is the magnetic diffusivity. In the above equation, the magnetic field is in Alfvén units (same as velocity units).
+
+The total magnetic field can be split into a mean field and a fluctuating field: 
+$$
+\mathbf{B} = \mathbf{B}_0 + \delta\mathbf{b}
+$$
+
+We can then obtain the magnetic field equation for the perturbation term only:
+$$
+\frac{\partial\mathbf{b}}{\partial t} = \mathbf{v}_A\cdot\nabla\mathbf{u} + \mathbf{b}\cdot\nabla\mathbf{u}
+$$
+
+If the Hall effect is considered, then there will be additional terms in the magnetic field equation
+$$
+\frac{\partial\mathbf{b}}{\partial t} = \mathbf{v}_A\cdot\nabla\mathbf{u} + \mathbf{b}\cdot\nabla\mathbf{u} + d_i\nabla\times\left[ \mathbf{v}_A\times(\nabla\times\mathbf{b}) \right] + d_i\nabla\times\left[ \mathbf{b}\times(\nabla\times\mathbf{b}) \right] + \eta \nabla^2\mathbf{b}
+$$ {#eq-constrho-hall-mhd}
+
+Note that here $\delta\mathbf{b}$ and $\mathbf{b}$ may be used interchangably.
 
 ### Coupling between charged fluid and magnetic field
 
@@ -57,7 +89,7 @@ $$
 $$ {#eq-Elsässer-vars}
 where $\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}$.
 
-The perturbations are written as
+The perturbations in Elsässer form are written as
 $$
 \begin{aligned}
 \delta\mathbf{z}^+ &= \delta\mathbf{v} + \delta\mathbf{b} \\
@@ -78,16 +110,37 @@ often appears in the context of discussing Alfvén waves.
 
 The incompressible MHD wave equation in fluctuating Elsässer form is:
 $$
-\frac{\partial\delta\mathbf{z}^\pm}{\partial t} \mp v_A\nabla_\parallel\delta\mathbf{z}^\pm + \delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm = -\nabla p
+\frac{\partial\delta\mathbf{z}^\pm}{\partial t} \mp \mathbf{v}_A\cdot\nabla_\parallel\delta\mathbf{z}^\pm + \delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm = -\nabla p + \nu_+ \nabla^2 \mathbf{z}^{\pm} + \nu_- \nabla^2 \mathbf{z}^{\mp}
 $$ {#eq-mhd_elsassar}
-
+where $\nu _{\pm}=\frac{1}{2}(\nu \pm \eta)$. The incompressibility and divergence-free B condition are written as
 $$
 \nabla\cdot\delta\mathbf{z}^\pm = 0
 $$ {#eq-elsassar_divergence}
 
-The zero divergence means that there are no forcing or dissipation terms.
+The zero divergence means that there are no forcing or dissipation terms. Nonlinear interactions occur between the Alfvénic fluctuations $z^{\mp}$. Since we have already assumed uniform density in @eq-constrho-mhd, $v_A = B_0 / \rho = B_0$, we can write @eq-mhd_elsassar in an alternative form
+$$
+\frac{\partial\delta\mathbf{z}^\pm}{\partial t} \mp \mathbf{B}_0\cdot\nabla_\parallel\delta\mathbf{z}^\pm + \delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm = -\nabla p + \nu_+ \nabla^2 \mathbf{z}^{\pm} + \nu_- \nabla^2 \mathbf{z}^{\mp}
+$$ {#eq-mhd_elsassar2}
 
 @eq-mhd_elsassar unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term ($v_A$ constant?) that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence.
+
+### Nondimensional parameters
+
+The important nondimensional parameters for MHD are
+
+* Reynolds number: $\text{Re}=&UL/\nu$
+
+* Magnetic Reynolds number: $\text{Re}_{M}=&UL/\eta$
+
+* Magnetic Prandtl number: $P_{M}=\nu /\eta$
+
+The magnetic Prandtl number is an important property of the fluid. Liquid metals have small magnetic Prandtl numbers, for example, liquid sodium's $P_{M} is around $10^{-5}$. But plasmas have large $P_{M}$.
+
+The Reynolds number is the ratio of the nonlinear term $\mathbf{u} \cdot \nabla \mathbf{u}$ of the Navier–Stokes equation to the viscous term. While the magnetic Reynolds number is the ratio of the nonlinear term and the diffusive term of the induction equation.
+
+In many practical situations, the Reynolds number Re of the flow is quite large. For such flows typically the velocity and the magnetic fields are random. Such flows are called to exhibit MHD turbulence. Note that $\text{Re}_{M}$ need not be large for MHD turbulence. $\text{Re}_{M}$ plays an important role in dynamo (magnetic field generation) problem.
+
+The mean magnetic field plays an important role in MHD turbulence, for example it can make the turbulence anisotropic; suppress the turbulence by decreasing energy cascade etc. The earlier MHD turbulence models assumed isotropy of turbulence, while the later models have studied anisotropic aspects.
 
 ### Critical balance
 
