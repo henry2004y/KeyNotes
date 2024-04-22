@@ -436,7 +436,7 @@ window.Quarto = {
 <ul>
 <li>Intense Nonlinearity: Interactions between waves or eddies become comparable in strength to the total energy of the system. Linear wave descriptions break down significantly.</li>
 <li>Complex Interaction Web: Simple three-wave interactions no longer fully describe the behavior. More complex, multi-wave interactions and turbulent structures play a dominant role.</li>
-<li>Less Analytical Tractability: Strong turbulence is difficult, often impossible, to fully solve analytically. Numerical simulations and phenomenological modeling become essential tools.</li>
+<li>Less Analytical Tractability: Strong turbulence is difficult, often impossible, to fully solve analytically, because linear approximation no longer works. Numerical simulations and phenomenological modeling become essential tools.</li>
 <li>Chaotic Behavior: The system can show extreme sensitivity to initial conditions, making long-term predictions about the detailed evolution very challenging.</li>
 <li>Energy Cascades and Dissipation: The transfer of energy across scales becomes more rapid, and may no longer follow simple power-law energy spectra like in weak turbulence. Dissipation at small scales becomes significant.</li>
 </ul>
@@ -475,7 +475,7 @@ window.Quarto = {
 \mathbf{z}^+ &amp;= \mathbf{v} + \mathbf{b} \\
 \mathbf{z}^- &amp;= \mathbf{v} - \mathbf{b}
 \end{aligned}
-\tag{15.3}\]</span></span> where <span class="math inline">\(\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}\)</span>.</p>
+\tag{15.3}\]</span></span> where <span class="math inline">\(\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}\)</span> or <span class="math inline">\(\mathbf{b} = \mathbf{B}/\sqrt{4\pi\rho}\)</span> in CGS units.</p>
 <p>The perturbations in Elsässer form are written as <span class="math display">\[
 \begin{aligned}
 \delta\mathbf{z}^+ &amp;= \delta\mathbf{v} + \delta\mathbf{b} \\
@@ -495,10 +495,10 @@ window.Quarto = {
 \tag{15.5}\]</span></span> where <span class="math inline">\(\nu _{\pm}=\frac{1}{2}(\nu \pm \eta)\)</span>. The incompressibility and divergence-free B condition are written as <span id="eq-elsassar_divergence"><span class="math display">\[
 \nabla\cdot\delta\mathbf{z}^\pm = 0
 \tag{15.6}\]</span></span></p>
-<p>The zero divergence means that there are no forcing or dissipation terms. Nonlinear interactions occur between the Alfvénic fluctuations <span class="math inline">\(z^{\mp}\)</span>. Since we have already assumed uniform density in <span class="quarto-unresolved-ref">?eq-constrho-mhd</span>, <span class="math inline">\(v_A = B_0 / \rho = B_0\)</span>, we can write <a href="#eq-mhd_elsassar" class="quarto-xref">Equation&nbsp;<span>15.5</span></a> in an alternative form <span id="eq-mhd_elsassar2"><span class="math display">\[
+<p>The zero divergence means that there are no forcing or dissipation terms. Since we have already assumed uniform density in <span class="quarto-unresolved-ref">?eq-constrho-mhd</span>, <span class="math inline">\(v_A = B_0 / \rho = B_0\)</span>, we can write <a href="#eq-mhd_elsassar" class="quarto-xref">Equation&nbsp;<span>15.5</span></a> in an alternative form <span id="eq-mhd_elsassar2"><span class="math display">\[
 \frac{\partial\delta\mathbf{z}^\pm}{\partial t} \mp \mathbf{B}_0\cdot\nabla_\parallel\delta\mathbf{z}^\pm + \delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm = -\nabla p + \nu_+ \nabla^2 \mathbf{z}^{\pm} + \nu_- \nabla^2 \mathbf{z}^{\mp}
 \tag{15.7}\]</span></span></p>
-<p><a href="#eq-mhd_elsassar" class="quarto-xref">Equation&nbsp;<span>15.5</span></a> unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term (<span class="math inline">\(v_A\)</span> constant?) that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence.</p>
+<p><a href="#eq-mhd_elsassar" class="quarto-xref">Equation&nbsp;<span>15.5</span></a> unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence.</p>
 </section>
 <section id="nondimensional-parameters" class="level3" data-number="15.2.3">
 <h3 data-number="15.2.3" class="anchored" data-anchor-id="nondimensional-parameters"><span class="header-section-number">15.2.3</span> Nondimensional parameters</h3>
@@ -520,7 +520,7 @@ window.Quarto = {
 \]</span> we have a way to predict the scaling of energy distribution across different scales, and the relationship between perpendicular and parallel structures in turbulence. This is known as the <em>critical balance</em> (Goldreich and Sridhar).</p>
 <p>Assume a constant energy cascade rate <span class="math inline">\(\epsilon\sim \delta z^2/\tau_{nl}\)</span>, and an energy injection rate at scale L <span class="math inline">\(\epsilon_L\sim v_A^2/\tau_{nl}=v_A^3/L\)</span>. When we match the two rates and … (I have some memory from Nunov’s lecture at Nordita), we have <span id="eq-critical-balance"><span class="math display">\[
 k_\parallel\propto k_\perp^{2/3}
-\tag{15.8}\]</span></span> This means that anisotropy grows with decreasing scale. It indicates the transition from “weak” to “strong” turbulence, or more accurately a transition from “quasi-linear” to “mode-coupling” processes. The power spectra are given as <span id="eq-critical-balance-spectra"><span class="math display">\[
+\tag{15.8}\]</span></span> This means that anisotropy grows with decreasing scale. It indicates the transition from “weak” to “strong” turbulence, or more accurately a transition from “quasi-linear” to “mode-coupling” processes.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> The power spectra are given as <span id="eq-critical-balance-spectra"><span class="math display">\[
 \begin{aligned}
 E(k_\perp) &amp;\propto k_\perp^{-5/3} \\
 E(k_\parallel) &amp;\propto k_\parallel^{-2}
@@ -670,6 +670,7 @@ Schekochihin, Alexander A. 2022. <span>“MHD Turbulence: A Biased Review.”</s
 <hr>
 <ol>
 <li id="fn1"><p>constant density leads to incompressibility, but not vice versa.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Two Alfven wave packets moving towards each other will first be in the quasi-linear stage and then in the mode-coupling stage when they meet each other and interact nonlinearly.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
