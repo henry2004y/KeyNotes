@@ -32,7 +32,7 @@ Strong turbulence
 
 * Intense Nonlinearity: Interactions between waves or eddies become comparable in strength to the total energy of the system. Linear wave descriptions break down significantly.
 * Complex Interaction Web: Simple three-wave interactions no longer fully describe the behavior. More complex, multi-wave interactions and turbulent structures play a dominant role.
-* Less Analytical Tractability: Strong turbulence is difficult, often impossible, to fully solve analytically. Numerical simulations and phenomenological modeling become essential tools.
+* Less Analytical Tractability: Strong turbulence is difficult, often impossible, to fully solve analytically, because linear approximation no longer works. Numerical simulations and phenomenological modeling become essential tools.
 * Chaotic Behavior: The system can show extreme sensitivity to initial conditions, making long-term predictions about the detailed evolution very challenging.
 * Energy Cascades and Dissipation: The transfer of energy across scales becomes more rapid, and may no longer follow simple power-law energy spectra like in weak turbulence. Dissipation at small scales becomes significant.
 
@@ -87,7 +87,7 @@ $$
 \mathbf{z}^- &= \mathbf{v} - \mathbf{b}
 \end{aligned}
 $$ {#eq-Elsässer-vars}
-where $\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}$.
+where $\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}$ or $\mathbf{b} = \mathbf{B}/\sqrt{4\pi\rho}$ in CGS units.
 
 The perturbations in Elsässer form are written as
 $$
@@ -117,12 +117,12 @@ $$
 \nabla\cdot\delta\mathbf{z}^\pm = 0
 $$ {#eq-elsassar_divergence}
 
-The zero divergence means that there are no forcing or dissipation terms. Nonlinear interactions occur between the Alfvénic fluctuations $z^{\mp}$. Since we have already assumed uniform density in @eq-constrho-mhd, $v_A = B_0 / \rho = B_0$, we can write @eq-mhd_elsassar in an alternative form
+The zero divergence means that there are no forcing or dissipation terms. Since we have already assumed uniform density in @eq-constrho-mhd, $v_A = B_0 / \rho = B_0$, we can write @eq-mhd_elsassar in an alternative form
 $$
 \frac{\partial\delta\mathbf{z}^\pm}{\partial t} \mp \mathbf{B}_0\cdot\nabla_\parallel\delta\mathbf{z}^\pm + \delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm = -\nabla p + \nu_+ \nabla^2 \mathbf{z}^{\pm} + \nu_- \nabla^2 \mathbf{z}^{\mp}
 $$ {#eq-mhd_elsassar2}
 
-@eq-mhd_elsassar unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term ($v_A$ constant?) that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence.
+@eq-mhd_elsassar unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence.
 
 ### Nondimensional parameters
 
@@ -154,13 +154,15 @@ Assume a constant energy cascade rate $\epsilon\sim \delta z^2/\tau_{nl}$, and a
 $$
 k_\parallel\propto k_\perp^{2/3}
 $$ {#eq-critical-balance}
-This means that anisotropy grows with decreasing scale. It indicates the transition from “weak” to “strong” turbulence, or more accurately a transition from “quasi-linear” to “mode-coupling” processes. The power spectra are given as
+This means that anisotropy grows with decreasing scale. It indicates the transition from “weak” to “strong” turbulence, or more accurately a transition from “quasi-linear” to “mode-coupling” processes.[^picture] The power spectra are given as
 $$
 \begin{aligned}
 E(k_\perp) &\propto k_\perp^{-5/3} \\
 E(k_\parallel) &\propto k_\parallel^{-2}
 \end{aligned}
 $$ {#eq-critical-balance-spectra}
+
+[^picture]: Two Alfven wave packets moving towards each other will first be in the quasi-linear stage and then in the mode-coupling stage when they meet each other and interact nonlinearly.
 
 This is among the most influential discoveries related to MHD turbulence, which makes it distinct from gas dynamic Kolmogorov turbulence by taking the magnetic field into account. By separating $k_\parallel$ and $k_\perp$ dynamics, the critical balance theory predicts perpendicular energy spectra @eq-critical-balance-spectra, which is consistent with the solar wind turbulence in the inertial range [Chen 2016]. The theory invoking this concept is now known as the anisotropic MHD turbulence.
 
