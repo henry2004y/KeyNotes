@@ -46,6 +46,13 @@ Nunov highly recommended a review [@schekochihin_2022]. Another nice reference f
 
 Magnetohydrodynamic turbulence concerns the chaotic regimes of magnetofluid flow at high Reynolds number. Magnetohydrodynamics (MHD) deals with what is a quasi-neutral fluid with very high conductivity. The fluid approximation implies that the focus is on macro length-and-time scales which are much larger than the collision length and collision time respectively.
 
+The guide magnetic field in turbulence is usually considered as the steady state background field. It can either be imposed by external sources, or created by large-scale eddies.
+
+### Comparison with Hydrodynamics
+
+* HD turbulence: interaction of eddies.
+* MHD turbulence: interaction of wave packets moving with Alfvén velocities.
+
 ### Incompressible MHD equations
 
 In the context of studying turbulence, the most commonly used math tool is the incompressible MHD equations. Incompressibility means $\nabla\cdot\mathbf{u}=0$, but not necessarily constant density. Physically it means infinite sound speed $V_s \sim \sqrt{\delta p / \delta \rho}\to \infty$, i.e. the density will not change no matter how large the pressure variation is. In many scenarios, assuming constant density is good enough and lead to further simplification of math.[^incompressibility-const]
@@ -119,12 +126,30 @@ $$
 \nabla\cdot\delta\mathbf{z}^\pm = 0
 $$ {#eq-elsassar_divergence}
 
-The zero divergence means that there are no forcing or dissipation terms. Since we have already assumed uniform density in @eq-constrho-mhd, $v_A = B_0 / \rho = B_0$, we can write @eq-mhd_elsassar in an alternative form
+The zero divergence means that there are no forcing or dissipation terms. Since we have already assumed uniform density in @eq-constrho-ideal-mhd, $v_A = B_0 / \rho = B_0$, we can write @eq-mhd_elsassar in an alternative form
 $$
 \frac{\partial\delta\mathbf{z}^\pm}{\partial t} \mp \mathbf{B}_0\cdot\nabla_\parallel\delta\mathbf{z}^\pm + \delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm = -\nabla p + \nu_+ \nabla^2 \mathbf{z}^{\pm} + \nu_- \nabla^2 \mathbf{z}^{\mp}
 $$ {#eq-mhd_elsassar2}
 
-@eq-mhd_elsassar unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence.
+@eq-mhd_elsassar unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence. In MHD, turbulence is manifested by the collision of Alfvén waves.
+
+Using the linear perturbation theory, $\mp \mathbf{v}_A\cdot\nabla_\parallel\delta\mathbf{z}^\pm$ scales as $(k_\parallel v_A)z^\pm$, and $\delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm$ scales as $(k_\perp z^\mp)z^\pm$. When $k_\parallel v_A \gg k_\perp z^\mp$, the turbulence is _weak_; when $k_\parallel v_A \simeq k_\perp z^\mp$, the turbulence is _strong_. Assuming an energy supply at small k, then first in the weak MHD turbulence the energy $E(k_\perp)\propto k_\perp^{-2}$, and later in the strong MHD turbulence $E(k_\perp)\propto k_\perp^{-3/2}$. At larger k, eventually we will encounter the dissipation scale, where the slope changes sharply because of the balance/imbalance of the energy cascade of the interacting waves.
+
+### Wave Interaction Phenomenology
+
+The simplest three-wave interaction of shear-Alfvén waves is given as
+$$
+\begin{aligned}
+\omega(k) &= \omega(k_1) + \omega(k_2) \\
+\mathbf{k} &= \mathbf{k}_1 + \mathbf{k}_2
+\end{aligned}
+$$ {#eq-three-wave-alfven-interaction}
+where
+$$
+\omega(k) = |k_z|v_A
+$$
+
+The total wave number k is composed of two parts: $k_z$ is the wave number along the guide field direction, and $k_\perp$ is the wave number perpendicular to the guide field. Since only counter-propagating waves interact, $k_{1z}$ and $k_{2z}$ should have opposite signs. In order to satisfy the interaction condition, we can have either $k_{1z} = 0$ or $k_{2z} = 0$. That means wave interactions change $k_\perp$ but not $k_z$.
 
 ### Nondimensional parameters
 
@@ -179,6 +204,10 @@ $$ {#eq-residual_energy_normalized}
 
 $\sigma_r$ is zero for an Alfvén wave but is generally negative ($|\delta\mathbf{b}|^2 > |\delta\mathbf{v}|^2$) at MHD scales for solar wind observations, meaning that they are mostly likely turbulence but not waves.
 
+Weak MHD turbulence spontaneously generates a condensate of the residual energy $E_r = E_b - E_k$ at small $k_\parallel$.  Condensate broadens with $k_\perp$.
+
+For Strong MHD turbulence, the residual energy is nonzero at all k.
+
 ### Normalized cross helicity {#sec-turbulence_cross_helicity}
 
 Cross helicity is the difference in energy between $\mathbf{z}^+$ and $\mathbf{z}^-$ fluctuations (@sec-cross_helicity). The normalized cross helicity is
@@ -228,9 +257,13 @@ The wavenumber $k$ determined from Taylor's hypothesis is really the flow-aligne
 
 ### Solar Wind Power Spectrum
 
+![Solar wind magnetic field spectrum from Goldstein, Roberts, Matthaeus (1995).](../images/solarwind_B_spectrum_mariner10.png){#fig-solarwind-B-spectrum-mariner10}
+
 ![Solar wind power spectrum from Kiyoni+, 2015.](../images/solarwind_power_spectrum.png){#fig-solarwind-power-spectrum}
 
-When we plot the solar wind power spectrum ($\delta|\mathbf{B}|$), it is usually representative of $k_\perp$. There are three distinct power-law ranges in the spectrum from spacecraft solar wind observations (@fig-solarwind-power-spectrum):
+When we plot the solar wind power spectrum ($\delta|\mathbf{B}|$) as a function of time, it is usually representative of $k_\perp$[^time-vs-space]. There are three distinct power-law ranges in the spectrum from spacecraft solar wind observations (@fig-solarwind-power-spectrum):
+
+[^time-vs-space]: Of source there is an assumption here that the spatial scale and the time scale are proportional, since we cannot measure the spectrum as a function of space directly.
 
 * Injection range:
   * Large amplitude, low frequency Alfvén waves originating from the Sun.
