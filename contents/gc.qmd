@@ -1,0 +1,238 @@
+# Guiding Center Approximations {#sec-GCA}
+
+Here are the essentials points in the derivation of the _guiding center equations of motion (EOM)_. For a complete discussion refer to @vandervoort1960relativistic.
+
+The basic equation governing the motion of a charged particle with mass m and charge e is given by
+$$
+\frac{\mathrm{d}\mathbf{u}}{\mathrm{d}t} = \frac{e}{mc}\left( c\mathbf{E} + \mathbf{v}\times\mathbf{B} \right)
+$$
+where $\mathbf{u}=\gamma\mathbf{v}$ represents the particle’s four-velocity, $\mathbf{v}$ is the particle velocity, c is the speed of light while $\mathbf{E}$ and $\mathbf{B}$ are the electric and magnetic field vectors, respectively.
+
+In GCA, the orbital motion of the particle is detached from its instantaneous gyration center. This relaxes any constraints related to particle gyration, allowing systematic larger time steps to be taken and thus a considerable saving in computational time. The guiding center (GC) equations are obtained in the limit of slow-varying fields. This restricts its validity to situations in which the Larmor radius remains negligible with respect to the overall electromagnetic field scale and in which the cyclotron frequency is large enough so that adiabatic invariance holds. In this respect, the GCA is most suitable for particles with large charge-to-mass ratios such as electrons.
+
+## Relativity
+
+### Velocity
+
+The path of an object in three-dimensional space (in an inertial frame) may be expressed in terms of three spatial coordinate functions $x^i(t)$ of time $t$, where $i$ is an index which takes values 1, 2, 3.
+
+The three coordinates form the 3d position vector, written as a column vector
+$$
+\mathbf{x}(t)=
+\begin{bmatrix}
+x^{1}(t)\\
+x^{2}(t)\\
+x^{3}(t)
+\end{bmatrix}
+$$
+
+The components of the velocity $\mathbf{u}$ (tangent to the curve) at any point on the world line are
+$$
+\mathbf{u}=
+\begin{bmatrix}
+u^{1}\\
+u^{2}\\
+u^{3}
+\end{bmatrix}
+=\frac{\mathrm{d}\mathbf{x}}{\mathrm{d}t}=
+\begin{bmatrix}
+\frac{\mathrm{d}x^{1}}{\mathrm{d}t} \\
+\frac{\mathrm{d}x^{2}}{\mathrm{d}t} \\
+\frac{\mathrm{d}x^{3}}{\mathrm{d}t} 
+\end{bmatrix}
+$$ {#eq-velocity}
+
+Each component is simply written $u^i = \mathrm{d}x^i / \mathrm{d}t$.
+
+### Theory of relativity
+
+In Einstein's theory of relativity, the path of an object moving relative to a particular frame of reference is defined by four coordinate functions $x_\mu(\tau)$, where $\mu$ is a spacetime index which takes the value 0 for the timelike component, and 1, 2, 3 for the spacelike coordinates. The zeroth component is defined as the time coordinate multiplied by c,
+$$
+x^0 = ct
+$$ {#eq-time-coordinate}
+
+Each function depends on one parameter τ called its _proper time_. As a column vector,
+$$
+\mathbf{x}=
+\begin{bmatrix}
+x^{0}(\tau)\\
+x^{1}(\tau)\\
+x^{2}(\tau)\\
+x^{3}(\tau)
+\end{bmatrix}
+$$
+
+**Time dilation**
+
+From time dilation, the differentials in coordinate time $t$ and proper time $\tau$ are related by
+$$
+\mathrm{d}t = \gamma(u)\mathrm{d}\tau
+$$ {#eq-time-dilation}
+where the Lorentz factor,
+$$
+\gamma(u) = \frac{1}{\sqrt{1 - \frac{u^2}{c^2}}}
+$$ {#eq-lorentz-factor}
+is a function of the Euclidean norm $u$ of the 3d velocity vector $\mathbf{u}$:
+$$
+u=\left\|\ {\mathbf{u}}\ \right\|=\sqrt{\left(u^{1}\right)^{2}+\left(u^{2}\right)^{2}+\left(u^{3}\right)^{2}}
+$$
+
+#### Four-velocity
+
+A _four-velocity_ is a _four-vector_ in four-dimensional spacetime that represents the relativistic counterpart of velocity, which is a three-dimensional vector in space.
+
+Physical events correspond to mathematical points in time and space, the set of all of them together forming a mathematical model of physical four-dimensional spacetime. The history of an object traces a curve in spacetime, called its world line. If the object has mass, so that its speed is necessarily less than the speed of light, the world line may be parametrized by the proper time of the object. The four-velocity is the rate of change of four-position with respect to the proper time along the curve. The velocity, in contrast, is the rate of change of the position in (three-dimensional) space of the object, as seen by an observer, with respect to the observer's time.
+
+The four-velocity is the tangent four-vector of a timelike world line. The four-velocity $\mathbf{U}$ at any point of world line 
+$\mathbf{X}(\tau)$ is defined as
+$$
+\mathbf{U} = \frac{\mathrm{d}\mathbf{X}}{\mathrm{d}\tau}
+$$ {#eq-four-velocity}
+where $\mathbf{X}$ is the four-position and $\tau$ is the proper time.[^existence]
+
+[^existence]: The four-velocity defined here using the proper time of an object does not exist for world lines for massless objects such as photons travelling at the speed of light.
+
+The relationship between the time $t$ and the coordinate time $x^0$ is defined by
+$$
+x^0 = ct
+$$ {#eq-four-velocity-0}
+
+Taking the derivative of this with respect to the proper time $\tau$, we find the $U_\mu$ velocity component for $\mu = 0$:
+$$
+U^{0}=\frac{\mathrm{d}x^{0}}{\mathrm{d}\tau}}={\frac{\mathrm{d}(ct)}{\mathrm{d}\tau}}=c\frac{\mathrm{d}t}{\mathrm{d}\tau}=c\gamma(u)
+$$ {#eq-four-velocity-1}
+and for the other 3 components to proper time we get the $U_\mu$ velocity component for $\mu = 1, 2, 3$:
+$$
+U^{i}=\frac{\mathrm{d}x^{i}}{\mathrm{d}\tau} = \frac{\mathrm{d}x^{i}}{\mathrm{d}t}{\frac{\mathrm{d}t}{\mathrm{d}\tau}} = \frac {\mathrm{d}x^{i}}{\mathrm{d}t} \gamma(u) = \gamma(u)u^{i}
+$$ {#eq-four-velocity-3}
+where we have used the chain rule from @eq-velocity and @eq-time-dilation.
+
+Thus, we find for the four-velocity $\mathbf{U}$:
+$$
+\mathbf{U}= \gamma
+\begin{bmatrix}
+c \\
+\mathbf{u}
+\end{bmatrix}
+$$
+
+Written in standard four-vector notation this is
+$$
+\mathbf{U}=\gamma \left(c,{\mathbf{u}}\right) = \left(\gamma c,\gamma {\mathbf{u}}\right)
+$$ {#eq-four-velocity-vector}
+where $\gamma c$ is the temporal component and $\gamma \mathbf{u}$ is the spatial component. Unlike most other four-vectors, the four-velocity has only 3 independent components $u_{x},u_{y},u_{z}$ instead of 4. The $\gamma$ factor is a function of the three-dimensional velocity $\mathbf{u}$.
+
+Using the differential of the four-position in the rest frame, the magnitude of the four-velocity can be obtained by the Minkowski metric with signature (−, +, +, +):
+$$
+\left\|\mathbf{U} \right\|^{2}=\eta_{\mu\nu}U^{\mu}U^{\nu}=\eta_{\mu\nu}{\frac{\mathrm{d}X^{\mu}}{\mathrm{d}\tau}}{\frac{\mathrm{d}X^{\nu}}{\mathrm{d}\tau}}=-c^{2}
+$$
+which is always a fixed constant.
+
+## Lorentz Equation in Tensor Form
+
+In order to derive the Guiding Center Approximation (GCA), we would use the tensor notations in relativity.
+The equation of motion for a charged particle in an EM field are written in a tensorial form as
+$$
+\frac{\mathrm{d}x_\mu}{\mathrm{d}\tau^2} = F_{\mu\nu} \frac{\mathrm{d}x_\nu}{\mathrm{d}\tau}
+$$ {#eq-charged-particle-motion-general}
+where $x_\mu$ is the particle four-coordinate, $F_{\mu\nu}$ is the EM tensor and $\tau$ is the particle proper time.
+
+The EM tensor is
+$$
+F_{\mu\nu} = \frac{e}{mc}
+\begin{pmatrix}
+0 & B_z & -B_y & E_x \\
+-B_z & 0 & B_x & E_y \\
+B_y & -B_x & 0 & E_z \\
+E_x & E_y & E_z & 0
+\end{pmatrix}
+$$ {#eq-em-tensor}
+
+## Fundamental Assumptions
+
+The GC formalism holds under two fundamental assumptions, namely:
+
+1. The gyration radius must remain small compared to the scale length upon which the electromagnetic field changes significantly.
+2. The particle undergoes many gyrations before the electromagnetic field changes appreciably (slowl-varying fields  pproximation). If we let $\rho$ be the particle gyroradius (apart from a factor √2), $x_\mu$ the particle position, $X_\mu$ the GC position, $\tau$ the proper time and $F_{\mu\nu}$ the EM field tensor, the two conditions stated above can be mathematically expressed as
+$$
+\rho \left| \frac{\partial F_{\mu\nu}}{\partial x_\alpha} \right| \ll \left| F_{\mu\nu} \right|
+$$ {#eq-gca-condition1}
+and
+$$
+\frac{1}{\omega} \left| \frac{\partial F_{\mu\nu}}{\partial x_\alpha} \right| \left| \frac{\mathbf{d}X_\beta}{\mathrm{d}\tau} \right| \ll \left| F_{\mu\nu} \right|
+$$ {#eq-gca-condition2}
+where $\omega$ is the gyrofrequency. When the previous conditions hold, we can separate the particle trajectory into a gyration and a motion of the guiding center.
+
+## Derivations of GC Equation
+
+The general solution of @eq-charged-particle-motion-general is a linear combination of the two fundamental solutions related to the four EM tensor eigenvalues $q=\pm i\omega$ and $q=\pm\lambda$, where
+$$
+\begin{aligned}
+\omega &= \frac{e}{mc}\sqrt{\frac{1}{2}(B^2 - E^2) + \frac{1}{2}\sqrt{(B^2 - E^2)^2 + 4(\mathbf{E}\cdot\mathbf{B})^2}} \\
+\lambda &= \frac{e}{mc}\sqrt{-\frac{1}{2}(B^2 - E^2) + \frac{1}{2}\sqrt{(B^2 - E^2)^2 + 4(\mathbf{E}\cdot\mathbf{B})^2}}
+\end{aligned}
+$$ {#eq-EM-eigenvalues}
+
+$\omega$ is a generalized relativistic form of the Larmor frequency $\omega_\xi = eB/(mc)$ in the case when $E\neq 0$ (which can be verified by solving in the limit $E\to 0$). The general solution $x_\mu$ of @eq-charged-particle-motion-general is
+$$
+x_\mu = \xi_\mu\rho \cos(\omega\tau) - \eta_\mu \rho \sin(\omega\tau) + \alpha_\mu \nu \cosh(\lambda\tau) + \beta_\mu \nu \sinh(\lambda\tau)
+$$ {#eq-charged-particle-motion-general-sol}
+
+Note that the first two terms are related to a periodic motion, that is the gyration around magnetic field lines with gyroradius $\rho$. Here $\rho, \nu$ are constants defined by the initial conditions and $\xi_\mu,\eta_\mu,\alpha_\mu$ and $\beta_\mu$ are four-versors normalized in the manner
+$$
+\xi_\mu^2 = \eta_\mu^2 = 1,\quad \text{and}\quad \alpha_\mu^2 = -\beta_\mu^2 = 1
+$$ {#eq-charged-particle-motion-general-sol-normalization}
+
+Solutions for $\rho = 0$ and $\nu = 0$ must be valid separately, so by replacing $x_\mu$ for these two particular cases inside @eq-charged-particle-motion-general we can see that $\xi_\mu,\eta_\mu,\alpha_\mu$ and $\beta_\mu$ form an orthogonal set of the Minkowsky space. The orthogonality relations between this set of four-vectors in particular states that the periodic motion (gyration) in the $(\xi_mu,\eta_\mu)$-plane is perpendicular to the acceleration motion in the $(\alpha_\mu, \beta_\mu)$-plane, and will be useful later. At this point, another useful relation is retrieved from the squared velocity invariance
+$$
+\frac{\mathrm{d}x_\mu}{\mathrm{d}\tau}\frac{\mathrm{d}x_\mu}{\mathrm{d}\tau} = -c^2,\quad\text{which leads to}\quad \omega^2\rho^2 - \lambda^2\nu^2 = -c^2
+$$ {#eq-sqr-v-invariance}
+
+Since we are only interested in cases in which gyration appears, the only singular eigenvalue case we must consider is the one with $\lambda=0, \omega\neq 0$, corresponding to $\mathbf{E}\cdot\mathbf{B}=0$ and $|\mathbf{E}|\to 0$. The associated solution is
+$$
+x_\mu = \xi_\mu\rho \cos(\omega\tau) - \eta_\mu \rho \sin(\omega\tau) + U_\mu \tau
+$$ {#eq-associated-sol}
+
+Here the gyration motion with Larmor frequency $\omega_\xi = \omega$ is clearly shown, along with a uniform motion (drift) with velocity $U_\mu = (\gamma c, \mathbf{U})$ in the plane perpendicular to the $(\mathbf{E}, \mathbf{B})$-plane.[^verification]
+In this particular case, the squared velocity invariance @eq-sqr-v-invariance becomes
+$$
+\omega^2\rho^2 + U_\mu^2 = -c^2,\quad\text{or}\quad U_\mu^2 = -c^2 - \omega^2\rho^2 < -c^2
+$$ {#eq-sqr-v-invariance1}
+
+[^verification]: For verification simply substitute $x_\mu$ and $U_\mu$ in the left and right-end side of @eq-charged-particle-motion-general, respectively, to find that $F_{\mu\nu} U_\nu = 0$, and rewrite the indexes of such equation explicitly.
+
+@eq-sqr-v-invariance1 is of crucial importance in the GCA formalism, because the drift motion $U_\mu$ is the mean motion separated from the gyration and corresponds to the GC motion itself, meaning that what we just found is a relation between the energy and momentum of a particle guiding center. It is very similar to the well-known formula of the squared four-velocity ${U_\mu^\prime}^2=-c^2$, the only difference being an additional term $\omega^2\rho^2$. This suggests interpreting the motion of the GC as the one of a particle located in the center of gyration, performing no gyration and possessing a squared four velocity as stated in @eq-sqr-v-invariance1, in agreement with part of the particle kinetic energy being stored in the gyration motion through the term $\omega^2\rho^2$. By separating the spatial and temporal parts of $U_\mu$ and rearranging some terms inside @eq-sqr-v-invariance1, we can get a relation for the GC Lorentz factor
+$$
+\gamma_\text{GC} = \sqrt{1+\frac{|\mathbf{U}|^2}{c^2} + \frac{\omega^2\rho^2}{c^2}} = \sqrt{1+\frac{\gamma^2|\mathbf{v}|^2}{c^2} + \frac{\omega^2\rho^2}{c^2}}
+$$ {#eq-gc-gamma}
+
+Although we only considered a limit case, the same equation can be proven to be generally valid in the GCA formalism.
+
+We now want to isolate the gyration motion in a general case. This is done by separating the motion as follows:
+$$
+x_\mu = \xi_\mu x + \eta_\mu y + x_\mu^' + X_\mu
+$$ {#eq-gc-separation-of-motion}
+where $x_\mu$ is the space-time position of the particle and $X_\mu$ is the position of the guiding center. We associate two variables $x$ and $y$ to describe the periodic motion in the $(\xi, \eta)$-plane, and the term $x_\mu^'$ will account for the periodic motions which do not lie in the same plane. To more easily describe the gyration, we also choose a new pair of variables
+$$
+\zeta = \frac{1}{\sqrt{2}}\left( x+ iy \right)\quad\text{and}\quad \zeta^\ast = \frac{1}{\sqrt{2}}\left( x - iy \right)
+$$ {#eq-gc-new-variables}
+so that $\xi_\mu x + \eta_\mu y = \delta_\mu\zeta + \sigma_\mu\zeta^\ast$. The new variables will allow us to choose $\zeta_\mu$ and $\delta_\mu$ in a more convenient way and let some factor $e^{i\phi}$ account for the initial conditions of the problem. We rewrite the particle coordinate using @eq-gc-new-variables
+$$
+x_\mu = \delta_\mu\zeta + \sigma_\mu\zeta^\ast + x_\mu^' + X_\mu
+$$
+
+The next step is substituting this expression into @eq-charged-particle-motion-general and expand the second derivative, which leads to a lengthy expression containing eight unkowns: $\zeta,\zeta^\ast$, two components of $x_\mu$ (the condition with the $(\sigma, \delta)$-plane sets the other two), and four components of $X_\mu$.
+
+The conditions for the GCA expressed in @eq-gca-condition2 implicitly contain a parameter of smallness $\epsilon =|u/\omega L|\ll 1$, where u is the typical particle four-velocity and L the scale length upon which the change in the EM fields $F_{\mu\nu}$ is comparable to $F_{\mu\nu}$ (slowly-varying fields approximation). This allows us to approximate $F_{\mu\nu}(x_\mu)$ (particle coordinate) by using a Taylor expansion about $X_\mu$ (the GC coordinate)
+$$
+\begin{aligned}
+F_{\mu\nu}(x_\mu) =& F_{\mu\nu}(X_\mu) \\
+&+ \frac{\partial F_{\mu\nu}}{\partial x_\xi}(\delta_\xi \zeta + \sigma_\xi \zeta^\ast) \\
+&+ \frac{1}{2} \frac{\partial^2 F_{\mu\nu}}{\partial x_\xi\partial x_\pi}\left[ \delta_\xi\delta_\pi \zeta^2 + \sigma_\xi\sigma_\pi {\zeta^\ast}^2 + (\sigma_\xi \delta_\pi + \sigma_\pi \delta_\xi)|\zeta|^2 \right] \\
+&+ \frac{\partial F_{\mu\nu}}{\partial x_\xi} x_\xi^\prime + ...
+\end{aligned}
+$$
+
+We should now substitute $F_{\mu\nu}(x_\mu)$ inside @eq-charged-particle-motion-general using the new coordinates in order to get a quite long equation containing all quantities evaluated at the GC position $X_\mu$ up to 2nd−order, and group all 2nd−order terms on the right-end side as $G_\mu=...$
+
+An expression for $\zeta$ is needed to further proceed, but since the derivation is quite long we will not explicitly derive it here. The basic idea is to use the orthogonality equations for the new four-vectors $\sigma_\mu$ and $\delta_\mu$ and the antisymmetry property of the EM tensor inside Maxwell’s equations written in tensorial form, and then assume that a solution for $X_\mu$ has already been found.
