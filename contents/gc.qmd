@@ -99,7 +99,7 @@ $$ {#eq-four-velocity-0}
 
 Taking the derivative of this with respect to the proper time $\tau$, we find the $U_\mu$ velocity component for $\mu = 0$:
 $$
-U^{0}=\frac{\mathrm{d}x^{0}}{\mathrm{d}\tau}}={\frac{\mathrm{d}(ct)}{\mathrm{d}\tau}}=c\frac{\mathrm{d}t}{\mathrm{d}\tau}=c\gamma(u)
+U^{0}=\frac{\mathrm{d}x^{0}}{\mathrm{d}\tau}={\frac{\mathrm{d}(ct)}{\mathrm{d}\tau}}=c\frac{\mathrm{d}t}{\mathrm{d}\tau}=c\gamma(u)
 $$ {#eq-four-velocity-1}
 and for the other 3 components to proper time we get the $U_\mu$ velocity component for $\mu = 1, 2, 3$:
 $$
@@ -125,7 +125,7 @@ where $\gamma c$ is the temporal component and $\gamma \mathbf{u}$ is the spatia
 Using the differential of the four-position in the rest frame, the magnitude of the four-velocity can be obtained by the Minkowski metric with signature (−, +, +, +):
 $$
 \left\|\mathbf{U} \right\|^{2}=\eta_{\mu\nu}U^{\mu}U^{\nu}=\eta_{\mu\nu}{\frac{\mathrm{d}X^{\mu}}{\mathrm{d}\tau}}{\frac{\mathrm{d}X^{\nu}}{\mathrm{d}\tau}}=-c^{2}
-$$
+$$ {#eq-four-velocity-mag}
 which is always a fixed constant.
 
 ## Lorentz Equation in Tensor Form
@@ -215,11 +215,11 @@ $$ {#eq-gc-separation-of-motion}
 where $x_\mu$ is the space-time position of the particle and $X_\mu$ is the position of the guiding center. We associate two variables $x$ and $y$ to describe the periodic motion in the $(\xi, \eta)$-plane, and the term $x_\mu^'$ will account for the periodic motions which do not lie in the same plane. To more easily describe the gyration, we also choose a new pair of variables
 $$
 \zeta = \frac{1}{\sqrt{2}}\left( x+ iy \right)\quad\text{and}\quad \zeta^\ast = \frac{1}{\sqrt{2}}\left( x - iy \right)
-$$ {#eq-gc-new-variables}
+$$ {#eq-gc-new-vars}
 so that $\xi_\mu x + \eta_\mu y = \delta_\mu\zeta + \sigma_\mu\zeta^\ast$. The new variables will allow us to choose $\zeta_\mu$ and $\delta_\mu$ in a more convenient way and let some factor $e^{i\phi}$ account for the initial conditions of the problem. We rewrite the particle coordinate using @eq-gc-new-variables
 $$
-x_\mu = \delta_\mu\zeta + \sigma_\mu\zeta^\ast + x_\mu^' + X_\mu
-$$
+x_\mu = \delta_\mu\zeta + \sigma_\mu\zeta^\ast + x_\mu^\prime + X_\mu
+$$ {#eq-eq-gc-new-vars2}
 
 The next step is substituting this expression into @eq-charged-particle-motion-general and expand the second derivative, which leads to a lengthy expression containing eight unkowns: $\zeta,\zeta^\ast$, two components of $x_\mu$ (the condition with the $(\sigma, \delta)$-plane sets the other two), and four components of $X_\mu$.
 
@@ -233,6 +233,119 @@ F_{\mu\nu}(x_\mu) =& F_{\mu\nu}(X_\mu) \\
 \end{aligned}
 $$
 
-We should now substitute $F_{\mu\nu}(x_\mu)$ inside @eq-charged-particle-motion-general using the new coordinates in order to get a quite long equation containing all quantities evaluated at the GC position $X_\mu$ up to 2nd−order, and group all 2nd−order terms on the right-end side as $G_\mu=...$
+We should now substitute $F_{\mu\nu}(x_\mu)$ inside @eq-charged-particle-motion-general using the new coordinates in order to get a quite long equation containing all quantities evaluated at the GC position $X_\mu$ up to 2nd−order, and group all 2nd−order terms on the right-end side as $G_\mu$
+$$
+\begin{aligned}
+&\delta_\mu\frac{\mathrm{d}^2\zeta}{\mathrm{d}\tau^2} + \sigma_\mu\frac{\mathrm{d}^2\zeta^\ast}{\mathrm{d}\tau^2}+\left( i\omega\delta_\mu + 2\frac{\mathrm{d}\zeta}{\mathrm{d}\tau} \right)\frac{\mathrm{d}\zeta}{\mathrm{d}\tau} \\
+&+\left( -i\omega\sigma_\mu + 2\frac{\mathrm{d}\sigma_\mu}{\mathrm{d}\tau} \right) \frac{\mathrm{d}\zeta^\ast}{\mathrm{d}\tau} + \frac{\mathrm{d}^2\delta_\mu}{\mathrm{d}\tau^2}\zeta + \frac{\mathrm{d}^2\sigma_\mu}{\mathrm{d}\tau^2}\zeta^\ast \\
+&- \frac{\partial F_{\mu\nu}}{\partial x_\xi}\left( \delta_\xi \zeta + \sigma_\xi \zeta^\ast \right)\frac{\mathrm{d}X_\nu}{\mathrm{d}\tau} - F_{\mu\nu}\left( \frac{\mathrm{d}\delta_\nu}{\mathrm{d}\tau}\zeta + \frac{\mathrm{d}\sigma_\nu}{\mathrm{d}\tau}\zeta^\ast \right) \\
+&- \frac{\partial F_{\mu\nu}}{\partial x_\xi}\left( \delta_\xi \zeta + \sigma_\xi \zeta^\ast \right) \left( \delta_\nu\frac{\mathrm{d}\zeta}{\mathrm{d}\tau} + \sigma_\nu\frac{\mathrm{d}\zeta^\ast}{\mathrm{d}\tau} \right) \\
+&+ \left( \frac{\mathrm{d}^2 X_\nu}{\mathrm{d}\tau^2} - F_{\mu\nu}\frac{\mathrm{d}X_\mu}{\mathrm{d}\tau} \right) + \left( \frac{d^2 x_\mu^\prime}{\mathrm{d}\tau^2} - F_{\mu\nu}\frac{\mathrm{d}x_\nu^\prime}{\mathrm{d}\tau} \right) = G_\mu
+\end{aligned}
+$$ {#eq-gc-expansion}
 
-An expression for $\zeta$ is needed to further proceed, but since the derivation is quite long we will not explicitly derive it here. The basic idea is to use the orthogonality equations for the new four-vectors $\sigma_\mu$ and $\delta_\mu$ and the antisymmetry property of the EM tensor inside Maxwell’s equations written in tensorial form, and then assume that a solution for $X_\mu$ has already been found.
+An expression for $\zeta$ is needed to further proceed, but since the derivation is quite long we will not explicitly derive it here. The basic idea is to use the orthogonality equations for the new four-vectors $\sigma_\mu$ and $\delta_\mu$ and the antisymmetry property of the EM tensor inside Maxwell's equations written in tensorial form, and then assume that a solution for $X_\mu$ has already been found. Considered that $x_\mu$ is a 1st−order term in the GCA, by ignoring 2nd−order quantities and writing terms independent from $\zeta$ as a numerical value $P$, then @eq-gc-expansion becomes
+$$
+\frac{\mathrm{d}^2\zeta}{\mathrm{d}\tau^2} + i\Omega\frac{\mathrm{d}\zeta}{\mathrm{d}\tau} + \frac{i}{2}\frac{\mathrm{d}\Omega}{\mathrm{d}\tau}\zeta + \Omega a \zeta + P = 0
+$$ {#eq-gc-expansion2}
+where $\Omega a \zeta$ contains all the linear terms in $\zeta$. Consequently, the corresponding solution $\zeta$, by analogy to the _Wentzel–Kramers–Brillouin (WKB)_ approximation in quantum mechanics, is
+$$
+\zeta = \rho_0 \sqrt{\frac{\omega_0}{\Omega}}\exp\left[ -i\left( \Phi + \int_{\tau_0}^\tau \sigma_1 \mathrm{d}\tau \right) \right]
+$$ {#eq-gc-wkb}
+to the 0th-order, being
+$$
+\Omega = \omega - 2i\sigma_\mu \frac{\mathrm{d}\delta_\mu}{\mathrm{d}\tau},\quad \Phi = \int_{\tau_0}^{\tau}\Omega\mathrm{d}\tau - \phi,\quad\text{and} \sigma = a - \frac{a^2}{\Omega}
+$$ {#eq-gc-wkb2}
+The subscripts 0, 1 indicate the associated order of approximation for quantities defined above.
+
+Since now we know the expression for $\zeta$, we can write the 1st−order EOM for $X_\mu$. For this purpose, we require that in the left-end side of @eq-gc-expansion the terms containing the 1st− and 2nd−order derivatives of $X_\mu$ are balanced by the remaining nonoscillatory terms, that is
+$$
+\frac{\mathrm{d}^2 X_\mu}{\mathrm{d}\tau^2} - F_{\mu\nu}\frac{\mathrm{d}X_\nu}{\mathrm{d}\tau} = \frac{\partial F_{\mu\nu}}{\partial x_\xi}\left( \delta_\xi \sigma_\nu \frac{\mathrm{d}\zeta^\ast}{\mathrm{d}\tau} + \delta_\nu \sigma_\xi \frac{\mathrm{d}\zeta}{\mathrm{d}\tau} \right)
+$$ {#eq-gc-balance}
+
+Having found the solution @eq-gc-wkb and making use once again of the orthogonality relations for $\delta_\mu$ and $\sigma_\mu$ and the tensorial Maxwell's equations, we can write the equation of motion for the GC
+$$
+\frac{\mathrm{d}^2 X_\mu}{\mathrm{d}\tau^2} - F_{\mu\nu}\frac{\mathrm{d}X_\nu}{\mathrm{d}\tau} + \rho_0^2 \omega_0\frac{\partial\omega}{\partial x_\mu} = 0
+$$ {#eq-gc-eom}
+where $\omega$ (@eq-EM-eigenvalues) is the generalized Larmor frequency, $\rho_0^2 \omega_0 = \mu_0 = mc\gamma^2 v_\perp^2 / 2eB$ is the 0th-order approximation (apart from a constant factor) to the particle magnetic moment $\mu$ and $\omega_0 = eB/(mc)$ represents the lowest-order approximation to the Larmor frequency in the case $E\ll B$.
+
+More precisely, the magnetic moment should be regarded as constant only in the reference frame moving at $\mathbf{v}_E$, because in that particular case $\mathbf{E} = 0$. Indeed, a formal analysis (@northrop1960stability) shows that the corresponding constant of motion in a general reference frame is actually an asymptotic series expansion in a smallness parameter $\epsilon=u/(\omega_0 L)$ in the form $\mu = (e/c)\left[ \mu_0 + \epsilon \mu_1 + \epsilon^2 \mu_2 + ... \right]$ so that $\mu_0$ is not constant and can still vary in compliance with the adiabatic theory. Nevertheless, extensive numerical testing confirms that the
+errors due to assuming $\mathrm{d}\mu_0 / \mathrm{d}t \approx 0$ are at most of the same order of those introduced by the GC formalism, as a consequence of the slowly varying field condition which prevents sensible changes in the magnetic moment. Hence, we safely assume that $\mu \approx (e/c)\mu_0$ is invariant.
+
+## First Order Solution for the GCA Equations of Motion
+
+Although deceitful simple, the GC equation of motion @eq-gc-eom is more conveniently cast in a form in which the GC velocity appears explicitly, under the nearly-crossed (EM) fields condition
+$$
+\frac{\mathbf{E}_\parallel \cdot\mathbf{B}}{B^2 - E_\perp^2} \ll 1
+$$ {#eq-nearly-cross-em}
+where the subscripts $\parallel$ and $\perp$ indicate the parallel and perpendicular components of the electric field with
+respect to the magnetic field unit vector $\hat{b}$. It can be proven that @eq-nearly-cross-em allows the EM tensor field $F_{\mu\nu}$ to be split into a contribution $F_{\mu\ni}^{(0)}$ constructed solely from $\mathbf{E}_\perp$ and $\mathbf{B}$, plus a correction term $F_{\mu\nu}^{(1)}$ depending on $\mathbf{E}_\parallel$. A formal analysis leads to the conclusion that the GC four-velocity $U_\mu \equiv \mathrm{d}X_\mu/\mathrm{d}\tau$ can be decomposed into a 0th-order contribution $\mathrm{U}^{(0)}$ (which contains the drift velocity $\mathbf{v}_E = c\mathbf{E}_\perp \times\mathbf{B}/B^2$ as well as the velocity component parallel to the magnetic field line $v_\parallel \hat{b}$) plus 1st-order correction $\mathbf{U}^{(1)}$, leading to
+$$
+U_\mu = (\gamma c, \mathbf{U}) \simeq (\gamma c, \gamma v_\parallel \hat{b} + \gamma \mathbf{v}_E + \mathbf{U}^{(1)})
+$$ {#eq-four-velocity-decomposition}
+where $\gamma$ is the particle Lorentz factor $\gamma = (1- v^2/c^2)^{-1/2}$. An equation for $\mathbf{U}^{(1)}$ can be derived from @eq-gc-eom using a recursive approach as shown below, while from the spatial component one obtains an equation (to the same order) for the parallel component of the GC four-velocity $\gamma v_\parallel$. These yield the (1st-order) GCA system of ordinary differential equations (ODEs)
+$$
+\begin{aligned}
+\frac{\mathrm{d}\mathbf{X}}{\mathrm{d}t} &= \mathbf{v}_E + v_\parallel \hat{b} + \frac{\gamma_E^2}{B}\hat{b}\times\left[ \frac{mc\gamma}{e}\left( v_\parallel\mathcal{L}(\hat{b}) + \mathcal{L}(\mathbf{v}_E) \right) + \mathcal{M}\left( \frac{B}{\gamma_E} \right) + \frac{v_\parallel E_\parallel}{c}\mathbf{v}_E \right] \\
+\frac{\mathrm{d}(\gamma v_\parallel)}{\mathrm{d}t} &= \frac{e}{m}E_\parallel - \gamma\hat{b}\cdot\mathcal{L}(\mathbf{v}_E) - \frac{\mu}{\gamma m}\hat{b}\cdot\nabla\left(\frac{B}{\gamma_E}\right)
+\end{aligned}
+$$ {#eq-gc-eom-1st-sol}
+where $\mathrm{d}\mathbf{X}/\mathrm{d}t = \mathbf{U}^{(1)}/\gamma$ represents the velocity of the guiding center, $e/m$ is the particle charge-to-mass ratio and $\mu_0 = c\mu/e$. The operators $\mathcal{L}$ and $\mathcal{M}$ are defined as
+$$
+\begin{aligned}
+\mathcal{L}(x) &= \frac{\partial\mathbf{x}}{\partial t} + v_\parallel(\hat{b}\cdot\nabla)\mathbf{x} + (\mathbf{v}_E\cdot\nabla)\mathbf{x} \\
+\mathcal{M}(x) &= \frac{\mu}{e\gamma}\left[ \frac{\mathbf{v}_E}{c}\frac{\partial x}{\partial t} + c\nabla x \right]
+\end{aligned}
+$$ {#eq-gc-eom-1st-operator}
+where $\gamma_E = (1 - E_\perp^2/B^2)^{-1/2}$ is the Lorentz factor associated to the drift velocity $\mathbf{v}_E$.
+
+In the GCA @eq-gc-eom-1st-sol information about motion perpendicular to the magnetic field is lost and the only component of the particle velocity that is actually evolved in time is $u_\parallel$, because the magnetic moment $\mu_0\approx c\mu/e$ is now considered a constant of motion. Each term on the right hand side of @eq-gc-eom-1st-sol corresponds to a specific drift motion. Indeed, the first term represents the $\mathbf{E}\times\mathbf{B}$ perpendicular drift, while the second one accounts for particle motion in the direction parallel to magnetic field. The first two terms in square bracket, $\mathcal{L}(\hat{b})$ and $\mathcal{L}(\mathbf{v}_E)$, describe the field curvature and polarization drifts[^L-lagrangian], respectively. The next term is the $\nabla-B$ drift, while the last one represents a relativistic drift in the direction given by $\hat{b}\times\mathbf{v}_E$.
+
+[^L-lagrangian]: Notice that the $\mathcal{L}()$ operator is the Lagrangian derivative $\mathrm{d}/\mathrm{d}t$.
+
+@eq-gc-eom-1st-sol lose their validity when either $B\to 0$ (magnetic null) or $E_\perp \ge B$, i.e. when the nearly-crossed EM fields condition, @eq-nearly-cross-em, is violated. While the first condition can easily occur inside a current sheet, the second may occur in a non-ideal MHD regime only. Violation of either condition breaks down the GCA and can lead to severe numerical errors.
+
+### Recursive solution
+
+An explicit solution for @eq-gc-eom can be found under @eq-nearly-cross-em, which introduces a new parameter of smallness $\lambda / \omega \ll 1$.
+
+### Energy conservation
+
+The time component of @eq-gc-eom leads to an evolutionary ODE for the particle energy as a function of time, namely
+$$
+\frac{\mathrm{d}\gamma c^2}{\mathrm{d}t} = \frac{e}{m}\frac{\mathrm{d}\mathbf{X}}{\mathrm{d}t}\cdot\mathbf{E} + \frac{\mu}{m}\frac{\partial}{\partial t}\left( \frac{B}{\gamma_E} \right)
+$$ {#eq-gc-eom-time}
+
+In the time-independent case, @eq-gc-eom-time clearly shows that, when the GC velocity is perpendicular to the electric field, no acceleration occurs and the particle energy is conserved. For numerical purposes, however, @eq-gc-eom-time is not solved for retrieving the Lorentz $\gamma$-factor, since large values of the right hand side could easily violate the condition $\gamma\ge 1$ at the truncation level of the scheme, unless small time steps are taken. In practice, to an 1st-order approximation, the particle velocity can be decomposed into a parallel component $v_\parallel$, a drift component $v_E$ and a gyration component $v_\perp$. This leads to the normalization condition
+$$
+\gamma^2( c^2 - v_\parallel^2 - v_\perp^2 - v_E^2) = c^2 
+$$ {#eq-gc-eom-normalization-1st}
+
+From the definition of the magnetic moment and the Larmor frequency $\mu_0 = mc\gamma^2 v_\perp^2/(2eB) = \gamma^2 v_\perp^2/(2\omega_0)$, we compute the particle Lorentz factor as
+$$
+\gamma = \sqrt{\frac{c^2 + \gamma^2 v_\parallel^2 + 2\mu_0 \omega_0}{c^2 - v_E^2}}
+$$ {#eq-gc-eom-lorentz}
+
+@eq-gc-eom-lorentz replaces @eq-gc-eom-time in common numerical solvers to get the Lorentz factor.
+
+### Numerical implementation
+
+The GCA @eq-gc-eom-1st-sol contains a set of 4 ODEs with unknowns $(\mathbf{X}, u_\parallel)$. The terms which require evaluation at grids are
+
+* $\mathbf{B}$
+* $c\mathbf{E}$
+* $(\hat{b}\cdot\nabla)\hat{b}$
+* $(\hat{b}\cdot\nabla)\mathbf{v}_E$
+* $(\mathbf{v}_E\cdot\nabla)\mathbf{v}_E$
+* $(\mathbf{v}_E\cdot\nabla)\hat{b}$
+* $\nabla(B/\gamma_E)$
+
+#### Nonrelativistic case
+
+In the nonrelativistic case, $\gamma = 1$ so we don't need to solve @eq-gc-eom-lorentz. @eq-gc-eom-1st-sol can be simplified into
+$$
+\begin{aligned}
+\frac{\mathrm{d}\mathbf{X}}{\mathrm{d}t} &=  \\
+\frac{\mathrm{d}(v_\parallel)}{\mathrm{d}t} &= 
+\end{aligned}
+$$ {#eq-gc-eom-1st-sol-nonrelativistic}
