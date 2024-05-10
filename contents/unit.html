@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Key Notes in Plasma Physics - 27&nbsp; Particle-in-Cell</title>
+<title>Key Notes in Plasma Physics - 4&nbsp; Unit Conversion</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -50,8 +30,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../contents/hybrid.html" rel="next">
-<link href="../contents/boundary.html" rel="prev">
+<link href="../contents/single.html" rel="next">
+<link href="../contents/math.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -132,7 +112,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/pic.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/unit.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Unit Conversion</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -187,7 +167,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/unit.html" class="sidebar-item-text sidebar-link">
+  <a href="../contents/unit.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Unit Conversion</span></span></a>
   </div>
 </li>
@@ -325,7 +305,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link active">
+  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></a>
   </div>
 </li>
@@ -381,19 +361,16 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#phase-space-sampling" id="toc-phase-space-sampling" class="nav-link active" data-scroll-target="#phase-space-sampling"><span class="header-section-number">27.1</span> Phase Space Sampling</a></li>
-  <li><a href="#artificial-scalings" id="toc-artificial-scalings" class="nav-link" data-scroll-target="#artificial-scalings"><span class="header-section-number">27.2</span> Artificial Scalings</a></li>
-  <li><a href="#computational-cost" id="toc-computational-cost" class="nav-link" data-scroll-target="#computational-cost"><span class="header-section-number">27.3</span> Computational Cost</a></li>
-  <li><a href="#sec-delta_f" id="toc-sec-delta_f" class="nav-link" data-scroll-target="#sec-delta_f"><span class="header-section-number">27.4</span> δf Method</a></li>
+  <li><a href="#maxwells-equations" id="toc-maxwells-equations" class="nav-link active" data-scroll-target="#maxwells-equations"><span class="header-section-number">4.1</span> Maxwell’s Equations</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/pic.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/unit.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-pic" class="quarto-section-identifier"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></h1>
+<h1 class="title"><span id="sec-unit" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Unit Conversion</span></span></h1>
 </div>
 
 
@@ -410,93 +387,334 @@ window.Quarto = {
 </header>
 
 
-<section id="phase-space-sampling" class="level2" data-number="27.1">
-<h2 data-number="27.1" class="anchored" data-anchor-id="phase-space-sampling"><span class="header-section-number">27.1</span> Phase Space Sampling</h2>
-<p>Let <span class="math inline">\(\hat{f}(\mathbf{z})\)</span> be a general probability density function with normalization: <span class="math display">\[
-\int_\Omega \hat{f}(\mathbf{z})dV = 1
-\]</span></p>
-<p>Now sample the phase space with <span class="math inline">\(N\)</span> markers according to <span class="math inline">\(\hat{f}(\mathbf{z})\)</span> then the <em>marker distribution</em>, <span class="math inline">\(g\)</span> is: <span class="math display">\[
-g(\mathbf{z}) = N\hat{f}(\mathbf{z})
-\]</span> and the phase space volume element occupied by a marker is <span class="math display">\[
-dV_i = \frac{1}{g(\mathbf{z}_i)}
-\]</span> where <span class="math inline">\(\mathbf{z}_i\)</span> is the phase space coordinate of the marker and <span class="math inline">\(dV_i\)</span> the volume element occupied by it.</p>
-<p>Define the weight of a marker as the number of physical particles in the corresponding phase space volume occupied by the marker: <span class="math display">\[
-w_i = f(\mathbf{z}_i)dV_i = \frac{f(\mathbf{z}_i)}{g(\mathbf{z}_i)}
-\]</span></p>
-<p>This marker distribution can represent the total <span class="math inline">\(f\)</span> or the <span class="math inline">\(\delta f\)</span>. (???)</p>
-<p>We can now take moments of the distribution function in the phase space (such as density), and the Monte Carlo approximation to the integration is as follows: <span class="math display">\[
-M(A) = \int_\Omega A(\mathbf{z})f(\mathbf{z})dV = \sum_{i=1}^{N}A(\mathbf{z}_i)w_i + \mathcal{\frac{1}{\sqrt{N}}}
-\]</span> where <span class="math inline">\(N\)</span> is the number of markers in the phase space region <span class="math inline">\(\Omega\)</span>. This Monte Carlo approximation makes the particle simulation feasible for a number of problems, even in 3D, at the cost of introducing an error on the order of <span class="math inline">\(N^{-1/2}\)</span>.</p>
-</section>
-<section id="artificial-scalings" class="level2" data-number="27.2">
-<h2 data-number="27.2" class="anchored" data-anchor-id="artificial-scalings"><span class="header-section-number">27.2</span> Artificial Scalings</h2>
-<p>Common scales to characterize the plasma system:</p>
+<p>The materials in this chapter are referenced from the <a href="https://www.nrl.navy.mil/News-Media/Publications/nrl-plasma-formulary/">NRL Plasma Formulary</a> and notes by Dana Longcope.</p>
+<p>To derive a dimensionally correct SI formula from one expressed in Gaussian (CGS) units, substitute for each quantity according to <span class="math inline">\(\bar{Q} = \bar{k}Q\)</span>, where <span class="math inline">\(\bar{k}\)</span> is the coefficient in the second column of <a href="#tbl-formula-conversion" class="quarto-xref">Table&nbsp;<span>4.1</span></a> corresponding to <span class="math inline">\(Q\)</span> (overbars denote variables expressed in Gaussian units). To go from SI to natural units in which <span class="math inline">\(\hbar = c = 1\)</span>, use <span class="math inline">\(Q = \hat{k}^{-1}\hat{Q}\)</span>, where <span class="math inline">\(\hat{k}\)</span> is the coefficient corresponding to the third column.</p>
+<p>Here <span class="math inline">\(\alpha = 10^2\text{cm}\,\text{m}^{-1}\)</span>, <span class="math inline">\(\beta = 10^7\text{erg}\text{J}^{-1}\)</span>, <span class="math inline">\(\epsilon_0 = 8.8542\times 10^{-12}\text{F}\text{m}^{-1}\)</span>, <span class="math inline">\(\mu_0 = 4\pi\times 10^7\text{H}\text{m}^{-1}\)</span>, <span class="math inline">\(c = (\epsilon_0\mu_0)^{-1/2} = 2.9979\times 10^8\text{m}\text{s}^{-1}\)</span>, and <span class="math inline">\(\hbar = 1.0546\times 10^{-34}\text{J}\text{s}\)</span>.</p>
+<div id="tbl-formula-conversion" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-formula-conversion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.1: Formula conversion coefficients
+</figcaption>
+<div aria-describedby="tbl-formula-conversion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 28%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Physical Quantity</th>
+<th>CGS Units to SI</th>
+<th>Natural Units to SI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Capacitance</td>
+<td><span class="math inline">\(\alpha/4\pi\epsilon_0\)</span></td>
+<td><span class="math inline">\(\epsilon_0^{-1}\)</span></td>
+</tr>
+<tr class="even">
+<td>Charge</td>
+<td><span class="math inline">\((\alpha\beta/4\pi\epsilon_0)^{1/2}\)</span></td>
+<td><span class="math inline">\((\epsilon_0 \hbar c)^{-1/2}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Charge density</td>
+<td><span class="math inline">\((\beta/4\pi\alpha^5\epsilon_0)^{1/2}\)</span></td>
+<td><span class="math inline">\((\epsilon_0 \hbar c)^{-1/2}\)</span></td>
+</tr>
+<tr class="even">
+<td>Current</td>
+<td><span class="math inline">\((\alpha\beta/4\pi\epsilon_0)^{1/2}\)</span></td>
+<td><span class="math inline">\((\mu_0/\hbar c)^{1/2}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Current density</td>
+<td><span class="math inline">\((\beta/4\pi\alpha^3\epsilon_0)^{1/2}\)</span></td>
+<td><span class="math inline">\((\mu_0/\hbar c)^{1/2}\)</span></td>
+</tr>
+<tr class="even">
+<td>Electric field</td>
+<td><span class="math inline">\((4\pi\beta\epsilon_0/\alpha^3)^{1/2}\)</span></td>
+<td><span class="math inline">\((\epsilon_0/\hbar c)^{1/2}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Electric potential</td>
+<td><span class="math inline">\((4\pi\beta\epsilon_0/\alpha)^{1/2}\)</span></td>
+<td><span class="math inline">\((\epsilon_0/\hbar c)^{1/2}\)</span></td>
+</tr>
+<tr class="even">
+<td>Electric conductivity</td>
+<td><span class="math inline">\((4\pi\epsilon_0)^{-1}\)</span></td>
+<td><span class="math inline">\(\epsilon_0^{-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Energy</td>
+<td><span class="math inline">\(\beta\)</span></td>
+<td><span class="math inline">\((\hbar c)^{-1}\)</span></td>
+</tr>
+<tr class="even">
+<td>Energy density</td>
+<td><span class="math inline">\(\beta/\alpha^3\)</span></td>
+<td><span class="math inline">\((\hbar c)^{-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Force</td>
+<td><span class="math inline">\(\beta/\alpha\)</span></td>
+<td><span class="math inline">\((\hbar c)^{-1}\)</span></td>
+</tr>
+<tr class="even">
+<td>Frequency</td>
+<td>1</td>
+<td><span class="math inline">\(c^{-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Inductance</td>
+<td><span class="math inline">\(4\pi\epsilon_0/\alpha\)</span></td>
+<td><span class="math inline">\(\mu_0^{-1}\)</span></td>
+</tr>
+<tr class="even">
+<td>Length</td>
+<td><span class="math inline">\(\alpha\)</span></td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Magnetic induction</td>
+<td><span class="math inline">\((4\pi\beta/\alpha^3\mu_0)^{1/2}\)</span></td>
+<td><span class="math inline">\((\mu_0\hbar c)^{-1/2}\)</span></td>
+</tr>
+<tr class="even">
+<td>Magnetic intensity</td>
+<td><span class="math inline">\((4\pi\mu_0\beta/\alpha^3)^{1/2}\)</span></td>
+<td><span class="math inline">\((\mu_0\hbar c)^{-1/2}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Mass</td>
+<td><span class="math inline">\(\beta/\alpha^2\)</span></td>
+<td><span class="math inline">\(c/\hbar\)</span></td>
+</tr>
+<tr class="even">
+<td>Momentum</td>
+<td><span class="math inline">\(\beta/\alpha\)</span></td>
+<td><span class="math inline">\(\hbar^{-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Power</td>
+<td><span class="math inline">\(\beta\)</span></td>
+<td><span class="math inline">\((\hbar c^2)^{-1}\)</span></td>
+</tr>
+<tr class="even">
+<td>Pressure</td>
+<td><span class="math inline">\(\beta/\alpha^3\)</span></td>
+<td><span class="math inline">\((\hbar c)^{-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Resistance</td>
+<td><span class="math inline">\(4\pi\epsilon_0/\alpha\)</span></td>
+<td><span class="math inline">\((\epsilon_0/\mu_0)^{1/2}\)</span></td>
+</tr>
+<tr class="even">
+<td>Time</td>
+<td>1</td>
+<td>c</td>
+</tr>
+<tr class="odd">
+<td>Velocity</td>
+<td><span class="math inline">\(\alpha\)</span></td>
+<td><span class="math inline">\(c^{-1}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 <ul>
-<li>Global scales of the system <span class="math inline">\(d_g\)</span>, characterized by the magnetopause standoff distance in the magnetosphere, some fraction of the solar radius in the corona, or system length for Tokamak.</li>
-<li>Ion kinetic scales characterized by the ion inertial length <span class="math inline">\(d_i\)</span> <span class="math display">\[
-d_i = \sqrt{\frac{m_i}{n_i q_i^2 \mu_0}} = \frac{m_i}{q_i}\sqrt{\frac{1}{\rho_i \mu_0}}
-\]</span></li>
+<li>Bohr radius in CGS: <span class="math inline">\(\bar{a}_0 = \bar{\hbar}^2 / \bar{m}\bar{e}^2\)</span></li>
 </ul>
-<p>and the ion gyroradius <span class="math display">\[
-r_i = \frac{m_i v_{\mathrm{th},i}}{q_i B} = \frac{m_i}{q_i}\frac{\sqrt{p_i/\rho_i}}{B}
-\]</span></p>
+<p>In SI: <span class="math inline">\(\alpha a_0 = (\hbar \beta)^2/[(m\beta/\alpha^2)(e^2 \alpha\beta / 4\pi\epsilon_0)]\)</span>, or <span class="math inline">\(a_0 = \epsilon_0 h^2 / \pi m e\)</span>.</p>
+<section id="maxwells-equations" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="maxwells-equations"><span class="header-section-number">4.1</span> Maxwell’s Equations</h2>
 <ul>
-<li><p>Electron kinetic scales characterized by the electron skin depth <span class="math inline">\(d_e\)</span> <span class="math display">\[
-d_e = \sqrt{\frac{m_e}{n_e q_e^2 \mu_0}} = \frac{m_e}{q_e}\sqrt{\frac{1}{\rho_e \mu_0}}
-\]</span></p></li>
-<li><p>The smallest plasma scale characterized by the Debye length <span class="math inline">\(\lambda_D\)</span> <span class="math display">\[
-\lambda_D = \sqrt{\frac{\epsilon_0 v_{\mathrm{th},e}^2}{q_e^2 n_e}} = \frac{m_e}{q_e}\frac{\epsilon_0 p_e}{\rho_e}
-\]</span> where <span class="math inline">\(v_{\mathrm{th},e}=\sqrt{p_e / \rho_e}\)</span> is the electron thermal velocity.</p></li>
+<li>Faraday’s law
+<ul>
+<li>SI: <span class="math inline">\(\nabla\times\mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}\)</span></li>
+<li>CGS: <span class="math inline">\(\nabla\times\mathbf{E} = -\frac{1}{c}\frac{\partial\mathbf{B}}{\partial t}\)</span></li>
+</ul></li>
+<li>Ampère’s law
+<ul>
+<li>SI: <span class="math inline">\(\nabla\times\mathbf{H} = \frac{\partial\mathbf{D}}{\partial t} + \mathbf{J}\)</span></li>
+<li>CGS: <span class="math inline">\(\nabla\times\mathbf{H} = \frac{1}{c}\frac{\partial\mathbf{D}}{\partial t} + \frac{4\pi}{c}\mathbf{J}\)</span></li>
+</ul></li>
+<li>Poisson equation
+<ul>
+<li>SI: <span class="math inline">\(\nabla\cdot\mathbf{D} = \rho\)</span></li>
+<li>CGS: <span class="math inline">\(\nabla\cdot\mathbf{D} = 4\pi\rho\)</span></li>
+</ul></li>
+<li>Absence of magnetic monopoles
+<ul>
+<li>SI: <span class="math inline">\(\nabla\cdot\mathbf{B} = 0\)</span></li>
+<li>CGS: <span class="math inline">\(\nabla\cdot\mathbf{B} = 0\)</span></li>
+</ul></li>
+<li>Lorentz force on charge <span class="math inline">\(q\)</span>
+<ul>
+<li>SI: <span class="math inline">\(q(\mathbf{E} + \mathbf{v}\times\mathbf{B})\)</span></li>
+<li>CGS: <span class="math inline">\(q\left(\mathbf{E} + \frac{1}{c}\mathbf{v}\times\mathbf{B}\right)\)</span></li>
+</ul></li>
+<li>Constitutive relations
+<ul>
+<li>SI &amp; CGS: <span class="math inline">\(\mathbf{D} = \epsilon\mathbf{E}\)</span>, <span class="math inline">\(\mathbf{B} = \mu\mathbf{H}\)</span></li>
+</ul></li>
 </ul>
-<p>Typically, <span class="math inline">\(d_i\)</span> are orders of magnitude smaller than <span class="math inline">\(d_g\)</span>, and <span class="math inline">\(d_e\)</span> is even smaller. If we are interested in the interplay between the global plasma system and the kinetic processes, it is a natural question to ask how the behavior of the system depends on the ratio <span class="math inline">\(d_g∕d_i\)</span>. For example, in Ganymede’s magnetosphere <span class="math inline">\(d_g∕d_i \sim 10\)</span> and the kinetic effects have non-negligible contributions to the global system. On the other hand, if <span class="math inline">\(d_g∕d_i\)</span> is a very large number, then the kinetic effects will be mostly limited in a small region.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>For quasi-neutral plasmas, <span class="math inline">\(n_i = n_e \rightarrow \rho_i/\rho_e = m_i/m_e\)</span>, <span class="math inline">\(q_i = q_e\)</span>, <span class="math inline">\(p_i = p_e\)</span>. The ion scales are <span class="math inline">\(\sqrt{m_i/m_e}\)</span> times larger than the corresponding electron scales. For a proton-electron plasma, <span class="math inline">\(\sqrt{d_i/d_e} \approx 43\)</span>. A standard trick to reduce the computational requirement is to artificially reduce the mass ratio to a smaller value (<span class="math inline">\(1836 \ge d_i/d_e \ge 25\)</span>). In terms of reconnection, we have found only a relatively weak dependence of the process on the mass ratio. In practice almost all numerical studies, especially in 3-D, use a reduced ion-electron mass ratio.</p>
-<p><span class="citation" data-cites="toth2017scaling">Tóth et al. (<a href="#ref-toth2017scaling" role="doc-biblioref">2017</a>)</span> proposed another scaling methods to increase the ion and electron mass-to-charge ratios by a kinetic scaling factor <span class="math inline">\(f\)</span> while keeping the MHD quantities, the mass densities <span class="math inline">\(\rho_e\)</span> and <span class="math inline">\(\rho_i\)</span>, the pressures <span class="math inline">\(p_e\)</span> and <span class="math inline">\(p_i\)</span>, the bulk velocities <span class="math inline">\(u_e\)</span> and <span class="math inline">\(u_i\)</span>, the magnetic field B, and the various constants <span class="math inline">\(\epsilon_0, \mu_0\)</span>, and c unchanged. A nice property of this scaling method is that the characteristic speeds (bulk velocity, thermal velocity, Alfvén speed) are not modified; in other words, this <em>kinetic scaling</em> has no effect on ideal/resistive MHD. A direct implication of this scaling is the solution on the kinetic scales is similar for different values of f, but the spatial and temporal scales are proportional to f.</p>
-</section>
-<section id="computational-cost" class="level2" data-number="27.3">
-<h2 data-number="27.3" class="anchored" data-anchor-id="computational-cost"><span class="header-section-number">27.3</span> Computational Cost</h2>
-<p>The key feature that makes PIC more feasible than the brute-force nbody method is the reduction of computational cost. Given <span class="math inline">\(N\)</span> macro-particles in the system, a brute force method has a complexity of <span class="math inline">\(\mathcal{O}(N^2)\)</span>, and a PIC method has <span class="math inline">\(\mathcal{O}(N\log N)\)</span>. A rough idea how this is possible can be obtained by ignoring the pair interactions and consider collective effects especially for those particles at a large distance.</p>
-<p>A commonly used trick is to introduce a reduced ion-to-electron mass ratio. In a 3D simulation, the cost scales with <span class="math inline">\((m_i/m_e)^3\)</span>. However, note that in low mass ratio runs (e.g.&nbsp;<span class="math inline">\(m_i/m_e=25\)</span>), the thermal speed of the electrons may be comparable to the Alfvén speed which causes higher wave decay through Landau damping on the electrons.</p>
-</section>
-<section id="sec-delta_f" class="level2" data-number="27.4">
-<h2 data-number="27.4" class="anchored" data-anchor-id="sec-delta_f"><span class="header-section-number">27.4</span> δf Method</h2>
-<p>Consider the growth rate of a single unstable wave in a 1D-1V Vlasov-Poisson system of plasma. The energy conservation leads to</p>
-<p><span class="math display">\[
-\frac{\mathrm{d}}{dt}\Big(\frac{\epsilon_0}{2}E(x)^2\Big) + \int q v E(x)f(x,v)dv = 0
-\]</span></p>
-<p>For a single mode <span class="math inline">\(E(x,t) = A(t)\sin(kx-\omega t)\)</span>, the growth rate is</p>
-<p><span class="math display">\[
-\gamma = \frac{1}{A}\frac{\mathrm{d}A}{\mathrm{d}t} = -\int qvEfdv = -\sum_j q_j w_j E(x_j)
-\]</span></p>
-<p>where <span class="math inline">\(w_j\)</span> is the particle weight. All kinetic information lies in the marker particle position distribution.</p>
-<p>The idea of <span class="math inline">\(\delta-f\)</span> method is to decompose the total distribution function into two parts,</p>
-<p><span class="math display">\[
-f = f_0 + \delta f,\quad |\delta f|\ll f_0
-\]</span></p>
-<p>and let the particle weight be proportional to the perturbation part,</p>
-<p><span class="math display">\[
-w\propto \delta f,\quad w_j = \frac{\delta f(x_j, v_j)}{f(x_j, v_j)}
-\]</span></p>
-<p>If the contribution from <span class="math inline">\(f_0\)</span> is known, for example</p>
-<p><span class="math display">\[
-\int qvE f_0 dv = \int qvf_0(v) A \sin(kx-\omega t)dv = 0
-\]</span></p>
-<p>then the growth rate can be written as</p>
-<p><span class="math display">\[
-\gamma = -\int qvE\delta f dv = -\int qvE\frac{\delta f}{f}f dv = \sum_j q_j v_j w_j E(x_j)
-\]</span></p>
-<p>Since now the particle weight is proportional to <span class="math inline">\(\delta f/f\)</span>, the system noise would be significantly reduced by <span class="math inline">\((\delta f/f)^2\)</span>; in other words, for the same noise level the number of macro-particles required would be reduced by <span class="math inline">\((\delta f/f)^2\)</span>, which is typically <span class="math inline">\(\mathcal{O}(10^6)\)</span>. Of course this requires the prior assumption <span class="math inline">\(|\delta f| \ll f\)</span> to be valid.</p>
+<p>The electromagnetic energy in volume V is given by <span id="eq-em-energy"><span class="math display">\[
+\begin{aligned}
+W =&amp; \frac{1}{2}\int_V\mathrm{d}V(\mathbf{H}\cdot\mathbf{B} + \mathbf{E}\cdot\mathbf{D})\quad\text{SI} \\
+=&amp; \frac{1}{8\pi}\int_V\mathrm{d}V(\mathbf{H}\cdot\mathbf{B} + \mathbf{E}\cdot\mathbf{D})\quad\text{CGS}
+\end{aligned}
+\tag{4.1}\]</span></span></p>
+<p>Poynting’s theorem is <span id="eq-poynting-thm"><span class="math display">\[
+\frac{\partial W}{\partial t} + \int_S \mathbf{N}\cdot\mathrm{d}\mathbf{S} = -\int_V\mathrm{d}V \mathbf{J}\cdot\mathbf{E}
+\tag{4.2}\]</span></span> where S is the closed surface bounding V and the Poynting vector (energy flux across S) is given by <span id="eq-poynting-vector"><span class="math display">\[
+\begin{aligned}
+\mathbf{N} =&amp; \mathbf{E}\times\mathbf{H}\quad\text{(SI)} \\
+=&amp; c\mathbf{E}\times\mathbf{H}/4\pi\quad\text{(CGS)}
+\end{aligned}
+\tag{4.3}\]</span></span></p>
+<p>EM formulas can be converted to the corresponding formula from SI to CGS using the substitutions in the left column of <a href="#tbl-em-formula-conversion" class="quarto-xref">Table&nbsp;<span>4.2</span></a>. The first three are fundamental relations between the unit systems. The next three are obtained using the equations listed, and the last three are related variables.</p>
+<div id="tbl-em-formula-conversion" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-em-formula-conversion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.2: EM formula conversion
+</figcaption>
+<div aria-describedby="tbl-em-formula-conversion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 70%">
+<col style="width: 13%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Physical Quantity</th>
+<th>SI</th>
+<th>CGS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Magnetic field</td>
+<td><span class="math inline">\(\mathbf{B}\)</span></td>
+<td><span class="math inline">\(\mathbf{B}\)</span></td>
+</tr>
+<tr class="even">
+<td>Vacuum permeability</td>
+<td><span class="math inline">\(\mu_0\)</span></td>
+<td><span class="math inline">\(4\pi\)</span></td>
+</tr>
+<tr class="odd">
+<td>Vacuum permittivity</td>
+<td><span class="math inline">\(\epsilon_0\)</span></td>
+<td><span class="math inline">\(1/4\pi c^2\)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
+</tr>
+<tr class="even">
+<td>Electric field</td>
+<td><span class="math inline">\(\mathbf{E}\)</span></td>
+<td><span class="math inline">\(c\mathbf{E}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Current density</td>
+<td><span class="math inline">\(\mathbf{J}\)</span></td>
+<td><span class="math inline">\(\mathbf{J}/c\)</span></td>
+</tr>
+<tr class="even">
+<td>Charge density</td>
+<td><span class="math inline">\(\rho\)</span></td>
+<td><span class="math inline">\(\rho/c\)</span></td>
+</tr>
+<tr class="odd">
+<td>Charge</td>
+<td><span class="math inline">\(q\)</span></td>
+<td><span class="math inline">\(q/c\)</span></td>
+</tr>
+<tr class="even">
+<td>Current</td>
+<td><span class="math inline">\(I\)</span></td>
+<td><span class="math inline">\(I/c\)</span></td>
+</tr>
+<tr class="odd">
+<td>Resistivity</td>
+<td><span class="math inline">\(\eta\)</span></td>
+<td><span class="math inline">\(c^2\eta\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Some common expression conversions are listed in <a href="#tbl-em-formula-conversion-examples" class="quarto-xref">Table&nbsp;<span>4.3</span></a>.</p>
+<div id="tbl-em-formula-conversion-examples" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-em-formula-conversion-examples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.3: EM formula conversion examples
+</figcaption>
+<div aria-describedby="tbl-em-formula-conversion-examples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>SI</th>
+<th>CGS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(q\mathbf{v}\times\mathbf{B}\)</span></td>
+<td><span class="math inline">\(q\frac{\mathbf{v}}{c}\times\mathbf{B}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbf{J}\times\mathbf{B}\)</span></td>
+<td><span class="math inline">\(\frac{1}{c}\mathbf{J}\times\mathbf{B}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\frac{q_1 q_2}{4\pi\epsilon_0}\)</span></td>
+<td><span class="math inline">\(q_1 q_2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\frac{B}{\sqrt{\mu_0 \rho}}\)</span></td>
+<td><span class="math inline">\(\frac{B}{\sqrt{4\pi \rho}}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\frac{1}{2\mu_0}B^2\)</span></td>
+<td><span class="math inline">\(\frac{1}{8\pi}B^2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\frac{\epsilon_0}{2}E^2\)</span></td>
+<td><span class="math inline">\(\frac{1}{8\pi}E^2\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\omega_p^2 = \frac{q^2 n}{\epsilon_0 m}\)</span></td>
+<td><span class="math inline">\(\omega_p^2 = \frac{4\pi q^2 n}{m}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Omega_c=\frac{qB}{m}\)</span></td>
+<td><span class="math inline">\(\Omega_c = \frac{qB}{mc}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-toth2017scaling" class="csl-entry" role="listitem">
-Tóth, Gábor, Yuxi Chen, Tamas I Gombosi, Paul Cassak, Stefano Markidis, and Ivy Bo Peng. 2017. <span>“Scaling the Ion Inertial Length and Its Implications for Modeling Reconnection in Global Simulations.”</span> <em>Journal of Geophysical Research: Space Physics</em> 122 (10): 10–336. <a href="https://doi.org/10.1002/2017JA024189">https://doi.org/10.1002/2017JA024189</a>.
-</div>
-</div>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Reconnection can lead to wave generation, which is a process of energy and momentum conversion from the kinetic region to the global scale. Foreshock waves are also triggered by the kinetic processes and have a global impact. Therefore, this statement requires extra consideration.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>From the unit conversion we can see that modifying the speed of light in numerical simulations only modify <span class="math inline">\(\epsilon_0\)</span>, but not <span class="math inline">\(\mu_0\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1056,13 +1274,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../contents/boundary.html" class="pagination-link" aria-label="Boundary Conditions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></span>
+      <a href="../contents/math.html" class="pagination-link" aria-label="Math">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../contents/hybrid.html" class="pagination-link" aria-label="Hybrid Methods">
-        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../contents/single.html" class="pagination-link" aria-label="Single-Particle Motions">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1071,4 +1289,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/pic.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/unit.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
