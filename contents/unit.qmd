@@ -1,0 +1,117 @@
+# Unit Conversion {#sec-unit}
+
+The materials in this chapter are referenced from the [NRL Plasma Formulary](https://www.nrl.navy.mil/News-Media/Publications/nrl-plasma-formulary/) and notes by Dana Longcope.
+
+To derive a dimensionally correct SI formula from one expressed in Gaussian (CGS) units, substitute for each quantity according to $\bar{Q} = \bar{k}Q$, where $\bar{k}$ is the coefficient in the second column of @tbl-formula-conversion corresponding to $Q$ (overbars denote variables expressed in Gaussian units). To go from SI to natural units in which $\hbar = c = 1$, use $Q = \hat{k}^{-1}\hat{Q}$, where $\hat{k}$ is the coefficient corresponding to the third column.
+
+Here $\alpha = 10^2\text{cm}\,\text{m}^{-1}$, $\beta = 10^7\text{erg}\text{J}^{-1}$, $\epsilon_0 = 8.8542\times 10^{-12}\text{F}\text{m}^{-1}$, $\mu_0 = 4\pi\times 10^7\text{H}\text{m}^{-1}$, $c = (\epsilon_0\mu_0)^{-1/2} = 2.9979\times 10^8\text{m}\text{s}^{-1}$, and $\hbar = 1.0546\times 10^{-34}\text{J}\text{s}$. 
+
+| Physical Quantity   | CGS Units to SI | Natural Units to SI |
+|---------------------|-----------------|---------------------|
+| Capacitance         | $\alpha/4\pi\epsilon_0$ | $\epsilon_0^{-1}$    |
+| Charge              | $(\alpha\beta/4\pi\epsilon_0)^{1/2}$    | $(\epsilon_0 \hbar c)^{-1/2}$ |
+| Charge density      | $(\beta/4\pi\alpha^5\epsilon_0)^{1/2}$  | $(\epsilon_0 \hbar c)^{-1/2}$ |
+| Current             | $(\alpha\beta/4\pi\epsilon_0)^{1/2}$    | $(\mu_0/\hbar c)^{1/2}$ |
+| Current density     | $(\beta/4\pi\alpha^3\epsilon_0)^{1/2}$  | $(\mu_0/\hbar c)^{1/2}$ |
+| Electric field      | $(4\pi\beta\epsilon_0/\alpha^3)^{1/2}$  | $(\epsilon_0/\hbar c)^{1/2}$ |
+| Electric potential  | $(4\pi\beta\epsilon_0/\alpha)^{1/2}$    | $(\epsilon_0/\hbar c)^{1/2}$ |
+| Electric conductivity | $(4\pi\epsilon_0)^{-1}$               | $\epsilon_0^{-1}$ |
+| Energy              | $\beta$          | $(\hbar c)^{-1}$ |
+| Energy density      | $\beta/\alpha^3$ | $(\hbar c)^{-1}$ |
+| Force               | $\beta/\alpha$   | $(\hbar c)^{-1}$ |
+| Frequency           | 1                | $c^{-1}$         |
+| Inductance          | $4\pi\epsilon_0/\alpha$                 | $\mu_0^{-1}$      |
+| Length              | $\alpha$         | 1                |
+| Magnetic induction  | $(4\pi\beta/\alpha^3\mu_0)^{1/2}$   | $(\mu_0\hbar c)^{-1/2}$  |
+| Magnetic intensity  | $(4\pi\mu_0\beta/\alpha^3)^{1/2}$   | $(\mu_0\hbar c)^{-1/2}$  |
+| Mass                | $\beta/\alpha^2$ | $c/\hbar$ |
+| Momentum            | $\beta/\alpha$   | $\hbar^{-1}$ |
+| Power               | $\beta$          | $(\hbar c^2)^{-1}$ |
+| Pressure            | $\beta/\alpha^3$ | $(\hbar c)^{-1}$ |
+| Resistance          | $4\pi\epsilon_0/\alpha$             | $(\epsilon_0/\mu_0)^{1/2}$ |
+| Time                | 1                | c                |
+| Velocity            | $\alpha$         | $c^{-1}$         |
+
+: Formula conversion coefficients {#tbl-formula-conversion}
+
+* Bohr radius in CGS: $\bar{a}_0 = \bar{\hbar}^2 / \bar{m}\bar{e}^2$
+
+In SI: $\alpha a_0 = (\hbar \beta)^2/[(m\beta/\alpha^2)(e^2 \alpha\beta / 4\pi\epsilon_0)]$, or $a_0 = \epsilon_0 h^2 / \pi m e$.
+
+## Maxwell's Equations
+
+* Faraday's law
+  * SI: $\nabla\times\mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}$
+  * CGS: $\nabla\times\mathbf{E} = -\frac{1}{c}\frac{\partial\mathbf{B}}{\partial t}$
+
+* Ampère's law
+  * SI: $\nabla\times\mathbf{H} = \frac{\partial\mathbf{D}}{\partial t} + \mathbf{J}$
+  * CGS: $\nabla\times\mathbf{H} = \frac{1}{c}\frac{\partial\mathbf{D}}{\partial t} + \frac{4\pi}{c}\mathbf{J}$
+
+* Poisson equation
+  * SI: $\nabla\cdot\mathbf{D} = \rho$
+  * CGS: $\nabla\cdot\mathbf{D} = 4\pi\rho$
+
+* Absence of magnetic monopoles
+  * SI: $\nabla\cdot\mathbf{B} = 0$
+  * CGS: $\nabla\cdot\mathbf{B} = 0$
+
+* Lorentz force on charge $q$
+  * SI: $q(\mathbf{E} + \mathbf{v}\times\mathbf{B})$
+  * CGS: $q\left(\mathbf{E} + \frac{1}{c}\mathbf{v}\times\mathbf{B}\right)$
+
+* Constitutive relations
+  * SI & CGS: $\mathbf{D} = \epsilon\mathbf{E}$, $\mathbf{B} = \mu\mathbf{H}$
+
+The electromagnetic energy in volume V is given by
+$$
+\begin{aligned}
+W =& \frac{1}{2}\int_V\mathrm{d}V(\mathbf{H}\cdot\mathbf{B} + \mathbf{E}\cdot\mathbf{D})\quad\text{SI} \\
+=& \frac{1}{8\pi}\int_V\mathrm{d}V(\mathbf{H}\cdot\mathbf{B} + \mathbf{E}\cdot\mathbf{D})\quad\text{CGS}
+\end{aligned}
+$$ {#eq-em-energy}
+
+Poynting’s theorem is
+$$
+\frac{\partial W}{\partial t} + \int_S \mathbf{N}\cdot\mathrm{d}\mathbf{S} = -\int_V\mathrm{d}V \mathbf{J}\cdot\mathbf{E}
+$$ {#eq-poynting-thm}
+where S is the closed surface bounding V and the Poynting vector (energy flux across S) is given by
+$$
+\begin{aligned}
+\mathbf{N} =& \mathbf{E}\times\mathbf{H}\quad\text{SI} \\
+=& c\mathbf{E}\times\mathbf{H}/4\pi\quad\text{CGS}
+$$ {#eq-poynting-vector}
+
+EM formulas can be converted to the corresponding formula from SI to CGS using the substitutions in the left column of @tbl-em-formula-conversion. The first three are fundamental relations between the unit systems. The next three are obtained using
+the equations listed, and the last three are related variables.
+
+| Physical Quantity   | SI | CGS |
+|---------------------|----|-----|
+| Magnetic field      | $\mathbf{B}$ | $\mathbf{B}$  |
+| Vacuum permeability | $\mu_0$ | $4\pi$ |
+| Vacuum permittivity | $\epsilon_0$ | $1/4\pi c^2$[^change-speed-of-light] |
+| Electric field      | $\mathbf{E}$ | $c\mathbf{E}$ |
+| Current density     | $\mathbf{J}$ | $\mathbf{J}/c$ |
+| Charge density      | $\rho$       | $\rho/c$ |
+| Charge              | $q$          | $q/c$ |
+| Current             | $I$          | $I/c$ |
+| Resistivity         | $\eta$       | $c^2\eta$ |
+
+: EM formula conversion {#tbl-em-formula-conversion}
+
+[^change-speed-of-light]: From the unit conversion we can see that modifying the speed of light in numerical simulations only modify $\epsilon_0$, but not $\mu_0$.
+
+Some common expression conversions are listed in @tbl-em-formula-conversion-examples.
+
+| SI        | CGS         |
+|-----------|-------------|
+| $q\mathbf{v}\time\mathbf{B}$ | $q\frac{\mathbf{v}}{c}\times\mathbf{B}$ |
+| $\mathbf{J}\times\mathbf{B}$ | $\frac{1}{c}\mathbf{J}\times\mathbf{B}$ |
+| $\frac{q_1 q_2}{4\pi\epsilon_0}$ | $q_1 q_2$ |
+| $\frac{B}{\sqrt{\mu_0 \rho}}$ | $\frac{B}{\sqrt{4\pi \rho}}$ |
+| $\frac{1}{2\mu_0}B^2$ | $\frac{1}{8\pi}B^2$ |
+| $\frac{\epsilon_0}{2}E^2$    | $\frac{1}{8\pi}E^2$ |
+| $\omega_p^2 = \frac{q^2 n}{\epsilon_0 m}$ | $\omega_p^2 = \frac{4\pi q^2 n}{m}$ |
+| $\Omega_c=\frac{qB}{m}$          | $\Omega_c = \frac{qB}{mc}$ |
+
+: EM formula conversion examples {#tbl-em-formula-conversion-examples}
