@@ -1,10 +1,22 @@
 # Unit Conversion {#sec-unit}
 
-The materials in this chapter are referenced from the [NRL Plasma Formulary](https://www.nrl.navy.mil/News-Media/Publications/nrl-plasma-formulary/) and notes by Dana Longcope.
+## Formula Conversion {#sec-unit-formula}
+
+Part of the materials in this chapter are referenced from the [NRL Plasma Formulary](https://www.nrl.navy.mil/News-Media/Publications/nrl-plasma-formulary/) and notes by Dana Longcope.
 
 To derive a dimensionally correct SI formula from one expressed in Gaussian (CGS) units, substitute for each quantity according to $\bar{Q} = \bar{k}Q$, where $\bar{k}$ is the coefficient in the second column of @tbl-formula-conversion corresponding to $Q$ (overbars denote variables expressed in Gaussian units). To go from SI to natural units in which $\hbar = c = 1$, use $Q = \hat{k}^{-1}\hat{Q}$, where $\hat{k}$ is the coefficient corresponding to the third column.
 
-Here $\alpha = 10^2\text{cm}\,\text{m}^{-1}$, $\beta = 10^7\text{erg}\text{J}^{-1}$, $\epsilon_0 = 8.8542\times 10^{-12}\text{F}\text{m}^{-1}$, $\mu_0 = 4\pi\times 10^7\text{H}\text{m}^{-1}$, $c = (\epsilon_0\mu_0)^{-1/2} = 2.9979\times 10^8\text{m}\text{s}^{-1}$, and $\hbar = 1.0546\times 10^{-34}\text{J}\text{s}$. 
+Here
+$$
+\begin{aligned}
+\alpha &= 10^2\,\text{cm}\,\text{m}^{-1} \\
+\beta &= 10^7\,\text{erg}\,\text{J}^{-1} \\
+\epsilon_0 &= 8.8542\times 10^{-12}\,\text{F}\,\text{m}^{-1} \\
+\mu_0 &= 4\pi\times 10^7\,\text{H}\,\text{m}^{-1} \\
+c &= (\epsilon_0\mu_0)^{-1/2} = 2.9979\times 10^8\,\text{m}\,\text{s}^{-1} \\
+\hbar &= 1.0546\times 10^{-34}\,\text{J}\,\text{s}
+\end{aligned}
+$$
 
 | Physical Quantity   | CGS Units to SI | Natural Units to SI |
 |---------------------|-----------------|---------------------|
@@ -38,7 +50,7 @@ Here $\alpha = 10^2\text{cm}\,\text{m}^{-1}$, $\beta = 10^7\text{erg}\text{J}^{-
 
 In SI: $\alpha a_0 = (\hbar \beta)^2/[(m\beta/\alpha^2)(e^2 \alpha\beta / 4\pi\epsilon_0)]$, or $a_0 = \epsilon_0 h^2 / \pi m e$.
 
-## Maxwell's Equations
+### Maxwell's Equations
 
 * Faraday's law
   * SI: $\nabla\times\mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}$
@@ -116,3 +128,51 @@ Some common expression conversions are listed in @tbl-em-formula-conversion-exam
 | $\Omega_c=\frac{qB}{m}$      | $\Omega_c = \frac{qB}{mc}$ |
 
 : EM formula conversion examples {#tbl-em-formula-conversion-examples}
+
+## Unit System Conversion {#sec-unit-value}
+
+A rule of thumb is to check the number of constants in the system: making one constant equal to 1 requires to shrink the number of basic variables by 1. In ideal MHD @eq-ideal-mhd, there are 4 basic quantities (length, mass, time, and current density) and 1 physical constant $\mu_0$. If we include temperature, then there will be 5 basic quantities and 2 physical constants $\mu_0$, $R$. This indicates that we need 3 reference quantities in order to make the 2 physical constants equal to 1 in the normalized units. For example, in the Earth's magnetosphere, we select a reference length, e.g. $l_0=1\,\mathrm{R}_\mathrm{E}$, a reference mass density, e.g. $\rho_0 = 1.67\times10^{-17}\,\mathrm{kg}\cdot\mathrm{m}^{-3}$, and a reference magnetic field, e.g. $B_0 = 3.12\times 10^{-5}\,\mathrm{T}$ (Earth's magnetic field strength at the equator). All the rest conversion factors can be derived from these together with the physical constants $\mu_0, R, m_i$ expressed SI units. ($R$ is needed for temperature and $m_i$ is needed for number density.) Inserting the initially chosen values, we get a full set of conversion factors from variables in normalized units $n^\prime, B^\prime, u^\prime, p^\prime, T^\prime, \mathcal{E}^\prime$ to SI units $n, B, u, p, T, \mathcal{E}$:
+$$
+U_\mathrm{SI} = U^\prime * U_0
+$$
+where each conversion factor is summarized in @tbl-mhd-unit-conversion. Note that in the definition of number density, the denominator is $m_i$ instead of $m_0$ and $R=2k_B/m_i$ only appears in temperature. This is because mass does not appear in ideal MHD: for a given $\rho$, the same results are obtained for a heavy species with small number density and a light species with large number density, e.g. $\rho=2m_i n_i = m_i 2n_i$. In principle we can choose the reference mass arbitrarily, but here in order to make the values in SI units "look good" we choose $m_i$. If you need to compare with a hybrid model, an easy way to make self-consistent conversion is to make mass $m_0=m_i$ as a substitute for any of the basic variables. In this case, the dimensionless $\rho=n$. Also note that in @tbl-mhd-unit-conversion the MHD pressure and temperature are the sum of electron's and ion's pressure and temperature, which is the reason a factor of "2" pops out in the definition of temperature. If we are comparing to a hybrid model which assumes massless electrons, a proper modification would be $p_0=\rho_0v_0^2/2$ and $T_0=p_0*m_i/(k_B\,\rho_0)=m_i v_0^2 / k_B$.
+
+::: {#tbl-mhd-unit-conversion layout-nrow=2}
+| Basic variable | Notation | Definition | Value |
+|----------------|----------|------------|-------|
+| Length         | $l_0$    | $l_0=\mathrm{R}_\mathrm{E}$ | $6.371\times10^6\,\mathrm{m}$ |
+| Magnetic field | $B_0$    | $B_0=B_\mathrm{E}$ | $3.12\times10^{-5}\,\mathrm{T}$ |
+| Mass density   | $\rho_0$ | $\rho_0=\rho_\mathrm{E}$ | $1.67\times10^{-17}\,\mathrm{kg}\cdot\mathrm{m}^{-3}$ |
+
+: Example basic quantities in MHD
+
+| Derived variable | Notation      | Definition | Value |
+|------------------|---------------|------------|-------|
+| Mass             |$m_0$          | $m_0=\rho_0 l_0^3$| $4.32\times10^3\,\mathrm{kg}$ |
+| Velocity         |$v_0$          | $v_0=B_0/\sqrt{\mu_0\rho_0}$| $6.81\times10^6\,\mathrm{m}\cdot\mathrm{s}^{-1}$|
+| Time             |$t_0$          | $t_0=l_0/v_0$ | $0.94\,\mathrm{s}$ |
+| Number density   |$n_0$          | $n_0=\rho_0/m_i$ | $10^{10}\,\mathrm{m}^{-3}$ |
+| Pressure         |$p_0$          | $p_0=\rho_0v_0^2$ | $7.75\times10^{-4}\,\mathrm{N}\cdot\mathrm{m}^{-2}$ |
+| Temperature      |$T_0$          | $T_0=m_i v_0^2 / (2k_B)$ | $2.81\times10^9\,\mathrm{K}$ |
+| Energy density   |$\mathcal{E}_0$| $\mathcal{E}_0=p_0$ | $7.75\times10^{-4}\,\mathrm{J}\cdot\mathrm{m}^{-3}$ |
+
+: Example derived quantities in MHD
+
+MHD unit conversion.
+:::
+
+### Example: $\rho,\rho\mathbf{u},\mathcal{E},\mathbf{B}$ to $n,u,T$
+
+When dealing with velocity distribution functions, one easy way is to write $f(\mathbf{v})=f(\mathbf{v}; n,\mathbf{u},T)$. For instance, a 3D Maxwellian is given as
+$$
+f(\mathbf{v}) = n\left( \frac{m}{2\pi k_B T} \right)^{3/2} \exp\left(-\frac{m(\mathbf{v}-\mathbf{u})^2}{2k_B T}\right)
+$$
+From dimensionless conserved variables $(\rho,\rho\mathbf{u},\mathcal{E},\mathbf{B})$ to SI units $(n,\mathbf{u},T,\mathbf{B})$, we have
+$$
+\begin{aligned}
+n_\mathrm{SI} &= n_0\,n = \rho_\mathrm{SI} / m_i = \frac{\rho_0}{m_i}\rho \\
+u_\mathrm{SI} &= u_0\left( \frac{\rho u}{\rho} \right) \\
+T_\mathrm{SI} &= T_0\frac{(\gamma-1)}{\rho}\left[ \mathcal{E} - \frac{1}{2}\rho u^2 - \frac{1}{2}B^2 \right] \\
+B_\mathrm{SI} &= B_0\,B \\
+\end{aligned}
+$$
