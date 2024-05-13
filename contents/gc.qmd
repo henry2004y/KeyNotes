@@ -359,3 +359,130 @@ $$ {#eq-gc-eom-1st-sol-nonrelativistic}
 Following the review by @cary2009hamiltonian.
 
 Canonical and noncanonical Hamiltonian formulations of guiding-center motion offer improvements over non-Hamiltonian formulations: Hamiltonian formulations possess Noether’s theorem (hence invariants follow from symmetries), and they preserve the Poincaré invariants (so that spurious attractors are prevented from appearing in simulations of guiding-center dynamics). Hamiltonian guiding-center theory is guaranteed to have an energy conservation law for time-independent fields—something that is not true of non-Hamiltonian guiding-center theories. The use of the phase-space Lagrangian approach facilitates this development, as there is no need to transform a priori to canonical coordinates, such as flux coordinates, which have less physical meaning.
+
+### Noncanonical Hamiltonian guiding center theory
+
+The guiding-center phase space consists of
+
+* the guiding-center position $\mathbf{X}$, essentially the center of the helix;
+* the guiding-center parallel velocity variable $u\equiv \hat{b}\cdot\dot{\mathbf{X}}$;
+* the (lowest-order) magnetic moment,
+$$
+\mu \equiv \frac{m |\mathbf{w}|^2}{2B(\mathbf{X}, t)}
+$$ {#eq-magnetic-moment-lowest-order-gc}
+where $\mathbf{w} = \mathbf{v}_\perp - \mathbf{v}_E$ is the perpendicular velocity in the local frame moving with the $\mathbf{E}\times\mathbf{B}$ drift velocity $\mathbf{v}_E=\equiv c\mathbf{E}\times\hat{b}/B$.
+
+* and the ignorable gyrophase $\zeta$, which gives the location of the particle on the circle about the guiding center.
+
+As there are still six variables parametrizing phase space, there is no loss of information in making the guiding-center transformation $(\mathbf{x},\mathbf{v}) \to (\mathbf{X},u,\mu,\zeta)$. For the sake of simplicity of notation, we occasionally
+use the gyroaction variable $J \equiv mc/e\mu$ instead of the magnetic moment $\mu$ whenever we need to refer to the action-angle coordinates $J,\zeta$ associated with gyromotion.
+
+The equations of motion for these variables are given by the guiding-center phase-space Lagrangian,
+$$
+\mathcal{L}_\text{gc}(\mathbf{X},u,\mu,\zeta;t) = \left[ \frac{e}{c}\mathbf{A}(\mathbf{X},t) + mu\hat{b}(\mathbf{X},t) \right]\cdot\dot{\mathbf{X}} + J\dot{\zeta} - H_\text{gc}
+$$ {#eq-gc-lagrangian-gc}
+in which the guiding-center Hamiltonian is given by
+$$
+H_\text{gc}(\mathbf{X},u,\mu;t) = \frac{m}{2}u^2 + \mu B(\mathbf{X},t) + e\phi(\mathbf{X},t) - \frac{m}{2}\left| \mathbf{v}_E \right|^2
+$$ {#eq-gc-hamiltonian}
+
+The arguments are shown here to emphasize that, for example, the magnetic-field strength $B(\mathbf{X},t)$ is evaluated at the guiding-center position $\mathbf{X}$, not at the particle position $\mathbf{x}$. Here and throughout, the effects of a gravitational field may by found by adding the gravitational $m\Phi_G$ to the electrostatic potential energy $e\Phi$. In addition, we now drop the adjective phase space, as the guiding-center Lagrangian is always henceforth a phase-space Lagrangian.
+
+The guiding-center Lagrangian @eq-gc-lagrangian comes not simply from gyrophase averaging, but from a transformation
+from the physical (particle) variables $(\mathbf{x},\mathbf{v})$ to the guiding-center variables $(\mathbf{X},u,\mu,\zeta)$.
+The relation between the physical location $\mathbf{x}$ and the guiding-center position $\mathbf{X}$ is
+$$
+\mathbf{x} \equiv \mathbf{X} + \pmb{\rho}
+$$ {#eq-gc-relation}
+where $\pmb{\rho}$ denotes the gyroradius displacement vector in the frame drifting with $\mathbf{v}_E$. Here we simply note that the displacement vector $\pmb{\rho}\equiv \tilde{\pmb{\rho}} + \bar{\pmb{\rho}}$ has a part (denoted by tilde) that is explicitly gyrophase dependent and a part (denoted by bar) that is gyrophase independent. In what follows, we show that the latter part
+$$
+\bar{\pmb{\rho}} = \frac{\hat{b}}{\Omega}\times\mathbf{v}_E = \frac{c\mathbf{E}_\perp}{\Omega B}
+$$ {#eq-gc-gyroradius-bar}
+denotes the guiding-center polarization displacement (Kaufman,  Phys. Fluids, 1986). ...
+
+Our guiding-center Lagrangian @eq-gc-lagrangian is obtained from an ordering in which the scalar potential $\Phi$ is one order
+lower than the particle kinetic energy, unlike previous derivations of the Hamiltonian theory of guiding-center motion. In this ordering, the electric drift $\mathbf{v}_E$ is of the same order as the perpendicular velocity $\mathbf{w}$, as in some non-Hamiltonian calculations (@northrop1963adiabatic). As we will see, this ordering allows us to obtain the polarization drift in the same order as the curvature and $\nabla B$ drifts, although it appears differently in the theory. However, for consistency the parallel electric field $E_\parallel = \mathbf{E}\cdot\hat{b}$ must be smaller by one order than the perpendicular field $\mathbf{E}_\perp$ (@eq-nearly-cross-em).
+
+The variables $(J,\zeta)$ appear in canonical form in the symplectic part of the guiding-center Lagrangian @eq-gc-lagrangian as $J\dot{\zeta}$ while the guiding-center Hamiltonian $H_\text{gc}$ depends on $J$ (or $\mu$) alone. The Hamilton equations for $(J,\zeta)$ are
+$$
+\begin{aligned}
+\dot{J} &= -\frac{\partial H_\text{gc}}{\partial \zeta} \equiv 0 \\
+\dot{\zeta} &= \frac{\partial H_\text{gc}}{\partial J} \equiv \Omega
+\end{aligned}
+$$ {#eq-gc-hamilton-J-zeta}
+
+@eq-gc-hamilton-J-zeta shows that the gyroaction (or magnetic moment) is conserved by the guiding-center equations of motion. This also follows from Noether’s theorem since the gyrophase $\zeta$ is an ignorable coordinate, i.e., only its time derivative appears in the guiding-center Lagrangian @eq-gc-lagrangian.
+
+If one is concerned with only the motion of the guiding center and not the evolution of the gyrophase, the term linear in $\dot{\zeta}$ can be dropped from the guiding-center Lagrangian, as it does not affect the equations of motion of the other variables, $\mathbf{X}$ and $u$. In the evolution equations for $\mathbf{X}$ and $u$, the adiabatic invariant $\mu$ (or $J$) does appear but only as a guiding-center dynamical parameter.
+
+Variation of the guiding-center Lagrangian @eq-gc-lagrangian with respect to the variable $u$ gives the Euler-Lagrange equation
+$$
+0 = \frac{\partial\mathcal{L}}{\partial u} = m\hat{b}\cdot\dot{\mathbf{X}} - \frac{\partial H_\text{gc}}{\partial u}
+$$
+which yields
+$$
+u \equiv \hat{b}\cdot\dot{\mathbf{X}}
+$$ {#eq-gc-euler-lagrange1}
+
+Thus, the guiding-center Lagrangian @eq-gc-lagrangian dictates that $u$ is the velocity of the guiding center in the direction of
+the magnetic field at the guiding center.
+
+Last, we vary the Lagrangian @eq-gc-lagrangian with respect to the guiding-center position $\mathbf{X}$, and obtain the Euler-Lagrange equation
+$$
+\begin{aligned}
+m\dot{u}\hat{b} =& e\mathbf{E} - \mu\nabla B + \frac{m}{2}\nabla |\mathbf{v}_E|^2 - mu\frac{\partial\hat{b}}{\partial t} \\
+& + \dot{\mathbf{X}}\times\left( \frac{e}{c}\mathbf{B}+mu\nabla\times\hat{b} \right) \\
+\equiv& e\left( \mathbf{E}^\ast + \frac{1}{c}\dot{\mathbf{X}}\times\mathbf{B}^\ast \right)
+\end{aligned}
+$$ {#eq-gc-euler-lagrange2}
+where the _effective_ EM fields
+$$
+\mathbf{E}^\ast \equiv -\nabla\Phi^\ast - \frac{1}{c}\frac{\partial\mathbf{A}^\ast}{\partial t}\quad\text{and}\quad \mathbf{B}^\ast \equiv\nabla\times\mathbf{A}^\ast
+$$ {#eq-gc-effective-em}
+are defined in terms of the effective EM potentials
+$$
+\begin{aligned}
+e\Phi^\ast &\equiv e\Phi + \mu B -\frac{m}{2}|\mathbf{v}_E|^2 \\
+\mathbf{A}^\ast &\equiv \mathbf{A} + \frac{mc}{e}u\hat{b}
+\end{aligned}
+$$ {#eq-gc-effective-em-potentials}
+
+The guiding-center canonical momentum is now simply expressed as $e\mathbf{A}^\ast /c$ and the guiding-center Hamiltonian is $e\Phi^\ast + mu2^ /2$.
+
+We obtain the rate of change of the variable $u$ by taking the scalar product of @eq-gc-euler-lagrange2 with the effective magnetic field $\mathbf{B}^\ast$
+$$
+\dot{u} = -\frac{\mathbf{B}^\ast}{m B_\parallel^\ast}\cdot\left( \nabla H_\text{gc} + \frac{e}{c}\frac{\partial\mathbf{A}^\ast}{\partial t} \right) \equiv \frac{e}{m}\frac{\mathbf{B}^\ast}{B_\parallel^\ast}\cdot\mathbf{E}^\ast
+$$ {#eq-gc-u-time-derivative}
+with $B_\parallel^\ast = \hat{b}\cdot\mathbf{B}^\ast$ the effective magnetic field in the parallel direction.
+
+The time derivative @eq-gc-u-time-derivative contains terms that are higher order (in gyroradius) compared with the dominant
+terms, which are all that is usually kept. These higher-order terms, however, are needed for energy conservation.
+
+The guiding-center velocity $\dot{\mathbf{X}}$ comes from the vector product of @eq-gc-euler-lagrange2 with $\hat{b}$ which, using @eq-gc-euler-lagrange1, yields
+$$
+\begin{aligned}
+\dot{\mathbf{X}} &= \frac{\mathbf{B}^\ast}{m B_\parallel^\ast}\frac{\partial H_\text{gc}}{\partial u} + \frac{c\hat{b}}{eB_\parallel^\ast}\times\left( \nabla H_\text{gc} + \frac{e}{c}\frac{\partial\mathbf{A}^\ast}{\partial t} \right) \\
+&= u\frac{\mathbf{B}^\ast}{B_\parallel^\ast} + \mathbf{E}^\ast\times\frac{c\hat{b}}{B_\parallel^\ast}
+\end{aligned}
+$$ {#eq-gc-X-time-derivative}
+
+If the effective fields @eq-gc-effective-em were replaced by the standard fields $(\mathbf{E},\mathbf{B})$, @eq-gc-u-time-derivative and @eq-gc-X-time-derivative would be the equations of motion for a particle in straight, constant EM fields.
+
+The guiding-center equations of motion @eq-gc-u-time-derivative and @eq-gc-X-time-derivative can be used to derive the guiding-center energy equation
+$$
+\frac{\mathrm{d}H_\text{gc}}{\mathrm{d}t} = \frac{\partial H_\text{gc}}{\partial t} + \dot{\mathbf{X}}\cdot\nabla H_\text{gc} + \dot{u}\frac{\partial H_\text{gc}}{\partial u} = e\frac{\partial\Phi^ast}{\partial t} -\frac{e}{c}\frac{\partial\mathbf{A}^\ast}{\partial t}\cdot\dot{\mathbf{X}}
+$$ {#eq-gc-energy-time-derivative}
+which implies that the guiding-center energy $E_\text{gc}\equiv mu^2/2+e\Phi^\ast$ is a constant of the motion for time-independent fields.
+
+An important remark must be made here concerning the polarization drift, which is absent from the guiding-center velocity @eq-gc-X-time-derivative. This drift, however, is critical for obtaining the dielectric response of a low-frequency plasma. Instead, it appears in the transformation @eq-gc-relation itself, i.e., the derivative of this relation gives
+$$
+\dot{\mathbf{x}} = \dot{\mathbf{X}} + \dot{\tilde{\pmb{\rho}}} + \mathbf{v}_\text{pol}
+$$ {#eq-gc-relation-time-derivative}
+with
+$$
+\mathbf{v}_\text{pol} \equiv \frac{\mathrm{d}\bar{\pmb{\rho}}}{\mathrm{d}t}
+$$ {#eq-gc-polarization-v}
+representing the polarization drift, and where $\dot{\tilde{\pmb{\rho}}}=\dot{\zeta}\partial \tilde{\pmb{\rho}}/\partial \zeta + ...$ consists of terms that oscillate on the gyroperiod time scale. The polarization drift is a pure derivative and, hence, can
+always be integrated. This implies, in particular, that _the polarization drift cannot lead to diffusion even in a turbulent field_. This is important, as the difference between the guiding center and the average location (found by dropping the second, oscillating term in @eq-gc-relation) is the polarization, the integral of the polarization drift. This difference must remain small or else the theory, which assumes that the particle remains close to $\mathbf{X}$, would break down.
+
+An alternate set of guiding-center equations of motion may be derived in which the polarization drift appears explicitly in the guiding-center velocity $\dot{\mathbf{X}}$ by choosing $\bar{\pmb{\rho}}\equiv 0$ instead of @eq-gc-gyroradius-bar.
