@@ -123,22 +123,20 @@ The categories of the solution of @eq-RH_planar_sol are shown in @tbl-shocks-dis
 | Contact      | No  | $\pm$  | continuous | continuous  | continuous | $\pm$ |
 | Slow         | Yes | + | - | + | $B_t$ - | + |
 | Intermediate | Yes | continuous | $\pm$ | $\pm$ | $\pm$ | $\pm$ |
-| Rotational   | No  | continuous  | $U_n=B_n / \sqrt{\mu_0 \rho}$, $V_t - B_t/\sqrt{\mu_0 \rho}=0$ | continuous | $B_n = 0$ | $\pm$ |
+| Rotational   | No  | continuous  | $U_n=B_n / \sqrt{\mu_0 \rho}$, $U_t - B_t/\sqrt{\mu_0 \rho}=0$ | continuous | $B_n = 0$ | $\pm$ |
 | Fast         | Yes | + | - | + | $B_t$ + | + |
 
 : Classes of MHD shocks and discontinuities {#tbl-shocks-discontinuities}
 
-1. The contact discontinuity (CD) is a special case of tangential discontinuity (TD) in which we assume $\lfloor V_t\rceil = 0$, i.e., the tangential velocity (and so the velocity) is continuous, but not the density and other thermodynamic variables. Since the tangential discontinuities do not have a propagating aspect with respect to the flow, they move with the fluid.
+1. The contact discontinuity (CD) is a special case of tangential discontinuity (TD) in which we assume $\lfloor U_t\rceil = 0$, i.e., the tangential velocity (and so the velocity) is continuous, but not the density and other thermodynamic variables.
 Since in a CD the thermal pressure remains constant, any change in density must be compensated by a change in temperature. However, a temperature jump is quickly disspated by electron heat conduction, which hints that CD do not persist long. 
 TDs are often observed in the solar wind.
 
 2. The Earth's magnetopause (@sec-magnetopause) is generally a tangential discontinuity. When there is no flux rope been generated, the magnetopause can be treated as the surface of pressure balance between magnetic pressure, ram pressure and thermal pressure. However, when reconnection triggers flux rope generation, it may become a rotational discontinuity (RD) (TO BE CONFIRMED!).
 
-3. Intermediate (Alfvénic) shocks are incompressive and isentropic. The rotational discontinuity is a special case of the intermediate shock. The tangential velocity relation $\lfloor \mathbf{V}_t - \frac{\mathbf{B}_t}{\sqrt{\mu_0 \rho}}\rceil=0$ can be derived from @eq-RH_planar_sol2 assuming the _Walen relation_ holds, $U_n = B_n / \sqrt{\mu_0 \rho}$, i.e. this is an Alfvénic shock. All thermodynamic quantities are continuous across the shock, but the tangential component of the magnetic field can "rotate". RD is frequently observed in fast solar wind. Intermediate shocks in general however, unlike rotational discontinuities, can have a discontinuity in the pressure.
+3. Intermediate (Alfvénic) shocks are incompressive and isentropic. The rotational discontinuity is a special case of the intermediate shock. The tangential velocity relation $\lfloor \mathbf{U}_t - \frac{\mathbf{B}_t}{\sqrt{\mu_0 \rho}}\rceil=0$ can be derived from @eq-RH_planar_sol2 assuming the _Walen relation_ holds, $U_n = B_n / \sqrt{\mu_0 \rho}$, i.e. this is an Alfvénic shock. All thermodynamic quantities are continuous across the shock, but the tangential component of the magnetic field can rotate. RD is frequently observed in fast solar wind. Intermediate shocks in general however, unlike rotational discontinuities, can have a discontinuity in the pressure.
 
-4. Slow-mode and fast-mode shocks are compressive and are associated with an increase in entropy. This is the key in identifying the downstream from the upstream in the case of slow/fast shocks.
-
-5. The Earth's bow shock is a fast, supercritical shock.
+4. Fast- and slow-mode shocks are compressive and are associated with an increase in entropy. Fast/slow shocks have increasing/decreasing magnetic pressure from the upstream to the downstream of the shock. For example, the Earth's bow shock is a fast, supercritical shock (See criticality in @sec-criticality).
 
 The solutions can also be summarized in [the context of Riemann problem](https://pmocz.github.io/shocks/theory.html) or visually in @fig-summary-mhd-shocks-discontinuities.
 
@@ -146,25 +144,23 @@ The solutions can also be summarized in [the context of Riemann problem](https:/
 
 ### Evolutionarity
 
-The hyperbolic nature of the conservation laws allows wave propagation only if it is in accord with causality (???). Causality is a general requirement in nature, meaning in this case that the drop in speed across a shock must be large enough for the normal component of the downstream flow to fall below the corresponding downstream mode velocity. For a fast shock this implies the
+The hyperbolic nature of the conservation laws allows wave propagation only if it is in accord with _causality_. Causality is a general requirement in nature, meaning in this case that the drop in speed across a shock must be large enough for the normal component of the downstream flow to fall below the corresponding downstream mode velocity. For a fast shock this implies the
 following ordering of the normal flow and magnetosonic velocities to both sides of the shock:
 $$
 \begin{aligned}
-V_{1n} > c_{1ms}^+ \\
-V_{2n} < c_{2ms}^+
+U_\text{1n} > c_\text{1ms}^+ \\
+U_\text{2n} < c_\text{2ms}^+
 \end{aligned}
 $$
 where the numbers 1, 2 refer to upstream and downstream of the fast shock wave.
 
-The first condition is necessary for the shock to be formed at all; it is the second condition which (partially) accounts for the evolutionarity. Otherwise the small fast-mode disturbances excited downstream and moving upward towards the shock would move faster than the flow, they would overcome the shock and steepen it without limit[^q1]. Since this cannot happen for a shock to form, the downstream normal speed must be less than the downstream fast magnetosonic speed. Furthermore, for fast shocks the flow velocity must be greater than the intermediate speed on both sides of the shock, while for slow shocks it must be less than the intermediate speed on both sides. These conditions hold because of the same reason as otherwise the corresponding waves would catch up with the shock front, modify and destroy it and no shock could form.
-
-[^q1]: I don't quite understand this. From @fig-critical-mach-number-mhd-perp-shock, it is clear that above the critical Mach number, $V_{2n} < c_{2ms}^+$ is true.
+The first condition is necessary for the shock to be formed as a priori; it is the second condition which (partially) accounts for the _evolutionarity_. Otherwise the small fast-mode disturbances excited downstream and moving upward towards the shock would move faster than the flow, they would overcome the shock and steepen it without limit. Since this cannot happen for a shock to form, the downstream normal speed must be less than the downstream fast magnetosonic speed. Furthermore, for fast shocks the flow velocity must be greater than the intermediate (Alfvén) speed on both sides of the shock, while for slow shocks it must be less than the intermediate speed on both sides. These conditions hold because of the same reason as otherwise the corresponding waves would catch up with the shock front, modify and destroy it and no shock could form.
 
 ### Coplanarity
 
-Knowing that for the shock $v_n\neq 0$ and $\lfloor v_n \rceil \neq 0$, we can eliminate $\lfloor v_t \rceil$ from the [RH relations](https://en.wikipedia.org/wiki/Shocks_and_discontinuities_(magnetohydrodynamics)) and obtain
+Knowing that for the shock $U_n\neq 0$ and $\lfloor U_n \rceil \neq 0$, we can eliminate $\lfloor U_t \rceil$ from the [RH relations](https://en.wikipedia.org/wiki/Shocks_and_discontinuities_(magnetohydrodynamics)) and obtain
 $$
-\lfloor v_n \mathbf{B}_t \rceil = \frac{B_n^2}{\mu_0 (\mathrm{something}) }\lfloor \mathbf{B}_t \rceil
+\lfloor U_n \mathbf{B}_t \rceil = \frac{B_n^2}{\mu_0 ... }\lfloor \mathbf{B}_t \rceil
 $$
 
 Hence the cross product of the left with the right hand side must vanish:
@@ -177,11 +173,11 @@ $$
 \end{aligned}
 $$ {#eq-shock_coplanarity}
 
-The resulting coplanarity theorem implies that the magnetic field across the shock has a 2-D geometry: upstream and dowstream tangential fields are parallel to each other and coplanar with the shock normal $\hat{n}$.
+The resulting coplanarity theorem implies that the magnetic field across the shock has a reduced 2-D geometry: upstream and dowstream tangential fields are parallel to each other and coplanar with the shock normal $\hat{n}$.
 
 Coplanarity does not strictly hold, however. For instance, when the shock is non-stationary, i.e. when its width changes with time or in the direction tangential to the shock, $\partial\mathbf{B}/\partial t$ in Faraday's law does not vanish, and coplanarity becomes violated.
 
-Also, any upstream low frequency electromagnetic plasma wave that propagates along the upstream magnetic field, possesses a magnetic wave field that is perpendicular to the upstream field. When it encounters the shock, this tangential component will be transformed and amplified across the shock. This naturally introduces an out-of-plane magnetic field component, thereby violating the co-planarity condition. There are also other effects which at a real non-MHD shock violate coplanarity.
+Also, any upstream low frequency EM wave that propagates along the upstream magnetic field, possesses a magnetic wave field that is perpendicular to the upstream field. When it encounters the shock, this tangential component will be transformed and amplified across the shock. This naturally introduces an out-of-plane magnetic field component, thereby violating the co-planarity condition. There are also other effects which violate coplanarity at a non-MHD shock.
 
 ### Criticality {#sec-criticality}
 
