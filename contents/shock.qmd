@@ -698,7 +698,7 @@ The formal treatment for warm ions are shown in P153 of @balogh2013physics. The 
 
 Shock reflected ions in a quasi-perpendicular shock cannot escape far upstream (see @fig-perp-shock-particle-acceleration). Their penetration into the upstream plasma is severely restricted by @eq-dHT-shock-upstream-distance-max. Within this distance the ions perform a gyration orbit before returning to the shock.
 
-![Top: Reflected ion orbits in the foot of a quasi-perpendicular shock in real space. The ion impacts under an instantaneous angle $\theta_{Vn}$, is reflected from the infinitely thin shock, performs a further partial gyration in the upstream field $\mathbf{B}_1$ where it is exposed to the upstream convection electric field $\mathbf{E} = -\mathbf{U}_1 \times \mathbf{B}_1$ in which it is accelerated as is seen from the non-circular section of its orbit in the shock foot. It hits the shock ramp a second time now at energy high enough to overcome the shock potential, passing the ramp and arriving in the compressed downstream magnetic field behind the shock where it performs gyrations of reduced gyro-radius. Bottom: The ion distribution function mapped into velocity space $v_x$, $v_y$ for the indicated regions in real space, upstream in the foot, at the ramp, and downstream of the shock ramp. Upstream the distribution consists of the incoming dense plasma flow (population 1, dark circle at $v_y = 0$) and the reflected distribution 2 at large negative $v_y$. At the ramp in addition to the incoming flow 1 and the accelerated distribution $2^\prime$ there is the newly reflected distribution 3. Behind the ramp in the downstream region the inflow is decelerated $1^\prime$ and slightly deflected toward non-zero $v_y$, and the energised passing ions exhibit gyration motions in different instantaneous phases, two of them ($2^{\prime\prime}$, 4) directed downstream, one of them ($2^{\prime\prime\prime}$) directed upstream. [redrawn after Sckopke et al, 1983].](../images/perpendicular_shock_particle_acceleration.png){#fig-perp-shock-particle-acceleration}
+![Top: Reflected ion orbits in the foot of a quasi-perpendicular shock in real space. The ion impacts under an instantaneous angle $\theta_{Vn}$, is reflected from the infinitely thin shock, performs a further partial gyration in the upstream field $\mathbf{B}_1$ where it is exposed to the upstream convection electric field $\mathbf{E} = -\mathbf{U}_1 \times \mathbf{B}_1$ in which it is accelerated as is seen from the non-circular section of its orbit in the shock foot. It hits the shock ramp a second time now at energy high enough to overcome the shock potential, passing the ramp and arriving in the compressed downstream magnetic field behind the shock where it performs gyrations of reduced gyro-radius. Bottom: The ion distribution function mapped into velocity space $v_x$, $v_y$ for the indicated regions in real space, upstream in the foot, at the ramp, and downstream of the shock ramp. Upstream the distribution consists of the incoming dense plasma flow (population 1, dark circle at $v_y = 0$) and the reflected distribution 2 at large negative $v_y$. At the ramp in addition to the incoming flow 1 and the accelerated distribution $2^\prime$ there is the newly reflected distribution 3. Behind the ramp in the downstream region the inflow is decelerated $1^\prime$ and slightly deflected toward non-zero $v_y$, and the energised passing ions exhibit gyration motions in different instantaneous phases, two of them ($2^{\prime\prime}$, 4) directed downstream, one of them ($2^{\prime\prime\prime}$) directed upstream. [redrawn after @sckopke1983evolution].](../images/perpendicular_shock_particle_acceleration.png){#fig-perp-shock-particle-acceleration}
 
 Since the reflected ions are about at rest with respect to the inflowing plasma they are sensitive to the inductive convection electric field $\mathbf{E} = -\mathbf{U}_1 \times \mathbf{B}_1$ behaving very similar to pick-up ions and becoming accelerated in the direction of this field to achieve a higher energy [@schwartz1983ions]. When returning to the shock their maximum (minimum) achievable energy is
 $$
@@ -722,7 +722,31 @@ Finally, the mutual interaction of the different particle populations present in
 
 ### Shock Potential Drop
 
-One of the important shock parameters is the electric potential drop across the shock ramp – or if it exists also across the shock foot. This potential drop is not necessarily a constant but changes with location along the shock normal.
+One of the important shock parameters is the electric potential drop across the shock ramp – or if it exists also across the shock foot. This potential drop is not necessarily a constant but changes with location along the shock normal. We have already noted that it is due to the different dynamical responses of the inflowing ions and electrons over the scale of the foot and ramp regions. Its theoretical determination is difficult, however when going to the de Hoffmann-Teller frame the bulk motion of the particles is only along the magnetic field, and in the stationary electron equation of motion the $\mathbf{V}_e \times \mathbf{B}$-term drops out and, to first approximation, the cross shock potential is given by the pressure gradient (when neglecting any contributions from wave fields). The expression is then simply
+$$
+\Delta \Phi(x) = \int_0^x \frac{1}{eN_e(n)}\left[ \nabla\cdot \overleftarrow{P}_e(n) \right]\mathrm{d}\mathbf{n} 
+$$ {#eq-shock-potential-drop}
+
+Integration is over $n$ along the shock normal $\hat{n}$.  For a gyrotropic electron pressure, valid for length scales longer than an electron gyroradius, $\overleftrightarrow{P}_e = P_{e\perp}\mathbf{I} + (P_{e\parallel} - P_{e\perp})\mathbf{B}\mathbf{B}/BB$ one obtains [@goodrich1984adiabatic], taking into account that $\mathbf{E}\cdot\mathbf{B}$ is invariant,
+$$
+\frac{\mathrm{d}}{\mathrm{d}n}\phi(n) = -\frac{E_\parallel}{\cos\theta_{Bn}} = \frac{1}{eN_e}\left[ \frac{\mathrm{d}}{\mathrm{d}n}P_{e\parallel} - (P_{e\parallel} - P_{e\perp})\frac{\mathrm{d}}{\mathrm{d}n}(\ln B) \right]
+$$
+which, when used in the above expression, yields
+$$
+e\Delta \Phi(x) = \int_0^x \mathrm{d}n\left\{ \frac{\mathrm{d}T_{e\parallel}}{\mathrm{d}n} + T_{e\parallel}\frac{\mathrm{d}}{\mathrm{d}n}\ln\left[ \frac{N(n)}{N_1}\frac{B_1}{B(n)} \right] + T_{e\perp}\frac{\mathrm{d}}{\mathrm{d}n}\ln\left[ \frac{B(n)}{B_1} \right] \right\}
+$$
+
+This expression can approximately be written in terms of the gradient in the electron magnetic moment $\mu_e = T_{e\perp}/B$ as follows:
+$$
+e\Delta\Phi(x) \simeq \Delta(T_{e\parallel} + T_{e\perp}) - \int_0^x \mathrm{d}n \frac{\mathrm{d}\mu_e(n)}{\mathrm{d}n}B(n)
+$$
+with $T_e$ in energy units. When the electron magnetic moment is conserved, the last term disappears, yielding a simple relation for the potential drop $e\Delta\Phi(x) \simeq \Delta(T_{e\parallel} + T_{e\perp})$ as the sum of the changes in electron temperature. The perpendicular temperature change can be expressed as $\Delta T_{e\perp} = T_{e\perp,1}\Delta B/B_1$ which is in terms of the compression of the magnetic field. Non-adiabatic effects contribute via the dropped integral term, which breaks the adiabatic invariant.
+
+The parallel change in temperature is more difficult to express. One could express it in terms of the temperature anisotropy $A_e = T_{e\parallel} /T_{e\perp}$ as has been done by Kuncic et al [2002], and then vary $A_e$. But this depends on the particular model. It is more important to note that this adiabatic estimate of the potential drop does not account for any dynamical process which generates waves and substructures in the shock. It thus gives only a hint on the order of magnitude of the potential drop across the foot-ramp region in quasi-perpendicular shocks.
+
+### Shock Structure
+
+
 
 ## Supercritical Parallel Shock
 
