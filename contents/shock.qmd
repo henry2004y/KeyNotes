@@ -157,7 +157,23 @@ The first condition is necessary for the shock to be formed as a priori; it is t
 
 ### Coplanarity
 
-Knowing that for the shock $U_n\neq 0$ and $\lfloor U_n \rceil \neq 0$, we can eliminate $\lfloor U_t \rceil$ from the [RH relations](https://en.wikipedia.org/wiki/Shocks_and_discontinuities_(magnetohydrodynamics)) and obtain
+For a stationary ideal MHD shock wave with no other wave activity or kinetic processes present outside the shock transition, such that dissipation takes place solely inside the narrow shock transition and this transition region can be considered as infinitesimally thin with respect to all other physical scales in the plasma, the
+electric field in the shock rest frame is strictly perpendicular to the magnetic field, $\mathbf{E} = -\mathbf{U}\times\mathbf{B}$. The stationary Faraday's law
+$$
+\nabla\times\mathbf{E} = \dot{\mathbf{B}} = 0
+$$
+leads to the vanishing of the difference in the tangential components of the magnetic field to both sides
+$$
+(U_{n2} - U_{n1})(\mathbf{B}_{t2}\times\mathbf{B}_{t1}) = 0
+$$
+
+For a shock $\lfloor U_n \rceil \neq 0$, hence
+$$
+\mathbf{B}_{t2}\times\mathbf{B}_{t1} = 0
+$$
+i.e. the two tangential components to both sides are strictly parallel.
+
+With more details, $\lfloor U_t \rceil$ from the [RH relations](https://en.wikipedia.org/wiki/Shocks_and_discontinuities_(magnetohydrodynamics)) and obtain
 $$
 \lfloor U_n \mathbf{B}_t \rceil = \frac{B_n^2}{\mu_0 ... }\lfloor \mathbf{B}_t \rceil
 $$
@@ -180,8 +196,7 @@ Also, any upstream low frequency EM wave that propagates along the upstream magn
 
 ### Criticality {#sec-criticality}
 
-Shock is a dissipative structure in which the kinetic and magnetic energy of a directed plasma flow is partly transferred to heating of the plasma. The dissipation does not take place, however, by means of particle collisions for a shock in space. Collisionless shocks can be divided into _super_- and _sub-critical_, according to their Mach-numbers $M < M_c$ being
-smaller or $M > M_c$ larger than some critical Mach-number $M_c$. $M_c$ refers to a threshold value of the shock's Mach number above which certain physical processes become dominant, leading to distinct changes in the shock's behavior and structure.[^aerodynamic-critical]
+Shock is a dissipative structure in which the kinetic and magnetic energy of a directed plasma flow is partly transferred to heating of the plasma. The dissipation does not take place, however, by means of particle collisions for a shock in space. Collisionless shocks can be divided into _super_- and _sub-critical_, according to their Mach-numbers $M < M_c$ being smaller or $M > M_c$ larger than some critical Mach-number $M_c$. $M_c$ refers to a threshold value of the shock's Mach number above which certain physical processes become dominant, leading to distinct changes in the shock's behavior and structure.[^aerodynamic-critical]
 
 Depending on the specific physical processes, we can have different critical Mach numbers associated with collisionless shocks:
 
@@ -220,7 +235,9 @@ where $B$ is the only existing tangential component of the magnetic field here, 
 
 The two curves in the figure cross each other at the critical Mach number which in the present case is $M_c = 2.76$ and where the downstream sound speed exceeds the flow speed. Below the critical Mach number the downstream flow is still supersonic (though clearly sub-magnetosonic!). Only above the critical Mach number the downstream flow velocity falls below the downstream sound speed. There is thus a qualitative change in the shock character above it that is not contained in the Rankine-Hugoniot conditions.
 
-The determination of the critical Mach number poses an interesting problem. The finite magnetic field compression ratio sets an upper limit to the rate of resistive dissipation that is possible in an MHD shock. Plasmas possess several dissipative lengths, depending on which dissipative process is considered. Any nonlinear wave that propagates in the plasma should steepen as long, until its transverse scale approaches the longest of these dissipative scales. Then dissipation sets on and limits its amplitude.
+So as a quick recap, the inflow of matter into a supercritical shock is so fast that the time scales on which dissipation would take place are too long for dissipating the excess energy and lowering the inflow velocity below the downstream magnetosonic velocity. Hence, the condition for criticality, is that the downstream flow velocity becomes equal to the downstream _sonic_ speed, which yielded the critical Mach number, $M_c \simeq 2.76$.
+
+The determination of the critical Mach number poses an interesting question of why sonic speed appears in the downstream. The finite magnetic field compression ratio sets an upper limit to the rate of resistive dissipation that is possible in an MHD shock. Plasmas possess several dissipative lengths, depending on which dissipative process is considered. Any nonlinear wave that propagates in the plasma should steepen as long, until its transverse scale approaches the longest of these dissipative scales. Then dissipation sets on and limits its amplitude.
 
 Thus, when the wavelength of the fast magnetosonic wave approaches the resistive length, the magnetic field decouples from the wave by resistive dissipation, and the wave speed becomes the sound speed downstream of the shock ramp. The condition for the critical Mach number is then given by $U_{n2} = c_{2s}$. Similarly, for the slow-mode shock, because of its different dispersive properties, the resistive critical-Mach number is defined by the condition $U_{1n} = c_{1s}$[^slow_critical]. Since these quantities depend on wave angle, they have to be solved numerically. Prior studies showed that critical fast-mode Mach number varies between 1 and 3, depending on the upstream plasma parameters and flow angle to the magnetic field. It is usually called _first_ critical Mach number, because there is theoretical evidence in simulations for a second critical Mach number, which comes into play when the shock structure becomes time dependent, whistlers accumulate at the shock front and periodically cause its reformation. The dominant dispersion is then the whistler dispersion. An approximate expression for this second or whistler critical Mach number is
 $$
@@ -590,7 +607,95 @@ KeyNotes.shock_estimation()
 
 Another thing to note is that, if you set the jump ratio to 4 (maximum value when $\gamma = 5/3$) in the above calculations, the downstream anisotropy will become 0.6. This indicates that under this set of upstream conditions, the jump ratio shall never be close to 4 if the anisotropy $T_\perp/T_\parallel > 1$!
 
-## Parallel Shock
+## Subcritical Shocks
+
+Subcritical shocks, also known as laminar shocks, have Mach numbers between 1 and $M_c$ which can be described by the combined action of dispersion and dissipation present in dispersive waves in collisionless plasmas. Subcritical shocks have been believed to be rare in space; they were mostly restrictedly associated to heavy mass loading of the solar wind as is the case in the vicinity of comets and unmagnetised planets like Venus and Mars, in particular at Venus with its dense atmosphere. However, they might be much more frequent simply due to the properties of nonlinear dispersive waves which are capable of steeping and evolving into shocks.
+
+Evolution of subcritical shocks in the latter case is now quite well understood, even though the generation of anomalous resistance and anomalous dissipation below the critical Mach number still poses many unresolved problems. It is well established that the subcritical shock evolves through the various phases of steeping of a low frequency magnetosonic wave the character of which has been identified of being on the whistler mode branch. This steeping process is completely collisionless. The modes propagate against the upstream flow, forming a train of localised wave modes where the steeping is produced by sideband generation of higher spatial harmonics all propagating (approximately) at the same phase (group) velocity such that their amplitudes are in phase and superimpose on the mother wave. When the gradient length of the leading wave packet becomes comparable to the dissipation scale $L_d$, dissipation sets on. At this time the smaller scale higher harmonic sidebands either outrun the leading wave packet ending up as standing, spatially damped precursor wave modes in front of the shock, or forming a spatially damped trailing wake of the packet. This depends on whether the dispersion is convex or concave (sign of $\partial^2 \omega /\partial k^2$). This dispersive effect limits the amplitude of the shock. At the same time the ramp is formed out of the wave packet by the dissipation generated inside the shock.
+
+Generation of dissipation is most likely due to electron current instabilities of the shock ramp current on a scale that is shorter than the ion inertial scale. So far the instability has not yet been identified, but we have given strong arguments that it is the modified two stream instability which signs responsible. The anomalous collision rate is at the lower hybrid frequency in the shock ramp, quite high in this case and sufficient for providing the necessary dissipation for entropy generation, shock heating and compression. In addition, other small scale effects might occur which we have only given a hint on but not discussed in depth.
+
+As long as the shocks are subcritical with Mach numbers $M < M_c$ the distinction between quasi-perpendicular and quasi-parallel shocks is not overwhelmingly important, at least as long as the shock normal angle is far from zero. However, as we will see in the next sections, when the Mach number increases and finally exceeds the critical Mach number, $M > M_c$, the distinction becomes very important.
+
+## Supercritical Perpendicular Shock
+
+Quasi-perpendicular shocks are the first and important family of collisionless magnetised shocks which reflect particles back upstream in order to satisfy the shock conditions. Discussion of the particle dynamics gives clear definition for distinguishing them from quasi-parallel shocks by defining a shock normal angle with respect to the upstream magnetic field. They exist for shock normal angles $< 45^\circ$. Reflected particles at quasi-perpendicular shocks cannot escape far upstream along the magnetic field. After having performed half a gyro-circle back upstream they return to the shock ramp and ultimately traverse it to become members of the downstream plasma population; they also form a foot in front of the shock ramp. We discuss the reflecting shock potential and the explicit shock structure. Most theoretical insight is provided by numerical simulations which confirm reflection, foot formation and reformation of the shock. The latter being caused by steeping of the foot disturbance until the foot itself becomes the shock transition, reflecting particles upstream. Reformation modulates the shock temporarily but on the long terms guarantees its stationarity. Ion and electron dynamics are explicitly discussed in view of the various instabilities involved as well as particle acceleration and shock heating. Finally, a sketchy model of a typical quasi-perpendicular shock transition is provided.
+
+In order to help maintain a shock in the supercritical case the shock must forbid an increasing number of ions to pass across its ramp, which is done by reflecting some particles back upstream. This is not a direct dissipation process, rather it is an emergency act of the shock. It throws a fraction of the incoming ions back upstream and by this reduces both the inflow momentum and energy densities. Clearly, this reflection process slows the shock down by attributing a negative momentum to the shock itself. The shock slips back and thus in the shock frame also reduces the difference velocity to the inflow, i.e. it reduces the Mach number. In addition, however, the reflected ions form an unexpected obstacle for the inflow and in this way reduce the Mach number a second time.
+
+### Particle Dynamics
+
+Let's return to the orbit a particle interacting with a supercritical shock when it becomes reflected from the shock. In the simplest possible model one assumes the shock to be a plane surface, and the reflection being specular turning the component $v_n$ of the instantaneous particle velocity $\mathbf{v}$ normal to the shock by $180^\circ$, i.e. simply reflecting it. Here we follow the explicit calculation for these idealised conditions as given by @schwartz1983ions who treated this problem in the most general way. One should, however, keep in mind that the assumption of ideal specular reflection is the extreme limit of what happens in reality, which is no more than a convenient assumption. In fact, reflection must by no means be specular because
+
+1. The shock ramp is not a rigid wall; the particles penetrate into it at least over a distance of a fraction of their gyroradius.
+2. Particles interact with waves and even excite waves during this interaction and during their approach of the shock.
+
+Figure 5.1 shows the coordinate frame used at the planar (stationary) shock, with shock normal $\hat{n}$, magnetic $\hat{b}$ and velocity $\hat{v}$ unit vectors, respectively. Shown are the angles $\theta_{Bn},\,\theta_{Vn},\,\theta_{BV}$. The velocity vector $\mathbf{V}_\text{HT}$ is the de Hoffmann-Teller velocity which lies in the shock plane and is defined in such a way that in the coordinate system moving along the shock plane with velocity $\mathbf{V}_\text{HT}$ the plasma flow is along the magnetic field, $\mathbf{U} − \mathbf{V}_\text{HT} = −v_\parallel \hat{b}$. Because of the latter reason it is convenient to consider the motion of particles in the de Hoffmann-Teller frame. The guiding centers of the particles in this frame move all along the magnetic field. Hence, using $\mathbf{U} = −U\hat{v}$, $\hat{n}\cdot\hat{v} = \cos\theta_{Vn}$, $\hat{n}\cdot(\hat{b},\,\hat{x},\,\hat{y})=(\cos\theta_{Bn},\sin\theta_{Bn},0)$,
+$$
+v_\parallel = U\frac{\cos\theta_{Vn}}{\cos\theta_{Bn}},\quad \mathbf{V}_\text{HT} = U\left( -\hat{v} + \frac{\cos\theta_{Vn}}{\cos\theta_{Bn}}\hat{b} \right) = \frac{\hat{n}\times\mathbf{U}\times\mathbf{B}}{\hat{n}\cdot\mathbf{B}},\quad V_\text{HT,n}\equiv 0
+$$ {#eq-dHT-definition}
+
+![The shock coordinate system showing the shock normal $\hat{n}$, velocity and magnetic field directions $\hat{v}$, $\hat{b}$, the three angles $\theta_{Bn},\,\theta_{Vn},\,\theta_{BV}$ between $\hat{b}$ and $\hat{n}$, velocity $\mathbf{U}$ and $\hat{n}$, and velocity $\mathbf{U}$ and $\hat{b}$, respectively. The velocity $\mathbf{V}_\text{HT}$ in the shock plane is the deHoffmann-Teller velocity [after @schwartz1983ions].](../images/shock_coordinate_system.png){#fig-shock-coordinate-system}
+
+The de Hoffmann-Teller velocity is the same to both sides of the shock ramp, because of the continuity of normal component $B_n$ and tangential electric field $\mathbf{E}_t$. Thus, in the de Hoffmann-Teller frame there is no induction electric field $\mathbf{E} = −\hat{n}\times\mathbf{U}\times\mathbf{B}$. The remaining problem is two-dimensional (because trivially $\hatn$, $\hat{b}$ and $−v_\parallel\hat{b}$ are coplanar, which is nothing else but the coplanarity theorem holding under these undisturbed idealized conditions).
+
+In the de Hoffmann-Teller (primed) frame the particle velocity is described by the motion along the magnetic field $\hat{b}$ plus the gyromotion of the particle in the plane perpendicular to $\hat{b}$:
+$$
+\mathbf{v}^\prime(t) = v_\parallel^\prime\hat{b} + v_\perp\left[ \hat{x}\cos(\omega_{ci}t +\phi_0) \mp\hat{y}\sin(\omega_{ci}t + \phi_0) \right]
+$$ {#eq-dHT-v}
+
+The unit vectors $\hat{x}$, $\hat{y}$ are along the orthogonal coordinates in the gyration plane of the ion, the phase $\hi_0$ accounts for the initial gyro-phase of the ion, and $\pm$ accounts for the direction of the upstream magnetic field being parallel (+) or antiparallel (-) to $\hat{b}$.
+
+In specular reflection (from a stationary shock) the upstream velocity component along $\hat{n}$ is reversed, and hence (for cold ions) the velocity becomes (???)
+$$
+\mathbf{v}^\prime = -v_\parallel^\prime\hat{b} + 2v_\parallel \cos\theta_{Bn}\hat{n}
+$$
+which (with $\phi_0 = 0$) yields for the components of the velocity
+$$
+\frac{v_\parallel^\prime}{U} = \frac{\cos\theta_{Vn}}{\cos\theta_{Bn}}\left( 2\cos^2\theta_{Bn} - 1 \right) \quad \frac{v_\perp^\prime}{U} = 2\sin\theta_{Bn}\cos\theta_{Vn}
+$$
+
+These expressions can be transformed back into the observer’s frame by using $\mathbf{V}_\text{HT}$. It is, however, of greater interest to see under which conditions a reflected particle turns around in its upstream motion towards the shock. This happens when the upstream component of the velocity $v_x = 0$ of the reflected ion vanishes. For this we need to integrate @eq-dHT-v which for $\phi_0 = 0$ yields
+$$
+\mathbf{x}^\prime(t) = v_\parallel^\prime t \hat{b} + \frac{v_\perp}{\omega_{ci}}\left[ \hat{x}\sin\omega_{ci}t \pm\hat{y}(\cos\omega_{ci}t -1) \right]
+$$
+
+Scalar multiplication with $\hat{n}$ yields the ion displacement normal to the shock in upstream direction. The resulting expression
+$$
+\mathbf{x}_n^\prime(t^\ast) = v_\parallel^\prime t \cos\theta_{Bn} + \frac{v_\perp}{\omega_{ci}}\sin\theta_{Bn}\sin\omega_{ci}t^\ast = 0
+$$ {#eq-dHT-shock-upstream-distance}
+vanishes at time $t^\ast$ when the ion re-encounters the shock with normal velocity
+$$
+v_n(t^\ast) = v_\parallel^\prime \cos\theta_{Bn} + v_\perp\sin\theta_{Bn}\cos\omega_{ci}t^\ast
+$$
+
+The maximum displacement away from the shock in normal direction is obtained when setting this velocity to zero, obtaining for the time $t_m$ at maximum displacement (again including the initial phase here)
+$$
+\omega_{ci}t_m + \phi_0 = \cos^{-1}\left( \frac{1 - 2\cos^2\theta_{Bn}}{2\sin^2\theta_{Bn}} \right)
+$$ {#eq-dHT-shock-upstream-tmax}
+
+This expression must be inserted in $\mathbf{x}_n$ yielding for the distance a reflected ion with gyroradius $r_{ci} = V/\omega_{ci}$ can achieve in upstream direction
+$$
+\Delta x_n = r_{ci}\cos\theta_{Vn}\left[ (\omega_{ci}t_m + \phi_0)(2\cos^2\theta_{Bn} - 1) + 2\sin^2\theta_{Bn}\sin(\omega_{ci}t_m +\phi_0) \right]
+$$ {#eq-dHT-shock-upstream-distance-max}
+
+For a perpendicular shock $\theta_{Bn} = 90^\circ$ and $\phi_0 = 0$ this distance is $\Delta x_n \simeq 0.7 r_{ci} \cos\theta{Vn}$, less than an ion gyro radius. The distance depends on the shock normal angle, decreasing for non-planar shocks. Note that the argument of $\cos^{-1}$ in @eq-dHT-shock-upstream-tmax changes sign for $\theta_{Bn} \le 45^\circ$. @eq-dHT-shock-upstream-distance has solutions for positive upstream turning distances only for shock normal angles $\theta_{Bn} > 45^\circ$, for an initial particle phase $\phi_0 = 0$.[^finite-initial-phase]
+Reflected ions can return to the shock in one gyration time only when the magnetic field makes an angle with the shock normal that is larger than this value. For less inclined shock normal angles the reflected ions escape along the magnetic field upstream of the shock and do not return within one gyration. This sharp distinction between shock normal angles $\theta_{Bn} < 45^\circ$ and $\theta_{Bn} > 45^\circ$ thus provides the natural (kinematic specular) discrimination between quasi-perpendicular and quasi-parallel (planar) shocks we were looking for.
+
+[^finite-initial-phase]: A finite initial phase $\phi_0 = 0$ may, however, modify this conclusion shifting the boundary between quasi-parallel and quasi-perpendicular shock to angles larger or smaller than $45^\circ$, depending on the sign of the initial phase.
+
+The theory of shock particle reflection holds, in this form, only for cold ions, which implies complete neglect of any velocity dispersion and proper gyration of the ions. The ions are considered of just moving all with one and the same oblique flow velocity $\mathbf{U}$. In a warm plasma each particle has a different speed, and it is only the group of bulk velocity ions which are described by the above theory. Fortunately, these are the particles which experience the reflecting shock potential strongest and are most vulnerable to specular reflection. When temperature effects will be included, the theory is more involved in a number of ways:
+
+1. The de-Hoffmann-Teller velocity must be redefined to include the microscopic particle motion.
+2. The assumption of ideal specular reflection becomes questionable, as the particles themselves become involved into the generation of the shock potential. However, observations in space suggest that, for high flow velocities and supercritical Mach numbers, the simple kinematic reflection is a sufficiently well justified mechanism.
+
+The formal treatment for warm ions are shown in P153 of @balogh2013physics. The result is that including thermal effect may 
+
+1. modify the angle of transition, and 
+2. will substantially affect the distance up to that a specularly reflected particle at the quasi-perpendicular shock can penetrate the upstream flow, i.e. it affects the width of the quasi-perpendicular shock-foot, even in the case when the reflection process is genuinely specular.
+
+
+## Supercritical Parallel Shock
 
 From MHD or double adiabatic theory, parallel shocks are more special in that the magnetic field strength remains unchanged so the equations effectively describe pure gasdynamic solutions.
 [@kuznetsov2018parallel] presents a simplified solution in a 1D parallel shock case with parallel and perpendicular thermal energy heat fluxes $S_\parallel$ and $S_\perp$ included. Note again the original CGL theory assumes 0 heat fluxes.
@@ -853,15 +958,6 @@ Short Large-Amplitude Magnetic Structures (SLAMS) are magnetic pulsations with a
 ### Density Hole
 
 Density holes are characterized by similarly shaped magnetic holes with enhanced density and field strength at one or both edges. The definition of density holes overlaps with HFAs, SHFAs, FBs, foreshock cavities, and foreshock cavitons, but in a broader sense. @lu2022statistical showed statistically that ∼66% of 411 density holes cannot be categorized by any of these foreshock transient types. Therefore, it is necessary to make density holes a separate category. A better definition of density holes is needed to definitely distinguish them from other foreshock transient types, which requires further studies. The formation could be due to the interaction between backstreaming particles and the original solar wind [@parks2006larmor].
-
-## Subcritical Shocks
-
-Subcritical shocks have Mach numbers between 1 and $M_c$ which can be described by the combined action of dispersion and dissipation present in dispersive waves in collisionless plasmas. Subcritical shocks have been believed to be rare in space;  they were mostly restrictedly associated to heavy mass loading of the solar wind as is the case in the vicinity of comets and Venus and Mars as the unmagnetised planets, in particular at Venus with its dense atmosphere. However, they might be much more frequent simply due to the properties of dispersive waves which nonlinearly are capable of steeping and evolving into shocks.
-
-Evolution of subcritical shocks in the latter case is now quite well understood, even though the generation of anomalous resistance and anomalous dissipation below the critical Mach number still poses many unresolved problems. It is well established that the subcritical shock evolves through the various phases of steeping of a low frequency magnetosonic wave the character of which has been identified of being on the whistler mode branch. This steeping process is completely non-collisional. The modes propagate against the upstream flow, forming a train of localised wave modes where the steeping is produced by sideband generation of higher spatial harmonics all propagating (approximately) at the same phase (group) velocity such that their amplitudes are in phase and superimpose on the mother wave. When the gradient length of the leading wave packet becomes comparable to the dissipation scale $L_d$, dissipation sets on. At this time the smaller scale higher harmonic sidebands either outrun the leading wave packet ending up as standing, spatially damped precursor wave modes in front of the shock, or forming a spatially damped trailing wake of the packet. This depends on whether the dispersion is convex or concave (sign of $\partial^2 \omega /\partial k^2$). This dispersive effect limits the amplitude of the shock. At the same time the ramp is formed out of the wave packet by the dissipation generated inside the shock.
-
-Generation of dissipation is most likely due to electron current instabilities of the shock ramp current on a scale that is shorter than the ion inertial scale. So far the instability has not yet been identified, but we have given strong arguments that it is the modified two stream instability which signs responsible. The anomalous collision rate is at the lower hybrid frequency in the shock ramp, quite high in this case and sufficient for providing the necessary dissipation for entropy generation, shock heating and compression. In addition, other small scale effects might occur which we have only given a hint on but not discussed
-in depth.
 
 ## Location of Shocks
 
