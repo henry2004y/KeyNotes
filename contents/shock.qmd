@@ -497,9 +497,9 @@ The problem of whether or not such shocks exist in MHD is related to the questio
 
 Clearly, this kind of shocks is a more or less exotic case of MHD shocks whose importance is not precisely known, with very rare cases of observation.
 
-## Double Adiabatic Theory
+## Double Adiabatic MHD
 
-The classical approach by Chew, Goldberger, and Low [@cgl1956] utilizes the MHD framework by assuming isotropic distributions parallel and perpendicular to the magnetic field, which results in scalar pressures on the two sides of the shock. This is now known as the CGL theory.
+The classical approach by @cgl1956 utilizes the MHD framework by assuming isotropic distributions parallel and perpendicular to the magnetic field, which results in scalar pressures on the two sides of the shock. This is now known as the CGL or double adiabatic theory.
 
 When we shift to the MHD with anisotropic pressure tensor
 $$
@@ -509,28 +509,28 @@ where $p_\perp$ and $p_\parallel$ are the pressures perpendicular and parallel w
 For the strong magnetic field approximation, the two pressures are related to the plasma density and the magnetic field strength by two adiabatic equations,
 $$
 \begin{aligned}
-\frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{p_\parallel B^2}{\rho^3} \Big) &= 0 \\
-\frac{\mathrm{d}}{\mathrm{d}t}\Big( \frac{p_\perp}{\rho B} \Big) &= 0
+\frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{p_\parallel B^2}{\rho^3} \right) &= 0 \\
+\frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{p_\perp}{\rho B} \right) &= 0
 \end{aligned}
-$$
+$$ {#eq-mhd-double-adiabatic}
 
-This is also known as the double adiabatic theory, which is also what many people remember to be the key conclusion from the CGL theory. (These are constants at a fixed location in time: it is _not_ correct to apply these across the shock!) Here I want to emphasize the meaning of *adiabatic* again: this assumes zero heat flux. If the system is not adiabatic, the conservation of these two quantities related to the parallel and perpendicular pressure is no longer valid, and additional terms may come into play such as the stochastic heating.
+This is where the name double adiabatic theory originates, which is also what many people remember to be the key conclusion from the CGL theory. However, these are constants at a fixed location in time: it is _not_ correct to apply these across the shock. Also note the meaning of *adiabatic*: this means zero heat flux. If the system is not adiabatic, the conservation of these two quantities related to the parallel and perpendicular pressure is no longer valid, and additional terms may come into play such as the stochastic heating.
 
-The general jump conditions for discontinuities in a collisionless anisotropic magnetoplasma in the CGL approximation were derived by [@abraham1967shock].
+The general jump conditions for discontinuities in a collisionless anisotropic magnetoplasma in the CGL approximation were derived by @abraham1967shock.
 
-The general jump conditions for an anisotropic plasma are given by [@hudson1970discontinuities]
+The general jump conditions for an anisotropic plasma are given in CGS units by @hudson1970discontinuities:
 $$
 \begin{aligned}
-\lfloor \rho v_n \rceil &= 0 \\
-\lfloor v_n\mathbf{B}_t - \mathbf{v}_t B_n \rceil &= 0 \\
-\lfloor p_\perp + (p_\parallel - p_\perp)\frac{B_n^2}{B^2} + \frac{B_t^2}{8\pi} + \rho v_n^2 \rceil &= 0 \\
-\lfloor \frac{B_n \mathbf{B}_t}{4\pi}\Big( \frac{4\pi(p_\parallel - p_\perp)}{B^2} - 1 \Big) +\rho v_n \mathbf{v}_t \rceil &= 0 \\
-\lfloor \rho v_n\Big( \frac{\epsilon}{\rho} + \frac{v^2}{2} + \frac{p_\perp}{\rho} + \frac{B_t^2}{4\pi \rho} \Big) + \frac{B_n^2 v_n}{B^2}&(p_\parallel - p_\perp) \\
-- \frac{\mathbf{B}_t\cdot\mathbf{v}_t B_n}{4\pi}\Big( 1 - \frac{4\pi(p_\parallel - p_\perp)}{B^2} \Big) \rceil &= 0 \\
+\lfloor \rho U_n \rceil &= 0 \\
+\lfloor U_n\mathbf{B}_t - \mathbf{U}_t B_n \rceil &= 0 \\
+\lfloor p_\perp + (p_\parallel - p_\perp)\frac{B_n^2}{B^2} + \frac{B_t^2}{8\pi} + \rho U_n^2 \rceil &= 0 \\
+\lfloor \frac{B_n \mathbf{B}_t}{4\pi}\left( \frac{4\pi(p_\parallel - p_\perp)}{B^2} - 1 \right) +\rho U_n \mathbf{U}_t \rceil &= 0 \\
+\lfloor \rho U_n\left( \frac{\epsilon}{\rho} + \frac{U^2}{2} + \frac{p_\perp}{\rho} + \frac{B_t^2}{4\pi \rho} \right) + \frac{B_n^2 U_n}{B^2}&(p_\parallel - p_\perp) \\
+- \frac{\mathbf{B}_t\cdot\mathbf{U}_t B_n}{4\pi}\left( 1 - \frac{4\pi(p_\parallel - p_\perp)}{B^2} \right) \rceil &= 0 \\
 \lfloor B_n \rceil &= 0
 \end{aligned}
 $$
-where $\rho$ is the mass density, $v$ and $B$ are the velocity and magnetic field strength. Subscripts $t$ and $n$ indicate tangential and normal components with respect to the discontinuity. (THIS IS IN CGS UNITS!) Quantities $p_\perp$ and $p_\parallel$ are the elements of the plasma pressure tensor perpendicular and parallel with respect to the magnetic field. Quantity $\epsilon$ is the internal energy, $\epsilon = p_\perp + p_\parallel/2$, and $\lfloor Q \rceil = Q_2 - Q_1$, where subscripts 1 and 2 signify the quantity upstream and downstream of the discontinuity. These equations refer to the conservation of physical quantities, i.e. the mass flux, the tangential component of the electric field, the normal and tangential components of the momentum flux, the energy flux, and, finally, the normal component of the magnetic field. To solve the jump equations for anisotropic plasma conditions upstream and downstream of the shock, one has to use an additional equation, since the set of equations is underdetermined. One common choice is the magnetic field/density jump ratio.
+where $\rho$ is the mass density, $U$ and $B$ are the velocity and magnetic field strength. Subscripts $t$ and $n$ indicate tangential and normal components with respect to the discontinuity. Quantities $p_\perp$ and $p_\parallel$ are the elements of the plasma pressure tensor perpendicular and parallel with respect to the magnetic field. Quantity $\epsilon$ is the internal energy, $\epsilon = p_\perp + p_\parallel/2$, and $\lfloor Q \rceil = Q_2 - Q_1$, where subscripts 1 and 2 signify the quantity upstream and downstream of the discontinuity. These equations refer to the conservation of physical quantities, i.e. the mass flux, the tangential component of the electric field, the normal and tangential components of the momentum flux, the energy flux, and, finally, the normal component of the magnetic field. To solve the jump equations for anisotropic plasma conditions upstream and downstream of the shock, one has to use an additional equation, since the set of equations is underdetermined. One common choice is the magnetic field/density jump ratio.
 
 The following derivations follow [@erkaev2000solution].
 Let us introduce two dimensionless parameters, $A_s$ and $A_m$, which are determined for upstream conditions as
@@ -542,13 +542,13 @@ A_m &= \frac{1}{M_A^2}
 $$
 where $M_A$ is the upstream Alfvén Mach number. For common solar wind conditions, both of these parameters are quite small ($\sim 0.01$).
 
-For shocks, the tangential components of the electric and magnetic fields are _coplanar_ (@eq-shock_coplanarity). Thus, the components of the magnetic field upstream of the shock are given as $B_{n1} = B_1 \cos\theta_1$ and $B_{t1} = B_1 \sin\theta_1$, where $\theta_1$ is the angle between the magnetic field vector and the vector $\hat{n}$ normal to the discontinuity. Similarly, the components of the bulk velocity upstream of the shock are chosen as $v_{n1} = v_1 \cos\alpha$ and $v_{t1} = B_1 \sin\alpha$, where α the angle between the bulk velocity and the normal component of the velocity. Furthermore, a parameter $\lambda$ is used to denote the pressure anisotropy
+For shocks, the tangential components of the electric and magnetic fields are _coplanar_ (@eq-shock_coplanarity). Thus, the components of the magnetic field upstream of the shock are given as $B_{n1} = B_1 \cos\theta_1$ and $B_{t1} = B_1 \sin\theta_1$, where $\theta_1$ is the angle between the magnetic field vector and the vector $\hat{n}$ normal to the discontinuity. Similarly, the components of the bulk velocity upstream of the shock are chosen as $U_{n1} = U_1 \cos\alpha$ and $U_{t1} = B_1 \sin\alpha$, where $\alpha$ the angle between the bulk velocity and the normal component of the velocity. Furthermore, a parameter $\lambda$ is used to denote the pressure anisotropy
 $$
 \lambda = p_\perp / p_\parallel
 $$
 and another parameter $r$ is used to denote the ratio of density
 $$
-r \equiv \frac{\rho_2}{\rho_1} = \frac{v_{n1}}{v_{n2}}
+r \equiv \frac{\rho_2}{\rho_1} = \frac{U_{n1}}{U_{n2}}
 $$
 
 ### Perpendicular Shock
@@ -556,11 +556,11 @@ $$
 For a perpendicular shock, $B_n = 0$, we have the conservation relations reduce to
 $$
 \begin{aligned}
-\lfloor \rho v_n \rceil &= 0 \\
-\lfloor v_n\mathbf{B}_t \rceil &= 0 \\
-\lfloor p_\perp + \frac{B_t^2}{8\pi} + \rho v_n^2 \rceil &= 0 \\
-\lfloor \rho v_n \mathbf{v}_t \rceil &= 0 \\
-\lfloor \rho v_n\big( \frac{\epsilon}{\rho} + \frac{v^2}{2} + \frac{p_\perp}{\rho} + \frac{B_t^2}{4\pi \rho} \big) \rceil &= 0
+\lfloor \rho U_n \rceil &= 0 \\
+\lfloor U_n\mathbf{B}_t \rceil &= 0 \\
+\lfloor p_\perp + \frac{B_t^2}{8\pi} + \rho U_n^2 \rceil &= 0 \\
+\lfloor \rho U_n \mathbf{U}_t \rceil &= 0 \\
+\lfloor \rho U_n\left( \frac{\epsilon}{\rho} + \frac{U^2}{2} + \frac{p_\perp}{\rho} + \frac{B_t^2}{4\pi \rho} \right) \rceil &= 0
 \end{aligned}
 $$
 
@@ -568,8 +568,8 @@ The quantities downstream of the discontinuity are
 $$
 \begin{aligned}
 B_{t2} &= r B_{t1} \\
-v_{t2} &= v_{t1} \\
-p_{\perp 2} &= p_{\perp 1} + \frac{B_{t1}^2}{8\pi}(1-r^2) + \rho_1 v_{n1}^2\big( 1 - \frac{1}{r} \big)
+U_{t2} &= U_{t1} \\
+p_{\perp 2} &= p_{\perp 1} + \frac{B_{t1}^2}{8\pi}(1-r^2) + \rho_1 U_{n1}^2\big( 1 - \frac{1}{r} \big)
 \end{aligned}
 $$
 
@@ -577,13 +577,12 @@ Substituting these into the energy equation leads to
 $$
 \begin{aligned}
 2 \lambda_1(3\lambda_2 +1)\xi^3 − \lambda_1(4\lambda_2 +1)(2A_S + A_M +2)\xi^2 \\
-+ \lambda_2[2\lambda_1(4A_S + 1 + 2A_M ) + 2A_S ]\xi + A_M \lambda_1 = 0
++ \lambda_2[2\lambda_1(4A_S + 1 + 2A_M) + 2A_S ]\xi + A_M \lambda_1 = 0
 \end{aligned}
 $$
 where $\xi = 1/r$.
 
-Now we can do some simple estimations. Assume we have isotropic upstream solar wind with $n = 2 \textrm{amu/cc}$, $\mathbf{v} = [600, 0, 0] \textrm{km/s}$, $\mathbf{B} = [0, 0, -5] \textrm{nT}$ in GSM coordinates, and $T = 5\times 10^5 \textrm{K}$.
-We want to estimate the downstream anisotropy given a density/tangential magnetic field jump of 3.
+Now we can do some simple estimations. Assume we have isotropic upstream solar wind with $n = 2\,\textrm{amu/cc}$, $\mathbf{v} = [600, 0, 0]\,\textrm{km/s}$, $\mathbf{B} = [0, 0, -5]\,\textrm{nT}$ in GSM coordinates, and $T = 5\times 10^5\,\textrm{K}$. We want to estimate the downstream anisotropy given a density/tangential magnetic field jump of 3.
 
 ```jl
 KeyNotes.shock_estimation()
