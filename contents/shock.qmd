@@ -774,7 +774,54 @@ For a shock to evolve the amount of free energy needed to dissipate is so large 
 
 **Scales**
 
+For a quasi-perpendicular shock propagating and evolving in a high-β plasma there is a hierarchy of such scales available.
+The kinetic $\beta_{\text{kin}\perp} = 2\mu_0 N m_i V_n^2/2B^2 \equiv M^2 > 1$ implies that the kinetic energy in the flow exceeds the magnetic energy. Hence the flow dominates the magnetic field, which is transported by the flow. In plasmas with $\beta_{\text{kin}\perp} = M^2 < 1$ the magnetic field dominates the dynamics, and shock waves perpendicular to the magnetic field cannot evolve. Parallel shocks are basically electrostatic in the $\beta_{\text{kin}\perp}\gg 1$-case and can evolve
+when the flow is sufficiently fast along the field, as is observed in the auroral magnetospheres of the magnetised planets in the heliosphere. On the other hand, for large Mach numbers and $\beta \ge 1$ conditions shocks do exist, as the example of the solar wind shows.
 
+The different scales can be organised with respect to the different regions of the shock.
+
+1. The macroscopic scale of the foot region, which determines the width of the foot, is the ion gyroradius based on the inflow velocity $r_\text{ci,1} = V_1/\omega_\text{ci,1}$. With the slight modification of replacing the upstream magnetic field with the (inhomogeneous) ramp magnetic field $B_r(x)$ this also becomes approximately the scale of the macroscopic electric potential drop in the ramp, $\Delta_{\phi, r}\sim r_\text{ci, r}\sim V_1 / \omega_\text{ci,r}$.
+
+2. The ion inertial length $d_i = c/\omega_\text{pi}$, which is also a function of space inside the ramp because of the steep density increase $N(x)$. It determines the dispersive properties of the fast magnetosonic wave which is locally responsible for steeping and shock ramp formation.
+
+3. The thermal ion gyroradius $r_{ci} = v_\text{th,i}/\omega_\text{ci}$. It determines the transition from unmagnetized to magnetized ions and from non-adiabatic to adiabatic heating of the ions.
+
+4. The density gradient scale $L_P = (\nabla_x \ln P)^{-1}$. It determines the importance of drift waves along the shock which, when excited, structure the shock in the third dimension perpendicular to the shock normal and the magnetic field.
+
+5. The electron inertial length $d_e = c/\omega_{pe}$. It is the scale length of whistlers which are excited in front of the shock and are generally believed to play an essential role in shock dynamics.
+
+6. The thermal electron gyroradius $r_{ce} = v_\text{th,e}/\omega_\text{ce}$. It determines whether electrons behave magnetized or non-magnetized. In the shock they are usually magnetized under all conditions of interest. However, when non-adiabatic heating becomes important for electrons it takes place on scales comparable to $r_\text{ce}$.
+
+7. The Debye length $\lambda_\text{D}$. It determines the dispersive properties of ion acoustic waves which are responsible for anomalous resistivity and for smaller scale density substructures in the shock like the phase space holes which evolve on scales of several Debye lengths. It also determines the scales of the Buneman two-stream (BTS) and modified two-stream (MTS) instabilities which are the two most important instabilities in the shock foot.
+
+The importance of some of these scales has been discussed by @kennel1985quarter assuming that some mostly anomalous resistance has been generated in the plasma. In this case the speed of the fast magnetosonic wave, which is responsible for fast shock formation, is written as
+$$
+c_\text{ms}^2 = c_\text{ia}^2 + \frac{V_A^2}{1+ k^2 R^2},\quad R =
+\begin{cases}
+   R_\eta=(\eta / \mu_0)(k/\omega) & \eta \neq 0 \\
+   d_e=c/\omega_{pe} & \eta \to 0
+\end{cases}
+$$
+taking explicitly care of the dispersion of the wave which leads to wave steeping. The macroscopic scale of shock formation enters here through the definition of $R$ which in the collisionless case becomes the electron skin depth. Starting from infinity far away from the shock one seeks for growing solutions of the linear magnetic disturbance $b_z \sim \exp \lambda_x$ in the stationary point equation
+$$
+R_e^2 b_z^{''} + R_\eta b_z^{'} = D b_z,\quad D \equiv \frac{1 - M^2}{1 - c_\text{ia}^2 / V^2}
+$$
+where the prime $' \equiv \partial/\partial x$ indicates derivation with respect to x. With $b_z \to 0$ for $x \to -\infty$ this yields for the spatial growth rate
+$$
+\lambda_> = -\frac{R_\eta}{2d_e^2} + \left[ \frac{D}{d_e^2} + \left( \frac{R_\eta}{2d_e^2} \right)^2 \right]^{1/2} \to \frac{D^{1/2}}{d_e}\quad\text{for}\quad R_\eta \ll d_e
+$$
+which identifies the approximate shock transition scale as proportional to the electron skin depth, $\Delta \simeq c / \omega_{pe}D^{1/2}$, just what one intuitively would believe to happen for freely moving electrons and ions. Since the upstream sound speed $c_\text{ia} \ll V$ is small compared with the fast flow $V$, we have $D ≈ 1 - M^{-2}$, and the shock ramp width becomes slightly larger than the electron skin depth $d_e = c/\omega_{pe}$, viz.
+$$
+\Delta \simeq M(M^2 - )^{-1/2}d_e
+$$
+
+For large Mach numbers this width approaches $d_e$. However, we have already seen that at large Mach numbers the competition between dispersion and dissipation does not hold anymore in this simple way.
+
+With increasing wave number k the fast magnetosonic mode merges into the whistler branch with its convex dispersion curve. This implies that dispersive whistler waves will outrun the shock becoming precursors of the shock. Whistlers propagate only outside their resonance cone. The limiting angle between k and the magnetic field B for which the whistler outruns the shock is given by $\theta_\text{wh,lim} \le \cos^{-1}[M_A(m_e/m_i)^{1/2}]$, artificially limiting the Alfvén Mach number $M_A = V/V_A < 43$.[^MA-limit]
+
+[^MA-limit]: Is this the upper limit for Alfvén Mach number?
+
+In 1D simulations with all quantities changing only along the shock normal $\hat{n}$ and the $\mathbf{k}$-vectors of waves along $\hat{n}$ as well, one choses angles between $(\mathbf{k},\hat{n})$ and $\mathbf{B}$ larger than this in order to have clean effects which are not polluted by those whistlers. However, the maximum phase speed of whistlers does not exceed the Alfvén speed by much. Hence, as long as the upstream velocity is less than this maximum whistler speed, a standing whistler precursor will be attached to the shock in front. When the upstream velocity exceeds this velocity, phase standing whistlers become impossible. This happens at the critical whistler Mach number. The shock structure becomes more complicated then by forming shock substructures [Galeev+, 1988] on scales of $d_e = c/\omega_{ce}$, and the shock might become non-stationary [Krasnoselskikh+, 2002].
 
 ## Supercritical Parallel Shock
 
