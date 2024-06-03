@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -414,7 +434,7 @@ window.Quarto = {
 <p>The Maxwell’s equation can be simplified based on our assumptions. <span class="math display">\[
 \nabla\cdot\mathbf{E} = \epsilon_0 \sum_s q_s n_s,\, n_s=\int \mathrm{d}\mathbf{v}f_s
 \]</span></p>
-<p><span class="math inline">\(\nabla\cdot\mathbf{E}\)</span> is small when <span class="math inline">\(k^2\lambda_{De}\ll 1\)</span>, and this simply gives the quasineutrality condition.</p>
+<p><span class="math inline">\(\nabla\cdot\mathbf{E}\)</span> is small when <span class="math inline">\(k^2\lambda_{De}\ll 1\)</span>, and this simply gives the quasi-neutrality condition.</p>
 <p><span class="math display">\[
 \nabla\cdot\mathbf{B} = 0
 \]</span></p>
@@ -733,8 +753,9 @@ f_{0s} = \frac{n_s}{\pi^{3/2}v_{\text{th}\perp s}^2 v_{\text{th}\parallel s}}\ex
 <p>Examining where this comes from, we see that this amounts to <span class="math inline">\(\delta p_\perp\)</span> modifying the magnetic pressure force and turning it from positive to negative: <span class="math display">\[
 \delta p_\perp + \frac{B\delta B}{\mu_0} = \frac{B\delta B}{\mu_0}\Big[ \underbrace{1}_{\text{B pressure}} - \underbrace{\sum_s\Big( \frac{p_{\perp s}}{p_{\parallel s}}\alpha_s - 1 \Big)\beta_{\perp s}}_{\substack{\text{non-resonant} \\ \text{particle pressure}}} + \underbrace{...}_{\substack{\text{resonant particle} \\ \text{pressure}}} \Big]
 \]</span></p>
-<p>Thus, fundamentally, pressure anisotropy makes it easier to compress or rarefy magnetic field — and things become unstable when the sign of the pressure flips and it becomes energetically profitable to create compressions and rarefications. (ADD FIGURE!) The dispersion relation <a href="#eq-kmhd_mirror_dispersion" class="quarto-xref">Equation&nbsp;<span>14.20</span></a> is basically a statement of pressure balance between the magnetic pressure, the non-resonant particle pressure <span class="math inline">\(\delta p_\perp\)</span> and the resonant particle pressure <span class="math inline">\(\propto\gamma\)</span>, which came from the <em>betatron acceleration</em> <span class="math inline">\(\mu \mathrm{d}B/\mathrm{d}t\)</span> in <a href="#eq-kmhd_kinetic_1storder" class="quarto-xref">Equation&nbsp;<span>14.12</span></a>.</p>
-<p>The betatron acceleration term refers to what happens in the stable case. When magnetic pressure opposes formation of <span class="math inline">\(\delta B\)</span> perturbations (say, troughs), to compensate it, we must have <span class="math inline">\(\gamma&lt;0\)</span> and energy goes from <span class="math inline">\(\delta B\)</span> to resonant particles, which are accelerated by the mirror force. The corresponding decaying of <span class="math inline">\(\delta B\)</span> is the well-known <em>Barnes damping</em> (landau damping of “mirror field”, Barnes 1966, also known as transit-time damping from Stix’s book. See more discussion on the physics in Southwood &amp; Kivelson 1993.)</p>
+<p>Thus, fundamentally, pressure anisotropy makes it easier to compress or rarefy magnetic field — and things become unstable when the sign of the pressure flips and it becomes energetically profitable to create compressions and rarefications. (ADD FIGURE!) The dispersion relation <a href="#eq-kmhd_mirror_dispersion" class="quarto-xref">Equation&nbsp;<span>14.20</span></a> is basically a statement of pressure balance between the magnetic pressure, the non-resonant particle pressure <span class="math inline">\(\delta p_\perp\)</span> and the resonant particle pressure <span class="math inline">\(\propto\gamma\)</span>, which came from the <em>betatron acceleration</em> <span class="math inline">\(\mu \mathrm{d}B/\mathrm{d}t\)</span> in <a href="#eq-kmhd_kinetic_1storder" class="quarto-xref">Equation&nbsp;<span>14.12</span></a>. (See also Eq. 21 in <span class="citation" data-cites="southwood1993mirror">Southwood and Kivelson (<a href="#ref-southwood1993mirror" role="doc-biblioref">1993</a>)</span>)</p>
+<p>The betatron acceleration term refers to what happens in the stable case. When magnetic pressure opposes formation of <span class="math inline">\(\delta B\)</span> perturbations (say, troughs), to compensate it, we must have <span class="math inline">\(\gamma&lt;0\)</span> and energy goes from <span class="math inline">\(\delta B\)</span> to resonant particles, which are accelerated by the mirror force. The corresponding decaying of <span class="math inline">\(\delta B\)</span> is the well-known <em>Barnes damping</em> (landau damping of “mirror field”, Barnes 1966, also known as transit-time damping from Stix’s book.)</p>
+<p>More discussion on the physics is presented by <span class="citation" data-cites="southwood1993mirror">Southwood and Kivelson (<a href="#ref-southwood1993mirror" role="doc-biblioref">1993</a>)</span>. They pointed out that although the instability is resonant, the role of resonant particle is unusual. The instability results from pressure imbalance between the bulk of the plasma and the magnetic field. For this to occur, the bulk (nonresonant) pressure response must be in antiphase with the magnetic pressure as occurs at low frequencies when the magnetic moment and the particle energy are conserved. The resonant particles produce a pressure perturbation, however, in phase with the field pressure change. A corollary is that unlike the nonresonant particles,the resonant particles experience energy changes as the instability develops. The linear growth rate of most resonant instabilities is proportional to the number of resonant particles. However, in the case of the mirror instability, the growth is inversely proportional to the number (and pressure contribution) of resonant particles.The reason for the anomalous result is that the fewer particles there are at small parallel velocity the higher the growth rate needs to be to balance the pressure imbalance generated by the nonresonant distribution.</p>
 <p>To finish the job, note that, from <a href="#eq-kmhd_mirror_dispersion" class="quarto-xref">Equation&nbsp;<span>14.20</span></a> (ADD FIGURE!) for a given <span class="math inline">\(k_\perp\)</span> <span class="math display">\[
 \frac{\partial\gamma}{\partial k_\parallel}\bigg\rvert_{k_\perp} \propto \Lambda - \frac{k_\parallel^2}{k_\perp^2}\Big[\sum_s\frac{\beta_{\perp s}}{2}\Big(1-\frac{p_\parallel s}{p_\perp s} \Big) + 1 \Big]
 \]</span></p>
@@ -843,6 +864,11 @@ q_{\parallel s} = \int \mathrm{d}\mathbf{w}m_sw_\parallel^3 f_s
 <p>So here we are, we cannot change B at large scales, we cannot compress/rarefy the plasma and we cannot have temperature gradients without having to deal everything exploding and needing new equations. Enjoy!</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-southwood1993mirror" class="csl-entry" role="listitem">
+Southwood, David J, and Margaret G Kivelson. 1993. <span>“Mirror Instability: 1. Physical Mechanism of Linear Instability.”</span> <em>Journal of Geophysical Research: Space Physics</em> 98 (A6): 9181–87. <a href="https://doi.org/10.1029/92JA02837">https://doi.org/10.1029/92JA02837</a>.
+</div>
+</div>
 </section>
 </section>
 
