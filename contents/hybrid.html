@@ -396,6 +396,7 @@ window.Quarto = {
   <li><a href="#classical-hybrid-model" id="toc-classical-hybrid-model" class="nav-link active" data-scroll-target="#classical-hybrid-model"><span class="header-section-number">30.1</span> Classical Hybrid Model</a>
   <ul class="collapse">
   <li><a href="#pros-and-cons" id="toc-pros-and-cons" class="nav-link" data-scroll-target="#pros-and-cons"><span class="header-section-number">30.1.1</span> Pros and Cons</a></li>
+  <li><a href="#role-of-electrons" id="toc-role-of-electrons" class="nav-link" data-scroll-target="#role-of-electrons"><span class="header-section-number">30.1.2</span> Role of Electrons</a></li>
   </ul></li>
   <li><a href="#low-density-treatment" id="toc-low-density-treatment" class="nav-link" data-scroll-target="#low-density-treatment"><span class="header-section-number">30.2</span> Low Density Treatment</a></li>
   <li><a href="#sec-finite_e_mass" id="toc-sec-finite_e_mass" class="nav-link" data-scroll-target="#sec-finite_e_mass"><span class="header-section-number">30.3</span> Finite Electron Inertia</a></li>
@@ -516,6 +517,15 @@ P_e = n_e^\gamma k_B T_e = n_0(n/n_0)^\gamma k_B T_{e0}
 <li>Explicit time-stepping schemes can be complex.</li>
 <li>No existing method conserves momentum or energy.</li>
 </ul>
+</section>
+<section id="role-of-electrons" class="level3" data-number="30.1.2">
+<h3 data-number="30.1.2" class="anchored" data-anchor-id="role-of-electrons"><span class="header-section-number">30.1.2</span> Role of Electrons</h3>
+<p>The interpretation of “massless” electrons is tricky. If we think of the full particle model, and take the asymptotic behavior when <span class="math inline">\(m_e\to 0\)</span>, this does not explicitly lead to the hybrid equations. The reason is that</p>
+<ol type="1">
+<li>The hybrid model completely eliminates the electron inertia term from the equations of motion. <em>This is not just an approximation of small mass; it fundamentally changes the way electrons respond to fields</em>.</li>
+<li>Hybrid models often (though not always) assume quasi-neutrality, where the electron and ion densities are nearly equal. This is a separate assumption from massless electrons.</li>
+<li>The way the electric and magnetic fields are calculated differs between the two models. The hybrid model typically solves for the electric field directly from a combination of the generalized Ohm’s law and Faraday’s law, whereas the full particle model would solve Maxwell’s equations fully. Again, combined with point 1, the way electrons respond to fields is completely different in the two models.</li>
+</ol>
 </section>
 </section>
 <section id="low-density-treatment" class="level2" data-number="30.2">
