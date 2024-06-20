@@ -118,6 +118,15 @@ Limitations:
 * Explicit time-stepping schemes can be complex.
 * No existing method conserves momentum or energy.
 
+### Role of Electrons
+
+The interpretation of "massless" electrons is tricky. If we think of the full particle model, and take the asymptotic behavior when $m_e\to 0$, this does not explicitly lead to the hybrid equations. The reason is that
+
+1. The hybrid model completely eliminates the electron inertia term from the equations of motion. _This is not just an approximation of small mass; it fundamentally changes the way electrons respond to fields_.
+2. Hybrid models often (though not always) assume quasi-neutrality, where the electron and ion densities are nearly equal. This is a separate assumption from massless electrons.
+3. The way the electric and magnetic fields are calculated differs between the two models. The hybrid model typically solves for the electric field directly from a combination of the generalized Ohm's law and Faraday's law, whereas the full particle model would solve Maxwell's equations fully. Again, combined with point 1, the way electrons respond to fields is completely different in the two models.
+
+
 ## Low Density Treatment
 
 Because the hybrid model includes terms proportional to $1/n_e$, a modification is necessary for low-density and vacuum regions. The simplest method is to apply a density lower limit $n_f$ in the field solver, so that the density used to advance the fields is $n_e = \max(n_e, n_f)$. Typical values used for the density floor are $n_f/n_0 \sim 0.01 - 0.05$, where $n_0$ is a reference background density. The reference density $n_0$ is typically the value used to define the ion skin depth $d_i=V_A/\omega_{ci}$. 
