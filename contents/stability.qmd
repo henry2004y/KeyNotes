@@ -893,25 +893,90 @@ $$ {#eq-mhd_force_anisotropic}
 
 ### Harris Current Sheet {#sec-harris_cs}
 
-An example of a MHD equilibrium configuration is the Harris current sheet, in which the variations in the magnetic field and plasma pressure over the current sheet balance each other In a 1D Harris current sheet the magnetic field (assumed here to be in the $z$-direction) is given by
-
+An example of a MHD equilibrium configuration is the Harris current sheet, in which the variations in the magnetic field and plasma pressure over the current sheet balance each other. The Harris current sheet can be taken as the first approximation of the Earth's magnetotail that can stay stable for long time periods. In a 1D Harris current sheet the magnetic field (assumed here to be in the $z$-direction) is given by
 $$
-\mathbf{B} = B_0 \tanh\Big( \frac{z}{\lambda} \Big) \hat{y}
+\mathbf{B} = B_0 \tanh\left( \frac{z}{\lambda} \right) \hat{y}
 $$
 
 The pressure is given by
-
 $$
 p = p_0 \cosh^{-2}\frac{z}{\lambda}
 $$
-
 where $p_0 = B_0^2/(2\mu_0)$. The current density is then
-
 $$
-J_y(z) = \frac{B_0}{\mu_0 \lambda}\text{sech}^2\Big(\frac{z}{\lambda}\Big)
+J_y(z) = \frac{B_0}{\mu_0 \lambda}\,\text{sech}^2\left(\frac{z}{\lambda}\right)
+$$
+with a charge density
+$$
+\rho(z) = \rho_0\,\text{sech}^2\left(\frac{z}{\lambda}\right)
 $$
 
-Harris current sheet can be taken as the first approximation of the Earth's magnetotail that can stay stable for long time periods.
+The Harris current sheet is also an equilibrium solution of the Vlasov-Maxwell equations:
+$$
+\begin{aligned}
+\cancel{\frac{\partial f}{\partial t}} + \mathbf{v}\cdot\nabla_r f + \frac{q}{m}\left(\mathbf{E} + \mathbf{v}\times\mathbf{B} \right)\cdot \nabla_v f = 0 \\
+f_s(\mathbf{r_2},\,\mathbf{v}_2,\,t_2) = f_s(\mathbf{r_1},\,\mathbf{v}_1,\,t_1) = f_s(\mathbf{r_2},\,\mathbf{v}_2,\,t_1)
+\end{aligned}
+$$
+
+This is known as the Liouville's theorem: the particle's phase space density is conserved along particle trajectories. To satisfy the Vlasov equation, particle distribution functions are written as functions of particle invariants of motion:
+* Particle energy $W = mv^2 / 2 + q\varphi$
+* Canonical momentum along y direction $P_y = m v_y + qA$
+
+Originally, [Harris 1962] constructed the equilibirum current sheet by linearly combined these two invariants of motion, and assuming exponential form in the particle distribution function:
+$$
+\begin{aligned}
+f_\alpha &\propto \exp \left[ -(W_\alpha - V_{D\alpha}P_{y\alpha})/T_\alpha \right],\quad \alpha=e,i \\
+&\propto \exp \left[ -q(\varphi + V_{D\alpha}A) / T_\alpha \right]\cdot \exp \left[ -m(v - V_{D\alpha}^2)/2T_\alpha \right]
+\end{aligned}
+$$
+
+The first term represents the plasma density dependence on $A$ and $\varphi$, i.e., on location, whereas the second term represents a shifted Maxwellian distribution with location-independent $V_y$ shift and temperature.
+The particle distributions are integrated in velocity space to obtain the charge and current densities
+$$
+\begin{aligned}
+\rho(A,\varphi) &= \sum_\alpha q_\alpha \int f_\alpha \mathrm{d}^3 v_\alpha \\
+J(A,\varphi) &= \sum_\alpha q_\alpha \int f_\alpha v_\alpha \mathrm{d}^3 v_\alpha
+\end{aligned}
+$$
+
+Finally, from Maxwell's equations, we can obtain the EM fields
+$$
+\begin{aligned}
+(\nabla\cdot\mathbf{E})/4\pi &= \rho \\
+c(\nabla\times\mathbf{B})/4\pi &= J
+\end{aligned}
+$$
+
+Even if the particle trajectories within the current sheet are complicated (e.g. gyrating orbits, meandering orbits), their distributions can be very simple, i.e. drifting Maxwellian.
+
+Limitations of the Harris model:
+
+* Harris model is a 1D model with no magnetic field in the current sheet normal direction.
+  * People often superimpose a uniform magnetic field (in the normal direction) to the 1D Harris sheet. However, the superimposed model is not a kinetic equilibrium!
+* The electrostatic electric field is zero within the Harris model.
+  * Corrections can be made to the drifting Maxwellian to generate an electric field.
+* The particle distributions are always drifting Maxwellian in the Harris sheet, which often diagrees with observations.
+  * Modified forms of distribution
+$$
+\begin{aligned}
+f_\alpha &\propto \exp \left[ -(W_\alpha - V_{D\alpha}P_{y\alpha})/T_\alpha \right] \\
+f_\alpha &\propto \exp \left[ -W_\alpha/T_\alpha \right] \cdot g\left( P_{y\alpha} \right) \\
+f_\alpha &\propto \exp \left[ -(W_\alpha - V_{D\alpha}P_{y\alpha})/T_\alpha + I_\alpha\omega_\alpha \right]
+\end{aligned}
+$$
+where $I_\alpha$ is a new adiabatic invariant associated with periodic motions
+$$
+I = \oint p\,\mathrm{d}q
+$$
+Here $p$ is the generalized momentum, and $q$ is the conjugate position coordinate. For example, let $p=mv_z$, $q = z$, we have a so-called current sheet invariant
+$$
+I_z = \oint mv_z\,\mathrm{d}z
+$$
+
+In terms of application, an equilibrium state is important because we may be able to reconstruct the whole structure by simply taking measurements at a few points. Inspired by this simple Harris model, we can also establish a similar equilibrium state for the magnetic cavity. Checkout the nice talk given by Prof. Xuzhi Zhou:
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=461555913&bvid=BV1LL411W7BG&cid=366074720&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 ### θ-Pinch and Z-Pinch
 
