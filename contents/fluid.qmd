@@ -401,7 +401,6 @@ There are 16 scalar unknowns: $n_i, n_e, p_i, p_e, \mathbf{u}_i, \mathbf{u}_e, \
 ### Six-moment
 
 For monatomic gases, the six-moment equations for all charged fluids (indexed by $s$) can be written as:
-
 $$
 \begin{aligned}
 \frac{\partial \rho_s}{\partial t} + \nabla\cdot(\rho_s\mathbf{u}_s) = 0 \\
@@ -1162,7 +1161,53 @@ $$
 p_\ast = \rho_\ast T_\ast
 $$
 
-In more theoretical derivations, for simplicity the energy equation is substituted with either single adiabatic law @eq-single-adiabatic or double adiabatic law @eq-CGL-par and @eq-CGL-perp. If we drop the isotropic assumption and instead use separate pressure equations for the parallel and perpendicular components as in @eq-6-moment-fluids, we get the anisotropic MHD equations.
+In more theoretical derivations, for simplicity the energy equation is substituted with either single adiabatic law @eq-single-adiabatic or double adiabatic law @eq-CGL-par and @eq-CGL-perp.[^energy-or-adiabatic] If we drop the isotropic assumption and instead use separate pressure equations for the parallel and perpendicular components as in @eq-6-moment-fluids, we get the anisotropic MHD equations:[^adiabatic-perp]
+$$
+\begin{aligned}
+\frac{\partial \rho_s}{\partial t} + \nabla\cdot(\rho_s\mathbf{u}_s) = 0 \\
+\frac{\partial (\rho_s\mathbf{u}_s)}{\partial t} + \nabla\cdot\left[ \rho_s\mathbf{u}_s\mathbf{u}_s + p_{s\perp}\pmb{I} + (p_{s\parallel} - p_{s\perp})\hat{b}\hat{b} - \frac{1}{\mu_0}\left( \mathbf{B}\mathbf{B} - \frac{B^2}{2}\pmb{I} \right) \right] = 0 \\
+\frac{\partial\mathbf{B}}{\partial t} - \nabla\times\left( \mathbf{u}_s \times\mathbf{B} \right) = 0 \\
+\frac{\partial p_{s\parallel}}{\partial t} + \nabla\cdot(p_{s\parallel}\mathbf{u}_s) + 2p_{s\parallel}\hat{b}\cdot(\hat{b}\cdot\nabla)\mathbf{u}_s = \frac{\delta p_{s\parallel}}{\delta t} \\
+\frac{\partial p_{s}}{\partial t} + \nabla\cdot(p_{s}\mathbf{u}_s) + \frac{2}{3}p_{s\perp}(\nabla\cdot\mathbf{u}_s) + \frac{2}{3}(p_\parallel - p_\perp)\hat{b}\cdot(\hat{b}\cdot\nabla)\mathbf{u}_s = 0
+\end{aligned}
+$$ {#eq-aniso-mhd}
+
+[^energy-or-adiabatic]: In the case of discontinuities, adiabatic laws fail to describe the jump, and the energy equation needs to be used due to its conservation property.
+
+[^adiabatic-perp]: This is slightly different in some terms compared to @eq-6-moment-fluids. Meng Xing mentioned in the BATSRUS anistropic MHD paper that the polytropic index is taken to be 5/3. Also note that here the unknown is the total pressure $p$ instead of perpendicular pressure $p_\perp$.
+
+For capturing jump conditions across a discontinuity, the conservative energy equation is needed to substitute the total pressure equation:
+$$
+\frac{\partial e}{\partial t} + \nabla\cdot\left[ \mathbf{u}\left( e+p_\perp + \frac{\mathbf{B}^2}{2\mu_0} + \mathbf{u}\cdot\left( (p_\parallel - p_\perp)\hat{b}\hat{b} - \frac{\mathbf{B}\mathbf{B}}{2\mu_0}  \right) \right) \right]
+$$ {#eq-aniso-energy}
+with total energy density
+$$
+e = \frac{\rho \mathbf{u}^2}{2} + \frac{\mathbf{B}^2}{2\mu_0} + \frac{3}{2}p
+$$ {#eq-aniso-e}
+
+The plasma instabilities associated with anisotropic pressure limit, i.e. firehose, mirror, and ion cyclotron instability may contain kinetic effects that cannot be fully described by MHD (@sec-kmhd). Moreover, the grid resolution in normal global MHD simulations may not be fine enough to resolve even hydromagnetic instabilities.
+
+* Criterion for the firehose instability
+$$
+\frac{p_\parallel}{p_\perp} > 1 + \frac{\mathbf{B}^2}{\mu_0 p_\perp}
+$$ {#eq-firehose-threshold}
+
+* Criterion for the mirror instability
+$$
+\frac{p_\perp}{p_\parallel} > 1 + \frac{\mathbf{B}^2}{2\mu_0 p_\perp}
+$$ {#eq-mirror-threshold}
+
+* Criterion for the ion cyclotron instability
+$$
+\frac{p_\perp}{p_\parallel} > 1 + C_1\left(\frac{\mathbf{B}^2}{2\mu_0 p_\parallel}\right)^{C_2}
+$$ {#eq-aic-threshold}
+where from observations in the magnetosphere [Anderson+ 1996; Gary+ 1995] we can take the average values $C_1 = 0.3$ and $C_2 = 0.5$.
+
+The effect of these instabilities is represented by the collision term of the parallel pressure on the RHS of the fourth equation in @eq-aniso-mhd:
+$$
+\frac{\delta p_\parallel}{\delta t} = \frac{\bar{p}_\parallel - p_\parallel}{\tau}
+$$ {#eq-aniso-relaxation}
+where $\bar{p}_\parallel$ is the marginally stable parallel pressure obtained from @eq-firehose-threshold, @eq-mirror-threshold, and @eq-aic-threshold. @eq-aniso-relaxation is called the pressure relaxation term due to the instabilities, with the relaxation time $\tau$ related to their growth rates.
 
 These equations provide a self-consistent description of phenomena that satisfy all the various assumptions we have made, namely:
 
