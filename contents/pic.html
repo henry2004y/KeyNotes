@@ -395,8 +395,9 @@ window.Quarto = {
   <ul>
   <li><a href="#phase-space-sampling" id="toc-phase-space-sampling" class="nav-link active" data-scroll-target="#phase-space-sampling"><span class="header-section-number">29.1</span> Phase Space Sampling</a></li>
   <li><a href="#artificial-scalings" id="toc-artificial-scalings" class="nav-link" data-scroll-target="#artificial-scalings"><span class="header-section-number">29.2</span> Artificial Scalings</a></li>
-  <li><a href="#computational-cost" id="toc-computational-cost" class="nav-link" data-scroll-target="#computational-cost"><span class="header-section-number">29.3</span> Computational Cost</a></li>
-  <li><a href="#sec-delta_f" id="toc-sec-delta_f" class="nav-link" data-scroll-target="#sec-delta_f"><span class="header-section-number">29.4</span> δf Method</a></li>
+  <li><a href="#numerical-heating-and-thermalization" id="toc-numerical-heating-and-thermalization" class="nav-link" data-scroll-target="#numerical-heating-and-thermalization"><span class="header-section-number">29.3</span> Numerical Heating and Thermalization</a></li>
+  <li><a href="#computational-cost" id="toc-computational-cost" class="nav-link" data-scroll-target="#computational-cost"><span class="header-section-number">29.4</span> Computational Cost</a></li>
+  <li><a href="#sec-delta_f" id="toc-sec-delta_f" class="nav-link" data-scroll-target="#sec-delta_f"><span class="header-section-number">29.5</span> δf Method</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/pic.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -444,15 +445,12 @@ M(A) = \int_\Omega A(\mathbf{z})f(\mathbf{z})dV = \sum_{i=1}^{N}A(\mathbf{z}_i)w
 <h2 data-number="29.2" class="anchored" data-anchor-id="artificial-scalings"><span class="header-section-number">29.2</span> Artificial Scalings</h2>
 <p>Common scales to characterize the plasma system:</p>
 <ul>
-<li>Global scales of the system <span class="math inline">\(d_g\)</span>, characterized by the magnetopause standoff distance in the magnetosphere, some fraction of the solar radius in the corona, or system length for Tokamak.</li>
-<li>Ion kinetic scales characterized by the ion inertial length <span class="math inline">\(d_i\)</span> <span class="math display">\[
+<li><p>Global scales of the system <span class="math inline">\(d_g\)</span>, characterized by the magnetopause standoff distance in the magnetosphere, some fraction of the solar radius in the corona, or system length for Tokamak.</p></li>
+<li><p>Ion kinetic scales characterized by the ion inertial length <span class="math inline">\(d_i\)</span> <span class="math display">\[
 d_i = \sqrt{\frac{m_i}{n_i q_i^2 \mu_0}} = \frac{m_i}{q_i}\sqrt{\frac{1}{\rho_i \mu_0}}
-\]</span></li>
-</ul>
-<p>and the ion gyroradius <span class="math display">\[
+\]</span> and the ion gyroradius <span class="math display">\[
 r_i = \frac{m_i v_{\mathrm{th},i}}{q_i B} = \frac{m_i}{q_i}\frac{\sqrt{p_i/\rho_i}}{B}
-\]</span></p>
-<ul>
+\]</span></p></li>
 <li><p>Electron kinetic scales characterized by the electron skin depth <span class="math inline">\(d_e\)</span> <span class="math display">\[
 d_e = \sqrt{\frac{m_e}{n_e q_e^2 \mu_0}} = \frac{m_e}{q_e}\sqrt{\frac{1}{\rho_e \mu_0}}
 \]</span></p></li>
@@ -464,36 +462,57 @@ d_e = \sqrt{\frac{m_e}{n_e q_e^2 \mu_0}} = \frac{m_e}{q_e}\sqrt{\frac{1}{\rho_e 
 <p>For quasi-neutral plasmas, <span class="math inline">\(n_i = n_e \rightarrow \rho_i/\rho_e = m_i/m_e\)</span>, <span class="math inline">\(q_i = q_e\)</span>, <span class="math inline">\(p_i = p_e\)</span>. The ion scales are <span class="math inline">\(\sqrt{m_i/m_e}\)</span> times larger than the corresponding electron scales. For a proton-electron plasma, <span class="math inline">\(\sqrt{d_i/d_e} \approx 43\)</span>. A standard trick to reduce the computational requirement is to artificially reduce the mass ratio to a smaller value (<span class="math inline">\(1836 \ge d_i/d_e \ge 25\)</span>). In terms of reconnection, we have found only a relatively weak dependence of the process on the mass ratio. In practice almost all numerical studies, especially in 3-D, use a reduced ion-electron mass ratio.</p>
 <p><span class="citation" data-cites="toth2017scaling">Tóth et al. (<a href="#ref-toth2017scaling" role="doc-biblioref">2017</a>)</span> proposed another scaling methods to increase the ion and electron mass-to-charge ratios by a kinetic scaling factor <span class="math inline">\(f\)</span> while keeping the MHD quantities, the mass densities <span class="math inline">\(\rho_e\)</span> and <span class="math inline">\(\rho_i\)</span>, the pressures <span class="math inline">\(p_e\)</span> and <span class="math inline">\(p_i\)</span>, the bulk velocities <span class="math inline">\(u_e\)</span> and <span class="math inline">\(u_i\)</span>, the magnetic field B, and the various constants <span class="math inline">\(\epsilon_0, \mu_0\)</span>, and c unchanged. A nice property of this scaling method is that the characteristic speeds (bulk velocity, thermal velocity, Alfvén speed) are not modified; in other words, this <em>kinetic scaling</em> has no effect on ideal/resistive MHD. A direct implication of this scaling is the solution on the kinetic scales is similar for different values of f, but the spatial and temporal scales are proportional to f.</p>
 </section>
-<section id="computational-cost" class="level2" data-number="29.3">
-<h2 data-number="29.3" class="anchored" data-anchor-id="computational-cost"><span class="header-section-number">29.3</span> Computational Cost</h2>
+<section id="numerical-heating-and-thermalization" class="level2" data-number="29.3">
+<h2 data-number="29.3" class="anchored" data-anchor-id="numerical-heating-and-thermalization"><span class="header-section-number">29.3</span> Numerical Heating and Thermalization</h2>
+<p>Both <em>numerical heating</em> and <em>numerical thermalization</em> are artifacts that can arise in PIC simulations, but they represent different phenomena. Note that “heating” is a general word: in fact, for implicit PIC schemes numerical cooling happens more often.</p>
+<ul>
+<li>Numerical Heating:
+<ul>
+<li>Mechanism: This refers to the spurious increase in the overall kinetic energy of the system due to discretization errors. It often arises from the interaction of particles with the electric and magnetic fields that are defined on a grid. The finite grid size and time step can lead to inaccuracies in the force calculation, causing particles to gain energy artificially. &nbsp;</li>
+<li>Effect: Leads to an unphysical increase in the plasma temperature over time. This can affect the stability of the simulation and lead to inaccurate results. &nbsp;</li>
+<li>Example: Imagine a particle accelerating in an electric field. In a real plasma, the particle would gain energy smoothly. However, in a PIC simulation, the particle might “jump” over grid points, leading to a slightly higher energy gain than expected.</li>
+</ul></li>
+<li>Numerical Thermalization:
+<ul>
+<li>Mechanism: This is a more subtle effect related to the artificial relaxation of the velocity distribution function (VDF) towards a Maxwellian distribution. It is caused by the “numerical collisions” between macroparticles due to their finite size and the grid. Even if the total energy is conserved, the way this energy is distributed among the particles can be artificially altered. &nbsp;</li>
+<li>Effect: Drives the system towards an artificial thermal equilibrium, even if the real plasma would not reach such a state. This can mask kinetic effects and lead to incorrect predictions of transport properties.</li>
+<li>Example: Consider a beam of electrons injected into a plasma. In reality, this beam might persist for a long time. However, in a PIC simulation, numerical collisions can cause the beam to spread out and lose its distinct identity much faster than expected.</li>
+</ul></li>
+</ul>
+<p>Key Differences:</p>
+<ul>
+<li>Energy Conservation: Numerical heating violates energy conservation, while numerical thermalization can occur even when energy is conserved.</li>
+<li>Timescale: Numerical heating often occurs on faster timescales compared to numerical thermalization.</li>
+<li>Distribution Function: Numerical heating primarily affects the average energy, while numerical thermalization modifies the shape of the distribution function.</li>
+</ul>
+<p>Mitigation Strategies:</p>
+<ul>
+<li>Increasing the number of macroparticles: This reduces the graininess of the simulation and the impact of numerical collisions. &nbsp; Refining the grid: A smaller grid size improves the accuracy of field calculations and reduces discretization errors.</li>
+<li>Employing higher-order shape functions: These provide a more accurate representation of the charge density and reduce numerical heating.</li>
+<li>Using advanced PIC algorithms: Some algorithms are designed to conserve energy or momentum more accurately, reducing numerical artifacts.</li>
+</ul>
+</section>
+<section id="computational-cost" class="level2" data-number="29.4">
+<h2 data-number="29.4" class="anchored" data-anchor-id="computational-cost"><span class="header-section-number">29.4</span> Computational Cost</h2>
 <p>The key feature that makes PIC more feasible than the brute-force nbody method is the reduction of computational cost. Given <span class="math inline">\(N\)</span> macro-particles in the system, a brute force method has a complexity of <span class="math inline">\(\mathcal{O}(N^2)\)</span>, and a PIC method has <span class="math inline">\(\mathcal{O}(N\log N)\)</span>. A rough idea how this is possible can be obtained by ignoring the pair interactions and consider collective effects especially for those particles at a large distance.</p>
 <p>A commonly used trick is to introduce a reduced ion-to-electron mass ratio. In a 3D simulation, the cost scales with <span class="math inline">\((m_i/m_e)^3\)</span>. However, note that in low mass ratio runs (e.g.&nbsp;<span class="math inline">\(m_i/m_e=25\)</span>), the thermal speed of the electrons may be comparable to the Alfvén speed which causes higher wave decay through Landau damping on the electrons.</p>
 </section>
-<section id="sec-delta_f" class="level2" data-number="29.4">
-<h2 data-number="29.4" class="anchored" data-anchor-id="sec-delta_f"><span class="header-section-number">29.4</span> δf Method</h2>
-<p>Consider the growth rate of a single unstable wave in a 1D-1V Vlasov-Poisson system of plasma. The energy conservation leads to</p>
-<p><span class="math display">\[
+<section id="sec-delta_f" class="level2" data-number="29.5">
+<h2 data-number="29.5" class="anchored" data-anchor-id="sec-delta_f"><span class="header-section-number">29.5</span> δf Method</h2>
+<p>Consider the growth rate of a single unstable wave in a 1D-1V Vlasov-Poisson system of plasma. The energy conservation leads to <span class="math display">\[
 \frac{\mathrm{d}}{dt}\Big(\frac{\epsilon_0}{2}E(x)^2\Big) + \int q v E(x)f(x,v)dv = 0
 \]</span></p>
-<p>For a single mode <span class="math inline">\(E(x,t) = A(t)\sin(kx-\omega t)\)</span>, the growth rate is</p>
-<p><span class="math display">\[
+<p>For a single mode <span class="math inline">\(E(x,t) = A(t)\sin(kx-\omega t)\)</span>, the growth rate is <span class="math display">\[
 \gamma = \frac{1}{A}\frac{\mathrm{d}A}{\mathrm{d}t} = -\int qvEfdv = -\sum_j q_j w_j E(x_j)
-\]</span></p>
-<p>where <span class="math inline">\(w_j\)</span> is the particle weight. All kinetic information lies in the marker particle position distribution.</p>
-<p>The idea of <span class="math inline">\(\delta-f\)</span> method is to decompose the total distribution function into two parts,</p>
-<p><span class="math display">\[
+\]</span> where <span class="math inline">\(w_j\)</span> is the particle weight. All kinetic information lies in the marker particle position distribution.</p>
+<p>The idea of <span class="math inline">\(\delta-f\)</span> method is to decompose the total distribution function into two parts, <span class="math display">\[
 f = f_0 + \delta f,\quad |\delta f|\ll f_0
-\]</span></p>
-<p>and let the particle weight be proportional to the perturbation part,</p>
-<p><span class="math display">\[
+\]</span> and let the particle weight be proportional to the perturbation part, <span class="math display">\[
 w\propto \delta f,\quad w_j = \frac{\delta f(x_j, v_j)}{f(x_j, v_j)}
 \]</span></p>
-<p>If the contribution from <span class="math inline">\(f_0\)</span> is known, for example</p>
-<p><span class="math display">\[
+<p>If the contribution from <span class="math inline">\(f_0\)</span> is known, for example <span class="math display">\[
 \int qvE f_0 dv = \int qvf_0(v) A \sin(kx-\omega t)dv = 0
-\]</span></p>
-<p>then the growth rate can be written as</p>
-<p><span class="math display">\[
+\]</span> then the growth rate can be written as <span class="math display">\[
 \gamma = -\int qvE\delta f dv = -\int qvE\frac{\delta f}{f}f dv = \sum_j q_j v_j w_j E(x_j)
 \]</span></p>
 <p>Since now the particle weight is proportional to <span class="math inline">\(\delta f/f\)</span>, the system noise would be significantly reduced by <span class="math inline">\((\delta f/f)^2\)</span>; in other words, for the same noise level the number of macro-particles required would be reduced by <span class="math inline">\((\delta f/f)^2\)</span>, which is typically <span class="math inline">\(\mathcal{O}(10^6)\)</span>. Of course this requires the prior assumption <span class="math inline">\(|\delta f| \ll f\)</span> to be valid.</p>
