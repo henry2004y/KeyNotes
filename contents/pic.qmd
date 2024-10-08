@@ -40,7 +40,6 @@ Common scales to characterize the plasma system:
 $$
 d_i = \sqrt{\frac{m_i}{n_i q_i^2 \mu_0}} = \frac{m_i}{q_i}\sqrt{\frac{1}{\rho_i \mu_0}}
 $$
-
 and the ion gyroradius
 $$
 r_i = \frac{m_i v_{\mathrm{th},i}}{q_i B} = \frac{m_i}{q_i}\frac{\sqrt{p_i/\rho_i}}{B}
@@ -65,6 +64,33 @@ For quasi-neutral plasmas, $n_i = n_e \rightarrow \rho_i/\rho_e = m_i/m_e$, $q_i
 
 @toth2017scaling proposed another scaling methods to increase the ion and electron mass-to-charge ratios by a kinetic scaling factor $f$ while keeping the MHD quantities, the mass densities $\rho_e$ and $\rho_i$, the pressures $p_e$ and $p_i$, the bulk velocities $u_e$ and $u_i$, the magnetic field B, and the various constants $\epsilon_0, \mu_0$, and c unchanged. A nice property of this scaling method is that the characteristic speeds (bulk velocity, thermal velocity, Alfvén speed) are not modified; in other words, this _kinetic scaling_ has no effect on ideal/resistive MHD. A direct implication of this scaling is the solution on the kinetic scales is similar for different values of f, but the spatial and temporal scales are proportional to f.
 
+## Numerical Heating and Thermalization
+
+Both *numerical heating* and *numerical thermalization* are artifacts that can arise in PIC simulations, but they represent different phenomena. Note that "heating" is a general word: in fact, for implicit PIC schemes numerical cooling happens more often.
+
+* Numerical Heating:
+  * Mechanism: This refers to the spurious increase in the overall kinetic energy of the system due to discretization errors. It often arises from the interaction of particles with the electric and magnetic fields that are defined on a grid. The finite grid size and time step can lead to inaccuracies in the force calculation, causing particles to gain energy artificially.   
+  * Effect: Leads to an unphysical increase in the plasma temperature over time. This can affect the stability of the simulation and lead to inaccurate results.   
+  * Example: Imagine a particle accelerating in an electric field. In a real plasma, the particle would gain energy smoothly. However, in a PIC simulation, the particle might "jump" over grid points, leading to a slightly higher energy gain than expected.
+
+* Numerical Thermalization:
+  * Mechanism: This is a more subtle effect related to the artificial relaxation of the velocity distribution function (VDF) towards a Maxwellian distribution. It is caused by the "numerical collisions" between macroparticles due to their finite size and the grid. Even if the total energy is conserved, the way this energy is distributed among the particles can be artificially altered.   
+  * Effect: Drives the system towards an artificial thermal equilibrium, even if the real plasma would not reach such a state. This can mask kinetic effects and lead to incorrect predictions of transport properties.
+  * Example: Consider a beam of electrons injected into a plasma. In reality, this beam might persist for a long time. However, in a PIC simulation, numerical collisions can cause the beam to spread out and lose its distinct identity much faster than expected.
+
+Key Differences:
+
+* Energy Conservation: Numerical heating violates energy conservation, while numerical thermalization can occur even when energy is conserved.
+* Timescale: Numerical heating often occurs on faster timescales compared to numerical thermalization.
+* Distribution Function: Numerical heating primarily affects the average energy, while numerical thermalization modifies the shape of the distribution function.
+
+Mitigation Strategies:
+
+* Increasing the number of macroparticles: This reduces the graininess of the simulation and the impact of numerical collisions.   
+Refining the grid: A smaller grid size improves the accuracy of field calculations and reduces discretization errors.
+* Employing higher-order shape functions: These provide a more accurate representation of the charge density and reduce numerical heating.
+* Using advanced PIC algorithms: Some algorithms are designed to conserve energy or momentum more accurately, reducing numerical artifacts.
+
 ## Computational Cost
 
 The key feature that makes PIC more feasible than the brute-force nbody method is the reduction of computational cost. Given $N$ macro-particles in the system, a brute force method has a complexity of $\mathcal{O}(N^2)$, and a PIC method has $\mathcal{O}(N\log N)$. A rough idea how this is possible can be obtained by ignoring the pair interactions and consider collective effects especially for those particles at a large distance.
@@ -74,39 +100,30 @@ A commonly used trick is to introduce a reduced ion-to-electron mass ratio. In a
 ## δf Method {#sec-delta_f}
 
 Consider the growth rate of a single unstable wave in a 1D-1V Vlasov-Poisson system of plasma. The energy conservation leads to
-
 $$
 \frac{\mathrm{d}}{dt}\Big(\frac{\epsilon_0}{2}E(x)^2\Big) + \int q v E(x)f(x,v)dv = 0
 $$
 
 For a single mode $E(x,t) = A(t)\sin(kx-\omega t)$, the growth rate is
-
 $$
 \gamma = \frac{1}{A}\frac{\mathrm{d}A}{\mathrm{d}t} = -\int qvEfdv = -\sum_j q_j w_j E(x_j)
 $$
-
 where $w_j$ is the particle weight. All kinetic information lies in the marker particle position distribution.
 
 The idea of $\delta-f$ method is to decompose the total distribution function into two parts,
-
 $$
 f = f_0 + \delta f,\quad |\delta f|\ll f_0
 $$
-
 and let the particle weight be proportional to the perturbation part,
-
 $$
 w\propto \delta f,\quad w_j = \frac{\delta f(x_j, v_j)}{f(x_j, v_j)}
 $$
 
 If the contribution from $f_0$ is known, for example
-
 $$
 \int qvE f_0 dv = \int qvf_0(v) A \sin(kx-\omega t)dv = 0
 $$
-
 then the growth rate can be written as
-
 $$
 \gamma = -\int qvE\delta f dv = -\int qvE\frac{\delta f}{f}f dv = \sum_j q_j v_j w_j E(x_j)
 $$
