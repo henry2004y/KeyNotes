@@ -13,7 +13,7 @@ Nonlinear phenomena can be grouped into three broad categories:
 
 2. _Wave-particle interactions_.
   * Particle trapping can lead to nonlinear damping (@sec-landau_damping).
-  * A classic example is the quasilinear effect, in which the equilibrium of the plasma is changed by the waves. Consider the case of a plasma with an electron beam (Fig.8-1). Since the distribution function has a region where $df_0/dv$ is positive, the system has inverse Landau damping, and plasma oscillations with $v_\phi$ in the positive-slope region are unstable (@eq-landau). The resonant electrons are the first to be affected by wave-particle interactions, and their distribution function will be changed by the wave electric field. The waves are stabilized when $f_e(v)$ is flattened by the waves, as shown by the dashed line in Fig.8-1 @fig-unstable-f, so tha the new equilibrium distribution no longer has a positive slope.
+  * A classic example is the quasilinear effect, in which the equilibrium of the plasma is changed by the waves. Consider the case of a plasma with an electron beam (Fig.8-1). Since the distribution function has a region where $df_0/dv$ is positive, the system has inverse Landau damping, and plasma oscillations with $v_\phi$ in the positive-slope region are unstable (@eq-landau). The resonant electrons are the first to be affected by wave-particle interactions, and their distribution function will be changed by the wave electric field. The waves are stabilized when $f_e(v)$ is flattened by the waves, as shown by the dashed line in Fig.8-1 @fig-unstable-f, so that the new equilibrium distribution no longer has a positive slope.
   * Plasma wave echoes (@sec-echo).
 
 ::: {.content-visible unless-format="pdf"}
@@ -48,7 +48,6 @@ In all practical plasma devices, the plasma is contained in a vacuum chamber of 
 Recall that the Debye length is derived from linearing Poisson's equation. To examine the exact behavior of $\phi(x)$ in the sheath, we must treat the nonlinear problem: we shall find that there is not always a solution. @fig-sheath-potential shows the situation near one of the walls. At the plane $x=0$, ions are imagined to enter the sheath region from the main plasma with a drift velocity $u_0$. This drift is needed to accout for the loss of ions to the wall from the region in which they were created by ionization. For simplicity, we assume $T_i=0$, so that all ions have the velocity $u_0$ at $x=0$. We consider the steady state problem in a collisionless sheath region. The potential $\phi$ is assumed to decrease monotonically with $x$. Actually, $\phi$ could have spatial oscillations, and then there would be trapped particles in the steady state. This does not happend in practice because dissipative processes tend to destroy any such highly organized state.
 
 If $u(x)$ is the ion velocity, conservation of energy requires
-
 $$
 \begin{aligned}
 \frac{1}{2}mu^2 = \frac{1}{2}mu_0^2 - e\phi(x) \\
@@ -57,7 +56,6 @@ u = \Big( u_0^2 - \frac{2e\phi}{m_i} \Big)^{1/2}
 $$ {#eq-sheath_u}
 
 The ion equation of continuity then gives the ion density $n_i$ in terms of the density $n_0$ in the main plasma:
-
 $$
 \begin{aligned}
 n_0 u_0 &= n_i(x) u(x) \\
@@ -66,47 +64,38 @@ n_i(x) &= n_0 \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{1/2}
 $$ {#eq-sheath_n}
 
 In steady state, the electrons will follow the Boltzmann relation closely,
-
 $$
 n_e(x) = n_0 \exp(e\phi/k_B T_e)
 $$
 
 Poisson's equation is then
-
 $$
 \epsilon_0\frac{\mathrm{d}^2\phi}{\mathrm{d}x^2} = e(n_e - n_i) = en_0\Big[ \exp\Big( \frac{e\phi}{k_B T_e} \Big) - \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{1/2} \Big]
 $$ {#eq-sheath1}
 
 The structure of this equation can be seen more clearly if we simplify it with the following changes in notation:
-
 $$
 \chi\equiv -\frac{e\phi}{k_B T_e}\quad \xi\equiv\frac{x}{\lambda_D} = x\Big( \frac{n_0 e^2}{\epsilon_0 k_B T_e} \Big)^{1/2}\quad \mu\equiv\frac{u_0}{(k_B T_e/m_i)^{1/2}}
 $$
 
 Then it can be written as
-
 $$
 \chi^{\prime\prime} = \Big( 1+\frac{2\chi}{\mu^2} \Big)^{-1/2} - e^{-\chi}
 $$ {#eq-sheath2}
-
 where the prime denotes $\mathrm{d}/\mathrm{d}\xi$. This is the nonlinear equation of a plane sheath, and it has an acceptable solution only if $\mu$ is large enough. The reason for the symbol $\mu$ will become apparent in the following section on shock waves.
 
 ### The Bohm Sheath Criterion
 
 @eq-sheath2 can be integrated once by multiplying both sides by $\chi^\prime$:
-
 $$
 \int_0^\xi \chi^\prime \chi^{\prime\prime}\mathrm{d}\xi_1 = \int_0^\xi \Big( 1+\frac{2\chi}{\mu^2} \Big)^{-1/2} \chi^\prime \mathrm{d}\xi_1 - \int_0^\xi e^{-\chi} \chi^\prime \mathrm{d}\xi_1
 $$
-
 where $\xi_1$ is a dummy variable. Since $\chi=0$ at $\xi=0$, the integration easily yield
-
 $$
 \frac{1}{2}({\chi^\prime}^2 - {\chi_0^\prime}^2) = \mu^2 \Big[ \big(1 + \frac{2\chi}{\mu^2} \big)^{1/2} - 1 \Big] + e^{-\chi} -1
 $$ {#eq-sheath_int1}
 
 If $\mathbf{E}=0$ in the plasma, we must set $\chi_0^\prime=0$ at $\xi=0$. A second integration to find $\chi$ would have to be done numerically; but whatever the answer is, the right-hand side of @eq-sheath_int1 must be positive for all $\chi$. In particular, for $\chi\ll 1$, we can expand the right-hand terms in Taylor series:
-
 $$
 \begin{aligned}
 \mu^2 \Big[ 1+\frac{\chi}{\mu^2}-\frac{1}{2}\frac{\chi^2}{\mu^4}+ ... -1 \Big] + 1-\chi+\frac{1}{2}\chi^2+...-1 > 0 \\
@@ -128,19 +117,15 @@ The physical reason for the Bohm criterion is easily seen from a plot of the ion
 ### The Child-Langmuir Law
 
 Since $n_e(\chi)$ falls exponentially with $\chi$, the electron density can be neglected in the region of large $\chi$ next to the wall (or any negative electrode). Poisson's equation is then approximately
-
 $$
 \chi^{\prime\prime} \approx \Big( 1+\frac{2\chi}{\mu^2} \Big)^{-1/2} \approx \frac{\mu}{(2\chi)^{1/2}}
 $$
 
 Multiplying by $\chi^\prime$ and integrating from $\xi_1=\xi_s$ to $\xi_1=\xi$, we have
-
 $$
 \frac{1}{2}({\chi^\prime}^2 - {\chi_s^\prime}^2) = \sqrt{2}\mu(\chi^{1/2} - \chi_s^{1/2})
 $$
-
 where $\xi_s$ is the place where we started neglecting $n_e$. We can redefine the zero of $\chi$ so that $\chi_s=1$ at $\xi=\xi_s$. We shall also neglect $\chi_s^\prime$, since the slope of the potential curve can be expected to be much steeper in the $n_e=0$ region than in the finite-$n_e$ region. Then the above equation becomes
-
 $$
 \begin{aligned}
 {\chi^\prime}^2 &= 2^{3/2}\mu\chi^{1/2} \\
@@ -150,19 +135,15 @@ $$
 $$
 
 Integrating from $\xi=\xi_s$ to $\xi=\xi_s+\mathrm{d}/\lambda_D = \xi_{\text{wall}}$, we have
-
 $$
 \frac{4}{3}\chi_w^{3/4} = 2^{3/4}\mu^{1/2}\mathrm{d}/\lambda_D
 $$
-
 or
-
 $$
 \mu = \frac{4\sqrt{2}}{9}\frac{\chi_w^{3/2}}{\mathrm{d}^2}\lambda_D^2
 $$
 
 Changing back to the variables $u_0$ and $\phi$, and noting that the ion current into the wall is $J=en_0u_0$, we then find
-
 $$
 J = \frac{4}{9}\Big( \frac{2e}{m_i} \Big)^{1/2} \frac{\epsilon_0|\phi_w|^{3/2}}{\mathrm{d}^2}
 $$ {#eq-child_langmuir}
@@ -174,25 +155,20 @@ The potential variation in a plasma-wall system can be divided into three parts.
 ### Electrostatic Probes
 
 The sheath criterion @eq-sheath_bohm can be used to estimate the flux of ions to a negatively biased probe in a plasma. If the probe has a surface area $A$, and if the ions entering the sheath have a drift velocity $u_0\ge (k_B T_e/m_i)^{1/2}$, then the ion current collected is
-
 $$
 I = n_s e A(k_B T_e/m_i)^{1/2}
 $$
 
 The electron current can be neglected if the probe is sufficiently negative (several times $k_B T_e$) relative to the plasma to repel all but the tail of the Maxwellian electron distribution. The density $n_s$ is the plasma density at the edge of the sheath. Let us define the sheath edge to be the place where $u_0$ is exactly $(k_B T_e/m_i)^{1/2}$. To accelerate ions to this velocity requires a presheath potential $|\phi|\ge\frac{1}{2}k_B T_e/e$, so that the sheath edge has a potential
-
 $$
 \phi_s \simeq -\frac{1}{2}k_B T_e/e
 $$
-
 relative to the body of the plasma. If the electrons are Maxwellian, this determines $n_s$:
-
 $$
 n_s = n_0 e^{e\phi_s/k_BT_e} = n_0 e^{-1/2} \approx 0.61 n_0
 $$
 
 For our purposes it is accurate enough to replace 0.61 with a round number like 1/2; thus, the "saturation ion current" to a negative probe is approximately
-
 $$
 I_B \simeq \frac{1}{2}n_0 e A (k_B T_e/m_i)^{1/2}
 $$
@@ -218,45 +194,37 @@ When a jet travels faster than sound, it creates a shock wave. This is a basical
 :::
 
 @fig-shock-potential shows the idealized potential profile of an ion acoustic shock wave. The reason for this shape will be given presently. The wave is traveling to the left with a velocity $u_0$. If we go to the frame moving with the wave, the function $\phi(x)$ will be constant in time, and we will see a stream of plasma impinging on the wave from the left with a velocity $u_0$. For simplicity, let $T_i$ be zero, so that all the ions are incident with the same velocity $u_0$, and let hte electrons be Maxwellian. Since the shock moves much more slowly than the electron thermal speed, the shift in the center velocity of the Maxwellian can be neglected. The velocity of the ions in the shock wave is, from energy conservation,
-
 $$
 u = \Big( u_0^2 - \frac{2e\phi}{m_i} \Big)^{1/2}
 $$
 
 If $n_0$ is the density of the undisturbed plasma, the ion density in the shock is
-
 $$
 n_i = \frac{n_0 u_0}{u} = n_0 \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{-1/2}
 $$
 
 The electron density is given by the Boltzmann relation. Poisson's equation then gives
-
 $$
 \epsilon_0\frac{\mathrm{d}^2\phi}{\mathrm{d}x^2} = e(n_e - n_i) = en_0\Big[ \exp\Big( \frac{e\phi}{k_B T_e} \Big) - \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{1/2} \Big]
 $$
 
 This is, of course, the same @eq-sheath1 as we had for a sheath. A shock wave is no more than a sheath moving through a plasma. We now introduce the dimensionless variables
-
 $$
 \chi\equiv \frac{e\phi}{k_B T_e}\quad \xi\equiv\frac{x}{\lambda_D} = x\Big( \frac{n_0 e^2}{\epsilon_0 k_B T_e} \Big)^{1/2}\quad \mu\equiv\frac{u_0}{(k_B T_e/m_i)^{1/2}}
 $$
 
 Note that we have changed the sign in the definition of $\chi$ so as to keep $\chi$ positive in this problem. The quantity $\mu$ is called the _Mach number_ of the shock. Poisson's equation can now be written
-
 $$
 \chi^{\prime\prime} = e^{\chi} - \Big( 1 - \frac{2\chi}{\mu^2} \Big)^{-1/2} = -\frac{dV(\chi)}{\mathrm{d}\chi}
 $$ {#eq-sheath3}
-
 which differs from the sheath @eq-sheath2 only because of the change in sign of $\chi$.
 
 The behavior of the solution of @eq-sheath3 was made clear by R. Z. Sagdeev, who used an analogy to an oscillator in a potential well. The displacement $x$ of an oscillator subjected to a force $-mdV(x)/\mathrm{d}x$ is given by
-
 $$
 \ddot{x} = -dV/\mathrm{d}x
 $$
 
 If the right-hand side of @eq-sheath3 is defined as $-dV/\mathrm{d}x$, the equation is the same as that of an oscillator, with the potential $\chi$ playing the role of $\chi$, and $\mathrm{d}/\mathrm{d}\xi$ replacing $\mathrm{d}/\mathrm{d}t$. The quasipotential $V(\chi)$ is sometimes called the Sagdeev potential. The function $V(x)$ can be found from @eq-sheath3 by integration with the boundary condition $V(\chi)=0$ at $\chi=0$:
-
 $$
 V(\chi) = 1-e^\chi + \mu^2 \Big[ 1 - \Big( 1-\frac{2\chi}{\mu^2} \Big)^{1/2} \Big]
 $$ {#eq-sagdeev_potential}
@@ -272,17 +240,14 @@ For $\mu$ lying in a certain range, this function has the shape shown in @fig-sh
 :::
 
 Now, if a particle suffers a loss of energy while in the well, it will never return to $x=0$ but will oscillate (in time) about some positive value of $x$. Similarly, a little dissipation will make the potential of a shock wave oscillate (in space) about some positive value of $\phi$. This is exactly the behavoir depicted in @fig-shock-potential. Actually, dissipation is not needed for this: reflection of ions from the shock front has the same effect. To understand this, imagine that the ions have a small thermal spread in energy and that the height $e\phi$ of the wave front is just large enough to reflect some of the ions back to the left, while the rest go over the potential hill to the right. The reflected ions cause an increase in ion density in the upstream region to the left of the shock front (@fig-shock-potential). This means that the quantity
-
 $$
 \chi^\prime = \frac{1}{n_0}\int_0^\xi (n_e - n_i)\mathrm{d}\xi_1
 $$
-
 is decreased. Since $\chi^\prime$ is the analog of $\mathrm{d}x/\mathrm{d}t$ in the oscillator problem, our virtual oscillator has lost velocity and is trapped in the potential well of @fig-shock-quasipotential.
 
 ### The Critical Mach Numbers
 
 Solutions of either the soliton type or the wave-train type exist only for a range of $\mu$. A lower limit for $\mu$ is given by the condition that $V(\chi)$ be a potential well, rather than a hill. Expanding @eq-sagdeev_potential for $\chi\ll 1$ yields
-
 $$
 \mu^2 > 1 \quad u_0>(k_BT_e/m_i)^{1/2}
 $$
@@ -290,13 +255,10 @@ $$
 This is exactly the same, both physically and mathematically, as the Bohm criterion for the existence of a sheath (@eq-sheath_bohm).
 
 An upper limit to $\mu$ is imposed by the condition that the function $V(\chi)$ of @fig-shock-quasipotential must cross the $\chi$ axis for $\chi>0$; otherwise, the virtual particle will not be reflected, and the potential will rise indefinitely. From @eq-sagdeev_potential, we require
-
 $$
 e^\chi - 1 < \mu^2 \Big[ 1- \big( 1-\frac{2\chi}{\mu^2} \Big)^{1/2} \Big]
 $$
-
 for some $\chi>0$. If the lower critical Mach number is surpassed ($\mu>1$), the left-and side, representing the integral of the electron density from zero to $\chi$, is initially larger than the right-hand side, representing the integral of the ion density. As $\chi$ increases, the right-hand side can catch up with the left-hand side if $\mu^2$ is not too large. However, because of the square root, the largest value $\chi$ can have is $\mu^2/2$. This is because $e\phi$ cannot exceed $\frac{1}{2}m_iu_0^2$; otherwise, ions would be excluded from the plasma in the downstream region. Inserting the largest value of $\chi$ into the above equation, we have
-
 $$
 \exp(\mu^2/2) - 1 < \mu \quad\text{or}\quad \mu < 1.6
 $$
@@ -314,11 +276,9 @@ As in the case of sheaths, the physical situation is best explained by a diagram
 ### Wave Steepening
 
 If one propagates an ion wave in a cold-ion plasma, it will have the phase velocity given by
-
 $$
 v_p = \Big( \frac{k_B T_e + \gamma_i k_B T_i}{m_i} \Big)^{1/2} = \Big( \frac{k_B T_e}{m_i} \Big)^{1/2}
 $$
-
 corresponding to $\mu=1$. How, then, can one create shocks with $\mu>1$? One must remember that the above phase velocity was a linear result valid only at small amplitudes. As the amplitude is increased, an ion wave speeds up and also changes from a sine wave to a sawtooth shape with a steep leading edge (@fig-wave-steepening). The reason is that the wave electric field has accelerated the ions. In @fig-wave-steepening, ions at the peak of the potential distribution have a large velocity in the direction of $v_\phi$ than those at the trough, since they have just experienced a period of acceleration as the wave passed by. In linear theory, this difference in velocity is taken into account, but not the displacement resulting from it.  In nonlinear theory, it is easy to see that the ions at the peak are shifted to the right, while those at the trough are shifted to the left, thus steepening the wave shape. Since the density perturbation is in pahse with the potential, more ions are accelerated to the right than to the left, and the wave causes a net mass flow in the direction of propagation. This causes the wave velocity to exceed the acoustic speed in the undisturbed plasma, so that $\mu$ is larger than unity.
 
 ::: {.content-visible unless-format="pdf"}
@@ -336,19 +296,15 @@ A phenomenon related to sheaths and ion acoustic shocks is that of the [double l
 Light waves exert a radiation pressure which is usually very weak and hard to detect. Even the esoteric example of comet tails, formed by the pressure of sunlight, is tainted by the added effect of particles streaming from the sun. When high-powered microwaves or laser beams are used to heat or confine plasmas, however, the radiation pressure can reach several hundred thousand atmospheres! When applied to a plasma, this force is coupled to the particles in a somewhat subtle way and is called the _ponderomotive force_. Many nonlinear phenomena have a simple explanation in terms of the ponderomotive force.
 
 The easiest way to derive this nonlinear force is to consider the motion of an electron in the oscillating $\mathbf{E}$ and $\mathbf{B}$ fields of a wave. We neglect dc $\mathbf{E}_0$ and $\mathbf{B}_0$ fields. The electron equation of motion is
-
 $$
 m\dot{\mathbf{v}} = -e[\mathbf{E}(\mathbf{r}) + \mathbf{v}\times\mathbf{B}(\mathbf{r})]
 $$
 
 This equation is exact if $\mathbf{E}$ and $\mathbf{B}$ are evaluated at the instantaneous position of the electron. The nonlinearity comes partly from the $\mathbf{v}\times\mathbf{B}$, which is second order because both $\mathbf{v}$ and $\mathbf{B}$ vanish in the equilibrium, so that the term is no larger than $\mathbf{v}_1\times\mathbf{B}_1$, where $\mathbf{v}_1$ and $\mathbf{B}_1$ are the linear-theory values. The other part of the nonlinearity, as we shall see, comes from evaluating $\mathbf{E}$ at the actual position of the particle rather than its initial position. Assume a wave electric field of the form
-
 $$
 \mathbf{E} = \mathbf{E}_s(\mathbf{r})\cos\omega t
 $$
-
 where $\mathbf{E}_s(\mathbf{r})$ contains the spatial dependence. In first order, we may neglect the $\mathbf{v}\times\mathbf{B}$ term in the equation of motion and evaluate $\mathbf{E}$ at the initial position $\mathbf{r}_0$. We have
-
 $$
 \begin{aligned}
 m\dot{\mathbf{v}}_1 &=  -e\mathbf{E}(\mathbf{r}_0)\\
@@ -360,13 +316,11 @@ $$
 It is important to note that _in a nonlinear calculation, we cannot write $e^{i\omega t}$ and takes its real part later._ Instead, we write its real part explicitly as $\cos\omega t$. This is because products of oscillating factors appera in nonlinear theory, and the operations of multiplying and taking the real part do not commute.
 
 Going to second order, we expand $\mathbf{E}(\mathbf{r})$ about $\mathbf{r}_0$:
-
 $$
 \mathbf{E}(\mathbf{r}) = \mathbf{E}(\mathbf{r}_0) + (\delta\mathbf{r}_0\cdot\nabla)\mathbf{E}|_{r=r_0} + ...
 $$
 
 We must now add the term $\mathbf{v}_1\times\mathbf{B}_1$, where $\mathbf{B}_1$ is given by Maxwell's equation:
-
 $$
 \begin{aligned}
 \nabla\times\mathbf{E} &= -\dot{\mathbf{B}} \\
@@ -375,13 +329,11 @@ $$
 $$
 
 The second-order part of the equation of motion is then
-
 $$
 m\dot{\mathbf{v}}_2 = -e[(\delta\mathbf{r}_1\cdot\nabla)\mathbf{E}+\mathbf{v}_1\times\mathbf{B}_1]
 $$
 
 Inserting the expressions of $\mathbf{v}_1,\delta\mathbf{r}_1$ and $\mathbf{B}_1$ into the above and averaging over time, we have
-
 $$
 m\left< \frac{\mathrm{d}\mathbf{v}_2}{\mathrm{d}t}\right> = -\frac{e^2}{m\omega^2}\frac{1}{2}[(\mathbf{E}_s\cdot\nabla)\mathbf{E}_s + \mathbf{E}_s\times(\nabla\times\mathbf{E}_s)] = \mathbf{f}_{NL}
 $$ {#eq-motion_e_2nd}
@@ -389,13 +341,11 @@ $$ {#eq-motion_e_2nd}
 Here we have used $\left<\sin^2\omega t\right> = \left<\cos^2\omega t\right>=\frac{1}{2}$. The double cross product can be written as the sum of two terms, one of which cancels the $(\mathbf{E}_s\cdot\nabla)\mathbf{E}_s$ term.
 
 What remains is
-
 $$
 \mathbf{f}_{NL} = -\frac{1}{4}\frac{e^2}{m\omega^2}\nabla E_s^2
 $$
 
 This is the effective nonlinear force on a single electron. The force per $m^3$ is $\mathbf{f}_{NL}$ times the electron density $n_0$, which can be written in terms of $\omega_p^2$. Since $E_s^2 = 2\left<E^2\right>$, we finally have for the ponderomotive force the formula
-
 $$
 \mathbf{F}_{NL} = -\frac{\omega_p^2}{\omega^2}\nabla\frac{\left<\epsilon_0 E^2\right>}{2}
 $$ {#eq-ponderomotive}
@@ -405,13 +355,11 @@ If the wave is electromagnetic, the second term in @eq-motion_e_2nd is dominant,
 If the wave is electrostatic, the first term in @eq-motion_e_2nd is dominant. Then the physical mechanism is simply that an electron oscillating along $\mathbf{k}\parallel\mathbf{E}$ moves farther in the half-cycle when it is moving from a strong-field region to a weak-field region than vice versa, so there is a net drift.
 
 Although $\mathbf{F}_{NL}$ acts mainly on the electrons, the force is ultimately transmitted to the ions, since it is a low-frequency or dc effect. When electrons are bunched by $\mathbf{F}_{NL}$, a charge-separation field $\mathbf{E}_{cs}$ is created. The total force felt by the electrons is
-
 $$
 \mathbf{F}_e = -e\mathbf{E}_{cs} + \mathbf{F}_{NL}
 $$
 
 Since the ponderomotive force on the ions is smaller by $\Omega_p^2/\omega_p^2 = m_e/m_i$, the force on the ion fluid is approximately
-
 $$
 \mathbf{F}_i = e\mathbf{E}_{cs}
 $$
