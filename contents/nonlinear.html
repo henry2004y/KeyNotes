@@ -445,7 +445,7 @@ window.Quarto = {
 </ol>
 <ul>
 <li>Particle trapping can lead to nonlinear damping (<a href="kinetic.html#sec-landau_damping" class="quarto-xref"><span>Section 12.6</span></a>).</li>
-<li>A classic example is the quasilinear effect, in which the equilibrium of the plasma is changed by the waves. Consider the case of a plasma with an electron beam (Fig.8-1). Since the distribution function has a region where <span class="math inline">\(df_0/dv\)</span> is positive, the system has inverse Landau damping, and plasma oscillations with <span class="math inline">\(v_\phi\)</span> in the positive-slope region are unstable (<a href="kinetic.html#eq-landau" class="quarto-xref">Equation&nbsp;<span>12.32</span></a>). The resonant electrons are the first to be affected by wave-particle interactions, and their distribution function will be changed by the wave electric field. The waves are stabilized when <span class="math inline">\(f_e(v)\)</span> is flattened by the waves, as shown by the dashed line in Fig.8-1 <a href="#fig-unstable-f" class="quarto-xref">Figure&nbsp;<span>17.1</span></a>, so tha the new equilibrium distribution no longer has a positive slope.</li>
+<li>A classic example is the quasilinear effect, in which the equilibrium of the plasma is changed by the waves. Consider the case of a plasma with an electron beam (Fig.8-1). Since the distribution function has a region where <span class="math inline">\(df_0/dv\)</span> is positive, the system has inverse Landau damping, and plasma oscillations with <span class="math inline">\(v_\phi\)</span> in the positive-slope region are unstable (<a href="kinetic.html#eq-landau" class="quarto-xref">Equation&nbsp;<span>12.32</span></a>). The resonant electrons are the first to be affected by wave-particle interactions, and their distribution function will be changed by the wave electric field. The waves are stabilized when <span class="math inline">\(f_e(v)\)</span> is flattened by the waves, as shown by the dashed line in Fig.8-1 <a href="#fig-unstable-f" class="quarto-xref">Figure&nbsp;<span>17.1</span></a>, so that the new equilibrium distribution no longer has a positive slope.</li>
 <li>Plasma wave echoes (<a href="#sec-echo" class="quarto-xref"><span>Section 17.5</span></a>).</li>
 </ul>
 <div id="fig-unstable-f" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -491,50 +491,39 @@ Figure&nbsp;17.3: The potential <span class="math inline">\(\phi\)</span> in a p
 </figure>
 </div>
 <p>Recall that the Debye length is derived from linearing Poisson’s equation. To examine the exact behavior of <span class="math inline">\(\phi(x)\)</span> in the sheath, we must treat the nonlinear problem: we shall find that there is not always a solution. <a href="#fig-sheath-potential" class="quarto-xref">Figure&nbsp;<span>17.3</span></a> shows the situation near one of the walls. At the plane <span class="math inline">\(x=0\)</span>, ions are imagined to enter the sheath region from the main plasma with a drift velocity <span class="math inline">\(u_0\)</span>. This drift is needed to accout for the loss of ions to the wall from the region in which they were created by ionization. For simplicity, we assume <span class="math inline">\(T_i=0\)</span>, so that all ions have the velocity <span class="math inline">\(u_0\)</span> at <span class="math inline">\(x=0\)</span>. We consider the steady state problem in a collisionless sheath region. The potential <span class="math inline">\(\phi\)</span> is assumed to decrease monotonically with <span class="math inline">\(x\)</span>. Actually, <span class="math inline">\(\phi\)</span> could have spatial oscillations, and then there would be trapped particles in the steady state. This does not happend in practice because dissipative processes tend to destroy any such highly organized state.</p>
-<p>If <span class="math inline">\(u(x)\)</span> is the ion velocity, conservation of energy requires</p>
-<p><span id="eq-sheath_u"><span class="math display">\[
+<p>If <span class="math inline">\(u(x)\)</span> is the ion velocity, conservation of energy requires <span id="eq-sheath_u"><span class="math display">\[
 \begin{aligned}
 \frac{1}{2}mu^2 = \frac{1}{2}mu_0^2 - e\phi(x) \\
 u = \Big( u_0^2 - \frac{2e\phi}{m_i} \Big)^{1/2}
 \end{aligned}
 \tag{17.1}\]</span></span></p>
-<p>The ion equation of continuity then gives the ion density <span class="math inline">\(n_i\)</span> in terms of the density <span class="math inline">\(n_0\)</span> in the main plasma:</p>
-<p><span id="eq-sheath_n"><span class="math display">\[
+<p>The ion equation of continuity then gives the ion density <span class="math inline">\(n_i\)</span> in terms of the density <span class="math inline">\(n_0\)</span> in the main plasma: <span id="eq-sheath_n"><span class="math display">\[
 \begin{aligned}
 n_0 u_0 &amp;= n_i(x) u(x) \\
 n_i(x) &amp;= n_0 \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{1/2}
 \end{aligned}
 \tag{17.2}\]</span></span></p>
-<p>In steady state, the electrons will follow the Boltzmann relation closely,</p>
-<p><span class="math display">\[
+<p>In steady state, the electrons will follow the Boltzmann relation closely, <span class="math display">\[
 n_e(x) = n_0 \exp(e\phi/k_B T_e)
 \]</span></p>
-<p>Poisson’s equation is then</p>
-<p><span id="eq-sheath1"><span class="math display">\[
+<p>Poisson’s equation is then <span id="eq-sheath1"><span class="math display">\[
 \epsilon_0\frac{\mathrm{d}^2\phi}{\mathrm{d}x^2} = e(n_e - n_i) = en_0\Big[ \exp\Big( \frac{e\phi}{k_B T_e} \Big) - \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{1/2} \Big]
 \tag{17.3}\]</span></span></p>
-<p>The structure of this equation can be seen more clearly if we simplify it with the following changes in notation:</p>
-<p><span class="math display">\[
+<p>The structure of this equation can be seen more clearly if we simplify it with the following changes in notation: <span class="math display">\[
 \chi\equiv -\frac{e\phi}{k_B T_e}\quad \xi\equiv\frac{x}{\lambda_D} = x\Big( \frac{n_0 e^2}{\epsilon_0 k_B T_e} \Big)^{1/2}\quad \mu\equiv\frac{u_0}{(k_B T_e/m_i)^{1/2}}
 \]</span></p>
-<p>Then it can be written as</p>
-<p><span id="eq-sheath2"><span class="math display">\[
+<p>Then it can be written as <span id="eq-sheath2"><span class="math display">\[
 \chi^{\prime\prime} = \Big( 1+\frac{2\chi}{\mu^2} \Big)^{-1/2} - e^{-\chi}
-\tag{17.4}\]</span></span></p>
-<p>where the prime denotes <span class="math inline">\(\mathrm{d}/\mathrm{d}\xi\)</span>. This is the nonlinear equation of a plane sheath, and it has an acceptable solution only if <span class="math inline">\(\mu\)</span> is large enough. The reason for the symbol <span class="math inline">\(\mu\)</span> will become apparent in the following section on shock waves.</p>
+\tag{17.4}\]</span></span> where the prime denotes <span class="math inline">\(\mathrm{d}/\mathrm{d}\xi\)</span>. This is the nonlinear equation of a plane sheath, and it has an acceptable solution only if <span class="math inline">\(\mu\)</span> is large enough. The reason for the symbol <span class="math inline">\(\mu\)</span> will become apparent in the following section on shock waves.</p>
 </section>
 <section id="the-bohm-sheath-criterion" class="level3" data-number="17.1.2">
 <h3 data-number="17.1.2" class="anchored" data-anchor-id="the-bohm-sheath-criterion"><span class="header-section-number">17.1.2</span> The Bohm Sheath Criterion</h3>
-<p><a href="#eq-sheath2" class="quarto-xref">Equation&nbsp;<span>17.4</span></a> can be integrated once by multiplying both sides by <span class="math inline">\(\chi^\prime\)</span>:</p>
-<p><span class="math display">\[
+<p><a href="#eq-sheath2" class="quarto-xref">Equation&nbsp;<span>17.4</span></a> can be integrated once by multiplying both sides by <span class="math inline">\(\chi^\prime\)</span>: <span class="math display">\[
 \int_0^\xi \chi^\prime \chi^{\prime\prime}\mathrm{d}\xi_1 = \int_0^\xi \Big( 1+\frac{2\chi}{\mu^2} \Big)^{-1/2} \chi^\prime \mathrm{d}\xi_1 - \int_0^\xi e^{-\chi} \chi^\prime \mathrm{d}\xi_1
-\]</span></p>
-<p>where <span class="math inline">\(\xi_1\)</span> is a dummy variable. Since <span class="math inline">\(\chi=0\)</span> at <span class="math inline">\(\xi=0\)</span>, the integration easily yield</p>
-<p><span id="eq-sheath_int1"><span class="math display">\[
+\]</span> where <span class="math inline">\(\xi_1\)</span> is a dummy variable. Since <span class="math inline">\(\chi=0\)</span> at <span class="math inline">\(\xi=0\)</span>, the integration easily yield <span id="eq-sheath_int1"><span class="math display">\[
 \frac{1}{2}({\chi^\prime}^2 - {\chi_0^\prime}^2) = \mu^2 \Big[ \big(1 + \frac{2\chi}{\mu^2} \big)^{1/2} - 1 \Big] + e^{-\chi} -1
 \tag{17.5}\]</span></span></p>
-<p>If <span class="math inline">\(\mathbf{E}=0\)</span> in the plasma, we must set <span class="math inline">\(\chi_0^\prime=0\)</span> at <span class="math inline">\(\xi=0\)</span>. A second integration to find <span class="math inline">\(\chi\)</span> would have to be done numerically; but whatever the answer is, the right-hand side of <a href="#eq-sheath_int1" class="quarto-xref">Equation&nbsp;<span>17.5</span></a> must be positive for all <span class="math inline">\(\chi\)</span>. In particular, for <span class="math inline">\(\chi\ll 1\)</span>, we can expand the right-hand terms in Taylor series:</p>
-<p><span id="eq-sheath_bohm"><span class="math display">\[
+<p>If <span class="math inline">\(\mathbf{E}=0\)</span> in the plasma, we must set <span class="math inline">\(\chi_0^\prime=0\)</span> at <span class="math inline">\(\xi=0\)</span>. A second integration to find <span class="math inline">\(\chi\)</span> would have to be done numerically; but whatever the answer is, the right-hand side of <a href="#eq-sheath_int1" class="quarto-xref">Equation&nbsp;<span>17.5</span></a> must be positive for all <span class="math inline">\(\chi\)</span>. In particular, for <span class="math inline">\(\chi\ll 1\)</span>, we can expand the right-hand terms in Taylor series: <span id="eq-sheath_bohm"><span class="math display">\[
 \begin{aligned}
 \mu^2 \Big[ 1+\frac{\chi}{\mu^2}-\frac{1}{2}\frac{\chi^2}{\mu^4}+ ... -1 \Big] + 1-\chi+\frac{1}{2}\chi^2+...-1 &gt; 0 \\
 \frac{1}{2}\chi^2 \Big( -\frac{1}{\mu^2} + 1\Big) &gt; 0 \\
@@ -556,32 +545,24 @@ Figure&nbsp;17.4: Variation of ion and electron density (logarithmic scale) with
 </section>
 <section id="the-child-langmuir-law" class="level3" data-number="17.1.3">
 <h3 data-number="17.1.3" class="anchored" data-anchor-id="the-child-langmuir-law"><span class="header-section-number">17.1.3</span> The Child-Langmuir Law</h3>
-<p>Since <span class="math inline">\(n_e(\chi)\)</span> falls exponentially with <span class="math inline">\(\chi\)</span>, the electron density can be neglected in the region of large <span class="math inline">\(\chi\)</span> next to the wall (or any negative electrode). Poisson’s equation is then approximately</p>
-<p><span class="math display">\[
+<p>Since <span class="math inline">\(n_e(\chi)\)</span> falls exponentially with <span class="math inline">\(\chi\)</span>, the electron density can be neglected in the region of large <span class="math inline">\(\chi\)</span> next to the wall (or any negative electrode). Poisson’s equation is then approximately <span class="math display">\[
 \chi^{\prime\prime} \approx \Big( 1+\frac{2\chi}{\mu^2} \Big)^{-1/2} \approx \frac{\mu}{(2\chi)^{1/2}}
 \]</span></p>
-<p>Multiplying by <span class="math inline">\(\chi^\prime\)</span> and integrating from <span class="math inline">\(\xi_1=\xi_s\)</span> to <span class="math inline">\(\xi_1=\xi\)</span>, we have</p>
-<p><span class="math display">\[
+<p>Multiplying by <span class="math inline">\(\chi^\prime\)</span> and integrating from <span class="math inline">\(\xi_1=\xi_s\)</span> to <span class="math inline">\(\xi_1=\xi\)</span>, we have <span class="math display">\[
 \frac{1}{2}({\chi^\prime}^2 - {\chi_s^\prime}^2) = \sqrt{2}\mu(\chi^{1/2} - \chi_s^{1/2})
-\]</span></p>
-<p>where <span class="math inline">\(\xi_s\)</span> is the place where we started neglecting <span class="math inline">\(n_e\)</span>. We can redefine the zero of <span class="math inline">\(\chi\)</span> so that <span class="math inline">\(\chi_s=1\)</span> at <span class="math inline">\(\xi=\xi_s\)</span>. We shall also neglect <span class="math inline">\(\chi_s^\prime\)</span>, since the slope of the potential curve can be expected to be much steeper in the <span class="math inline">\(n_e=0\)</span> region than in the finite-<span class="math inline">\(n_e\)</span> region. Then the above equation becomes</p>
-<p><span class="math display">\[
+\]</span> where <span class="math inline">\(\xi_s\)</span> is the place where we started neglecting <span class="math inline">\(n_e\)</span>. We can redefine the zero of <span class="math inline">\(\chi\)</span> so that <span class="math inline">\(\chi_s=1\)</span> at <span class="math inline">\(\xi=\xi_s\)</span>. We shall also neglect <span class="math inline">\(\chi_s^\prime\)</span>, since the slope of the potential curve can be expected to be much steeper in the <span class="math inline">\(n_e=0\)</span> region than in the finite-<span class="math inline">\(n_e\)</span> region. Then the above equation becomes <span class="math display">\[
 \begin{aligned}
 {\chi^\prime}^2 &amp;= 2^{3/2}\mu\chi^{1/2} \\
 \chi^\prime &amp;= 2^{3/4}\mu^{1/2}\chi^{1/4} \\
 \mathrm{d}\chi/\chi^{1/4} &amp;= 2^{3/4}\mu^{1/2} \mathrm{d}\xi
 \end{aligned}
 \]</span></p>
-<p>Integrating from <span class="math inline">\(\xi=\xi_s\)</span> to <span class="math inline">\(\xi=\xi_s+\mathrm{d}/\lambda_D = \xi_{\text{wall}}\)</span>, we have</p>
-<p><span class="math display">\[
+<p>Integrating from <span class="math inline">\(\xi=\xi_s\)</span> to <span class="math inline">\(\xi=\xi_s+\mathrm{d}/\lambda_D = \xi_{\text{wall}}\)</span>, we have <span class="math display">\[
 \frac{4}{3}\chi_w^{3/4} = 2^{3/4}\mu^{1/2}\mathrm{d}/\lambda_D
-\]</span></p>
-<p>or</p>
-<p><span class="math display">\[
+\]</span> or <span class="math display">\[
 \mu = \frac{4\sqrt{2}}{9}\frac{\chi_w^{3/2}}{\mathrm{d}^2}\lambda_D^2
 \]</span></p>
-<p>Changing back to the variables <span class="math inline">\(u_0\)</span> and <span class="math inline">\(\phi\)</span>, and noting that the ion current into the wall is <span class="math inline">\(J=en_0u_0\)</span>, we then find</p>
-<p><span id="eq-child_langmuir"><span class="math display">\[
+<p>Changing back to the variables <span class="math inline">\(u_0\)</span> and <span class="math inline">\(\phi\)</span>, and noting that the ion current into the wall is <span class="math inline">\(J=en_0u_0\)</span>, we then find <span id="eq-child_langmuir"><span class="math display">\[
 J = \frac{4}{9}\Big( \frac{2e}{m_i} \Big)^{1/2} \frac{\epsilon_0|\phi_w|^{3/2}}{\mathrm{d}^2}
 \tag{17.7}\]</span></span></p>
 <p>This is just the well-known Child-Langmuir law of space-charge-limited current in a plane diode.</p>
@@ -589,20 +570,15 @@ J = \frac{4}{9}\Big( \frac{2e}{m_i} \Big)^{1/2} \frac{\epsilon_0|\phi_w|^{3/2}}{
 </section>
 <section id="electrostatic-probes" class="level3" data-number="17.1.4">
 <h3 data-number="17.1.4" class="anchored" data-anchor-id="electrostatic-probes"><span class="header-section-number">17.1.4</span> Electrostatic Probes</h3>
-<p>The sheath criterion <a href="#eq-sheath_bohm" class="quarto-xref">Equation&nbsp;<span>17.6</span></a> can be used to estimate the flux of ions to a negatively biased probe in a plasma. If the probe has a surface area <span class="math inline">\(A\)</span>, and if the ions entering the sheath have a drift velocity <span class="math inline">\(u_0\ge (k_B T_e/m_i)^{1/2}\)</span>, then the ion current collected is</p>
-<p><span class="math display">\[
+<p>The sheath criterion <a href="#eq-sheath_bohm" class="quarto-xref">Equation&nbsp;<span>17.6</span></a> can be used to estimate the flux of ions to a negatively biased probe in a plasma. If the probe has a surface area <span class="math inline">\(A\)</span>, and if the ions entering the sheath have a drift velocity <span class="math inline">\(u_0\ge (k_B T_e/m_i)^{1/2}\)</span>, then the ion current collected is <span class="math display">\[
 I = n_s e A(k_B T_e/m_i)^{1/2}
 \]</span></p>
-<p>The electron current can be neglected if the probe is sufficiently negative (several times <span class="math inline">\(k_B T_e\)</span>) relative to the plasma to repel all but the tail of the Maxwellian electron distribution. The density <span class="math inline">\(n_s\)</span> is the plasma density at the edge of the sheath. Let us define the sheath edge to be the place where <span class="math inline">\(u_0\)</span> is exactly <span class="math inline">\((k_B T_e/m_i)^{1/2}\)</span>. To accelerate ions to this velocity requires a presheath potential <span class="math inline">\(|\phi|\ge\frac{1}{2}k_B T_e/e\)</span>, so that the sheath edge has a potential</p>
-<p><span class="math display">\[
+<p>The electron current can be neglected if the probe is sufficiently negative (several times <span class="math inline">\(k_B T_e\)</span>) relative to the plasma to repel all but the tail of the Maxwellian electron distribution. The density <span class="math inline">\(n_s\)</span> is the plasma density at the edge of the sheath. Let us define the sheath edge to be the place where <span class="math inline">\(u_0\)</span> is exactly <span class="math inline">\((k_B T_e/m_i)^{1/2}\)</span>. To accelerate ions to this velocity requires a presheath potential <span class="math inline">\(|\phi|\ge\frac{1}{2}k_B T_e/e\)</span>, so that the sheath edge has a potential <span class="math display">\[
 \phi_s \simeq -\frac{1}{2}k_B T_e/e
-\]</span></p>
-<p>relative to the body of the plasma. If the electrons are Maxwellian, this determines <span class="math inline">\(n_s\)</span>:</p>
-<p><span class="math display">\[
+\]</span> relative to the body of the plasma. If the electrons are Maxwellian, this determines <span class="math inline">\(n_s\)</span>: <span class="math display">\[
 n_s = n_0 e^{e\phi_s/k_BT_e} = n_0 e^{-1/2} \approx 0.61 n_0
 \]</span></p>
-<p>For our purposes it is accurate enough to replace 0.61 with a round number like 1/2; thus, the “saturation ion current” to a negative probe is approximately</p>
-<p><span class="math display">\[
+<p>For our purposes it is accurate enough to replace 0.61 with a round number like 1/2; thus, the “saturation ion current” to a negative probe is approximately <span class="math display">\[
 I_B \simeq \frac{1}{2}n_0 e A (k_B T_e/m_i)^{1/2}
 \]</span></p>
 <p><span class="math inline">\(I_B\)</span>, sometimes called the “Bohm current”, give the plasma density easily, once the temperature is known.</p>
@@ -626,33 +602,25 @@ Figure&nbsp;17.5: Typical potential distribution in an ion acoustic shock wave. 
 </figcaption>
 </figure>
 </div>
-<p><a href="#fig-shock-potential" class="quarto-xref">Figure&nbsp;<span>17.5</span></a> shows the idealized potential profile of an ion acoustic shock wave. The reason for this shape will be given presently. The wave is traveling to the left with a velocity <span class="math inline">\(u_0\)</span>. If we go to the frame moving with the wave, the function <span class="math inline">\(\phi(x)\)</span> will be constant in time, and we will see a stream of plasma impinging on the wave from the left with a velocity <span class="math inline">\(u_0\)</span>. For simplicity, let <span class="math inline">\(T_i\)</span> be zero, so that all the ions are incident with the same velocity <span class="math inline">\(u_0\)</span>, and let hte electrons be Maxwellian. Since the shock moves much more slowly than the electron thermal speed, the shift in the center velocity of the Maxwellian can be neglected. The velocity of the ions in the shock wave is, from energy conservation,</p>
-<p><span class="math display">\[
+<p><a href="#fig-shock-potential" class="quarto-xref">Figure&nbsp;<span>17.5</span></a> shows the idealized potential profile of an ion acoustic shock wave. The reason for this shape will be given presently. The wave is traveling to the left with a velocity <span class="math inline">\(u_0\)</span>. If we go to the frame moving with the wave, the function <span class="math inline">\(\phi(x)\)</span> will be constant in time, and we will see a stream of plasma impinging on the wave from the left with a velocity <span class="math inline">\(u_0\)</span>. For simplicity, let <span class="math inline">\(T_i\)</span> be zero, so that all the ions are incident with the same velocity <span class="math inline">\(u_0\)</span>, and let hte electrons be Maxwellian. Since the shock moves much more slowly than the electron thermal speed, the shift in the center velocity of the Maxwellian can be neglected. The velocity of the ions in the shock wave is, from energy conservation, <span class="math display">\[
 u = \Big( u_0^2 - \frac{2e\phi}{m_i} \Big)^{1/2}
 \]</span></p>
-<p>If <span class="math inline">\(n_0\)</span> is the density of the undisturbed plasma, the ion density in the shock is</p>
-<p><span class="math display">\[
+<p>If <span class="math inline">\(n_0\)</span> is the density of the undisturbed plasma, the ion density in the shock is <span class="math display">\[
 n_i = \frac{n_0 u_0}{u} = n_0 \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{-1/2}
 \]</span></p>
-<p>The electron density is given by the Boltzmann relation. Poisson’s equation then gives</p>
-<p><span class="math display">\[
+<p>The electron density is given by the Boltzmann relation. Poisson’s equation then gives <span class="math display">\[
 \epsilon_0\frac{\mathrm{d}^2\phi}{\mathrm{d}x^2} = e(n_e - n_i) = en_0\Big[ \exp\Big( \frac{e\phi}{k_B T_e} \Big) - \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{1/2} \Big]
 \]</span></p>
-<p>This is, of course, the same <a href="#eq-sheath1" class="quarto-xref">Equation&nbsp;<span>17.3</span></a> as we had for a sheath. A shock wave is no more than a sheath moving through a plasma. We now introduce the dimensionless variables</p>
-<p><span class="math display">\[
+<p>This is, of course, the same <a href="#eq-sheath1" class="quarto-xref">Equation&nbsp;<span>17.3</span></a> as we had for a sheath. A shock wave is no more than a sheath moving through a plasma. We now introduce the dimensionless variables <span class="math display">\[
 \chi\equiv \frac{e\phi}{k_B T_e}\quad \xi\equiv\frac{x}{\lambda_D} = x\Big( \frac{n_0 e^2}{\epsilon_0 k_B T_e} \Big)^{1/2}\quad \mu\equiv\frac{u_0}{(k_B T_e/m_i)^{1/2}}
 \]</span></p>
-<p>Note that we have changed the sign in the definition of <span class="math inline">\(\chi\)</span> so as to keep <span class="math inline">\(\chi\)</span> positive in this problem. The quantity <span class="math inline">\(\mu\)</span> is called the <em>Mach number</em> of the shock. Poisson’s equation can now be written</p>
-<p><span id="eq-sheath3"><span class="math display">\[
+<p>Note that we have changed the sign in the definition of <span class="math inline">\(\chi\)</span> so as to keep <span class="math inline">\(\chi\)</span> positive in this problem. The quantity <span class="math inline">\(\mu\)</span> is called the <em>Mach number</em> of the shock. Poisson’s equation can now be written <span id="eq-sheath3"><span class="math display">\[
 \chi^{\prime\prime} = e^{\chi} - \Big( 1 - \frac{2\chi}{\mu^2} \Big)^{-1/2} = -\frac{dV(\chi)}{\mathrm{d}\chi}
-\tag{17.8}\]</span></span></p>
-<p>which differs from the sheath <a href="#eq-sheath2" class="quarto-xref">Equation&nbsp;<span>17.4</span></a> only because of the change in sign of <span class="math inline">\(\chi\)</span>.</p>
-<p>The behavior of the solution of <a href="#eq-sheath3" class="quarto-xref">Equation&nbsp;<span>17.8</span></a> was made clear by R. Z. Sagdeev, who used an analogy to an oscillator in a potential well. The displacement <span class="math inline">\(x\)</span> of an oscillator subjected to a force <span class="math inline">\(-mdV(x)/\mathrm{d}x\)</span> is given by</p>
-<p><span class="math display">\[
+\tag{17.8}\]</span></span> which differs from the sheath <a href="#eq-sheath2" class="quarto-xref">Equation&nbsp;<span>17.4</span></a> only because of the change in sign of <span class="math inline">\(\chi\)</span>.</p>
+<p>The behavior of the solution of <a href="#eq-sheath3" class="quarto-xref">Equation&nbsp;<span>17.8</span></a> was made clear by R. Z. Sagdeev, who used an analogy to an oscillator in a potential well. The displacement <span class="math inline">\(x\)</span> of an oscillator subjected to a force <span class="math inline">\(-mdV(x)/\mathrm{d}x\)</span> is given by <span class="math display">\[
 \ddot{x} = -dV/\mathrm{d}x
 \]</span></p>
-<p>If the right-hand side of <a href="#eq-sheath3" class="quarto-xref">Equation&nbsp;<span>17.8</span></a> is defined as <span class="math inline">\(-dV/\mathrm{d}x\)</span>, the equation is the same as that of an oscillator, with the potential <span class="math inline">\(\chi\)</span> playing the role of <span class="math inline">\(\chi\)</span>, and <span class="math inline">\(\mathrm{d}/\mathrm{d}\xi\)</span> replacing <span class="math inline">\(\mathrm{d}/\mathrm{d}t\)</span>. The quasipotential <span class="math inline">\(V(\chi)\)</span> is sometimes called the Sagdeev potential. The function <span class="math inline">\(V(x)\)</span> can be found from <a href="#eq-sheath3" class="quarto-xref">Equation&nbsp;<span>17.8</span></a> by integration with the boundary condition <span class="math inline">\(V(\chi)=0\)</span> at <span class="math inline">\(\chi=0\)</span>:</p>
-<p><span id="eq-sagdeev_potential"><span class="math display">\[
+<p>If the right-hand side of <a href="#eq-sheath3" class="quarto-xref">Equation&nbsp;<span>17.8</span></a> is defined as <span class="math inline">\(-dV/\mathrm{d}x\)</span>, the equation is the same as that of an oscillator, with the potential <span class="math inline">\(\chi\)</span> playing the role of <span class="math inline">\(\chi\)</span>, and <span class="math inline">\(\mathrm{d}/\mathrm{d}\xi\)</span> replacing <span class="math inline">\(\mathrm{d}/\mathrm{d}t\)</span>. The quasipotential <span class="math inline">\(V(\chi)\)</span> is sometimes called the Sagdeev potential. The function <span class="math inline">\(V(x)\)</span> can be found from <a href="#eq-sheath3" class="quarto-xref">Equation&nbsp;<span>17.8</span></a> by integration with the boundary condition <span class="math inline">\(V(\chi)=0\)</span> at <span class="math inline">\(\chi=0\)</span>: <span id="eq-sagdeev_potential"><span class="math display">\[
 V(\chi) = 1-e^\chi + \mu^2 \Big[ 1 - \Big( 1-\frac{2\chi}{\mu^2} \Big)^{1/2} \Big]
 \tag{17.9}\]</span></span></p>
 <p>For <span class="math inline">\(\mu\)</span> lying in a certain range, this function has the shape shown in <a href="#fig-shock-quasipotential" class="quarto-xref">Figure&nbsp;<span>17.6</span></a>. If this were a real well, a particle entering from the left will go to the right-hand side of the well (<span class="math inline">\(x&gt;0\)</span>), reflect, and return to <span class="math inline">\(x=0\)</span>, making a single transit. Similarly, a quasiparticle in our analogy will make a single excursion to positive <span class="math inline">\(\chi\)</span> and return to <span class="math inline">\(\chi =0\)</span>, as shown in <a href="#fig-shock-soliton" class="quarto-xref">Figure&nbsp;<span>17.7</span></a>. Such a pulse is called a <em>soliton</em>: it is a potential and density disturbance propagating to the left in <a href="#fig-shock-soliton" class="quarto-xref">Figure&nbsp;<span>17.7</span></a> with velocity <span class="math inline">\(u_0\)</span>. (I DON’T FULLY UNDERSTAND!!!)</p>
@@ -676,25 +644,19 @@ Figure&nbsp;17.7: The potential in a soliton moving to the left.
 </figcaption>
 </figure>
 </div>
-<p>Now, if a particle suffers a loss of energy while in the well, it will never return to <span class="math inline">\(x=0\)</span> but will oscillate (in time) about some positive value of <span class="math inline">\(x\)</span>. Similarly, a little dissipation will make the potential of a shock wave oscillate (in space) about some positive value of <span class="math inline">\(\phi\)</span>. This is exactly the behavoir depicted in <a href="#fig-shock-potential" class="quarto-xref">Figure&nbsp;<span>17.5</span></a>. Actually, dissipation is not needed for this: reflection of ions from the shock front has the same effect. To understand this, imagine that the ions have a small thermal spread in energy and that the height <span class="math inline">\(e\phi\)</span> of the wave front is just large enough to reflect some of the ions back to the left, while the rest go over the potential hill to the right. The reflected ions cause an increase in ion density in the upstream region to the left of the shock front (<a href="#fig-shock-potential" class="quarto-xref">Figure&nbsp;<span>17.5</span></a>). This means that the quantity</p>
-<p><span class="math display">\[
+<p>Now, if a particle suffers a loss of energy while in the well, it will never return to <span class="math inline">\(x=0\)</span> but will oscillate (in time) about some positive value of <span class="math inline">\(x\)</span>. Similarly, a little dissipation will make the potential of a shock wave oscillate (in space) about some positive value of <span class="math inline">\(\phi\)</span>. This is exactly the behavoir depicted in <a href="#fig-shock-potential" class="quarto-xref">Figure&nbsp;<span>17.5</span></a>. Actually, dissipation is not needed for this: reflection of ions from the shock front has the same effect. To understand this, imagine that the ions have a small thermal spread in energy and that the height <span class="math inline">\(e\phi\)</span> of the wave front is just large enough to reflect some of the ions back to the left, while the rest go over the potential hill to the right. The reflected ions cause an increase in ion density in the upstream region to the left of the shock front (<a href="#fig-shock-potential" class="quarto-xref">Figure&nbsp;<span>17.5</span></a>). This means that the quantity <span class="math display">\[
 \chi^\prime = \frac{1}{n_0}\int_0^\xi (n_e - n_i)\mathrm{d}\xi_1
-\]</span></p>
-<p>is decreased. Since <span class="math inline">\(\chi^\prime\)</span> is the analog of <span class="math inline">\(\mathrm{d}x/\mathrm{d}t\)</span> in the oscillator problem, our virtual oscillator has lost velocity and is trapped in the potential well of <a href="#fig-shock-quasipotential" class="quarto-xref">Figure&nbsp;<span>17.6</span></a>.</p>
+\]</span> is decreased. Since <span class="math inline">\(\chi^\prime\)</span> is the analog of <span class="math inline">\(\mathrm{d}x/\mathrm{d}t\)</span> in the oscillator problem, our virtual oscillator has lost velocity and is trapped in the potential well of <a href="#fig-shock-quasipotential" class="quarto-xref">Figure&nbsp;<span>17.6</span></a>.</p>
 </section>
 <section id="the-critical-mach-numbers" class="level3" data-number="17.2.2">
 <h3 data-number="17.2.2" class="anchored" data-anchor-id="the-critical-mach-numbers"><span class="header-section-number">17.2.2</span> The Critical Mach Numbers</h3>
-<p>Solutions of either the soliton type or the wave-train type exist only for a range of <span class="math inline">\(\mu\)</span>. A lower limit for <span class="math inline">\(\mu\)</span> is given by the condition that <span class="math inline">\(V(\chi)\)</span> be a potential well, rather than a hill. Expanding <a href="#eq-sagdeev_potential" class="quarto-xref">Equation&nbsp;<span>17.9</span></a> for <span class="math inline">\(\chi\ll 1\)</span> yields</p>
-<p><span class="math display">\[
+<p>Solutions of either the soliton type or the wave-train type exist only for a range of <span class="math inline">\(\mu\)</span>. A lower limit for <span class="math inline">\(\mu\)</span> is given by the condition that <span class="math inline">\(V(\chi)\)</span> be a potential well, rather than a hill. Expanding <a href="#eq-sagdeev_potential" class="quarto-xref">Equation&nbsp;<span>17.9</span></a> for <span class="math inline">\(\chi\ll 1\)</span> yields <span class="math display">\[
 \mu^2 &gt; 1 \quad u_0&gt;(k_BT_e/m_i)^{1/2}
 \]</span></p>
 <p>This is exactly the same, both physically and mathematically, as the Bohm criterion for the existence of a sheath (<a href="#eq-sheath_bohm" class="quarto-xref">Equation&nbsp;<span>17.6</span></a>).</p>
-<p>An upper limit to <span class="math inline">\(\mu\)</span> is imposed by the condition that the function <span class="math inline">\(V(\chi)\)</span> of <a href="#fig-shock-quasipotential" class="quarto-xref">Figure&nbsp;<span>17.6</span></a> must cross the <span class="math inline">\(\chi\)</span> axis for <span class="math inline">\(\chi&gt;0\)</span>; otherwise, the virtual particle will not be reflected, and the potential will rise indefinitely. From <a href="#eq-sagdeev_potential" class="quarto-xref">Equation&nbsp;<span>17.9</span></a>, we require</p>
-<p><span class="math display">\[
+<p>An upper limit to <span class="math inline">\(\mu\)</span> is imposed by the condition that the function <span class="math inline">\(V(\chi)\)</span> of <a href="#fig-shock-quasipotential" class="quarto-xref">Figure&nbsp;<span>17.6</span></a> must cross the <span class="math inline">\(\chi\)</span> axis for <span class="math inline">\(\chi&gt;0\)</span>; otherwise, the virtual particle will not be reflected, and the potential will rise indefinitely. From <a href="#eq-sagdeev_potential" class="quarto-xref">Equation&nbsp;<span>17.9</span></a>, we require <span class="math display">\[
 e^\chi - 1 &lt; \mu^2 \Big[ 1- \big( 1-\frac{2\chi}{\mu^2} \Big)^{1/2} \Big]
-\]</span></p>
-<p>for some <span class="math inline">\(\chi&gt;0\)</span>. If the lower critical Mach number is surpassed (<span class="math inline">\(\mu&gt;1\)</span>), the left-and side, representing the integral of the electron density from zero to <span class="math inline">\(\chi\)</span>, is initially larger than the right-hand side, representing the integral of the ion density. As <span class="math inline">\(\chi\)</span> increases, the right-hand side can catch up with the left-hand side if <span class="math inline">\(\mu^2\)</span> is not too large. However, because of the square root, the largest value <span class="math inline">\(\chi\)</span> can have is <span class="math inline">\(\mu^2/2\)</span>. This is because <span class="math inline">\(e\phi\)</span> cannot exceed <span class="math inline">\(\frac{1}{2}m_iu_0^2\)</span>; otherwise, ions would be excluded from the plasma in the downstream region. Inserting the largest value of <span class="math inline">\(\chi\)</span> into the above equation, we have</p>
-<p><span class="math display">\[
+\]</span> for some <span class="math inline">\(\chi&gt;0\)</span>. If the lower critical Mach number is surpassed (<span class="math inline">\(\mu&gt;1\)</span>), the left-and side, representing the integral of the electron density from zero to <span class="math inline">\(\chi\)</span>, is initially larger than the right-hand side, representing the integral of the ion density. As <span class="math inline">\(\chi\)</span> increases, the right-hand side can catch up with the left-hand side if <span class="math inline">\(\mu^2\)</span> is not too large. However, because of the square root, the largest value <span class="math inline">\(\chi\)</span> can have is <span class="math inline">\(\mu^2/2\)</span>. This is because <span class="math inline">\(e\phi\)</span> cannot exceed <span class="math inline">\(\frac{1}{2}m_iu_0^2\)</span>; otherwise, ions would be excluded from the plasma in the downstream region. Inserting the largest value of <span class="math inline">\(\chi\)</span> into the above equation, we have <span class="math display">\[
 \exp(\mu^2/2) - 1 &lt; \mu \quad\text{or}\quad \mu &lt; 1.6
 \]</span></p>
 <p>This is the upper critical Mach number. Shock waves in a cold-ion plasma therefore exist only for <span class="math inline">\(1&lt;\mu&lt;1.6\)</span>.</p>
@@ -712,11 +674,9 @@ Figure&nbsp;17.8: Variation of ion and electron density (logarithmic scale) with
 </section>
 <section id="wave-steepening" class="level3" data-number="17.2.3">
 <h3 data-number="17.2.3" class="anchored" data-anchor-id="wave-steepening"><span class="header-section-number">17.2.3</span> Wave Steepening</h3>
-<p>If one propagates an ion wave in a cold-ion plasma, it will have the phase velocity given by</p>
-<p><span class="math display">\[
+<p>If one propagates an ion wave in a cold-ion plasma, it will have the phase velocity given by <span class="math display">\[
 v_p = \Big( \frac{k_B T_e + \gamma_i k_B T_i}{m_i} \Big)^{1/2} = \Big( \frac{k_B T_e}{m_i} \Big)^{1/2}
-\]</span></p>
-<p>corresponding to <span class="math inline">\(\mu=1\)</span>. How, then, can one create shocks with <span class="math inline">\(\mu&gt;1\)</span>? One must remember that the above phase velocity was a linear result valid only at small amplitudes. As the amplitude is increased, an ion wave speeds up and also changes from a sine wave to a sawtooth shape with a steep leading edge (<a href="#fig-wave-steepening" class="quarto-xref">Figure&nbsp;<span>17.9</span></a>). The reason is that the wave electric field has accelerated the ions. In <a href="#fig-wave-steepening" class="quarto-xref">Figure&nbsp;<span>17.9</span></a>, ions at the peak of the potential distribution have a large velocity in the direction of <span class="math inline">\(v_\phi\)</span> than those at the trough, since they have just experienced a period of acceleration as the wave passed by. In linear theory, this difference in velocity is taken into account, but not the displacement resulting from it. In nonlinear theory, it is easy to see that the ions at the peak are shifted to the right, while those at the trough are shifted to the left, thus steepening the wave shape. Since the density perturbation is in pahse with the potential, more ions are accelerated to the right than to the left, and the wave causes a net mass flow in the direction of propagation. This causes the wave velocity to exceed the acoustic speed in the undisturbed plasma, so that <span class="math inline">\(\mu\)</span> is larger than unity.</p>
+\]</span> corresponding to <span class="math inline">\(\mu=1\)</span>. How, then, can one create shocks with <span class="math inline">\(\mu&gt;1\)</span>? One must remember that the above phase velocity was a linear result valid only at small amplitudes. As the amplitude is increased, an ion wave speeds up and also changes from a sine wave to a sawtooth shape with a steep leading edge (<a href="#fig-wave-steepening" class="quarto-xref">Figure&nbsp;<span>17.9</span></a>). The reason is that the wave electric field has accelerated the ions. In <a href="#fig-wave-steepening" class="quarto-xref">Figure&nbsp;<span>17.9</span></a>, ions at the peak of the potential distribution have a large velocity in the direction of <span class="math inline">\(v_\phi\)</span> than those at the trough, since they have just experienced a period of acceleration as the wave passed by. In linear theory, this difference in velocity is taken into account, but not the displacement resulting from it. In nonlinear theory, it is easy to see that the ions at the peak are shifted to the right, while those at the trough are shifted to the left, thus steepening the wave shape. Since the density perturbation is in pahse with the potential, more ions are accelerated to the right than to the left, and the wave causes a net mass flow in the direction of propagation. This causes the wave velocity to exceed the acoustic speed in the undisturbed plasma, so that <span class="math inline">\(\mu\)</span> is larger than unity.</p>
 <div id="fig-wave-steepening" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wave-steepening-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -736,16 +696,12 @@ Figure&nbsp;17.9: A large-amplitude ion wave steepens so that the leading edge h
 <section id="sec-ponderomotive" class="level2" data-number="17.3">
 <h2 data-number="17.3" class="anchored" data-anchor-id="sec-ponderomotive"><span class="header-section-number">17.3</span> The Ponderomotive Force</h2>
 <p>Light waves exert a radiation pressure which is usually very weak and hard to detect. Even the esoteric example of comet tails, formed by the pressure of sunlight, is tainted by the added effect of particles streaming from the sun. When high-powered microwaves or laser beams are used to heat or confine plasmas, however, the radiation pressure can reach several hundred thousand atmospheres! When applied to a plasma, this force is coupled to the particles in a somewhat subtle way and is called the <em>ponderomotive force</em>. Many nonlinear phenomena have a simple explanation in terms of the ponderomotive force.</p>
-<p>The easiest way to derive this nonlinear force is to consider the motion of an electron in the oscillating <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> fields of a wave. We neglect dc <span class="math inline">\(\mathbf{E}_0\)</span> and <span class="math inline">\(\mathbf{B}_0\)</span> fields. The electron equation of motion is</p>
-<p><span class="math display">\[
+<p>The easiest way to derive this nonlinear force is to consider the motion of an electron in the oscillating <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> fields of a wave. We neglect dc <span class="math inline">\(\mathbf{E}_0\)</span> and <span class="math inline">\(\mathbf{B}_0\)</span> fields. The electron equation of motion is <span class="math display">\[
 m\dot{\mathbf{v}} = -e[\mathbf{E}(\mathbf{r}) + \mathbf{v}\times\mathbf{B}(\mathbf{r})]
 \]</span></p>
-<p>This equation is exact if <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> are evaluated at the instantaneous position of the electron. The nonlinearity comes partly from the <span class="math inline">\(\mathbf{v}\times\mathbf{B}\)</span>, which is second order because both <span class="math inline">\(\mathbf{v}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> vanish in the equilibrium, so that the term is no larger than <span class="math inline">\(\mathbf{v}_1\times\mathbf{B}_1\)</span>, where <span class="math inline">\(\mathbf{v}_1\)</span> and <span class="math inline">\(\mathbf{B}_1\)</span> are the linear-theory values. The other part of the nonlinearity, as we shall see, comes from evaluating <span class="math inline">\(\mathbf{E}\)</span> at the actual position of the particle rather than its initial position. Assume a wave electric field of the form</p>
-<p><span class="math display">\[
+<p>This equation is exact if <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> are evaluated at the instantaneous position of the electron. The nonlinearity comes partly from the <span class="math inline">\(\mathbf{v}\times\mathbf{B}\)</span>, which is second order because both <span class="math inline">\(\mathbf{v}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> vanish in the equilibrium, so that the term is no larger than <span class="math inline">\(\mathbf{v}_1\times\mathbf{B}_1\)</span>, where <span class="math inline">\(\mathbf{v}_1\)</span> and <span class="math inline">\(\mathbf{B}_1\)</span> are the linear-theory values. The other part of the nonlinearity, as we shall see, comes from evaluating <span class="math inline">\(\mathbf{E}\)</span> at the actual position of the particle rather than its initial position. Assume a wave electric field of the form <span class="math display">\[
 \mathbf{E} = \mathbf{E}_s(\mathbf{r})\cos\omega t
-\]</span></p>
-<p>where <span class="math inline">\(\mathbf{E}_s(\mathbf{r})\)</span> contains the spatial dependence. In first order, we may neglect the <span class="math inline">\(\mathbf{v}\times\mathbf{B}\)</span> term in the equation of motion and evaluate <span class="math inline">\(\mathbf{E}\)</span> at the initial position <span class="math inline">\(\mathbf{r}_0\)</span>. We have</p>
-<p><span class="math display">\[
+\]</span> where <span class="math inline">\(\mathbf{E}_s(\mathbf{r})\)</span> contains the spatial dependence. In first order, we may neglect the <span class="math inline">\(\mathbf{v}\times\mathbf{B}\)</span> term in the equation of motion and evaluate <span class="math inline">\(\mathbf{E}\)</span> at the initial position <span class="math inline">\(\mathbf{r}_0\)</span>. We have <span class="math display">\[
 \begin{aligned}
 m\dot{\mathbf{v}}_1 &amp;=  -e\mathbf{E}(\mathbf{r}_0)\\
 \mathbf{v}_1 &amp;= -(e/m\omega)\mathbf{E}_s\sin\omega t = \dot{\mathbf{r}}_1 \\
@@ -753,42 +709,34 @@ m\dot{\mathbf{v}}_1 &amp;=  -e\mathbf{E}(\mathbf{r}_0)\\
 \end{aligned}
 \]</span></p>
 <p>It is important to note that <em>in a nonlinear calculation, we cannot write <span class="math inline">\(e^{i\omega t}\)</span> and takes its real part later.</em> Instead, we write its real part explicitly as <span class="math inline">\(\cos\omega t\)</span>. This is because products of oscillating factors appera in nonlinear theory, and the operations of multiplying and taking the real part do not commute.</p>
-<p>Going to second order, we expand <span class="math inline">\(\mathbf{E}(\mathbf{r})\)</span> about <span class="math inline">\(\mathbf{r}_0\)</span>:</p>
-<p><span class="math display">\[
+<p>Going to second order, we expand <span class="math inline">\(\mathbf{E}(\mathbf{r})\)</span> about <span class="math inline">\(\mathbf{r}_0\)</span>: <span class="math display">\[
 \mathbf{E}(\mathbf{r}) = \mathbf{E}(\mathbf{r}_0) + (\delta\mathbf{r}_0\cdot\nabla)\mathbf{E}|_{r=r_0} + ...
 \]</span></p>
-<p>We must now add the term <span class="math inline">\(\mathbf{v}_1\times\mathbf{B}_1\)</span>, where <span class="math inline">\(\mathbf{B}_1\)</span> is given by Maxwell’s equation:</p>
-<p><span class="math display">\[
+<p>We must now add the term <span class="math inline">\(\mathbf{v}_1\times\mathbf{B}_1\)</span>, where <span class="math inline">\(\mathbf{B}_1\)</span> is given by Maxwell’s equation: <span class="math display">\[
 \begin{aligned}
 \nabla\times\mathbf{E} &amp;= -\dot{\mathbf{B}} \\
 \mathbf{B}_1 &amp;= -(1/\omega)\nabla\times\mathbf{E}_s|_{r=r_0}\sin\omega t
 \end{aligned}
 \]</span></p>
-<p>The second-order part of the equation of motion is then</p>
-<p><span class="math display">\[
+<p>The second-order part of the equation of motion is then <span class="math display">\[
 m\dot{\mathbf{v}}_2 = -e[(\delta\mathbf{r}_1\cdot\nabla)\mathbf{E}+\mathbf{v}_1\times\mathbf{B}_1]
 \]</span></p>
-<p>Inserting the expressions of <span class="math inline">\(\mathbf{v}_1,\delta\mathbf{r}_1\)</span> and <span class="math inline">\(\mathbf{B}_1\)</span> into the above and averaging over time, we have</p>
-<p><span id="eq-motion_e_2nd"><span class="math display">\[
+<p>Inserting the expressions of <span class="math inline">\(\mathbf{v}_1,\delta\mathbf{r}_1\)</span> and <span class="math inline">\(\mathbf{B}_1\)</span> into the above and averaging over time, we have <span id="eq-motion_e_2nd"><span class="math display">\[
 m\left&lt; \frac{\mathrm{d}\mathbf{v}_2}{\mathrm{d}t}\right&gt; = -\frac{e^2}{m\omega^2}\frac{1}{2}[(\mathbf{E}_s\cdot\nabla)\mathbf{E}_s + \mathbf{E}_s\times(\nabla\times\mathbf{E}_s)] = \mathbf{f}_{NL}
 \tag{17.10}\]</span></span></p>
 <p>Here we have used <span class="math inline">\(\left&lt;\sin^2\omega t\right&gt; = \left&lt;\cos^2\omega t\right&gt;=\frac{1}{2}\)</span>. The double cross product can be written as the sum of two terms, one of which cancels the <span class="math inline">\((\mathbf{E}_s\cdot\nabla)\mathbf{E}_s\)</span> term.</p>
-<p>What remains is</p>
-<p><span class="math display">\[
+<p>What remains is <span class="math display">\[
 \mathbf{f}_{NL} = -\frac{1}{4}\frac{e^2}{m\omega^2}\nabla E_s^2
 \]</span></p>
-<p>This is the effective nonlinear force on a single electron. The force per <span class="math inline">\(m^3\)</span> is <span class="math inline">\(\mathbf{f}_{NL}\)</span> times the electron density <span class="math inline">\(n_0\)</span>, which can be written in terms of <span class="math inline">\(\omega_p^2\)</span>. Since <span class="math inline">\(E_s^2 = 2\left&lt;E^2\right&gt;\)</span>, we finally have for the ponderomotive force the formula</p>
-<p><span id="eq-ponderomotive"><span class="math display">\[
+<p>This is the effective nonlinear force on a single electron. The force per <span class="math inline">\(m^3\)</span> is <span class="math inline">\(\mathbf{f}_{NL}\)</span> times the electron density <span class="math inline">\(n_0\)</span>, which can be written in terms of <span class="math inline">\(\omega_p^2\)</span>. Since <span class="math inline">\(E_s^2 = 2\left&lt;E^2\right&gt;\)</span>, we finally have for the ponderomotive force the formula <span id="eq-ponderomotive"><span class="math display">\[
 \mathbf{F}_{NL} = -\frac{\omega_p^2}{\omega^2}\nabla\frac{\left&lt;\epsilon_0 E^2\right&gt;}{2}
 \tag{17.11}\]</span></span></p>
 <p>If the wave is electromagnetic, the second term in <a href="#eq-motion_e_2nd" class="quarto-xref">Equation&nbsp;<span>17.10</span></a> is dominant, and the physical mechanism for <span class="math inline">\(\mathbf{F}_{NL}\)</span> is as follows. Electrons oscillate in the direction of <span class="math inline">\(\mathbf{E}\)</span>, but the wave magnetic field distorts their orbits. That is, the Lorentz force <span class="math inline">\(-e\mathbf{v}\times\mathbf{B}\)</span> pushes the electrons in the direction of <span class="math inline">\(\mathbf{k}\)</span> (since <span class="math inline">\(\mathbf{v}\)</span> is in the direction of <span class="math inline">\(\mathbf{E}\)</span>, and <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> is in the direction of <span class="math inline">\(\mathbf{k}\)</span>). The phases of <span class="math inline">\(\mathbf{v}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> are such that the motion does not average to zero over an oscillation, but there is a secular drift along <span class="math inline">\(\mathbf{k}\)</span>. If the wave has uniform amplitude, no force is needed to maintain this drift; but if the wave amplitude varies, the electrons will pile up in regions of small amplitude, and a force is needed to overcome the space charge. This is why the effective force <span class="math inline">\(\mathbf{F}_{NL}\)</span> is proportional to the <em>gradient</em> of <span class="math inline">\(\left&lt;E^2 \right&gt;\)</span>. Since the drift for each electron is the same, <span class="math inline">\(\mathbf{F}_{NL}\)</span> is proportional to the density — hence the factor <span class="math inline">\(\omega_p^2/\omega^2\)</span>.</p>
 <p>If the wave is electrostatic, the first term in <a href="#eq-motion_e_2nd" class="quarto-xref">Equation&nbsp;<span>17.10</span></a> is dominant. Then the physical mechanism is simply that an electron oscillating along <span class="math inline">\(\mathbf{k}\parallel\mathbf{E}\)</span> moves farther in the half-cycle when it is moving from a strong-field region to a weak-field region than vice versa, so there is a net drift.</p>
-<p>Although <span class="math inline">\(\mathbf{F}_{NL}\)</span> acts mainly on the electrons, the force is ultimately transmitted to the ions, since it is a low-frequency or dc effect. When electrons are bunched by <span class="math inline">\(\mathbf{F}_{NL}\)</span>, a charge-separation field <span class="math inline">\(\mathbf{E}_{cs}\)</span> is created. The total force felt by the electrons is</p>
-<p><span class="math display">\[
+<p>Although <span class="math inline">\(\mathbf{F}_{NL}\)</span> acts mainly on the electrons, the force is ultimately transmitted to the ions, since it is a low-frequency or dc effect. When electrons are bunched by <span class="math inline">\(\mathbf{F}_{NL}\)</span>, a charge-separation field <span class="math inline">\(\mathbf{E}_{cs}\)</span> is created. The total force felt by the electrons is <span class="math display">\[
 \mathbf{F}_e = -e\mathbf{E}_{cs} + \mathbf{F}_{NL}
 \]</span></p>
-<p>Since the ponderomotive force on the ions is smaller by <span class="math inline">\(\Omega_p^2/\omega_p^2 = m_e/m_i\)</span>, the force on the ion fluid is approximately</p>
-<p><span class="math display">\[
+<p>Since the ponderomotive force on the ions is smaller by <span class="math inline">\(\Omega_p^2/\omega_p^2 = m_e/m_i\)</span>, the force on the ion fluid is approximately <span class="math display">\[
 \mathbf{F}_i = e\mathbf{E}_{cs}
 \]</span></p>
 <p>Summing the last two equations, we find that the force on the plasma is <span class="math inline">\(\mathbf{F}_{NL}\)</span>.</p>

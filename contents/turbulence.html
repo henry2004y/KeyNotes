@@ -399,11 +399,12 @@ window.Quarto = {
   <li><a href="#comparison-with-hydrodynamics" id="toc-comparison-with-hydrodynamics" class="nav-link" data-scroll-target="#comparison-with-hydrodynamics"><span class="header-section-number">18.2.1</span> Comparison with Hydrodynamics</a></li>
   <li><a href="#incompressible-mhd-equations" id="toc-incompressible-mhd-equations" class="nav-link" data-scroll-target="#incompressible-mhd-equations"><span class="header-section-number">18.2.2</span> Incompressible MHD equations</a></li>
   <li><a href="#coupling-between-charged-fluid-and-magnetic-field" id="toc-coupling-between-charged-fluid-and-magnetic-field" class="nav-link" data-scroll-target="#coupling-between-charged-fluid-and-magnetic-field"><span class="header-section-number">18.2.3</span> Coupling between charged fluid and magnetic field</a></li>
-  <li><a href="#wave-interaction-phenomenology" id="toc-wave-interaction-phenomenology" class="nav-link" data-scroll-target="#wave-interaction-phenomenology"><span class="header-section-number">18.2.4</span> Wave Interaction Phenomenology</a></li>
-  <li><a href="#nondimensional-parameters" id="toc-nondimensional-parameters" class="nav-link" data-scroll-target="#nondimensional-parameters"><span class="header-section-number">18.2.5</span> Nondimensional parameters</a></li>
-  <li><a href="#critical-balance" id="toc-critical-balance" class="nav-link" data-scroll-target="#critical-balance"><span class="header-section-number">18.2.6</span> Critical balance</a></li>
-  <li><a href="#residual-energy" id="toc-residual-energy" class="nav-link" data-scroll-target="#residual-energy"><span class="header-section-number">18.2.7</span> Residual energy</a></li>
-  <li><a href="#sec-turbulence_cross_helicity" id="toc-sec-turbulence_cross_helicity" class="nav-link" data-scroll-target="#sec-turbulence_cross_helicity"><span class="header-section-number">18.2.8</span> Normalized cross helicity</a></li>
+  <li><a href="#importance-of-alfvén-waves" id="toc-importance-of-alfvén-waves" class="nav-link" data-scroll-target="#importance-of-alfvén-waves"><span class="header-section-number">18.2.4</span> Importance of Alfvén Waves</a></li>
+  <li><a href="#wave-interaction-phenomenology" id="toc-wave-interaction-phenomenology" class="nav-link" data-scroll-target="#wave-interaction-phenomenology"><span class="header-section-number">18.2.5</span> Wave Interaction Phenomenology</a></li>
+  <li><a href="#nondimensional-parameters" id="toc-nondimensional-parameters" class="nav-link" data-scroll-target="#nondimensional-parameters"><span class="header-section-number">18.2.6</span> Nondimensional parameters</a></li>
+  <li><a href="#critical-balance" id="toc-critical-balance" class="nav-link" data-scroll-target="#critical-balance"><span class="header-section-number">18.2.7</span> Critical balance</a></li>
+  <li><a href="#residual-energy" id="toc-residual-energy" class="nav-link" data-scroll-target="#residual-energy"><span class="header-section-number">18.2.8</span> Residual energy</a></li>
+  <li><a href="#sec-turbulence_cross_helicity" id="toc-sec-turbulence_cross_helicity" class="nav-link" data-scroll-target="#sec-turbulence_cross_helicity"><span class="header-section-number">18.2.9</span> Normalized cross helicity</a></li>
   </ul></li>
   <li><a href="#solar-wind-turbulence" id="toc-solar-wind-turbulence" class="nav-link" data-scroll-target="#solar-wind-turbulence"><span class="header-section-number">18.3</span> Solar Wind Turbulence</a>
   <ul class="collapse">
@@ -492,7 +493,7 @@ window.Quarto = {
 \nabla\cdot\mathbf{B} &amp;= 0
 \end{aligned}
 \tag{18.1}\]</span></span> where <span class="math inline">\(P\)</span> is the total (thermal + magnetic) pressure, <span class="math inline">\(\nu\)</span> is the kinematic viscosity, and <span class="math inline">\(\eta\)</span> is the magnetic diffusivity. In the above equation, the magnetic field is in Alfvén units (same as velocity units).</p>
-<p>The total magnetic field can be split into a mean field and a fluctuating field: <span class="math display">\[
+<p>The total magnetic field can be split into a mean field <span class="math inline">\(\mathbf{B}_0\)</span> and a fluctuating field <span class="math inline">\(\mathbf{b}\)</span>: <span class="math display">\[
 \mathbf{B} = \mathbf{B}_0 + \delta\mathbf{b}
 \]</span></p>
 <p>We can then obtain the magnetic field equation for the perturbation term only: <span class="math display">\[
@@ -501,55 +502,87 @@ window.Quarto = {
 <p>If the Hall effect is considered, then there will be additional terms in the magnetic field equation <span id="eq-constrho-hall-mhd"><span class="math display">\[
 \frac{\partial\mathbf{b}}{\partial t} = \mathbf{v}_A\cdot\nabla\mathbf{u} + \mathbf{b}\cdot\nabla\mathbf{u} + d_i\nabla\times\left[ \mathbf{v}_A\times(\nabla\times\mathbf{b}) \right] + d_i\nabla\times\left[ \mathbf{b}\times(\nabla\times\mathbf{b}) \right] + \eta \nabla^2\mathbf{b}
 \tag{18.2}\]</span></span></p>
-<p>Note that here <span class="math inline">\(\delta\mathbf{b}\)</span> and <span class="math inline">\(\mathbf{b}\)</span> may be used interchangably.</p>
+<p>The symmetric forms of <span class="math inline">\(\mathbf{u}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> hint us that we may be able to combine them together; this is exactly what Walter Elsässer did back in 1950.</p>
 </section>
 <section id="coupling-between-charged-fluid-and-magnetic-field" class="level3" data-number="18.2.3">
 <h3 data-number="18.2.3" class="anchored" data-anchor-id="coupling-between-charged-fluid-and-magnetic-field"><span class="header-section-number">18.2.3</span> Coupling between charged fluid and magnetic field</h3>
-<p>Elsässer variables are used to extract the Alfvénic component from MHD. They are defined as <span id="eq-Elsässer-vars"><span class="math display">\[
+<p>Elsässer variables are used to extract the Alfvénic component from MHD. The perturbations in Elsässer form are written as <span id="eq-Elsässer-vars"><span class="math display">\[
 \begin{aligned}
-\mathbf{z}^+ &amp;= \mathbf{v} + \mathbf{b} \\
-\mathbf{z}^- &amp;= \mathbf{v} - \mathbf{b}
+\mathbf{z}^+ &amp;= \delta\mathbf{v} + \delta\mathbf{b} \\
+\mathbf{z}^- &amp;= \delta\mathbf{v} - \delta\mathbf{b}
 \end{aligned}
 \tag{18.3}\]</span></span> where <span class="math inline">\(\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}\)</span> or <span class="math inline">\(\mathbf{b} = \mathbf{B}/\sqrt{4\pi\rho}\)</span> in CGS units.</p>
-<p>The perturbations in Elsässer form are written as <span class="math display">\[
-\begin{aligned}
-\delta\mathbf{z}^+ &amp;= \delta\mathbf{v} + \delta\mathbf{b} \\
-\delta\mathbf{z}^- &amp;= \delta\mathbf{v} - \delta\mathbf{b}
-\end{aligned}
-\]</span></p>
 <p><span class="math inline">\(\mathbf{z}^\pm\)</span> corresponds to anti-parallel/parallel propagating modes:</p>
 <ul>
-<li>Parallel wave: <span class="math inline">\(\delta\mathbf{v}=-\delta\mathbf{b}\Rightarrow \delta\mathbf{z}^+=0, \delta\mathbf{z}^-=2\delta\mathbf{v}\)</span></li>
-<li>Anti-parallel wave: <span class="math inline">\(\delta\mathbf{v}=\delta\mathbf{b}\Rightarrow \delta\mathbf{z}^+=2\delta\mathbf{v}, \delta\mathbf{z}^-=0\)</span></li>
+<li>Parallel wave: <span class="math inline">\(\delta\mathbf{v}=-\delta\mathbf{b}\Rightarrow \mathbf{z}^+=0, \mathbf{z}^-=2\delta\mathbf{v}\)</span></li>
+<li>Anti-parallel wave: <span class="math inline">\(\delta\mathbf{v}=\delta\mathbf{b}\Rightarrow \mathbf{z}^+=2\delta\mathbf{v}, \mathbf{z}^-=0\)</span></li>
 </ul>
+<p>Note that each field can contain multiple fluctuating modes: <span class="math inline">\(\mathbf{z}^- = \sum_{k} \mathbf{z}_k^-\)</span>, <span class="math inline">\(\delta\mathbf{B} = \sum_{k} \delta\mathbf{B}_k\)</span>. <span class="math inline">\(\mathbf{z}^\pm\)</span> is a field quantity.</p>
 <p>The Alfvénicity condition <span id="eq-Alfvenity"><span class="math display">\[
 \delta\mathbf{v}=\pm\delta\mathbf{b}=\pm\delta\mathbf{B}/\sqrt{\mu_0\rho_0}
 \tag{18.4}\]</span></span> often appears in the context of discussing Alfvén waves.</p>
 <p>The incompressible MHD wave equation in fluctuating Elsässer form is: <span id="eq-mhd_elsassar"><span class="math display">\[
-\frac{\partial\delta\mathbf{z}^\pm}{\partial t} \mp \mathbf{v}_A\cdot\nabla_\parallel\delta\mathbf{z}^\pm + \delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm = -\nabla p + \nu_+ \nabla^2 \mathbf{z}^{\pm} + \nu_- \nabla^2 \mathbf{z}^{\mp}
+\frac{\partial\mathbf{z}^\pm}{\partial t} \mp \mathbf{v}_A\cdot\nabla_\parallel\mathbf{z}^\pm + \mathbf{z}^\mp\cdot\nabla\mathbf{z}^\pm = -\nabla p + \nu_+ \nabla^2 \mathbf{z}^{\pm} + \nu_- \nabla^2 \mathbf{z}^{\mp}
 \tag{18.5}\]</span></span> where <span class="math inline">\(\nu _{\pm}=\frac{1}{2}(\nu \pm \eta)\)</span>. The incompressibility and divergence-free B condition are written as <span id="eq-elsassar_divergence"><span class="math display">\[
-\nabla\cdot\delta\mathbf{z}^\pm = 0
+\nabla\cdot\mathbf{z}^\pm = 0
 \tag{18.6}\]</span></span></p>
 <p>The zero divergence means that there are no forcing or dissipation terms. Since we have already assumed uniform density in <a href="#eq-constrho-ideal-mhd" class="quarto-xref">Equation&nbsp;<span>18.1</span></a>, <span class="math inline">\(v_A = B_0 / \rho = B_0\)</span>, we can write <a href="#eq-mhd_elsassar" class="quarto-xref">Equation&nbsp;<span>18.5</span></a> in an alternative form <span id="eq-mhd_elsassar2"><span class="math display">\[
-\frac{\partial\delta\mathbf{z}^\pm}{\partial t} \mp \mathbf{B}_0\cdot\nabla_\parallel\delta\mathbf{z}^\pm + \delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm = -\nabla p + \nu_+ \nabla^2 \mathbf{z}^{\pm} + \nu_- \nabla^2 \mathbf{z}^{\mp}
+\frac{\partial\mathbf{z}^\pm}{\partial t} \mp \mathbf{B}_0\cdot\nabla_\parallel\mathbf{z}^\pm + \mathbf{z}^\mp\cdot\nabla\mathbf{z}^\pm = -\nabla p + \nu_+ \nabla^2 \mathbf{z}^{\pm} + \nu_- \nabla^2 \mathbf{z}^{\mp}
 \tag{18.7}\]</span></span></p>
 <p><a href="#eq-mhd_elsassar" class="quarto-xref">Equation&nbsp;<span>18.5</span></a> unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence. In MHD, turbulence is manifested by the collision of Alfvén waves.</p>
-<p>Using the linear perturbation theory, <span class="math inline">\(\mp \mathbf{v}_A\cdot\nabla_\parallel\delta\mathbf{z}^\pm\)</span> scales as <span class="math inline">\((k_\parallel v_A)z^\pm\)</span>, and <span class="math inline">\(\delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm\)</span> scales as <span class="math inline">\((k_\perp z^\mp)z^\pm\)</span>. When <span class="math inline">\(k_\parallel v_A \gg k_\perp z^\mp\)</span>, the turbulence is <em>weak</em>; when <span class="math inline">\(k_\parallel v_A \simeq k_\perp z^\mp\)</span>, the turbulence is <em>strong</em>. Assuming an energy supply at small k, then first in the weak MHD turbulence the energy <span class="math inline">\(E(k_\perp)\propto k_\perp^{-2}\)</span>, and later in the strong MHD turbulence <span class="math inline">\(E(k_\perp)\propto k_\perp^{-3/2}\)</span>. At larger k, eventually we will encounter the dissipation scale, where the slope changes sharply because of the balance/imbalance of the energy cascade of the interacting waves.</p>
+<p>Using the linear perturbation theory, <span class="math inline">\(\mp \mathbf{v}_A\cdot\nabla_\parallel\mathbf{z}^\pm\)</span> scales as <span class="math inline">\((k_\parallel v_A)z^\pm\)</span>, and <span class="math inline">\(\mathbf{z}^\mp\cdot\nabla\mathbf{z}^\pm\)</span> scales as <span class="math inline">\((k_\perp z^\mp)z^\pm\)</span>. When <span class="math inline">\(k_\parallel v_A \gg k_\perp z^\mp\)</span>, the turbulence is <em>weak</em>; when <span class="math inline">\(k_\parallel v_A \simeq k_\perp z^\mp\)</span>, the turbulence is <em>strong</em>. Assuming an energy supply at small k, then first in the weak MHD turbulence the energy <span class="math inline">\(E(k_\perp)\propto k_\perp^{-2}\)</span>, and later in the strong MHD turbulence <span class="math inline">\(E(k_\perp)\propto k_\perp^{-3/2}\)</span>. At larger k, eventually we will encounter the dissipation scale, where the slope changes sharply because of the balance/imbalance of the energy cascade of the interacting waves.</p>
+<p>Several mechanisms may happen in the dissipation scale [Huang, Howes, McCubbin, 2024]: * Transit-Time Damping (TTD): analogy to Landau damping for magnetic field, also known as Barnes damping. Particles can be energized by mirror fields by first being accelerating by an induced electric field in the perpendicular direction (as opposed to Landau damping where the energy transfer occurs in the parallel direction), and then got transferred to the parallel direction. (Also appear in <a href="kmhd.html#sec-mirror" class="quarto-xref"><span>Section 14.2</span></a>, since it is closely related to mirror modes.) When an electromagnetic wave propagates through a plasma with varying magnetic field strength, its electric and magnetic fields oscillate. If the frequency of these oscillations matches the natural frequency at which particles are reflected by the magnetic mirror force (2nd adiabatic motion?), a resonance occurs. During this resonance, particles effectively “surf” on the wave, gaining energy from it. This energy gain comes at the expense of the wave, causing it to damp. The energy gained by the particles is primarily in the direction perpendicular to the magnetic field. TTD is a collisionless damping mechanism, which has a unique signature in velocity space. It creates a bipolar pattern of energy transfer, where some particles gain energy and others lose energy, centered around a resonant velocity. The strength of TTD is directly related to the gradient in the magnetic field strength: a stronger gradient leads to more efficient damping.</p>
+<p>When the nonlinear term can be neglected, we have normal mode waves. For a system with only <span class="math inline">\(\mathbf{z}^+\)</span>, <span id="eq-elsassar-linear-positive"><span class="math display">\[
+\begin{aligned}
+\frac{\partial \mathbf{z}^+}{\partial t} - \mathbf{V}_A \cdot\nabla \mathbf{z}^+ = 0 \\
+\rightarrow \mathbf{z}^+ \sim f(\mathbf{x} + \mathbf{V}_A t)
+\end{aligned}
+\tag{18.8}\]</span></span></p>
+<p>For a system with only <span class="math inline">\(\mathbf{z}^-\)</span>, <span id="eq-elsassar-linear-negative"><span class="math display">\[
+\begin{aligned}
+\frac{\partial \mathbf{z}^+}{\partial t} + \mathbf{V}_A \cdot\nabla \mathbf{z}^+ = 0 \\
+\rightarrow \mathbf{z}^+ \sim f(\mathbf{x} - \mathbf{V}_A t)
+\end{aligned}
+\tag{18.9}\]</span></span> where <span class="math inline">\(\mathbf{x}\)</span> is the coordinate parallel to <span class="math inline">\(\mathbf{B}\)</span>. Both <a href="#eq-elsassar-linear-positive" class="quarto-xref">Equation&nbsp;<span>18.8</span></a> and <a href="#eq-elsassar-linear-negative" class="quarto-xref">Equation&nbsp;<span>18.9</span></a> give the Alfvén normal modes <span id="eq-alfven-normal-mode"><span class="math display">\[
+\omega = |k_\parallel| V_A
+\tag{18.10}\]</span></span></p>
+<p>An interesting question is: Does an MHD Alfvén wave have more energy in its magnetic fluctuations or more energy in its velocity fluctuations?</p>
+<p>Answer: Same energy in fluctuations of both types, since an MHD Alfvén wave either has only <span class="math inline">\(z^+\)</span> or only <span class="math inline">\(z^-\)</span>.</p>
+<p>Alfvénic quasimode: Nonlinearly driven, non-normal mode that need not satisfy an Alfvén wave dispersion relation but still retains some Alfvénic properties such as incompressibility and a high degree of correlation between <span class="math inline">\(\delta\mathbf{b}\)</span> and $$.</p>
+<p>Consider a mode <span class="math inline">\(z_3^-\)</span> that results from the nonlinear interaction of modes <span class="math inline">\(z_1^-\)</span> and <span class="math inline">\(z_2^+\)</span>, <span class="math inline">\(z_3^- = z_1^- z_2^+\)</span>. Because the nonlinear term is important, <span class="math display">\[
+\frac{\partial \mathbf{z}_3^-}{\partial t} + \mathbf{V}_A\cdot\nabla \mathbf{z}_3^- \neq 0 \rightarrow \omega_3 - k_{3\parallel}V_A \neq 0
+\]</span></p>
+<p>Question: Consider a fluctuation in incompressible MHD that is part of a larger system of many interacting modes. If the fluctuation exists only on <span class="math inline">\(z^+\)</span> with no <span class="math inline">\(z^-\)</span> component, what does it indicate?</p>
+<p>Answer: No <span class="math inline">\(z^-\)</span> component means <span class="math inline">\(z^- = \delta\mathbf{v} - \frac{\delta\mathbf{B}}{\sqrt{4\pi\rho}} = 0\)</span>, which leads to in-phase magnetic field and velocity fluctuations. However, it does not mean that it must be an Alfvén wave traveling in one direction? (Ask Seth!)</p>
 </section>
-<section id="wave-interaction-phenomenology" class="level3" data-number="18.2.4">
-<h3 data-number="18.2.4" class="anchored" data-anchor-id="wave-interaction-phenomenology"><span class="header-section-number">18.2.4</span> Wave Interaction Phenomenology</h3>
-<p>The simplest three-wave interaction of shear-Alfvén waves is given as <span id="eq-three-wave-alfven-interaction"><span class="math display">\[
+<section id="importance-of-alfvén-waves" class="level3" data-number="18.2.4">
+<h3 data-number="18.2.4" class="anchored" data-anchor-id="importance-of-alfvén-waves"><span class="header-section-number">18.2.4</span> Importance of Alfvén Waves</h3>
+<ul>
+<li>Alfvén Waves can scatter fast ions in tokamak plasmas.</li>
+<li>Alfvén Waves may contribute to coronal heating.</li>
+<li>Alfvén Waves are the building blocks for more complicated structures and dynamics, and most notably, turbulence.</li>
+</ul>
+</section>
+<section id="wave-interaction-phenomenology" class="level3" data-number="18.2.5">
+<h3 data-number="18.2.5" class="anchored" data-anchor-id="wave-interaction-phenomenology"><span class="header-section-number">18.2.5</span> Wave Interaction Phenomenology</h3>
+<p>From <a href="#eq-mhd_elsassar" class="quarto-xref">Equation&nbsp;<span>18.5</span></a>, we can study the nonlinear interaction of wave modes. Consider a mode <span class="math inline">\(z_3^-\)</span> that results from the nonlinear interaction of modes <span class="math inline">\(z_1^-\)</span> and <span class="math inline">\(z_2^+\)</span>: <span class="math inline">\(z_3^- = z_1^- z_2^+\)</span>. The simplest three-wave interaction of shear-Alfvén waves is given as <span id="eq-three-wave-alfven-interaction"><span class="math display">\[
 \begin{aligned}
 \omega(k) &amp;= \omega(k_1) + \omega(k_2) \\
 \mathbf{k} &amp;= \mathbf{k}_1 + \mathbf{k}_2
 \end{aligned}
-\tag{18.8}\]</span></span> where <span class="math display">\[
+\tag{18.11}\]</span></span> where <span class="math display">\[
 \omega(k) = |k_z|v_A
 \]</span></p>
-<p>The total wave number k is composed of two parts: <span class="math inline">\(k_z\)</span> is the wave number along the guide field direction, and <span class="math inline">\(k_\perp\)</span> is the wave number perpendicular to the guide field. Since only counter-propagating waves interact, <span class="math inline">\(k_{1z}\)</span> and <span class="math inline">\(k_{2z}\)</span> should have opposite signs. In order to satisfy the interaction condition, we can have either <span class="math inline">\(k_{1z} = 0\)</span> or <span class="math inline">\(k_{2z} = 0\)</span>. That means wave interactions change <span class="math inline">\(k_\perp\)</span> but not <span class="math inline">\(k_z\)</span>.</p>
+<p>In a simple version, we can write down as <span class="math display">\[
+\begin{aligned}
+\omega_3 = \omega_1 \pm \omega_2 \\
+k_{3\parallel} = k_{1\parallel} \pm k_{2\parallel}
+\end{aligned}
+\]</span></p>
+<p>The total wave number k is composed of two parts: <span class="math inline">\(k_z\)</span> is the wave number along the guide field direction, and <span class="math inline">\(k_\perp\)</span> is the wave number perpendicular to the guide field. Since only counter-propagating waves interact, <span class="math inline">\(k_{1z}\)</span> and <span class="math inline">\(k_{2z}\)</span> should have opposite signs. In order to satisfy the interaction condition, we can have either <span class="math inline">\(k_{1z} = 0\)</span> or <span class="math inline">\(k_{2z} = 0\)</span>. That means wave interactions change <span class="math inline">\(k_\perp\)</span> but not <span class="math inline">\(k_z\)</span>. This was verified in lab experiments with two counter-propagating modes, where we can isolate single interaction for detailed study (e.g.&nbsp;Howes+ 2012). An interesting point is that while from incompressible ideal MHD prediction, two modes moving along the same direction cannot have nonlinear interactions, one lab experiment showed that this is not true. This is attributed to the Hall effect, which adds additional complexity to the equations.</p>
 </section>
-<section id="nondimensional-parameters" class="level3" data-number="18.2.5">
-<h3 data-number="18.2.5" class="anchored" data-anchor-id="nondimensional-parameters"><span class="header-section-number">18.2.5</span> Nondimensional parameters</h3>
+<section id="nondimensional-parameters" class="level3" data-number="18.2.6">
+<h3 data-number="18.2.6" class="anchored" data-anchor-id="nondimensional-parameters"><span class="header-section-number">18.2.6</span> Nondimensional parameters</h3>
 <p>The important nondimensional parameters for MHD are</p>
 <ul>
 <li><p>Reynolds number: <span class="math inline">\(\text{Re}=UL/\nu\)</span></p></li>
@@ -561,42 +594,45 @@ window.Quarto = {
 <p>In many practical situations, the Reynolds number Re of the flow is quite large. For such flows typically the velocity and the magnetic fields are random. Such flows are called to exhibit MHD turbulence. Note that <span class="math inline">\(\text{Re}_{M}\)</span> need not be large for MHD turbulence. <span class="math inline">\(\text{Re}_{M}\)</span> plays an important role in dynamo (magnetic field generation) problem.</p>
 <p>The mean magnetic field plays an important role in MHD turbulence, for example it can make the turbulence anisotropic; suppress the turbulence by decreasing energy cascade etc. The earlier MHD turbulence models assumed isotropy of turbulence, while the later models have studied anisotropic aspects.</p>
 </section>
-<section id="critical-balance" class="level3" data-number="18.2.6">
-<h3 data-number="18.2.6" class="anchored" data-anchor-id="critical-balance"><span class="header-section-number">18.2.6</span> Critical balance</h3>
+<section id="critical-balance" class="level3" data-number="18.2.7">
+<h3 data-number="18.2.7" class="anchored" data-anchor-id="critical-balance"><span class="header-section-number">18.2.7</span> Critical balance</h3>
+<p>Polarized Alfvén modes interact. Due to the dot product in the nonlinear term in <a href="#eq-mhd_elsassar" class="quarto-xref">Equation&nbsp;<span>18.5</span></a>, only the <em>perpendicularly</em> polarized components of the modes interact. The strength of the interaction can be quantified as <span class="math display">\[
+\chi \sim \frac{k_\perp z^\mp}{k_\parallel V_A}
+\]</span></p>
 <p>If we match the Alfvén (linear) timescale, <span class="math inline">\(\tau_A \sim l_\parallel/v_A\)</span> (related to how fast Alfvén waves propagate along magnetic field lines), with the nonlinear timescale, <span class="math inline">\(\tau_{nl}\sim l_\perp/\delta z\)</span> (related to how fast turbulent eddies interact and distort each other), <span class="math display">\[
 \tau_A = \tau_{nl}
-\]</span> we have a way to predict the scaling of energy distribution across different scales, and the relationship between perpendicular and parallel structures in turbulence. This is known as the <em>critical balance</em> (Goldreich and Sridhar).</p>
+\]</span> we have a way to predict the scaling of energy distribution across different scales, and the relationship between perpendicular and parallel structures in turbulence. This is known as the <em>critical balance</em> (Goldreich and Sridhar 1995), where <span class="math inline">\(\chi\sim 1\)</span>, as is assumed in solar wind turbulence.</p>
 <p>Assume a constant energy cascade rate <span class="math inline">\(\epsilon\sim \delta z^2/\tau_{nl}\)</span>, and an energy injection rate at scale L <span class="math inline">\(\epsilon_L\sim v_A^2/\tau_{nl}=v_A^3/L\)</span>. When we match the two rates and … (I have some memory from Nunov’s lecture at Nordita), we have <span id="eq-critical-balance"><span class="math display">\[
 k_\parallel\propto k_\perp^{2/3}
-\tag{18.9}\]</span></span> This means that anisotropy grows with decreasing scale. It indicates the transition from “weak” to “strong” turbulence, or more accurately a transition from “quasi-linear” to “mode-coupling” processes.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> The power spectra are given as <span id="eq-critical-balance-spectra"><span class="math display">\[
+\tag{18.12}\]</span></span> This means that anisotropy grows with decreasing scale. It indicates the transition from “weak” to “strong” turbulence, or more accurately a transition from “quasi-linear” to “mode-coupling” processes.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> The power spectra are given as <span id="eq-critical-balance-spectra"><span class="math display">\[
 \begin{aligned}
 E(k_\perp) &amp;\propto k_\perp^{-5/3} \\
 E(k_\parallel) &amp;\propto k_\parallel^{-2}
 \end{aligned}
-\tag{18.10}\]</span></span></p>
-<p>This is among the most influential discoveries related to MHD turbulence, which makes it distinct from gas dynamic Kolmogorov turbulence by taking the magnetic field into account. By separating <span class="math inline">\(k_\parallel\)</span> and <span class="math inline">\(k_\perp\)</span> dynamics, the critical balance theory predicts perpendicular energy spectra <a href="#eq-critical-balance-spectra" class="quarto-xref">Equation&nbsp;<span>18.10</span></a>, which is consistent with the solar wind turbulence in the inertial range [Chen 2016]. The theory invoking this concept is now known as the anisotropic MHD turbulence.</p>
+\tag{18.13}\]</span></span></p>
+<p>This is among the most influential discoveries related to MHD turbulence, which makes it distinct from gas dynamic Kolmogorov turbulence by taking the magnetic field into account. By separating <span class="math inline">\(k_\parallel\)</span> and <span class="math inline">\(k_\perp\)</span> dynamics, the critical balance theory predicts perpendicular energy spectra <a href="#eq-critical-balance-spectra" class="quarto-xref">Equation&nbsp;<span>18.13</span></a>, which is consistent with the solar wind turbulence in the inertial range [Chen 2016]. The theory invoking this concept is now known as the anisotropic MHD turbulence.</p>
 <p>However, why this is the case in nature is still under debate.</p>
 </section>
-<section id="residual-energy" class="level3" data-number="18.2.7">
-<h3 data-number="18.2.7" class="anchored" data-anchor-id="residual-energy"><span class="header-section-number">18.2.7</span> Residual energy</h3>
+<section id="residual-energy" class="level3" data-number="18.2.8">
+<h3 data-number="18.2.8" class="anchored" data-anchor-id="residual-energy"><span class="header-section-number">18.2.8</span> Residual energy</h3>
 <p>Residual energy is the difference in energy between magnetic and velocity fluctuations. The normalized residual energy is <span id="eq-residual_energy_normalized"><span class="math display">\[
 \sigma_r = \frac{|\delta\mathbf{v}|^2 - |\delta\mathbf{b}|^2}{|\delta\mathbf{v}|^2 + |\delta\mathbf{b}|^2}
-\tag{18.11}\]</span></span></p>
+\tag{18.14}\]</span></span></p>
 <p><span class="math inline">\(\sigma_r\)</span> is zero for an Alfvén wave but is generally negative (<span class="math inline">\(|\delta\mathbf{b}|^2 &gt; |\delta\mathbf{v}|^2\)</span>) at MHD scales for solar wind observations, meaning that they are mostly likely turbulence but not waves.</p>
 <p>Weak MHD turbulence spontaneously generates a condensate of the residual energy <span class="math inline">\(E_r = E_b - E_k\)</span> at small <span class="math inline">\(k_\parallel\)</span>. Condensate broadens with <span class="math inline">\(k_\perp\)</span>.</p>
 <p>For Strong MHD turbulence, the residual energy is nonzero at all k.</p>
 </section>
-<section id="sec-turbulence_cross_helicity" class="level3" data-number="18.2.8">
-<h3 data-number="18.2.8" class="anchored" data-anchor-id="sec-turbulence_cross_helicity"><span class="header-section-number">18.2.8</span> Normalized cross helicity</h3>
+<section id="sec-turbulence_cross_helicity" class="level3" data-number="18.2.9">
+<h3 data-number="18.2.9" class="anchored" data-anchor-id="sec-turbulence_cross_helicity"><span class="header-section-number">18.2.9</span> Normalized cross helicity</h3>
 <p>Cross helicity is the difference in energy between <span class="math inline">\(\mathbf{z}^+\)</span> and <span class="math inline">\(\mathbf{z}^-\)</span> fluctuations (<a href="geometry.html#sec-cross_helicity" class="quarto-xref"><span>Section 19.5</span></a>). The normalized cross helicity is <span id="eq-cross_helicity_normalized"><span class="math display">\[
-\sigma_c = \frac{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2}{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2} = \frac{2\delta\mathbf{v}\cdot\delta\mathbf{b}}{|\delta\mathbf{v}|^2 + |\delta\mathbf{b}|^2}
-\tag{18.12}\]</span></span></p>
+\sigma_c = \frac{|\mathbf{z}^+|^2 - |\mathbf{z}^-|^2}{|\mathbf{z}^+|^2 - |\mathbf{z}^-|^2} = \frac{2\delta\mathbf{v}\cdot\delta\mathbf{b}}{|\delta\mathbf{v}|^2 + |\delta\mathbf{b}|^2}
+\tag{18.15}\]</span></span></p>
 <ul>
 <li><span class="math inline">\(|\sigma_c|=1\)</span>: unidirectional Alfvén waves (no turbulence)</li>
 <li><span class="math inline">\(|\sigma_c|\lesssim 1\)</span>: imbalanced turbulence</li>
 <li><span class="math inline">\(|\sigma_c|=0\)</span>: balanced turbulence (or non-Alfvénic fluctuations)</li>
 </ul>
-<p>The solar wind is typically imbalanced towards the anti-sunward direction. From <a href="#eq-residual_energy_normalized" class="quarto-xref">Equation&nbsp;<span>18.11</span></a> and <a href="#eq-cross_helicity_normalized" class="quarto-xref">Equation&nbsp;<span>18.12</span></a> we can easily see that <span class="math display">\[
+<p>The solar wind is typically imbalanced towards the anti-sunward direction. From <a href="#eq-residual_energy_normalized" class="quarto-xref">Equation&nbsp;<span>18.14</span></a> and <a href="#eq-cross_helicity_normalized" class="quarto-xref">Equation&nbsp;<span>18.15</span></a> we can easily see that <span class="math display">\[
 \sqrt{\sigma_r^2 + \sigma_c^2} \le 1
 \]</span></p>
 <p>The observed distribution is shown in <a href="#fig-turbulence-residual-energy-cross-helicity" class="quarto-xref">Figure&nbsp;<span>18.1</span></a>. Note, however, <span class="math inline">\(\sigma_r\)</span> depends on how you evaluate <span class="math inline">\(\delta{b}\)</span>. In the MHD case <span class="math inline">\(\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}\)</span> is used, but in the kinetic case there will be an extra coefficient. The results look pretty different!</p>
