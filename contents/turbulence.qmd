@@ -70,7 +70,7 @@ $$
 $$ {#eq-constrho-ideal-mhd}
 where $P$ is the total (thermal + magnetic) pressure, $\nu$ is the kinematic viscosity, and $\eta$ is the magnetic diffusivity. In the above equation, the magnetic field is in Alfvén units (same as velocity units).
 
-The total magnetic field can be split into a mean field and a fluctuating field: 
+The total magnetic field can be split into a mean field $\mathbf{B}_0$ and a fluctuating field $\mathbf{b}$: 
 $$
 \mathbf{B} = \mathbf{B}_0 + \delta\mathbf{b}
 $$
@@ -85,31 +85,25 @@ $$
 \frac{\partial\mathbf{b}}{\partial t} = \mathbf{v}_A\cdot\nabla\mathbf{u} + \mathbf{b}\cdot\nabla\mathbf{u} + d_i\nabla\times\left[ \mathbf{v}_A\times(\nabla\times\mathbf{b}) \right] + d_i\nabla\times\left[ \mathbf{b}\times(\nabla\times\mathbf{b}) \right] + \eta \nabla^2\mathbf{b}
 $$ {#eq-constrho-hall-mhd}
 
-Note that here $\delta\mathbf{b}$ and $\mathbf{b}$ may be used interchangably.
+The symmetric forms of $\mathbf{u}$ and $\mathbf{B}$ hint us that we may be able to combine them together; this is exactly what Walter Elsässer did back in 1950.
 
 ### Coupling between charged fluid and magnetic field
 
-Elsässer variables are used to extract the Alfvénic component from MHD. They are defined as
+Elsässer variables are used to extract the Alfvénic component from MHD. The perturbations in Elsässer form are written as
 $$
 \begin{aligned}
-\mathbf{z}^+ &= \mathbf{v} + \mathbf{b} \\
-\mathbf{z}^- &= \mathbf{v} - \mathbf{b}
+\mathbf{z}^+ &= \delta\mathbf{v} + \delta\mathbf{b} \\
+\mathbf{z}^- &= \delta\mathbf{v} - \delta\mathbf{b}
 \end{aligned}
 $$ {#eq-Elsässer-vars}
 where $\mathbf{b} = \mathbf{B}/\sqrt{\mu_0\rho}$ or $\mathbf{b} = \mathbf{B}/\sqrt{4\pi\rho}$ in CGS units.
 
-The perturbations in Elsässer form are written as
-$$
-\begin{aligned}
-\delta\mathbf{z}^+ &= \delta\mathbf{v} + \delta\mathbf{b} \\
-\delta\mathbf{z}^- &= \delta\mathbf{v} - \delta\mathbf{b}
-\end{aligned}
-$$
-
 $\mathbf{z}^\pm$ corresponds to anti-parallel/parallel propagating modes:
 
-* Parallel wave: $\delta\mathbf{v}=-\delta\mathbf{b}\Rightarrow \delta\mathbf{z}^+=0, \delta\mathbf{z}^-=2\delta\mathbf{v}$
-* Anti-parallel wave: $\delta\mathbf{v}=\delta\mathbf{b}\Rightarrow \delta\mathbf{z}^+=2\delta\mathbf{v}, \delta\mathbf{z}^-=0$
+* Parallel wave: $\delta\mathbf{v}=-\delta\mathbf{b}\Rightarrow \mathbf{z}^+=0, \mathbf{z}^-=2\delta\mathbf{v}$
+* Anti-parallel wave: $\delta\mathbf{v}=\delta\mathbf{b}\Rightarrow \mathbf{z}^+=2\delta\mathbf{v}, \mathbf{z}^-=0$
+
+Note that each field can contain multiple fluctuating modes: $\mathbf{z}^- = \sum_{k} \mathbf{z}_k^-$, $\delta\mathbf{B} = \sum_{k} \delta\mathbf{B}_k$. $\mathbf{z}^\pm$ is a field quantity.
 
 The Alfvénicity condition
 $$
@@ -119,24 +113,69 @@ often appears in the context of discussing Alfvén waves.
 
 The incompressible MHD wave equation in fluctuating Elsässer form is:
 $$
-\frac{\partial\delta\mathbf{z}^\pm}{\partial t} \mp \mathbf{v}_A\cdot\nabla_\parallel\delta\mathbf{z}^\pm + \delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm = -\nabla p + \nu_+ \nabla^2 \mathbf{z}^{\pm} + \nu_- \nabla^2 \mathbf{z}^{\mp}
+\frac{\partial\mathbf{z}^\pm}{\partial t} \mp \mathbf{v}_A\cdot\nabla_\parallel\mathbf{z}^\pm + \mathbf{z}^\mp\cdot\nabla\mathbf{z}^\pm = -\nabla p + \nu_+ \nabla^2 \mathbf{z}^{\pm} + \nu_- \nabla^2 \mathbf{z}^{\mp}
 $$ {#eq-mhd_elsassar}
 where $\nu _{\pm}=\frac{1}{2}(\nu \pm \eta)$. The incompressibility and divergence-free B condition are written as
 $$
-\nabla\cdot\delta\mathbf{z}^\pm = 0
+\nabla\cdot\mathbf{z}^\pm = 0
 $$ {#eq-elsassar_divergence}
 
 The zero divergence means that there are no forcing or dissipation terms. Since we have already assumed uniform density in @eq-constrho-ideal-mhd, $v_A = B_0 / \rho = B_0$, we can write @eq-mhd_elsassar in an alternative form
 $$
-\frac{\partial\delta\mathbf{z}^\pm}{\partial t} \mp \mathbf{B}_0\cdot\nabla_\parallel\delta\mathbf{z}^\pm + \delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm = -\nabla p + \nu_+ \nabla^2 \mathbf{z}^{\pm} + \nu_- \nabla^2 \mathbf{z}^{\mp}
+\frac{\partial\mathbf{z}^\pm}{\partial t} \mp \mathbf{B}_0\cdot\nabla_\parallel\mathbf{z}^\pm + \mathbf{z}^\mp\cdot\nabla\mathbf{z}^\pm = -\nabla p + \nu_+ \nabla^2 \mathbf{z}^{\pm} + \nu_- \nabla^2 \mathbf{z}^{\mp}
 $$ {#eq-mhd_elsassar2}
 
 @eq-mhd_elsassar unveils the interesting phenonmena in Alfvénic turbulence study. The second term on the left-hand side is a linear term that represents propagation of waves parallel to the mean field. The third term represent the non-linear interaction of counter-propagating waves, during which energy is transferred to smaller scales. This is exactly turbulence. In MHD, turbulence is manifested by the collision of Alfvén waves.
 
-Using the linear perturbation theory, $\mp \mathbf{v}_A\cdot\nabla_\parallel\delta\mathbf{z}^\pm$ scales as $(k_\parallel v_A)z^\pm$, and $\delta\mathbf{z}^\mp\cdot\nabla\delta\mathbf{z}^\pm$ scales as $(k_\perp z^\mp)z^\pm$. When $k_\parallel v_A \gg k_\perp z^\mp$, the turbulence is _weak_; when $k_\parallel v_A \simeq k_\perp z^\mp$, the turbulence is _strong_. Assuming an energy supply at small k, then first in the weak MHD turbulence the energy $E(k_\perp)\propto k_\perp^{-2}$, and later in the strong MHD turbulence $E(k_\perp)\propto k_\perp^{-3/2}$. At larger k, eventually we will encounter the dissipation scale, where the slope changes sharply because of the balance/imbalance of the energy cascade of the interacting waves.
+Using the linear perturbation theory, $\mp \mathbf{v}_A\cdot\nabla_\parallel\mathbf{z}^\pm$ scales as $(k_\parallel v_A)z^\pm$, and $\mathbf{z}^\mp\cdot\nabla\mathbf{z}^\pm$ scales as $(k_\perp z^\mp)z^\pm$. When $k_\parallel v_A \gg k_\perp z^\mp$, the turbulence is _weak_; when $k_\parallel v_A \simeq k_\perp z^\mp$, the turbulence is _strong_. Assuming an energy supply at small k, then first in the weak MHD turbulence the energy $E(k_\perp)\propto k_\perp^{-2}$, and later in the strong MHD turbulence $E(k_\perp)\propto k_\perp^{-3/2}$. At larger k, eventually we will encounter the dissipation scale, where the slope changes sharply because of the balance/imbalance of the energy cascade of the interacting waves.
+
+Several mechanisms may happen in the dissipation scale [Huang, Howes, McCubbin, 2024]:
+* Transit-Time Damping (TTD): analogy to Landau damping for magnetic field, also known as Barnes damping. Particles can be energized by mirror fields by first being accelerating by an induced electric field in the perpendicular direction (as opposed to Landau damping where the energy transfer occurs in the parallel direction), and then got transferred to the parallel direction. (Also appear in @sec-mirror, since it is closely related to mirror modes.) When an electromagnetic wave propagates through a plasma with varying magnetic field strength, its electric and magnetic fields oscillate. If the frequency of these oscillations matches the natural frequency at which particles are reflected by the magnetic mirror force (2nd adiabatic motion?), a resonance occurs. During this resonance, particles effectively "surf" on the wave, gaining energy from it. This energy gain comes at the expense of the wave, causing it to damp. The energy gained by the particles is primarily in the direction perpendicular to the magnetic field. TTD is a collisionless damping mechanism, which has a unique signature in velocity space. It creates a bipolar pattern of energy transfer, where some particles gain energy and others lose energy, centered around a resonant velocity. The strength of TTD is directly related to the gradient in the magnetic field strength: a stronger gradient leads to more efficient damping.
+
+When the nonlinear term can be neglected, we have normal mode waves. For a system with only $\mathbf{z}^+$,
+$$
+\begin{aligned}
+\frac{\partial \mathbf{z}^+}{\partial t} - \mathbf{V}_A \cdot\nabla \mathbf{z}^+ = 0 \\
+\rightarrow \mathbf{z}^+ \sim f(\mathbf{x} + \mathbf{V}_A t)
+\end{aligned}
+$$ {#eq-elsassar-linear-positive}
+
+For a system with only $\mathbf{z}^-$,
+$$
+\begin{aligned}
+\frac{\partial \mathbf{z}^+}{\partial t} + \mathbf{V}_A \cdot\nabla \mathbf{z}^+ = 0 \\
+\rightarrow \mathbf{z}^+ \sim f(\mathbf{x} - \mathbf{V}_A t)
+\end{aligned}
+$$ {#eq-elsassar-linear-negative}
+where $\mathbf{x}$ is the coordinate parallel to $\mathbf{B}$. Both @eq-elsassar-linear-positive and @eq-elsassar-linear-negative give the Alfvén normal modes
+$$
+\omega = |k_\parallel| V_A
+$$ {#eq-alfven-normal-mode}
+
+An interesting question is: Does an MHD Alfvén wave have more energy in its magnetic fluctuations or more energy in its velocity fluctuations?
+
+Answer: Same energy in fluctuations of both types, since an MHD Alfvén wave either has only $z^+$ or only $z^-$.
+
+Alfvénic quasimode: Nonlinearly driven, non-normal mode that need not satisfy an Alfvén wave dispersion relation but still retains some Alfvénic properties such  as incompressibility and a high degree of correlation between $\delta\mathbf{b}$ and $$.
+
+Consider a mode $z_3^-$ that results from the nonlinear interaction of modes $z_1^-$ and $z_2^+$, $z_3^- = z_1^- z_2^+$. Because the nonlinear term is important,
+$$
+\frac{\partial \mathbf{z}_3^-}{\partial t} + \mathbf{V}_A\cdot\nabla \mathbf{z}_3^- \neq 0 \rightarrow \omega_3 - k_{3\parallel}V_A \neq 0
+$$
+
+Question: Consider a fluctuation in incompressible MHD that is part of a larger system of many interacting modes. If the fluctuation exists only on $z^+$ with no $z^-$ component, what does it indicate?
+
+Answer: No $z^-$ component means $z^- = \delta\mathbf{v} - \frac{\delta\mathbf{B}}{\sqrt{4\pi\rho}} = 0$, which leads to in-phase magnetic field and velocity fluctuations. However, it does not mean that it must be an Alfvén wave traveling in one direction? (Ask Seth!)
+
+### Importance of Alfvén Waves
+
+* Alfvén Waves can scatter fast ions in tokamak plasmas.
+* Alfvén Waves may contribute to coronal heating.
+* Alfvén Waves are the building blocks for more complicated structures and dynamics, and most notably, turbulence.
 
 ### Wave Interaction Phenomenology
 
+From @eq-mhd_elsassar, we can study the nonlinear interaction of wave modes. Consider a mode $z_3^-$ that results from the nonlinear interaction of modes $z_1^-$ and $z_2^+$: $z_3^- = z_1^- z_2^+$.
 The simplest three-wave interaction of shear-Alfvén waves is given as
 $$
 \begin{aligned}
@@ -149,7 +188,15 @@ $$
 \omega(k) = |k_z|v_A
 $$
 
-The total wave number k is composed of two parts: $k_z$ is the wave number along the guide field direction, and $k_\perp$ is the wave number perpendicular to the guide field. Since only counter-propagating waves interact, $k_{1z}$ and $k_{2z}$ should have opposite signs. In order to satisfy the interaction condition, we can have either $k_{1z} = 0$ or $k_{2z} = 0$. That means wave interactions change $k_\perp$ but not $k_z$.
+In a simple version, we can write down as
+$$
+\begin{aligned}
+\omega_3 = \omega_1 \pm \omega_2 \\
+k_{3\parallel} = k_{1\parallel} \pm k_{2\parallel}
+\end{aligned}
+$$
+
+The total wave number k is composed of two parts: $k_z$ is the wave number along the guide field direction, and $k_\perp$ is the wave number perpendicular to the guide field. Since only counter-propagating waves interact, $k_{1z}$ and $k_{2z}$ should have opposite signs. In order to satisfy the interaction condition, we can have either $k_{1z} = 0$ or $k_{2z} = 0$. That means wave interactions change $k_\perp$ but not $k_z$. This was verified in lab experiments with two counter-propagating modes, where we can isolate single interaction for detailed study (e.g. Howes+ 2012). An interesting point is that while from incompressible ideal MHD prediction, two modes moving along the same direction cannot have nonlinear interactions, one lab experiment showed that this is not true. This is attributed to the Hall effect, which adds additional complexity to the equations.
 
 ### Nondimensional parameters
 
@@ -171,11 +218,16 @@ The mean magnetic field plays an important role in MHD turbulence, for example i
 
 ### Critical balance
 
+Polarized Alfvén modes interact. Due to the dot product in the nonlinear term in @eq-mhd_elsassar, only the *perpendicularly* polarized components of the modes interact. The strength of the interaction can be quantified as
+$$
+\chi \sim \frac{k_\perp z^\mp}{k_\parallel V_A}
+$$
+
 If we match the Alfvén (linear) timescale, $\tau_A \sim l_\parallel/v_A$ (related to how fast Alfvén waves propagate along magnetic field lines), with the nonlinear timescale, $\tau_{nl}\sim l_\perp/\delta z$ (related to how fast turbulent eddies interact and distort each other),
 $$
 \tau_A = \tau_{nl}
 $$
-we have a way to predict the scaling of energy distribution across different scales, and the relationship between perpendicular and parallel structures in turbulence. This is known as the  _critical balance_ (Goldreich and Sridhar).
+we have a way to predict the scaling of energy distribution across different scales, and the relationship between perpendicular and parallel structures in turbulence. This is known as the  _critical balance_ (Goldreich and Sridhar 1995), where $\chi\sim 1$, as is assumed in solar wind turbulence.
 
 Assume a constant energy cascade rate $\epsilon\sim \delta z^2/\tau_{nl}$, and an energy injection rate at scale L $\epsilon_L\sim v_A^2/\tau_{nl}=v_A^3/L$. When we match the two rates and ... (I have some memory from Nunov's lecture at Nordita), we have
 $$
@@ -212,7 +264,7 @@ For Strong MHD turbulence, the residual energy is nonzero at all k.
 
 Cross helicity is the difference in energy between $\mathbf{z}^+$ and $\mathbf{z}^-$ fluctuations (@sec-cross_helicity). The normalized cross helicity is
 $$
-\sigma_c = \frac{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2}{|\delta\mathbf{z}^+|^2 - |\delta\mathbf{z}^-|^2} = \frac{2\delta\mathbf{v}\cdot\delta\mathbf{b}}{|\delta\mathbf{v}|^2 + |\delta\mathbf{b}|^2}
+\sigma_c = \frac{|\mathbf{z}^+|^2 - |\mathbf{z}^-|^2}{|\mathbf{z}^+|^2 - |\mathbf{z}^-|^2} = \frac{2\delta\mathbf{v}\cdot\delta\mathbf{b}}{|\delta\mathbf{v}|^2 + |\delta\mathbf{b}|^2}
 $$ {#eq-cross_helicity_normalized}
 
 * $|\sigma_c|=1$: unidirectional Alfvén waves (no turbulence)
