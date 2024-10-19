@@ -2,8 +2,7 @@
 
 ## Diffusion and Mobility in Weakly Ionized Gases
 
-The infinite, homogeneous plasmas assumed in the previous chapter for the equilibrium conditions are, of course, highly idealized. Any realistic plasma will have a density gradient, and the plasma will tend to diffuse toward regions of low density. For example, the central problem in controlled thermonuclear reactions is to impede the rate of diffusion by using a magnetic field. Before tackling the magnetic field problem, however, we shall consider the case of diffusion in the absence of magnetic fields. A further simplification results if we assume that the plasma is weakly ionized, so that charge particles collide primarily with neutral atoms rather than with one another. The case of a fully ionized plasma is deferred to a later section, since it results in a nonlinear equation for which there are few simple illustrative solutions. In any case,
-partially ionized gases are not rare: High-pressure arcs and ionospheric plasmas fall into this category, and most of the early work on gas discharges involved fractional ionizations between $10^3$ and $10^6$, when collisions with neutral atoms are dominant.
+The infinite, homogeneous plasmas assumed in the previous chapter for the equilibrium conditions are, of course, highly idealized. Any realistic plasma will have a density gradient, and the plasma will tend to diffuse toward regions of low density. For example, the central problem in controlled thermonuclear reactions is to impede the rate of diffusion by using a magnetic field. Before tackling the magnetic field problem, however, we shall consider the case of diffusion in the absence of magnetic fields. A further simplification results if we assume that the plasma is weakly ionized, so that charge particles collide primarily with neutral atoms rather than with one another. The case of a fully ionized plasma is deferred to a later section, since it results in a nonlinear equation for which there are few simple illustrative solutions. In any case, partially ionized gases are not rare: High-pressure arcs and ionospheric plasmas fall into this category, and most of the early work on gas discharges involved fractional ionizations between $10^3$ and $10^6$, when collisions with neutral atoms are dominant.
 
 The picture, then, is of a nonuniform distribution of ions and electrons in a dense background of neutrals (Fig. 5.1 ADD IT!). As the plasma spreads out as a result of pressure-gradient and electric field forces, the individual particles undergo a random walk, colliding frequently with the neutral atoms. We begin with a brief review of definitions from atomic theory.
 
@@ -42,8 +41,7 @@ $$
 mn\frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = mn \Big[ \frac{\partial\mathbf{v}}{\partial t} + (\mathbf{v}\cdot\nabla)\mathbf{v} \Big] = q_sn\mathbf{E} - \nabla p - mn\nu\mathbf{v}
 $$
 
-The averaging process used to compute $\nu$ is such as to make the last equation correct; we need not be concerned with the
-details of this computation. The quantity $\nu$ must, however, be assumed to be a constant in order for the equation to be useful. We shall consider a steady state in which $\partial\mathbf{v}/\partial t$ = 0. If $\mathbf{v}$ is sufficiently small (or $\nu$ sufficiently large), a fluid element will not move into regions of different $\mathbf{E}$ and $\nabla p$ in a collision time, and the convective derivative $\mathrm{d}\mathbf{v}/\mathrm{d}t$ will also vanish. Setting the left-hand side to zero, we have, for an isothermal plasma,
+The averaging process used to compute $\nu$ is such as to make the last equation correct; we need not be concerned with the details of this computation. The quantity $\nu$ must, however, be assumed to be a constant in order for the equation to be useful. We shall consider a steady state in which $\partial\mathbf{v}/\partial t$ = 0. If $\mathbf{v}$ is sufficiently small (or $\nu$ sufficiently large), a fluid element will not move into regions of different $\mathbf{E}$ and $\nabla p$ in a collision time, and the convective derivative $\mathrm{d}\mathbf{v}/\mathrm{d}t$ will also vanish. Setting the left-hand side to zero, we have, for an isothermal plasma,
 $$
 \mathbf{v} = \frac{1}{mn\nu}(q_sn\mathbf{E} - k_B T \nabla n) = \frac{q_s}{m\nu}\mathbf{E} - \frac{k_B T}{mv}\frac{\nabla n}{n}
 $$
@@ -71,12 +69,15 @@ $$
 \Gamma = -D\nabla n\quad\text{Fick's law}
 $$
 
-This equation merely expresses the fact that diffusion is a random-walk process, in which a net flux from dense regions to less dense regions occurs simply because more particles start in the dense region. This flux is obviously proportional to the
-gradient of the density. In plasmas, Fick’s law is not necessarily obeyed. Because of the possibility of organized motions (plasma waves), a plasma may spread out in a manner which is not truly random.
+This equation merely expresses the fact that diffusion is a random-walk process, in which a net flux from dense regions to less dense regions occurs simply because more particles start in the dense region. This flux is obviously proportional to the gradient of the density. In plasmas, Fick’s law is not necessarily obeyed. Because of the possibility of organized motions (plasma waves), a plasma may spread out in a manner which is not truly random.
 
 ## Decay of a Plasma by Diffusion
 
 ### Ambipolar Diffusion
+
+Ambipolar diffusion is related to the concept of quasineutrality. In most plasmas, the forces acting on the ions are different from those acting on the electrons, so naively one would expect one species to be transported faster than the other, whether by diffusion or convection or some other process. If such differential transport has a divergence, then it results in a change of the charge density. The latter will create an electric field that can alter the transport of one or both species in such a way that they become equal.
+
+The simplest example is a plasma localized in an unmagnetized vacuum (e.g. inertial confinement fusion). Both electrons and ions will stream outward with their respective thermal velocity. If the ions are relatively cold, their thermal velocity will be small. The thermal velocity of the electrons will be fast due to their high temperature and low mass: $v_{th,e}= \sqrt{k_B T_e / m_e}$. As the electrons leave the initial volume, they will leave behind a positive charge density of ions, resulting in an outwardly directed electric field. This field will act on the electrons to slow them down and on the ions to speed them up. The net result is that both ions and electrons stream outward at the speed of sound, $c_{s}\approx {\sqrt {k_{B}T_{e}/m_{i}}}$, which is much smaller than the electron thermal velocity, but usually much larger than the ion thermal velocity.
 
 We now consider how a plasma created in a container decays by diffusion to the walls. Once ions and electrons reach the wall, they recombine there. The density near the wall, therefore, is essentially zero. The fluid equations of motion and continuity govern the plasma behavior; but if the decay is slow, we need only keep the time derivative in the continuity equation. The time derivative in the equation of motion, will be negligible if the collision frequency $\nu$ is large. We thus have
 $$
@@ -212,8 +213,7 @@ This differs from @eq-diffusion_spatial_slab by the addition of the middle term,
 
 FIGURE: Motion of a plasma slab in rectilinear and cylindrical geometry, illustrating the difference between a cosine and a Bessel function.
 
-To satisfy the boundary condition $n=0$ at $r=a$, we must set $a/(D\tau)^{1/2}$ equal to the first zero of $J_0$; namely, 2.4. This yields the decay time constant $\tau$. The plasma
-again decays exponentially, since the temporal part of the diffusion equation, @eq-diffusion_temporal, is unchanged. We have described the lowest diffusion mode in a cylinder. Higher diffusion modes, with more than one maximum in the cylinder, will be given in terms of Bessel functions of higher order, in direct analogy to the case of slab geometry.
+To satisfy the boundary condition $n=0$ at $r=a$, we must set $a/(D\tau)^{1/2}$ equal to the first zero of $J_0$; namely, 2.4. This yields the decay time constant $\tau$. The plasma again decays exponentially, since the temporal part of the diffusion equation, @eq-diffusion_temporal, is unchanged. We have described the lowest diffusion mode in a cylinder. Higher diffusion modes, with more than one maximum in the cylinder, will be given in terms of Bessel functions of higher order, in direct analogy to the case of slab geometry.
 
 ## Steady State Solutions
 
