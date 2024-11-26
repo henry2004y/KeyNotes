@@ -1239,18 +1239,51 @@ Current theory suggests that the lower latitude (compared with the region I curr
 
 ## Particle Acceleration
 
-* _Fermi acceleration_ is the acceleration that charged particles undergo when being repeatedly reflected, usually by a magnetic mirror. This is sometimes referred to as _diffusive shock acceleration_, which is actually a subclass of Fermi acceleration [@axford1977acceleration]. There are two types of Fermi acceleration: _first-order Fermi acceleration_ (in shocks) and _second-order Fermi acceleration_ (in the environment of moving magnetized gas clouds). In both cases the environment has to be collisionless in order for the mechanism to be effective. This is because Fermi acceleration only applies to particles with energies exceeding the thermal energies, and frequent collisions with surrounding particles will cause severe energy loss and as a result no acceleration will occur. See more in [wiki](https://en.wikipedia.org/wiki/Fermi_acceleration) and [@fermi1949origin].
+* _Fermi acceleration_ is the acceleration that charged particles undergo when being repeatedly reflected, usually by a magnetic mirror. This is sometimes referred to as _diffusive shock acceleration_ (DSA), which is actually a subclass of Fermi acceleration [@axford1977acceleration]. There are two types of Fermi acceleration: _first-order Fermi acceleration_ (in shocks) and _second-order Fermi acceleration_ (in the environment of moving magnetized gas clouds). In both cases the environment has to be collisionless in order for the mechanism to be effective. This is because Fermi acceleration only applies to particles with energies exceeding the thermal energies, and frequent collisions with surrounding particles will cause severe energy loss and as a result no acceleration will occur. See more in [wiki](https://en.wikipedia.org/wiki/Fermi_acceleration) and [@fermi1949origin].
 
-* _Betatron acceleration_ refers to situations in which the magnetic field strength increases slowly in time (compared with a gyroperiod), so that $\mu$ remains constant, but the particle kinetic energy is not constant due to the presence of electric fields (associated with the time-varying magnetic field). Then, the perpendicular energy is increased due to constancy of $\mu$.
+* _Betatron acceleration_ refers to situations in which the magnetic field strength increases slowly in time (compared with a gyroperiod, i.e. adiabatic assumption), so that $\mu$ remains constant, but the particle kinetic energy is not constant due to the presence of electric fields (associated with the time-varying magnetic field). Then, the perpendicular energy is increased due to constancy of $\mu$.
 
-* _Shock drift acceleration_. Gradients within the shock transition region may give rise to the phenomenon of Shock Drift Acceleration (SDA), where ions travel along the shock front and gyrate through the ramp multiple times before either passing into the downstream or escaping into the upstream region. The sudden compression of the plasma creates complex electric field that can accelerate charged particles.
+* _Shock drift acceleration_ (SDA). Gradients within the shock transition region may give rise to the phenomenon of Shock Drift Acceleration (SDA), where ions travel along the shock front and gyrate through the ramp multiple times before either passing into the downstream or escaping into the upstream region. This drift is perpendicular to both the magnetic field and the shock normal. The particle gains energy from the electric field as it drifts along the shock front, where the electric field can be generated from a sudden compression of the plasma.
+
+* _Shock surfing acceleration_ (SSA). SSA occurs when a charged particle is "trapped" in the electric potential of the shock front. The particle is reflected back and forth across the shock front by the magnetic field, effectively "surfing" on the shock wave. The particle gains energy from the electric field during each reflection.
+
+* _Stochastic shock drift acceleration_ (SSDA). SSDA adds to the general SDA theory by introducing a stochastic process where the accelerated electrons are pitch-angle scattered by whistler waves in the shock transition layer, allowing electrons to undergo the SDA process longer and hence gain more energy.
+
+| Mechanism | DSA | SDA | SSA | Betatron |
+|------|------|------|-----|-----|
+| Relation to $v$    | $\propto v_\perp^2$    | $\propto v$  | ? | $\propto v_\perp^2$ |
+
+: Comparison between particle acceleration mechanisms {#tbl-acceleration}
+
+See @tbl-letters.
+
+Both SDA and SSA are important mechanisms for pre-accelerating particles, meaning they can inject particles into further acceleration processes like DSA. DSA is the dominant mechanism for producing high-energy cosmic rays. 
+
+Under adiabatic assumptions and guiding center approximations, the evolution of a particle energy $\mathcal{E}$ can be written as (@northrop1963adiabatic, @dahlin2014mechanisms)
+$$
+\frac{\mathrm{d}\mathcal{E}}{dt} = \frac{\mu}{\gamma} \frac{\partial B}{\partial t} + q (\mathbf{v}_\parallel + \mathbf{v}_c + \mathbf{v}_g)\cdot \mathbf{E}
+$$ {#eq-particle_energization_nonrelativistic1}
+where $\mu=m \gamma^2 v_\perp^2/(2B)$ is the magnetic moment, $\gamma$ is the relativistic Lorentz factor, and $\mathbf{v}_c$ and $\mathbf{v}_g$ are the curvature and gradient drift velocities
+$$
+\mathbf{v}_c = \frac{v_\parallel^2 \mathbf{b}}{\Omega_{c}} \times \pmb{\kappa}
+$$
+$$
+\mathbf{v}_g = \frac{v_\perp^2 \mathbf{b}}{2\Omega_{c}} \times \frac{\nabla B}{B}
+$$
+
+$\Omega_{c} = eB/(\gamma m c)$ is the cyclotron frequency, and $\pmb{\kappa} = \mathbf{b}\cdot\nabla\mathbf{b}$ is the curvature. @eq-particle_energization_nonrelativistic1 can equivalently be written as
+$$
+\frac{\mathrm{d}\mathcal{E}}{dt} = qE_\parallel v_\parallel + \frac{\mu}{\gamma}\left( \frac{\partial B}{\partial t} + \mathbf{u}_E \cdot\nabla B \right) + \gamma m v_\parallel^2 (\mathbf{u}_E \cdot \pmb{\kappa})
+$$ {#eq-particle_energization_nonrelativistic2}
+
+@eq-particle_energization_nonrelativistic2 describes the acceleration process in terms of ExB drift, where particles accelerate when drifting towards stronger B field or B curvature direction. The first term is the acceleration by the parallel electric field. The second term corresponds to perpendicular heating or cooling due to the conservation of $\mu$. The third term drives parallel acceleration and arises from the first-order Fermi mechanism. For example, newly reconnected field lines downstream from a reconnecting X-line accelerate as a result of the tension force ($\sim B^2\pmb{\kappa}$) and "straighten". Particles that reflect from this moving field line receive a Fermi "kick" and thereby gain energy. A particle trapped in an elongated magnetic island whose ends are contracting due to these tension forces will repeatedly gain energy as it reflects from the ends of the island. More generally, any particle reflecting from this moving bent field line will gain energy.
 
 Particle accelerations are important consequences of magnetic reconnection and shocks. In magnetic reconnection processes, the energy is rapidly converted from magnetic field to particles in the forms of flows, bulk ("thermal") heating, and high-energy ("nonthermal") tails. [@ji2022magnetic] describes the current understanding of electron acceleration during magnetic reconnection in the non-relativistic and relativistic regimes. First-principles numerical simulations suggest power-law nonthermal particle populations are more prevalent in systems with low $\beta$ and moderate guide (perpendicular to the reconnection plane) magnetic fields, with acceleration efficiency enhanced in 3D compared to simplified 2D calculations. Multiple acceleration mechanisms have been studied. In the localized diffusion region near an X-line without a guide field, particles may become demagnetized, prone to be directly accelerated by the reconnection electric field as they undergo so-called _Speiser_ or _meandering orbits_. There is recent laboratory evidence for electron acceleration by this mechanism in action during magnetically driven reconnection at low-$\beta$ using laser-powered capacitor coils. There is also numerical evidence that a substantial fraction of dissipated magnetic energy is carried by particles accelerated by this mechanism when they are demagnetized and escape from plasmoids in 3D.
 
 Over larger scales when the particles remain magnetized, there are three basic particle acceleration processes that dominate in collisionless reconnection: _Fermi acceleration_ which takes place as particles stream along and drift in relaxing curved magnetic field lines, relatively _localized electric fields_ $E_\parallel$ parallel to the magnetic field directly accelerate particles, and _betatron heating_ which occurs as particles drift into regions of stronger magnetic field while conserving the first adiabatic moment $\mu=mv_\perp^2/B$. These mechanisms are described by guiding center equations of motion for the particles, and the energization rate in the non-relativistic limit is given approximately by the following equation:
 $$
 \frac{\mathrm{d}\mathcal{E}}{dt} = qE_\parallel v_\parallel + \mu\frac{\mathrm{d}B}{\mathrm{d}t} + q\mathbf{E}\cdot\mathbf{u}_c + \frac{1}{2}m\frac{\mathrm{d}}{\mathrm{d}t}|\mathbf{u}_E|^2
-$$ {#eq-particle_energization_nonrelativistic}
+$$ {#eq-particle_energization_nonrelativistic3}
 where $\mathcal{E}$ is the energy of a particle, $\mathbf{u}_E$ is the $\mathbf{E}\times\mathbf{B}$ drift velocity, $\frac{\mathrm{d}}{\mathrm{d}t}=\frac{\partial}{\partial t} + \mathbf{u}_E\cdot\nabla$, $E_\parallel$ is the parallel electric field, and $v_\parallel$ is the drift-corrected guiding center parallel velocity. For slowly varying fields, $\mathbf{u}_c$ is the curvature drift of particles and reduces to $\mathbf{u}_c \sim(mv_\parallel^2/qB)(\hat{b}\times\pmb{\kappa})$, where $\pmb{\kappa}=\hat{b}\cdot\nabla\hat{b}$ is the magnetic field curvature and $\hat{b}$ is the unit vector in the direction of $\mathbf{B}$. The terms on the right-hand side represent energy gain by the parallel electric field, betatron heating, Fermi acceleration, and the polarization drift respectively. The first three mechanisms are sketched in @fig-particle-acceleration-reconnection. The polarization drift is particularly important for lower-energy ions, and this terms accounts for the kinetic energy gain in the large-scale reconnection outflow jets. Although @eq-particle_energization_nonrelativistic is valid in the non-relativistic limit, the same basic acceleration mechanisms are responsible for energizing particles in more extreme relativistic contexts relevant to astrophysical systems.
 
 ::: {.content-visible unless-format="pdf"}
