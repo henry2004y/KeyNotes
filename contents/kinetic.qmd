@@ -2,22 +2,22 @@
 
 ## Phase Space
 
-Consider a particle moving in a one-dimensional space and let the position of the particle be $x = x(t)$ and the velocity of the particle be $v = v(t)$. A way to visualize the $x$ and $v$ trajectories simultaneously is to plot these trajectories parametrically on a two-dimensional graph, where the horizontal coordinate is given by $x(t)$ and the vertical coordinate is given by $v(t)$. This x-v plane is called _phase-space_. The trajectory (or orbit) of several particles can be represented as a set of curves in phase-space as shown in @fig-phase-space. Examples of a few qualitatively different phase-space orbits are shown in @fig-phase-space.
+Consider a particle moving in a one-dimensional space and let the position of the particle be $x = x(t)$ and the velocity of the particle be $v = v(t)$. A way to visualize the $x$ and $v$ trajectories simultaneously is to plot these trajectories parametrically on a two-dimensional graph, where the horizontal coordinate is given by $x(t)$ and the vertical coordinate is given by $v(t)$. This x-v plane is called _phase-space_. The trajectory (or orbit) of several particles can be represented as a set of curves in phase-space. Examples of a few qualitatively different phase-space orbits are shown in @fig-phase-space.
 
 ![Phase-space showing different types of possible particle orbits.](../images/phase_space_trajectories.png){#fig-phase-space}
 
-Particles in the upper half-plane always move to the right, since they have a positive velocity, while those in the lower half-plane always move to the left. Particles having exact periodic motion (e.g., $x = A\cos t,\, v = −A\sin t$) alternate between moving to the right and the left and so describe an ellipse in phase-space. Particles with nearly periodic (quasi-periodic) motions will have near-ellipses or spiral orbits. A particle that does not reverse direction is called a passing particle, while a particle confined to a certain region of phase-space (e.g., a particle with periodic motion) is called a trapped particle.
+Particles in the upper half-plane always move to the right, since they have a positive velocity, while those in the lower half-plane always move to the left. Particles having exact periodic motion (e.g., $x = A\cos t,\, v = −A\sin t$) alternate between moving to the right and the left and so describe an ellipse in phase-space. Particles with quasi-periodic motions will have near-ellipses or spiral orbits. A particle that does not reverse direction is called a passing particle, while a particle confined to a certain region of phase-space (e.g., a particle with periodic motion) is called a trapped particle.
 
 ## Distribution Function
 
-The fluid theory we have been using so far is the simplest description of a plasma; it is indeed fortunate that this approximation is sufficiently accurate to describe the majority of observed phenomena. There are some phenomena, however, for which a fluid treatment is inadequate. At any given time, each particle has a specific position and velocity. We can therefore characterize the instantaneous configuration of a large number of particles by specifying the density of particles at each point $x, v$ in phase-space. The function prescribing the instantaneous density of particles in phase-space is called the _distribution function_ and is denoted by $f(x, v, t)$. Thus, $f(x, v, t)\mathrm{d}x\mathrm{d}v$ is the number of particles at time $t$ having positions in the range between $x$ and $x+dx$ and velocities in the range between $v$ and $v+dv$. As time progresses, the particle motion and acceleration causes the number of particles in these $x$ and $v$ ranges to change and so $f$ will change. This temporal evolution of $f$ gives a description of the system more detailed than a fluid description, but less detailed than following the trajectory of each individual particle. Using the evolution of $f$ to characterize the system does not keep track of the trajectories of individual particles, but rather characterizes classes of particles having the same $x, v$.
+The fluid theory we have been using so far is the simplest description of a plasma; it is indeed fortunate that this approximation is sufficiently accurate to describe the majority of observed phenomena. There are some phenomena, however, for which a fluid treatment is inadequate. At any given time, each particle has a specific position and velocity. We can therefore characterize the instantaneous configuration of a large number of particles by specifying the density of particles at each point $x, v$ in phase-space. The function prescribing the instantaneous density of particles in phase-space is called the _distribution function_ and is denoted by $f(x, v, t)$. Thus, $f(x, v, t)\mathrm{d}x\mathrm{d}v$ is the number of particles at time $t$ having positions in the range between $x$ and $x+\mathrm{d}x$ and velocities in the range between $v$ and $v+\mathrm{d}v$. As time progresses, the particle motion and acceleration causes the number of particles in these $x$ and $v$ ranges to change and so $f$ will change. This temporal evolution of $f$ gives a description of the system more detailed than a fluid description, but less detailed than following the trajectory of each individual particle. Using the evolution of $f$ to characterize the system does not keep track of the trajectories of individual particles, but rather characterizes classes of particles having the same $x, v$.
 
-In fluid theory, the dependent variables are functions of only four independent variables: $x, y, z,$ and $t$. This is possible because the velocity distribution of each species is assumed to be Maxwellian everywhere and can therefore be uniquely specified by only one number, the temperature $T$. Since collisions can be rare in high-temperature plasmas, deviations from thermal equilibrium can be maintained for relatively long times. As an example, consider two velocity distributions $f_1(v_x)$ and $f_2(v_x)$ in a one-dimensional system (@fig-distributions-1d). These two distributions will have entirely different behaviors, but as long as the areas under the curves are the same, fluid theory does not distinguish between them.
+In fluid theory, the dependent variables are functions of only four independent variables: $x, y, z,$ and $t$. This is possible because the velocity distribution of each species is assumed to be Maxwellian everywhere and can therefore be uniquely specified by its bulk velocity $\vec{U}$ and the temperature $T$. Since collisions can be rare in high-temperature plasmas, deviations from thermal equilibrium can be maintained for relatively long times. As an example, consider two velocity distributions $f_1(v_x)$ and $f_2(v_x)$ in a one-dimensional system (@fig-distributions-1d). These two distributions will have entirely different behaviors, but as long as the areas under the curves are the same, fluid theory does not distinguish between them.
 
-![Examples of non-Maxwellian distribution functions](../images/distributions_nonmaxwellian_1d.png){#fig-distributions-1d}
+![Examples of non-Maxwellian distribution functions](https://henry2004y.github.io/KeyNotes/images/distributions_nonmaxwellian_1d.png){#fig-distributions-1d}
 
 When we consider velocity distributions in 3D, we have seven independent variables: $f = f(\mathbf{r}, \mathbf{v}, t)$.
-By $f(\mathbf{r}, \mathbf{v}, t)$, we mean that the number of particles per meter cubed at position $\mathbf{r}$ and time $t$ with velocity components between $v_x$ and $v_x + dv_x$, $v_y$ and $v_y + dv_y$, and $v_z$ and $v_z + dv_z$ is
+By $f(\mathbf{r}, \mathbf{v}, t)$, we mean that the number of particles per meter cubed at position $\mathbf{r}$ and time $t$ with velocity components between $v_x$ and $v_x + \mathrm{d}v_x$, $v_y$ and $v_y + \mathrm{d}v_y$, and $v_z$ and $v_z + \mathrm{d}v_z$ is
 $$
 f(x, y, z, v_x, v_y, v_z, t) \mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z
 $$
@@ -72,7 +72,11 @@ $$
 $$
 one easily verifies that the integral of $\hat{f}_m$ over $\mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z$ is unity.
 
-A common question to ask is: why do we see Maxwellian/Gaussian/normal distribution ubiquitously in nature? Well, this is related to the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) in statistics: in many situations, when independent random variables are summed up, their properly normalized sum tends toward a normal distribution even if the original variables themselves are not normally distributed (e.g. a biased coin which give 95% head and 5% tail). In statistical physics, this is related to the fact that a Maxwellian distribution represents the state of a system with the highest entropy under the constraint of energy conservation.
+A common question being asked is:
+
+> Why do we see Maxwellian/Gaussian/normal distribution ubiquitously in nature?
+
+Well, this is related to the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) in statistics: in many situations, when independent random variables are summed up, their properly normalized sum tends toward a normal distribution even if the original variables themselves are not normally distributed (e.g. a biased coin which give 95% head and 5% tail). In statistical physics, this is related to the fact that a Maxwellian distribution represents the state of a system with the highest entropy under the constraint of energy conservation.
 
 There are several average velocities of a Maxwellian distribution that are commonly used. The root-mean-square velocity is given by
 $$
@@ -122,27 +126,19 @@ $$
 g(v) = 4\pi n (m/2\pi k_B T)^{3/2} v^2 \exp(-v^2/v_{th}^2)
 $$ {#eq-g_dist}
 
-@fig-f-g shows the difference between $g(v)$ and a one-dimensional Maxwellian distribution $f(v_x)$. Although $f(v_x)$ is maximum for $v_x=0$, $g(v)$ is zero for $v=0$.
+(Add figure?) Note the difference between $g(v)$ and a one-dimensional Maxwellian distribution $f(v_x)$. Although $f(v_x)$ is maximum for $v_x=0$, $g(v)$ is zero for $v=0$. This is just a consequence of the vanishing of the volume in phase space for $v=0$. Sometimes $g(v)$ is carelessly denoted by $f(v)$, as distinct from $f(\mathbf{v})$; but $g(v)$ is a different function of its argument than $f(\mathbf{v})$ is of its argument. From @eq-g_dist, it is clear that $g(v)$ has dimensions $\text{s}/\text{m}^4$.
 
-::: {.content-visible unless-format="pdf"}
+(ADD EXAMPLE DISTRIBUTIONS!)
 
-![One- and three-dimensional Maxwellian velocity distributions.](../images/f_g.png){#fig-f-g}
-
-:::
-
-This is just a consequence of the vanishing of the volume in phase space for $v=0$. Sometimes $g(v)$ is carelessly denoted by $f(v)$, as distinct from $f(\mathbf{v})$; but $g(v)$ is a different function of its argument than $f(\mathbf{v})$ is of its argument. From @eq-g_dist, it is clear that $g(v)$ has dimensions $\text{s}/\text{m}^4$.
-
-ADD EXAMPLE DISTRIBUTIONS!
-
-* isotropic
-* anisotropic (pancake)
+* Isotropic distribution
+* Anisotropic (pancake) distribution
 
 $$
 f(v_\perp, v_\parallel) = \frac{n}{T_\perp T_\parallel^{1/2}}\Big( \frac{m}{2\pi k_B} \Big)^{3/2} \exp\Big( -\frac{mv_\perp^2}{2k_B T_\perp} - \frac{m(v_\parallel - v_{0\parallel})^2}{2k_B T_\parallel} \Big)
 $$
 
-* beam
-* crescent shape
+* Beam distribution
+* Crescent shape distribution
 
 It is often convenient to present the distribution function as a function of energy instead of velocity. If all energy is kinetic, the energy is simply obtained from $W=mv^2/2$. In the case the particles are in the external electric potential field $U=-q\varphi$ the total energy of particles is $W=mv^2/2+U$ and the Maxwellian distribution is
 $$
@@ -156,14 +152,14 @@ $$
 
 The normalization factor is determined by requiring that the integration of the energy distribution over all energies gives the density.
 
-Velocity and energy distribution functions cannot be measured directly. Instead, the observed quantity is _the particle flux to the detector_. Particle flux is defined as the number density of particles multiplied by the velocity component normal to the surface. We define the _differential flux_ of particles traversing a unit area per unit time, unit solid angle (in spherical coordinates the differential solid angle is $d\Omega = \sin\theta d\theta d\phi$) and unit energy as $J(W,\Omega, \alpha, \mathbf{r},t)$. ($\alpha$ is species?) The units of $J$ are normally given as $(\text{m}^2\text{sr}\text{s}\text{eV})^{-1}$. Note that in literature $\text{cm}$ is often used instead of $\text{m}$ and, depending on the actual energy range considered, electron volts are often replaced by keV, MeV, or GeV.
+Velocity and energy distribution functions cannot be measured directly. Instead, the observed quantity is _the particle flux to the detector_. Particle flux is defined as the number density of particles multiplied by the velocity component normal to the surface. We define the _differential flux_ of particles traversing a unit area per unit time, unit solid angle (in spherical coordinates the differential solid angle is $d\Omega = \sin\theta d\theta d\phi$) and unit energy as $J(W,\Omega, \alpha, \mathbf{r},t)$. ($\alpha$ is species?) The units of $J$ are normally given as $(\text{m}^2\text{sr}\,\text{s}\,\text{eV})^{-1}$.. Note that in literature $\text{cm}$ is often used instead of $\text{m}$ and, depending on the actual energy range considered, electron volts are often replaced by keV, MeV, or GeV.
 
-Let us next define how differential particle flux and distribution function are related to each other. We can write the number density in a differential velocity element (in spherical coordinates $d^3v=v^2dvd\Omega$) as ($dn=f(\alpha,\mathbf{r},t)v^2dvd\Omega$). By multiplying this with $v$ we obtain another expression for the differential flux $f(\alpha,\mathbf{r},t)v^3dvd\Omega$. Comparing with our eailier definition of the differential flux we obtain
+Let us next define how differential particle flux and distribution function are related to each other. We can write the number density in a differential velocity element (in spherical coordinates $\mathrm{d}^3v=v^2\mathrm{d}v\mathrm{d}\Omega$) as ($\mathrm{d}n=f(\alpha,\mathbf{r},t)v^2\mathrm{d}v\mathrm{d}\Omega$). By multiplying this with $v$ we obtain another expression for the differential flux $f(\alpha,\mathbf{r},t)v^3dvd\Omega$. Comparing with our earlier definition of the differential flux we obtain
 $$
-J(W,\Omega, \alpha, \mathbf{r},t)dWd\Omega = f(\alpha,\mathbf{r},t)v^3dvd\Omega
+J(W,\Omega, \alpha, \mathbf{r},t)\mathrm{d}W\mathrm{d}\Omega = f(\alpha,\mathbf{r},t)v^3\mathrm{d}v\mathrm{d}\Omega
 $$
 
-Since $\mathrm{d}W=mvdv$ we can write the relationship between the differential flux and the distribution function as
+Since $\mathrm{d}W=mv\mathrm{d}v$ we can write the relationship between the differential flux and the distribution function as
 $$
 J(W,\Omega, \alpha, \mathbf{r},t) = \frac{v^2}{m}f
 $$ {#eq-diff_flux_dist}
