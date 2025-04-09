@@ -585,7 +585,7 @@ $$
 
 ### Polarizations
 
-The information contained in @eq-cold_plasma_dispersion is summarized in the Clemmow–Mullaly–Allis (CMA) diagram. One further result, not in the diagram, can be obtained easily from this formulation. The middle line of @eq-dielectric reads
+The information contained in @eq-cold_plasma_dispersion is summarized in the Clemmow–Mullaly–Allis (CMA) diagram[^kinetic-CMA]. One further result, not in the diagram, can be obtained easily from this formulation. The middle line of @eq-dielectric reads
 $$
 iDE_x + (S-n^2)E_y = 0
 $$
@@ -596,6 +596,8 @@ $$
 $$
 
 From this it is easily seen that waves are linearly polarized at resonance ($n^2=\infty$) and circularly polarized at cutoff ($n^2 = 0$, $R = 0$ or $L = 0$; thus $S = \pm D$).
+
+[^kinetic-CMA]: A [kinetic CMA diagram](https://arxiv.org/abs/2504.04904) is also generated.
 
 ### Low Frequency Limit
 
@@ -1120,7 +1122,17 @@ i.e. $a=1$ under the low frequency approximation. In higher frequency cases, the
 $$
 a = \frac{1}{\left( 1-\omega^2/\Omega_i^2 \right)^2}
 $$ {#eq-mhd-alfven-resonance-flr}
-because of the finite ion Larmor radius effects. (The Alfvén resonance singularity can be removed by including non‐MHD effects such as electron inertia or ion Larmor radius corrections.)
+because of the finite ion Larmor radius effects. However, note that the Alfvén resonance singularity can be removed by including non‐MHD effects such as electron inertia or ion Larmor radius corrections!
+
+### MHD Waves in CPDR {#sec-mhd-CPDR}
+
+CPDR is a general treatment of cold plasma waves, while MHD waves are the low-frequency approximation to CPDR's solution. For parallel-propagating cold plasma waves,
+
+* The MHD low-frequency fast mode and Alfvén mode degenerate. They have the same dispersion relation (i.e. same phase/group velocity) so it is impossible to distinguish the two modes.
+* At higher frequency in the ion scale and below $\omega_{ce}$, the fast mode becomes the R mode, and the Alfvén mode becomes the L mode, with opposite sense of polariztion. Therefore, we name these the Alfvén Ion-Cyclotron mode and the magnetosonic-whistler mode. Some people also call the former incompressible Alfvén wave, and the latter compressible Alfvén wave.
+* A typical application is the study of beam-beam instability in foreshocks. Typically, we have $\beta \ll 1$: this is a requirement from the two-fluid theory, and also remember the cold plasma assumption is the extreme case $P = 0$. The beam is a source of free energy that can trigger instability. In the fluid theory, this is known as the two-stream instability; in the kinetic treatment, the name "beam-beam" suggests that kinetic effects kick in.
+* Here comes another two fancy words: normal cyclotron resonance and anamolous cyclotron resonance. Cyclotron resonance occurs under two conditions: 1) ions move at the same speed as the wave phase speed and 2) the transverse EM wave is left-handed polarized, same as the gyration direction of ions. Low-frequency magnetosonic waves are right-handed, but they can still resonate with ions. This requires that ions move in the same direction as the fast waves but faster, so that from ions' perspective, the fast waves are doppler-shifted to be left-handed with the same frequency as the ion gyration. Thus this is termed "anomalous", accounting for the fact of different handedness. Ion cyclotron waves are left-handed, same as the ion gyration. These waves move in the opposite direction as the ion beam, so they never change handedness due to the doppler effect, but the frequency is up-shifted such that it matches the ion cyclotron frequency. This is the reason why ion cyclotron waves possess rest frame frequency slightly smaller than the cyclotron frequency. From Peter Gary's definition, the instability corresponds to the magnetosonic mode is called ion-ion right-hand resonance instability, and the instability corresponds to the Alfvén ion-cyclotron wave is called ion-ion left-hand resonance instability.
+* Whistler waves in literature span a wide of frequency ranges from the MHD scale to the electron cyclotron frequency. Therefore, electron as well as ion instabilities can both generate whistlers. For strictly parallel waves, whistlers and fast waves do not have density perturbations. However, for oblique waves, they can have density perturbations.
 
 ### Limitations of the MHD model
 
@@ -1203,7 +1215,7 @@ $$
 \mathbf{u}_{s\perp 1} = \frac{\mathbf{E}_1\times\mathbf{B}}{B^2} - \frac{\nabla p_{s\perp 1}\times\mathbf{B}}{nq_s B^2}
 $$ {#eq-kaw-2fluid-4}
 
-The first term is the single-particle $\mathbf{E}\times\mathbf{B}$ drift and the second term is called the diamagnetic drift, a fluid effect that does not exist for single-particle motion (@sec-fluid-drift-perp). Because $\mathbf{u}_{s\perp 1}$ is time-dependent there is also a polarization drift. Recalling that the form of the single-particle polarization drift for electric field only is $\mathbf{v}_p=m\dot{\mathbf{E}}_{1\perp}/qB^2$ and using $\mathbf{E}_{1\perp}-\nabla_\perp p_{s\perp 1}/nq_s$ for the fluid model instead of just $\mathbf{E}_{1\perp}$ for single particles (@eq-kaw-2fluid-3) the fluid polarization drift is obtained. Withe the inclusion of this higher order correction, the perpendicular fluid motion becomes
+The first term is the single-particle $\mathbf{E}\times\mathbf{B}$ drift and the second term is called the diamagnetic drift, a fluid effect that does not exist for single-particle motion (@sec-fluid-drift-perp). Because $\mathbf{u}_{s\perp 1}$ is time-dependent there is also a polarization drift. Recalling that the form of the single-particle polarization drift for electric field only is $\mathbf{v}_p=m\dot{\mathbf{E}}_{1\perp}/qB^2$ and using $\mathbf{E}_{1\perp}-\nabla_\perp p_{s\perp 1}/nq_s$ for the fluid model instead of just $\mathbf{E}_{1\perp}$ for single particles (@eq-kaw-2fluid-3) the fluid polarization drift is obtained. With the inclusion of this higher order correction, the perpendicular fluid motion becomes
 $$
 \mathbf{u}_{s\perp 1} = \frac{\mathbf{E}_1\times\mathbf{B}}{B^2} - \frac{\nabla p_{s\perp 1}\times\mathbf{B}}{nq_s B^2} + \frac{m_s}{q_s B^2}\dot{\mathbf{E}}_{1\perp} - \frac{m_s}{n q_s^2 B^2}\nabla_\perp \dot{p}_{s\sigma 1}
 $$ {#eq-kaw-2fluid-5}
@@ -1417,8 +1429,7 @@ $$ {#eq-kaw-fictitious-larmor2}
 
 This situation would describe shear modes in a high $\beta$ plasma (ion thermal velocity faster than Alfvén velocity).
 
-To summarize: the shear mode has $B_{z1} = 0, E_{z1} \neq 0, j_{z1} \neq 0, E_{\perp 1} = −\nabla \phi_1$
-and exists in the form of the inertial Alfvén wave for $\beta_e \ll m_e/m_i$ and in the form of the kinetic Alfvén wave for $\beta_e \gg m_e/m_i$. The shear mode involves incompressible perpendicular motion, i.e., $\nabla\cdot\mathbf{u}_{s\perp 1} = i\mathbf{k}_\perp \cdot \mathbf{u}_{s\perp 1} = 0$, which means that $\mathbf{k}_\perp$ is orthogonal to $\mathbf{u}_{s\perp 1}$. For example, in Cartesian geometry, this means that if $\mathbf{u}_{s\perp 1}$ is in the $x$ direction, then $\mathbf{k}_\perp$ must be in the $y$ direction while in cylindrical geometry, this means that if $\mathbf{u}_{s\perp 1}$ is in the $\theta$ direction, then $\mathbf{k}_\perp$ must be in the $r$ direction. The inertial Alfvén wave is known as a cold plasma wave because its dispersion relation does not depend on temperature (such a mode would exist even in the limit of a cold plasma). The kinetic Alfvén wave depends on the plasma having finite temperature and is therefore called a warm plasma wave. The shear mode can be coupled to ion acoustic modes since both shear and ion acoustic modes involve finite $E_{\parallel 1}$.
+To summarize: the shear mode has $B_{z1} = 0, E_{z1} \neq 0, j_{z1} \neq 0, E_{\perp 1} = −\nabla \phi_1$ and exists in the form of the inertial Alfvén wave for $\beta_e \ll m_e/m_i$ and in the form of the kinetic Alfvén wave for $\beta_e \gg m_e/m_i$. The shear mode involves incompressible perpendicular motion, i.e., $\nabla\cdot\mathbf{u}_{s\perp 1} = i\mathbf{k}_\perp \cdot \mathbf{u}_{s\perp 1} = 0$, which means that $\mathbf{k}_\perp$ is orthogonal to $\mathbf{u}_{s\perp 1}$. For example, in Cartesian geometry, this means that if $\mathbf{u}_{s\perp 1}$ is in the $x$ direction, then $\mathbf{k}_\perp$ must be in the $y$ direction while in cylindrical geometry, this means that if $\mathbf{u}_{s\perp 1}$ is in the $\theta$ direction, then $\mathbf{k}_\perp$ must be in the $r$ direction. The inertial Alfvén wave is known as a cold plasma wave because its dispersion relation does not depend on temperature (such a mode would exist even in the limit of a cold plasma). The kinetic Alfvén wave depends on the plasma having finite temperature and is therefore called a warm plasma wave. The shear mode can be coupled to ion acoustic modes since both shear and ion acoustic modes involve finite $E_{\parallel 1}$.
 
 ### Two-fluid compressional modes
 
