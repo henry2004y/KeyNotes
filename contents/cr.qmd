@@ -5,6 +5,158 @@ Modelling of cosmic ray transport and interpretation of cosmic ray data ultimate
 
 @mertsch2020test presents a thorough guide of performing test particle simulation for cosmic rays.
 
+## Basic Definitions
+
+This part is from CERN handouts by Riaan Steenkamp, 2018.
+
+Cosmic rays arrive at Earth isotropically, originating from all directions in outer space and spanning a vast range of energies, from about $10^9$ eV up to beyond $10^{20}$ eV. Their sources include the Sun, supernova remnants, active galactic nuclei, and other energetic astrophysical phenomena.
+Number of particles in a volume element $\mathrm{d}^3\,r$ about $\mathbf{r}$ in the momentum interval $\mathrm{d}^3 p$ about $\mathbf{p}$ is given by
+$$
+\mathrm{d}n = F(\mathbf{r}, \mathbf{p}, t)\mathrm{d}^3 r\mathrm{d}^3 p
+$$
+where $F$ is the distribution function. Within a space angle $\mathrm{d}\Omega$ about the direction of $\mathbf{p}$ it is
+$$
+\mathrm{d}n = F(\mathbf{r}, \mathbf{p}, t)\mathrm{d}^3 r\, p^2 \mathrm{d} p\,\mathrm{d}\Omega
+$$
+
+Typically we cannot directly measure $F$, but only averages over the momentum space. Averaging of $F$ over all directions give
+$$
+f(\mathbf{r}, p, t) = \frac{1}{4\pi}\int_\Omega F(\mathbf{r}, \mathbf{p}, t)\mathrm{d}\Omega
+$$
+where $\int_\Omega \mathrm{d}\Omega = 4\pi$.
+
+The number of particle $\mathrm{d}N$ in $\mathrm{d}^3 r$ within $(p, p+\mathrm{d}p)$ (independent of the direction of $\mathbf{p}$) is
+$$
+\mathrm{d}N = 4\pi p^2 f(\mathbf{r}, p, t)\mathrm{d}^3 r\mathrm{d}p = U_p(\mathbf{r}, p, t)\mathrm{d}^3 r\mathrm{d}p
+$$
+where we define the differential number density $U_p$ as the number of particles in $\mathrm{d}^3 r$ about $\mathbf{r}$ with momentum in the interval $(p, p+\mathrm{d}p)$ as
+$$
+U_p(\mathbf{r}, p, t) = 4\pi p^2 f(\mathbf{r}, p, t)
+$$
+with units of [particles per volume].
+
+Detectors do not measure $U_p$, but rather differential intensity. If particle velocity has magnitude $v$, the differential intensity is
+$$
+j_p = v\, U_p
+$$
+with units of [particles / unit momentum / unit area / unit time] that goes from all directions through the detector.
+This is usually normalized w.r.t. unit space angle
+$$
+j_p = \frac{v\, U_p}{4\pi}
+$$
+with units of [particles / unit momentum / unit area / unit time / unit radian]. In practice we measure particles w.r.t. kinetic energy intervals $\mathrm{d}T$ but not momentum intervals $\mathrm{d}p$. From $E^2 = p^2 c^2 + E_0^2$ we have $\mathrm{d}T = v\mathrm{d}p = \mathrm{d}(mv^2/2)$. Since we specify the same particles in two ways, we have $j_T\mathrm{d}T = j_p\mathrm{d}p$ and
+$$
+j_T = j_p \frac{\mathrm{d}p}{\mathrm{d}T} = \frac{1}{v}j_p
+$$
+
+Now we can summarize the following important relations
+$$
+j_T = \frac{U_p}{4\pi} = p^2 f(\mathbf{r}, p, t)
+$$
+That is, the differential intensity measured by experimentalists has simple relationship to quantities $U_p$ and $f$ used by theorteticians.
+
+## CR Continuity Equations
+
+Consider the total time derivative of the distribution function $F(\mathbf{r}, \mathbf{p}, t)$.
+$$
+\frac{\mathrm{d}F}{\mathrm{d}t} = \frac{\partial F}{\partial t} + \mathbf{v}\cdot\nabla F + \dot{\mathbf{p}}\cdot\nabla_p F
+$$
+with $\nabla_p$ the gradient operator w.r.t. the momentum space. Integrate this over all directions in the momentum space gives
+$$
+\int_\Omega \frac{\mathrm{d}F}{\mathrm{d}t} \mathrm{d}\Omega = \int_\Omega \left(\frac{\partial F}{\partial t} + \mathbf{v}\cdot\nabla F + \dot{\mathbf{p}}\cdot\nabla_p F \right)\mathrm{d}\Omega
+$$
+
+$$
+\begin{aligned}
+\int_\Omega \frac{\mathrm{d}F}{\mathrm{d}t} \mathrm{d}\Omega = \frac{\mathrm{d}}{\mathrm{d}t}\int F \mathrm{d}\Omega = 4\pi \frac{\mathrm{d}f}{\mathrm{d}t} \\
+\int_\Omega \frac{\partial F}{\partial t} \mathrm{d}\Omega = \frac{\mathrm{d}}{\mathrm{d}t}\int F \mathrm{d}\Omega = 4\pi \frac{\partial f}{\partial t}
+\end{aligned}
+$$
+
+$$
+4\pi \frac{\mathrm{d}f}{\mathrm{d}t} = 4\pi \frac{\partial f}{\partial t} + \int_\Omega \mathbf{v}\cdot\nabla F \mathrm{d}\Omega + \int_\Omega \dot{\mathbf{p}}\cdot\nabla_p F \mathrm{d}\Omega
+$$
+
+We then need to evaluate the second and third terms on the RHS. From the x-component,
+$$
+\begin{aligned}
+\int_\Omega v_x\frac{\partial F}{\partial x}\mathrm{d}\Omega &= \int_\Omega \left[ \frac{\partial}{\partial x}\left( v_x F \right) - \cancel{\frac{\partial v_x}{\partial x}}F \right] \\
+&= \frac{\partial}{\partial x} \int_\Omega v_x F\mathrm{d}\Omega
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\left< v_x \right> = \frac{\int_\Omega v_x F\mathrm{d}\Omega}{\int_\Omega F\mathrm{d}\Omega} = \frac{1}{4\pi f}\int_\Omega v_x F\mathrm{d}\Omega \\
+4\pi f \left< v_x \right> = \int_\Omega v_x F\mathrm{d}\Omega
+\end{aligned}
+$$
+Therefore
+$$
+\int_\Omega v_x\frac{\partial F}{\partial x}\mathrm{d}\Omega = 4\pi \frac{\partial}{\partial x}\left( \left< v_x \right> f \right)
+$$
+
+Generalize to the full 3D vector operator, we have an expression for the second term
+$$
+\int_\Omega \mathbf{v}\cdot\nabla F \mathrm{d}\Omega = 4\pi \nabla\cdot \left( \left< \mathbf{v} \right> f \right)
+$$
+
+The third term is more involved:
+$$
+\begin{aligned}
+\int_\Omega \dot{\mathbf{p}}\cdot\nabla_p F\mathrm{d}\Omega &= \int_\Omega \left[ \nabla_p\cdot\left( \dot{\mathbf{p}}F - F\nabla_p \cdot\dot{\mathbf{p}} \right) \right] \mathrm{d}\Omega  \\
+&= \int_\Omega \nabla_p\cdot\left( \dot{\mathbf{p}}F\right) \mathrm{d}\Omega
+\end{aligned}
+$$
+since $\nabla_p \cdot\dot{\mathbf{p}} = 0$ because the EM force contains a cross product $\dot{\mathbf{p}} = q\left( \mathbf{E} + \mathbf{p}\times\mathbf{B}/m \right)$.
+
+Using the Gauss' theorem
+$$
+\int \nabla_p\cdot\left( \dot{\mathbf{p}F}\right) \mathrm{d}^3 p = \int_\Omega \left( \dot{\mathbf{p}}F\right)\cdot\hat{e}_p p^2\mathrm{d}\Omega = \int_\Omega p^2\dot{p}F \mathrm{d}\Omega
+$$
+
+If we integrate the above from $p$ to $p+\mathrm{d}p$,
+$$
+\begin{aligned}
+\int_{p}^{p+\mathrm{d}p} \nabla_p\cdot\left( \dot{\mathbf{p}F}\right) \mathrm{d}^3 p &= \int_{\Omega, p+\mathrm{d}p} p^2\dot{p}F \mathrm{d}\Omega - \int_{\Omega,p} p^2\dot{p}F \mathrm{d}\Omega \\
+&= 4\pi \left[ \left( p^2\dot{p} f \right)_{p+\mathrm{d}p} - \left( p^2\dot{p} f \right)_{p} \right] \\
+&= 4\pi \frac{\partial}{\partial p}\left( p^2\dot{p} f \right)\mathrm{d}p
+\end{aligned}
+$$
+
+Thus
+$$
+\begin{aligned}
+\int_\Omega \dot{\mathbf{p}}\cdot\nabla_p F\mathrm{d}\Omega &= \int_\Omega \nabla_p \cdot \left( \dot{\mathbf{p} F}\right) \mathrm{d}\Omega \\
+&= \frac{1}{p^2\mathrm{d}p}\int \nabla_p\cdot\left( \dot{\mathbf{p}F}\right) \mathrm{d}^3 p = \frac{4\pi}{p^2}\frac{\partial}{\partial p}\left( p^2\left<\dot{p}\right> f \right)
+\end{aligned}
+$$
+and finally we have
+$$
+4\pi \frac{\mathrm{d}f}{\mathrm{d}t} = 4\pi \frac{\partial f}{\partial t} + 4\pi \nabla\cdot \left( \left< \mathbf{v} \right> f \right) + \frac{4\pi}{p^2}\frac{\partial}{\partial p}\left( p^2\left<\dot{p}\right> f \right)
+$$
+or by using $U_p=4\pi p^2 f$ we have
+$$
+\frac{\mathrm{d}U_p}{\mathrm{d}t} = \frac{\partial U_p}{\partial t} + \nabla\cdot\mathbf{S}_p + \frac{\partial}{\partial p}\left( \left< \dot{p} \right> U_p \right)
+$$
+where $\mathbf{S}_p = \left< \mathbf{v} \right> U_p$ is the differential flux. Normally $\frac{\mathrm{d}U_p}{\mathrm{d}t} = 0$ and the above is simply a continuity equation. If there exist a source or sink $Q_p$, one can write
+$$
+\frac{\partial U_p}{\partial t} + \nabla\cdot\mathbf{S}_p + \frac{\partial}{\partial p}\left( \left< \dot{p} \right> U_p \right) = Q_p
+$$ {#eq-cr-transport}
+The abovementioned cosmic-ray continuity equation is often called the **transport equation**.
+
+## Parker Transport Equation
+
+Given $f = U_p / (4\pi p^2)$, we can write ... as
+$$
+\begin{aligned}
+\frac{\partial f}{\partial t} + (\mathbf{V} + \mathbf{V}_d)\cdot\nabla f - \frac{1}{3}\nabla\cdot\mathbf{V}\frac{\partial f}{\partial \ln{p}} = \nabla\cdot \left( \pmb{\kappa} \nabla f \right) + Q
+\end{aligned}
+$$
+where $f(\mathbf{x}, p, t)$ is the particle distribution function as a function of the particle position $\mathbf{x}$, momentum $p$ (isotropic momentum assumed), and time $t$; $\pmb{\kappa}$ is the spatial diffusion coefficient tensor, $\mathbf{V}$ is the bulk plasma velocity, $\mathbf{V}_d = \frac{pv}{3q}\nabla\times\left( \mathbf{B}/B^2 \right)$ is the particle drift, where $p=\gamma m v$ is particle momentum and $q$ is particle charge.[^form]
+
+[^form]: This is the form given in the [GPAT model](https://stochastic-parker.readthedocs.io/en/latest/theory/parker_intro.html). Riaan Steenkamp shows a slightly different version for the guiding center drift in his notes.
+
 ## Quasilinear Theory
 
 More than 50 years since its inception, _quasi-linear theory (QLT)_ [@jokipii1966cosmic; Kennel and Engelmann 1966; Hall and Sturrock 1967; Hasselmann and Wibberenz 1970] is still very much the paradigm for phenomenological applications to Galactic cosmic rays. In QLT, the Fokker-Planck equation for the temporal evolution of the phase space density of CRs is derived in a perturbative approach where the force on a particle due to a turbulent magnetic field is evaluated along the unperturbed trajectory in a regular background field. The Fokker-Planck coefficients, most prominently the components of the spatial diffusion tensor, can be computed for a given model of turbulence, parametrised by the two-point function of the turbulent magnetic field. Famously, in QLT the interactions between plasma waves and particles are found to be resonant, meaning that particles of a certain gyroradius $r_L = v/\Omega$, $\Omega$ denoting the gyrofrequency, are only affected by waves with a wavenumber k that satisfies $k r_L \mu \approx 1$ (for low-frequency waves like Alfvén waves), where $\mu$ is the cosine of the pitch-angle, that is the angle between the particle momentum $\mathbf{p}$ and the regular magnetic field $\left<\mathbf{B}\right>$, $\mu \equiv \mathbf{p}\cdot\left< \mathbf{B} \right> / (|\mathbf{p}||\left< \mathbf{B} \right>|)$.
@@ -198,7 +350,7 @@ $$ {#eq-dipole-anisotropy}
 
 So far, we have not specified the functional form of the Fokker-Planck coefficients, e.g. the pitch-angle diffusion coefficient $D_{\mu\mu}$, and its dependence on the two-point correlation function of turbulence $P_{ij}(\mathbf{k})$ that emerges in the derivation of the Fokker-Planck @eq-fokker-planck. An alternative to the derivation of @sec-fokker-planck is to directly compute the Fokker-Planck coefficients from solutions of the equations of motion. In fact, an arbitrary Fokker-Planck coefficient $D_{PQ}$ can be defined in terms of the mean displacements of the variables in question, P and Q. For instance, the pitch-angle diffusion coefficient can be derived as the $t\to\infty$ limit of the running diffusion coefficient,
 $$
-d_{\mu\mu}(t) = \frac{1}{2} \frac{\mathrm{d}}{\mathrm{d}t}\left \langle (\Delta \mu )^{2} \right \rangle
+D_{\mu\mu}(t) = \frac{1}{2} \frac{\mathrm{d}}{\mathrm{d}t}\left \langle (\Delta \mu )^{2} \right \rangle
 $$ {#eq-running-diffusion-coef}
 
 This is a consequence of the Taylor-Green-Kubo formula (Taylor 1922; Green 1951; Kubo 1957),
