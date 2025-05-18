@@ -619,7 +619,17 @@ U_p(\mathbf{r}, p, t) = 4\pi p^2 f(\mathbf{r}, p, t)
 j_p = v\, U_p
 \]</span> with units of [particles / unit momentum / unit area / unit time] that goes from all directions through the detector. This is usually normalized w.r.t. unit space angle <span class="math display">\[
 j_p = \frac{v\, U_p}{4\pi}
-\]</span> with units of [particles / unit momentum / unit area / unit time / unit radian]. In practice we measure particles w.r.t. kinetic energy intervals <span class="math inline">\(\mathrm{d}T\)</span> but not momentum intervals <span class="math inline">\(\mathrm{d}p\)</span>. From <span class="math inline">\(E^2 = p^2 c^2 + E_0^2\)</span> we have <span class="math inline">\(\mathrm{d}T = v\mathrm{d}p = \mathrm{d}(mv^2/2)\)</span>. Since we specify the same particles in two ways, we have <span class="math inline">\(j_T\mathrm{d}T = j_p\mathrm{d}p\)</span> and <span class="math display">\[
+\]</span> with units of [particles / unit momentum / unit area / unit time / unit radian]. In practice we measure particles w.r.t. kinetic energy intervals <span class="math inline">\(\mathrm{d}T\)</span> but not momentum intervals <span class="math inline">\(\mathrm{d}p\)</span>.</p>
+<p>From the energy-momentum relation <span class="math display">\[
+E^2 = p^2 c^2 + E_0^2 = (p\,c)^2 + (m_0\,c^2)^2
+\]</span> and energy conservation <span class="math display">\[
+E = E_0 + T
+\]</span> and <span class="math inline">\(p=\gamma m_0 v\)</span>, we have <span class="math display">\[
+\frac{\mathrm{d}E}{\mathrm{d}p} = \frac{E}{pc^2}, \quad \mathrm{d}T = \mathrm{d}E
+\]</span> <span class="math display">\[
+\frac{\mathrm{d}E}{\mathrm{d}p} = \frac{\mathrm{d}T}{\mathrm{d}p} = \frac{1}{v}
+\]</span></p>
+<p>Since we specify the same particles in two ways, we have <span class="math inline">\(j_T\mathrm{d}T = j_p\mathrm{d}p\)</span> and <span class="math display">\[
 j_T = j_p \frac{\mathrm{d}p}{\mathrm{d}T} = \frac{1}{v}j_p
 \]</span></p>
 <p>Now we can summarize the following important relations <span class="math display">\[
@@ -690,11 +700,45 @@ j_T = \frac{U_p}{4\pi} = p^2 f(\mathbf{r}, p, t)
 </section>
 <section id="parker-transport-equation" class="level2" data-number="27.3">
 <h2 data-number="27.3" class="anchored" data-anchor-id="parker-transport-equation"><span class="header-section-number">27.3</span> Parker Transport Equation</h2>
-<p>Given <span class="math inline">\(f = U_p / (4\pi p^2)\)</span>, we can write … as <span class="math display">\[
+<p>Assumptions for the Parker Transport Equation:</p>
+<ul>
+<li>Guiding Center Approximation: Cosmic rays gyrate rapidly around magnetic field lines. We are interested in the motion of their guiding centers.</li>
+<li>Diffusion Approximation: Scattering is frequent enough that the distribution function <span class="math inline">\(f\)</span> is nearly isotropic in the local plasma rest frame.</li>
+<li>Solar Wind Frame: We often work in a frame moving with the solar wind (or background plasma) velocity <span class="math inline">\(V_\text{sw}\)</span>.</li>
+<li>Negligible Large-Scale Electric Field in Solar Wind Frame: In the frame co-moving with a perfectly conducting solar wind, the large-scale electric field is typically assumed to be zero, i.e., <span class="math inline">\(\mathbf{E}^\prime = \mathbf{E} + \mathbf{V}_\text{sw} \times \mathbf{B} \approx 0\)</span>. This means <span class="math inline">\(\mathbf{E}\approx -\mathbf{V}_\text{sw} \times \mathbf{B}\)</span>.</li>
+<li>Omnidirectional Distribution Function: We are often interested in the omnidirectional distribution function <span class="math inline">\(f_0(x,p,t)\)</span>, which is <span class="math inline">\(f\)</span> averaged over all momentum directions in the plasma frame. Or, more commonly, the differential number density <span class="math inline">\(U_p(
+x,p,t)=4\pi p^2\,f_0​(x,p,t)\)</span> (number of particles per unit volume per unit momentum magnitude) or <span class="math inline">\(N(x,T,t)\)</span> (differential intensity w.r.t. kinetic energy <span class="math inline">\(T\)</span>).</li>
+</ul>
+<p>In the lab frame, due to streaming and diffusion, the distribution function f is not perfectly isotropic. We can expand it as: <span class="math display">\[
+f(\mathbf{x}, p, t) = f_0(\mathbf{x}, p, t) + f_1(\mathbf{x}, p, t) + ...
+\]</span> where <span class="math inline">\(f_0\)</span> is the isotropic part and <span class="math inline">\(f_1\)</span> is the first-order anisotropy. <span class="math display">\[
+f_1 = -\frac{\mathbf{p}}{p}\cdot \pmb{\xi}(\mathbf{x}, p, t)
+\]</span> where <span class="math inline">\(\pmb{\xi}\)</span> is the anisotropy vector. The particle flux (or streaming) <span class="math inline">\(\mathbf{S}_\text{cr}\)</span> is related to this anisotropy.</p>
+<p>The collision term describes the scattering of cosmic rays by magnetic field irregularities. In the diffusion approximation, this scattering tends to isotropize the distribution in the plasma rest frame. This process leads to spatial diffusion. The diffusive flux <span class="math inline">\(S_\text{diff}\)</span> in the plasma frame is given by Fick’s law: <span class="math display">\[
+\mathbf{S}_\text{diff} = - \overleftrightarrow{K}\cdot\nabla U_p
+\]</span> where <span class="math inline">\(U_p\)</span> is the cosmic ray density (related to <span class="math inline">\(f_0\)</span>) and <span class="math inline">\(\overleftrightarrow{K}\)</span> is the diffusion tensor. The diffusion tensor is generally anisotropic: <span class="math display">\[
+K_{ij} = K_\parallel b_i b_j + K_\perp(\delta_{ij} - b_i b_j) + K_A \epsilon_{ijk} b_k
+\]</span></p>
+<ul>
+<li><span class="math inline">\(K_\parallel\)</span> is the diffusion coefficient parallel to the mean magnetic field direction <span class="math inline">\(\mathbf{b}\)</span>.</li>
+<li><span class="math inline">\(K_\perp\)</span> is the diffusion perpendicular to <span class="math inline">\(\mathbf{b}\)</span>.</li>
+<li><span class="math inline">\(K_A\)</span> is the antisymmetric part of the diffusion tensor describing gradient and curvature drifts.</li>
+</ul>
+<p>Starting from the kinetic equation and averaging over pitch angle (assuming near isotropy in the plasma frame), one can derive an equation for <span class="math inline">\(f_0\)</span>. This is a lengthy process (e.g., see Schlickeiser 2002, “Cosmic Ray Astrophysics” or Parker 1965). The key steps involve:</p>
+<ul>
+<li>Transforming the kinetic equation to the plasma frame.</li>
+<li>Expanding <span class="math inline">\(f\)</span> in momentum space in the plasma frame (<span class="math inline">\(f=f_0 + f_1 + ...\)</span>).</li>
+<li>The zeroth moment (integration over solid angle in momentum) of the kinetic equation gives the transport equation.</li>
+<li>The first moment gives a relation for the anisotropic part <span class="math inline">\(f_1\)</span> (streaming).</li>
+</ul>
+<p>A common form of the Parker Transport Equation for the omnidirectional distribution function <span class="math inline">\(f_0(\mathbf{x}, p, t)\)</span> is <span class="math display">\[
 \begin{aligned}
-\frac{\partial f}{\partial t} + (\mathbf{V} + \mathbf{V}_d)\cdot\nabla f - \frac{1}{3}\nabla\cdot\mathbf{V}\frac{\partial f}{\partial \ln{p}} = \nabla\cdot \left( \pmb{\kappa} \nabla f \right) + Q
+\frac{\partial f}{\partial t} + (\mathbf{V} + \mathbf{V}_d)\cdot\nabla f - \frac{1}{3}\nabla\cdot\mathbf{V}\frac{\partial f}{\partial \ln{p}} = \nabla\cdot \left( \overleftrightarrow{K} \cdot\nabla f \right) + Q
 \end{aligned}
-\]</span> where <span class="math inline">\(f(\mathbf{x}, p, t)\)</span> is the particle distribution function as a function of the particle position <span class="math inline">\(\mathbf{x}\)</span>, momentum <span class="math inline">\(p\)</span> (isotropic momentum assumed), and time <span class="math inline">\(t\)</span>; <span class="math inline">\(\pmb{\kappa}\)</span> is the spatial diffusion coefficient tensor, <span class="math inline">\(\mathbf{V}\)</span> is the bulk plasma velocity, <span class="math inline">\(\mathbf{V}_d = \frac{pv}{3q}\nabla\times\left( \mathbf{B}/B^2 \right)\)</span> is the particle drift, where <span class="math inline">\(p=\gamma m v\)</span> is particle momentum and <span class="math inline">\(q\)</span> is particle charge.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+\]</span> where <span class="math inline">\(f(\mathbf{x}, p, t)\)</span> is the particle distribution function as a function of the particle position <span class="math inline">\(\mathbf{x}\)</span>, momentum <span class="math inline">\(p\)</span> (isotropic momentum assumed), and time <span class="math inline">\(t\)</span>; <span class="math inline">\(\overleftrightarrow{K}\)</span> is the spatial diffusion coefficient tensor, <span class="math inline">\(\mathbf{V}\)</span> is the bulk plasma velocity, <span class="math inline">\(\mathbf{V}_d = \frac{pv}{3q}\nabla\times\left( \mathbf{B}/B^2 \right)\)</span> is the particle drift, where <span class="math inline">\(p=\gamma m v\)</span> is particle momentum and <span class="math inline">\(q\)</span> is particle charge.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The factor <span class="math inline">\(1/3\)</span> comes from averaging over an isotropic pitch-angle distribution. Note that This is for an isotropic distribution; this term is sometimes incorporated into the anti-symmetric part (<span class="math inline">\(K_A\)</span>) of the diffusion tensor <span class="math inline">\(\overleftrightarrow{K}\)</span>. If so, the diffusion term becomes <span class="math inline">\(\nabla\cdot\left( \overleftrightarrow{K}_s\cdot\nabla f_0 - \left&lt; v_D \right&gt; f_0 \right)\)</span> where <span class="math inline">\(\overleftrightarrow{K}_s\)</span> is the symmetric part.</p>
+<ul>
+<li><span class="math inline">\(\frac{1}{3}\nabla\cdot\mathbf{V}\frac{\partial f}{\partial \ln{p}}\)</span> is the adiabatic energy change. The sign of <span class="math inline">\(\nabla\cdot\mathbf{V}\)</span> reflects whether cosmic rays lose or gain energy from the compression of the solar wind plasma.</li>
+</ul>
 </section>
 <section id="quasilinear-theory" class="level2" data-number="27.4">
 <h2 data-number="27.4" class="anchored" data-anchor-id="quasilinear-theory"><span class="header-section-number">27.4</span> Quasilinear Theory</h2>
@@ -972,7 +1016,7 @@ Mertsch, Philipp. 2020. <span>“Test Particle Simulations of Cosmic Rays.”</s
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>This is the form given in the <a href="https://stochastic-parker.readthedocs.io/en/latest/theory/parker_intro.html">GPAT model</a>. Riaan Steenkamp shows a slightly different version for the guiding center drift in his notes.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>This is the form given in the <a href="https://stochastic-parker.readthedocs.io/en/latest/theory/parker_intro.html">GPAT model</a>. Riaan Steenkamp shows a slightly different version for the guiding center drift in his notes which absorbs the adiabatic energy change into the diffusion tensor. Also note that <span class="math inline">\(\frac{\partial f}{\partial \ln{p}} = p\partial f_0 / \partial p\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>In CGS units, the electric and magnetic fields have the same unit.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>Strictly speaking, the correlation lengths and times are tensors because of the vector nature of the magnetic field in the two-point functions; here, however, we only require them for order of magnitude arguments, so we do not distinguish the different components.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>In particle transport, ballistic refers to the movement of particles with minimal influence from their environment. Imagine a particle traveling on a frictionless, straight path, almost like a bullet. That’s ballistic transport!<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
