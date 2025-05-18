@@ -44,7 +44,25 @@ This is usually normalized w.r.t. unit space angle
 $$
 j_p = \frac{v\, U_p}{4\pi}
 $$
-with units of [particles / unit momentum / unit area / unit time / unit radian]. In practice we measure particles w.r.t. kinetic energy intervals $\mathrm{d}T$ but not momentum intervals $\mathrm{d}p$. From $E^2 = p^2 c^2 + E_0^2$ we have $\mathrm{d}T = v\mathrm{d}p = \mathrm{d}(mv^2/2)$. Since we specify the same particles in two ways, we have $j_T\mathrm{d}T = j_p\mathrm{d}p$ and
+with units of [particles / unit momentum / unit area / unit time / unit radian]. In practice we measure particles w.r.t. kinetic energy intervals $\mathrm{d}T$ but not momentum intervals $\mathrm{d}p$.
+
+From the energy-momentum relation
+$$
+E^2 = p^2 c^2 + E_0^2 = (p\,c)^2 + (m_0\,c^2)^2
+$$
+and energy conservation
+$$
+E = E_0 + T
+$$
+and $p=\gamma m_0 v$, we have
+$$
+\frac{\mathrm{d}E}{\mathrm{d}p} = \frac{E}{pc^2}, \quad \mathrm{d}T = \mathrm{d}E
+$$
+$$
+\frac{\mathrm{d}E}{\mathrm{d}p} = \frac{\mathrm{d}T}{\mathrm{d}p} = \frac{1}{v}
+$$
+
+Since we specify the same particles in two ways, we have $j_T\mathrm{d}T = j_p\mathrm{d}p$ and
 $$
 j_T = j_p \frac{\mathrm{d}p}{\mathrm{d}T} = \frac{1}{v}j_p
 $$
@@ -147,15 +165,56 @@ The abovementioned cosmic-ray continuity equation is often called the **transpor
 
 ## Parker Transport Equation
 
-Given $f = U_p / (4\pi p^2)$, we can write ... as
+Assumptions for the Parker Transport Equation:
+
+- Guiding Center Approximation: Cosmic rays gyrate rapidly around magnetic field lines. We are interested in the motion of their guiding centers.
+- Diffusion Approximation: Scattering is frequent enough that the distribution function $f$ is nearly isotropic in the local plasma rest frame.
+- Solar Wind Frame: We often work in a frame moving with the solar wind (or background plasma) velocity $V_\text{sw}$.
+- Negligible Large-Scale Electric Field in Solar Wind Frame: In the frame co-moving with a perfectly conducting solar wind, the large-scale electric field is typically assumed to be zero, i.e., $\mathbf{E}^\prime = \mathbf{E} + \mathbf{V}_\text{sw} \times \mathbf{B} \approx 0$. This means $\mathbf{E}\approx -\mathbf{V}_\text{sw} \times \mathbf{B}$.
+- Omnidirectional Distribution Function: We are often interested in the omnidirectional distribution function $f_0(x,p,t)$, which is $f$ averaged over all momentum directions in the plasma frame. Or, more commonly, the differential number density $U_p( 
+x,p,t)=4\pi p^2\,f_0​(x,p,t)$ (number of particles per unit volume per unit momentum magnitude) or $N(x,T,t)$ (differential intensity w.r.t. kinetic energy $T$).
+
+In the lab frame, due to streaming and diffusion, the distribution function f is not perfectly isotropic. We can expand it as:
+$$
+f(\mathbf{x}, p, t) = f_0(\mathbf{x}, p, t) + f_1(\mathbf{x}, p, t) + ...
+$$
+where $f_0$ is the isotropic part and $f_1$ is the first-order anisotropy.
+$$
+f_1 = -\frac{\mathbf{p}}{p}\cdot \pmb{\xi}(\mathbf{x}, p, t)
+$$
+where $\pmb{\xi}$ is the anisotropy vector. The particle flux (or streaming) $\mathbf{S}_\text{cr}$ is related to this anisotropy.
+
+The collision term describes the scattering of cosmic rays by magnetic field irregularities. In the diffusion approximation, this scattering tends to isotropize the distribution in the plasma rest frame. This process leads to spatial diffusion. The diffusive flux $S_\text{diff}$ in the plasma frame is given by Fick's law:
+$$
+\mathbf{S}_\text{diff} = - \overleftrightarrow{K}\cdot\nabla U_p
+$$
+where $U_p$ is the cosmic ray density (related to $f_0$) and $\overleftrightarrow{K}$ is the diffusion tensor. The diffusion tensor is generally anisotropic:
+$$
+K_{ij} = K_\parallel b_i b_j + K_\perp(\delta_{ij} - b_i b_j) + K_A \epsilon_{ijk} b_k
+$$
+
+- $K_\parallel$ is the diffusion coefficient parallel to the mean magnetic field direction $\mathbf{b}$.
+- $K_\perp$ is the diffusion perpendicular to $\mathbf{b}$.
+- $K_A$ is the antisymmetric part of the diffusion tensor describing gradient and curvature drifts.
+
+Starting from the kinetic equation and averaging over pitch angle (assuming near isotropy in the plasma frame), one can derive an equation for $f_0$. This is a lengthy process (e.g., see Schlickeiser 2002, "Cosmic Ray Astrophysics" or Parker 1965). The key steps involve:
+
+- Transforming the kinetic equation to the plasma frame.
+- Expanding $f$ in momentum space in the plasma frame ($f=f_0 + f_1 + ...$).
+- The zeroth moment (integration over solid angle in momentum) of the kinetic equation gives the transport equation.
+- The first moment gives a relation for the anisotropic part $f_1$ (streaming).
+
+A common form of the Parker Transport Equation for the omnidirectional distribution function $f_0(\mathbf{x}, p, t)$ is
 $$
 \begin{aligned}
-\frac{\partial f}{\partial t} + (\mathbf{V} + \mathbf{V}_d)\cdot\nabla f - \frac{1}{3}\nabla\cdot\mathbf{V}\frac{\partial f}{\partial \ln{p}} = \nabla\cdot \left( \pmb{\kappa} \nabla f \right) + Q
+\frac{\partial f}{\partial t} + (\mathbf{V} + \mathbf{V}_d)\cdot\nabla f - \frac{1}{3}\nabla\cdot\mathbf{V}\frac{\partial f}{\partial \ln{p}} = \nabla\cdot \left( \overleftrightarrow{K} \cdot\nabla f \right) + Q
 \end{aligned}
 $$
-where $f(\mathbf{x}, p, t)$ is the particle distribution function as a function of the particle position $\mathbf{x}$, momentum $p$ (isotropic momentum assumed), and time $t$; $\pmb{\kappa}$ is the spatial diffusion coefficient tensor, $\mathbf{V}$ is the bulk plasma velocity, $\mathbf{V}_d = \frac{pv}{3q}\nabla\times\left( \mathbf{B}/B^2 \right)$ is the particle drift, where $p=\gamma m v$ is particle momentum and $q$ is particle charge.[^form]
+where $f(\mathbf{x}, p, t)$ is the particle distribution function as a function of the particle position $\mathbf{x}$, momentum $p$ (isotropic momentum assumed), and time $t$; $\overleftrightarrow{K}$ is the spatial diffusion coefficient tensor, $\mathbf{V}$ is the bulk plasma velocity, $\mathbf{V}_d = \frac{pv}{3q}\nabla\times\left( \mathbf{B}/B^2 \right)$ is the particle drift, where $p=\gamma m v$ is particle momentum and $q$ is particle charge.[^form] The factor $1/3$ comes from averaging over an isotropic pitch-angle distribution. Note that This is for an isotropic distribution; this term is sometimes incorporated into the anti-symmetric part ($K_A$) of the diffusion tensor $\overleftrightarrow{K}$. If so, the diffusion term becomes $\nabla\cdot\left( \overleftrightarrow{K}_s\cdot\nabla f_0 - \left< v_D \right> f_0 \right)$ where $\overleftrightarrow{K}_s$ is the symmetric part.
 
-[^form]: This is the form given in the [GPAT model](https://stochastic-parker.readthedocs.io/en/latest/theory/parker_intro.html). Riaan Steenkamp shows a slightly different version for the guiding center drift in his notes.
+- $\frac{1}{3}\nabla\cdot\mathbf{V}\frac{\partial f}{\partial \ln{p}}$ is the adiabatic energy change. The sign of $\nabla\cdot\mathbf{V}$ reflects whether cosmic rays lose or gain energy from the compression of the solar wind plasma.
+
+[^form]: This is the form given in the [GPAT model](https://stochastic-parker.readthedocs.io/en/latest/theory/parker_intro.html). Riaan Steenkamp shows a slightly different version for the guiding center drift in his notes which absorbs the adiabatic energy change into the diffusion tensor. Also note that $\frac{\partial f}{\partial \ln{p}} = p\partial f_0 / \partial p$.
 
 ## Quasilinear Theory
 
