@@ -721,16 +721,7 @@ D_r(\omega_r,\mathbf{k}) &amp;= 0 \\
 <section id="sec-oscillations" class="level2" data-number="10.3">
 <h2 data-number="10.3" class="anchored" data-anchor-id="sec-oscillations"><span class="header-section-number">10.3</span> Plasma Oscillations</h2>
 <p>If the electrons in a plasma are displaced from a uniform background of ions, electric fields will be built up in such a direction as to restore the neutrality of the plasma by pulling the electrons back to their original positions. Because of their inertia, the electrons will overshoot and oscillate around their equilibrium positions with a characteristic frequency known as the <em>plasma frequency</em>. This oscillation, also known as the Langmuir oscillation, is so fast that the massive ions do not have time to respond to the oscillating field and may be considered as fixed. In Fig. 4.2 (ADD IT!), the open rectangles represent typical elements of the ion fluid, and the darkened rectangles the alternately displaced elements of the electron fluid. The resulting charge bunching causes a spatially periodic <span class="math inline">\(\mathbf{E}\)</span> field, which tends to restore the electrons to their neutral positions.</p>
-<div id="fig-langmuir-wave" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-langmuir-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://s8.gifyu.com/images/plasma.gif" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-langmuir-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.1: Plasma oscillation, also known as Langmuir wave.
-</figcaption>
-</figure>
-</div>
+<p><a href="https://henry2004y.github.io/space-physics-threejs/langmuir.html">Demonstration of plasma oscillation</a></p>
 <p>We shall derive an expression for the plasma frequency <span class="math inline">\(\omega_p\)</span> in the simplest case, making the following assumptions:</p>
 <ol type="1">
 <li>There is no magnetic field;</li>
@@ -1163,26 +1154,26 @@ k^2c^2 = \omega^2\Big(1+\frac{\omega_{pe}^2}{\omega\omega_{ce}} \Big)
 <p>For <span class="math inline">\(\omega\lesssim\omega_{ci}\)</span>, we get the ion cyclotron wave; for <span class="math inline">\(\omega\ll\omega_{ci}\)</span>, Alfvén wave is recovered.</p>
 <p><span class="quarto-unresolved-ref">?fig-dispersion-parallel</span> shows the dispersion relations for L/R waves in a rough scale (ACTUALLY THE SCALES ARE SO BAD…). Above the cut-off frequencies (<span class="math inline">\(\omega_{R=0}\)</span> and <span class="math inline">\(\omega_{L=0}\)</span>) the solution to the wave dispersion equation is called the <em>free-space mode</em>. Below electron and ion cyclotron frequencies the waves are called the <em>cyclotron modes</em>. At low frequencies (<span class="math inline">\(\omega\rightarrow 0\)</span>) L- and R-modes merge and the dispersion becomes that of the shear Alfvén wave <span class="math inline">\(n^2\rightarrow c^2/v_A^2\)</span>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode jl code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>KeyNotes.<span class="fu">plot_dispersion_parallel</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The dispersion curve for a R-wave propagating parallel to the equilibrium magnetic field is sketched in <a href="#fig-dispersion-R-wave" class="quarto-xref">Figure&nbsp;<span>10.2</span></a>. The continuation of the Alfvén wave above the ion cyclotron frequency is called the <em>electron cyclotron wave</em>, or sometimes the <em>whistler wave</em>. The latter terminology is prevalent in ionospheric and space plasma physics contexts. The phase speed is mostly super-Alfvénic except near the electron gyrofrequency. The wave which propagates above the cutoff frequency, <span class="math inline">\(\omega_1\)</span>, is a standard right-handed circularly polarized electromagnetic wave, somewhat modified by the presence of the plasma. Note that the low-frequency branch of the dispersion curve differs fundamentally from the high-frequency branch, because the former branch corresponds to a wave which can only propagate through the plasma in the presence of an equilibrium magnetic field, whereas the high-frequency branch corresponds to a wave which can propagate in the absence of an equilibrium field.</p>
+<p>The dispersion curve for a R-wave propagating parallel to the equilibrium magnetic field is sketched in <a href="#fig-dispersion-R-wave" class="quarto-xref">Figure&nbsp;<span>10.1</span></a>. The continuation of the Alfvén wave above the ion cyclotron frequency is called the <em>electron cyclotron wave</em>, or sometimes the <em>whistler wave</em>. The latter terminology is prevalent in ionospheric and space plasma physics contexts. The phase speed is mostly super-Alfvénic except near the electron gyrofrequency. The wave which propagates above the cutoff frequency, <span class="math inline">\(\omega_1\)</span>, is a standard right-handed circularly polarized electromagnetic wave, somewhat modified by the presence of the plasma. Note that the low-frequency branch of the dispersion curve differs fundamentally from the high-frequency branch, because the former branch corresponds to a wave which can only propagate through the plasma in the presence of an equilibrium magnetic field, whereas the high-frequency branch corresponds to a wave which can propagate in the absence of an equilibrium field.</p>
 <div id="fig-dispersion-R-wave" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dispersion-R-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://farside.ph.utexas.edu/teaching/plasma/lectures/img1844.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dispersion-R-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.2: Dispersion relation for a right-handed wave propagating parallel to the magnetic field in a magnetized plasma.
+Figure&nbsp;10.1: Dispersion relation for a right-handed wave propagating parallel to the magnetic field in a magnetized plasma.
 </figcaption>
 </figure>
 </div>
-<p>For a L-wave, similar considerations to the above give a dispersion curve of the form sketched in <a href="#fig-dispersion-L-wave" class="quarto-xref">Figure&nbsp;<span>10.3</span></a>. In this case, <span class="math inline">\(n^2\)</span> goes to infinity at the ion cyclotron frequency, <span class="math inline">\(\Omega_i\)</span>, corresponding to the so-called <em>ion cyclotron resonance</em> (at <span class="math inline">\(L\rightarrow\infty\)</span>). At this resonance, the rotating electric field associated with a left-handed wave resonates with the gyromotion of the ions, allowing wave energy to be converted into perpendicular kinetic energy of the ions. There is a band of frequencies, lying above the ion cyclotron frequency, in which the left-handed wave does not propagate. At very high frequencies a propagating mode exists, which is basically a standard left-handed circularly polarized electromagnetic wave, somewhat modified by the presence of the plasma.</p>
-<p>As before, the lower branch in <a href="#fig-dispersion-L-wave" class="quarto-xref">Figure&nbsp;<span>10.3</span></a> describes a wave that can only propagate in the presence of an equilibrium magnetic field, whereas the upper branch describes a wave that can propagate in the absence an equilibrium field. The continuation of the Alfvén wave to just below the ion cyclotron frequency is generally called the <em>ion cyclotron wave</em>. Note that the phase speed is always sub-Alfvénic.</p>
+<p>For a L-wave, similar considerations to the above give a dispersion curve of the form sketched in <a href="#fig-dispersion-L-wave" class="quarto-xref">Figure&nbsp;<span>10.2</span></a>. In this case, <span class="math inline">\(n^2\)</span> goes to infinity at the ion cyclotron frequency, <span class="math inline">\(\Omega_i\)</span>, corresponding to the so-called <em>ion cyclotron resonance</em> (at <span class="math inline">\(L\rightarrow\infty\)</span>). At this resonance, the rotating electric field associated with a left-handed wave resonates with the gyromotion of the ions, allowing wave energy to be converted into perpendicular kinetic energy of the ions. There is a band of frequencies, lying above the ion cyclotron frequency, in which the left-handed wave does not propagate. At very high frequencies a propagating mode exists, which is basically a standard left-handed circularly polarized electromagnetic wave, somewhat modified by the presence of the plasma.</p>
+<p>As before, the lower branch in <a href="#fig-dispersion-L-wave" class="quarto-xref">Figure&nbsp;<span>10.2</span></a> describes a wave that can only propagate in the presence of an equilibrium magnetic field, whereas the upper branch describes a wave that can propagate in the absence an equilibrium field. The continuation of the Alfvén wave to just below the ion cyclotron frequency is generally called the <em>ion cyclotron wave</em>. Note that the phase speed is always sub-Alfvénic.</p>
 <div id="fig-dispersion-L-wave" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dispersion-L-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://farside.ph.utexas.edu/teaching/plasma/lectures/img1854.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dispersion-L-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.3: Dispersion relation for a left-handed wave propagating parallel to the magnetic field in a magnetized plasma.
+Figure&nbsp;10.2: Dispersion relation for a left-handed wave propagating parallel to the magnetic field in a magnetized plasma.
 </figcaption>
 </figure>
 </div>
@@ -1222,14 +1213,14 @@ S = 1 - \frac{\omega_{pe}^2}{\omega^2 - \Omega_e^2} - \frac{\omega_{pi}^2}{\omeg
 <p>Using the above information, and the easily demonstrated fact that <span class="math display">\[
 \omega_\mathrm{LH} &lt; \omega_{L=0} &lt; \omega_\mathrm{UH} &lt; \omega_{R=0}
 \]</span></p>
-<p>we can deduce that the dispersion curve for the mode in question takes the form sketched in <a href="#fig-dispersion-perp-wave" class="quarto-xref">Figure&nbsp;<span>10.4</span></a>. The lowest frequency branch corresponds to the compressional-Alfvén wave. The other two branches constitute the <em>extraordinary</em>, or <span class="math inline">\(X\)</span>-, wave. The upper branch is basically a linearly polarized (in the <span class="math inline">\(y\)</span>-direction) electromagnetic wave, somewhat modified by the presence of the plasma. This branch corresponds to a wave which propagates in the absence of an equilibrium magnetic field. The lowest branch corresponds to a wave which does not propagate in the absence of an equilibrium field. Finally, the middle branch corresponds to a wave which converts into an electrostatic plasma wave in the absence of an equilibrium magnetic field.</p>
+<p>we can deduce that the dispersion curve for the mode in question takes the form sketched in <a href="#fig-dispersion-perp-wave" class="quarto-xref">Figure&nbsp;<span>10.3</span></a>. The lowest frequency branch corresponds to the compressional-Alfvén wave. The other two branches constitute the <em>extraordinary</em>, or <span class="math inline">\(X\)</span>-, wave. The upper branch is basically a linearly polarized (in the <span class="math inline">\(y\)</span>-direction) electromagnetic wave, somewhat modified by the presence of the plasma. This branch corresponds to a wave which propagates in the absence of an equilibrium magnetic field. The lowest branch corresponds to a wave which does not propagate in the absence of an equilibrium field. Finally, the middle branch corresponds to a wave which converts into an electrostatic plasma wave in the absence of an equilibrium magnetic field.</p>
 <div id="fig-dispersion-perp-wave" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dispersion-perp-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://farside.ph.utexas.edu/teaching/plasma/lectures/img1868.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dispersion-perp-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.4: Schematic diagram showing the dispersion relation for a wave propagating perpendicular to the magnetic field in a magnetized plasma.
+Figure&nbsp;10.3: Schematic diagram showing the dispersion relation for a wave propagating perpendicular to the magnetic field in a magnetized plasma.
 </figcaption>
 </figure>
 </div>
@@ -1331,34 +1322,25 @@ p_1 &amp;= 0 \\
 \end{aligned}
 \tag{10.33}\]</span></span></p>
 <p>SAW has a wave vector <span class="math inline">\(\mathbf{k}\)</span> in the XZ-plane. <span class="math inline">\(\mathbf{E}\)</span> shall oscillate in the X-direction; <span class="math inline">\(\mathbf{B}\)</span> shall oscillate in the Y-direction. The electric current of the wave <span class="math inline">\(\mathbf{j}\)</span> lies in the XZ-plane. The timescale of the variations of the wave fields is much longer than the ion gyroperiod <span class="math inline">\(\Omega_i^{-1}\)</span>. In both the perpendicular and parallel directions, the spatial scale of the waves <span class="math inline">\(1/k\)</span> are much larger than ion motion scale <span class="math inline">\(r_{iL}\)</span>. The wave carries a Poynting flux <span class="math inline">\(\mathbf{S} = \mathbf{E}\times\mathbf{B}_1\)</span> strictly parallel to <span class="math inline">\(\mathbf{B}_0\)</span>. The ratio of the wave electric field to the wave magnetic field <span class="math inline">\(|\mathbf{E}|/|\mathbf{B}_1|\)</span> is exactly one Alfvén speed <span class="math inline">\(V_A\)</span>.</p>
-<p><span class="math inline">\(\mathbf{E}\)</span> (or <span class="math inline">\(\mathbf{B}_1\)</span>) in <a href="#eq-mhd_Alfven_perturbations" class="quarto-xref">Equation&nbsp;<span>10.33</span></a> shows that the Alfvén wave in a uniform plasma is a linearly polarized wave if <span class="math inline">\(\mathbf{v}_1 = (0, v_y, 0)\)</span>. If instead we set <span class="math inline">\(\mathbf{k}=(0,0,k)\)</span> (<span class="math inline">\(\theta=0^\circ\)</span>) and <span class="math inline">\(\mathbf{v}_1 = (v_x, v_y, 0)\)</span>, then <span class="math inline">\(\mathbf{k}\cdot\mathbf{v}=0\Rightarrow \rho_1=0\)</span> but <span class="math inline">\(\mathbf{E}=-\mathbf{v}\times\mathbf{B}_0 = kv_y\hat{x} - kv_x\hat{y}\)</span> can be a circularly polarized wave or else. Correlated <span class="math inline">\(\mathbf{B}_1\)</span> and <span class="math inline">\(\mathbf{v}\)</span> corresponds to waves propagating anti-parallel to the <span class="math inline">\(\mathbf{B}_0\)</span> (<span class="math inline">\(\mathbf{k}\cdot\mathbf{B}_0&lt;0\)</span>), and anti-correlated <span class="math inline">\(\mathbf{B}_1\)</span> and <span class="math inline">\(\mathbf{v}\)</span> corresponds to waves propagating parallel to the <span class="math inline">\(\mathbf{B}_0\)</span> (<span class="math inline">\(\mathbf{k}\cdot\mathbf{B}_0&gt;0\)</span>). (This is the same as expressed by the Alfvénicity condition <a href="turbulence.html#eq-Alfvenity" class="quarto-xref">Equation&nbsp;<span>18.4</span></a>.) The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the <em>shear Alfvén wave</em> (SAW). An animation of SAW is shown in <a href="#fig-alfven-wave" class="quarto-xref">Figure&nbsp;<span>10.5</span></a>.</p>
-<div id="fig-alfven-wave" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-alfven-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://s8.gifyu.com/images/alfven.gif" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-alfven-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.5: Alfvén wave.
-</figcaption>
-</figure>
-</div>
+<p><span class="math inline">\(\mathbf{E}\)</span> (or <span class="math inline">\(\mathbf{B}_1\)</span>) in <a href="#eq-mhd_Alfven_perturbations" class="quarto-xref">Equation&nbsp;<span>10.33</span></a> shows that the Alfvén wave in a uniform plasma is a linearly polarized wave if <span class="math inline">\(\mathbf{v}_1 = (0, v_y, 0)\)</span>. If instead we set <span class="math inline">\(\mathbf{k}=(0,0,k)\)</span> (<span class="math inline">\(\theta=0^\circ\)</span>) and <span class="math inline">\(\mathbf{v}_1 = (v_x, v_y, 0)\)</span>, then <span class="math inline">\(\mathbf{k}\cdot\mathbf{v}=0\Rightarrow \rho_1=0\)</span> but <span class="math inline">\(\mathbf{E}=-\mathbf{v}\times\mathbf{B}_0 = kv_y\hat{x} - kv_x\hat{y}\)</span> can be a circularly polarized wave or else. Correlated <span class="math inline">\(\mathbf{B}_1\)</span> and <span class="math inline">\(\mathbf{v}\)</span> corresponds to waves propagating anti-parallel to the <span class="math inline">\(\mathbf{B}_0\)</span> (<span class="math inline">\(\mathbf{k}\cdot\mathbf{B}_0&lt;0\)</span>), and anti-correlated <span class="math inline">\(\mathbf{B}_1\)</span> and <span class="math inline">\(\mathbf{v}\)</span> corresponds to waves propagating parallel to the <span class="math inline">\(\mathbf{B}_0\)</span> (<span class="math inline">\(\mathbf{k}\cdot\mathbf{B}_0&gt;0\)</span>). (This is the same as expressed by the Alfvénicity condition <a href="turbulence.html#eq-Alfvenity" class="quarto-xref">Equation&nbsp;<span>18.4</span></a>.) The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the <em>shear Alfvén wave</em> (SAW). An animation of SAW is shown in <span class="quarto-unresolved-ref">?fig-alfven-wave</span>.</p>
+<p><a href="https://henry2004y.github.io/space-physics-threejs/mhd-waves.html">Alfvén wave.</a></p>
 <p>To understand what happens physically in an Alfvén wave, recall that this is an electromagnetic wave with a fluctuating magnetic field <span class="math inline">\(\mathbf{B}_1\)</span> given by <span id="eq-alfven-perturb-e-b"><span class="math display">\[
 \nabla\times\mathbf{E}_1 = -\dot{\mathbf{B}}_1\quad E_x=(\omega/k)B_y
 \tag{10.34}\]</span></span></p>
-<p>The small component <span class="math inline">\(B_y\)</span>, when added to <span class="math inline">\(\mathbf{B}_0\)</span>, gives the magnetic field lines a sinuisoidal ripple, shown exaggerated in <a href="#fig-alfven-wave-oscillations" class="quarto-xref">Figure&nbsp;<span>10.6</span></a>. At the point shown, <span class="math inline">\(B_y\)</span> is in the positive <span class="math inline">\(y\)</span> direction, so, according to <a href="#eq-alfven-perturb-e-b" class="quarto-xref">Equation&nbsp;<span>10.34</span></a>, <span class="math inline">\(E_x\)</span> is in the positive <span class="math inline">\(x\)</span> direction if <span class="math inline">\(\omega/k\)</span> is in the <span class="math inline">\(z\)</span> direction. The electric field <span class="math inline">\(E_x\)</span> gives the plasma an <span class="math inline">\(\mathbf{E}_1\times\mathbf{B}_0\)</span> drift in the negative <span class="math inline">\(y\)</span> direction. Since we have taken the limit <span class="math inline">\(\omega^2\ll\Omega_{c}\)</span>, both ions and electrons will have the same drift <span class="math inline">\(v_y\)</span>, obtained from <a href="#sec-CPDR" class="quarto-xref"><span>Section 10.6</span></a> the component <span class="math inline">\(v_y\)</span> under <span class="math inline">\(T_i=0\)</span>: <span id="eq-vxy-CPDR"><span class="math display">\[
+<p>The small component <span class="math inline">\(B_y\)</span>, when added to <span class="math inline">\(\mathbf{B}_0\)</span>, gives the magnetic field lines a sinuisoidal ripple, shown exaggerated in <a href="#fig-alfven-wave-oscillations" class="quarto-xref">Figure&nbsp;<span>10.4</span></a>. At the point shown, <span class="math inline">\(B_y\)</span> is in the positive <span class="math inline">\(y\)</span> direction, so, according to <a href="#eq-alfven-perturb-e-b" class="quarto-xref">Equation&nbsp;<span>10.34</span></a>, <span class="math inline">\(E_x\)</span> is in the positive <span class="math inline">\(x\)</span> direction if <span class="math inline">\(\omega/k\)</span> is in the <span class="math inline">\(z\)</span> direction. The electric field <span class="math inline">\(E_x\)</span> gives the plasma an <span class="math inline">\(\mathbf{E}_1\times\mathbf{B}_0\)</span> drift in the negative <span class="math inline">\(y\)</span> direction. Since we have taken the limit <span class="math inline">\(\omega^2\ll\Omega_{c}\)</span>, both ions and electrons will have the same drift <span class="math inline">\(v_y\)</span>, obtained from <a href="#sec-CPDR" class="quarto-xref"><span>Section 10.6</span></a> the component <span class="math inline">\(v_y\)</span> under <span class="math inline">\(T_i=0\)</span>: <span id="eq-vxy-CPDR"><span class="math display">\[
 \begin{aligned}
 v_{ix} &amp;= \frac{iq}{m \omega}\left( 1-\frac{\Omega_c^2}{\omega^2} \right)^{-1} E_1 \\
 v_{iy} &amp;= \frac{q}{m\omega}\frac{\Omega_c}{\omega} \left( 1-\frac{\Omega_c^2}{\omega^2} \right)^{-1} E_1
 \end{aligned}
 \tag{10.35}\]</span></span></p>
-<p>Thus, the fluid moves up and down in the y direction. The magnitude of this velocity is <span class="math inline">\(|E_x/B_0|\)</span>. Since the ripple in the field is moving by at the phase velocity <span class="math inline">\(\omega/k\)</span>, the magnetic field is also moving downward at the point indicated in <a href="#fig-alfven-wave-oscillations" class="quarto-xref">Figure&nbsp;<span>10.6</span></a>. The downward velocity of the magnetic field lines is <span class="math inline">\((\omega/k)|B_y/B_0|\)</span>, which, according <a href="#eq-alfven-perturb-e-b" class="quarto-xref">Equation&nbsp;<span>10.34</span></a>, is just equal to the fluid velocity <span class="math inline">\(|E_x/B_0|\)</span>. Thus, the fluid and the field lines oscillate together as if the particles were stuck to the lines. The magnetic field lines act as if they were mass-loaded strings under tension, and an Alfvén wave can be regarded as the propagating disturbance occurring when the strings are plucked. This concept of plasma frozen to the field lines and moving with them is a useful one for understanding many low-frequency plasma phenomena. It can be shown that this notion is an accurate one as long as there is no electric field along <span class="math inline">\(\mathbf{B}\)</span>.</p>
+<p>Thus, the fluid moves up and down in the y direction. The magnitude of this velocity is <span class="math inline">\(|E_x/B_0|\)</span>. Since the ripple in the field is moving by at the phase velocity <span class="math inline">\(\omega/k\)</span>, the magnetic field is also moving downward at the point indicated in <a href="#fig-alfven-wave-oscillations" class="quarto-xref">Figure&nbsp;<span>10.4</span></a>. The downward velocity of the magnetic field lines is <span class="math inline">\((\omega/k)|B_y/B_0|\)</span>, which, according <a href="#eq-alfven-perturb-e-b" class="quarto-xref">Equation&nbsp;<span>10.34</span></a>, is just equal to the fluid velocity <span class="math inline">\(|E_x/B_0|\)</span>. Thus, the fluid and the field lines oscillate together as if the particles were stuck to the lines. The magnetic field lines act as if they were mass-loaded strings under tension, and an Alfvén wave can be regarded as the propagating disturbance occurring when the strings are plucked. This concept of plasma frozen to the field lines and moving with them is a useful one for understanding many low-frequency plasma phenomena. It can be shown that this notion is an accurate one as long as there is no electric field along <span class="math inline">\(\mathbf{B}\)</span>.</p>
 <div id="fig-alfven-wave-oscillations" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-alfven-wave-oscillations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/Alfven_V_B_E.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-alfven-wave-oscillations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.6: Relation among the oscillating quantities in an Alfvén wave and the (exaggerated) distortion of the lines of force.
+Figure&nbsp;10.4: Relation among the oscillating quantities in an Alfvén wave and the (exaggerated) distortion of the lines of force.
 </figcaption>
 </figure>
 </div>
@@ -1448,7 +1430,7 @@ B_{1x} = i(\mathbf{k}\cdot\mathbf{B}_0)\xi_{1x}
 \frac{\omega^2}{k^2}=\frac{1}{2}({v_A}^2+{v_s}^2)\pm\frac{1}{2}\sqrt{({v_A}^2+{v_s}^2)^2-4{v_s}^2{v_A}^2\cos^2\theta}
 \end{aligned}
 \tag{10.45}\]</span></span></p>
-<p>“+” corresponds to the fast mode, or magnetosonic mode, and “-” corresponds to the slow mode. The Friedrich graph <a href="#fig-mhd-phase-speed-low-beta" class="quarto-xref">Figure&nbsp;<span>10.7</span></a> is very useful in interpreting <a href="#eq-mhd_fast_slow" class="quarto-xref">Equation&nbsp;<span>10.45</span></a>. Here we only show the case for <span class="math inline">\(v_A&gt;v_s\)</span>; if <span class="math inline">\(v_A&lt;v_S\)</span>, then along the background magnetic field direction <span class="math inline">\(\hat{z}\)</span> the fast wave will have a phase speed <span class="math inline">\(v_\mathrm{ph} = v_s\)</span>, and the slow wave will a phase speed <span class="math inline">\(v_\mathrm{ph} = v_A\)</span> that overlaps with the Alfvén wave. Thus in the high-<span class="math inline">\(\beta\)</span> case slow wave may have a faster phase speed than the Alfvén wave at a proper angle!</p>
+<p>“+” corresponds to the fast mode, or magnetosonic mode, and “-” corresponds to the slow mode. The Friedrich graph <a href="#fig-mhd-phase-speed-low-beta" class="quarto-xref">Figure&nbsp;<span>10.5</span></a> is very useful in interpreting <a href="#eq-mhd_fast_slow" class="quarto-xref">Equation&nbsp;<span>10.45</span></a>. Here we only show the case for <span class="math inline">\(v_A&gt;v_s\)</span>; if <span class="math inline">\(v_A&lt;v_S\)</span>, then along the background magnetic field direction <span class="math inline">\(\hat{z}\)</span> the fast wave will have a phase speed <span class="math inline">\(v_\mathrm{ph} = v_s\)</span>, and the slow wave will a phase speed <span class="math inline">\(v_\mathrm{ph} = v_A\)</span> that overlaps with the Alfvén wave. Thus in the high-<span class="math inline">\(\beta\)</span> case slow wave may have a faster phase speed than the Alfvén wave at a proper angle!</p>
 <p>Another thing to be careful about is that when you observe a wave propagating at the Alfvén speed along the field line, you need more information to determine the characteristics of the wave:</p>
 <ul>
 <li>Check the <span class="math inline">\(\beta\)</span>-regime as well as the compressionality to determine if it has fast/slow wave component.</li>
@@ -1461,7 +1443,7 @@ B_{1x} = i(\mathbf{k}\cdot\mathbf{B}_0)\xi_{1x}
 <img src="https://farside.ph.utexas.edu/teaching/plasma/Plasma/img2325.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mhd-phase-speed-low-beta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.7: Friedrich diagram showing the variation of the phase velocities of the three MHD waves with direction of propagation in the x-z plane when <span class="math inline">\(v_A&gt;v_s\)</span>, i.e.&nbsp;low-<span class="math inline">\(\beta\)</span> case. The background magnetic field is along the z-direction.
+Figure&nbsp;10.5: Friedrich diagram showing the variation of the phase velocities of the three MHD waves with direction of propagation in the x-z plane when <span class="math inline">\(v_A&gt;v_s\)</span>, i.e.&nbsp;low-<span class="math inline">\(\beta\)</span> case. The background magnetic field is along the z-direction.
 </figcaption>
 </figure>
 </div>
@@ -1474,7 +1456,7 @@ p_1 &amp;= \gamma p_0\frac{\rho_1}{\rho_0} = \frac{\gamma p_0}{\omega}\mathbf{k}
 \mathbf{j} &amp;= \frac{1}{\mu_0}\nabla\times\mathbf{B}_1 = \frac{i\mathbf{k}\times\mathbf{B}_1}{\mu_0}
 \end{aligned}
 \tag{10.46}\]</span></span></p>
-<p><span class="math inline">\(\mathbf{E}\)</span> shows that the fast/slow modes in a uniform plasma are also linearly polarized. When we have <span class="math inline">\(\theta=90^\circ\)</span> (<a href="#fig-fast-wave" class="quarto-xref">Figure&nbsp;<span>10.8</span></a>), the magnetic perturbation can be simplified to <span class="math display">\[
+<p><span class="math inline">\(\mathbf{E}\)</span> shows that the fast/slow modes in a uniform plasma are also linearly polarized. When we have <span class="math inline">\(\theta=90^\circ\)</span> (<span class="quarto-unresolved-ref">?fig-fast-wave</span>), the magnetic perturbation can be simplified to <span class="math display">\[
 \mathbf{B}_1 = \frac{v}{\omega/k_\perp}\mathbf{B}_0
 \]</span> which means that the perturbed magnetic field is always aligned with the background magnetic field.</p>
 <p>The distinction between the fast and slow waves can be further understood by comparing the signs of the wave induced fluctuations in the plasma and magnetic pressures: <span class="math inline">\(p\)</span> and <span class="math inline">\(\mathbf{B}_0\cdot\mathbf{B}/\mu_0\)</span>, respectively. It follows from <a href="#eq-mhd_fast_perturbations" class="quarto-xref">Equation&nbsp;<span>10.46</span></a> that <span class="math display">\[
@@ -1502,16 +1484,7 @@ T_1 &amp;= T - T_0 = \frac{p_0 + p_1}{(n_0 + n_1)k_B} - \frac{p_0}{n_0 k_B} \\
 \omega \simeq k\,v_s\,\cos\theta
 \]</span></p>
 <p>Thus, in low-<span class="math inline">\(\beta\)</span> plasmas the slow wave is a sound wave modified by the presence of the magnetic field.</p>
-<div id="fig-fast-wave" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fast-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://s8.gifyu.com/images/fast.gif" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fast-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.8: Fast wave.
-</figcaption>
-</figure>
-</div>
+<p><a href="https://henry2004y.github.io/space-physics-threejs/mhd-waves.html">Fast wave.</a></p>
 <p>Sometimes the fast wave dispersion relation is written in alternative ways. Let <span class="math inline">\(a=\omega/(k_\parallel v_A)=\omega/(k\cos\theta\,v_A)\)</span>. From <a href="#eq-mhd_fast_slow" class="quarto-xref">Equation&nbsp;<span>10.45</span></a>, we have <span id="eq-mhd-fast-angle"><span class="math display">\[
 \cos^2\theta = \frac{a^2\left( v_s^2/v_A^2 + 1 \right)-v_s^2/v_A^2}{a^4}
 \tag{10.49}\]</span></span></p>
@@ -1929,18 +1902,18 @@ cB_x\simeq \mp A\, n^{1/2}\exp\Big(\pm i\,k_0 \int^z n \mathrm{d}z\Big) - \frac{
 <img src="../images/ECRH.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ECRH-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.9: Plasma frequency and wave number as functions of <span class="math inline">\(z\)</span> in a non-uniform plasma for the electron cyclotron resonance mode.
+Figure&nbsp;10.6: Plasma frequency and wave number as functions of <span class="math inline">\(z\)</span> in a non-uniform plasma for the electron cyclotron resonance mode.
 </figcaption>
 </figure>
 </div>
-<p>We use <span class="math inline">\(z\)</span> here to remind ourselves of the fact that the wave property changes along the field line. Imagine a wave <span class="math inline">\(\sim e^{i(kz -\omega t)}\)</span> incident into a plasma with fixed density <span class="math inline">\(n_0\)</span> and varying magnetic field <span class="math inline">\(B_0(z)\)</span> as shown in <a href="#fig-ECRH" class="quarto-xref">Figure&nbsp;<span>10.9</span></a>(a). At <span class="math inline">\(z=z_R\)</span>, <span class="math inline">\(\omega_{ce}(z) = \omega_{ce}(z_R) = \omega\)</span>. Then we can draw <span class="math inline">\(k^2(z)\)</span> as a function of <span class="math inline">\(z\)</span> as in <a href="#fig-ECRH" class="quarto-xref">Figure&nbsp;<span>10.9</span></a>(b). There is a pole at <span class="math inline">\(z=z_R\)</span>, which indicates resonance since <span class="math inline">\(k^2\rightarrow\infty\)</span>. There is also a zero on the right of <span class="math inline">\(z_R\)</span>.</p>
+<p>We use <span class="math inline">\(z\)</span> here to remind ourselves of the fact that the wave property changes along the field line. Imagine a wave <span class="math inline">\(\sim e^{i(kz -\omega t)}\)</span> incident into a plasma with fixed density <span class="math inline">\(n_0\)</span> and varying magnetic field <span class="math inline">\(B_0(z)\)</span> as shown in <a href="#fig-ECRH" class="quarto-xref">Figure&nbsp;<span>10.6</span></a>(a). At <span class="math inline">\(z=z_R\)</span>, <span class="math inline">\(\omega_{ce}(z) = \omega_{ce}(z_R) = \omega\)</span>. Then we can draw <span class="math inline">\(k^2(z)\)</span> as a function of <span class="math inline">\(z\)</span> as in <a href="#fig-ECRH" class="quarto-xref">Figure&nbsp;<span>10.6</span></a>(b). There is a pole at <span class="math inline">\(z=z_R\)</span>, which indicates resonance since <span class="math inline">\(k^2\rightarrow\infty\)</span>. There is also a zero on the right of <span class="math inline">\(z_R\)</span>.</p>
 <p>Close to <span class="math inline">\(z=z_R\)</span>, we have <span class="math inline">\(k^2(z)\sim \frac{\text{const}.}{z-z_R}\)</span>. If we write <span class="math display">\[
 \Omega_e(z)=-A^\prime (z-z_R)+\omega,\quad \zeta = z-z_R
 \]</span></p>
 <p>then (ignore the constants) <span class="math display">\[
 \frac{\mathrm{d}^2 E}{\mathrm{d}z^2} - \frac{\text{const.}}{z-z_R}E = 0 \Rightarrow \frac{\mathrm{d}^2 E}{d\zeta^2} - \frac{1}{\zeta}E = 0
 \]</span></p>
-<p>Now let’s stare at <a href="#fig-ECRH" class="quarto-xref">Figure&nbsp;<span>10.9</span></a>(b) for a few seconds. If there is a wave from left to right, there will be a resonance at <span class="math inline">\(z=z_R\)</span>; but if there is a wave from right to left, then the wave will be attenuated before it reaches <span class="math inline">\(z=z_R\)</span> because there is a zero ahead. This means that waves from different origin will have different behaviors!</p>
+<p>Now let’s stare at <a href="#fig-ECRH" class="quarto-xref">Figure&nbsp;<span>10.6</span></a>(b) for a few seconds. If there is a wave from left to right, there will be a resonance at <span class="math inline">\(z=z_R\)</span>; but if there is a wave from right to left, then the wave will be attenuated before it reaches <span class="math inline">\(z=z_R\)</span> because there is a zero ahead. This means that waves from different origin will have different behaviors!</p>
 </section>
 <section id="o-mode" class="level3" data-number="10.11.3">
 <h3 data-number="10.11.3" class="anchored" data-anchor-id="o-mode"><span class="header-section-number">10.11.3</span> O-mode</h3>
@@ -1953,11 +1926,11 @@ k^2(x) = \frac{\omega^2}{c^2}n^2 = \frac{\omega^2}{c^2}\Big[ 1-\frac{{\omega_{pe
 <img src="../images/Omode.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Omode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.10: Plasma frequency and wave number as functions of <span class="math inline">\(x\)</span> in a non-uniform plasma for O mode.
+Figure&nbsp;10.7: Plasma frequency and wave number as functions of <span class="math inline">\(x\)</span> in a non-uniform plasma for O mode.
 </figcaption>
 </figure>
 </div>
-<p>Note that there is no energy dissipation, because it is collisionless. Imagine a wave <span class="math inline">\(\sim e^{i(kx-\omega t)}\)</span> incident into a plasma with density <span class="math inline">\(n_0(x)\)</span> shown in <a href="#fig-Omode" class="quarto-xref">Figure&nbsp;<span>10.10</span></a>. We encounter a cutoff at <span class="math inline">\(x=x_t\)</span>, <span class="math inline">\(\omega_{pe}(x_t) = \omega\)</span>. Therefore we can draw <span class="math inline">\(k^2(x)\)</span> as a function of x as in <a href="#fig-Omode" class="quarto-xref">Figure&nbsp;<span>10.10</span></a>. Then the properties of the wave can be categorized into two regimes: <span class="math display">\[
+<p>Note that there is no energy dissipation, because it is collisionless. Imagine a wave <span class="math inline">\(\sim e^{i(kx-\omega t)}\)</span> incident into a plasma with density <span class="math inline">\(n_0(x)\)</span> shown in <a href="#fig-Omode" class="quarto-xref">Figure&nbsp;<span>10.7</span></a>. We encounter a cutoff at <span class="math inline">\(x=x_t\)</span>, <span class="math inline">\(\omega_{pe}(x_t) = \omega\)</span>. Therefore we can draw <span class="math inline">\(k^2(x)\)</span> as a function of x as in <a href="#fig-Omode" class="quarto-xref">Figure&nbsp;<span>10.7</span></a>. Then the properties of the wave can be categorized into two regimes: <span class="math display">\[
 \begin{aligned}
 k^2 &lt; 0 \Rightarrow\ E\sim e^{\pm ikx}\ \text{propagating}\\
 k^2 &gt; 0 \Rightarrow\ E\sim e^{\pm|k| x}\ \text{attenuating}
@@ -2209,9 +2182,9 @@ v_{1ix}=\frac{1}{\Omega_i}\frac{\partial}{\partial t}\Big( \frac{E_{1x}}{B_0}\Bi
 <h2 data-number="10.15" class="anchored" data-anchor-id="wave-particle-interactions"><span class="header-section-number">10.15</span> Wave-Particle Interactions</h2>
 <p>Different wavemodes exchange energy with particles by different mechanisms including</p>
 <ol type="1">
-<li><p>Landau resonance which heats in the direction parallel to the magnetic field and can give a parallel beam in the velocity distribution function (VDF) (<a href="#fig-wave-particle" class="quarto-xref">Figure&nbsp;<span>10.11</span></a> left). Charged particles exchange energy with <span class="math inline">\(E_\parallel\)</span>.</p></li>
-<li><p>Cyclotron resonance which heats in the direction perpendicular to the magnetic field and broadens the velocity distribution function in the perpendicular direction (<a href="#fig-wave-particle" class="quarto-xref">Figure&nbsp;<span>10.11</span></a> middle). Charged particles exchange energy with <span class="math inline">\(E_\perp\)</span>. Left-hand polarized ion cyclotron waves can lead to ion heating in the perpendicular direction.</p></li>
-<li><p>Pitch angle scattering which can lead to the formation of a plateau in the VDF (<a href="#fig-wave-particle" class="quarto-xref">Figure&nbsp;<span>10.11</span></a> right).</p></li>
+<li><p>Landau resonance which heats in the direction parallel to the magnetic field and can give a parallel beam in the velocity distribution function (VDF) (<a href="#fig-wave-particle" class="quarto-xref">Figure&nbsp;<span>10.8</span></a> left). Charged particles exchange energy with <span class="math inline">\(E_\parallel\)</span>.</p></li>
+<li><p>Cyclotron resonance which heats in the direction perpendicular to the magnetic field and broadens the velocity distribution function in the perpendicular direction (<a href="#fig-wave-particle" class="quarto-xref">Figure&nbsp;<span>10.8</span></a> middle). Charged particles exchange energy with <span class="math inline">\(E_\perp\)</span>. Left-hand polarized ion cyclotron waves can lead to ion heating in the perpendicular direction.</p></li>
+<li><p>Pitch angle scattering which can lead to the formation of a plateau in the VDF (<a href="#fig-wave-particle" class="quarto-xref">Figure&nbsp;<span>10.8</span></a> right).</p></li>
 </ol>
 <p>The resonance parameters for the Landau and cyclotron resonances are <span id="eq-landau_resonance"><span class="math display">\[
 \xi_\text{L} = \frac{\omega}{k_\parallel v_{\text{th},s}}
@@ -2228,14 +2201,14 @@ v_{1ix}=\frac{1}{\Omega_i}\frac{\partial}{\partial t}\Big( \frac{E_{1x}}{B_0}\Bi
 <img src="../images/wave_particle_interactions.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wave-particle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.11: Wave-particle interactions and the associated part of the velocity distribution functions. Courtesy of Yasuhito Narita.
+Figure&nbsp;10.8: Wave-particle interactions and the associated part of the velocity distribution functions. Courtesy of Yasuhito Narita.
 </figcaption>
 </figure>
 </div>
 <p>Note that the resonance parameters above are defined for a Maxwellian plasma. A correction is needed when treating a non-Maxwellian plasma to find the suitable velocity-space gradient for the resonance. The resonance is efficient when the parameter <span class="math inline">\(\xi_\text{L}\)</span> or <span class="math inline">\(\xi_\text{C}\)</span> is on the order of unity. Strictly speaking, the wave damping (or particle acceleration) is most efficient, typically for <span class="math inline">\(1&lt;\xi&lt;5\)</span>. The upper limit is not exact, but the resonance becomes gradually inefficient at larger values of <span class="math inline">\(\xi\)</span>. For <span class="math inline">\(\xi&lt;1\)</span> the particle motion is slower than the wave propagation and the particles do not have a sufficient time for exchanging energy with the wave electric field. For <span class="math inline">\(\xi&gt;5\)</span> there are increasingly fewer particles with higher velocities for the resonance (higher than the thermal speed).</p>
 <section id="pitch-angle-scattering" class="level3" data-number="10.15.1">
 <h3 data-number="10.15.1" class="anchored" data-anchor-id="pitch-angle-scattering"><span class="header-section-number">10.15.1</span> Pitch Angle Scattering</h3>
-<p>Charged particles can be scattered by the wave electric and magnetic fields incoherently, and the scattering deforms the velocity distribution function along the co-centric contours centered at the wave phase speed (<a href="#fig-wave-particle" class="quarto-xref">Figure&nbsp;<span>10.11</span></a>, right panel). The reason for the deformation is that the particle kinetic energy <span class="math inline">\(K_{wv}\)</span> (per unit mass) does not change in the co-moving frame with the apparent wave phase speed in the parallel direction to the mean magnetic field: <span class="math display">\[
+<p>Charged particles can be scattered by the wave electric and magnetic fields incoherently, and the scattering deforms the velocity distribution function along the co-centric contours centered at the wave phase speed (<a href="#fig-wave-particle" class="quarto-xref">Figure&nbsp;<span>10.8</span></a>, right panel). The reason for the deformation is that the particle kinetic energy <span class="math inline">\(K_{wv}\)</span> (per unit mass) does not change in the co-moving frame with the apparent wave phase speed in the parallel direction to the mean magnetic field: <span class="math display">\[
 K_{wv} = \frac{1}{2}\left[ v_\perp^2 + \left( v_\parallel - \frac{\omega}{k_\parallel} \right)^2 \right] = \text{const}.
 \]</span></p>
 <p>The co-centric deformation of the distribution function achieves a quasi-linear equilibrium in that the velocity–space gradient becomes zero (plateau formation) in the pitch angle directions. For example, in the solar wind ions are found to be resonating with obliquely propagating Alfvén/ion cyclotron waves. Note that the relevant phase speed is <span class="math inline">\(\omega/k_\parallel\)</span>, and is different from the true phase speed <span class="math inline">\(\omega/k\)</span>. The perpendicular component of the wavevector <span class="math inline">\(k_\perp\)</span> does not play a role in pitch angle scattering.</p>
@@ -2280,14 +2253,10 @@ K_{wv} = \frac{1}{2}\left[ v_\perp^2 + \left( v_\parallel - \frac{\omega}{k_\par
 \]</span></p>
 <p>This is the <span class="math inline">\(v_A\ll W\)</span> case in <a href="#eq-R-wave-phase-speed" class="quarto-xref">Equation&nbsp;<span>10.25</span></a> where <span class="math inline">\(v_w = W\)</span>. For a more complete derivation, see <a href="https://chenshihelio.github.io/notes/Hall_MHD_ion_cyclotron.pdf">Chen Shi’s note</a>. The dispersion relations of whistler and ion cyclotron wave make a pair, similar to the relation between fast and slow magnetosonic waves.</p>
 <p>The dispersion property of whistler waves makes it a problem for hybrid simulations (<a href="hybrid.html#sec-finite_e_mass" class="quarto-xref"><span>Section 30.3</span></a>).</p>
-<div id="fig-whistler-wave" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-whistler-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://s8.gifyu.com/images/whistler.gif" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-whistler-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.12: Whistler wave.
-</figcaption>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><embed src="https://henry2004y.github.io/space-physics-threejs/mhd-waves.html" class="img-fluid"></p>
+<figcaption>Whistler wave.</figcaption>
 </figure>
 </div>
 <p>In situ measurements are sensitive to the entire spectrum of oblique whistlers (<span class="math inline">\(\omega &lt; \Omega_e \cos\theta\)</span>), hence most of the observed whistlers are oblique, unducted, magnetospherically reflected waves <span class="citation" data-cites="stenzel1999whistler">(<a href="#ref-stenzel1999whistler" role="doc-biblioref">Stenzel 1999</a>)</span>. ???</p>
@@ -2381,7 +2350,7 @@ R_A = \mu_0 n m_i \frac{|\delta v_i|^2}{|\delta\mathbf{B}|^2}
 <img src="https://s8.gifyu.com/images/lowerhybrid.gif" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lowerhybrid-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.13: Lower hybrid wave.
+Figure&nbsp;10.9: Lower hybrid wave.
 </figcaption>
 </figure>
 </div>
