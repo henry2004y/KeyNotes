@@ -415,7 +415,7 @@ $$
 \frac{\partial p_s}{\partial t} + \nabla\cdot(p_s\mathbf{u}_s) = (p_s - p_{s\parallel})\hat{b}\cdot(\hat{b}\cdot\nabla)\mathbf{u}_s - \left( p_s - \frac{p_{s\parallel}}{3} \right)\nabla\cdot\mathbf{u}_s
 $$ {#eq-6-moment_average_p}
 
-Alternatively, we can solve for the hydrodynamic energy density $e = \frac{n\mathbf{u}^2}{2} + \frac{3}{2}p$ for each species:
+Alternatively, we can solve for the hydrodynamic energy density $e = \frac{\rho_s\mathbf{u}^2}{2} + \frac{p_s}{\gamma - 1}$ for each species:
 $$
 \frac{\partial e_s}{\partial t} + \nabla\cdot\left[ \mathbf{u}_s(e_s+p_s) + \mathbf{u}_s\cdot(p_{s\parallel} - p_{s\perp})\hat{b}\hat{b} \right] = \frac{q_s}{m_s}\rho_s \mathbf{u}_s\cdot\mathbf{E}
 $$
@@ -1132,14 +1132,13 @@ In the most common sense, ideal MHD involves equations of compressible, adiabati
 $$
 \begin{aligned}
 \frac{\partial \rho}{\partial t} + \nabla\cdot(\rho\mathbf{u}) = 0 \\
-\frac{\partial \rho\mathbf{u}}{\partial t} + \nabla\cdot\left( \rho\mathbf{u}\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}\mathbf{B} + p^\ast \right) = 0 \\
-\frac{\partial \mathcal{E}}{\partial t} + \nabla\cdot\left[ (\mathcal{E} + p^\ast)\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}(\mathbf{B}\cdot\mathbf{u}) \right] = 0 \\
+\frac{\partial \rho\mathbf{u}}{\partial t} + \nabla\cdot\left( \rho\mathbf{u}\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}\mathbf{B} + \frac{\mathbf{B}^2}{2\mu_0} + p \right) = 0 \\
+\frac{\partial e}{\partial t} + \nabla\cdot\left[ (e + p)\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}(\mathbf{B}\cdot\mathbf{u}) \right] = 0 \\
 \frac{\partial \mathbf{B}}{\partial t} - \nabla\times(\mathbf{u}\times\mathbf{B}) = 0 \\
-p^\ast = p + \frac{\mathbf{B}\cdot\mathbf{B}}{2\mu_0} \\
-\mathcal{E} = \frac{p}{\gamma - 1} + \frac{\rho \mathbf{u}\cdot\mathbf{u}}{2} + \frac{\mathbf{B}\cdot\mathbf{B}}{2\mu_0}
+e = \frac{\rho \mathbf{u}\cdot\mathbf{u}}{2} + \frac{p}{\gamma - 1} + \frac{\mathbf{B}\cdot\mathbf{B}}{2\mu_0}
 \end{aligned}
 $$ {#eq-ideal-mhd}
-where $\rho$ is the mass density, $\mathbf{u}$ the velocity, $\mathcal{E}$ the total energy density, $\mathbf{B}$ the magnetic field, $p$ the thermal pressure, and $\gamma$ the adiabatic index (ratio of specific heats).
+where $\rho$ is the mass density, $\mathbf{u}$ the velocity, $e$ the total energy density, $\mathbf{B}$ the magnetic field, $p$ the thermal pressure, and $\gamma$ the adiabatic index (ratio of specific heats).
 Microscopic dissipations of any kind (viscosity, resistivity, or conduction) are not included in ideal MHD. Note that there is only one constant $\mu_0$ appeared in @eq-ideal-mhd. The introduction of temperature comes with a new constant $R\equiv 2k_B/m$:
 $$
 p = \rho\, R\, T
@@ -1149,11 +1148,10 @@ Many often in simulations, the dimensionless units are applied. @eq-ideal-mhd un
 $$
 \begin{aligned}
 \frac{\partial \rho_\ast}{\partial t_\ast} + \nabla_\ast\cdot(\rho_\ast\mathbf{u}_\ast) = 0 \\
-\frac{\partial \rho_\ast\mathbf{u}_\ast}{\partial t_\ast} + \nabla_\ast\cdot\left( \rho_\ast\mathbf{u}_\ast\mathbf{u}_\ast - \mathbf{B}_\ast\mathbf{B}_\ast + p_\ast^\ast \right) = 0 \\
-\frac{\partial \mathcal{E}_\ast}{\partial t_\ast} + \nabla_\ast\cdot\left[ (\mathcal{E}_\ast + p_\ast^\ast)\mathbf{u}_\ast - \mathbf{B}_\ast(\mathbf{B}_\ast\cdot\mathbf{u}_\ast) \right] = 0 \\
+\frac{\partial \rho_\ast\mathbf{u}_\ast}{\partial t_\ast} + \nabla_\ast\cdot\left( \rho_\ast\mathbf{u}_\ast\mathbf{u}_\ast - \mathbf{B}_\ast\mathbf{B}_\ast + \frac{\mathbf{B}_\ast^2}{2} + p_\ast \right) = 0 \\
+\frac{\partial e_\ast}{\partial t_\ast} + \nabla_\ast\cdot\left[ (e_\ast + p_\ast)\mathbf{u}_\ast - \mathbf{B}_\ast(\mathbf{B}_\ast\cdot\mathbf{u}_\ast) \right] = 0 \\
 \frac{\partial \mathbf{B}_\ast}{\partial t_\ast} - \nabla_\ast\times(\mathbf{u}_\ast\times\mathbf{B}_\ast) = 0 \\
-p_\ast^\ast = p_\ast + \frac{\mathbf{B}_\ast\cdot\mathbf{B}_\ast}{2} \\
-\mathcal{E}_\ast = \frac{p_\ast}{\gamma - 1} + \frac{\rho_\ast \mathbf{u}_\ast\cdot\mathbf{u}_\ast}{2} + \frac{\mathbf{B}_\ast\cdot\mathbf{B}_\ast}{2}
+\mathcal{E}_\ast = \frac{\rho_\ast \mathbf{u}_\ast\cdot\mathbf{u}_\ast}{2} + \frac{p_\ast}{\gamma - 1} + \frac{\mathbf{B}_\ast^2}{2}
 \end{aligned}
 $$ {#eq-ideal-mhd-dimensionless}
 where the subscripts $\ast$ denotes the variables in dimensionless units, and the adiabatic equation of state is given as
@@ -1182,7 +1180,7 @@ $$
 $$ {#eq-aniso-energy}
 with total energy density
 $$
-e = \frac{\rho \mathbf{u}^2}{2} + \frac{\mathbf{B}^2}{2\mu_0} + \frac{3}{2}p
+e = \frac{\rho \mathbf{u}^2}{2} + \frac{p}{\gamma - 1} + \frac{\mathbf{B}^2}{2\mu_0}
 $$ {#eq-aniso-e}
 
 The plasma instabilities associated with anisotropic pressure limit, i.e. firehose, mirror, and ion cyclotron instability may contain kinetic effects that cannot be fully described by MHD (@sec-kmhd). Moreover, the grid resolution in normal global MHD simulations may not be fine enough to resolve even hydromagnetic instabilities.
@@ -1245,7 +1243,7 @@ $$
 \frac{\partial p_e}{\partial t} + \nabla\cdot \left(p_e\mathbf{u}_e \right)&=-(\gamma-1)p_e\nabla\cdot\mathbf{u}_e
 \end{aligned}
 $$ {#eq-hall_mhd}
-where $\bar{\bar{I}}$ is the identity matrix, $\rho$ is the mass density, $\mathbf{u}$ is the plasma bulk velocity, $\mathbf{B}$ is the magnetic field, $p_e$ is the electron pressure, $p$ is the ion thermal pressure, $\mathbf{J}=\nabla\times\mathbf{B}/\mu_0$ is the current density, $\epsilon=\rho\mathbf{u}^2/2$ is the hydrodynamic energy density, and $\epsilon_e=\rho\mathbf{u}_e^2/2$ is the electron hydrodynamic energy density. The Hall velocity is defined as
+where $\bar{\bar{I}}$ is the identity matrix, $\rho$ is the mass density, $\mathbf{u}$ is the plasma bulk velocity, $\mathbf{B}$ is the magnetic field, $p_e$ is the electron pressure, $p$ is the ion thermal pressure, $\mathbf{J}=\nabla\times\mathbf{B}/\mu_0$ is the current density, $\epsilon=\rho\mathbf{u}^2/2 + p / (\gamma - 1)$ is the hydrodynamic energy density, and $\epsilon_e=\rho\mathbf{u}_e^2/2 + p_e / (\gamma - 1)$ is the electron hydrodynamic energy density. The Hall velocity is defined as
 $$
 \mathbf{v}_H=-\frac{\mathbf{J}}{ne}
 $$ {#eq-hall-velocity}
@@ -1256,7 +1254,7 @@ $$ {#eq-hall-electron-velocity}
 
 The total energy density is (I may have a coefficient error here for $p_e$!)
 $$
-e= \frac{1}{2}\rho \mathbf{u}^2+\frac{1}{\gamma-1}(p+p_e)+\frac{\mathbf{B}^2}{2\mu_0}
+e = \epsilon + \epsilon_e + \frac{\mathbf{B}^2}{2\mu_0} = \frac{1}{2}\rho \mathbf{u}^2+\frac{1}{\gamma-1}(p+p_e)+\frac{\mathbf{B}^2}{2\mu_0}
 $$
 where $\gamma$ is the adiabatic index. Note that in Hall MHD only $(\rho,\mathbf{u},\mathbf{B},p,p_e)$ are unknowns; all others are derived quantities.
 
