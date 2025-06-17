@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -58,14 +58,14 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6e4858b4921ffe5a9c7d897cee0e5447.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-ad10ff260a4a6913ba40f6c8d3a74bd4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-6e4858b4921ffe5a9c7d897cee0e5447.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-48fb113fea7c09ade55c8c495d57f66a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-b346033f20cd2103f6c8ce9081ee64a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-48fb113fea7c09ade55c8c495d57f66a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -992,7 +992,7 @@ Table&nbsp;8.1: Equation of state approximations.
 <p>The two pressure equations in <a href="#eq-6-moment-fluids" class="quarto-xref">Equation&nbsp;<span>8.14</span></a> can be combined to give the equation for the average pressure <span class="math inline">\(p=(2p_\perp + p_\parallel)/3\)</span>: <span id="eq-6-moment_average_p"><span class="math display">\[
 \frac{\partial p_s}{\partial t} + \nabla\cdot(p_s\mathbf{u}_s) = (p_s - p_{s\parallel})\hat{b}\cdot(\hat{b}\cdot\nabla)\mathbf{u}_s - \left( p_s - \frac{p_{s\parallel}}{3} \right)\nabla\cdot\mathbf{u}_s
 \tag{8.15}\]</span></span></p>
-<p>Alternatively, we can solve for the hydrodynamic energy density <span class="math inline">\(e = \frac{n\mathbf{u}^2}{2} + \frac{3}{2}p\)</span> for each species: <span class="math display">\[
+<p>Alternatively, we can solve for the hydrodynamic energy density <span class="math inline">\(e = \frac{\rho_s\mathbf{u}^2}{2} + \frac{p_s}{\gamma - 1}\)</span> for each species: <span class="math display">\[
 \frac{\partial e_s}{\partial t} + \nabla\cdot\left[ \mathbf{u}_s(e_s+p_s) + \mathbf{u}_s\cdot(p_{s\parallel} - p_{s\perp})\hat{b}\hat{b} \right] = \frac{q_s}{m_s}\rho_s \mathbf{u}_s\cdot\mathbf{E}
 \]</span></p>
 <p>which is more of a conservative form and can be beneficial to get better jump conditions across shock waves. Note, however, that the parallel pressure equation is still solved with the adiabatic assumption, so non-adiabatic heating is not properly captured. In addition, the magnetic energy is not included into the energy density, so the jump conditions are only approximate (I think this is more of a numerical consideration). In general, there can be many more source terms on the right hand sides of the above equations corresponding to gravity, charge exchange, chemical reactions, collisions, etc.</p>
@@ -1501,23 +1501,21 @@ p_\perp\mathbf{I} + (p_\parallel - p_\perp)\hat{b}\hat{b}
 <p>In the most common sense, ideal MHD involves equations of compressible, adiabatic and inviscid fluid: <span id="eq-ideal-mhd"><span class="math display">\[
 \begin{aligned}
 \frac{\partial \rho}{\partial t} + \nabla\cdot(\rho\mathbf{u}) = 0 \\
-\frac{\partial \rho\mathbf{u}}{\partial t} + \nabla\cdot\left( \rho\mathbf{u}\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}\mathbf{B} + p^\ast \right) = 0 \\
-\frac{\partial \mathcal{E}}{\partial t} + \nabla\cdot\left[ (\mathcal{E} + p^\ast)\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}(\mathbf{B}\cdot\mathbf{u}) \right] = 0 \\
+\frac{\partial \rho\mathbf{u}}{\partial t} + \nabla\cdot\left( \rho\mathbf{u}\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}\mathbf{B} + \frac{\mathbf{B}^2}{2\mu_0} + p \right) = 0 \\
+\frac{\partial e}{\partial t} + \nabla\cdot\left[ (e + p)\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}(\mathbf{B}\cdot\mathbf{u}) \right] = 0 \\
 \frac{\partial \mathbf{B}}{\partial t} - \nabla\times(\mathbf{u}\times\mathbf{B}) = 0 \\
-p^\ast = p + \frac{\mathbf{B}\cdot\mathbf{B}}{2\mu_0} \\
-\mathcal{E} = \frac{p}{\gamma - 1} + \frac{\rho \mathbf{u}\cdot\mathbf{u}}{2} + \frac{\mathbf{B}\cdot\mathbf{B}}{2\mu_0}
+e = \frac{\rho \mathbf{u}\cdot\mathbf{u}}{2} + \frac{p}{\gamma - 1} + \frac{\mathbf{B}\cdot\mathbf{B}}{2\mu_0}
 \end{aligned}
-\tag{8.49}\]</span></span> where <span class="math inline">\(\rho\)</span> is the mass density, <span class="math inline">\(\mathbf{u}\)</span> the velocity, <span class="math inline">\(\mathcal{E}\)</span> the total energy density, <span class="math inline">\(\mathbf{B}\)</span> the magnetic field, <span class="math inline">\(p\)</span> the thermal pressure, and <span class="math inline">\(\gamma\)</span> the adiabatic index (ratio of specific heats). Microscopic dissipations of any kind (viscosity, resistivity, or conduction) are not included in ideal MHD. Note that there is only one constant <span class="math inline">\(\mu_0\)</span> appeared in <a href="#eq-ideal-mhd" class="quarto-xref">Equation&nbsp;<span>8.49</span></a>. The introduction of temperature comes with a new constant <span class="math inline">\(R\equiv 2k_B/m\)</span>: <span class="math display">\[
+\tag{8.49}\]</span></span> where <span class="math inline">\(\rho\)</span> is the mass density, <span class="math inline">\(\mathbf{u}\)</span> the velocity, <span class="math inline">\(e\)</span> the total energy density, <span class="math inline">\(\mathbf{B}\)</span> the magnetic field, <span class="math inline">\(p\)</span> the thermal pressure, and <span class="math inline">\(\gamma\)</span> the adiabatic index (ratio of specific heats). Microscopic dissipations of any kind (viscosity, resistivity, or conduction) are not included in ideal MHD. Note that there is only one constant <span class="math inline">\(\mu_0\)</span> appeared in <a href="#eq-ideal-mhd" class="quarto-xref">Equation&nbsp;<span>8.49</span></a>. The introduction of temperature comes with a new constant <span class="math inline">\(R\equiv 2k_B/m\)</span>: <span class="math display">\[
 p = \rho\, R\, T
 \]</span></p>
 <p>Many often in simulations, the dimensionless units are applied. <a href="#eq-ideal-mhd" class="quarto-xref">Equation&nbsp;<span>8.49</span></a> under the dimensionless units can be written as <span id="eq-ideal-mhd-dimensionless"><span class="math display">\[
 \begin{aligned}
 \frac{\partial \rho_\ast}{\partial t_\ast} + \nabla_\ast\cdot(\rho_\ast\mathbf{u}_\ast) = 0 \\
-\frac{\partial \rho_\ast\mathbf{u}_\ast}{\partial t_\ast} + \nabla_\ast\cdot\left( \rho_\ast\mathbf{u}_\ast\mathbf{u}_\ast - \mathbf{B}_\ast\mathbf{B}_\ast + p_\ast^\ast \right) = 0 \\
-\frac{\partial \mathcal{E}_\ast}{\partial t_\ast} + \nabla_\ast\cdot\left[ (\mathcal{E}_\ast + p_\ast^\ast)\mathbf{u}_\ast - \mathbf{B}_\ast(\mathbf{B}_\ast\cdot\mathbf{u}_\ast) \right] = 0 \\
+\frac{\partial \rho_\ast\mathbf{u}_\ast}{\partial t_\ast} + \nabla_\ast\cdot\left( \rho_\ast\mathbf{u}_\ast\mathbf{u}_\ast - \mathbf{B}_\ast\mathbf{B}_\ast + \frac{\mathbf{B}_\ast^2}{2} + p_\ast \right) = 0 \\
+\frac{\partial e_\ast}{\partial t_\ast} + \nabla_\ast\cdot\left[ (e_\ast + p_\ast)\mathbf{u}_\ast - \mathbf{B}_\ast(\mathbf{B}_\ast\cdot\mathbf{u}_\ast) \right] = 0 \\
 \frac{\partial \mathbf{B}_\ast}{\partial t_\ast} - \nabla_\ast\times(\mathbf{u}_\ast\times\mathbf{B}_\ast) = 0 \\
-p_\ast^\ast = p_\ast + \frac{\mathbf{B}_\ast\cdot\mathbf{B}_\ast}{2} \\
-\mathcal{E}_\ast = \frac{p_\ast}{\gamma - 1} + \frac{\rho_\ast \mathbf{u}_\ast\cdot\mathbf{u}_\ast}{2} + \frac{\mathbf{B}_\ast\cdot\mathbf{B}_\ast}{2}
+\mathcal{E}_\ast = \frac{\rho_\ast \mathbf{u}_\ast\cdot\mathbf{u}_\ast}{2} + \frac{p_\ast}{\gamma - 1} + \frac{\mathbf{B}_\ast^2}{2}
 \end{aligned}
 \tag{8.50}\]</span></span> where the subscripts <span class="math inline">\(\ast\)</span> denotes the variables in dimensionless units, and the adiabatic equation of state is given as <span class="math display">\[
 p_\ast = \rho_\ast T_\ast
@@ -1534,7 +1532,7 @@ p_\ast = \rho_\ast T_\ast
 <p>For capturing jump conditions across a discontinuity, the conservative energy equation is needed to substitute the total pressure equation: <span id="eq-aniso-energy"><span class="math display">\[
 \frac{\partial e}{\partial t} + \nabla\cdot\left[ \mathbf{u}\left( e+p_\perp + \frac{\mathbf{B}^2}{2\mu_0} + \mathbf{u}\cdot\left( (p_\parallel - p_\perp)\hat{b}\hat{b} - \frac{\mathbf{B}\mathbf{B}}{2\mu_0}  \right) \right) \right]
 \tag{8.52}\]</span></span> with total energy density <span id="eq-aniso-e"><span class="math display">\[
-e = \frac{\rho \mathbf{u}^2}{2} + \frac{\mathbf{B}^2}{2\mu_0} + \frac{3}{2}p
+e = \frac{\rho \mathbf{u}^2}{2} + \frac{p}{\gamma - 1} + \frac{\mathbf{B}^2}{2\mu_0}
 \tag{8.53}\]</span></span></p>
 <p>The plasma instabilities associated with anisotropic pressure limit, i.e.&nbsp;firehose, mirror, and ion cyclotron instability may contain kinetic effects that cannot be fully described by MHD (<a href="kmhd.html" class="quarto-xref"><span>Chapter 14</span></a>). Moreover, the grid resolution in normal global MHD simulations may not be fine enough to resolve even hydromagnetic instabilities.</p>
 <ul>
@@ -1578,13 +1576,13 @@ e = \frac{\rho \mathbf{u}^2}{2} + \frac{\mathbf{B}^2}{2\mu_0} + \frac{3}{2}p
 \frac{\partial \mathbf{B}}{\partial t} &amp;= -\nabla\times\left[ \mathbf{u}_e \times\mathbf{B} + \eta\mathbf{J} - \frac{\nabla p_e}{ne}\right] \\
 \frac{\partial p_e}{\partial t} + \nabla\cdot \left(p_e\mathbf{u}_e \right)&amp;=-(\gamma-1)p_e\nabla\cdot\mathbf{u}_e
 \end{aligned}
-\tag{8.59}\]</span></span> where <span class="math inline">\(\bar{\bar{I}}\)</span> is the identity matrix, <span class="math inline">\(\rho\)</span> is the mass density, <span class="math inline">\(\mathbf{u}\)</span> is the plasma bulk velocity, <span class="math inline">\(\mathbf{B}\)</span> is the magnetic field, <span class="math inline">\(p_e\)</span> is the electron pressure, <span class="math inline">\(p\)</span> is the ion thermal pressure, <span class="math inline">\(\mathbf{J}=\nabla\times\mathbf{B}/\mu_0\)</span> is the current density, <span class="math inline">\(\epsilon=\rho\mathbf{u}^2/2\)</span> is the hydrodynamic energy density, and <span class="math inline">\(\epsilon_e=\rho\mathbf{u}_e^2/2\)</span> is the electron hydrodynamic energy density. The Hall velocity is defined as <span id="eq-hall-velocity"><span class="math display">\[
+\tag{8.59}\]</span></span> where <span class="math inline">\(\bar{\bar{I}}\)</span> is the identity matrix, <span class="math inline">\(\rho\)</span> is the mass density, <span class="math inline">\(\mathbf{u}\)</span> is the plasma bulk velocity, <span class="math inline">\(\mathbf{B}\)</span> is the magnetic field, <span class="math inline">\(p_e\)</span> is the electron pressure, <span class="math inline">\(p\)</span> is the ion thermal pressure, <span class="math inline">\(\mathbf{J}=\nabla\times\mathbf{B}/\mu_0\)</span> is the current density, <span class="math inline">\(\epsilon=\rho\mathbf{u}^2/2 + p / (\gamma - 1)\)</span> is the hydrodynamic energy density, and <span class="math inline">\(\epsilon_e=\rho\mathbf{u}_e^2/2 + p_e / (\gamma - 1)\)</span> is the electron hydrodynamic energy density. The Hall velocity is defined as <span id="eq-hall-velocity"><span class="math display">\[
 \mathbf{v}_H=-\frac{\mathbf{J}}{ne}
 \tag{8.60}\]</span></span> and the electron bulk velocity is given by <span id="eq-hall-electron-velocity"><span class="math display">\[
 \mathbf{u}_e = \mathbf{u} + \mathbf{v}_H
 \tag{8.61}\]</span></span></p>
 <p>The total energy density is (I may have a coefficient error here for <span class="math inline">\(p_e\)</span>!) <span class="math display">\[
-e= \frac{1}{2}\rho \mathbf{u}^2+\frac{1}{\gamma-1}(p+p_e)+\frac{\mathbf{B}^2}{2\mu_0}
+e = \epsilon + \epsilon_e + \frac{\mathbf{B}^2}{2\mu_0} = \frac{1}{2}\rho \mathbf{u}^2+\frac{1}{\gamma-1}(p+p_e)+\frac{\mathbf{B}^2}{2\mu_0}
 \]</span> where <span class="math inline">\(\gamma\)</span> is the adiabatic index. Note that in Hall MHD only <span class="math inline">\((\rho,\mathbf{u},\mathbf{B},p,p_e)\)</span> are unknowns; all others are derived quantities.</p>
 <p>One important thing to recognize is that while ideal MHD has no intrinsic scales, Hall MHD introduces a new characteristic length scale into the system – the ion skin depth <span class="math inline">\(d_i\)</span>. In ideal MHD, when the plasma beta is low, the speed of the shear Alfvén mode and the fast magnetosonic mode become approximately equal. This is known as <em>degeneracy</em>, which means it is difficult to distinguish between the two modes, as they essentially travel at the same speed. In Hall MHD, when the wavelength of the waves becomes comparable to <span class="math inline">\(d_i\)</span>, the distinction between the shear Alfvén and the fast magnetosonic modes becomes clear:</p>
 <ol type="1">
