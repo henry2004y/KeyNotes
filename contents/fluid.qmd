@@ -25,12 +25,9 @@ following the individual trajectories. Brute-force computer simulation can play 
 | $p_s$          | scalar pressure |
 | $\mathbf{u}_s$ | flow velocity |
 | $\mathbf{J}_s$ | current density ($=\rho_s^\ast \mathbf{u}_s$) |
-| $e_s$          | internal energy |
-| $\phi_s$       | potential energy |
-| $\epsilon_s$   | total energy ($=e_s+\frac{\mathbf{u_s}^2}{2}+\phi_s$) |
+| $\e_s$   | total energy density ($=\frac{\rho_s\mathbf{u_s}^2}{2} + \frac{p_s}{\gamma - 1}$) |
 
 where $s$ denotes the species (e.g. $\text{H}^+, \text{O}^+$). Do not confuse $\sigma$ here with conductivity. Then the total quantities without subscripts can be written as
-
 $$
 \begin{aligned}
 &n=\sum_s{n_s} \\
@@ -43,12 +40,11 @@ $$
 &\mathbf{J}=\sum_s{\mathbf{J}_s}=\sum_s{\sigma_s \mathbf{u}_s}=\sum_s{\sigma_s}\mathbf{v}_s+\mathbf{u}\sum_s{\sigma_s}=\sum_s{\sigma_s \mathbf{v}_s}+\sigma\mathbf{u}=\mathbf{J}_{cd}+ \mathbf{J}_{cv} \\
 &\quad \text{where } \mathbf{J}_{cd}=\sum_s{\sigma_s}\mathbf{v}_s \text{ is the conduction current density} \\
 &\quad \quad \quad \quad\mathbf{J}_{cv}=\sigma \mathbf{u} \text{ is the convection current density} \\
-&\epsilon=\frac{1}{\rho}\sum_s{\rho_s\epsilon_s}=e+\frac{u^2}{2}+\phi \text{ (internal + kinetic + potential)}
+&e=\frac{1}{\rho}\sum_s{\rho_s e_s} + e_f =\frac{\rho u^2}{2} + \frac{p}{\gamma - 1} + e_f \text{ (kinetic + internal + field energy)}
 \end{aligned}
 $$
 
 It can be easily verified that
-
 $$
 \sum_s{\rho_s\mathbf{v}_s}=0
 $$
@@ -62,7 +58,6 @@ We have 5 independent unknown quantities for each species: $n_j, \mathbf{u}_j, p
 ### Maxwell's Equations
 
 In vacuum:
-
 $$
 \begin{aligned}
 \epsilon_0 \nabla\cdot\mathbf{E} &= \sigma \\
@@ -73,7 +68,6 @@ $$
 $$ {#eq-maxwell_vacuum}
 
 In a medium:
-
 $$
 \begin{aligned}
 \nabla\cdot\mathbf{D} &= \sigma \\
@@ -106,7 +100,6 @@ $$
 $$
 
 In the vacuum Ampère's law, we must include in $\mathbf{J}$ both this current and the "free", or externally applied, current $\mathbf{J}_f$:
-
 $$
 \mu_0^{-1}\nabla\times\mathbf{B} = \mathbf{J}_f + \mathbf{J}_b + \epsilon_0 \dot{\mathbf{E}}
 $$
@@ -142,37 +135,29 @@ The relation between $\mathbf{M}$ and $\mathbf{H}$ (or $\mathbf{B}$) is no longe
 ### Classical Treatment of Dielectrics
 
 The polarization $\mathbf{P}$ per unit volume is the sum over all the individual moments $\mathbf{p}_i$ of the electric dipoles. This gives rise to a bound charge density
-
 $$
 \sigma_b = -\nabla\cdot\mathbf{P}
 $$ {#eq-bound_charge_polarization}
 
 In the vacuum equation, we must include both the bound charge and the free charge:
-
 $$
 \epsilon_0\nabla\cdot\mathbf{E} = \sigma_f + \sigma_b
 $$
 
 We wish to write this in the simple form
-
 $$
 \nabla\cdot\mathbf{D} = \sigma_f
 $$
-
 by including $\sigma_b$ in the definition of $\mathbf{D}$. This can be done by letting
-
 $$
 \mathbf{D} = \epsilon_0\mathbf{E} + \mathbf{P} \equiv \epsilon \mathbf{E}
 $$
 
 If $\mathbf{P}$ is linearly proportional to $\mathbf{E}$,
-
 $$
 \mathbf{P} = \epsilon_0 \chi_e\mathbf{E}
 $$
-
 then $\epsilon$ is a constant given by
-
 $$
 \epsilon = (1+\chi_e)\epsilon_0
 $$
@@ -182,31 +167,26 @@ There is no a priori reason why a relation like the above cannot be valid in a p
 ### The Dielectric Constant of a Plasma
 
 We have seen in @sec-time-varying_E that a fluctuating $\mathbf{E}$ field gives rise to a polarization current $\mathbf{J}_p$. This leads, in turn, to a polarization charge given by the equation of continuity:
-
 $$
 \frac{\partial \sigma_p}{\partial t} + \nabla\cdot\mathbf{J}_p = 0
 $$
 
 This is the equivalent of @eq-bound_charge_polarization, except that, as we noted before, a polarization effect does not arise in a plasma unless the electric field is time varying. Since we have an explicit expression for $\mathbf{J}_p$ but not for $\sigma_p$, it is easier to work with the Ampère's law:
-
 $$
 \nabla\times\mathbf{B} = \mu_0(\mathbf{J}_f +\mathbf{J}_p + \epsilon\dot{\mathbf{E}})
 $$
 
 We wish to write this in the form
-
 $$
 \nabla\times\mathbf{B} = \mu_0(\mathbf{J}_f + \epsilon\dot{\mathbf{E}})
 $$
 
 This can be done if we let
-
 $$
 \epsilon = \epsilon_0 + \frac{j_p}{\dot{E}}
 $$
 
 From @eq-polarization_current for $\mathbf{J}_p$, we have
-
 $$
 \epsilon = \epsilon_0 + \frac{\rho}{B^2}\quad \text{or}\quad \epsilon_R\equiv \frac{\epsilon}{\epsilon_0} = 1+\frac{\mu_0\rho c^2}{B^2}
 $$ {#eq-dielectric_constant_low-frequency}
@@ -1126,19 +1106,19 @@ $$ {#eq-ampere-pre-maxwell}
 
 The divergence of @eq-ampere-pre-maxwell gives $\nabla\cdot\mathbf{J}=0$ so it is unnecessary to specify it separately.
 
-#### Complete equation set
+#### Complete ideal MHD equation set
 
 In the most common sense, ideal MHD involves equations of compressible, adiabatic and inviscid fluid:
 $$
 \begin{aligned}
 \frac{\partial \rho}{\partial t} + \nabla\cdot(\rho\mathbf{u}) = 0 \\
 \frac{\partial \rho\mathbf{u}}{\partial t} + \nabla\cdot\left( \rho\mathbf{u}\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}\mathbf{B} + \frac{\mathbf{B}^2}{2\mu_0} + p \right) = 0 \\
-\frac{\partial e}{\partial t} + \nabla\cdot\left[ (e + p)\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}(\mathbf{B}\cdot\mathbf{u}) \right] = 0 \\
+\frac{\partial e}{\partial t} + \nabla\cdot\left[ (e + p_\text{tot})\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}(\mathbf{B}\cdot\mathbf{u}) \right] = 0 \\
 \frac{\partial \mathbf{B}}{\partial t} - \nabla\times(\mathbf{u}\times\mathbf{B}) = 0 \\
-e = \frac{\rho \mathbf{u}\cdot\mathbf{u}}{2} + \frac{p}{\gamma - 1} + \frac{\mathbf{B}\cdot\mathbf{B}}{2\mu_0}
+e = \frac{\rho \mathbf{u}^2}{2} + \frac{p}{\gamma - 1} + \frac{\mathbf{B}^2}{2\mu_0}
 \end{aligned}
 $$ {#eq-ideal-mhd}
-where $\rho$ is the mass density, $\mathbf{u}$ the velocity, $e$ the total energy density, $\mathbf{B}$ the magnetic field, $p$ the thermal pressure, and $\gamma$ the adiabatic index (ratio of specific heats).
+where $\rho$ is the mass density, $\mathbf{u}$ the velocity, $e$ the total energy density, $\mathbf{B}$ the magnetic field, $p$ the thermal pressure, $p_\text{tot} = p + p_B = p + \mathbf{B}^2/(2\mu_0)$ the total pressure and $\gamma$ the adiabatic index (ratio of specific heats).
 Microscopic dissipations of any kind (viscosity, resistivity, or conduction) are not included in ideal MHD. Note that there is only one constant $\mu_0$ appeared in @eq-ideal-mhd. The introduction of temperature comes with a new constant $R\equiv 2k_B/m$:
 $$
 p = \rho\, R\, T
@@ -1252,11 +1232,13 @@ $$
 \mathbf{u}_e = \mathbf{u} + \mathbf{v}_H
 $$ {#eq-hall-electron-velocity}
 
-The total energy density is (I may have a coefficient error here for $p_e$!)
+The total energy density is
 $$
 e = \epsilon + \epsilon_e + \frac{\mathbf{B}^2}{2\mu_0} = \frac{1}{2}\rho \mathbf{u}^2+\frac{1}{\gamma-1}(p+p_e)+\frac{\mathbf{B}^2}{2\mu_0}
 $$
 where $\gamma$ is the adiabatic index. Note that in Hall MHD only $(\rho,\mathbf{u},\mathbf{B},p,p_e)$ are unknowns; all others are derived quantities.
+
+To get back to the ideal MHD equations, we simply ignore the Hall velocity @eq-hall-velocity and replace $\mathbf{u}_e$ in the energy conservation and induction equation with $\mathbf{u}$. _Note that this does not mean the current density in ideal MHD is zero: it is just a term that we neglect when deriving the electric field in the Poynting flux as well as the induction equation._
 
 One important thing to recognize is that while ideal MHD has no intrinsic scales, Hall MHD introduces a new characteristic length scale into the system – the ion skin depth $d_i$. In ideal MHD, when the plasma beta is low, the speed of the shear Alfvén mode and the fast magnetosonic mode become approximately equal. This is known as _degeneracy_, which means it is difficult to distinguish between the two modes, as they essentially travel at the same speed. In Hall MHD, when the wavelength of the waves becomes comparable to $d_i$, the distinction between the shear Alfvén and the fast magnetosonic modes becomes clear:
 
