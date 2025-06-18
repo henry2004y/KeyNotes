@@ -680,20 +680,11 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td><span class="math inline">\(e_s\)</span></td>
-<td>internal energy</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\phi_s\)</span></td>
-<td>potential energy</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\epsilon_s\)</span></td>
-<td>total energy (<span class="math inline">\(=e_s+\frac{\mathbf{u_s}^2}{2}+\phi_s\)</span>)</td>
+<td>total energy density (<span class="math inline">\(=\frac{\rho_s\mathbf{u_s}^2}{2} + \frac{p_s}{\gamma - 1}\)</span>)</td>
 </tr>
 </tbody>
 </table>
-<p>where <span class="math inline">\(s\)</span> denotes the species (e.g.&nbsp;<span class="math inline">\(\text{H}^+, \text{O}^+\)</span>). Do not confuse <span class="math inline">\(\sigma\)</span> here with conductivity. Then the total quantities without subscripts can be written as</p>
-<p><span class="math display">\[
+<p>where <span class="math inline">\(s\)</span> denotes the species (e.g.&nbsp;<span class="math inline">\(\text{H}^+, \text{O}^+\)</span>). Do not confuse <span class="math inline">\(\sigma\)</span> here with conductivity. Then the total quantities without subscripts can be written as <span class="math display">\[
 \begin{aligned}
 &amp;n=\sum_s{n_s} \\
 &amp;\rho=\sum_{s}\rho_s=\sum_{s}{m_s n_s} \\
@@ -705,11 +696,10 @@ window.Quarto = {
 &amp;\mathbf{J}=\sum_s{\mathbf{J}_s}=\sum_s{\sigma_s \mathbf{u}_s}=\sum_s{\sigma_s}\mathbf{v}_s+\mathbf{u}\sum_s{\sigma_s}=\sum_s{\sigma_s \mathbf{v}_s}+\sigma\mathbf{u}=\mathbf{J}_{cd}+ \mathbf{J}_{cv} \\
 &amp;\quad \text{where } \mathbf{J}_{cd}=\sum_s{\sigma_s}\mathbf{v}_s \text{ is the conduction current density} \\
 &amp;\quad \quad \quad \quad\mathbf{J}_{cv}=\sigma \mathbf{u} \text{ is the convection current density} \\
-&amp;\epsilon=\frac{1}{\rho}\sum_s{\rho_s\epsilon_s}=e+\frac{u^2}{2}+\phi \text{ (internal + kinetic + potential)}
+&amp;e=\frac{1}{\rho}\sum_s{\rho_s e_s} + e_f =\frac{\rho u^2}{2} + \frac{p}{\gamma - 1} + e_f \text{ (kinetic + internal + field energy)}
 \end{aligned}
 \]</span></p>
-<p>It can be easily verified that</p>
-<p><span class="math display">\[
+<p>It can be easily verified that <span class="math display">\[
 \sum_s{\rho_s\mathbf{v}_s}=0
 \]</span></p>
 <p>In this note we tried to use <span class="math inline">\(\mathbf{v}\)</span> for all species/particle-based velocities, and <span class="math inline">\(\mathbf{u}\)</span> for all bulk velocities.</p>
@@ -719,8 +709,7 @@ window.Quarto = {
 <h2 data-number="8.2" class="anchored" data-anchor-id="relation-of-plasma-to-ordinary-electromagnetics"><span class="header-section-number">8.2</span> Relation of Plasma to Ordinary Electromagnetics</h2>
 <section id="maxwells-equations" class="level3" data-number="8.2.1">
 <h3 data-number="8.2.1" class="anchored" data-anchor-id="maxwells-equations"><span class="header-section-number">8.2.1</span> Maxwell’s Equations</h3>
-<p>In vacuum:</p>
-<p><span id="eq-maxwell_vacuum"><span class="math display">\[
+<p>In vacuum: <span id="eq-maxwell_vacuum"><span class="math display">\[
 \begin{aligned}
 \epsilon_0 \nabla\cdot\mathbf{E} &amp;= \sigma \\
 \nabla\times\mathbf{E} &amp;= -\dot{\mathbf{B}} \\
@@ -728,8 +717,7 @@ window.Quarto = {
 \nabla\times\mathbf{B} &amp;= \mu_0 (\mathbf{J}+\epsilon_0\dot{\mathbf{E}})
 \end{aligned}
 \tag{8.1}\]</span></span></p>
-<p>In a medium:</p>
-<p><span id="eq-maxwell_medium"><span class="math display">\[
+<p>In a medium: <span id="eq-maxwell_medium"><span class="math display">\[
 \begin{aligned}
 \nabla\cdot\mathbf{D} &amp;= \sigma \\
 \nabla\times\mathbf{E} &amp;= -\dot{\mathbf{B}} \\
@@ -750,8 +738,7 @@ window.Quarto = {
 \]</span> per unit volume. This has the same effect as a bound current density equal to <span class="math display">\[
 \mathbf{J}_b = \nabla\times\mathbf{M}
 \]</span></p>
-<p>In the vacuum Ampère’s law, we must include in <span class="math inline">\(\mathbf{J}\)</span> both this current and the “free”, or externally applied, current <span class="math inline">\(\mathbf{J}_f\)</span>:</p>
-<p><span class="math display">\[
+<p>In the vacuum Ampère’s law, we must include in <span class="math inline">\(\mathbf{J}\)</span> both this current and the “free”, or externally applied, current <span class="math inline">\(\mathbf{J}_f\)</span>: <span class="math display">\[
 \mu_0^{-1}\nabla\times\mathbf{B} = \mathbf{J}_f + \mathbf{J}_b + \epsilon_0 \dot{\mathbf{E}}
 \]</span></p>
 <p>We wish to write this equation in the simple form <span class="math display">\[
@@ -773,52 +760,39 @@ window.Quarto = {
 </section>
 <section id="classical-treatment-of-dielectrics" class="level3" data-number="8.2.3">
 <h3 data-number="8.2.3" class="anchored" data-anchor-id="classical-treatment-of-dielectrics"><span class="header-section-number">8.2.3</span> Classical Treatment of Dielectrics</h3>
-<p>The polarization <span class="math inline">\(\mathbf{P}\)</span> per unit volume is the sum over all the individual moments <span class="math inline">\(\mathbf{p}_i\)</span> of the electric dipoles. This gives rise to a bound charge density</p>
-<p><span id="eq-bound_charge_polarization"><span class="math display">\[
+<p>The polarization <span class="math inline">\(\mathbf{P}\)</span> per unit volume is the sum over all the individual moments <span class="math inline">\(\mathbf{p}_i\)</span> of the electric dipoles. This gives rise to a bound charge density <span id="eq-bound_charge_polarization"><span class="math display">\[
 \sigma_b = -\nabla\cdot\mathbf{P}
 \tag{8.3}\]</span></span></p>
-<p>In the vacuum equation, we must include both the bound charge and the free charge:</p>
-<p><span class="math display">\[
+<p>In the vacuum equation, we must include both the bound charge and the free charge: <span class="math display">\[
 \epsilon_0\nabla\cdot\mathbf{E} = \sigma_f + \sigma_b
 \]</span></p>
-<p>We wish to write this in the simple form</p>
-<p><span class="math display">\[
+<p>We wish to write this in the simple form <span class="math display">\[
 \nabla\cdot\mathbf{D} = \sigma_f
-\]</span></p>
-<p>by including <span class="math inline">\(\sigma_b\)</span> in the definition of <span class="math inline">\(\mathbf{D}\)</span>. This can be done by letting</p>
-<p><span class="math display">\[
+\]</span> by including <span class="math inline">\(\sigma_b\)</span> in the definition of <span class="math inline">\(\mathbf{D}\)</span>. This can be done by letting <span class="math display">\[
 \mathbf{D} = \epsilon_0\mathbf{E} + \mathbf{P} \equiv \epsilon \mathbf{E}
 \]</span></p>
-<p>If <span class="math inline">\(\mathbf{P}\)</span> is linearly proportional to <span class="math inline">\(\mathbf{E}\)</span>,</p>
-<p><span class="math display">\[
+<p>If <span class="math inline">\(\mathbf{P}\)</span> is linearly proportional to <span class="math inline">\(\mathbf{E}\)</span>, <span class="math display">\[
 \mathbf{P} = \epsilon_0 \chi_e\mathbf{E}
-\]</span></p>
-<p>then <span class="math inline">\(\epsilon\)</span> is a constant given by</p>
-<p><span class="math display">\[
+\]</span> then <span class="math inline">\(\epsilon\)</span> is a constant given by <span class="math display">\[
 \epsilon = (1+\chi_e)\epsilon_0
 \]</span></p>
 <p>There is no a priori reason why a relation like the above cannot be valid in a plasma, so we may proceed to try to get an expression for <span class="math inline">\(\epsilon\)</span> in a plasma.</p>
 </section>
 <section id="the-dielectric-constant-of-a-plasma" class="level3" data-number="8.2.4">
 <h3 data-number="8.2.4" class="anchored" data-anchor-id="the-dielectric-constant-of-a-plasma"><span class="header-section-number">8.2.4</span> The Dielectric Constant of a Plasma</h3>
-<p>We have seen in <a href="single.html#sec-time-varying_E" class="quarto-xref"><span>Section 7.4</span></a> that a fluctuating <span class="math inline">\(\mathbf{E}\)</span> field gives rise to a polarization current <span class="math inline">\(\mathbf{J}_p\)</span>. This leads, in turn, to a polarization charge given by the equation of continuity:</p>
-<p><span class="math display">\[
+<p>We have seen in <a href="single.html#sec-time-varying_E" class="quarto-xref"><span>Section 7.4</span></a> that a fluctuating <span class="math inline">\(\mathbf{E}\)</span> field gives rise to a polarization current <span class="math inline">\(\mathbf{J}_p\)</span>. This leads, in turn, to a polarization charge given by the equation of continuity: <span class="math display">\[
 \frac{\partial \sigma_p}{\partial t} + \nabla\cdot\mathbf{J}_p = 0
 \]</span></p>
-<p>This is the equivalent of <a href="#eq-bound_charge_polarization" class="quarto-xref">Equation&nbsp;<span>8.3</span></a>, except that, as we noted before, a polarization effect does not arise in a plasma unless the electric field is time varying. Since we have an explicit expression for <span class="math inline">\(\mathbf{J}_p\)</span> but not for <span class="math inline">\(\sigma_p\)</span>, it is easier to work with the Ampère’s law:</p>
-<p><span class="math display">\[
+<p>This is the equivalent of <a href="#eq-bound_charge_polarization" class="quarto-xref">Equation&nbsp;<span>8.3</span></a>, except that, as we noted before, a polarization effect does not arise in a plasma unless the electric field is time varying. Since we have an explicit expression for <span class="math inline">\(\mathbf{J}_p\)</span> but not for <span class="math inline">\(\sigma_p\)</span>, it is easier to work with the Ampère’s law: <span class="math display">\[
 \nabla\times\mathbf{B} = \mu_0(\mathbf{J}_f +\mathbf{J}_p + \epsilon\dot{\mathbf{E}})
 \]</span></p>
-<p>We wish to write this in the form</p>
-<p><span class="math display">\[
+<p>We wish to write this in the form <span class="math display">\[
 \nabla\times\mathbf{B} = \mu_0(\mathbf{J}_f + \epsilon\dot{\mathbf{E}})
 \]</span></p>
-<p>This can be done if we let</p>
-<p><span class="math display">\[
+<p>This can be done if we let <span class="math display">\[
 \epsilon = \epsilon_0 + \frac{j_p}{\dot{E}}
 \]</span></p>
-<p>From <a href="single.html#eq-polarization_current" class="quarto-xref">Equation&nbsp;<span>7.12</span></a> for <span class="math inline">\(\mathbf{J}_p\)</span>, we have</p>
-<p><span id="eq-dielectric_constant_low-frequency"><span class="math display">\[
+<p>From <a href="single.html#eq-polarization_current" class="quarto-xref">Equation&nbsp;<span>7.12</span></a> for <span class="math inline">\(\mathbf{J}_p\)</span>, we have <span id="eq-dielectric_constant_low-frequency"><span class="math display">\[
 \epsilon = \epsilon_0 + \frac{\rho}{B^2}\quad \text{or}\quad \epsilon_R\equiv \frac{\epsilon}{\epsilon_0} = 1+\frac{\mu_0\rho c^2}{B^2}
 \tag{8.4}\]</span></span></p>
 <p>This is the <em>low-frequency plasma dielectric constant for transverse motions</em>. The qualifications are necessary because our expression for <span class="math inline">\(\mathbf{J}_p\)</span> is valid only for <span class="math inline">\(\omega^2\ll\omega_c^2\)</span> and for <span class="math inline">\(\mathbf{E}\)</span> perpendicular to <span class="math inline">\(\mathbf{B}\)</span>. The general expression for <span class="math inline">\(\epsilon\)</span>, of course, is very complicated and hardly fits on one page.</p>
@@ -1496,17 +1470,17 @@ p_\perp\mathbf{I} + (p_\parallel - p_\perp)\hat{b}\hat{b}
 \tag{8.48}\]</span></span></p>
 <p>The divergence of <a href="#eq-ampere-pre-maxwell" class="quarto-xref">Equation&nbsp;<span>8.48</span></a> gives <span class="math inline">\(\nabla\cdot\mathbf{J}=0\)</span> so it is unnecessary to specify it separately.</p>
 </section>
-<section id="complete-equation-set" class="level4" data-number="8.6.2.3">
-<h4 data-number="8.6.2.3" class="anchored" data-anchor-id="complete-equation-set"><span class="header-section-number">8.6.2.3</span> Complete equation set</h4>
+<section id="complete-ideal-mhd-equation-set" class="level4" data-number="8.6.2.3">
+<h4 data-number="8.6.2.3" class="anchored" data-anchor-id="complete-ideal-mhd-equation-set"><span class="header-section-number">8.6.2.3</span> Complete ideal MHD equation set</h4>
 <p>In the most common sense, ideal MHD involves equations of compressible, adiabatic and inviscid fluid: <span id="eq-ideal-mhd"><span class="math display">\[
 \begin{aligned}
 \frac{\partial \rho}{\partial t} + \nabla\cdot(\rho\mathbf{u}) = 0 \\
 \frac{\partial \rho\mathbf{u}}{\partial t} + \nabla\cdot\left( \rho\mathbf{u}\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}\mathbf{B} + \frac{\mathbf{B}^2}{2\mu_0} + p \right) = 0 \\
-\frac{\partial e}{\partial t} + \nabla\cdot\left[ (e + p)\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}(\mathbf{B}\cdot\mathbf{u}) \right] = 0 \\
+\frac{\partial e}{\partial t} + \nabla\cdot\left[ (e + p_\text{tot})\mathbf{u} - \frac{1}{\mu_0}\mathbf{B}(\mathbf{B}\cdot\mathbf{u}) \right] = 0 \\
 \frac{\partial \mathbf{B}}{\partial t} - \nabla\times(\mathbf{u}\times\mathbf{B}) = 0 \\
-e = \frac{\rho \mathbf{u}\cdot\mathbf{u}}{2} + \frac{p}{\gamma - 1} + \frac{\mathbf{B}\cdot\mathbf{B}}{2\mu_0}
+e = \frac{\rho \mathbf{u}^2}{2} + \frac{p}{\gamma - 1} + \frac{\mathbf{B}^2}{2\mu_0}
 \end{aligned}
-\tag{8.49}\]</span></span> where <span class="math inline">\(\rho\)</span> is the mass density, <span class="math inline">\(\mathbf{u}\)</span> the velocity, <span class="math inline">\(e\)</span> the total energy density, <span class="math inline">\(\mathbf{B}\)</span> the magnetic field, <span class="math inline">\(p\)</span> the thermal pressure, and <span class="math inline">\(\gamma\)</span> the adiabatic index (ratio of specific heats). Microscopic dissipations of any kind (viscosity, resistivity, or conduction) are not included in ideal MHD. Note that there is only one constant <span class="math inline">\(\mu_0\)</span> appeared in <a href="#eq-ideal-mhd" class="quarto-xref">Equation&nbsp;<span>8.49</span></a>. The introduction of temperature comes with a new constant <span class="math inline">\(R\equiv 2k_B/m\)</span>: <span class="math display">\[
+\tag{8.49}\]</span></span> where <span class="math inline">\(\rho\)</span> is the mass density, <span class="math inline">\(\mathbf{u}\)</span> the velocity, <span class="math inline">\(e\)</span> the total energy density, <span class="math inline">\(\mathbf{B}\)</span> the magnetic field, <span class="math inline">\(p\)</span> the thermal pressure, <span class="math inline">\(p_\text{tot} = p + p_B = p + \mathbf{B}^2/(2\mu_0)\)</span> the total pressure and <span class="math inline">\(\gamma\)</span> the adiabatic index (ratio of specific heats). Microscopic dissipations of any kind (viscosity, resistivity, or conduction) are not included in ideal MHD. Note that there is only one constant <span class="math inline">\(\mu_0\)</span> appeared in <a href="#eq-ideal-mhd" class="quarto-xref">Equation&nbsp;<span>8.49</span></a>. The introduction of temperature comes with a new constant <span class="math inline">\(R\equiv 2k_B/m\)</span>: <span class="math display">\[
 p = \rho\, R\, T
 \]</span></p>
 <p>Many often in simulations, the dimensionless units are applied. <a href="#eq-ideal-mhd" class="quarto-xref">Equation&nbsp;<span>8.49</span></a> under the dimensionless units can be written as <span id="eq-ideal-mhd-dimensionless"><span class="math display">\[
@@ -1581,9 +1555,10 @@ e = \frac{\rho \mathbf{u}^2}{2} + \frac{p}{\gamma - 1} + \frac{\mathbf{B}^2}{2\m
 \tag{8.60}\]</span></span> and the electron bulk velocity is given by <span id="eq-hall-electron-velocity"><span class="math display">\[
 \mathbf{u}_e = \mathbf{u} + \mathbf{v}_H
 \tag{8.61}\]</span></span></p>
-<p>The total energy density is (I may have a coefficient error here for <span class="math inline">\(p_e\)</span>!) <span class="math display">\[
+<p>The total energy density is <span class="math display">\[
 e = \epsilon + \epsilon_e + \frac{\mathbf{B}^2}{2\mu_0} = \frac{1}{2}\rho \mathbf{u}^2+\frac{1}{\gamma-1}(p+p_e)+\frac{\mathbf{B}^2}{2\mu_0}
 \]</span> where <span class="math inline">\(\gamma\)</span> is the adiabatic index. Note that in Hall MHD only <span class="math inline">\((\rho,\mathbf{u},\mathbf{B},p,p_e)\)</span> are unknowns; all others are derived quantities.</p>
+<p>To get back to the ideal MHD equations, we simply ignore the Hall velocity <a href="#eq-hall-velocity" class="quarto-xref">Equation&nbsp;<span>8.60</span></a> and replace <span class="math inline">\(\mathbf{u}_e\)</span> in the energy conservation and induction equation with <span class="math inline">\(\mathbf{u}\)</span>. <em>Note that this does not mean the current density in ideal MHD is zero: it is just a term that we neglect when deriving the electric field in the Poynting flux as well as the induction equation.</em></p>
 <p>One important thing to recognize is that while ideal MHD has no intrinsic scales, Hall MHD introduces a new characteristic length scale into the system – the ion skin depth <span class="math inline">\(d_i\)</span>. In ideal MHD, when the plasma beta is low, the speed of the shear Alfvén mode and the fast magnetosonic mode become approximately equal. This is known as <em>degeneracy</em>, which means it is difficult to distinguish between the two modes, as they essentially travel at the same speed. In Hall MHD, when the wavelength of the waves becomes comparable to <span class="math inline">\(d_i\)</span>, the distinction between the shear Alfvén and the fast magnetosonic modes becomes clear:</p>
 <ol type="1">
 <li>Fast magnetosonic waves (whistler waves) are affected by electron dynamics and propagate at higher frequencies within the Hall-MHD framework.</li>
