@@ -1,6 +1,6 @@
 # Guiding Center {#sec-GC}
 
-Guiding-center theory provides the reduced dynamical equations for the motion of charged particles in slowly varying electromagnetic fields, when the fields have weak variations over a gyroradius in space and a gyroperiod in time.
+The guiding center approximation (GCA) is a theoretical framework used to simplify the complex motion of charged particles in electromagnetic fields by separating the fast gyromotion from the slower drifts of the particle's guiding center (GC).
 
 The basic equation governing the motion of a charged particle with mass m and charge e is given by
 $$
@@ -9,6 +9,241 @@ $$
 where $\mathbf{u}=\gamma\mathbf{v}$ represents the particle’s four-velocity, $\mathbf{v}$ is the particle velocity, c is the speed of light while $\mathbf{E}$ and $\mathbf{B}$ are the electric and magnetic field vectors, respectively.
 
 In GCA, the orbital motion of the particle is detached from its instantaneous gyration center. This relaxes any constraints related to particle gyration, allowing systematic larger time steps to be taken and thus a considerable saving in computational time. The guiding center (GC) equations are obtained in the limit of slow-varying fields. This restricts its validity to situations in which the Larmor radius remains negligible with respect to the overall electromagnetic field scale and in which the cyclotron frequency is large enough so that adiabatic invariance holds. In this respect, the GCA is most suitable for particles with large charge-to-mass ratios such as electrons.
+
+## Summarized Version
+
+### Basic Concepts and Variables
+
+**State Variables**: Instead of the full 6D phase space $(\mathbf{x}, \mathbf{v})$, we solve for the reduced 4D guiding center state:
+- $\mathbf{X}$: The spatial position of the guiding center.
+- $p_{\parallel} = m \gamma v_{\parallel}$: The relativistic kinetic momentum parallel to the magnetic field, where $\gamma$ is the Lorentz factor.
+
+The position $\mathbf{r}$ of a particle is decomposed into the guiding center position $\mathbf{R}(t)$ and the gyration vector $\boldsymbol{\rho}$:
+$$
+\mathbf{r} = \mathbf{R}(t) + \boldsymbol{\rho}(\mathbf{R}, t, \psi)
+$$
+where $\psi$ is the gyrophase. This approximation holds when the characteristic scale of field variations $L$ is much larger than the Larmor radius $\rho$ ($L \gg \rho$) and time variations are slow compared to the gyroperiod.
+
+**Parameters (Constant of Motion)**:
+- $\mu$: The magnetic moment (adiabatic invariant).
+$$
+\mu = \frac{p_{\perp}^2}{2mB}
+$$
+In the GCA, $\mu$ is constant. It is calculated once from the initial conditions and treated as a parameter during the simulation.
+
+### The Effective Fields
+
+The modern GCA equations can be written compactly using "effective" electromagnetic fields $\mathbf{B}^*$ and $\mathbf{E}^*$. These correct the standard fields to account for drifts naturally.
+
+Definitions:
+- $\mathbf{B}(\mathbf{X})$ and $\mathbf{E}(\mathbf{X})$: Standard EM fields at the guiding center location.
+- $\mathbf{b} = \mathbf{B}/|\mathbf{B}|$: Unit vector along the magnetic field line.
+- $q$: Particle charge.
+
+**Calculate the Effective Magnetic Field $\mathbf{B}^*$**
+
+This term incorporates the geometry of the field lines (curl of $\mathbf{b}$) which drives curvature drift.
+$$
+\mathbf{B}^* = \mathbf{B} + \frac{c p_{\parallel}}{q} \nabla \times \mathbf{b}
+$$
+
+**Calculate the Effective Electric Field $\mathbf{E}^*$**
+
+In many implementations, it is easier to work directly with the Hamiltonian gradients, but formally:
+$$
+\mathbf{E}^* = \mathbf{E} - \frac{1}{q} \nabla ( \mu B )
+$$
+
+### Hamiltonian
+
+For a relativistic particle, the Hamiltonian $H$ represents the total energy.
+$$
+H(\mathbf{X}, p_{\parallel}, \mu, t) = \sqrt{m^2 c^4 + p_{\parallel}^2 c^2 + 2 m \mu B(\mathbf{X}) c^2} + q \Phi(\mathbf{X})$$
+- $\Phi$: Electric scalar potential (if $\mathbf{E} = -\nabla \Phi$).
+- Note: If you only have $\mathbf{E}$ and not $\Phi$, you will use the force term $q E_{\parallel}$ directly in the equations of motion.
+
+### Equations of Motion
+
+These are the final expressions to solve numerically. They describe the time evolution of the guiding center position $\mathbf{X}$ and parallel momentum $p_{\parallel}$.
+
+Equation for Position ($\dot{\mathbf{X}}$):
+$$
+\frac{d\mathbf{X}}{dt} = \frac{1}{B^*_{\parallel}} \left[ \frac{p_{\parallel}}{m \gamma} \mathbf{B}^* + c \mathbf{E}^* \times \mathbf{b} \right]
+$$
+
+- Term 1 ($ \propto \mathbf{B}^*$): Represents motion along the field line plus curvature drift (hidden inside $\mathbf{B}^*$).
+- Term 2 ($ \propto \mathbf{E}^ \times \mathbf{b}$):* Represents the $\mathbf{E} \times \mathbf{B}$ drift and the $\nabla B$ drift (hidden inside $\mathbf{E}^*$ via the $\mu \nabla B$ term).
+- Denominator: $B^*_{\parallel} = \mathbf{b} \cdot \mathbf{B}^* \approx B$. This is a normalization factor essentially equal to $B$ but corrected for phase-space volume conservation.
+
+Equation for Parallel Momentum ($\dot{p}_{\parallel}$):
+$$
+\frac{dp_{\parallel}}{dt} = \frac{q}{B^*_{\parallel}} \mathbf{B}^* \cdot \mathbf{E}^*
+$$
+
+This simplifies to the standard parallel force equation:
+$$
+\dot{p}_{\parallel} \approx q E_{\parallel} - \frac{\mu}{\gamma} \nabla_{\parallel} B
+$$
+
+### Numerical Implementation Guide
+
+To implement this in code, follow this loop:
+
+- A. Initialization
+  1. Start with particle particle position $\mathbf{x}$ and velocity $\mathbf{v}$.
+  2. Compute local $\mathbf{B}(\mathbf{x})$ and $\mathbf{b}$.
+  3. Decompose velocity: $\mathbf{v} = v_{\parallel} \mathbf{b} + \mathbf{v}_{\perp}$.
+  4. Compute $\mu = \frac{m \gamma^2 v_{\perp}^2}{2 B}$ (Relativistic moment).
+  5. Initialize state vector $\mathbf{Y} = [\mathbf{X}, p_{\parallel}]$.
+- B. Time Stepping Loop. For every time step $t \to t + \Delta t$:
+  1. Interpolate Fields: Get $\mathbf{B}, \mathbf{E}, \nabla \mathbf{B}$ at current $\mathbf{X}$.
+  2. Compute Gradients: You need $\nabla \times \mathbf{b}$ and $\nabla B$.
+    - $\nabla \times \mathbf{b}$ can be computed numerically or analytically if the B-field model is known.
+  3. Construct Effective Fields:
+    - $\mathbf{B}^* = \mathbf{B} + \frac{c p_{\parallel}}{q} (\nabla \times \mathbf{b})$
+    - $B^*_{\parallel} = \mathbf{b} \cdot \mathbf{B}^*$
+  4. Evaluate Derivatives (RHS):
+    - $\gamma = \sqrt{1 + \frac{p_{\parallel}^2 + 2m\mu B}{m^2 c^2}}$
+    - $\dot{\mathbf{X}} = \frac{1}{B^*_{\parallel}} \left( \frac{p_{\parallel}}{m \gamma} \mathbf{B}^* + \frac{c}{q} (q\mathbf{E} - \mu \nabla B) \times \mathbf{b} \right)$
+    - $\dot{p}_{\parallel} = \frac{q}{B^*_{\parallel}} \mathbf{B}^* \cdot \left( \mathbf{E} - \frac{\mu}{q} \nabla B \right)$
+  5. Advance: Update $\mathbf{X}$ and $p_{\parallel}$.
+- C. Constraints & Checks
+  - Time Step: The GCA allows much larger time steps than full orbit codes because you don't resolve the gyro-period. However, you must resolve the gradient length scales. A common constraint is ensuring the particle does not cross more than one cell (or characteristic length) per step.
+  - Validity: Check that $E_{\perp} < B$ and that the gyroradius is small compared to field gradients ($R_L \ll L_B$).
+
+### Conversion from Full Phase Space to Guiding Center
+
+Transforming from the full 6D particle state $(\mathbf{x}, \mathbf{v})$ to the reduced Guiding Center (GC) state $(\mathbf{X}, v_{\parallel}, \mu)$ is a surjective mapping (many particle states map to the same GC state).
+
+To perform this switch consistently—especially in hybrid codes where you might switch back and forth—it is critical to match the constants of motion (like Energy) between the two frames.
+Here is the step-by-step transformation procedure:
+
+1. Calculate the Guiding Center Position ($\mathbf{X}$)
+
+The guiding center is located at the center of the particle's gyration. You must calculate the Larmor radius vector at the particle's current position $\mathbf{x}$ and subtract it.
+- Compute local field: Retrieve $\mathbf{B}(\mathbf{x})$ and the unit vector $\mathbf{b}(\mathbf{x}) = \mathbf{B}(\mathbf{x}) / |\mathbf{B}(\mathbf{x})|$.
+- Compute displacement:
+$$
+\mathbf{X} \approx \mathbf{x} + \frac{m}{q B(\mathbf{x})} \mathbf{v} \times \mathbf{b}(\mathbf{x})
+$$
+  - This equation is valid to the first order in the Larmor radius.
+  - It is recommended to perform this displacement in Cartesian coordinates to avoid singularities.
+
+2. Update Fields at the New Position
+
+Once you have the estimated guiding center position $\mathbf{X}$, you must evaluate the electromagnetic fields $\mathbf{B}(\mathbf{X})$, $\mathbf{E}(\mathbf{X})$ and potentials $\Phi(\mathbf{X})$ at this new location.
+
+3. Calculate Parallel Velocity ($v_{\parallel}$)
+
+The parallel velocity is defined relative to the magnetic field at the guiding center $\mathbf{X}$, not the particle position $\mathbf{x}$.
+
+- Standard Projection:
+$$
+v_{\parallel} = \mathbf{v} \cdot \mathbf{b}(\mathbf{X})
+$$
+- Energy/Momentum Matching (High Precision): For higher accuracy, specifically to ensure that the particle's toroidal momentum $P_{\phi}$ is conserved during the switch (in axisymmetric systems), you can calculate $v_{\parallel}$ derived from the momentum conservation equation:
+$$
+v_{\parallel} \approx \frac{1}{B(\mathbf{X})} \left( \mathbf{v} \cdot \mathbf{B}(\mathbf{X}) + \dots \text{higher order terms} \right)
+$$
+
+For most standard implementations, the simple projection $\mathbf{v} \cdot \mathbf{b}(\mathbf{X})$ is sufficient.
+
+4. Calculate Magnetic Moment ($\mu$)
+
+The magnetic moment is the adiabatic invariant. It is crucial to calculate $\mu$ such that the total energy $\mathcal{H}$ of the particle is conserved during the transformation.
+
+- Energy Conservation Condition:
+$$
+\mathcal{H}_{\text{particle}} = \mathcal{H}_{\text{GC}}
+$$
+$$
+\frac{1}{2} m v^2 + q \Phi(\mathbf{x}) = \frac{1}{2} m v_{\parallel}^2 + \mu B(\mathbf{X}) + q \Phi(\mathbf{X})
+$$
+- Formula for $\mu$:
+Rearranging the energy equation gives the most robust definition for $\mu$ during the switch:
+$$\mu = \frac{1}{B(\mathbf{X})} \left[ \frac{1}{2} m v^2 - \frac{1}{2} m v_{\parallel}^2 + q(\Phi(\mathbf{x}) - \Phi(\mathbf{X})) \right]$$
+  - If the electric potential variation $q(\Phi(\mathbf{x}) - \Phi(\mathbf{X}))$ is negligible (order of Larmor radius), this simplifies to the standard definition:
+$$
+\mu \approx \frac{m v_{\perp}^2}{2 B(\mathbf{X})}
+$$
+where $v_{\perp}^2 = v^2 - v_{\parallel}^2$.
+
+Summary Algorithm
+1. Input: Particle $\mathbf{x}, \mathbf{v}$.
+2. Shift: $\mathbf{X} = \mathbf{x} + \frac{m}{q B(\mathbf{x})} (\mathbf{v} \times \mathbf{b})$.
+3. Project: $v_{\parallel} = \mathbf{v} \cdot \mathbf{b}(\mathbf{X})$.
+4. Conserve: $\mu = \frac{ \frac{1}{2}m v^2 - \frac{1}{2}m v_{\parallel}^2 }{B(\mathbf{X})}$ (ignoring potential differences).
+5. Output: State $(\mathbf{X}, v_{\parallel}, \mu)$.
+
+### Conversion from Guiding Center to Full Phase Space
+
+Converting from the reduced Guiding Center (GC) variables $(\mathbf{X}, p_{\parallel}, \mu)$ back to the full 6D particle phase space $(\mathbf{x}, \mathbf{p})$ is a "one-to-many" mapping. Because the gyrophase $\zeta$ is averaged out in the GCA, you must arbitrarily choose (or randomly assign) a gyrophase angle $\zeta \in [0, 2\pi)$ to reconstruct a specific particle position and velocity.
+
+Here is the step-by-step reconstruction procedure.
+
+1. Calculate Local Quantities at the Guiding Center
+
+First, evaluate the electromagnetic fields and unit vectors at the known guiding center position $\mathbf{X}$.
+- Local Magnetic Field: $\mathbf{B} = \mathbf{B}(\mathbf{X})$
+- Unit Vector: $\mathbf{b} = \mathbf{B} / |\mathbf{B}|$
+- Perpendicular Momentum Magnitude: Calculate $p_{\perp}$ from the magnetic moment $\mu$ (which is a parameter in GCA):
+$$
+p_{\perp} = \sqrt{2 m B(\mathbf{X}) \mu}
+$$
+- Gyroradius Magnitude:
+$$
+\rho = \frac{p_{\perp}}{|q| B(\mathbf{X})}
+$$
+
+2. Define a Perpendicular Basis
+
+To define the gyration direction, you need a coordinate system perpendicular to the magnetic field. Construct two unit vectors $\mathbf{e}_1$ and $\mathbf{e}_2$ such that $(\mathbf{e}_1, \mathbf{e}_2, \mathbf{b})$ form a right-handed orthonormal basis.
+
+A common numerical method to find $\mathbf{e}_1$ is:
+$$
+\mathbf{e}_1 = \frac{\mathbf{b} \times \hat{\mathbf{u}}}{|\mathbf{b} \times \hat{\mathbf{u}}|}
+$$
+where $\hat{\mathbf{u}}$ is any fixed unit vector not parallel to $\mathbf{b}$, e.g., $\hat{\mathbf{x}}$. Then:
+$$
+\mathbf{e}_2 = \mathbf{b} \times \mathbf{e}_1
+$$
+
+3. Reconstruct Particle Position ($\mathbf{x}$)
+
+The particle position is the guiding center position displaced by the Larmor radius vector $\boldsymbol{\rho}$. Select a gyrophase $\zeta$ (e.g., draw from a uniform distribution $U[0, 2\pi]$).
+$$
+\mathbf{x} = \mathbf{X} + \boldsymbol{\rho}
+$$
+
+The displacement vector $\boldsymbol{\rho}$ is:
+$$
+\boldsymbol{\rho} = \rho (\cos\zeta \, \mathbf{e}_1 + \sin\zeta \, \mathbf{e}_2)
+$$
+
+Note: In some high-precision hybrid schemes, specific choices for $\zeta$ (such as aligning $\boldsymbol{\rho}$ perpendicular to $\nabla B$) are used to minimize energy discrepancies when switching models, but for general reconstruction, a random phase is standard.
+
+4. Reconstruct Particle Momentum ($\mathbf{p}$)
+
+The total momentum is the sum of the parallel momentum, the perpendicular gyration momentum, and (optionally for higher accuracy) the momentum associated with the $\mathbf{E} \times \mathbf{B}$ drift.
+
+**Standard Reconstruction (0th Order)**: This reconstruction creates a particle purely gyrating and moving parallel to field lines.
+$$
+\mathbf{p} = p_{\parallel} \mathbf{b} + \mathbf{p}_{gyro}
+$$
+where the gyration momentum $\mathbf{p}_{gyro}$ is perpendicular to $\boldsymbol{\rho}$ (tangent to the circle):
+$$
+\mathbf{p}_{gyro} = p_{\perp} (-\sin\zeta \, \mathbf{e}_1 + \cos\zeta \, \mathbf{e}_2) \times \text{sign}(q)
+$$
+
+**Drift-Corrected Reconstruction (1st Order)**: If the GCA simulation includes significant $\mathbf{E} \times \mathbf{B}$ drifts, we should add this component to the particle velocity to ensure the full orbit matches the drift path.
+$$
+\mathbf{p} \approx p_{\parallel} \mathbf{b} + \mathbf{p}_{gyro} + m \gamma \mathbf{v}_E
+$$
+where
+$$
+\mathbf{v}_E = \frac{c \mathbf{E} \times \mathbf{b}}{B}
+$$
+
 
 ## Classical Guiding Center Theory
 
@@ -213,6 +448,20 @@ $$
 $$ {#eq-gc-eom-lorentz}
 
 @eq-gc-eom-lorentz replaces @eq-gc-eom-time in common numerical solvers to get the Lorentz factor.
+
+## Validity and Higher-Order Corrections
+
+The standard guiding center approximation is a first-order expansion in the Larmor radius $\rho_L$. Its validity depends on the variation of the magnetic field being small across the gyroradius. A rigorous criterion requires analyzing the tensor of field derivatives:
+$$
+\frac{\sqrt{\lambda_{max}} \rho_\perp}{B} \ll 1
+$$
+where $\lambda_{max}$ is the maximum eigenvalue of the tensor involving gradients, curvature, and shearing of the field lines.
+
+When field variations are strong (e.g., near sharp field reversals or current sheets), first-order approximations fail. Higher-order corrections (such as the Baños drift) may be required, which add terms proportional to the parallel curl of the magnetic field:
+$$
+\langle \dot{z} \rangle - \langle v_\parallel \rangle \approx \frac{\mu B}{m \omega_0} \hat{b} \cdot (\nabla \times \hat{b})
+$$
+This correction accounts for the discrepancy between the average particle velocity and the guiding center velocity due to field line shearing.
 
 ### Numerical implementation
 
