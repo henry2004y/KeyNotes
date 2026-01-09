@@ -622,13 +622,20 @@ window.Quarto = {
 <h2 data-number="26.1" class="anchored" data-anchor-id="summarized-version"><span class="header-section-number">26.1</span> Summarized Version</h2>
 <section id="basic-concepts-and-variables" class="level3" data-number="26.1.1">
 <h3 data-number="26.1.1" class="anchored" data-anchor-id="basic-concepts-and-variables"><span class="header-section-number">26.1.1</span> Basic Concepts and Variables</h3>
-<p><strong>State Variables</strong>: Instead of the full 6D phase space <span class="math inline">\((\mathbf{x}, \mathbf{v})\)</span>, we solve for the reduced 4D guiding center state: - <span class="math inline">\(\mathbf{X}\)</span>: The spatial position of the guiding center. - <span class="math inline">\(p_{\parallel} = m \gamma v_{\parallel}\)</span>: The relativistic kinetic momentum parallel to the magnetic field, where <span class="math inline">\(\gamma\)</span> is the Lorentz factor.</p>
+<p><strong>State Variables</strong>: Instead of the full 6D phase space <span class="math inline">\((\mathbf{x}, \mathbf{v})\)</span>, we solve for the reduced 4D guiding center state:</p>
+<ul>
+<li><span class="math inline">\(\mathbf{X}\)</span>: The spatial position of the guiding center.</li>
+<li><span class="math inline">\(p_{\parallel} = m \gamma v_{\parallel}\)</span>: The relativistic kinetic momentum parallel to the magnetic field, where <span class="math inline">\(\gamma\)</span> is the Lorentz factor.</li>
+</ul>
 <p>The position <span class="math inline">\(\mathbf{r}\)</span> of a particle is decomposed into the guiding center position <span class="math inline">\(\mathbf{R}(t)\)</span> and the gyration vector <span class="math inline">\(\boldsymbol{\rho}\)</span>: <span class="math display">\[
 \mathbf{r} = \mathbf{R}(t) + \boldsymbol{\rho}(\mathbf{R}, t, \psi)
 \]</span> where <span class="math inline">\(\psi\)</span> is the gyrophase. This approximation holds when the characteristic scale of field variations <span class="math inline">\(L\)</span> is much larger than the Larmor radius <span class="math inline">\(\rho\)</span> (<span class="math inline">\(L \gg \rho\)</span>) and time variations are slow compared to the gyroperiod.</p>
-<p><strong>Parameters (Constant of Motion)</strong>: - <span class="math inline">\(\mu\)</span>: The magnetic moment (adiabatic invariant). <span class="math display">\[
+<p><strong>Parameters (Constant of Motion)</strong>:</p>
+<ul>
+<li><span class="math inline">\(\mu\)</span>: The magnetic moment (adiabatic invariant). <span class="math display">\[
 \mu = \frac{p_{\perp}^2}{2mB}
-\]</span> In the GCA, <span class="math inline">\(\mu\)</span> is constant. It is calculated once from the initial conditions and treated as a parameter during the simulation.</p>
+\]</span> In the GCA, <span class="math inline">\(\mu\)</span> is constant. It is calculated once from the initial conditions and treated as a parameter during the simulation.</li>
+</ul>
 </section>
 <section id="the-effective-fields" class="level3" data-number="26.1.2">
 <h3 data-number="26.1.2" class="anchored" data-anchor-id="the-effective-fields"><span class="header-section-number">26.1.2</span> The Effective Fields</h3>
@@ -646,7 +653,12 @@ window.Quarto = {
 <section id="hamiltonian" class="level3" data-number="26.1.3">
 <h3 data-number="26.1.3" class="anchored" data-anchor-id="hamiltonian"><span class="header-section-number">26.1.3</span> Hamiltonian</h3>
 <p>For a relativistic particle, the Hamiltonian <span class="math inline">\(H\)</span> represents the total energy. <span class="math display">\[
-H(\mathbf{X}, p_{\parallel}, \mu, t) = \sqrt{m^2 c^4 + p_{\parallel}^2 c^2 + 2 m \mu B(\mathbf{X}) c^2} + q \Phi(\mathbf{X})\]</span> - <span class="math inline">\(\Phi\)</span>: Electric scalar potential (if <span class="math inline">\(\mathbf{E} = -\nabla \Phi\)</span>). - Note: If you only have <span class="math inline">\(\mathbf{E}\)</span> and not <span class="math inline">\(\Phi\)</span>, you will use the force term <span class="math inline">\(q E_{\parallel}\)</span> directly in the equations of motion.</p>
+H(\mathbf{X}, p_{\parallel}, \mu, t) = \sqrt{m^2 c^4 + p_{\parallel}^2 c^2 + 2 m \mu B(\mathbf{X}) c^2} + q \Phi(\mathbf{X})
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\Phi\)</span>: Electric scalar potential (if <span class="math inline">\(\mathbf{E} = -\nabla \Phi\)</span>).</li>
+<li>Note: If you only have <span class="math inline">\(\mathbf{E}\)</span> and not <span class="math inline">\(\Phi\)</span>, you will use the force term <span class="math inline">\(q E_{\parallel}\)</span> directly in the equations of motion.</li>
+</ul>
 </section>
 <section id="equations-of-motion" class="level3" data-number="26.1.4">
 <h3 data-number="26.1.4" class="anchored" data-anchor-id="equations-of-motion"><span class="header-section-number">26.1.4</span> Equations of Motion</h3>
@@ -718,9 +730,17 @@ H(\mathbf{X}, p_{\parallel}, \mu, t) = \sqrt{m^2 c^4 + p_{\parallel}^2 c^2 + 2 m
 <ol type="1">
 <li>Calculate the Guiding Center Position (<span class="math inline">\(\mathbf{X}\)</span>)</li>
 </ol>
-<p>The guiding center is located at the center of the particle’s gyration. You must calculate the Larmor radius vector at the particle’s current position <span class="math inline">\(\mathbf{x}\)</span> and subtract it. - Compute local field: Retrieve <span class="math inline">\(\mathbf{B}(\mathbf{x})\)</span> and the unit vector <span class="math inline">\(\mathbf{b}(\mathbf{x}) = \mathbf{B}(\mathbf{x}) / |\mathbf{B}(\mathbf{x})|\)</span>. - Compute displacement: <span class="math display">\[
+<p>The guiding center is located at the center of the particle’s gyration. You must calculate the Larmor radius vector at the particle’s current position <span class="math inline">\(\mathbf{x}\)</span> and subtract it.</p>
+<ul>
+<li>Compute local field: Retrieve <span class="math inline">\(\mathbf{B}(\mathbf{x})\)</span> and the unit vector <span class="math inline">\(\mathbf{b}(\mathbf{x}) = \mathbf{B}(\mathbf{x}) / |\mathbf{B}(\mathbf{x})|\)</span>.</li>
+<li>Compute displacement: <span class="math display">\[
 \mathbf{X} \approx \mathbf{x} + \frac{m}{q B(\mathbf{x})} \mathbf{v} \times \mathbf{b}(\mathbf{x})
-\]</span> - This equation is valid to the first order in the Larmor radius. - It is recommended to perform this displacement in Cartesian coordinates to avoid singularities.</p>
+\]</span>
+<ul>
+<li>This equation is valid to the first order in the Larmor radius.</li>
+<li>It is recommended to perform this displacement in Cartesian coordinates to avoid singularities.</li>
+</ul></li>
+</ul>
 <ol start="2" type="1">
 <li>Update Fields at the New Position</li>
 </ol>
