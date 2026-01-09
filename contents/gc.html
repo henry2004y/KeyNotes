@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -54,18 +54,19 @@ div.csl-indent {
 <link href="../contents/aurora.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5fd9db47a040b21ac2cac9a0b3b722ba.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-8909624010076cd6b36fa7f8aca9fd8c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5fd9db47a040b21ac2cac9a0b3b722ba.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0dd2bd5de344125cf763a379ddc3eb04.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-2f0f3f814df0dbcf15d9db12df35466a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0dd2bd5de344125cf763a379ddc3eb04.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,7 +109,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -558,20 +559,33 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#classical-guiding-center-theory" id="toc-classical-guiding-center-theory" class="nav-link active" data-scroll-target="#classical-guiding-center-theory"><span class="header-section-number">26.1</span> Classical Guiding Center Theory</a>
+  <li><a href="#summarized-version" id="toc-summarized-version" class="nav-link active" data-scroll-target="#summarized-version"><span class="header-section-number">26.1</span> Summarized Version</a>
   <ul class="collapse">
-  <li><a href="#lorentz-equation-in-tensor-form" id="toc-lorentz-equation-in-tensor-form" class="nav-link" data-scroll-target="#lorentz-equation-in-tensor-form"><span class="header-section-number">26.1.1</span> Lorentz equation in tensor form</a></li>
-  <li><a href="#fundamental-assumptions" id="toc-fundamental-assumptions" class="nav-link" data-scroll-target="#fundamental-assumptions"><span class="header-section-number">26.1.2</span> Fundamental assumptions</a></li>
-  <li><a href="#derivations-of-gc-equation" id="toc-derivations-of-gc-equation" class="nav-link" data-scroll-target="#derivations-of-gc-equation"><span class="header-section-number">26.1.3</span> Derivations of GC equation</a></li>
-  <li><a href="#first-order-solution-for-the-gca-equations-of-motion" id="toc-first-order-solution-for-the-gca-equations-of-motion" class="nav-link" data-scroll-target="#first-order-solution-for-the-gca-equations-of-motion"><span class="header-section-number">26.1.4</span> First order solution for the GCA equations of motion</a></li>
-  <li><a href="#recursive-solution" id="toc-recursive-solution" class="nav-link" data-scroll-target="#recursive-solution"><span class="header-section-number">26.1.5</span> Recursive solution</a></li>
-  <li><a href="#energy-conservation" id="toc-energy-conservation" class="nav-link" data-scroll-target="#energy-conservation"><span class="header-section-number">26.1.6</span> Energy conservation</a></li>
-  <li><a href="#numerical-implementation" id="toc-numerical-implementation" class="nav-link" data-scroll-target="#numerical-implementation"><span class="header-section-number">26.1.7</span> Numerical implementation</a></li>
-  <li><a href="#nonrelativistic-case" id="toc-nonrelativistic-case" class="nav-link" data-scroll-target="#nonrelativistic-case"><span class="header-section-number">26.1.8</span> Nonrelativistic case</a></li>
+  <li><a href="#basic-concepts-and-variables" id="toc-basic-concepts-and-variables" class="nav-link" data-scroll-target="#basic-concepts-and-variables"><span class="header-section-number">26.1.1</span> Basic Concepts and Variables</a></li>
+  <li><a href="#the-effective-fields" id="toc-the-effective-fields" class="nav-link" data-scroll-target="#the-effective-fields"><span class="header-section-number">26.1.2</span> The Effective Fields</a></li>
+  <li><a href="#hamiltonian" id="toc-hamiltonian" class="nav-link" data-scroll-target="#hamiltonian"><span class="header-section-number">26.1.3</span> Hamiltonian</a></li>
+  <li><a href="#equations-of-motion" id="toc-equations-of-motion" class="nav-link" data-scroll-target="#equations-of-motion"><span class="header-section-number">26.1.4</span> Equations of Motion</a></li>
+  <li><a href="#numerical-implementation-guide" id="toc-numerical-implementation-guide" class="nav-link" data-scroll-target="#numerical-implementation-guide"><span class="header-section-number">26.1.5</span> Numerical Implementation Guide</a></li>
+  <li><a href="#conversion-from-full-phase-space-to-guiding-center" id="toc-conversion-from-full-phase-space-to-guiding-center" class="nav-link" data-scroll-target="#conversion-from-full-phase-space-to-guiding-center"><span class="header-section-number">26.1.6</span> Conversion from Full Phase Space to Guiding Center</a></li>
+  <li><a href="#conversion-from-guiding-center-to-full-phase-space" id="toc-conversion-from-guiding-center-to-full-phase-space" class="nav-link" data-scroll-target="#conversion-from-guiding-center-to-full-phase-space"><span class="header-section-number">26.1.7</span> Conversion from Guiding Center to Full Phase Space</a></li>
   </ul></li>
-  <li><a href="#hamiltonian-theory-of-guiding-center-motion" id="toc-hamiltonian-theory-of-guiding-center-motion" class="nav-link" data-scroll-target="#hamiltonian-theory-of-guiding-center-motion"><span class="header-section-number">26.2</span> Hamiltonian Theory of Guiding Center Motion</a>
+  <li><a href="#classical-guiding-center-theory" id="toc-classical-guiding-center-theory" class="nav-link" data-scroll-target="#classical-guiding-center-theory"><span class="header-section-number">26.2</span> Classical Guiding Center Theory</a>
   <ul class="collapse">
-  <li><a href="#noncanonical-hamiltonian-guiding-center-theory" id="toc-noncanonical-hamiltonian-guiding-center-theory" class="nav-link" data-scroll-target="#noncanonical-hamiltonian-guiding-center-theory"><span class="header-section-number">26.2.1</span> Noncanonical Hamiltonian guiding center theory</a></li>
+  <li><a href="#lorentz-equation-in-tensor-form" id="toc-lorentz-equation-in-tensor-form" class="nav-link" data-scroll-target="#lorentz-equation-in-tensor-form"><span class="header-section-number">26.2.1</span> Lorentz equation in tensor form</a></li>
+  <li><a href="#fundamental-assumptions" id="toc-fundamental-assumptions" class="nav-link" data-scroll-target="#fundamental-assumptions"><span class="header-section-number">26.2.2</span> Fundamental assumptions</a></li>
+  <li><a href="#derivations-of-gc-equation" id="toc-derivations-of-gc-equation" class="nav-link" data-scroll-target="#derivations-of-gc-equation"><span class="header-section-number">26.2.3</span> Derivations of GC equation</a></li>
+  <li><a href="#first-order-solution-for-the-gca-equations-of-motion" id="toc-first-order-solution-for-the-gca-equations-of-motion" class="nav-link" data-scroll-target="#first-order-solution-for-the-gca-equations-of-motion"><span class="header-section-number">26.2.4</span> First order solution for the GCA equations of motion</a></li>
+  <li><a href="#recursive-solution" id="toc-recursive-solution" class="nav-link" data-scroll-target="#recursive-solution"><span class="header-section-number">26.2.5</span> Recursive solution</a></li>
+  <li><a href="#energy-conservation" id="toc-energy-conservation" class="nav-link" data-scroll-target="#energy-conservation"><span class="header-section-number">26.2.6</span> Energy conservation</a></li>
+  </ul></li>
+  <li><a href="#validity-and-higher-order-corrections" id="toc-validity-and-higher-order-corrections" class="nav-link" data-scroll-target="#validity-and-higher-order-corrections"><span class="header-section-number">26.3</span> Validity and Higher-Order Corrections</a>
+  <ul class="collapse">
+  <li><a href="#numerical-implementation" id="toc-numerical-implementation" class="nav-link" data-scroll-target="#numerical-implementation"><span class="header-section-number">26.3.1</span> Numerical implementation</a></li>
+  <li><a href="#nonrelativistic-case" id="toc-nonrelativistic-case" class="nav-link" data-scroll-target="#nonrelativistic-case"><span class="header-section-number">26.3.2</span> Nonrelativistic case</a></li>
+  </ul></li>
+  <li><a href="#hamiltonian-theory-of-guiding-center-motion" id="toc-hamiltonian-theory-of-guiding-center-motion" class="nav-link" data-scroll-target="#hamiltonian-theory-of-guiding-center-motion"><span class="header-section-number">26.4</span> Hamiltonian Theory of Guiding Center Motion</a>
+  <ul class="collapse">
+  <li><a href="#noncanonical-hamiltonian-guiding-center-theory" id="toc-noncanonical-hamiltonian-guiding-center-theory" class="nav-link" data-scroll-target="#noncanonical-hamiltonian-guiding-center-theory"><span class="header-section-number">26.4.1</span> Noncanonical Hamiltonian guiding center theory</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/gc.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
@@ -599,16 +613,202 @@ window.Quarto = {
 </header>
 
 
-<p>Guiding-center theory provides the reduced dynamical equations for the motion of charged particles in slowly varying electromagnetic fields, when the fields have weak variations over a gyroradius in space and a gyroperiod in time.</p>
+<p>The guiding center approximation (GCA) is a theoretical framework used to simplify the complex motion of charged particles in electromagnetic fields by separating the fast gyromotion from the slower drifts of the particle’s guiding center (GC).</p>
 <p>The basic equation governing the motion of a charged particle with mass m and charge e is given by <span class="math display">\[
 \frac{\mathrm{d}\mathbf{u}}{\mathrm{d}t} = \frac{e}{mc}\left( c\mathbf{E} + \mathbf{v}\times\mathbf{B} \right)
 \]</span> where <span class="math inline">\(\mathbf{u}=\gamma\mathbf{v}\)</span> represents the particle’s four-velocity, <span class="math inline">\(\mathbf{v}\)</span> is the particle velocity, c is the speed of light while <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> are the electric and magnetic field vectors, respectively.</p>
 <p>In GCA, the orbital motion of the particle is detached from its instantaneous gyration center. This relaxes any constraints related to particle gyration, allowing systematic larger time steps to be taken and thus a considerable saving in computational time. The guiding center (GC) equations are obtained in the limit of slow-varying fields. This restricts its validity to situations in which the Larmor radius remains negligible with respect to the overall electromagnetic field scale and in which the cyclotron frequency is large enough so that adiabatic invariance holds. In this respect, the GCA is most suitable for particles with large charge-to-mass ratios such as electrons.</p>
-<section id="classical-guiding-center-theory" class="level2" data-number="26.1">
-<h2 data-number="26.1" class="anchored" data-anchor-id="classical-guiding-center-theory"><span class="header-section-number">26.1</span> Classical Guiding Center Theory</h2>
+<section id="summarized-version" class="level2" data-number="26.1">
+<h2 data-number="26.1" class="anchored" data-anchor-id="summarized-version"><span class="header-section-number">26.1</span> Summarized Version</h2>
+<section id="basic-concepts-and-variables" class="level3" data-number="26.1.1">
+<h3 data-number="26.1.1" class="anchored" data-anchor-id="basic-concepts-and-variables"><span class="header-section-number">26.1.1</span> Basic Concepts and Variables</h3>
+<p><strong>State Variables</strong>: Instead of the full 6D phase space <span class="math inline">\((\mathbf{x}, \mathbf{v})\)</span>, we solve for the reduced 4D guiding center state: - <span class="math inline">\(\mathbf{X}\)</span>: The spatial position of the guiding center. - <span class="math inline">\(p_{\parallel} = m \gamma v_{\parallel}\)</span>: The relativistic kinetic momentum parallel to the magnetic field, where <span class="math inline">\(\gamma\)</span> is the Lorentz factor.</p>
+<p>The position <span class="math inline">\(\mathbf{r}\)</span> of a particle is decomposed into the guiding center position <span class="math inline">\(\mathbf{R}(t)\)</span> and the gyration vector <span class="math inline">\(\boldsymbol{\rho}\)</span>: <span class="math display">\[
+\mathbf{r} = \mathbf{R}(t) + \boldsymbol{\rho}(\mathbf{R}, t, \psi)
+\]</span> where <span class="math inline">\(\psi\)</span> is the gyrophase. This approximation holds when the characteristic scale of field variations <span class="math inline">\(L\)</span> is much larger than the Larmor radius <span class="math inline">\(\rho\)</span> (<span class="math inline">\(L \gg \rho\)</span>) and time variations are slow compared to the gyroperiod.</p>
+<p><strong>Parameters (Constant of Motion)</strong>: - <span class="math inline">\(\mu\)</span>: The magnetic moment (adiabatic invariant). <span class="math display">\[
+\mu = \frac{p_{\perp}^2}{2mB}
+\]</span> In the GCA, <span class="math inline">\(\mu\)</span> is constant. It is calculated once from the initial conditions and treated as a parameter during the simulation.</p>
+</section>
+<section id="the-effective-fields" class="level3" data-number="26.1.2">
+<h3 data-number="26.1.2" class="anchored" data-anchor-id="the-effective-fields"><span class="header-section-number">26.1.2</span> The Effective Fields</h3>
+<p>The modern GCA equations can be written compactly using “effective” electromagnetic fields <span class="math inline">\(\mathbf{B}^*\)</span> and <span class="math inline">\(\mathbf{E}^*\)</span>. These correct the standard fields to account for drifts naturally.</p>
+<p>Definitions: - <span class="math inline">\(\mathbf{B}(\mathbf{X})\)</span> and <span class="math inline">\(\mathbf{E}(\mathbf{X})\)</span>: Standard EM fields at the guiding center location. - <span class="math inline">\(\mathbf{b} = \mathbf{B}/|\mathbf{B}|\)</span>: Unit vector along the magnetic field line. - <span class="math inline">\(q\)</span>: Particle charge.</p>
+<p><strong>Calculate the Effective Magnetic Field <span class="math inline">\(\mathbf{B}^*\)</span></strong></p>
+<p>This term incorporates the geometry of the field lines (curl of <span class="math inline">\(\mathbf{b}\)</span>) which drives curvature drift. <span class="math display">\[
+\mathbf{B}^* = \mathbf{B} + \frac{c p_{\parallel}}{q} \nabla \times \mathbf{b}
+\]</span></p>
+<p><strong>Calculate the Effective Electric Field <span class="math inline">\(\mathbf{E}^*\)</span></strong></p>
+<p>In many implementations, it is easier to work directly with the Hamiltonian gradients, but formally: <span class="math display">\[
+\mathbf{E}^* = \mathbf{E} - \frac{1}{q} \nabla ( \mu B )
+\]</span></p>
+</section>
+<section id="hamiltonian" class="level3" data-number="26.1.3">
+<h3 data-number="26.1.3" class="anchored" data-anchor-id="hamiltonian"><span class="header-section-number">26.1.3</span> Hamiltonian</h3>
+<p>For a relativistic particle, the Hamiltonian <span class="math inline">\(H\)</span> represents the total energy. <span class="math display">\[
+H(\mathbf{X}, p_{\parallel}, \mu, t) = \sqrt{m^2 c^4 + p_{\parallel}^2 c^2 + 2 m \mu B(\mathbf{X}) c^2} + q \Phi(\mathbf{X})\]</span> - <span class="math inline">\(\Phi\)</span>: Electric scalar potential (if <span class="math inline">\(\mathbf{E} = -\nabla \Phi\)</span>). - Note: If you only have <span class="math inline">\(\mathbf{E}\)</span> and not <span class="math inline">\(\Phi\)</span>, you will use the force term <span class="math inline">\(q E_{\parallel}\)</span> directly in the equations of motion.</p>
+</section>
+<section id="equations-of-motion" class="level3" data-number="26.1.4">
+<h3 data-number="26.1.4" class="anchored" data-anchor-id="equations-of-motion"><span class="header-section-number">26.1.4</span> Equations of Motion</h3>
+<p>These are the final expressions to solve numerically. They describe the time evolution of the guiding center position <span class="math inline">\(\mathbf{X}\)</span> and parallel momentum <span class="math inline">\(p_{\parallel}\)</span>.</p>
+<p>Equation for Position (<span class="math inline">\(\dot{\mathbf{X}}\)</span>): <span class="math display">\[
+\frac{d\mathbf{X}}{dt} = \frac{1}{B^*_{\parallel}} \left[ \frac{p_{\parallel}}{m \gamma} \mathbf{B}^* + c \mathbf{E}^* \times \mathbf{b} \right]
+\]</span></p>
+<ul>
+<li>Term 1 (<span class="math inline">\(\propto \mathbf{B}^\ast\)</span>): Represents motion along the field line plus curvature drift (hidden inside <span class="math inline">\(\mathbf{B}^\ast\)</span>).</li>
+<li>Term 2 (<span class="math inline">\(\propto \mathbf{E}^\ast \times \mathbf{b}\)</span>): Represents the <span class="math inline">\(\mathbf{E} \times \mathbf{B}\)</span> drift and the <span class="math inline">\(\nabla B\)</span> drift (hidden inside <span class="math inline">\(\mathbf{E}^\ast\)</span> via the <span class="math inline">\(\mu \nabla B\)</span> term).</li>
+<li>Denominator: <span class="math inline">\(B^\ast_{\parallel} = \mathbf{b} \cdot \mathbf{B}^\ast \approx B\)</span>. This is a normalization factor essentially equal to <span class="math inline">\(B\)</span> but corrected for phase-space volume conservation.</li>
+</ul>
+<p>Equation for Parallel Momentum (<span class="math inline">\(\dot{p}_{\parallel}\)</span>): <span class="math display">\[
+\frac{dp_{\parallel}}{dt} = \frac{q}{B^\ast_{\parallel}} \mathbf{B}^* \cdot \mathbf{E}^\ast
+\]</span></p>
+<p>This simplifies to the standard parallel force equation: <span class="math display">\[
+\dot{p}_{\parallel} \approx q E_{\parallel} - \frac{\mu}{\gamma} \nabla_{\parallel} B
+\]</span></p>
+</section>
+<section id="numerical-implementation-guide" class="level3" data-number="26.1.5">
+<h3 data-number="26.1.5" class="anchored" data-anchor-id="numerical-implementation-guide"><span class="header-section-number">26.1.5</span> Numerical Implementation Guide</h3>
+<p>To implement this in code, follow this loop:</p>
+<ul>
+<li>A. Initialization
+<ol type="1">
+<li>Start with particle particle position <span class="math inline">\(\mathbf{x}\)</span> and velocity <span class="math inline">\(\mathbf{v}\)</span>.</li>
+<li>Compute local <span class="math inline">\(\mathbf{B}(\mathbf{x})\)</span> and <span class="math inline">\(\mathbf{b}\)</span>.</li>
+<li>Decompose velocity: <span class="math inline">\(\mathbf{v} = v_{\parallel} \mathbf{b} + \mathbf{v}_{\perp}\)</span>.</li>
+<li>Compute <span class="math inline">\(\mu = \frac{m \gamma^2 v_{\perp}^2}{2 B}\)</span> (Relativistic moment).</li>
+<li>Initialize state vector <span class="math inline">\(\mathbf{Y} = [\mathbf{X}, p_{\parallel}]\)</span>.</li>
+</ol></li>
+<li>B. Time Stepping Loop. For every time step <span class="math inline">\(t \to t + \Delta t\)</span>:
+<ol type="1">
+<li>Interpolate Fields: Get <span class="math inline">\(\mathbf{B}, \mathbf{E}, \nabla \mathbf{B}\)</span> at current <span class="math inline">\(\mathbf{X}\)</span>.</li>
+<li>Compute Gradients: You need <span class="math inline">\(\nabla \times \mathbf{b}\)</span> and <span class="math inline">\(\nabla B\)</span>.</li>
+</ol>
+<ul>
+<li><span class="math inline">\(\nabla \times \mathbf{b}\)</span> can be computed numerically or analytically if the B-field model is known.</li>
+</ul>
+<ol start="3" type="1">
+<li>Construct Effective Fields:</li>
+</ol>
+<ul>
+<li><span class="math inline">\(\mathbf{B}^* = \mathbf{B} + \frac{c p_{\parallel}}{q} (\nabla \times \mathbf{b})\)</span></li>
+<li><span class="math inline">\(B^*_{\parallel} = \mathbf{b} \cdot \mathbf{B}^*\)</span></li>
+</ul>
+<ol start="4" type="1">
+<li>Evaluate Derivatives (RHS):</li>
+</ol>
+<ul>
+<li><span class="math inline">\(\gamma = \sqrt{1 + \frac{p_{\parallel}^2 + 2m\mu B}{m^2 c^2}}\)</span></li>
+<li><span class="math inline">\(\dot{\mathbf{X}} = \frac{1}{B^*_{\parallel}} \left( \frac{p_{\parallel}}{m \gamma} \mathbf{B}^* + \frac{c}{q} (q\mathbf{E} - \mu \nabla B) \times \mathbf{b} \right)\)</span></li>
+<li><span class="math inline">\(\dot{p}_{\parallel} = \frac{q}{B^*_{\parallel}} \mathbf{B}^* \cdot \left( \mathbf{E} - \frac{\mu}{q} \nabla B \right)\)</span></li>
+</ul>
+<ol start="5" type="1">
+<li>Advance: Update <span class="math inline">\(\mathbf{X}\)</span> and <span class="math inline">\(p_{\parallel}\)</span>.</li>
+</ol></li>
+<li>C. Constraints &amp; Checks
+<ul>
+<li>Time Step: The GCA allows much larger time steps than full orbit codes because you don’t resolve the gyro-period. However, you must resolve the gradient length scales. A common constraint is ensuring the particle does not cross more than one cell (or characteristic length) per step.</li>
+<li>Validity: Check that <span class="math inline">\(E_{\perp} &lt; B\)</span> and that the gyroradius is small compared to field gradients (<span class="math inline">\(R_L \ll L_B\)</span>).</li>
+</ul></li>
+</ul>
+</section>
+<section id="conversion-from-full-phase-space-to-guiding-center" class="level3" data-number="26.1.6">
+<h3 data-number="26.1.6" class="anchored" data-anchor-id="conversion-from-full-phase-space-to-guiding-center"><span class="header-section-number">26.1.6</span> Conversion from Full Phase Space to Guiding Center</h3>
+<p>Transforming from the full 6D particle state <span class="math inline">\((\mathbf{x}, \mathbf{v})\)</span> to the reduced Guiding Center (GC) state <span class="math inline">\((\mathbf{X}, v_{\parallel}, \mu)\)</span> is a surjective mapping (many particle states map to the same GC state).</p>
+<p>To perform this switch consistently—especially in hybrid codes where you might switch back and forth—it is critical to match the constants of motion (like Energy) between the two frames. Here is the step-by-step transformation procedure:</p>
+<ol type="1">
+<li>Calculate the Guiding Center Position (<span class="math inline">\(\mathbf{X}\)</span>)</li>
+</ol>
+<p>The guiding center is located at the center of the particle’s gyration. You must calculate the Larmor radius vector at the particle’s current position <span class="math inline">\(\mathbf{x}\)</span> and subtract it. - Compute local field: Retrieve <span class="math inline">\(\mathbf{B}(\mathbf{x})\)</span> and the unit vector <span class="math inline">\(\mathbf{b}(\mathbf{x}) = \mathbf{B}(\mathbf{x}) / |\mathbf{B}(\mathbf{x})|\)</span>. - Compute displacement: <span class="math display">\[
+\mathbf{X} \approx \mathbf{x} + \frac{m}{q B(\mathbf{x})} \mathbf{v} \times \mathbf{b}(\mathbf{x})
+\]</span> - This equation is valid to the first order in the Larmor radius. - It is recommended to perform this displacement in Cartesian coordinates to avoid singularities.</p>
+<ol start="2" type="1">
+<li>Update Fields at the New Position</li>
+</ol>
+<p>Once you have the estimated guiding center position <span class="math inline">\(\mathbf{X}\)</span>, you must evaluate the electromagnetic fields <span class="math inline">\(\mathbf{B}(\mathbf{X})\)</span>, <span class="math inline">\(\mathbf{E}(\mathbf{X})\)</span> and potentials <span class="math inline">\(\Phi(\mathbf{X})\)</span> at this new location.</p>
+<ol start="3" type="1">
+<li>Calculate Parallel Velocity (<span class="math inline">\(v_{\parallel}\)</span>)</li>
+</ol>
+<p>The parallel velocity is defined relative to the magnetic field at the guiding center <span class="math inline">\(\mathbf{X}\)</span>, not the particle position <span class="math inline">\(\mathbf{x}\)</span>.</p>
+<ul>
+<li>Standard Projection: <span class="math display">\[
+v_{\parallel} = \mathbf{v} \cdot \mathbf{b}(\mathbf{X})
+\]</span></li>
+<li>Energy/Momentum Matching (High Precision): For higher accuracy, specifically to ensure that the particle’s toroidal momentum <span class="math inline">\(P_{\phi}\)</span> is conserved during the switch (in axisymmetric systems), you can calculate <span class="math inline">\(v_{\parallel}\)</span> derived from the momentum conservation equation: <span class="math display">\[
+v_{\parallel} \approx \frac{1}{B(\mathbf{X})} \left( \mathbf{v} \cdot \mathbf{B}(\mathbf{X}) + \dots \text{higher order terms} \right)
+\]</span></li>
+</ul>
+<p>For most standard implementations, the simple projection <span class="math inline">\(\mathbf{v} \cdot \mathbf{b}(\mathbf{X})\)</span> is sufficient.</p>
+<ol start="4" type="1">
+<li>Calculate Magnetic Moment (<span class="math inline">\(\mu\)</span>)</li>
+</ol>
+<p>The magnetic moment is the adiabatic invariant. It is crucial to calculate <span class="math inline">\(\mu\)</span> such that the total energy <span class="math inline">\(\mathcal{H}\)</span> of the particle is conserved during the transformation.</p>
+<ul>
+<li>Energy Conservation Condition: <span class="math display">\[
+\mathcal{H}_{\text{particle}} = \mathcal{H}_{\text{GC}}
+\]</span> <span class="math display">\[
+\frac{1}{2} m v^2 + q \Phi(\mathbf{x}) = \frac{1}{2} m v_{\parallel}^2 + \mu B(\mathbf{X}) + q \Phi(\mathbf{X})
+\]</span></li>
+<li>Formula for <span class="math inline">\(\mu\)</span>: Rearranging the energy equation gives the most robust definition for <span class="math inline">\(\mu\)</span> during the switch: <span class="math display">\[\mu = \frac{1}{B(\mathbf{X})} \left[ \frac{1}{2} m v^2 - \frac{1}{2} m v_{\parallel}^2 + q(\Phi(\mathbf{x}) - \Phi(\mathbf{X})) \right]\]</span>
+<ul>
+<li>If the electric potential variation <span class="math inline">\(q(\Phi(\mathbf{x}) - \Phi(\mathbf{X}))\)</span> is negligible (order of Larmor radius), this simplifies to the standard definition: <span class="math display">\[
+\mu \approx \frac{m v_{\perp}^2}{2 B(\mathbf{X})}
+\]</span> where <span class="math inline">\(v_{\perp}^2 = v^2 - v_{\parallel}^2\)</span>.</li>
+</ul></li>
+</ul>
+<p>Summary Algorithm 1. Input: Particle <span class="math inline">\(\mathbf{x}, \mathbf{v}\)</span>. 2. Shift: <span class="math inline">\(\mathbf{X} = \mathbf{x} + \frac{m}{q B(\mathbf{x})} (\mathbf{v} \times \mathbf{b})\)</span>. 3. Project: <span class="math inline">\(v_{\parallel} = \mathbf{v} \cdot \mathbf{b}(\mathbf{X})\)</span>. 4. Conserve: <span class="math inline">\(\mu = \frac{ \frac{1}{2}m v^2 - \frac{1}{2}m v_{\parallel}^2 }{B(\mathbf{X})}\)</span> (ignoring potential differences). 5. Output: State <span class="math inline">\((\mathbf{X}, v_{\parallel}, \mu)\)</span>.</p>
+</section>
+<section id="conversion-from-guiding-center-to-full-phase-space" class="level3" data-number="26.1.7">
+<h3 data-number="26.1.7" class="anchored" data-anchor-id="conversion-from-guiding-center-to-full-phase-space"><span class="header-section-number">26.1.7</span> Conversion from Guiding Center to Full Phase Space</h3>
+<p>Converting from the reduced Guiding Center (GC) variables <span class="math inline">\((\mathbf{X}, p_{\parallel}, \mu)\)</span> back to the full 6D particle phase space <span class="math inline">\((\mathbf{x}, \mathbf{p})\)</span> is a “one-to-many” mapping. Because the gyrophase <span class="math inline">\(\zeta\)</span> is averaged out in the GCA, you must arbitrarily choose (or randomly assign) a gyrophase angle <span class="math inline">\(\zeta \in [0, 2\pi)\)</span> to reconstruct a specific particle position and velocity.</p>
+<p>Here is the step-by-step reconstruction procedure.</p>
+<ol type="1">
+<li>Calculate Local Quantities at the Guiding Center</li>
+</ol>
+<p>First, evaluate the electromagnetic fields and unit vectors at the known guiding center position <span class="math inline">\(\mathbf{X}\)</span>. - Local Magnetic Field: <span class="math inline">\(\mathbf{B} = \mathbf{B}(\mathbf{X})\)</span> - Unit Vector: <span class="math inline">\(\mathbf{b} = \mathbf{B} / |\mathbf{B}|\)</span> - Perpendicular Momentum Magnitude: Calculate <span class="math inline">\(p_{\perp}\)</span> from the magnetic moment <span class="math inline">\(\mu\)</span> (which is a parameter in GCA): <span class="math display">\[
+p_{\perp} = \sqrt{2 m B(\mathbf{X}) \mu}
+\]</span> - Gyroradius Magnitude: <span class="math display">\[
+\rho = \frac{p_{\perp}}{|q| B(\mathbf{X})}
+\]</span></p>
+<ol start="2" type="1">
+<li>Define a Perpendicular Basis</li>
+</ol>
+<p>To define the gyration direction, you need a coordinate system perpendicular to the magnetic field. Construct two unit vectors <span class="math inline">\(\mathbf{e}_1\)</span> and <span class="math inline">\(\mathbf{e}_2\)</span> such that <span class="math inline">\((\mathbf{e}_1, \mathbf{e}_2, \mathbf{b})\)</span> form a right-handed orthonormal basis.</p>
+<p>A common numerical method to find <span class="math inline">\(\mathbf{e}_1\)</span> is: <span class="math display">\[
+\mathbf{e}_1 = \frac{\mathbf{b} \times \hat{\mathbf{u}}}{|\mathbf{b} \times \hat{\mathbf{u}}|}
+\]</span> where <span class="math inline">\(\hat{\mathbf{u}}\)</span> is any fixed unit vector not parallel to <span class="math inline">\(\mathbf{b}\)</span>, e.g., <span class="math inline">\(\hat{\mathbf{x}}\)</span>. Then: <span class="math display">\[
+\mathbf{e}_2 = \mathbf{b} \times \mathbf{e}_1
+\]</span></p>
+<ol start="3" type="1">
+<li>Reconstruct Particle Position (<span class="math inline">\(\mathbf{x}\)</span>)</li>
+</ol>
+<p>The particle position is the guiding center position displaced by the Larmor radius vector <span class="math inline">\(\boldsymbol{\rho}\)</span>. Select a gyrophase <span class="math inline">\(\zeta\)</span> (e.g., draw from a uniform distribution <span class="math inline">\(U[0, 2\pi]\)</span>). <span class="math display">\[
+\mathbf{x} = \mathbf{X} + \boldsymbol{\rho}
+\]</span></p>
+<p>The displacement vector <span class="math inline">\(\boldsymbol{\rho}\)</span> is: <span class="math display">\[
+\boldsymbol{\rho} = \rho (\cos\zeta \, \mathbf{e}_1 + \sin\zeta \, \mathbf{e}_2)
+\]</span></p>
+<p>Note: In some high-precision hybrid schemes, specific choices for <span class="math inline">\(\zeta\)</span> (such as aligning <span class="math inline">\(\boldsymbol{\rho}\)</span> perpendicular to <span class="math inline">\(\nabla B\)</span>) are used to minimize energy discrepancies when switching models, but for general reconstruction, a random phase is standard.</p>
+<ol start="4" type="1">
+<li>Reconstruct Particle Momentum (<span class="math inline">\(\mathbf{p}\)</span>)</li>
+</ol>
+<p>The total momentum is the sum of the parallel momentum, the perpendicular gyration momentum, and (optionally for higher accuracy) the momentum associated with the <span class="math inline">\(\mathbf{E} \times \mathbf{B}\)</span> drift.</p>
+<p><strong>Standard Reconstruction (0th Order)</strong>: This reconstruction creates a particle purely gyrating and moving parallel to field lines. <span class="math display">\[
+\mathbf{p} = p_{\parallel} \mathbf{b} + \mathbf{p}_{gyro}
+\]</span> where the gyration momentum <span class="math inline">\(\mathbf{p}_{gyro}\)</span> is perpendicular to <span class="math inline">\(\boldsymbol{\rho}\)</span> (tangent to the circle): <span class="math display">\[
+\mathbf{p}_{gyro} = p_{\perp} (-\sin\zeta \, \mathbf{e}_1 + \cos\zeta \, \mathbf{e}_2) \times \text{sign}(q)
+\]</span></p>
+<p><strong>Drift-Corrected Reconstruction (1st Order)</strong>: If the GCA simulation includes significant <span class="math inline">\(\mathbf{E} \times \mathbf{B}\)</span> drifts, we should add this component to the particle velocity to ensure the full orbit matches the drift path. <span class="math display">\[
+\mathbf{p} \approx p_{\parallel} \mathbf{b} + \mathbf{p}_{gyro} + m \gamma \mathbf{v}_E
+\]</span> where <span class="math display">\[
+\mathbf{v}_E = \frac{c \mathbf{E} \times \mathbf{b}}{B}
+\]</span></p>
+</section>
+</section>
+<section id="classical-guiding-center-theory" class="level2" data-number="26.2">
+<h2 data-number="26.2" class="anchored" data-anchor-id="classical-guiding-center-theory"><span class="header-section-number">26.2</span> Classical Guiding Center Theory</h2>
 <p>Here are the essentials points in the derivation of the classical <em>guiding center equations of motion (EOM)</em>. For a complete discussion refer to <span class="citation" data-cites="vandervoort1960relativistic">Vandervoort (<a href="#ref-vandervoort1960relativistic" role="doc-biblioref">1960</a>)</span>.</p>
-<section id="lorentz-equation-in-tensor-form" class="level3" data-number="26.1.1">
-<h3 data-number="26.1.1" class="anchored" data-anchor-id="lorentz-equation-in-tensor-form"><span class="header-section-number">26.1.1</span> Lorentz equation in tensor form</h3>
+<section id="lorentz-equation-in-tensor-form" class="level3" data-number="26.2.1">
+<h3 data-number="26.2.1" class="anchored" data-anchor-id="lorentz-equation-in-tensor-form"><span class="header-section-number">26.2.1</span> Lorentz equation in tensor form</h3>
 <p>In order to derive the Guiding Center Approximation (GCA), we would use the tensor notations in relativity. The equation of motion for a charged particle in an EM field are written in a tensorial form as <span id="eq-charged-particle-motion-general"><span class="math display">\[
 \frac{\mathrm{d}x_\mu}{\mathrm{d}\tau^2} = F_{\mu\nu} \frac{\mathrm{d}x_\nu}{\mathrm{d}\tau}
 \tag{26.1}\]</span></span> where <span class="math inline">\(x_\mu\)</span> is the particle four-coordinate, <span class="math inline">\(F_{\mu\nu}\)</span> is the EM tensor and <span class="math inline">\(\tau\)</span> is the particle proper time.</p>
@@ -622,8 +822,8 @@ E_x &amp; E_y &amp; E_z &amp; 0
 \end{pmatrix}
 \tag{26.2}\]</span></span></p>
 </section>
-<section id="fundamental-assumptions" class="level3" data-number="26.1.2">
-<h3 data-number="26.1.2" class="anchored" data-anchor-id="fundamental-assumptions"><span class="header-section-number">26.1.2</span> Fundamental assumptions</h3>
+<section id="fundamental-assumptions" class="level3" data-number="26.2.2">
+<h3 data-number="26.2.2" class="anchored" data-anchor-id="fundamental-assumptions"><span class="header-section-number">26.2.2</span> Fundamental assumptions</h3>
 <p>The GC formalism holds under two fundamental assumptions, namely:</p>
 <ol type="1">
 <li>The gyration radius must remain small compared to the scale length upon which the electromagnetic field changes significantly.</li>
@@ -634,8 +834,8 @@ E_x &amp; E_y &amp; E_z &amp; 0
 \tag{26.4}\]</span></span> where <span class="math inline">\(\omega\)</span> is the gyrofrequency. When the previous conditions hold, we can separate the particle trajectory into a gyration and a motion of the guiding center.</li>
 </ol>
 </section>
-<section id="derivations-of-gc-equation" class="level3" data-number="26.1.3">
-<h3 data-number="26.1.3" class="anchored" data-anchor-id="derivations-of-gc-equation"><span class="header-section-number">26.1.3</span> Derivations of GC equation</h3>
+<section id="derivations-of-gc-equation" class="level3" data-number="26.2.3">
+<h3 data-number="26.2.3" class="anchored" data-anchor-id="derivations-of-gc-equation"><span class="header-section-number">26.2.3</span> Derivations of GC equation</h3>
 <p>The general solution of <a href="#eq-charged-particle-motion-general" class="quarto-xref">Equation&nbsp;<span>26.1</span></a> is a linear combination of the two fundamental solutions related to the four EM tensor eigenvalues <span class="math inline">\(q=\pm i\omega\)</span> and <span class="math inline">\(q=\pm\lambda\)</span>, where <span id="eq-EM-eigenvalues"><span class="math display">\[
 \begin{aligned}
 \omega &amp;= \frac{e}{mc}\sqrt{\frac{1}{2}(B^2 - E^2) + \frac{1}{2}\sqrt{(B^2 - E^2)^2 + 4(\mathbf{E}\cdot\mathbf{B})^2}} \\
@@ -701,8 +901,8 @@ F_{\mu\nu}(x_\mu) =&amp; F_{\mu\nu}(X_\mu) \\
 \tag{26.20}\]</span></span> where <span class="math inline">\(\omega\)</span> (<a href="#eq-EM-eigenvalues" class="quarto-xref">Equation&nbsp;<span>26.5</span></a>) is the generalized Larmor frequency, <span class="math inline">\(\rho_0^2 \omega_0 = \mu_0 = mc\gamma^2 v_\perp^2 / 2eB\)</span> is the 0th-order approximation (apart from a constant factor) to the particle magnetic moment <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\omega_0 = eB/(mc)\)</span> represents the lowest-order approximation to the Larmor frequency in the case <span class="math inline">\(E\ll B\)</span>.</p>
 <p>More precisely, the magnetic moment should be regarded as constant only in the reference frame moving at <span class="math inline">\(\mathbf{v}_E\)</span>, because in that particular case <span class="math inline">\(\mathbf{E} = 0\)</span>. Indeed, a formal analysis (<span class="citation" data-cites="northrop1960stability">Northrop and Teller (<a href="#ref-northrop1960stability" role="doc-biblioref">1960</a>)</span>) shows that the corresponding constant of motion in a general reference frame is actually an asymptotic series expansion in a smallness parameter <span class="math inline">\(\epsilon=u/(\omega_0 L)\)</span> in the form <span class="math inline">\(\mu = (e/c)\left[ \mu_0 + \epsilon \mu_1 + \epsilon^2 \mu_2 + ... \right]\)</span> so that <span class="math inline">\(\mu_0\)</span> is not constant and can still vary in compliance with the adiabatic theory. Nevertheless, extensive numerical testing confirms that the errors due to assuming <span class="math inline">\(\mathrm{d}\mu_0 / \mathrm{d}t \approx 0\)</span> are at most of the same order of those introduced by the GC formalism, as a consequence of the slowly varying field condition which prevents sensible changes in the magnetic moment. Hence, we safely assume that <span class="math inline">\(\mu \approx (e/c)\mu_0\)</span> is invariant.</p>
 </section>
-<section id="first-order-solution-for-the-gca-equations-of-motion" class="level3" data-number="26.1.4">
-<h3 data-number="26.1.4" class="anchored" data-anchor-id="first-order-solution-for-the-gca-equations-of-motion"><span class="header-section-number">26.1.4</span> First order solution for the GCA equations of motion</h3>
+<section id="first-order-solution-for-the-gca-equations-of-motion" class="level3" data-number="26.2.4">
+<h3 data-number="26.2.4" class="anchored" data-anchor-id="first-order-solution-for-the-gca-equations-of-motion"><span class="header-section-number">26.2.4</span> First order solution for the GCA equations of motion</h3>
 <p>Although deceitful simple, the GC equation of motion <a href="#eq-gc-eom" class="quarto-xref">Equation&nbsp;<span>26.20</span></a> is more conveniently cast in a form in which the GC velocity appears explicitly, under the nearly-crossed (EM) fields condition <span id="eq-nearly-cross-em"><span class="math display">\[
 \frac{\mathbf{E}_\parallel \cdot\mathbf{B}}{B^2 - E_\perp^2} \ll 1
 \tag{26.21}\]</span></span> where the subscripts <span class="math inline">\(\parallel\)</span> and <span class="math inline">\(\perp\)</span> indicate the parallel and perpendicular components of the electric field with respect to the magnetic field unit vector <span class="math inline">\(\hat{b}\)</span>. It can be proven that <a href="#eq-nearly-cross-em" class="quarto-xref">Equation&nbsp;<span>26.21</span></a> allows the EM tensor field <span class="math inline">\(F_{\mu\nu}\)</span> to be split into a contribution <span class="math inline">\(F_{\mu\ni}^{(0)}\)</span> constructed solely from <span class="math inline">\(\mathbf{E}_\perp\)</span> and <span class="math inline">\(\mathbf{B}\)</span>, plus a correction term <span class="math inline">\(F_{\mu\nu}^{(1)}\)</span> depending on <span class="math inline">\(\mathbf{E}_\parallel\)</span>. A formal analysis leads to the conclusion that the GC four-velocity <span class="math inline">\(U_\mu \equiv \mathrm{d}X_\mu/\mathrm{d}\tau\)</span> can be decomposed into a 0th-order contribution <span class="math inline">\(\mathrm{U}^{(0)}\)</span> (which contains the drift velocity <span class="math inline">\(\mathbf{v}_E = c\mathbf{E}_\perp \times\mathbf{B}/B^2\)</span> as well as the velocity component parallel to the magnetic field line <span class="math inline">\(v_\parallel \hat{b}\)</span>) plus 1st-order correction <span class="math inline">\(\mathbf{U}^{(1)}\)</span>, leading to <span id="eq-four-velocity-decomposition"><span class="math display">\[
@@ -721,12 +921,12 @@ U_\mu = (\gamma c, \mathbf{U}) \simeq (\gamma c, \gamma v_\parallel \hat{b} + \g
 <p>In the GCA <a href="#eq-gc-eom-1st-sol" class="quarto-xref">Equation&nbsp;<span>26.23</span></a> information about motion perpendicular to the magnetic field is lost and the only component of the particle velocity that is actually evolved in time is <span class="math inline">\(u_\parallel\)</span>, because the magnetic moment <span class="math inline">\(\mu_0\approx c\mu/e\)</span> is now considered a constant of motion. Each term on the right hand side of <a href="#eq-gc-eom-1st-sol" class="quarto-xref">Equation&nbsp;<span>26.23</span></a> corresponds to a specific drift motion. Indeed, the first term represents the <span class="math inline">\(\mathbf{E}\times\mathbf{B}\)</span> perpendicular drift, while the second one accounts for particle motion in the direction parallel to magnetic field. The first two terms in square bracket, <span class="math inline">\(\mathcal{L}(\hat{b})\)</span> and <span class="math inline">\(\mathcal{L}(\mathbf{v}_E)\)</span>, describe the field curvature and polarization drifts<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, respectively. The next term is the <span class="math inline">\(\nabla-B\)</span> drift, while the last one represents a relativistic drift in the direction given by <span class="math inline">\(\hat{b}\times\mathbf{v}_E\)</span>.</p>
 <p><a href="#eq-gc-eom-1st-sol" class="quarto-xref">Equation&nbsp;<span>26.23</span></a> lose their validity when either <span class="math inline">\(B\to 0\)</span> (magnetic null) or <span class="math inline">\(E_\perp \ge B\)</span>, i.e.&nbsp;when the nearly-crossed EM fields condition, <a href="#eq-nearly-cross-em" class="quarto-xref">Equation&nbsp;<span>26.21</span></a>, is violated. While the first condition can easily occur inside a current sheet, the second may occur in a non-ideal MHD regime only. Violation of either condition breaks down the GCA and can lead to severe numerical errors.</p>
 </section>
-<section id="recursive-solution" class="level3" data-number="26.1.5">
-<h3 data-number="26.1.5" class="anchored" data-anchor-id="recursive-solution"><span class="header-section-number">26.1.5</span> Recursive solution</h3>
+<section id="recursive-solution" class="level3" data-number="26.2.5">
+<h3 data-number="26.2.5" class="anchored" data-anchor-id="recursive-solution"><span class="header-section-number">26.2.5</span> Recursive solution</h3>
 <p>An explicit solution for <a href="#eq-gc-eom" class="quarto-xref">Equation&nbsp;<span>26.20</span></a> can be found under <a href="#eq-nearly-cross-em" class="quarto-xref">Equation&nbsp;<span>26.21</span></a>, which introduces a new parameter of smallness <span class="math inline">\(\lambda / \omega \ll 1\)</span>.</p>
 </section>
-<section id="energy-conservation" class="level3" data-number="26.1.6">
-<h3 data-number="26.1.6" class="anchored" data-anchor-id="energy-conservation"><span class="header-section-number">26.1.6</span> Energy conservation</h3>
+<section id="energy-conservation" class="level3" data-number="26.2.6">
+<h3 data-number="26.2.6" class="anchored" data-anchor-id="energy-conservation"><span class="header-section-number">26.2.6</span> Energy conservation</h3>
 <p>The time component of <a href="#eq-gc-eom" class="quarto-xref">Equation&nbsp;<span>26.20</span></a> leads to an evolutionary ODE for the particle energy as a function of time, namely <span id="eq-gc-eom-time"><span class="math display">\[
 \frac{\mathrm{d}\gamma c^2}{\mathrm{d}t} = \frac{e}{m}\frac{\mathrm{d}\mathbf{X}}{\mathrm{d}t}\cdot\mathbf{E} + \frac{\mu}{m}\frac{\partial}{\partial t}\left( \frac{B}{\gamma_E} \right)
 \tag{26.25}\]</span></span></p>
@@ -738,8 +938,17 @@ U_\mu = (\gamma c, \mathbf{U}) \simeq (\gamma c, \gamma v_\parallel \hat{b} + \g
 \tag{26.27}\]</span></span></p>
 <p><a href="#eq-gc-eom-lorentz" class="quarto-xref">Equation&nbsp;<span>26.27</span></a> replaces <a href="#eq-gc-eom-time" class="quarto-xref">Equation&nbsp;<span>26.25</span></a> in common numerical solvers to get the Lorentz factor.</p>
 </section>
-<section id="numerical-implementation" class="level3" data-number="26.1.7">
-<h3 data-number="26.1.7" class="anchored" data-anchor-id="numerical-implementation"><span class="header-section-number">26.1.7</span> Numerical implementation</h3>
+</section>
+<section id="validity-and-higher-order-corrections" class="level2" data-number="26.3">
+<h2 data-number="26.3" class="anchored" data-anchor-id="validity-and-higher-order-corrections"><span class="header-section-number">26.3</span> Validity and Higher-Order Corrections</h2>
+<p>The standard guiding center approximation is a first-order expansion in the Larmor radius <span class="math inline">\(\rho_L\)</span>. Its validity depends on the variation of the magnetic field being small across the gyroradius. A rigorous criterion requires analyzing the tensor of field derivatives: <span class="math display">\[
+\frac{\sqrt{\lambda_{max}} \rho_\perp}{B} \ll 1
+\]</span> where <span class="math inline">\(\lambda_{max}\)</span> is the maximum eigenvalue of the tensor involving gradients, curvature, and shearing of the field lines.</p>
+<p>When field variations are strong (e.g., near sharp field reversals or current sheets), first-order approximations fail. Higher-order corrections (such as the Baños drift) may be required, which add terms proportional to the parallel curl of the magnetic field: <span class="math display">\[
+\langle \dot{z} \rangle - \langle v_\parallel \rangle \approx \frac{\mu B}{m \omega_0} \hat{b} \cdot (\nabla \times \hat{b})
+\]</span> This correction accounts for the discrepancy between the average particle velocity and the guiding center velocity due to field line shearing.</p>
+<section id="numerical-implementation" class="level3" data-number="26.3.1">
+<h3 data-number="26.3.1" class="anchored" data-anchor-id="numerical-implementation"><span class="header-section-number">26.3.1</span> Numerical implementation</h3>
 <p>The GCA <a href="#eq-gc-eom-1st-sol" class="quarto-xref">Equation&nbsp;<span>26.23</span></a> contains a set of 4 ODEs with unknowns <span class="math inline">\((\mathbf{X}, u_\parallel)\)</span>. The terms which require evaluation at grids are</p>
 <ul>
 <li><span class="math inline">\(\mathbf{B}\)</span></li>
@@ -752,8 +961,8 @@ U_\mu = (\gamma c, \mathbf{U}) \simeq (\gamma c, \gamma v_\parallel \hat{b} + \g
 </ul>
 <p><span class="citation" data-cites="mignone2023guiding">Mignone, Haudemand, and Puzzoni (<a href="#ref-mignone2023guiding" role="doc-biblioref">2023</a>)</span> reports the implementation of GCA in the PLUTO MHD model.</p>
 </section>
-<section id="nonrelativistic-case" class="level3" data-number="26.1.8">
-<h3 data-number="26.1.8" class="anchored" data-anchor-id="nonrelativistic-case"><span class="header-section-number">26.1.8</span> Nonrelativistic case</h3>
+<section id="nonrelativistic-case" class="level3" data-number="26.3.2">
+<h3 data-number="26.3.2" class="anchored" data-anchor-id="nonrelativistic-case"><span class="header-section-number">26.3.2</span> Nonrelativistic case</h3>
 <p>In the nonrelativistic case, <span class="math inline">\(\gamma = 1\)</span> so we don’t need to solve <a href="#eq-gc-eom-lorentz" class="quarto-xref">Equation&nbsp;<span>26.27</span></a>. <a href="#eq-gc-eom-1st-sol" class="quarto-xref">Equation&nbsp;<span>26.23</span></a> can be simplified into <span id="eq-gc-eom-1st-sol-nonrelativistic"><span class="math display">\[
 \begin{aligned}
 \frac{\mathrm{d}\mathbf{X}}{\mathrm{d}t} &amp;=  \\
@@ -762,12 +971,12 @@ U_\mu = (\gamma c, \mathbf{U}) \simeq (\gamma c, \gamma v_\parallel \hat{b} + \g
 \tag{26.28}\]</span></span></p>
 </section>
 </section>
-<section id="hamiltonian-theory-of-guiding-center-motion" class="level2" data-number="26.2">
-<h2 data-number="26.2" class="anchored" data-anchor-id="hamiltonian-theory-of-guiding-center-motion"><span class="header-section-number">26.2</span> Hamiltonian Theory of Guiding Center Motion</h2>
+<section id="hamiltonian-theory-of-guiding-center-motion" class="level2" data-number="26.4">
+<h2 data-number="26.4" class="anchored" data-anchor-id="hamiltonian-theory-of-guiding-center-motion"><span class="header-section-number">26.4</span> Hamiltonian Theory of Guiding Center Motion</h2>
 <p>Following the review by <span class="citation" data-cites="cary2009hamiltonian">Cary and Brizard (<a href="#ref-cary2009hamiltonian" role="doc-biblioref">2009</a>)</span>.</p>
 <p>Canonical and noncanonical Hamiltonian formulations of guiding-center motion offer improvements over non-Hamiltonian formulations: Hamiltonian formulations possess Noether’s theorem (hence invariants follow from symmetries), and they preserve the Poincaré invariants (so that spurious attractors are prevented from appearing in simulations of guiding-center dynamics). Hamiltonian guiding-center theory is guaranteed to have an energy conservation law for time-independent fields—something that is not true of non-Hamiltonian guiding-center theories. The use of the phase-space Lagrangian approach facilitates this development, as there is no need to transform a priori to canonical coordinates, such as flux coordinates, which have less physical meaning.</p>
-<section id="noncanonical-hamiltonian-guiding-center-theory" class="level3" data-number="26.2.1">
-<h3 data-number="26.2.1" class="anchored" data-anchor-id="noncanonical-hamiltonian-guiding-center-theory"><span class="header-section-number">26.2.1</span> Noncanonical Hamiltonian guiding center theory</h3>
+<section id="noncanonical-hamiltonian-guiding-center-theory" class="level3" data-number="26.4.1">
+<h3 data-number="26.4.1" class="anchored" data-anchor-id="noncanonical-hamiltonian-guiding-center-theory"><span class="header-section-number">26.4.1</span> Noncanonical Hamiltonian guiding center theory</h3>
 <p>The guiding-center phase space consists of</p>
 <ul>
 <li><p>the guiding-center position <span class="math inline">\(\mathbf{X}\)</span>, essentially the center of the helix;</p></li>
@@ -933,13 +1142,14 @@ Vandervoort, Peter O. 1960. <span>“The Relativistic Motion of a Charged Partic
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

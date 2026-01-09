@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -54,18 +54,19 @@ div.csl-indent {
 <link href="../contents/unit.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5fd9db47a040b21ac2cac9a0b3b722ba.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-8909624010076cd6b36fa7f8aca9fd8c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-5fd9db47a040b21ac2cac9a0b3b722ba.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0dd2bd5de344125cf763a379ddc3eb04.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-2f0f3f814df0dbcf15d9db12df35466a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0dd2bd5de344125cf763a379ddc3eb04.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,7 +109,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -1318,6 +1319,13 @@ S = \oint P\mathrm{d}Q = \int_{Q_{tp}(t)}^{Q_{tp}(t+\tau)}P\mathrm{d}Q
 \oint p dq = \oint mv_\perp r \mathrm{d}\theta = 2\pi r_L m v_\perp = 2\pi \frac{mv_\perp^2}{\omega_c} = 4\pi \frac{m}{|q|}\mu
 \]</span></p>
 <p>Thus <span class="math inline">\(\mu\)</span> is a constant of the motion as long as <span class="math inline">\(q/m\)</span> is not changed. We have proved the invariance of <span class="math inline">\(\mu\)</span> only with the implicit assumption <span class="math inline">\(\omega/\omega_c \ll 1\)</span>, where <span class="math inline">\(\omega\)</span> is a frequency characterizing the rate of change of <span class="math inline">\(\mathbf{B}\)</span> as seen by the particle. A proof exists, however, that <span class="math inline">\(\mu\)</span> is invariant even when <span class="math inline">\(\omega/\omega_c \le q\)</span>. In theorists’ language, <span class="math inline">\(\mu\)</span> is invariant “to all orders in an expansion in <span class="math inline">\(\omega/\omega_c\)</span>.” What this means in practice is that <span class="math inline">\(\mu\)</span> remains much more nearly constant than <span class="math inline">\(\mathbf{B}\)</span> does during one period of gyration.</p>
+<p>The first invariant is derived from the action integral of the fast gyromotion. By expanding the magnetic vector potential <span class="math inline">\(\mathbf{A}\)</span> about the guiding center and integrating the canonical momentum perpendicular to the field over one gyro-period, we obtain the first adiabatic invariant: <span class="math display">\[
+I_1 = \oint \mathbf{P}_\perp \cdot d\boldsymbol{\rho} \approx \frac{c}{e} \frac{p_\perp^2}{2B} = \frac{cm}{e} \mu
+\]</span></p>
+<p>This yields the magnetic moment <span class="math inline">\(\mu\)</span>, which is conserved in the guiding-center limit: <span class="math display">\[
+\mu = \frac{p_\perp^2}{2mB}
+\]</span></p>
+<p>In the relativistic case, the magnetic moment is related to the adiabatic invariant by <span class="math inline">\(M = \mu/\gamma\)</span>.</p>
 <p>It is just as important to know when an adiabatic invariant does <em>not</em> exist as to know when it does. Adiabatic invariance of μ is violated when ω is not small compared with <span class="math inline">\(\omega_c\)</span> . We give three examples of this.</p>
 <ul>
 <li><p><em>Magnetic Pumping</em>. If the strength of <span class="math inline">\(\mathbf{B}\)</span> in a mirror confinement system is varied sinusoidally, the particles’ <span class="math inline">\(v_\perp\)</span> would oscillate; but there would be no gain of energy in the long run. However, if the particles make collisions, the invariance of μ is violated, and the plasma can be heated. In particular, a particle making a collision during the compression phase can transfer part of its gyration energy into <span class="math inline">\(v_\parallel\)</span> energy, and this is not taken out again in the expansion phase.</p></li>
@@ -1327,6 +1335,10 @@ S = \oint P\mathrm{d}Q = \int_{Q_{tp}(t)}^{Q_{tp}(t+\tau)}P\mathrm{d}Q
 </section>
 <section id="the-second-adiabatic-invariant" class="level3" data-number="7.8.5">
 <h3 data-number="7.8.5" class="anchored" data-anchor-id="the-second-adiabatic-invariant"><span class="header-section-number">7.8.5</span> The Second Adiabatic Invariant</h3>
+<p>Once the fast gyromotion is averaged out, the remaining motion consists of bouncing and drifting.</p>
+<p>Second Invariant (<span class="math inline">\(I_2\)</span> or <span class="math inline">\(J\)</span>): Derived by integrating the parallel momentum along the field line between bounce points <span class="math inline">\(s_m\)</span> and <span class="math inline">\(s'_m\)</span> <span class="math display">\[
+J = \oint p_\parallel ds = 2p \int_{s_m}^{s'_m} \sqrt{1 - \frac{B(s)}{B_m}} ds
+\]</span> Conservation of <span class="math inline">\(J\)</span> implies that as a particle drifts across field lines, it adjusts its bounce path to keep this integral constant.</p>
 <p>Consider a particle trapped between two magnetic mirrors: it bounces between them and therefore has a periodic motion at the “bounce frequency”. A constant of this motion is given by <span class="math inline">\(\oint mv_\parallel ds\)</span>, where <span class="math inline">\(ds\)</span> is an element of path length (of the guiding center) along a field line. However, since the guiding center drifts across field lines, the motion is not exactly periodic, and the constant of the motion becomes an adiabatic invariant. This is called the <em>longitudinal invariant</em> <span class="math inline">\(J\)</span> and is defined for a half-cycle between the two turning points <span class="math display">\[
 J = \int_a^b v_\parallel ds
 \]</span></p>
@@ -1597,13 +1609,14 @@ Northrop, Theodore G. 1963. <span>“Adiabatic Charged-Particle Motion.”</span
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
