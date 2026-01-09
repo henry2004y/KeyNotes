@@ -15,6 +15,7 @@ In GCA, the orbital motion of the particle is detached from its instantaneous gy
 ### Basic Concepts and Variables
 
 **State Variables**: Instead of the full 6D phase space $(\mathbf{x}, \mathbf{v})$, we solve for the reduced 4D guiding center state:
+
 - $\mathbf{X}$: The spatial position of the guiding center.
 - $p_{\parallel} = m \gamma v_{\parallel}$: The relativistic kinetic momentum parallel to the magnetic field, where $\gamma$ is the Lorentz factor.
 
@@ -25,6 +26,7 @@ $$
 where $\psi$ is the gyrophase. This approximation holds when the characteristic scale of field variations $L$ is much larger than the Larmor radius $\rho$ ($L \gg \rho$) and time variations are slow compared to the gyroperiod.
 
 **Parameters (Constant of Motion)**:
+
 - $\mu$: The magnetic moment (adiabatic invariant).
 $$
 \mu = \frac{p_{\perp}^2}{2mB}
@@ -58,7 +60,9 @@ $$
 
 For a relativistic particle, the Hamiltonian $H$ represents the total energy.
 $$
-H(\mathbf{X}, p_{\parallel}, \mu, t) = \sqrt{m^2 c^4 + p_{\parallel}^2 c^2 + 2 m \mu B(\mathbf{X}) c^2} + q \Phi(\mathbf{X})$$
+H(\mathbf{X}, p_{\parallel}, \mu, t) = \sqrt{m^2 c^4 + p_{\parallel}^2 c^2 + 2 m \mu B(\mathbf{X}) c^2} + q \Phi(\mathbf{X})
+$$
+
 - $\Phi$: Electric scalar potential (if $\mathbf{E} = -\nabla \Phi$).
 - Note: If you only have $\mathbf{E}$ and not $\Phi$, you will use the force term $q E_{\parallel}$ directly in the equations of motion.
 
@@ -121,6 +125,7 @@ Here is the step-by-step transformation procedure:
 1. Calculate the Guiding Center Position ($\mathbf{X}$)
 
 The guiding center is located at the center of the particle's gyration. You must calculate the Larmor radius vector at the particle's current position $\mathbf{x}$ and subtract it.
+
 - Compute local field: Retrieve $\mathbf{B}(\mathbf{x})$ and the unit vector $\mathbf{b}(\mathbf{x}) = \mathbf{B}(\mathbf{x}) / |\mathbf{B}(\mathbf{x})|$.
 - Compute displacement:
 $$
