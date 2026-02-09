@@ -126,6 +126,43 @@ The interpretation of "massless" electrons is tricky. If we think of the full pa
 2. Hybrid models often (though not always) assume quasi-neutrality, where the electron and ion densities are nearly equal. This is a separate assumption from massless electrons.
 3. The way the electric and magnetic fields are calculated differs between the two models. The hybrid model typically solves for the electric field directly from a combination of the generalized Ohm's law and Faraday's law, whereas the full particle model would solve Maxwell's equations fully. Again, combined with point 1, the way electrons respond to fields is completely different in the two models.
 
+### Minimum Resolution Limit
+
+Interestingly, hybrid models set a lower bound on the simulation cell size $\Delta L$ (often $\Delta L \gtrsim 10 \delta_e$) primarily to ensure the physical consistency of the "massless electron" approximation and to maintain numerical stability.
+In standard hybrid plasma models (kinetic ions, massless fluid electrons), resolving the electron inertial length $\delta_e$ can lead to the violation of the model's fundamental assumptions and impose severe constraints on the time step.
+
+#### Validity of the Hybrid Approximation
+
+The standard hybrid model assumes that electrons are a massless charge-neutralizing fluid ($m_e \to 0$). This approximation physically implies that the electron response is instantaneous compared to the ion timescales and that the frequencies of interest are well below the electron gyrofrequency, $\Omega_{ce}$.
+
+However, the inclusion of the Hall term in the generalized Ohm's law introduces the whistler mode into the system. The dispersion relation for whistler waves at short wavelengths is dispersive, meaning the frequency $\omega$ scales with the square of the wavenumber $k$:
+$$
+\omega \propto k^2
+$$
+
+Specifically, as the spatial scale approaches the electron inertial length ($k \sim 1/\delta_e$), the whistler frequency approaches the electron gyrofrequency ($\omega \rightarrow \Omega_{ce}$).
+
+If the simulation grid is fine enough to resolve $\delta_e$ (i.e., $\Delta L \sim \delta_e$), the grid is capable of supporting waves with frequencies near $\Omega_{ce}$. This creates a contradiction:
+- The model derives its equations assuming $\omega \ll \Omega_{ce}$ (massless fluid limit).
+- The grid resolution allows modes where $\omega \sim \Omega_{ce}$.
+
+By enforcing $\Delta L \gg \delta_e$, you effectively filter out these high-frequency modes. This ensures the simulation remains in the low-frequency regime where the hybrid fluid-electron equations are physically valid.
+
+#### Whistler Catastrophe
+
+From a numerical standpoint, the quadratic dispersion of the whistler mode ($\omega \propto k^2$) imposes a strict Courant–Friedrichs–Lewy (CFL) condition on explicit time-stepping schemes. The maximum stable time step $\Delta t$ scales with the square of the grid spacing:
+$$
+\Delta t \propto \Delta L^2
+$$
+If you decrease $\Delta L$ to resolve the very small scale $\delta_e$, the maximum allowed $\Delta t$ becomes vanishingly small. This makes the simulation computationally prohibitive.
+
+Since the physics at the scale of $\delta_e$ (electron inertia, electron finite Larmor radius) is not correctly modeled by the massless fluid approximation anyway, resolving this scale provides no physical benefit while incurring a massive computational cost.
+
+#### Numerical Heating and Stability
+
+In Particle-in-Cell (PIC) based methods, there is often numerical noise associated with the finite number of particles. In a hybrid code, if the grid resolves the scales where the electrons theoretically have inertia (but the model ignores it), the Hall term can couple grid-scale noise to high-frequency whistler modes.
+
+Without the physical damping mechanisms that would exist in a full kinetic electron model (like electron Landau damping), these unphysical high-frequency modes can grow or accumulate energy at the grid scale. This can lead to numerical instability or artificial heating of the ions. Keeping the grid coarse ($\Delta L \gg \delta_e$) acts as a low-pass filter that suppresses this noise.
 
 ## Low Density Treatment
 
