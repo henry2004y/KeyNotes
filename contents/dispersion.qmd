@@ -1,0 +1,103 @@
+# Dispersion Relation {#sec-dispersion}
+
+## The Governing Equations: Vlasov-Maxwell System
+
+We start with a collisionless, magnetized plasma. The evolution of the distribution function $f_s(\mathbf{x}, \mathbf{v}, t)$ for species $s$ is governed by the Vlasov equation:
+$$
+\frac{\partial f_s}{\partial t} + \mathbf{v} \cdot \nabla f_s + \frac{q_s}{m_s} \left( \mathbf{E} + \mathbf{v} \times \mathbf{B} \right) \cdot \nabla_{\mathbf{v}} f_s = 0
+$$
+
+The fields $\mathbf{E}$ and $\mathbf{B}$ are self-consistent, governed by Maxwell's equations:
+$$
+\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}, \quad \nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \frac{1}{c^2} \frac{\partial \mathbf{E}}{\partial t}
+$$
+where
+$$
+\mathbf{J} = \sum_s q_s \int \mathbf{v} f_s \mathrm{d}^3v
+$$
+
+## Linearization and Fourier Analysis
+
+We assume the plasma is initially in a uniform equilibrium $f_{s0}(\mathbf{v})$ with a constant background magnetic field $\mathbf{B}_0 = B_0 \hat{z}$ and no background electric field ($\mathbf{E}_0 = 0$).
+
+We apply a small perturbation:
+$$
+f_s = f_{s0} + \delta f_s, \quad \mathbf{B} = \mathbf{B}_0 + \delta \mathbf{B}, \quad \mathbf{E} = \delta \mathbf{E}
+$$
+
+We assume all perturbations vary as plane waves: $\sim \exp[i(\mathbf{k}\cdot\mathbf{x} - \omega t)]$.
+
+The Linearized Vlasov Equation (keeping only 1st order terms) becomes:
+$$
+-i(\omega - \mathbf{k}\cdot\mathbf{v}) \delta f_s + \frac{q_s}{m_s} (\mathbf{v} \times \mathbf{B}_0) \cdot \nabla_{\mathbf{v}} \delta f_s = -\frac{q_s}{m_s} (\delta \mathbf{E} + \mathbf{v} \times \delta \mathbf{B}) \cdot \nabla_{\mathbf{v}} f_{s0}
+$$
+
+Using Faraday's Law ($\nabla \times \delta \mathbf{E} = i\omega \delta \mathbf{B}$), we can eliminate $\delta \mathbf{B}$ in favor of $\delta \mathbf{E}$:
+$$
+\delta \mathbf{B} = \frac{\mathbf{k} \times \delta \mathbf{E}}{\omega}
+$$
+
+## Solving for $\delta f_s$: The Method of Characteristics
+
+This is the hardest mathematical step. We must solve for $\delta f_s$. The left-hand side of the linearized equation represents the total derivative along the unperturbed particle orbit:
+$$
+\frac{d}{dt} \delta f_s \bigg|_{\text{orbit}} = \left( \frac{\partial}{\partial t} + \mathbf{v} \cdot \nabla + \frac{q}{m}(\mathbf{v} \times \mathbf{B}_0) \cdot \nabla_{\mathbf{v}} \right) \delta f_s
+$$
+
+To find $\delta f_s(\mathbf{v}, t)$, we integrate the right-hand side (the perturbing force) along the particle's past history (trajectory $\tau$ from $-\infty$ to $t$).
+$$
+\delta f_s(\mathbf{v}) = -\frac{q_s}{m_s} \int_{-\infty}^{t} \mathrm{d}\tau \left[ \left( \delta \mathbf{E} + \mathbf{v}(\tau) \times \frac{\mathbf{k} \times \delta \mathbf{E}}{\omega} \right) \cdot \nabla_{\mathbf{v}} f_{s0} \right]_{\mathbf{v}(\tau)}
+$$
+
+- The "Bessel Function" Origin:
+The unperturbed orbit $\mathbf{v}(\tau)$ is a helix.
+$$
+v_x(\tau) = v_\perp \cos(\Omega \tau + \phi), \quad v_y(\tau) = v_\perp \sin(\Omega \tau + \phi)
+$$
+When you substitute this helical motion into the phase factor $e^{i \mathbf{k} \cdot \mathbf{x}(\tau)}$, you get terms like $e^{i \frac{k_\perp v_\perp}{\Omega} \sin(\dots)}$.
+Using the Jacobi-Anger expansion identity:
+$$
+e^{i z \sin \theta} = \sum_{n=-\infty}^{\infty} J_n(z) e^{i n \theta}
+$$
+
+This is why Bessel functions ($J_n$) appear in the dispersion relation. They represent the coupling between the wave and the particle's cyclotron harmonics.
+
+After performing this massive integration, we get the analytical form for $\delta f_s$.
+
+## The Dielectric Tensor $\mathbf{\epsilon}$
+
+We now have $\delta f_s$ in terms of $\delta \mathbf{E}$. We calculate the perturbed current:
+$$
+\delta \mathbf{J} = \sum_s q_s \int \mathbf{v} \delta f_s d^3v = \pmb{\sigma} \cdot \delta \mathbf{E}
+$$
+
+Substituting this into the wave equation (Maxwell's eq with $\delta \mathbf{J}$):
+$$
+\mathbf{k} \times (\mathbf{k} \times \delta \mathbf{E}) + \frac{\omega^2}{c^2} \pmb{\epsilon} \cdot \delta \mathbf{E} = 0
+$$
+where $\pmb{\epsilon} = \mathbf{I} + \frac{i}{\epsilon_0 \omega} \pmb{\sigma}$.
+
+This can be rewritten as the classic dispersion matrix equation:
+$$
+\mathbf{D}(\mathbf{k}, \omega) \cdot \delta \mathbf{E} = 0
+$$
+$$
+\mathbf{D} = \epsilon - \left(\frac{kc}{\omega}\right)^2 \left( \mathbf{I} - \hat{k}\hat{k} \right)
+$$
+To find non-trivial solutions ($\delta \mathbf{E} \neq 0$), we must satisfy the Dispersion Relation:
+$$
+\det(\mathbf{D}(\mathbf{k}, \omega)) = 0
+$$
+
+## The Hard Part
+
+The elements of the tensor $\mathbf{\epsilon}$ involve integrals of the form:
+$$
+\chi \sim \sum_n \int_{0}^{\infty} v_\perp dv_\perp \int_{-\infty}^{\infty} dv_\parallel \frac{H_n(v_\perp, v_\parallel) J_n^2(\lambda)}{\omega - k_\parallel v_\parallel - n\Omega}
+$$
+
+This integral is the bottleneck of solving the dispersion relation, and the reason why there are still new solvers coming out.
+
+In the recent work of Huasheng Xie, he expands any arbitrary $f_0$ into a sum of Hermite polynomials[^hermite]. Hermite polynomials allow the integrals to be done analytically once. He then approximates the resonance $1/(\omega - k v - n\Omega)$ using a rational function (Padé/J-pole) to avoid the singularity point. Then the highly complex integral equation turns into a standard linear algebra problem $\mathbf{M} \mathbf{X} = \omega \mathbf{X}$, allowing us to solve for all modes simultaneously without integrating.
+
+[^hermite]: Hermite polynomials are a set of orthogonal polynomials that can be used to represent functions in terms of their moments. This idea is also used in the multi-moment fluid model developed at Los Alamos.
