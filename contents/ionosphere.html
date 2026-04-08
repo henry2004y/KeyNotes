@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>23&nbsp; Ionosphere – Key Notes in Plasma Physics</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -24,7 +27,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -54,19 +56,18 @@ div.csl-indent {
 <link href="../contents/magnetosphere.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-00ccf60c28c3bdf2d57f5131fbf16f11.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-11a136997a988b6a31313e1c474fe3bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-00ccf60c28c3bdf2d57f5131fbf16f11.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-27635af293c3d81d182b34fa33de757b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -96,7 +97,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -620,7 +621,7 @@ window.Quarto = {
 <p>Ionospheric properties, principally conductivity, provide boundary conditions for magnetospheric convection, and the ionosphere is often treated as a passive part of the system. Especially during substorms, however, the boundary conditions change in a time-dependent and spatially localized fashion, allowing ionospheric feedback that can alter the magnetospheric dynamics. The coupling from the ionospheric perspective differs primarily in that the ionospheric conductance is anisotropic due to the influence of the neutral atmosphere, involving Hall as well as Pedersen conductivity. These conductivities are altered both by the connecting currents and the precipitating electrons associated with upward field-aligned currents, which increase Pedersen conductivity and field line tying. An important role is also played by field-aligned electric fields, set up locally, primarily in upward field-aligned current regions, which are the cause of auroral intensifications and, specifically auroral arcs.</p>
 <p>For magnetosphere simulations, the simplest inner boundary is treated as a conducting sphere (<span class="math inline">\(\mathbf{B}_\text{normal}=0\)</span>, <span class="math inline">\(\mathbf{E}=\mathbf{v}=0\)</span>). However, this is often not realistic enough to reveal the nature. In magnetosphere simulations, the location of tail main reconnection site will be closer to the Earth by simply applying a conducting boundary. The next level extension is to employ a magnetospheric-ionospheric electrostatic coupling model. This means that we seek nonzero <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{v}\)</span> at the inner boundary. The inner boundary, where the MHD quantities are connected to the ionosphere, is taken to be a shell of radius <span class="math inline">\(r_\text{in}\)</span> (e.g.&nbsp;<span class="math inline">\(r_\text{in}\sim 3\,\text{R}_\text{E}\)</span>). The ionosphere locates at <span class="math inline">\(r_\text{ion}\sim 1000\,\text{km}\sim 0.15\,\text{R}_\text{E}\)</span>. Ideally <span class="math inline">\(r_\text{in}\)</span> shall be as close to <span class="math inline">\(r_\text{ion}\)</span> as possible, but typically it is restricted by computational limitations, such as extraneously high Alfvén speeds and very large <span class="math inline">\(\mathbf{B}\)</span> field gradients closer to the Earth. Inside this shell we do not solve the governing equations (MHD/PIC/Vlasov), but assume a static dipole field. The important physical processes within the shell are the flow of <em>field-aligned currents</em> (FACs) and the closure of these currents in the ionosphere. At each time step,</p>
 <ol type="1">
-<li><p>The magnetospheric FACs are mapped along the field lines from the inner boundary to the ionosphere assuming <span class="math inline">\(j_\parallel/B=\text{const.}\)</span>, which are the input to the ionospheric potential equation <span class="citation" data-cites="raeder1995">(<a href="#ref-raeder1995" role="doc-biblioref">Raeder, Walker, and Ashour-Abdalla 1995</a>)</span> <span id="eq-ionosphere_potential"><span class="math display">\[
+<li><p>The magnetospheric FACs are mapped along the field lines from the inner boundary to the ionosphere assuming <span class="math inline">\(j_\parallel/B=\text{const.}\)</span>, which are the input to the ionospheric potential equation <span class="citation" data-cites="raeder1995">(<a href="#ref-raeder1995" role="doc-biblioref">Raeder et al. 1995</a>)</span> <span id="eq-ionosphere_potential"><span class="math display">\[
 \nabla\cdot(\pmb{\Sigma}\cdot\nabla\Phi) = -j_\parallel\sin I
 \tag{23.1}\]</span></span> where <span class="math inline">\(\pmb{\Sigma}\)</span> is the conductance tensor, <span class="math inline">\(\Phi\)</span> is the electric potential, <span class="math inline">\(j_\parallel\)</span> is the mapped FAC density with the downward considered positive and corrected for flux tube convergence, and <span class="math inline">\(I\)</span> is the inclination of the dipole field at the ionosphere, <span class="math inline">\(\sin I=\cos(\frac{\pi}{2}-I)=\hat{b}\cdot\hat{r}\)</span>. The derivation from the charge conservation can be found in <a href="diffres.html#sec-conductivity" class="quarto-xref"><span>Section 9.8.7</span></a>. There is another form derived by [Wolf 1983]: <span id="eq-ionosphere_potential2"><span class="math display">\[
 \nabla_\perp\cdot
@@ -629,7 +630,7 @@ j_\parallel\cos\delta
 \tag{23.2}\]</span></span> where <span class="math inline">\(\delta\)</span> is the magnetic field dip angle: <span class="math display">\[
 \cos\delta = -2\frac{\cos\theta}{\sqrt{1+3\cos^2\theta}}
 \]</span> for the northern hemisphere, where <span class="math inline">\(\theta\)</span> is the polar angle (magnetic colatitude). I DON’T KNOW THE RELATION BETWEEN THESE TWO!</p></li>
-<li><p><a href="#eq-ionosphere_potential" class="quarto-xref">Equation&nbsp;<span>23.1</span></a> is solved on the surface of a sphere <span class="math inline">\(r=r_\text{ion}\)</span>. Commonly there are two types of boundary conditions: (1) <span class="math inline">\(\Phi=0\)</span> at the equator <span class="citation" data-cites="raeder1995">(<a href="#ref-raeder1995" role="doc-biblioref">Raeder, Walker, and Ashour-Abdalla 1995</a>)</span>, or (2) constant potential at or near the low‐latitude boundary (e.g.&nbsp;LFM, BATSRUS). From here, one can either choose a static analytic model of Hall and Pederson conductance that accounts for multiple physics, or simply adopt a uniform Pederson conductance, or the height-integrated conductivity, <span class="math inline">\(\Sigma_p = 5\,\text{Siemens}\)</span>, while the Hall conductance <span class="math inline">\(\Sigma_H\)</span> is assumed to be zero. The latter one is simplified to solve <span class="math display">\[
+<li><p><a href="#eq-ionosphere_potential" class="quarto-xref">Equation&nbsp;<span>23.1</span></a> is solved on the surface of a sphere <span class="math inline">\(r=r_\text{ion}\)</span>. Commonly there are two types of boundary conditions: (1) <span class="math inline">\(\Phi=0\)</span> at the equator <span class="citation" data-cites="raeder1995">(<a href="#ref-raeder1995" role="doc-biblioref">Raeder et al. 1995</a>)</span>, or (2) constant potential at or near the low‐latitude boundary (e.g.&nbsp;LFM, BATSRUS). From here, one can either choose a static analytic model of Hall and Pederson conductance that accounts for multiple physics, or simply adopt a uniform Pederson conductance, or the height-integrated conductivity, <span class="math inline">\(\Sigma_p = 5\,\text{Siemens}\)</span>, while the Hall conductance <span class="math inline">\(\Sigma_H\)</span> is assumed to be zero. The latter one is simplified to solve <span class="math display">\[
 \nabla^2\Phi = -j_\parallel\sin I/\Sigma_p
 \]</span></p></li>
 </ol>
@@ -732,7 +733,7 @@ N &amp;= \frac{S}{RM}
 <p>dispersive, kinetic Alfven waves –&gt; optical manifestation of dispersive bursts</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-merkin2010" class="csl-entry" role="listitem">
 Merkin, VG, and JG Lyon. 2010. <span>“Effects of the Low-Latitude Ionospheric Boundary Condition on the Global Magnetosphere.”</span> <em>Journal of Geophysical Research: Space Physics</em> 115 (A10). <a href="https://doi.org/10.1029/2010JA015461">https://doi.org/10.1029/2010JA015461</a>.
 </div>
