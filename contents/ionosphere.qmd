@@ -2,6 +2,114 @@
 
 Ionosphere is like a transition region from neutral gas to plasma. Therefore, collisions as well as kinetic effects gradually become important as go down from space. @sec-collision_ionized presents some basic physics related to the collisional effect in the ionosphere.
 
+## Derivation of Ionospheric Electrodynamics {#sec-iono_derivation}
+
+To derive the conventional equations of ionospheric electrodynamics from first-principles plasma physics, we start with the exact time-dependent multi-fluid equations for each species and systematically apply the appropriate quasi-steady-state approximations [@song2001; @vasyliunas2012physical].
+
+### Step 1: The Fundamental Plasma and Maxwell's Equations
+The exact first-principles description of the electromagnetic field and the plasma is governed by Maxwell's equations and the velocity-moment equations derived from the kinetic equations for each species $\alpha$ (electrons $e$, ions $i$, and neutrals $n$).
+
+**Maxwell's Equations:**
+* **Faraday's Law:**
+  $$\frac{\partial \mathbf{B}}{\partial t} = -c\nabla \times \mathbf{E}$$
+* **Ampère's Law (with displacement current):**
+  $$\frac{\partial \mathbf{E}}{\partial t} = -4\pi \mathbf{J} + c\nabla \times \mathbf{B}$$
+
+**Plasma Evolution Equations:**
+The species-specific momentum conservation equation for species $\alpha$ is:
+$$
+m_\alpha n_\alpha \frac{\partial \mathbf{v}_\alpha}{\partial t} + \nabla\cdot\mathbf{\kappa}_\alpha - m_\alpha n_\alpha \mathbf{g} = n_\alpha q_\alpha\left( \mathbf{E} + \frac{1}{c}\mathbf{v}_\alpha \times \mathbf{B} \right) + \mathbf{R}_\alpha
+$$ {#eq-species_momentum}
+where $n_\alpha$ is the number density, $m_\alpha$ is the mass, $\mathbf{v}_\alpha$ is the velocity, $q_\alpha$ is the charge ($q_i = e, q_e = -e$), $\mathbf{\kappa}_\alpha$ is the kinetic pressure tensor, $\mathbf{g}$ is gravity, and $\mathbf{R}_\alpha$ represents the collisional momentum transfer.
+
+### Step 2: Multi-Fluid Definitions and Evolution Equations
+Assuming quasi-neutrality ($n_e \approx n_i = n$), we define the single-fluid plasma variables:
+* **Plasma mass density:** $\rho = n m_i + n m_e \approx n m_i$
+* **Plasma bulk velocity:** $\mathbf{V} \approx \mathbf{v}_i + \frac{m_e}{m_i} \mathbf{v}_e$
+* **Current density:** $\mathbf{J} = ne(\mathbf{v}_i - \mathbf{v}_e)$
+
+**Plasma Bulk Flow Equation:**
+Summing the momentum equations for ions and electrons yields the evolution equation for the plasma bulk flow. The electromagnetic forces resolve to the Lorentz force, and the sum of the collision terms $\mathbf{R}_i + \mathbf{R}_e$ represents the total drag against the neutral background:
+$$
+\frac{\partial}{\partial t}\left( \rho\mathbf{V} \right) + \nabla\cdot\mathbf{\kappa} - \rho\mathbf{g} = \frac{1}{c}\mathbf{J}\times\mathbf{B} - n m_i \nu_{in}\left( \mathbf{V} - \mathbf{V}_n \right)
+$$ {#eq-bulk_momentum}
+where $\nu_{in}$ is the ion-neutral collision frequency and $\mathbf{V}_n$ is the neutral wind velocity.
+
+**Generalized Ohm's Law (Current Density Evolution):**
+Subtracting the electron momentum equation from the ion momentum equation (weighted by charge-to-mass ratios) yields the evolution of the current density. Under the assumption $m_e \ll m_i$, the electron dynamics dominate, leading to:
+$$
+\frac{\partial \mathbf{J}}{\partial t} = \frac{ne^2}{m_e}\left( \mathbf{E} + \frac{1}{c}\mathbf{V}\times\mathbf{B} - \frac{\mathbf{J}\times\mathbf{B}}{nec} \right) + \left( \frac{\delta \mathbf{J}}{\delta t} \right)_\mathrm{coll}
+$$ {#eq-gen_ohm}
+In the ionospheric regime, the collision term simplifies to:
+$$
+\left( \frac{\delta \mathbf{J}}{\delta t} \right)_\mathrm{coll} \simeq -\nu_e \mathbf{J}
+$$
+where $\nu_e = \nu_{ei} + \nu_{en}$ is the total electron collision frequency.
+
+### Step 3: Quasi-Steady-State Approximations
+To transition to the conventional steady-state formulations, we apply two main approximations under specific physical conditions:
+1. **Neglecting High-Frequency Oscillations:** For phenomena with spatial scales much larger than the electron inertial length $\lambda_e$ and timescales much longer than the inverse plasma frequency $\omega_p^{-1}$, we can neglect the temporal derivatives of the current density and electric field:
+   $$\frac{\partial \mathbf{J}}{\partial t} \approx 0, \quad \frac{\partial \mathbf{E}}{\partial t} \approx 0$$
+2. **Neglecting Inertia and Other Forcings:** Assuming slow plasma acceleration and neglecting pressure gradients and gravity relative to electromagnetic and collisional forces, the bulk flow equation (@eq-bulk_momentum) reduces to a strict stress balance:
+   $$0 \simeq \frac{1}{c}\mathbf{J}\times\mathbf{B} - n m_i \nu_{in}\left( \mathbf{V} - \mathbf{V}_n \right)$$ {#eq-stress_balance}
+   Simultaneously, the generalized Ohm's law (@eq-gen_ohm) simplifies to:
+   $$0 \simeq \mathbf{E} + \frac{1}{c}\mathbf{V}\times\mathbf{B} - \frac{\mathbf{J}\times\mathbf{B}}{nec} - \frac{m_e\nu_e}{ne^2}\mathbf{J}$$ {#eq-reduced_ohm}
+
+Alternatively, the stress-balance in the perpendicular direction can be expressed in terms of the drift velocities:
+$$0 = c\frac{\mathbf{E}}{B} + \mathbf{V} \times \hat{\mathbf{b}} - \frac{\nu_{in}}{\Omega_i}(\mathbf{V} - \mathbf{V}_n)$$ {#eq-drift_balance}
+where $\hat{\mathbf{b}} = \mathbf{B}/B$ is the unit vector along the magnetic field and $\Omega_i = eB/(m_i c)$ is the ion gyrofrequency. This describes the $\mathbf{E} \times \mathbf{B}$ drift modified by collisional drag with neutrals.
+
+### Step 4: Deriving the Ionospheric Ohm's Laws
+To establish the relationship between current and the electric field, we express the equations in the frame of the neutral wind. First, we solve the stress balance equation (@eq-stress_balance) for the relative velocity:
+$$
+\mathbf{V} - \mathbf{V}_n = \frac{1}{cn m_i \nu_{in}}\mathbf{J}\times\mathbf{B}
+$$
+Substituting $\mathbf{V} = \mathbf{V}_n + \frac{1}{cn m_i \nu_{in}}\mathbf{J}\times\mathbf{B}$ into the reduced Ohm's law (@eq-reduced_ohm) yields:
+$$
+0 = \left(\mathbf{E} + \frac{1}{c}\mathbf{V}_n \times \mathbf{B}\right) + \frac{(\mathbf{J}\times\mathbf{B})\times\mathbf{B}}{c^2 n m_i \nu_{in}} - \frac{\mathbf{J}\times\mathbf{B}}{nec} - \frac{m_e\nu_e}{ne^2}\mathbf{J}
+$$
+Defining the electric field in the frame of the neutral atmosphere as $\mathbf{E}^\prime \equiv \mathbf{E} + \frac{1}{c}\mathbf{V}_n\times\mathbf{B}$, and using the vector identity $(\mathbf{J}\times\mathbf{B})\times\mathbf{B} = -\mathbf{J}_\perp B^2$, we decompose the equation into components parallel and perpendicular to the magnetic field.
+
+* **Parallel Component:**
+  $$0 = \mathbf{E}_\parallel^\prime - \frac{m_e\nu_e}{ne^2}\mathbf{J}_\parallel \implies \mathbf{J}_\parallel = \sigma_\parallel \mathbf{E}_\parallel^\prime$$
+  where the parallel conductivity is $\sigma_\parallel = \frac{ne^2}{m_e\nu_e}$.
+
+* **Perpendicular Component:**
+  Defining the effective Pedersen and Hall resistivities:
+  $$\rho_P = \frac{B^2}{c^2 n m_i \nu_{in}} + \frac{m_e \nu_e}{ne^2}, \quad \rho_H = \frac{B}{nec}$$
+  The perpendicular component of the equation becomes:
+  $$\mathbf{E}_\perp^\prime = \rho_P \mathbf{J}_\perp + \rho_H \left( \mathbf{J}_\perp \times \hat{\mathbf{b}} \right)$$
+  Inverting this system of equations yields the conventional ionospheric Ohm's law:
+  $$\mathbf{J}_\perp = \sigma_P \mathbf{E}_\perp^\prime + \sigma_H\left( \hat{\mathbf{b}} \times \mathbf{E}_\perp^\prime \right)$$ {#eq-iono_ohms_law}
+  where the Pedersen and Hall conductivities are:
+  $$\sigma_P = \frac{\rho_P}{\rho_P^2 + \rho_H^2}, \quad \sigma_H = \frac{\rho_H}{\rho_P^2 + \rho_H^2}$$
+  
+*(Note: If we instead chose to eliminate the neutral velocity $\mathbf{V}_n$ from the coupled electron and ion force balance equations, we would obtain the three-fluid Ohm's law in the plasma frame, describing the current relative to the plasma bulk flow $\mathbf{V}$. However, expressing the current in the neutral wind frame is conventional for modeling the ionosphere.)*
+
+### Step 5: Deriving the Electric Potential and Current Continuity
+To solve for the spatial distribution of the electric field, we apply two final steady-state approximations to Maxwell's equations:
+1. **Potential Electric Field:** Neglecting wave propagation effects (meaning magnetic variations are slow relative to Alfvén times), Faraday's law simplifies to $\nabla \times \mathbf{E} \approx 0$, which allows us to express the electric field as the gradient of a scalar potential:
+   $$\mathbf{E} = -\nabla \Phi$$
+2. **Current Continuity:** Dropping the displacement current from Ampère's law ($c\nabla \times \mathbf{B} = 4\pi \mathbf{J}$) implies that the current density is solenoidal:
+   $$\nabla \cdot \mathbf{J} = 0$$
+
+Substituting the potential representation and the conventional Ohm's law ($\mathbf{J} = \pmb{\sigma} \cdot \mathbf{E}'$) into the current continuity equation yields:
+$$
+\nabla \cdot \left[ \pmb{\sigma} \cdot \left( -\nabla\Phi + \frac{1}{c}\mathbf{V}_n \times \mathbf{B} \right) \right] = 0
+$$
+which gives the final 3D elliptic equation for the electric potential:
+$$
+\nabla \cdot (\pmb{\sigma} \cdot \nabla \Phi) = \frac{1}{c} \nabla \cdot \left[ \pmb{\sigma} \cdot \left(\mathbf{V}_n \times \mathbf{B}\right) \right]
+$$ {#eq-3d_potential_eq}
+Here, the conductivity tensor $\pmb{\sigma}$ in the coordinate system aligned with $\mathbf{B}$ is:
+$$
+\pmb{\sigma} = \begin{pmatrix} \sigma_P & -\sigma_H & 0 \\ \sigma_H & \sigma_P & 0 \\ 0 & 0 & \sigma_\parallel \end{pmatrix}
+$$
+
+Integrating this 3D relation along the magnetic field line over the height of the conducting layer yields the 2D height-integrated potential equation used as a boundary condition in magnetosphere-ionosphere coupling models.
+
+
+
 ## Current Systems
 
 Electric fields associated with the viscous interaction and reconnection-driven plasma flow are transmitted along field lines to the ionosphere where they drive currents through the ionosphere. The high latitude FAC are known as _region-1 currents_, while the lower latitude currents are called _region-2 currents_. The ionospheric current connecting these two FAC systems flows parallel to the projected electric field and is called the _Pedersen current_. Since the Pedersen current flows through a resistive ionosphere in the direction of the electric field it causes Ohmic heating $\mathbf{j}\cdot\mathbf{E}>0$. The two shells of FAC form a solenoid so that the magnetic perturbations they create are confined to the region between them and cannot be detected on the ground. Because of the interaction of the motion of ionized gases with the neutral atmosphere, the ions and electrons undergo different drift motion. Ions, due to higher collision rates with the neutral atmosphere, have a component of motion perpendicular to the $\mathbf{E}\times\mathbf{B}$ drift direction, while the electrons generally follow $\mathbf{E}\times\mathbf{B}$. The non-dissipative ($\mathbf{j}\cdot\mathbf{E}=0$) Hall current flows at right angles to both the electric and magnetic fields. The magnetic effects of the Hall current driven by the region-1 and 2 currents can be observed on the ground and are known as the DP-2 current system.[^region12]
@@ -30,14 +138,26 @@ $$ {#eq-ionosphere_potential}
 where $\pmb{\Sigma}$ is the conductance tensor, $\Phi$ is the electric potential, $j_\parallel$ is the mapped FAC density with the downward considered positive and corrected for flux tube convergence, and $I$ is the inclination of the dipole field at the ionosphere, $\sin I=\cos(\frac{\pi}{2}-I)=\hat{b}\cdot\hat{r}$. The derivation from the charge conservation can be found in @sec-conductivity. There is another form derived by [Wolf 1983]:
 $$
 \nabla_\perp\cdot
-\begin{pmatrix} \sigma_P/\cos^2\delta & -\sigma_H\cos\delta \\ \sigma_H/\cos\delta & \sigma_P \end{pmatrix} \cdot\nabla_\perp\Phi =
+\begin{pmatrix} \Sigma_P/\cos^2\delta & -\Sigma_H/\cos\delta \\ \Sigma_H/\cos\delta & \Sigma_P \end{pmatrix} \cdot\nabla_\perp\Phi =
 j_\parallel\cos\delta
 $$ {#eq-ionosphere_potential2}
-where $\delta$ is the magnetic field dip angle:
+where $\delta$ is the magnetic field dip angle (the angle between the magnetic field vector and the vertical radial direction):
 $$
 \cos\delta = -2\frac{\cos\theta}{\sqrt{1+3\cos^2\theta}}
 $$
-for the northern hemisphere, where $\theta$ is the polar angle (magnetic colatitude). I DON'T KNOW THE RELATION BETWEEN THESE TWO!
+for the northern hemisphere, where $\theta$ is the polar angle (magnetic colatitude).
+
+The relation between the two forms @eq-ionosphere_potential and @eq-ionosphere_potential2 lies in their coordinate representation of the height-integrated current conservation.
+In @eq-ionosphere_potential, $I$ is the magnetic inclination (the angle the magnetic field makes with the horizontal).
+In @eq-ionosphere_potential2, $\delta$ is the dip angle measured from the vertical (radial direction).
+Since they are complementary, $\cos\delta = \sin I$.
+Thus, the right-hand sides of the two equations are equivalent (subject to the convention for the direction of $j_\parallel$).
+The left-hand side of @eq-ionosphere_potential is written in coordinate-free tensor form, where the conductance tensor $\pmb{\Sigma}$ maps the horizontal electric field to the horizontal current. In the spherical coordinate basis $(\hat{\pmb{\theta}}, \hat{\pmb{\phi}})$ (where $\hat{\pmb{\theta}}$ points southwards and $\hat{\pmb{\phi}}$ points eastwards), the tilted magnetic field yields the horizontal conductance matrix shown in @eq-ionosphere_potential2:
+$$
+\pmb{\Sigma}_h = \begin{pmatrix} \Sigma_P/\cos^2\delta & -\Sigma_H/\cos\delta \\ \Sigma_H/\cos\delta & \Sigma_P \end{pmatrix}
+$$
+*(Note: The top-right term $-\sigma_H\cos\delta$ in the original formulation has been corrected to $-\Sigma_H/\cos\delta$ to maintain proper scaling for the horizontal Hall current and represent height-integrated conductances consistently).*
+Thus, the two equations are completely equivalent representations of the same 2D current conservation equation.
 
 2. @eq-ionosphere_potential is solved on the surface of a sphere $r=r_\text{ion}$. Commonly there are two types of boundary conditions: (1) $\Phi=0$ at the equator [@raeder1995], or (2) constant potential at or near the low‐latitude boundary (e.g. LFM, BATSRUS). From here, one can either choose a static analytic model of Hall and Pederson conductance that accounts for multiple physics, or simply adopt a uniform Pederson conductance, or the height-integrated conductivity, $\Sigma_p = 5\,\text{Siemens}$, while the Hall conductance $\Sigma_H$ is assumed to be zero. The latter one is simplified to solve
 $$
@@ -76,7 +196,7 @@ the plasma to move across the magnetosphere inner boundary. (???) @eq-ionosphere
 $$
 \begin{aligned}
 \frac{1}{\sin\theta}&\frac{\partial}{\partial\theta}\Big[ \sin\theta\frac{\Sigma_P}{\cos^2\delta}\frac{\partial\Phi}{\partial\theta} - \frac{\Sigma_H}{\cos\delta}\frac{\partial\Phi}{\partial\phi} \Big] \\
-+ &\frac{\partial}{\partial\phi}\Big[ \frac{\Sigma_P}{\sin^2\theta}\frac{\partial\Phi}{\partial\phi}+\frac{\Sigma_H}{\sin\theta\cos\theta}\frac{\partial\Phi}{\partial\theta} \Big] = j_\parallel R^2\cos\delta
++ &\frac{\partial}{\partial\phi}\Big[ \frac{\Sigma_P}{\sin^2\theta}\frac{\partial\Phi}{\partial\phi}+\frac{\Sigma_H}{\sin\theta\cos\delta}\frac{\partial\Phi}{\partial\theta} \Big] = j_\parallel R^2\cos\delta
 \end{aligned}
 $$ {#eq-ionosphere_potential2_spherical}
 
