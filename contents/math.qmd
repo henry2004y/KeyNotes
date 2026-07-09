@@ -85,6 +85,75 @@ which characterizes the temporal rate of change seen by an observer moving with 
 
 The convective derivative is sometimes written as $\mathrm{D}/\mathrm{D}t$, which is used to emphasize the fact that the this specific convective derivative is defined using the center-of-mass velocity. Note that $(\mathbf{u}\cdot\nabla)$ is a _scalar_ differential operator.
 
+## Classical Mechanics
+
+### Virial Theorem
+
+For a system of $N$ particles with positions $\mathbf{r}_i$ and momenta $\mathbf{p}_i = m_i\dot{\mathbf{r}}_i$, define the _virial_ (scalar moment of inertia) as
+$$
+G = \sum_{i=1}^{N} \mathbf{p}_i\cdot\mathbf{r}_i
+$$ {#eq-virial-G}
+
+Its total time derivative is
+$$
+\frac{\mathrm{d}G}{\mathrm{d}t} = \sum_i \dot{\mathbf{p}}_i\cdot\mathbf{r}_i + \sum_i \mathbf{p}_i\cdot\dot{\mathbf{r}}_i
+= \sum_i \mathbf{F}_i\cdot\mathbf{r}_i + \sum_i m_i\dot{\mathbf{r}}_i\cdot\dot{\mathbf{r}}_i
+= \sum_i \mathbf{F}_i\cdot\mathbf{r}_i + 2T
+$$ {#eq-virial-deriv}
+where $T = \sum_i \tfrac{1}{2}m_i\dot{\mathbf{r}}_i^2$ is the total kinetic energy and $\mathbf{F}_i = \dot{\mathbf{p}}_i$ is the total force on particle $i$.
+
+_Proof_. The first term follows from $\dot{\mathbf{p}}_i = \mathbf{F}_i$. For the second term,
+$$
+\mathbf{p}_i\cdot\dot{\mathbf{r}}_i = m_i\dot{\mathbf{r}}_i\cdot\dot{\mathbf{r}}_i = m_i\dot{\mathbf{r}}_i^2 = 2\left(\tfrac{1}{2}m_i\dot{\mathbf{r}}_i^2\right),
+$$
+so summing over $i$ gives $2T$. □
+
+For a bound system that is periodic (or in a statistically stationary state), the time average of $\mathrm{d}G/\mathrm{d}t$ vanishes:
+$$
+\left\langle \frac{\mathrm{d}G}{\mathrm{d}t} \right\rangle = 0 \quad\Longrightarrow\quad 2\langle T\rangle = -\left\langle \sum_i \mathbf{F}_i\cdot\mathbf{r}_i \right\rangle
+$$ {#eq-virial-theorem}
+
+If the forces derive from a potential $V$ that is a _homogeneous function of degree $n$_, i.e. $V(\lambda\mathbf{r}) = \lambda^n V(\mathbf{r})$, Euler's homogeneous function theorem gives
+$$
+\sum_i \mathbf{r}_i\cdot\nabla_i V = n V
+$$ {#eq-euler-homogeneous}
+Since $\mathbf{F}_i = -\nabla_i V$, the virial theorem becomes the powerful form
+$$
+2\langle T\rangle = n\langle V\rangle
+$$ {#eq-virial-powerlaw}
+
+The most important special case is the inverse-square law ($n=-1$), which describes Newtonian gravity and the Coulomb force:
+$$
+\boxed{\,2\langle T\rangle = -\langle V\rangle\,}
+\quad\text{or equivalently}\quad
+\langle T\rangle = -\tfrac{1}{2}\langle V\rangle
+$$ {#eq-virial-inversesquare}
+
+_Ex._ For a circular orbit of radius $r$ under gravity, $T = \tfrac{1}{2}mv^2$ and $V = -GMm/r$. Since the centripetal force balances gravity, $mv^2/r = GMm/r^2$, so $T = GMm/(2r) = -\tfrac{1}{2}V$, in agreement with @eq-virial-inversesquare.
+
+_Ex._ Ideal gas law. For an ideal gas the intermolecular forces are negligible, so only the container walls exert forces on the particles. The virial of these wall forces is written as a surface integral:
+$$
+-\left\langle\sum_i \mathbf{F}_i^{\mathrm{wall}}\cdot\mathbf{r}_i\right\rangle
+= \oint_{\partial V} P\,(\mathbf{r}\cdot\hat{\mathbf{n}})\,\mathrm{d}A
+= P\oint_{\partial V} \mathbf{r}\cdot\hat{\mathbf{n}}\,\mathrm{d}A
+= P\int_V \nabla\cdot\mathbf{r}\,\mathrm{d}V
+= 3PV
+$$ {#eq-virial-idealgas}
+where the divergence theorem gives $\nabla\cdot\mathbf{r}=3$ and $P$ is the (uniform) pressure. Substituting this into the virial theorem @eq-virial-theorem yields
+$$
+2\langle T\rangle = 3PV
+$$ {#eq-virial-idealgas2}
+Using the equipartition result $\langle T\rangle = \tfrac{3}{2}Nk_B T$ for a monatomic gas, one immediately recovers the ideal gas law
+$$
+\boxed{\,PV = Nk_B T\,}
+$$
+
+#### Magnetospheric Virial Theorem {#sec-magnetospheric-virial}
+
+The classical virial theorem is also the starting point for the large-scale force balance of the Earth's magnetosphere. _Magnetospheric virial theory_ states that, in steady state, the total thermal/kinetic energy of magnetospheric plasma equals the net change in magnetic energy produced by internal magnetospheric currents relative to the vacuum dipole, with the solar-wind-confining magnetopause contributing only a reference-canceling boundary stress.
+
+This is precisely the same virial construction applied to the plasma momentum equation. It leads directly to the Dessler–Parker–Sckopke (DPS) relation derived in @sec-dps, where the geomagnetic disturbance field at the Earth is shown to be proportional to the kinetic energy of the trapped ring-current plasma.
+
 ## Complex Analysis
 
 In complex analysis, the following statements are equivalent:
