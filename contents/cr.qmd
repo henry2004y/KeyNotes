@@ -27,22 +27,22 @@ where $\int_\Omega \mathrm{d}\Omega = 4\pi$.
 
 The number of particle $\mathrm{d}N$ in $\mathrm{d}^3 r$ within $(p, p+\mathrm{d}p)$ (independent of the direction of $\mathbf{p}$) is
 $$
-\mathrm{d}N = 4\pi p^2 f(\mathbf{r}, p, t)\mathrm{d}^3 r\mathrm{d}p = U_p(\mathbf{r}, p, t)\mathrm{d}^3 r\mathrm{d}p
+\mathrm{d}N = 4\pi p^2 f(\mathbf{r}, p, t)\mathrm{d}^3 r\mathrm{d}p = n_p(\mathbf{r}, p, t)\mathrm{d}^3 r\mathrm{d}p
 $$
-where we define the differential number density $U_p$ as the number of particles in $\mathrm{d}^3 r$ about $\mathbf{r}$ with momentum in the interval $(p, p+\mathrm{d}p)$ as
+where we define the differential number density $n_p$ as the number of particles in $\mathrm{d}^3 r$ about $\mathbf{r}$ with momentum in the interval $(p, p+\mathrm{d}p)$ as
 $$
-U_p(\mathbf{r}, p, t) = 4\pi p^2 f(\mathbf{r}, p, t)
+n_p(\mathbf{r}, p, t) = 4\pi p^2 f(\mathbf{r}, p, t)
 $$
-with units of [particles per volume].
+with units of [particles per volume per unit momentum]. Note that some authors (e.g. the CERN handouts by Riaan Steenkamp) denote this quantity $U_p$.
 
-Detectors do not measure $U_p$, but rather differential intensity. If particle velocity has magnitude $v$, the differential intensity is
+Detectors do not measure $n_p$, but rather differential intensity. If particle velocity has magnitude $v$, the differential intensity is
 $$
-j_p = v\, U_p
+j_p = v\, n_p
 $$
 with units of [particles / unit momentum / unit area / unit time] that goes from all directions through the detector.
 This is usually normalized w.r.t. unit space angle
 $$
-j_p = \frac{v\, U_p}{4\pi}
+j_p = \frac{v\, n_p}{4\pi}
 $$
 with units of [particles / unit momentum / unit area / unit time / unit radian]. In practice we measure particles w.r.t. kinetic energy intervals $\mathrm{d}T$ but not momentum intervals $\mathrm{d}p$.
 
@@ -69,9 +69,9 @@ $$
 
 Now we can summarize the following important relations
 $$
-j_T = \frac{U_p}{4\pi} = p^2 f(\mathbf{r}, p, t)
+j_T = \frac{n_p}{4\pi} = p^2 f(\mathbf{r}, p, t)
 $$
-That is, the differential intensity measured by experimentalists has simple relationship to quantities $U_p$ and $f$ used by theorteticians.
+That is, the differential intensity measured by experimentalists has simple relationship to quantities $n_p$ and $f$ used by theorteticians.
 
 ## CR Continuity Equations
 
@@ -153,13 +153,13 @@ and finally we have
 $$
 4\pi \frac{\mathrm{d}f}{\mathrm{d}t} = 4\pi \frac{\partial f}{\partial t} + 4\pi \nabla\cdot \left( \left< \mathbf{v} \right> f \right) + \frac{4\pi}{p^2}\frac{\partial}{\partial p}\left( p^2\left<\dot{p}\right> f \right)
 $$
-or by using $U_p=4\pi p^2 f$ we have
+or by using $n_p=4\pi p^2 f$ we have
 $$
-\frac{\mathrm{d}U_p}{\mathrm{d}t} = \frac{\partial U_p}{\partial t} + \nabla\cdot\mathbf{S}_p + \frac{\partial}{\partial p}\left( \left< \dot{p} \right> U_p \right)
+\frac{\mathrm{d}n_p}{\mathrm{d}t} = \frac{\partial n_p}{\partial t} + \nabla\cdot\mathbf{S}_p + \frac{\partial}{\partial p}\left( \left< \dot{p} \right> n_p \right)
 $$
-where $\mathbf{S}_p = \left< \mathbf{v} \right> U_p$ is the differential flux. Normally $\frac{\mathrm{d}U_p}{\mathrm{d}t} = 0$ and the above is simply a continuity equation. If there exist a source or sink $Q_p$, one can write
+where $\mathbf{S}_p = \left< \mathbf{v} \right> n_p$ is the differential flux. Normally $\frac{\mathrm{d}n_p}{\mathrm{d}t} = 0$ and the above is simply a continuity equation. If there exist a source or sink $Q_p$, one can write
 $$
-\frac{\partial U_p}{\partial t} + \nabla\cdot\mathbf{S}_p + \frac{\partial}{\partial p}\left( \left< \dot{p} \right> U_p \right) = Q_p
+\frac{\partial n_p}{\partial t} + \nabla\cdot\mathbf{S}_p + \frac{\partial}{\partial p}\left( \left< \dot{p} \right> n_p \right) = Q_p
 $$ {#eq-cr-transport}
 The abovementioned cosmic-ray continuity equation is often called the **transport equation**.
 
@@ -169,52 +169,173 @@ Assumptions for the Parker Transport Equation:
 
 - Guiding Center Approximation: Cosmic rays gyrate rapidly around magnetic field lines. We are interested in the motion of their guiding centers.
 - Diffusion Approximation: Scattering is frequent enough that the distribution function $f$ is nearly isotropic in the local plasma rest frame.
-- Solar Wind Frame: We often work in a frame moving with the solar wind (or background plasma) velocity $V_\text{sw}$.
-- Negligible Large-Scale Electric Field in Solar Wind Frame: In the frame co-moving with a perfectly conducting solar wind, the large-scale electric field is typically assumed to be zero, i.e., $\mathbf{E}^\prime = \mathbf{E} + \mathbf{V}_\text{sw} \times \mathbf{B} \approx 0$. This means $\mathbf{E}\approx -\mathbf{V}_\text{sw} \times \mathbf{B}$.
-- Omnidirectional Distribution Function: We are often interested in the omnidirectional distribution function $f_0(x,p,t)$, which is $f$ averaged over all momentum directions in the plasma frame. Or, more commonly, the differential number density $U_p( 
-x,p,t)=4\pi p^2\,f_0​(x,p,t)$ (number of particles per unit volume per unit momentum magnitude) or $N(x,T,t)$ (differential intensity w.r.t. kinetic energy $T$).
+- Solar Wind Frame: We often work in a frame moving with the solar wind (or background plasma) velocity $\mathbf{U}_\text{sw}$.
+- Negligible Large-Scale Electric Field in Solar Wind Frame: In the frame co-moving with a perfectly conducting solar wind, the large-scale electric field is typically assumed to be zero, i.e., $\mathbf{E}^\prime = \mathbf{E} + \mathbf{U}_\text{sw} \times \mathbf{B} \approx 0$. This means $\mathbf{E}\approx -\mathbf{U}_\text{sw} \times \mathbf{B}$.
+- Omnidirectional Distribution Function: We are often interested in the omnidirectional distribution function $f_0(\mathbf{x},p,t)$, which is $f$ averaged over all momentum directions in the plasma frame. Or, more commonly, the differential number density $n_p(\mathbf{x},p,t)=4\pi p^2\,f_0(\mathbf{x},p,t)$ (number of particles per unit volume per unit momentum magnitude) or $N(\mathbf{x},T,t)$ (differential intensity w.r.t. kinetic energy $T$).
 
-In the lab frame, due to streaming and diffusion, the distribution function f is not perfectly isotropic. We can expand it as:
+In the lab frame, due to streaming and diffusion, the distribution function $f$ is not perfectly isotropic. We can expand it as:
 $$
-f(\mathbf{x}, p, t) = f_0(\mathbf{x}, p, t) + f_1(\mathbf{x}, p, t) + ...
+f(\mathbf{x}, \mathbf{p}, t) = f_0(\mathbf{x}, p, t) + f_1(\mathbf{x}, \mathbf{p}, t) + ...
 $$
-where $f_0$ is the isotropic part and $f_1$ is the first-order anisotropy.
+where $f_0$ is the isotropic part and $f_1$ is the first-order anisotropy,
 $$
 f_1 = -\frac{\mathbf{p}}{p}\cdot \pmb{\xi}(\mathbf{x}, p, t)
-$$
-where $\pmb{\xi}$ is the anisotropy vector. The particle flux (or streaming) $\mathbf{S}_\text{cr}$ is related to this anisotropy.
+$$ {#eq-cr-anisotropy}
+where $\pmb{\xi}$ is the anisotropy vector. The particle flux (or streaming) $\mathbf{S}_\text{cr}$ is related to this anisotropy; see @sec-parker-derivation.
 
-The collision term describes the scattering of cosmic rays by magnetic field irregularities. In the diffusion approximation, this scattering tends to isotropize the distribution in the plasma rest frame. This process leads to spatial diffusion. The diffusive flux $S_\text{diff}$ in the plasma frame is given by Fick's law:
+The collision term describes the scattering of cosmic rays by magnetic field irregularities. In the diffusion approximation, this scattering tends to isotropize the distribution in the plasma rest frame. This process leads to spatial diffusion. The diffusive flux $\mathbf{S}_\text{diff}$ in the plasma frame is given by Fick's law:
 $$
-\mathbf{S}_\text{diff} = - \overleftrightarrow{K}\cdot\nabla U_p
+\mathbf{S}_\text{diff} = - \pmb{\kappa}\cdot\nabla f_0
 $$
-where $U_p$ is the cosmic ray density (related to $f_0$) and $\overleftrightarrow{K}$ is the diffusion tensor. The diffusion tensor is generally anisotropic:
+where $\pmb{\kappa}$ is the diffusion tensor. In terms of the differential number density $n_p = 4\pi p^2 f_0$ the same relation reads $\mathbf{S}_p = -\pmb{\kappa}\cdot\nabla n_p$. The diffusion tensor is generally anisotropic:
 $$
-K_{ij} = K_\parallel b_i b_j + K_\perp(\delta_{ij} - b_i b_j) + K_A \epsilon_{ijk} b_k
+\kappa_{ij} = \kappa_\parallel b_i b_j + \kappa_\perp(\delta_{ij} - b_i b_j) + \kappa_A \epsilon_{ijk} b_k
 $$
 
-- $K_\parallel$ is the diffusion coefficient parallel to the mean magnetic field direction $\mathbf{b}$.
-- $K_\perp$ is the diffusion perpendicular to $\mathbf{b}$.
-- $K_A$ is the antisymmetric part of the diffusion tensor describing gradient and curvature drifts.
+- $\kappa_\parallel$ is the diffusion coefficient parallel to the mean magnetic field direction $\mathbf{b}$.
+- $\kappa_\perp$ is the diffusion coefficient perpendicular to $\mathbf{b}$.
+- $\kappa_A$ is the antisymmetric part of the diffusion tensor describing gradient and curvature drifts.
 
-Starting from the kinetic equation and averaging over pitch angle (assuming near isotropy in the plasma frame), one can derive an equation for $f_0$. This is a lengthy process (e.g., see Schlickeiser 2002, "Cosmic Ray Astrophysics" or Parker 1965). The key steps involve:
+Starting from the kinetic equation and averaging over pitch angle (assuming near isotropy in the plasma frame), one can derive an equation for $f_0$. This is a lengthy process (e.g., see Schlickeiser 2002, "Cosmic Ray Astrophysics", or Parker 1965). The key steps are
 
-- Transforming the kinetic equation to the plasma frame.
-- Expanding $f$ in momentum space in the plasma frame ($f=f_0 + f_1 + ...$).
-- The zeroth moment (integration over solid angle in momentum) of the kinetic equation gives the transport equation.
-- The first moment gives a relation for the anisotropic part $f_1$ (streaming).
+- transforming the kinetic equation to the plasma frame;
+- expanding $f$ in momentum space in the plasma frame ($f = f_0 + f_1 + ...$);
+- taking the zeroth moment (integration over solid angle in momentum) of the kinetic equation, which gives the transport equation;
+- taking the first moment, which gives a relation for the anisotropic part $f_1$ (streaming).
+
+These steps are spelled out in @sec-parker-derivation.
+
+### Derivation of the Parker Transport Equation {#sec-parker-derivation}
+
+Parker's transport equation describes the phase-space evolution of energetic charged particles (such as cosmic rays) scattered by magnetic fluctuations in a background plasma moving at a bulk velocity $\mathbf{U}(\mathbf{x}, t)$. The standard derivation proceeds by formulating the kinetic equation in mixed coordinates, applying a quasi-isotropic pitch-angle expansion, and taking angular moments.
+
+**1. Kinetic equation in mixed coordinates**
+
+Let $\mathbf{x}$ and $t$ be the position and time in the fixed observer (inertial) frame, and $\mathbf{p} = \gamma m\mathbf{v}$ the relativistic particle momentum, where $m$ is the particle rest mass, $\mathbf{v}$ its velocity, and $\gamma = (1 - v^2/c^2)^{-1/2}$ the Lorentz factor. Because pitch-angle scattering by magnetic turbulence acts primarily to isotropize particles in the local rest frame of the plasma, the particle momentum $\mathbf{p}$ is evaluated in the co-moving fluid frame.
+
+Under the non-relativistic flow approximation ($U \ll c$ and $U \ll v$, where $v$ is the particle speed), the transformation between the observer-frame momentum $\mathbf{p}_\text{obs}$ and the fluid-frame momentum $\mathbf{p}$ is given, to first order in $U/v$, by
+$$
+\mathbf{p}_\text{obs} = \mathbf{p} + \gamma m \mathbf{U}
+$$
+where the coefficient $\gamma m = E/c^2$ reduces to $m$ for non-relativistic particles. The evolution of the distribution function $f(\mathbf{x}, \mathbf{p}, t)$ in these mixed coordinates obeys
+$$
+\frac{\partial f}{\partial t} + (\mathbf{U} + \mathbf{v})\cdot\nabla f + \dot{\mathbf{p}}\cdot\nabla_{\mathbf{p}} f = \left( \frac{\delta f}{\delta t} \right)_\text{coll}
+$$ {#eq-cr-kinetic-mixed}
+The inertial force entering the co-moving momentum equation is
+$$
+\dot{\mathbf{p}} = -\gamma m \frac{\mathrm{d}\mathbf{U}}{\mathrm{d}t} \approx -\gamma m \left( \frac{\partial \mathbf{U}}{\partial t} + (\mathbf{v}\cdot\nabla)\mathbf{U} \right)
+$$
+For high-energy particles with $v \gg U$, the spatial gradient term $(\mathbf{v}\cdot\nabla)\mathbf{U}$ dominates, and since $\mathbf{p} = \gamma m\mathbf{v}$,
+$$
+\dot{\mathbf{p}} = -(\mathbf{p}\cdot\nabla)\mathbf{U}
+$$
+The kinetic equation becomes
+$$
+\frac{\partial f}{\partial t} + (\mathbf{U} + \mathbf{v})\cdot\nabla f - \left[ (\mathbf{p}\cdot\nabla)\mathbf{U} \right]\cdot\frac{\partial f}{\partial \mathbf{p}} = \left( \frac{\delta f}{\delta t} \right)_\text{coll}
+$$ {#eq-cr-kinetic-mixed-force}
+
+**2. Pitch-angle expansion**
+
+In the presence of frequent pitch-angle scattering, the distribution function remains nearly isotropic in the fluid frame. Expanding $f(\mathbf{x}, \mathbf{p}, t)$ in spherical harmonics up to the first anisotropy (dipole moment) yields
+$$
+f(\mathbf{x}, \mathbf{p}, t) \approx f_0(\mathbf{x}, p, t) + \hat{\mathbf{p}}\cdot\mathbf{f}_1(\mathbf{x}, p, t)
+$$
+where $\hat{\mathbf{p}} = \mathbf{p}/p$, $f_0 = \left< f \right> = \frac{1}{4\pi}\int f\,\mathrm{d}\Omega$ is the isotropic part, and $\vert\mathbf{f}_1\vert \ll f_0$. Comparing with the expansion of @eq-cr-anisotropy, the anisotropy vector introduced there is $\pmb{\xi} = -\mathbf{f}_1$.
+
+We model the scattering term with a pitch-angle diffusion operator, or in a relaxation-time approximation,
+$$
+\left( \frac{\delta f}{\delta t} \right)_\text{coll} \approx -\nu\,\hat{\mathbf{p}}\cdot\mathbf{f}_1
+$$
+where $\nu(p)$ is the effective collision frequency for scattering. The relaxation-time form already yields the correct structure; solving the full pitch-angle diffusion operator only modifies the numerical relation between $\nu$ and the spatial diffusion coefficient.
+
+**3. Zeroth and first moments**
+
+We evaluate the angular average $\left< \dots \right> \equiv \frac{1}{4\pi}\int \dots \,\mathrm{d}\Omega$ over momentum directions $\hat{\mathbf{p}}$, using the identities
+$$
+\left< \hat{p}_i \right> = 0, \quad \left< \hat{p}_i \hat{p}_j \right> = \frac{1}{3}\delta_{ij}, \quad \left< \hat{p}_i \hat{p}_j \hat{p}_k \right> = 0
+$$
+
+**Averaging rules: what is averaged and what is not.** This is the step where most of the confusion arises, so we state the rules explicitly before using them:
+
+- The average is over the momentum *direction* $\hat{\mathbf{p}}$ only. Everything independent of $\hat{\mathbf{p}}$ passes through it unchanged: the position $\mathbf{x}$, the time $t$, the momentum magnitude $p$, the isotropic part $f_0$, the bulk velocity $\mathbf{U}$ together with its spatial derivatives, and the dipole vector $\mathbf{f}_1$ (which depends on $\mathbf{x}$, $p$, $t$ but not on $\hat{\mathbf{p}}$). For any such quantity $A$ and any function of direction $g(\hat{\mathbf{p}})$, we have $\left< A\,g(\hat{\mathbf{p}}) \right> = A\left< g(\hat{\mathbf{p}}) \right>$.
+- Angular dependence enters in exactly three places: the explicit $\hat{\mathbf{p}}$ factors of the expansion, the particle velocity $\mathbf{v} = v\hat{\mathbf{p}}$, and derivatives with respect to $\mathbf{p}$.
+- Spatial gradients act on the $\mathbf{x}$ dependence and never on $\hat{\mathbf{p}}$; the $\hat{\mathbf{p}}$ factors are spectators and are simply pulled out of the average, e.g. $\nabla_i\left( f_0 + \hat{p}_j f_{1,j} \right) = \nabla_i f_0 + \hat{p}_j\nabla_i f_{1,j}$.
+- Momentum-space gradients behave differently. Since $f_0$ depends on $\mathbf{p}$ only through its magnitude $p = \vert\mathbf{p}\vert$, the chain rule generates a factor of $\hat{\mathbf{p}}$,
+$$
+\frac{\partial f_0}{\partial p_k} = \frac{\partial p}{\partial p_k}\frac{\partial f_0}{\partial p} = \hat{p}_k\frac{\partial f_0}{\partial p}
+$$
+In other words, $\partial/\partial\mathbf{p}$ acting on an isotropic function still produces a dipole ($\hat{\mathbf{p}}$-dependent) result, whereas $\nabla$ acting on the same function does not. Missing this factor is the most common error in the derivation.
+- Only even powers of $\hat{\mathbf{p}}$ survive; every odd moment vanishes. Hence any term with a single uncontracted $\hat{\mathbf{p}}$ drops out of the zeroth moment, while terms with three powers of $\hat{\mathbf{p}}$ drop out of the first moment. This is why the hierarchy closes exactly at first order in the anisotropy: the second-order (quadrupole) terms never enter the equations for $f_0$ and $\mathbf{f}_1$.
+
+**The zeroth moment (isotropic part).** Averaging @eq-cr-kinetic-mixed-force over all solid angles gives
+$$
+\left< \frac{\partial f}{\partial t} \right> + \mathbf{U}\cdot\nabla\left< f \right> + \left< \mathbf{v}\cdot\nabla f \right> - \left< \left[ (\mathbf{p}\cdot\nabla)\mathbf{U} \right]\cdot\frac{\partial f}{\partial \mathbf{p}} \right> = 0
+$$
+The convection term is essentially untouched by the averaging: since $\mathbf{U}$ and $\nabla$ carry no $\hat{\mathbf{p}}$ dependence, we simply have $\left< \mathbf{U}\cdot\nabla f \right> = \mathbf{U}\cdot\nabla\left< f \right> = \mathbf{U}\cdot\nabla f_0$, because $\left< \hat{\mathbf{p}} \right> = 0$ removes the dipole part. The remaining two terms are evaluated as follows:
+
+- $\left< \mathbf{v}\cdot\nabla f \right> = \left< v\hat{p}_i \nabla_i \left( f_0 + \hat{p}_j f_{1,j} \right) \right> = v\left< \hat{p}_i \right>\nabla_i f_0 + v\left< \hat{p}_i\hat{p}_j \right>\nabla_i f_{1,j} = \frac{v}{3}\nabla\cdot\mathbf{f}_1$, i.e. only the streaming of the dipole survives;
+- for the momentum derivative, writing $\left[ (\mathbf{p}\cdot\nabla)\mathbf{U} \right]_k = p\hat{p}_i\,\partial U_k/\partial x_i$ with $\partial U_k/\partial x_i$ independent of $\hat{\mathbf{p}}$, and using $\partial f_0/\partial p_k = \hat{p}_k\,\partial f_0/\partial p$ for the isotropic part,
+$$
+\left< p\,\hat{p}_i \frac{\partial U_k}{\partial x_i} \frac{\partial f}{\partial p_k} \right> \approx \frac{\partial U_k}{\partial x_i} \left< \hat{p}_i \hat{p}_k \right> p\frac{\partial f_0}{\partial p} = \frac{1}{3}(\nabla\cdot\mathbf{U})\,p\frac{\partial f_0}{\partial p}
+$$
+where the contribution from $\partial(\hat{\mathbf{p}}\cdot\mathbf{f}_1)/\partial p_k$ is dropped because it is smaller by $\mathcal{O}(f_1/f_0)$.
+
+The zeroth-moment equation therefore reduces to
+$$
+\frac{\partial f_0}{\partial t} + \mathbf{U}\cdot\nabla f_0 + \frac{v}{3}\nabla\cdot\mathbf{f}_1 - \frac{1}{3}(\nabla\cdot\mathbf{U})\,p\frac{\partial f_0}{\partial p} = 0
+$$ {#eq-cr-zeroth-moment}
+which already has the structure of the transport equation, except that the flux $\frac{v}{3}\mathbf{f}_1$ is still unknown.
+
+**The first moment (dipole anisotropy).** Multiplying @eq-cr-kinetic-mixed-force by $\hat{\mathbf{p}}$ and averaging over solid angle, we balance the streaming of the isotropic part against the scattering term. All other contributions are discarded, and it is worth listing why:
+
+- $\left< \hat{\mathbf{p}}\,\partial f/\partial t \right> = \frac{1}{3}\partial\mathbf{f}_1/\partial t$ is dropped: the anisotropy relaxes on the scattering time $1/\nu$, which is much shorter than the transport time scale on which $f_0$ evolves, so $\mathbf{f}_1$ is quasi-steady;
+- $\left< \hat{\mathbf{p}}\left( \mathbf{U}\cdot\nabla f \right) \right> = \frac{1}{3}\left( \mathbf{U}\cdot\nabla \right)\mathbf{f}_1$ is of order $\mathcal{O}(U/v\cdot f_1)$ and dropped;
+- $\left< \hat{\mathbf{p}}\left( \mathbf{v}\cdot\nabla \right)\left( \hat{\mathbf{p}}\cdot\mathbf{f}_1 \right) \right> \propto \left< \hat{p}_i\hat{p}_j\hat{p}_k \right> = 0$ vanishes identically, so no quadrupole term is generated;
+- the inertial term $\left< \hat{\mathbf{p}}\left[ (\mathbf{p}\cdot\nabla)\mathbf{U} \right]\cdot\partial f/\partial\mathbf{p} \right>$ either vanishes as an odd moment (for the $f_0$ part) or is smaller by $\mathcal{O}(U/v)$, and is likewise dropped.
+
+What remains is the streaming of the isotropic part balanced by collisions,
+$$
+\left< \hat{\mathbf{p}}\left( \mathbf{v}\cdot\nabla f_0 \right) \right> = \frac{v}{3}\nabla f_0 = -\nu\left< \hat{\mathbf{p}}\left( \hat{\mathbf{p}}\cdot\mathbf{f}_1 \right) \right> = -\frac{\nu}{3}\mathbf{f}_1
+$$
+Solving for $\mathbf{f}_1$,
+$$
+\mathbf{f}_1 = -\frac{v}{\nu}\nabla f_0
+$$
+The spatial diffusion coefficient is defined as $\kappa = \frac{v^2}{3\nu}$. In a magnetized plasma with anisotropic scattering and magnetic drifts this generalizes to the diffusion tensor $\pmb{\kappa}$, so that
+$$
+\frac{v}{3}\mathbf{f}_1 = -\pmb{\kappa}\cdot\nabla f_0
+$$
+Multiplying by $4\pi p^2$ gives the particle flux $\mathbf{S}_p = 4\pi p^2\frac{v}{3}\mathbf{f}_1 = -\pmb{\kappa}\cdot\nabla n_p$, which is exactly Fick's law above, with $\pmb{\xi} = -\mathbf{f}_1 = \frac{3}{v}\pmb{\kappa}\cdot\nabla f_0$.
+
+**4. Parker's transport equation**
+
+Substituting $\frac{v}{3}\mathbf{f}_1 = -\pmb{\kappa}\cdot\nabla f_0$ into the zeroth-moment equation gives
+$$
+\frac{\partial f_0}{\partial t} + \mathbf{U}\cdot\nabla f_0 = \nabla\cdot\left( \pmb{\kappa}\cdot\nabla f_0 \right) + \frac{1}{3}(\nabla\cdot\mathbf{U})\,p\frac{\partial f_0}{\partial p}
+$$
+or, in conservative flux form,
+$$
+\frac{\partial f_0}{\partial t} = \nabla\cdot\left( \pmb{\kappa}\cdot\nabla f_0 - \mathbf{U}f_0 \right) + \frac{1}{3}(\nabla\cdot\mathbf{U})\frac{1}{p^2}\frac{\partial}{\partial p}\left( p^3 f_0 \right) + Q
+$$
+where $Q(\mathbf{x}, p, t)$ is a local source (or injection) term.
+
+**Physical interpretation of the terms**
+
+- $\nabla\cdot\left( \pmb{\kappa}\cdot\nabla f_0 \right)$: spatial diffusion caused by resonant pitch-angle scattering off magnetic irregularities (together with drift and perpendicular transport).
+- $\mathbf{U}\cdot\nabla f_0$: convection of particles by the bulk fluid flow.
+- $\frac{1}{3}(\nabla\cdot\mathbf{U})\,p\frac{\partial f_0}{\partial p}$: adiabatic energy change. For expanding flows ($\nabla\cdot\mathbf{U} > 0$), such as the solar wind, this represents adiabatic deceleration; at shocks, where $\nabla\cdot\mathbf{U} < 0$, it provides diffusive shock acceleration.
 
 A common form of the Parker Transport Equation for the omnidirectional distribution function $f_0(\mathbf{x}, p, t)$ is
 $$
 \begin{aligned}
-\frac{\partial f}{\partial t} + (\mathbf{V} + \mathbf{V}_d)\cdot\nabla f - \frac{1}{3}\nabla\cdot\mathbf{V}\frac{\partial f}{\partial \ln{p}} = \nabla\cdot \left( \overleftrightarrow{K} \cdot\nabla f \right) + Q
+\frac{\partial f_0}{\partial t} + (\mathbf{U} + \mathbf{V}_d)\cdot\nabla f_0 - \frac{1}{3}\nabla\cdot\mathbf{U}\frac{\partial f_0}{\partial \ln{p}} = \nabla\cdot \left( \pmb{\kappa} \cdot\nabla f_0 \right) + Q
 \end{aligned}
-$$
-where $f(\mathbf{x}, p, t)$ is the particle distribution function as a function of the particle position $\mathbf{x}$, momentum $p$ (isotropic momentum assumed), and time $t$; $\overleftrightarrow{K}$ is the spatial diffusion coefficient tensor, $\mathbf{V}$ is the bulk plasma velocity, $\mathbf{V}_d = \frac{pv}{3q}\nabla\times\left( \mathbf{B}/B^2 \right)$ is the particle drift, where $p=\gamma m v$ is particle momentum and $q$ is particle charge.[^form] The factor $1/3$ comes from averaging over an isotropic pitch-angle distribution. Note that This is for an isotropic distribution; this term is sometimes incorporated into the anti-symmetric part ($K_A$) of the diffusion tensor $\overleftrightarrow{K}$. If so, the diffusion term becomes $\nabla\cdot\left( \overleftrightarrow{K}_s\cdot\nabla f_0 - \left< v_D \right> f_0 \right)$ where $\overleftrightarrow{K}_s$ is the symmetric part.
+$$ {#eq-parker-transport}
+where $f_0(\mathbf{x}, p, t)$ is the omnidirectional distribution function as a function of the particle position $\mathbf{x}$, the momentum magnitude $p$ (isotropic momentum assumed), and time $t$; $\pmb{\kappa}$ is the spatial diffusion coefficient tensor, $\mathbf{U}$ is the bulk plasma velocity, and $\mathbf{V}_d = \frac{pv}{3q}\nabla\times\left( \mathbf{B}/B^2 \right)$ is the particle drift velocity, where $p=\gamma m v$ is the particle momentum and $q$ its charge.[^form] The factor $1/3$ comes from averaging over an isotropic pitch-angle distribution. Note that this drift term is sometimes incorporated into the antisymmetric part ($\kappa_A$) of the diffusion tensor $\pmb{\kappa}$. If so, the diffusion term becomes $\nabla\cdot\left( \pmb{\kappa}_s\cdot\nabla f_0 - \left< \mathbf{v}_D \right> f_0 \right)$, where $\pmb{\kappa}_s$ is the symmetric part.
 
-- $\frac{1}{3}\nabla\cdot\mathbf{V}\frac{\partial f}{\partial \ln{p}}$ is the adiabatic energy change. The sign of $\nabla\cdot\mathbf{V}$ reflects whether cosmic rays lose or gain energy from the compression of the solar wind plasma.
+- $\frac{1}{3}\nabla\cdot\mathbf{U}\frac{\partial f_0}{\partial \ln{p}}$ is the adiabatic energy change. The sign of $\nabla\cdot\mathbf{U}$ reflects whether cosmic rays lose or gain energy from the compression of the solar wind plasma.
 
-[^form]: This is the form given in the [GPAT model](https://stochastic-parker.readthedocs.io/en/latest/theory/parker_intro.html). Riaan Steenkamp shows a slightly different version for the guiding center drift in his notes which absorbs the adiabatic energy change into the diffusion tensor. Also note that $\frac{\partial f}{\partial \ln{p}} = p\partial f_0 / \partial p$.
+[^form]: This is the form given in the [GPAT model](https://stochastic-parker.readthedocs.io/en/latest/theory/parker_intro.html). Riaan Steenkamp shows a slightly different version for the guiding center drift in his notes which absorbs the adiabatic energy change into the diffusion tensor. Also note that $\frac{\partial f_0}{\partial \ln{p}} = p\,\partial f_0 / \partial p$.
 
 ## Quasilinear Theory
 
