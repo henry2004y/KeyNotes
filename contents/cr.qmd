@@ -211,25 +211,43 @@ Parker's transport equation describes the phase-space evolution of energetic cha
 
 **1. Kinetic equation in mixed coordinates**
 
-Let $\mathbf{x}$ and $t$ be the position and time in the fixed observer (inertial) frame, and $\mathbf{p} = \gamma m\mathbf{v}$ the relativistic particle momentum, where $m$ is the particle rest mass, $\mathbf{v}$ its velocity, and $\gamma = (1 - v^2/c^2)^{-1/2}$ the Lorentz factor. Because pitch-angle scattering by magnetic turbulence acts primarily to isotropize particles in the local rest frame of the plasma, the particle momentum $\mathbf{p}$ is evaluated in the co-moving fluid frame.
+Let $\mathbf{x}$ and $t$ denote the position and time in the fixed observer (inertial) frame, and let $\mathbf{p} = \gamma m\mathbf{v}$ denote the relativistic particle momentum evaluated in the local rest frame of the plasma, where $m$ is the particle rest mass, $\mathbf{v}$ is the particle velocity in the fluid frame, and $\gamma = (1 - v^2/c^2)^{-1/2}$ the corresponding Lorentz factor. The fluid frame is chosen because resonant pitch-angle scattering off magnetic turbulence acts primarily to isotropize energetic particles with respect to the moving plasma.
 
-Under the non-relativistic flow approximation ($U \ll c$ and $U \ll v$, where $v$ is the particle speed), the transformation between the observer-frame momentum $\mathbf{p}_\text{obs}$ and the fluid-frame momentum $\mathbf{p}$ is given, to first order in $U/v$, by
+Assuming non-relativistic background flows ($U \ll c$) and particles with speeds well exceeding the flow speed ($U \ll v$), the Lorentz transformation between the observer-frame momentum $\mathbf{p}_\text{obs}$ and the fluid-frame momentum $\mathbf{p}$ reduces, to first order in $U/v$, to
 $$
-\mathbf{p}_\text{obs} = \mathbf{p} + \gamma m \mathbf{U}
+\mathbf{p}_\text{obs} \approx \mathbf{p} + \frac{E}{c^2}\mathbf{U} = \mathbf{p} + \gamma m\mathbf{U}
 $$
-where the coefficient $\gamma m = E/c^2$ reduces to $m$ for non-relativistic particles. The evolution of the distribution function $f(\mathbf{x}, \mathbf{p}, t)$ in these mixed coordinates obeys
+where $E = \gamma mc^2$ is the particle energy in the fluid frame. Differentiating this relation along the particle orbit gives the rate of change of the momentum in the fluid frame,
+$$
+\dot{\mathbf{p}} = \frac{\mathrm{d}\mathbf{p}_\text{obs}}{\mathrm{d}t} - \gamma m\frac{\mathrm{d}\mathbf{U}}{\mathrm{d}t}
+$$ {#eq-cr-pdot-mixed}
+In the inertial frame the particle motion obeys the exact Lorentz force equation,
+$$
+\frac{\mathrm{d}\mathbf{p}_\text{obs}}{\mathrm{d}t} = q\left( \mathbf{E}_\text{obs} + \mathbf{v}_\text{obs}\times\mathbf{B} \right)
+$$
+Under the ideal MHD approximation the electric field vanishes in the local plasma rest frame ($\mathbf{E}^\prime = 0$), so the observer-frame electric field is purely inductive, $\mathbf{E}_\text{obs} = -\mathbf{U}\times\mathbf{B}$. Substituting $\mathbf{v}_\text{obs} \approx \mathbf{v} + \mathbf{U}$ into the Lorentz force yields
+$$
+\frac{\mathrm{d}\mathbf{p}_\text{obs}}{\mathrm{d}t} = q\left( -\mathbf{U}\times\mathbf{B} + \left( \mathbf{v} + \mathbf{U} \right)\times\mathbf{B} \right) = q\left( \mathbf{v}\times\mathbf{B} \right)
+$$
+The macroscopic motional electric field therefore cancels completely. Since $q(\mathbf{v}\times\mathbf{B})$ is strictly perpendicular to the fluid-frame velocity $\mathbf{v}$, it performs no work on the particle in the fluid frame and cannot change the momentum magnitude $p = \vert\mathbf{p}\vert$.
+
+Decomposing the field into a large-scale guide field and turbulent fluctuations, $\mathbf{B} = \mathbf{B}_0 + \delta\mathbf{B}$, the two magnetic contributions are treated differently. The large-scale part $q(\mathbf{v}\times\mathbf{B}_0)$ merely produces the gyration about the mean field: it rotates $\hat{\mathbf{p}}$ at fixed $p$, and at the guiding-center level its net effect belongs to the drift and to the perpendicular diffusion coefficients. The rapid stochastic deflections produced by $\delta\mathbf{B}$ are instead separated from the smooth phase-space advection and absorbed into an effective collision operator on the right-hand side,
+$$
+-q\left( \mathbf{v}\times\delta\mathbf{B} \right)\cdot\frac{\partial f}{\partial \mathbf{p}} \longrightarrow \left( \frac{\delta f}{\delta t} \right)_\text{coll}
+$$
+The remaining secular momentum variation in @eq-cr-pdot-mixed is thus driven entirely by the inertial force arising from spatial variations of the background flow,
+$$
+\dot{\mathbf{p}}_\text{inertial} = -\gamma m\frac{\mathrm{d}\mathbf{U}}{\mathrm{d}t} = -\gamma m\left[ \frac{\partial \mathbf{U}}{\partial t} + \left( \mathbf{v}_\text{obs}\cdot\nabla \right)\mathbf{U} \right]
+$$
+For high-energy particles with $v \gg U$, the rate at which the particle sweeps through the fluid gradients exceeds the local fluid acceleration rate, so that $\mathrm{d}\mathbf{U}/\mathrm{d}t \approx (\mathbf{v}\cdot\nabla)\mathbf{U}$; using $\mathbf{p} = \gamma m\mathbf{v}$, this inertial rate simplifies to
+$$
+\dot{\mathbf{p}} = -(\mathbf{p}\cdot\nabla)\mathbf{U}
+$$ {#eq-cr-pdot-inertial}
+Collecting the spatial transport along $\mathbf{v}_\text{obs} = \mathbf{U} + \mathbf{v}$, the inertial force in momentum space, and the turbulent scattering operator, the kinetic equation in mixed coordinates is
 $$
 \frac{\partial f}{\partial t} + (\mathbf{U} + \mathbf{v})\cdot\nabla f + \dot{\mathbf{p}}\cdot\nabla_{\mathbf{p}} f = \left( \frac{\delta f}{\delta t} \right)_\text{coll}
 $$ {#eq-cr-kinetic-mixed}
-The inertial force entering the co-moving momentum equation is
-$$
-\dot{\mathbf{p}} = -\gamma m \frac{\mathrm{d}\mathbf{U}}{\mathrm{d}t} \approx -\gamma m \left( \frac{\partial \mathbf{U}}{\partial t} + (\mathbf{v}\cdot\nabla)\mathbf{U} \right)
-$$
-For high-energy particles with $v \gg U$, the spatial gradient term $(\mathbf{v}\cdot\nabla)\mathbf{U}$ dominates, and since $\mathbf{p} = \gamma m\mathbf{v}$,
-$$
-\dot{\mathbf{p}} = -(\mathbf{p}\cdot\nabla)\mathbf{U}
-$$
-The kinetic equation becomes
+and substituting $\dot{\mathbf{p}}$ from @eq-cr-pdot-inertial it becomes
 $$
 \frac{\partial f}{\partial t} + (\mathbf{U} + \mathbf{v})\cdot\nabla f - \left[ (\mathbf{p}\cdot\nabla)\mathbf{U} \right]\cdot\frac{\partial f}{\partial \mathbf{p}} = \left( \frac{\delta f}{\delta t} \right)_\text{coll}
 $$ {#eq-cr-kinetic-mixed-force}
