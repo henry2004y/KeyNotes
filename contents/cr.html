@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -60,14 +63,14 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3f70bac5631458d474a321d4182f9338.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-a3b8a322b01543f96297e84f4356de95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-3f70bac5631458d474a321d4182f9338.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ed7344add5f1663e434276306a2aa159.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-b199a59c2aa9e8e694819e0f39a4a127.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-ed7344add5f1663e434276306a2aa159.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -97,7 +100,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -568,7 +571,10 @@ window.Quarto = {
   <ul>
   <li><a href="#basic-definitions" id="toc-basic-definitions" class="nav-link active" data-scroll-target="#basic-definitions"><span class="header-section-number">27.1</span> Basic Definitions</a></li>
   <li><a href="#cr-continuity-equations" id="toc-cr-continuity-equations" class="nav-link" data-scroll-target="#cr-continuity-equations"><span class="header-section-number">27.2</span> CR Continuity Equations</a></li>
-  <li><a href="#parker-transport-equation" id="toc-parker-transport-equation" class="nav-link" data-scroll-target="#parker-transport-equation"><span class="header-section-number">27.3</span> Parker Transport Equation</a></li>
+  <li><a href="#parker-transport-equation" id="toc-parker-transport-equation" class="nav-link" data-scroll-target="#parker-transport-equation"><span class="header-section-number">27.3</span> Parker Transport Equation</a>
+  <ul class="collapse">
+  <li><a href="#sec-parker-derivation" id="toc-sec-parker-derivation" class="nav-link" data-scroll-target="#sec-parker-derivation"><span class="header-section-number">27.3.1</span> Derivation of the Parker Transport Equation</a></li>
+  </ul></li>
   <li><a href="#quasilinear-theory" id="toc-quasilinear-theory" class="nav-link" data-scroll-target="#quasilinear-theory"><span class="header-section-number">27.4</span> Quasilinear Theory</a>
   <ul class="collapse">
   <li><a href="#sec-fokker-planck" id="toc-sec-fokker-planck" class="nav-link" data-scroll-target="#sec-fokker-planck"><span class="header-section-number">27.4.1</span> Derivation of the Fokker-Planck equation</a></li>
@@ -619,14 +625,14 @@ window.Quarto = {
 f(\mathbf{r}, p, t) = \frac{1}{4\pi}\int_\Omega F(\mathbf{r}, \mathbf{p}, t)\mathrm{d}\Omega
 \]</span> where <span class="math inline">\(\int_\Omega \mathrm{d}\Omega = 4\pi\)</span>.</p>
 <p>The number of particle <span class="math inline">\(\mathrm{d}N\)</span> in <span class="math inline">\(\mathrm{d}^3 r\)</span> within <span class="math inline">\((p, p+\mathrm{d}p)\)</span> (independent of the direction of <span class="math inline">\(\mathbf{p}\)</span>) is <span class="math display">\[
-\mathrm{d}N = 4\pi p^2 f(\mathbf{r}, p, t)\mathrm{d}^3 r\mathrm{d}p = U_p(\mathbf{r}, p, t)\mathrm{d}^3 r\mathrm{d}p
-\]</span> where we define the differential number density <span class="math inline">\(U_p\)</span> as the number of particles in <span class="math inline">\(\mathrm{d}^3 r\)</span> about <span class="math inline">\(\mathbf{r}\)</span> with momentum in the interval <span class="math inline">\((p, p+\mathrm{d}p)\)</span> as <span class="math display">\[
-U_p(\mathbf{r}, p, t) = 4\pi p^2 f(\mathbf{r}, p, t)
-\]</span> with units of [particles per volume].</p>
-<p>Detectors do not measure <span class="math inline">\(U_p\)</span>, but rather differential intensity. If particle velocity has magnitude <span class="math inline">\(v\)</span>, the differential intensity is <span class="math display">\[
-j_p = v\, U_p
+\mathrm{d}N = 4\pi p^2 f(\mathbf{r}, p, t)\mathrm{d}^3 r\mathrm{d}p = n_p(\mathbf{r}, p, t)\mathrm{d}^3 r\mathrm{d}p
+\]</span> where we define the differential number density <span class="math inline">\(n_p\)</span> as the number of particles in <span class="math inline">\(\mathrm{d}^3 r\)</span> about <span class="math inline">\(\mathbf{r}\)</span> with momentum in the interval <span class="math inline">\((p, p+\mathrm{d}p)\)</span> as <span class="math display">\[
+n_p(\mathbf{r}, p, t) = 4\pi p^2 f(\mathbf{r}, p, t)
+\]</span> with units of [particles per volume per unit momentum]. Note that some authors (e.g.&nbsp;the CERN handouts by Riaan Steenkamp) denote this quantity <span class="math inline">\(U_p\)</span>.</p>
+<p>Detectors do not measure <span class="math inline">\(n_p\)</span>, but rather differential intensity. If particle velocity has magnitude <span class="math inline">\(v\)</span>, the differential intensity is <span class="math display">\[
+j_p = v\, n_p
 \]</span> with units of [particles / unit momentum / unit area / unit time] that goes from all directions through the detector. This is usually normalized w.r.t. unit space angle <span class="math display">\[
-j_p = \frac{v\, U_p}{4\pi}
+j_p = \frac{v\, n_p}{4\pi}
 \]</span> with units of [particles / unit momentum / unit area / unit time / unit radian]. In practice we measure particles w.r.t. kinetic energy intervals <span class="math inline">\(\mathrm{d}T\)</span> but not momentum intervals <span class="math inline">\(\mathrm{d}p\)</span>.</p>
 <p>From the energy-momentum relation <span class="math display">\[
 E^2 = p^2 c^2 + E_0^2 = (p\,c)^2 + (m_0\,c^2)^2
@@ -641,8 +647,8 @@ E = E_0 + T
 j_T = j_p \frac{\mathrm{d}p}{\mathrm{d}T} = \frac{1}{v}j_p
 \]</span></p>
 <p>Now we can summarize the following important relations <span class="math display">\[
-j_T = \frac{U_p}{4\pi} = p^2 f(\mathbf{r}, p, t)
-\]</span> That is, the differential intensity measured by experimentalists has simple relationship to quantities <span class="math inline">\(U_p\)</span> and <span class="math inline">\(f\)</span> used by theorteticians.</p>
+j_T = \frac{n_p}{4\pi} = p^2 f(\mathbf{r}, p, t)
+\]</span> That is, the differential intensity measured by experimentalists has simple relationship to quantities <span class="math inline">\(n_p\)</span> and <span class="math inline">\(f\)</span> used by theorteticians.</p>
 </section>
 <section id="cr-continuity-equations" class="level2" data-number="27.2">
 <h2 data-number="27.2" class="anchored" data-anchor-id="cr-continuity-equations"><span class="header-section-number">27.2</span> CR Continuity Equations</h2>
@@ -700,10 +706,10 @@ j_T = \frac{U_p}{4\pi} = p^2 f(\mathbf{r}, p, t)
 \end{aligned}
 \]</span> and finally we have <span class="math display">\[
 4\pi \frac{\mathrm{d}f}{\mathrm{d}t} = 4\pi \frac{\partial f}{\partial t} + 4\pi \nabla\cdot \left( \left&lt; \mathbf{v} \right&gt; f \right) + \frac{4\pi}{p^2}\frac{\partial}{\partial p}\left( p^2\left&lt;\dot{p}\right&gt; f \right)
-\]</span> or by using <span class="math inline">\(U_p=4\pi p^2 f\)</span> we have <span class="math display">\[
-\frac{\mathrm{d}U_p}{\mathrm{d}t} = \frac{\partial U_p}{\partial t} + \nabla\cdot\mathbf{S}_p + \frac{\partial}{\partial p}\left( \left&lt; \dot{p} \right&gt; U_p \right)
-\]</span> where <span class="math inline">\(\mathbf{S}_p = \left&lt; \mathbf{v} \right&gt; U_p\)</span> is the differential flux. Normally <span class="math inline">\(\frac{\mathrm{d}U_p}{\mathrm{d}t} = 0\)</span> and the above is simply a continuity equation. If there exist a source or sink <span class="math inline">\(Q_p\)</span>, one can write <span id="eq-cr-transport"><span class="math display">\[
-\frac{\partial U_p}{\partial t} + \nabla\cdot\mathbf{S}_p + \frac{\partial}{\partial p}\left( \left&lt; \dot{p} \right&gt; U_p \right) = Q_p
+\]</span> or by using <span class="math inline">\(n_p=4\pi p^2 f\)</span> we have <span class="math display">\[
+\frac{\mathrm{d}n_p}{\mathrm{d}t} = \frac{\partial n_p}{\partial t} + \nabla\cdot\mathbf{S}_p + \frac{\partial}{\partial p}\left( \left&lt; \dot{p} \right&gt; n_p \right)
+\]</span> where <span class="math inline">\(\mathbf{S}_p = \left&lt; \mathbf{v} \right&gt; n_p\)</span> is the differential flux. Normally <span class="math inline">\(\frac{\mathrm{d}n_p}{\mathrm{d}t} = 0\)</span> and the above is simply a continuity equation. If there exist a source or sink <span class="math inline">\(Q_p\)</span>, one can write <span id="eq-cr-transport"><span class="math display">\[
+\frac{\partial n_p}{\partial t} + \nabla\cdot\mathbf{S}_p + \frac{\partial}{\partial p}\left( \left&lt; \dot{p} \right&gt; n_p \right) = Q_p
 \tag{27.1}\]</span></span> The abovementioned cosmic-ray continuity equation is often called the <strong>transport equation</strong>.</p>
 </section>
 <section id="parker-transport-equation" class="level2" data-number="27.3">
@@ -712,41 +718,117 @@ j_T = \frac{U_p}{4\pi} = p^2 f(\mathbf{r}, p, t)
 <ul>
 <li>Guiding Center Approximation: Cosmic rays gyrate rapidly around magnetic field lines. We are interested in the motion of their guiding centers.</li>
 <li>Diffusion Approximation: Scattering is frequent enough that the distribution function <span class="math inline">\(f\)</span> is nearly isotropic in the local plasma rest frame.</li>
-<li>Solar Wind Frame: We often work in a frame moving with the solar wind (or background plasma) velocity <span class="math inline">\(V_\text{sw}\)</span>.</li>
-<li>Negligible Large-Scale Electric Field in Solar Wind Frame: In the frame co-moving with a perfectly conducting solar wind, the large-scale electric field is typically assumed to be zero, i.e., <span class="math inline">\(\mathbf{E}^\prime = \mathbf{E} + \mathbf{V}_\text{sw} \times \mathbf{B} \approx 0\)</span>. This means <span class="math inline">\(\mathbf{E}\approx -\mathbf{V}_\text{sw} \times \mathbf{B}\)</span>.</li>
-<li>Omnidirectional Distribution Function: We are often interested in the omnidirectional distribution function <span class="math inline">\(f_0(x,p,t)\)</span>, which is <span class="math inline">\(f\)</span> averaged over all momentum directions in the plasma frame. Or, more commonly, the differential number density <span class="math inline">\(U_p(
-x,p,t)=4\pi p^2\,f_0​(x,p,t)\)</span> (number of particles per unit volume per unit momentum magnitude) or <span class="math inline">\(N(x,T,t)\)</span> (differential intensity w.r.t. kinetic energy <span class="math inline">\(T\)</span>).</li>
+<li>Solar Wind Frame: We often work in a frame moving with the solar wind (or background plasma) velocity <span class="math inline">\(\mathbf{U}_\text{sw}\)</span>.</li>
+<li>Negligible Large-Scale Electric Field in Solar Wind Frame: In the frame co-moving with a perfectly conducting solar wind, the large-scale electric field is typically assumed to be zero, i.e., <span class="math inline">\(\mathbf{E}^\prime = \mathbf{E} + \mathbf{U}_\text{sw} \times \mathbf{B} \approx 0\)</span>. This means <span class="math inline">\(\mathbf{E}\approx -\mathbf{U}_\text{sw} \times \mathbf{B}\)</span>.</li>
+<li>Omnidirectional Distribution Function: We are often interested in the omnidirectional distribution function <span class="math inline">\(f_0(\mathbf{x},p,t)\)</span>, which is <span class="math inline">\(f\)</span> averaged over all momentum directions in the plasma frame. Or, more commonly, the differential number density <span class="math inline">\(n_p(\mathbf{x},p,t)=4\pi p^2\,f_0(\mathbf{x},p,t)\)</span> (number of particles per unit volume per unit momentum magnitude) or <span class="math inline">\(N(\mathbf{x},T,t)\)</span> (differential intensity w.r.t. kinetic energy <span class="math inline">\(T\)</span>).</li>
 </ul>
-<p>In the lab frame, due to streaming and diffusion, the distribution function f is not perfectly isotropic. We can expand it as: <span class="math display">\[
-f(\mathbf{x}, p, t) = f_0(\mathbf{x}, p, t) + f_1(\mathbf{x}, p, t) + ...
-\]</span> where <span class="math inline">\(f_0\)</span> is the isotropic part and <span class="math inline">\(f_1\)</span> is the first-order anisotropy. <span class="math display">\[
+<p>In the lab frame, due to streaming and diffusion, the distribution function <span class="math inline">\(f\)</span> is not perfectly isotropic. We can expand it as: <span class="math display">\[
+f(\mathbf{x}, \mathbf{p}, t) = f_0(\mathbf{x}, p, t) + f_1(\mathbf{x}, \mathbf{p}, t) + ...
+\]</span> where <span class="math inline">\(f_0\)</span> is the isotropic part and <span class="math inline">\(f_1\)</span> is the first-order anisotropy, <span id="eq-cr-anisotropy"><span class="math display">\[
 f_1 = -\frac{\mathbf{p}}{p}\cdot \pmb{\xi}(\mathbf{x}, p, t)
-\]</span> where <span class="math inline">\(\pmb{\xi}\)</span> is the anisotropy vector. The particle flux (or streaming) <span class="math inline">\(\mathbf{S}_\text{cr}\)</span> is related to this anisotropy.</p>
-<p>The collision term describes the scattering of cosmic rays by magnetic field irregularities. In the diffusion approximation, this scattering tends to isotropize the distribution in the plasma rest frame. This process leads to spatial diffusion. The diffusive flux <span class="math inline">\(S_\text{diff}\)</span> in the plasma frame is given by Fick’s law: <span class="math display">\[
-\mathbf{S}_\text{diff} = - \overleftrightarrow{K}\cdot\nabla U_p
-\]</span> where <span class="math inline">\(U_p\)</span> is the cosmic ray density (related to <span class="math inline">\(f_0\)</span>) and <span class="math inline">\(\overleftrightarrow{K}\)</span> is the diffusion tensor. The diffusion tensor is generally anisotropic: <span class="math display">\[
-K_{ij} = K_\parallel b_i b_j + K_\perp(\delta_{ij} - b_i b_j) + K_A \epsilon_{ijk} b_k
+\tag{27.2}\]</span></span> where <span class="math inline">\(\pmb{\xi}\)</span> is the anisotropy vector. The particle flux (or streaming) <span class="math inline">\(\mathbf{S}_\text{cr}\)</span> is related to this anisotropy; see <a href="#sec-parker-derivation" class="quarto-xref"><span>Section 27.3.1</span></a>.</p>
+<p>The collision term describes the scattering of cosmic rays by magnetic field irregularities. In the diffusion approximation, this scattering tends to isotropize the distribution in the plasma rest frame. This process leads to spatial diffusion. The diffusive flux <span class="math inline">\(\mathbf{S}_\text{diff}\)</span> in the plasma frame is given by Fick’s law: <span class="math display">\[
+\mathbf{S}_\text{diff} = - \pmb{\kappa}\cdot\nabla f_0
+\]</span> where <span class="math inline">\(\pmb{\kappa}\)</span> is the diffusion tensor. In terms of the differential number density <span class="math inline">\(n_p = 4\pi p^2 f_0\)</span> the same relation reads <span class="math inline">\(\mathbf{S}_p = -\pmb{\kappa}\cdot\nabla n_p\)</span>. The diffusion tensor is generally anisotropic: <span class="math display">\[
+\kappa_{ij} = \kappa_\parallel b_i b_j + \kappa_\perp(\delta_{ij} - b_i b_j) + \kappa_A \epsilon_{ijk} b_k
 \]</span></p>
 <ul>
-<li><span class="math inline">\(K_\parallel\)</span> is the diffusion coefficient parallel to the mean magnetic field direction <span class="math inline">\(\mathbf{b}\)</span>.</li>
-<li><span class="math inline">\(K_\perp\)</span> is the diffusion perpendicular to <span class="math inline">\(\mathbf{b}\)</span>.</li>
-<li><span class="math inline">\(K_A\)</span> is the antisymmetric part of the diffusion tensor describing gradient and curvature drifts.</li>
+<li><span class="math inline">\(\kappa_\parallel\)</span> is the diffusion coefficient parallel to the mean magnetic field direction <span class="math inline">\(\mathbf{b}\)</span>.</li>
+<li><span class="math inline">\(\kappa_\perp\)</span> is the diffusion coefficient perpendicular to <span class="math inline">\(\mathbf{b}\)</span>.</li>
+<li><span class="math inline">\(\kappa_A\)</span> is the antisymmetric part of the diffusion tensor describing gradient and curvature drifts.</li>
 </ul>
-<p>Starting from the kinetic equation and averaging over pitch angle (assuming near isotropy in the plasma frame), one can derive an equation for <span class="math inline">\(f_0\)</span>. This is a lengthy process (e.g., see Schlickeiser 2002, “Cosmic Ray Astrophysics” or Parker 1965). The key steps involve:</p>
+<p>Starting from the kinetic equation and averaging over pitch angle (assuming near isotropy in the plasma frame), one can derive an equation for <span class="math inline">\(f_0\)</span>. This is a lengthy process (e.g., see Schlickeiser 2002, “Cosmic Ray Astrophysics”, or Parker 1965). The key steps are</p>
 <ul>
-<li>Transforming the kinetic equation to the plasma frame.</li>
-<li>Expanding <span class="math inline">\(f\)</span> in momentum space in the plasma frame (<span class="math inline">\(f=f_0 + f_1 + ...\)</span>).</li>
-<li>The zeroth moment (integration over solid angle in momentum) of the kinetic equation gives the transport equation.</li>
-<li>The first moment gives a relation for the anisotropic part <span class="math inline">\(f_1\)</span> (streaming).</li>
+<li>transforming the kinetic equation to the plasma frame;</li>
+<li>expanding <span class="math inline">\(f\)</span> in momentum space in the plasma frame (<span class="math inline">\(f = f_0 + f_1 + ...\)</span>);</li>
+<li>taking the zeroth moment (integration over solid angle in momentum) of the kinetic equation, which gives the transport equation;</li>
+<li>taking the first moment, which gives a relation for the anisotropic part <span class="math inline">\(f_1\)</span> (streaming).</li>
 </ul>
-<p>A common form of the Parker Transport Equation for the omnidirectional distribution function <span class="math inline">\(f_0(\mathbf{x}, p, t)\)</span> is <span class="math display">\[
+<p>These steps are spelled out in <a href="#sec-parker-derivation" class="quarto-xref"><span>Section 27.3.1</span></a>.</p>
+<section id="sec-parker-derivation" class="level3" data-number="27.3.1">
+<h3 data-number="27.3.1" class="anchored" data-anchor-id="sec-parker-derivation"><span class="header-section-number">27.3.1</span> Derivation of the Parker Transport Equation</h3>
+<p>Parker’s transport equation describes the phase-space evolution of energetic charged particles (such as cosmic rays) scattered by magnetic fluctuations in a background plasma moving at a bulk velocity <span class="math inline">\(\mathbf{U}(\mathbf{x}, t)\)</span>. The standard derivation proceeds by formulating the kinetic equation in mixed coordinates, applying a quasi-isotropic pitch-angle expansion, and taking angular moments.</p>
+<p><strong>1. Kinetic equation in mixed coordinates</strong></p>
+<p>Let <span class="math inline">\(\mathbf{x}\)</span> and <span class="math inline">\(t\)</span> be the position and time in the fixed observer (inertial) frame, and <span class="math inline">\(\mathbf{p} = \gamma m\mathbf{v}\)</span> the relativistic particle momentum, where <span class="math inline">\(m\)</span> is the particle rest mass, <span class="math inline">\(\mathbf{v}\)</span> its velocity, and <span class="math inline">\(\gamma = (1 - v^2/c^2)^{-1/2}\)</span> the Lorentz factor. Because pitch-angle scattering by magnetic turbulence acts primarily to isotropize particles in the local rest frame of the plasma, the particle momentum <span class="math inline">\(\mathbf{p}\)</span> is evaluated in the co-moving fluid frame.</p>
+<p>Under the non-relativistic flow approximation (<span class="math inline">\(U \ll c\)</span> and <span class="math inline">\(U \ll v\)</span>, where <span class="math inline">\(v\)</span> is the particle speed), the transformation between the observer-frame momentum <span class="math inline">\(\mathbf{p}_\text{obs}\)</span> and the fluid-frame momentum <span class="math inline">\(\mathbf{p}\)</span> is given, to first order in <span class="math inline">\(U/v\)</span>, by <span class="math display">\[
+\mathbf{p}_\text{obs} = \mathbf{p} + \gamma m \mathbf{U}
+\]</span> where the coefficient <span class="math inline">\(\gamma m = E/c^2\)</span> reduces to <span class="math inline">\(m\)</span> for non-relativistic particles. The evolution of the distribution function <span class="math inline">\(f(\mathbf{x}, \mathbf{p}, t)\)</span> in these mixed coordinates obeys <span id="eq-cr-kinetic-mixed"><span class="math display">\[
+\frac{\partial f}{\partial t} + (\mathbf{U} + \mathbf{v})\cdot\nabla f + \dot{\mathbf{p}}\cdot\nabla_{\mathbf{p}} f = \left( \frac{\delta f}{\delta t} \right)_\text{coll}
+\tag{27.3}\]</span></span> The inertial force entering the co-moving momentum equation is <span class="math display">\[
+\dot{\mathbf{p}} = -\gamma m \frac{\mathrm{d}\mathbf{U}}{\mathrm{d}t} \approx -\gamma m \left( \frac{\partial \mathbf{U}}{\partial t} + (\mathbf{v}\cdot\nabla)\mathbf{U} \right)
+\]</span> For high-energy particles with <span class="math inline">\(v \gg U\)</span>, the spatial gradient term <span class="math inline">\((\mathbf{v}\cdot\nabla)\mathbf{U}\)</span> dominates, and since <span class="math inline">\(\mathbf{p} = \gamma m\mathbf{v}\)</span>, <span class="math display">\[
+\dot{\mathbf{p}} = -(\mathbf{p}\cdot\nabla)\mathbf{U}
+\]</span> The kinetic equation becomes <span id="eq-cr-kinetic-mixed-force"><span class="math display">\[
+\frac{\partial f}{\partial t} + (\mathbf{U} + \mathbf{v})\cdot\nabla f - \left[ (\mathbf{p}\cdot\nabla)\mathbf{U} \right]\cdot\frac{\partial f}{\partial \mathbf{p}} = \left( \frac{\delta f}{\delta t} \right)_\text{coll}
+\tag{27.4}\]</span></span></p>
+<p><strong>2. Pitch-angle expansion</strong></p>
+<p>In the presence of frequent pitch-angle scattering, the distribution function remains nearly isotropic in the fluid frame. Expanding <span class="math inline">\(f(\mathbf{x}, \mathbf{p}, t)\)</span> in spherical harmonics up to the first anisotropy (dipole moment) yields <span class="math display">\[
+f(\mathbf{x}, \mathbf{p}, t) \approx f_0(\mathbf{x}, p, t) + \hat{\mathbf{p}}\cdot\mathbf{f}_1(\mathbf{x}, p, t)
+\]</span> where <span class="math inline">\(\hat{\mathbf{p}} = \mathbf{p}/p\)</span>, <span class="math inline">\(f_0 = \left&lt; f \right&gt; = \frac{1}{4\pi}\int f\,\mathrm{d}\Omega\)</span> is the isotropic part, and <span class="math inline">\(\vert\mathbf{f}_1\vert \ll f_0\)</span>. Comparing with the expansion of <a href="#eq-cr-anisotropy" class="quarto-xref">Equation&nbsp;<span>27.2</span></a>, the anisotropy vector introduced there is <span class="math inline">\(\pmb{\xi} = -\mathbf{f}_1\)</span>.</p>
+<p>We model the scattering term with a pitch-angle diffusion operator, or in a relaxation-time approximation, <span class="math display">\[
+\left( \frac{\delta f}{\delta t} \right)_\text{coll} \approx -\nu\,\hat{\mathbf{p}}\cdot\mathbf{f}_1
+\]</span> where <span class="math inline">\(\nu(p)\)</span> is the effective collision frequency for scattering. The relaxation-time form already yields the correct structure; solving the full pitch-angle diffusion operator only modifies the numerical relation between <span class="math inline">\(\nu\)</span> and the spatial diffusion coefficient.</p>
+<p><strong>3. Zeroth and first moments</strong></p>
+<p>We evaluate the angular average <span class="math inline">\(\left&lt; \dots \right&gt; \equiv \frac{1}{4\pi}\int \dots \,\mathrm{d}\Omega\)</span> over momentum directions <span class="math inline">\(\hat{\mathbf{p}}\)</span>, using the identities <span class="math display">\[
+\left&lt; \hat{p}_i \right&gt; = 0, \quad \left&lt; \hat{p}_i \hat{p}_j \right&gt; = \frac{1}{3}\delta_{ij}, \quad \left&lt; \hat{p}_i \hat{p}_j \hat{p}_k \right&gt; = 0
+\]</span></p>
+<p><strong>Averaging rules: what is averaged and what is not.</strong> This is the step where most of the confusion arises, so we state the rules explicitly before using them:</p>
+<ul>
+<li>The average is over the momentum <em>direction</em> <span class="math inline">\(\hat{\mathbf{p}}\)</span> only. Everything independent of <span class="math inline">\(\hat{\mathbf{p}}\)</span> passes through it unchanged: the position <span class="math inline">\(\mathbf{x}\)</span>, the time <span class="math inline">\(t\)</span>, the momentum magnitude <span class="math inline">\(p\)</span>, the isotropic part <span class="math inline">\(f_0\)</span>, the bulk velocity <span class="math inline">\(\mathbf{U}\)</span> together with its spatial derivatives, and the dipole vector <span class="math inline">\(\mathbf{f}_1\)</span> (which depends on <span class="math inline">\(\mathbf{x}\)</span>, <span class="math inline">\(p\)</span>, <span class="math inline">\(t\)</span> but not on <span class="math inline">\(\hat{\mathbf{p}}\)</span>). For any such quantity <span class="math inline">\(A\)</span> and any function of direction <span class="math inline">\(g(\hat{\mathbf{p}})\)</span>, we have <span class="math inline">\(\left&lt; A\,g(\hat{\mathbf{p}}) \right&gt; = A\left&lt; g(\hat{\mathbf{p}}) \right&gt;\)</span>.</li>
+<li>Angular dependence enters in exactly three places: the explicit <span class="math inline">\(\hat{\mathbf{p}}\)</span> factors of the expansion, the particle velocity <span class="math inline">\(\mathbf{v} = v\hat{\mathbf{p}}\)</span>, and derivatives with respect to <span class="math inline">\(\mathbf{p}\)</span>.</li>
+<li>Spatial gradients act on the <span class="math inline">\(\mathbf{x}\)</span> dependence and never on <span class="math inline">\(\hat{\mathbf{p}}\)</span>; the <span class="math inline">\(\hat{\mathbf{p}}\)</span> factors are spectators and are simply pulled out of the average, e.g.&nbsp;<span class="math inline">\(\nabla_i\left( f_0 + \hat{p}_j f_{1,j} \right) = \nabla_i f_0 + \hat{p}_j\nabla_i f_{1,j}\)</span>.</li>
+<li>Momentum-space gradients behave differently. Since <span class="math inline">\(f_0\)</span> depends on <span class="math inline">\(\mathbf{p}\)</span> only through its magnitude <span class="math inline">\(p = \vert\mathbf{p}\vert\)</span>, the chain rule generates a factor of <span class="math inline">\(\hat{\mathbf{p}}\)</span>, <span class="math display">\[
+\frac{\partial f_0}{\partial p_k} = \frac{\partial p}{\partial p_k}\frac{\partial f_0}{\partial p} = \hat{p}_k\frac{\partial f_0}{\partial p}
+\]</span> In other words, <span class="math inline">\(\partial/\partial\mathbf{p}\)</span> acting on an isotropic function still produces a dipole (<span class="math inline">\(\hat{\mathbf{p}}\)</span>-dependent) result, whereas <span class="math inline">\(\nabla\)</span> acting on the same function does not. Missing this factor is the most common error in the derivation.</li>
+<li>Only even powers of <span class="math inline">\(\hat{\mathbf{p}}\)</span> survive; every odd moment vanishes. Hence any term with a single uncontracted <span class="math inline">\(\hat{\mathbf{p}}\)</span> drops out of the zeroth moment, while terms with three powers of <span class="math inline">\(\hat{\mathbf{p}}\)</span> drop out of the first moment. This is why the hierarchy closes exactly at first order in the anisotropy: the second-order (quadrupole) terms never enter the equations for <span class="math inline">\(f_0\)</span> and <span class="math inline">\(\mathbf{f}_1\)</span>.</li>
+</ul>
+<p><strong>The zeroth moment (isotropic part).</strong> Averaging <a href="#eq-cr-kinetic-mixed-force" class="quarto-xref">Equation&nbsp;<span>27.4</span></a> over all solid angles gives <span class="math display">\[
+\left&lt; \frac{\partial f}{\partial t} \right&gt; + \mathbf{U}\cdot\nabla\left&lt; f \right&gt; + \left&lt; \mathbf{v}\cdot\nabla f \right&gt; - \left&lt; \left[ (\mathbf{p}\cdot\nabla)\mathbf{U} \right]\cdot\frac{\partial f}{\partial \mathbf{p}} \right&gt; = 0
+\]</span> The convection term is essentially untouched by the averaging: since <span class="math inline">\(\mathbf{U}\)</span> and <span class="math inline">\(\nabla\)</span> carry no <span class="math inline">\(\hat{\mathbf{p}}\)</span> dependence, we simply have <span class="math inline">\(\left&lt; \mathbf{U}\cdot\nabla f \right&gt; = \mathbf{U}\cdot\nabla\left&lt; f \right&gt; = \mathbf{U}\cdot\nabla f_0\)</span>, because <span class="math inline">\(\left&lt; \hat{\mathbf{p}} \right&gt; = 0\)</span> removes the dipole part. The remaining two terms are evaluated as follows:</p>
+<ul>
+<li><span class="math inline">\(\left&lt; \mathbf{v}\cdot\nabla f \right&gt; = \left&lt; v\hat{p}_i \nabla_i \left( f_0 + \hat{p}_j f_{1,j} \right) \right&gt; = v\left&lt; \hat{p}_i \right&gt;\nabla_i f_0 + v\left&lt; \hat{p}_i\hat{p}_j \right&gt;\nabla_i f_{1,j} = \frac{v}{3}\nabla\cdot\mathbf{f}_1\)</span>, i.e.&nbsp;only the streaming of the dipole survives;</li>
+<li>for the momentum derivative, writing <span class="math inline">\(\left[ (\mathbf{p}\cdot\nabla)\mathbf{U} \right]_k = p\hat{p}_i\,\partial U_k/\partial x_i\)</span> with <span class="math inline">\(\partial U_k/\partial x_i\)</span> independent of <span class="math inline">\(\hat{\mathbf{p}}\)</span>, and using <span class="math inline">\(\partial f_0/\partial p_k = \hat{p}_k\,\partial f_0/\partial p\)</span> for the isotropic part, <span class="math display">\[
+\left&lt; p\,\hat{p}_i \frac{\partial U_k}{\partial x_i} \frac{\partial f}{\partial p_k} \right&gt; \approx \frac{\partial U_k}{\partial x_i} \left&lt; \hat{p}_i \hat{p}_k \right&gt; p\frac{\partial f_0}{\partial p} = \frac{1}{3}(\nabla\cdot\mathbf{U})\,p\frac{\partial f_0}{\partial p}
+\]</span> where the contribution from <span class="math inline">\(\partial(\hat{\mathbf{p}}\cdot\mathbf{f}_1)/\partial p_k\)</span> is dropped because it is smaller by <span class="math inline">\(\mathcal{O}(f_1/f_0)\)</span>.</li>
+</ul>
+<p>The zeroth-moment equation therefore reduces to <span id="eq-cr-zeroth-moment"><span class="math display">\[
+\frac{\partial f_0}{\partial t} + \mathbf{U}\cdot\nabla f_0 + \frac{v}{3}\nabla\cdot\mathbf{f}_1 - \frac{1}{3}(\nabla\cdot\mathbf{U})\,p\frac{\partial f_0}{\partial p} = 0
+\tag{27.5}\]</span></span> which already has the structure of the transport equation, except that the flux <span class="math inline">\(\frac{v}{3}\mathbf{f}_1\)</span> is still unknown.</p>
+<p><strong>The first moment (dipole anisotropy).</strong> Multiplying <a href="#eq-cr-kinetic-mixed-force" class="quarto-xref">Equation&nbsp;<span>27.4</span></a> by <span class="math inline">\(\hat{\mathbf{p}}\)</span> and averaging over solid angle, we balance the streaming of the isotropic part against the scattering term. All other contributions are discarded, and it is worth listing why:</p>
+<ul>
+<li><span class="math inline">\(\left&lt; \hat{\mathbf{p}}\,\partial f/\partial t \right&gt; = \frac{1}{3}\partial\mathbf{f}_1/\partial t\)</span> is dropped: the anisotropy relaxes on the scattering time <span class="math inline">\(1/\nu\)</span>, which is much shorter than the transport time scale on which <span class="math inline">\(f_0\)</span> evolves, so <span class="math inline">\(\mathbf{f}_1\)</span> is quasi-steady;</li>
+<li><span class="math inline">\(\left&lt; \hat{\mathbf{p}}\left( \mathbf{U}\cdot\nabla f \right) \right&gt; = \frac{1}{3}\left( \mathbf{U}\cdot\nabla \right)\mathbf{f}_1\)</span> is of order <span class="math inline">\(\mathcal{O}(U/v\cdot f_1)\)</span> and dropped;</li>
+<li><span class="math inline">\(\left&lt; \hat{\mathbf{p}}\left( \mathbf{v}\cdot\nabla \right)\left( \hat{\mathbf{p}}\cdot\mathbf{f}_1 \right) \right&gt; \propto \left&lt; \hat{p}_i\hat{p}_j\hat{p}_k \right&gt; = 0\)</span> vanishes identically, so no quadrupole term is generated;</li>
+<li>the inertial term <span class="math inline">\(\left&lt; \hat{\mathbf{p}}\left[ (\mathbf{p}\cdot\nabla)\mathbf{U} \right]\cdot\partial f/\partial\mathbf{p} \right&gt;\)</span> either vanishes as an odd moment (for the <span class="math inline">\(f_0\)</span> part) or is smaller by <span class="math inline">\(\mathcal{O}(U/v)\)</span>, and is likewise dropped.</li>
+</ul>
+<p>What remains is the streaming of the isotropic part balanced by collisions, <span class="math display">\[
+\left&lt; \hat{\mathbf{p}}\left( \mathbf{v}\cdot\nabla f_0 \right) \right&gt; = \frac{v}{3}\nabla f_0 = -\nu\left&lt; \hat{\mathbf{p}}\left( \hat{\mathbf{p}}\cdot\mathbf{f}_1 \right) \right&gt; = -\frac{\nu}{3}\mathbf{f}_1
+\]</span> Solving for <span class="math inline">\(\mathbf{f}_1\)</span>, <span class="math display">\[
+\mathbf{f}_1 = -\frac{v}{\nu}\nabla f_0
+\]</span> The spatial diffusion coefficient is defined as <span class="math inline">\(\kappa = \frac{v^2}{3\nu}\)</span>. In a magnetized plasma with anisotropic scattering and magnetic drifts this generalizes to the diffusion tensor <span class="math inline">\(\pmb{\kappa}\)</span>, so that <span class="math display">\[
+\frac{v}{3}\mathbf{f}_1 = -\pmb{\kappa}\cdot\nabla f_0
+\]</span> Multiplying by <span class="math inline">\(4\pi p^2\)</span> gives the particle flux <span class="math inline">\(\mathbf{S}_p = 4\pi p^2\frac{v}{3}\mathbf{f}_1 = -\pmb{\kappa}\cdot\nabla n_p\)</span>, which is exactly Fick’s law above, with <span class="math inline">\(\pmb{\xi} = -\mathbf{f}_1 = \frac{3}{v}\pmb{\kappa}\cdot\nabla f_0\)</span>.</p>
+<p><strong>4. Parker’s transport equation</strong></p>
+<p>Substituting <span class="math inline">\(\frac{v}{3}\mathbf{f}_1 = -\pmb{\kappa}\cdot\nabla f_0\)</span> into the zeroth-moment equation gives <span class="math display">\[
+\frac{\partial f_0}{\partial t} + \mathbf{U}\cdot\nabla f_0 = \nabla\cdot\left( \pmb{\kappa}\cdot\nabla f_0 \right) + \frac{1}{3}(\nabla\cdot\mathbf{U})\,p\frac{\partial f_0}{\partial p}
+\]</span> or, in conservative flux form, <span class="math display">\[
+\frac{\partial f_0}{\partial t} = \nabla\cdot\left( \pmb{\kappa}\cdot\nabla f_0 - \mathbf{U}f_0 \right) + \frac{1}{3}(\nabla\cdot\mathbf{U})\frac{1}{p^2}\frac{\partial}{\partial p}\left( p^3 f_0 \right) + Q
+\]</span> where <span class="math inline">\(Q(\mathbf{x}, p, t)\)</span> is a local source (or injection) term.</p>
+<p><strong>Physical interpretation of the terms</strong></p>
+<ul>
+<li><span class="math inline">\(\nabla\cdot\left( \pmb{\kappa}\cdot\nabla f_0 \right)\)</span>: spatial diffusion caused by resonant pitch-angle scattering off magnetic irregularities (together with drift and perpendicular transport).</li>
+<li><span class="math inline">\(\mathbf{U}\cdot\nabla f_0\)</span>: convection of particles by the bulk fluid flow.</li>
+<li><span class="math inline">\(\frac{1}{3}(\nabla\cdot\mathbf{U})\,p\frac{\partial f_0}{\partial p}\)</span>: adiabatic energy change. For expanding flows (<span class="math inline">\(\nabla\cdot\mathbf{U} &gt; 0\)</span>), such as the solar wind, this represents adiabatic deceleration; at shocks, where <span class="math inline">\(\nabla\cdot\mathbf{U} &lt; 0\)</span>, it provides diffusive shock acceleration.</li>
+</ul>
+<p>A common form of the Parker Transport Equation for the omnidirectional distribution function <span class="math inline">\(f_0(\mathbf{x}, p, t)\)</span> is <span id="eq-parker-transport"><span class="math display">\[
 \begin{aligned}
-\frac{\partial f}{\partial t} + (\mathbf{V} + \mathbf{V}_d)\cdot\nabla f - \frac{1}{3}\nabla\cdot\mathbf{V}\frac{\partial f}{\partial \ln{p}} = \nabla\cdot \left( \overleftrightarrow{K} \cdot\nabla f \right) + Q
+\frac{\partial f_0}{\partial t} + (\mathbf{U} + \mathbf{V}_d)\cdot\nabla f_0 - \frac{1}{3}\nabla\cdot\mathbf{U}\frac{\partial f_0}{\partial \ln{p}} = \nabla\cdot \left( \pmb{\kappa} \cdot\nabla f_0 \right) + Q
 \end{aligned}
-\]</span> where <span class="math inline">\(f(\mathbf{x}, p, t)\)</span> is the particle distribution function as a function of the particle position <span class="math inline">\(\mathbf{x}\)</span>, momentum <span class="math inline">\(p\)</span> (isotropic momentum assumed), and time <span class="math inline">\(t\)</span>; <span class="math inline">\(\overleftrightarrow{K}\)</span> is the spatial diffusion coefficient tensor, <span class="math inline">\(\mathbf{V}\)</span> is the bulk plasma velocity, <span class="math inline">\(\mathbf{V}_d = \frac{pv}{3q}\nabla\times\left( \mathbf{B}/B^2 \right)\)</span> is the particle drift, where <span class="math inline">\(p=\gamma m v\)</span> is particle momentum and <span class="math inline">\(q\)</span> is particle charge.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The factor <span class="math inline">\(1/3\)</span> comes from averaging over an isotropic pitch-angle distribution. Note that This is for an isotropic distribution; this term is sometimes incorporated into the anti-symmetric part (<span class="math inline">\(K_A\)</span>) of the diffusion tensor <span class="math inline">\(\overleftrightarrow{K}\)</span>. If so, the diffusion term becomes <span class="math inline">\(\nabla\cdot\left( \overleftrightarrow{K}_s\cdot\nabla f_0 - \left&lt; v_D \right&gt; f_0 \right)\)</span> where <span class="math inline">\(\overleftrightarrow{K}_s\)</span> is the symmetric part.</p>
+\tag{27.6}\]</span></span> where <span class="math inline">\(f_0(\mathbf{x}, p, t)\)</span> is the omnidirectional distribution function as a function of the particle position <span class="math inline">\(\mathbf{x}\)</span>, the momentum magnitude <span class="math inline">\(p\)</span> (isotropic momentum assumed), and time <span class="math inline">\(t\)</span>; <span class="math inline">\(\pmb{\kappa}\)</span> is the spatial diffusion coefficient tensor, <span class="math inline">\(\mathbf{U}\)</span> is the bulk plasma velocity, and <span class="math inline">\(\mathbf{V}_d = \frac{pv}{3q}\nabla\times\left( \mathbf{B}/B^2 \right)\)</span> is the particle drift velocity, where <span class="math inline">\(p=\gamma m v\)</span> is the particle momentum and <span class="math inline">\(q\)</span> its charge.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The factor <span class="math inline">\(1/3\)</span> comes from averaging over an isotropic pitch-angle distribution. Note that this drift term is sometimes incorporated into the antisymmetric part (<span class="math inline">\(\kappa_A\)</span>) of the diffusion tensor <span class="math inline">\(\pmb{\kappa}\)</span>. If so, the diffusion term becomes <span class="math inline">\(\nabla\cdot\left( \pmb{\kappa}_s\cdot\nabla f_0 - \left&lt; \mathbf{v}_D \right&gt; f_0 \right)\)</span>, where <span class="math inline">\(\pmb{\kappa}_s\)</span> is the symmetric part.</p>
 <ul>
-<li><span class="math inline">\(\frac{1}{3}\nabla\cdot\mathbf{V}\frac{\partial f}{\partial \ln{p}}\)</span> is the adiabatic energy change. The sign of <span class="math inline">\(\nabla\cdot\mathbf{V}\)</span> reflects whether cosmic rays lose or gain energy from the compression of the solar wind plasma.</li>
+<li><span class="math inline">\(\frac{1}{3}\nabla\cdot\mathbf{U}\frac{\partial f_0}{\partial \ln{p}}\)</span> is the adiabatic energy change. The sign of <span class="math inline">\(\nabla\cdot\mathbf{U}\)</span> reflects whether cosmic rays lose or gain energy from the compression of the solar wind plasma.</li>
 </ul>
+</section>
 </section>
 <section id="quasilinear-theory" class="level2" data-number="27.4">
 <h2 data-number="27.4" class="anchored" data-anchor-id="quasilinear-theory"><span class="header-section-number">27.4</span> Quasilinear Theory</h2>
@@ -759,52 +841,52 @@ K_{ij} = K_\parallel b_i b_j + K_\perp(\delta_{ij} - b_i b_j) + K_A \epsilon_{ij
 <p>For self-consistency, I will repeat all the equations here instead of linking to other parts of the note. Philipp Mertsch uses CGS unit in the following equations.</p>
 <p>Charged particles in electric and magnetic fields <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> are subject to the Lorentz force, <span id="eq-lorentz-force-cgs"><span class="math display">\[
 \mathbf{F}_L = e\left( \mathbf{E} + \mathbf{v}\times\mathbf{B}/c \right)
-\tag{27.2}\]</span></span></p>
+\tag{27.7}\]</span></span></p>
 <p>It is customary to decompose the magnetic field into a large-scale, homogeneous, regular background field, <span class="math inline">\(\langle \mathbf{B} \rangle\)</span> and a small-scale, turbulent, random field <span class="math inline">\(\delta\mathbf{B}\)</span>, that is <span class="math inline">\(\mathbf{B} = \langle\mathbf{B}\rangle\)</span> with <span class="math inline">\(\langle\delta\mathbf{B}\rangle = 0\)</span>. The angled brackets denote averages over an ensemble of turbulent magnetic fields.</p>
 <p>Without loss of generality, we assume in the following that the regular field is oriented along the z-direction, <span class="math inline">\(\langle\mathbf{B}\rangle = B_z\hat{z}\)</span>, unless stated otherwise. Large-scale electric fields are usually ignored, <span class="math inline">\(\langle\mathbf{E}\rangle = 0\)</span>, as the large mobility of charges in astrophysical plasmas is efficiently shielding against regular electric fields (that is on scales much larger than the Debye length). Small-scale electric fields <span class="math inline">\(\delta\mathbf{E}\)</span> are necessarily present, but from Faraday’s induction law, their magnitude can be estimated to be <span class="math inline">\(|\delta\mathbf{E}| \sim ( v_{\text{A}} / c) |\delta\mathbf{B}|\)</span> with <span class="math inline">\(v_\text{A}\)</span> the Alfvén velocity and <span class="math inline">\(v_A/c \ll 1\)</span> in most astrophysical environments.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Thus, to lowest order in <span class="math inline">\((v_\text{A}/c)\)</span>, there is no electric field and as the magnetic force is not performing any work on the particle, particle energy is consequently conserved. Note that at higher orders in <span class="math inline">\((v_\text{A}/c)\)</span>, the particle energy can change in a second-order Fermi type process. For simplicity, we constrain ourselves here to considering the lowest order case which results in pitch-angle scattering.</p>
 <p>A charged particle in a magnetic field forms a Hamiltonian system as long as dissipative processes (or any form of energy losses) can be ignored. A consequence of this is <em>Liouville’s theorem</em>, that is the conservation of phase space volume under canonical transformations. As time evolution is a canonical transformation, phases space volume is conserved in time. Together with particle number conservation this implies the conservation of phase space density <span class="math inline">\(f = f(\mathbf{r},\mathbf{p},t)\)</span>. This is conveniently captured by what we will call <em>Liouville’s equation</em>, <span id="eq-liouville"><span class="math display">\[
 \frac{\mathrm{d}f}{\mathrm{d}t} = \frac{\partial f}{\partial t} + \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} \cdot \mathbf{\nabla}_{\mathbf{r}} f + \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} \cdot \mathbf{\nabla}_{\mathbf{p}} f = 0
-\tag{27.3}\]</span></span> encoding the incompressibility of the phase space flow. Here, <span id="eq-charge-particle-motion"><span class="math display">\[
+\tag{27.8}\]</span></span> encoding the incompressibility of the phase space flow. Here, <span id="eq-charge-particle-motion"><span class="math display">\[
 \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = \mathbf{v},\quad \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} = e\left( \mathbf{E} + \frac{\mathbf{v}\times\mathbf{B}}{c} \right)
-\tag{27.4}\]</span></span> are the equations of motion. Note that a necessary condition for a Hamiltonian system is that the forces are conservative and differentiable (“p-divergence-free”, see more in <span class="citation" data-cites="bellan2008fundamentals">(<a href="#ref-bellan2008fundamentals" role="doc-biblioref">Bellan 2008</a>)</span>).</p>
+\tag{27.9}\]</span></span> are the equations of motion. Note that a necessary condition for a Hamiltonian system is that the forces are conservative and differentiable (“p-divergence-free”, see more in <span class="citation" data-cites="bellan2008fundamentals">(<a href="#ref-bellan2008fundamentals" role="doc-biblioref">Bellan 2008</a>)</span>).</p>
 <p>A collisionless plasma under the influence of external <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> fields is an example of a Hamiltonian system. Its Hamiltonian is (Jackson 1998) <span id="eq-charge-particle-hamiltonian"><span class="math display">\[
 H = \sqrt{(c\mathbf{P} - e\mathbf{A})^2 + m^2c^4} + e\phi
-\tag{27.5}\]</span></span> where <span class="math inline">\(\mathbf{P} = \mathbf{p} + (e/c)\mathbf{A}\)</span> is the canonical momentum, <span class="math inline">\(\mathbf{A}\)</span> the potential vector, m the particle mass, e its charge and <span class="math inline">\(\phi\)</span> the electric potential. Therefore, the phase space density of this collisionless plasma satisfies <a href="#eq-liouville" class="quarto-xref">Equation&nbsp;<span>27.3</span></a> and substituting the Lorentz force, <a href="#eq-lorentz-force-cgs" class="quarto-xref">Equation&nbsp;<span>27.2</span></a>, in <a href="#eq-liouville" class="quarto-xref">Equation&nbsp;<span>27.3</span></a> gives the Vlasov equation, <span id="eq-vlasov-cgs"><span class="math display">\[
+\tag{27.10}\]</span></span> where <span class="math inline">\(\mathbf{P} = \mathbf{p} + (e/c)\mathbf{A}\)</span> is the canonical momentum, <span class="math inline">\(\mathbf{A}\)</span> the potential vector, m the particle mass, e its charge and <span class="math inline">\(\phi\)</span> the electric potential. Therefore, the phase space density of this collisionless plasma satisfies <a href="#eq-liouville" class="quarto-xref">Equation&nbsp;<span>27.8</span></a> and substituting the Lorentz force, <a href="#eq-lorentz-force-cgs" class="quarto-xref">Equation&nbsp;<span>27.7</span></a>, in <a href="#eq-liouville" class="quarto-xref">Equation&nbsp;<span>27.8</span></a> gives the Vlasov equation, <span id="eq-vlasov-cgs"><span class="math display">\[
 \frac{\partial f}{\partial t} + \frac{\mathrm{d} \mathbf{r}}{\mathrm{d} t} \cdot \mathbf{\nabla}_{\mathbf{r}} f + e \left ( \mathbf{E} + \frac{\mathbf{v} \times \mathbf{B}}{c} \right ) \cdot \mathbf{\nabla}_{\mathbf{p}} f = 0
-\tag{27.6}\]</span></span> which together with Maxwell’s equations forms the basis of plasma kinetic theory. For a collisional plasma, a term needs to be added to the right-hand side, the famous collision operator. For a collisionless plasma (as appropriate for CRs) the right-hand side remains zero.</p>
+\tag{27.11}\]</span></span> which together with Maxwell’s equations forms the basis of plasma kinetic theory. For a collisional plasma, a term needs to be added to the right-hand side, the famous collision operator. For a collisionless plasma (as appropriate for CRs) the right-hand side remains zero.</p>
 <p>Considering turbulent fields, the phase space density also becomes a random field, <span class="math inline">\(f = \langle f\rangle + \delta f\)</span>, with an expectation value, <span class="math inline">\(\langle f \rangle\)</span>, and fluctuations around it, <span class="math inline">\(\delta f\)</span>, that satisfy <span class="math inline">\(\langle \delta f \rangle=0\)</span>.</p>
-<p>In any realistic astrophysical situation, it is of course impossible to know the small-scale turbulent field at all positions in order to exactly solve <a href="#eq-vlasov-cgs" class="quarto-xref">Equation&nbsp;<span>27.6</span></a>. Instead, one can only hope to predict statistical moments of the phase space density for a statistical ensemble of turbulent magnetic fields. Traditionally, one is mostly interested in the first moment, the ensemble average, while higher order moments is also possible to obtain.</p>
-<p>For the reason explained above, we will ignore <span class="math inline">\(\mathbf{E}\)</span> in the following. Averaging <a href="#eq-vlasov-cgs" class="quarto-xref">Equation&nbsp;<span>27.6</span></a> we find (Jokipii 1972) <span id="eq-vlasov-averaged-cgs"><span class="math display">\[
+<p>In any realistic astrophysical situation, it is of course impossible to know the small-scale turbulent field at all positions in order to exactly solve <a href="#eq-vlasov-cgs" class="quarto-xref">Equation&nbsp;<span>27.11</span></a>. Instead, one can only hope to predict statistical moments of the phase space density for a statistical ensemble of turbulent magnetic fields. Traditionally, one is mostly interested in the first moment, the ensemble average, while higher order moments is also possible to obtain.</p>
+<p>For the reason explained above, we will ignore <span class="math inline">\(\mathbf{E}\)</span> in the following. Averaging <a href="#eq-vlasov-cgs" class="quarto-xref">Equation&nbsp;<span>27.11</span></a> we find (Jokipii 1972) <span id="eq-vlasov-averaged-cgs"><span class="math display">\[
 \begin{aligned}
 \frac{\mathrm{d} \langle f \rangle}{\mathrm{d} t} &amp;= \frac{\partial \langle f \rangle }{\partial t} + \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} \cdot \mathbf{\nabla}_{\mathbf{r}} \langle f \rangle + e \frac{\mathbf{v} \times \langle \mathbf {B} \rangle}{c} \cdot \mathbf{\nabla}_{\mathbf{p}} \langle f \rangle \\
 &amp;= - \left \langle e \frac{\mathbf{v} \times \mathbf{\delta B}}{c} \cdot \nabla _{\mathbf{p}} \delta f \right \rangle \neq 0
 \end{aligned}
-\tag{27.7}\]</span></span></p>
+\tag{27.12}\]</span></span></p>
 <p>Note that unlike the phase space density <span class="math inline">\(f\)</span>, the ensemble averaged phase space density <span class="math inline">\(\langle f \rangle\)</span> is not conserved, <span class="math inline">\(\mathrm{d}\langle f\rangle /\mathrm{d}t \neq 0\)</span>. (More on this later!)</p>
-<p>One way to glean some physical insight from <a href="#eq-vlasov-averaged-cgs" class="quarto-xref">Equation&nbsp;<span>27.7</span></a> is to identify its right-hand-side with a damping term, (Earl+ 1988; Webb 1989), <span class="math display">\[
+<p>One way to glean some physical insight from <a href="#eq-vlasov-averaged-cgs" class="quarto-xref">Equation&nbsp;<span>27.12</span></a> is to identify its right-hand-side with a damping term, (Earl+ 1988; Webb 1989), <span class="math display">\[
 \left \langle e \frac{\mathbf{v} \times \mathbf{\delta B}}{c} \cdot \nabla_{\mathbf{p}} \delta f \right \rangle \to \nu \left( \langle f \rangle - \frac{1}{4\pi}\int\mathrm{d}\hat{\mathbf{p}} \, \langle f \rangle \right)
-\]</span> (where <span class="math inline">\(\hat{\mathbf{p}}=\mathbf{p}/|\mathbf{p}|\)</span>), that is driving the phase space density towards isotropy at a rate <span class="math inline">\(\nu\)</span>, an approach that can also be motivated by gas kinetic theory (Bhatnagar+ 1954). This way, <a href="#eq-vlasov-averaged-cgs" class="quarto-xref">Equation&nbsp;<span>27.7</span></a> can be solved and shown to lead to a spatial diffusion equation. The parallel diffusion coefficient can be identified as <span class="math inline">\(\kappa_\parallel = v^2 / (3\nu)\)</span> whereas the perpendicular diffusion coefficient satisfies <span class="math inline">\(\kappa_\perp / \kappa_\parallel = (1 + \Omega^2 / \nu^2)^{-1}\)</span>, a result referred to as the <em>classical scattering limit</em> (Gleeson 1969). Here, <span class="math inline">\(\Omega\)</span> is the particle’s gyrofrequency.</p>
-<p>In QLT, however, a more systematic solution for <span class="math inline">\(f\)</span> is sought through an equation for the temporal evolution of the fluctuations <span class="math inline">\(\delta f\)</span>. Such an equation can be obtained by subtracting the ensemble-averaged Vlasov <a href="#eq-vlasov-averaged-cgs" class="quarto-xref">Equation&nbsp;<span>27.7</span></a> from the original Vlasov <a href="#eq-vlasov-cgs" class="quarto-xref">Equation&nbsp;<span>27.6</span></a>, <span id="eq-vlasov-fluctuation-cgs"><span class="math display">\[
+\]</span> (where <span class="math inline">\(\hat{\mathbf{p}}=\mathbf{p}/|\mathbf{p}|\)</span>), that is driving the phase space density towards isotropy at a rate <span class="math inline">\(\nu\)</span>, an approach that can also be motivated by gas kinetic theory (Bhatnagar+ 1954). This way, <a href="#eq-vlasov-averaged-cgs" class="quarto-xref">Equation&nbsp;<span>27.12</span></a> can be solved and shown to lead to a spatial diffusion equation. The parallel diffusion coefficient can be identified as <span class="math inline">\(\kappa_\parallel = v^2 / (3\nu)\)</span> whereas the perpendicular diffusion coefficient satisfies <span class="math inline">\(\kappa_\perp / \kappa_\parallel = (1 + \Omega^2 / \nu^2)^{-1}\)</span>, a result referred to as the <em>classical scattering limit</em> (Gleeson 1969). Here, <span class="math inline">\(\Omega\)</span> is the particle’s gyrofrequency.</p>
+<p>In QLT, however, a more systematic solution for <span class="math inline">\(f\)</span> is sought through an equation for the temporal evolution of the fluctuations <span class="math inline">\(\delta f\)</span>. Such an equation can be obtained by subtracting the ensemble-averaged Vlasov <a href="#eq-vlasov-averaged-cgs" class="quarto-xref">Equation&nbsp;<span>27.12</span></a> from the original Vlasov <a href="#eq-vlasov-cgs" class="quarto-xref">Equation&nbsp;<span>27.11</span></a>, <span id="eq-vlasov-fluctuation-cgs"><span class="math display">\[
 \begin{aligned}
 &amp; \frac{\partial \delta f}{\partial t} + \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} \cdot \mathbf{\nabla}_{\mathbf{r}} \delta f + e \left(\frac{\mathbf{v} \times \langle \mathbf{B}\rangle}{c}\right) \cdot \mathbf{\nabla}_{\mathbf{p}} \delta f \\
 &amp; \simeq -e \left(\frac{\mathbf{v} \times \mathbf{\delta B}}{c} \right) \cdot \mathbf{\nabla}_{\mathbf{p}} \langle f \rangle
 \end{aligned}
-\tag{27.8}\]</span></span> Here, we have chosen to ignore the difference <span class="math display">\[
+\tag{27.13}\]</span></span> Here, we have chosen to ignore the difference <span class="math display">\[
 e \frac{\mathbf{v} \times \mathbf{\delta B}}{c} \cdot \nabla_{\mathbf{p}} \delta f - \left \langle e \frac{\mathbf{v} \times \mathbf{\delta B}}{c} \cdot \nabla_{\mathbf{p}} \delta f \right \rangle
-\]</span> which is second order in perturbed quantities, <span class="math inline">\(\delta\mathbf{B}\)</span> and <span class="math inline">\(\delta f\)</span>. This assumes, of course, that <span class="math inline">\(|\delta\mathbf{B}|\ll |\langle \mathbf{B} \rangle|\)</span> and therefore <span class="math inline">\(\delta f \ll \langle f \rangle\)</span>. <a href="#eq-vlasov-fluctuation-cgs" class="quarto-xref">Equation&nbsp;<span>27.8</span></a> can now be integrated with the method of characteristics, the formal solution being <span id="eq-f-fluctuation-solution"><span class="math display">\[
+\]</span> which is second order in perturbed quantities, <span class="math inline">\(\delta\mathbf{B}\)</span> and <span class="math inline">\(\delta f\)</span>. This assumes, of course, that <span class="math inline">\(|\delta\mathbf{B}|\ll |\langle \mathbf{B} \rangle|\)</span> and therefore <span class="math inline">\(\delta f \ll \langle f \rangle\)</span>. <a href="#eq-vlasov-fluctuation-cgs" class="quarto-xref">Equation&nbsp;<span>27.13</span></a> can now be integrated with the method of characteristics, the formal solution being <span id="eq-f-fluctuation-solution"><span class="math display">\[
 \delta f = \delta f_{0} - \int _{t_{0}}^{t} \mathrm {d} t' \left[ e \left( \frac{\mathbf{v} \times \mathbf{\delta B}}{c} \right) \cdot \mathbf{\nabla}_{\mathbf{p}} \langle f \rangle \right]_{P(t')}
-\tag{27.9}\]</span></span> Here, <span class="math inline">\(\delta f_{0} \equiv \delta f(\mathbf{r}, \mathbf{p}, t_{0})\)</span> denotes the phase space density at time <span class="math inline">\(t_0\)</span> and the subscript <span class="math inline">\(P(t')\)</span> indicates that positions and momenta in the square brackets are to be evaluated along the characteristics of <a href="#eq-vlasov-fluctuation-cgs" class="quarto-xref">Equation&nbsp;<span>27.8</span></a>, that is the solutions of the equations of motions, <a href="#eq-charge-particle-motion" class="quarto-xref">Equation&nbsp;<span>27.4</span></a> with <span class="math inline">\(\mathbf{B}\)</span> replaced by the regular field <span class="math inline">\(\langle\mathbf{B}\rangle\)</span> only (and again no electric field). These solutions <span class="math inline">\(P\)</span> are commonly referred to as <em>unperturbed orbits</em> or <em>unperturbed trajectories</em>. For the homogeneous regular magnetic field <span class="math inline">\(\langle\mathbf{B}\rangle = B_z\hat{z}\)</span> assumed here they are of course helices along the z-direction.</p>
-<p>We can now substitue <a href="#eq-f-fluctuation-solution" class="quarto-xref">Equation&nbsp;<span>27.9</span></a> into <a href="#eq-vlasov-averaged-cgs" class="quarto-xref">Equation&nbsp;<span>27.7</span></a>, <span id="eq-vlasov-averaged-cgs2"><span class="math display">\[
+\tag{27.14}\]</span></span> Here, <span class="math inline">\(\delta f_{0} \equiv \delta f(\mathbf{r}, \mathbf{p}, t_{0})\)</span> denotes the phase space density at time <span class="math inline">\(t_0\)</span> and the subscript <span class="math inline">\(P(t')\)</span> indicates that positions and momenta in the square brackets are to be evaluated along the characteristics of <a href="#eq-vlasov-fluctuation-cgs" class="quarto-xref">Equation&nbsp;<span>27.13</span></a>, that is the solutions of the equations of motions, <a href="#eq-charge-particle-motion" class="quarto-xref">Equation&nbsp;<span>27.9</span></a> with <span class="math inline">\(\mathbf{B}\)</span> replaced by the regular field <span class="math inline">\(\langle\mathbf{B}\rangle\)</span> only (and again no electric field). These solutions <span class="math inline">\(P\)</span> are commonly referred to as <em>unperturbed orbits</em> or <em>unperturbed trajectories</em>. For the homogeneous regular magnetic field <span class="math inline">\(\langle\mathbf{B}\rangle = B_z\hat{z}\)</span> assumed here they are of course helices along the z-direction.</p>
+<p>We can now substitue <a href="#eq-f-fluctuation-solution" class="quarto-xref">Equation&nbsp;<span>27.14</span></a> into <a href="#eq-vlasov-averaged-cgs" class="quarto-xref">Equation&nbsp;<span>27.12</span></a>, <span id="eq-vlasov-averaged-cgs2"><span class="math display">\[
 \begin{aligned}
 &amp; \frac{\partial \langle f \rangle }{\partial t} + \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} \cdot \mathbf{\nabla}_{\mathbf{r}} \langle f \rangle + e \frac{\mathbf{v} \times \langle \mathbf {B} \rangle}{c} \cdot \mathbf{\nabla}_{\mathbf{p}} \langle f \rangle \\
 &amp;\simeq \int _{t_{0}}^{t} \!\! \mathrm {d} t' \! \left \langle e \frac{\mathbf{v} \! \times \! \mathbf{\delta B}}{c} \! \cdot \! \nabla _{\mathbf{p}} \left [ e \frac{\mathbf{v} \! \times \! \mathbf{\delta B}}{c} \! \cdot \! \mathbf{\nabla}_{\mathbf{p}} \langle f \rangle \right ]_{P(t')} \right \rangle
 \end{aligned}
-\tag{27.10}\]</span></span> where we have dropped the term <span class="math inline">\(\propto \delta f_0\)</span>. At this stage, we can already see that the right-hand side will lead to diffusion terms (courtesy of the two momentum derivatives) and that it depends on the turbulent magnetic field’s two-point function, integrated along the unperturbed trajectory <span class="math inline">\(P(t')\)</span>. To make further progress, we consider the momentum <span class="math inline">\(\mathbf{p}\)</span> in spherical coordinates, that is <span class="math inline">\(\mathbf{p} = p\left( \sqrt{1-\mu^2}\cos\phi, \sqrt{1-\mu^2}\sin\phi, \mu \right)^T\)</span> and introduce the correlation lengths <span class="math inline">\(l_c\)</span> and correlation times <span class="math inline">\(\tau_c\)</span> of the turbulent magnetic field, defined through<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> <span id="eq-turbulence-correlation-length"><span class="math display">\[
+\tag{27.15}\]</span></span> where we have dropped the term <span class="math inline">\(\propto \delta f_0\)</span>. At this stage, we can already see that the right-hand side will lead to diffusion terms (courtesy of the two momentum derivatives) and that it depends on the turbulent magnetic field’s two-point function, integrated along the unperturbed trajectory <span class="math inline">\(P(t')\)</span>. To make further progress, we consider the momentum <span class="math inline">\(\mathbf{p}\)</span> in spherical coordinates, that is <span class="math inline">\(\mathbf{p} = p\left( \sqrt{1-\mu^2}\cos\phi, \sqrt{1-\mu^2}\sin\phi, \mu \right)^T\)</span> and introduce the correlation lengths <span class="math inline">\(l_c\)</span> and correlation times <span class="math inline">\(\tau_c\)</span> of the turbulent magnetic field, defined through<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> <span id="eq-turbulence-correlation-length"><span class="math display">\[
 \langle \delta B^{2} \rangle l_{\text{c}} \equiv \int _{0}^{\infty} \mathrm {d} \Delta r \, \langle \delta B(\mathbf{r}) \delta B(\mathbf{r}+\mathbf{\Delta r}) \rangle
-\tag{27.11}\]</span></span> <span id="eq-turbulence-correlation-time"><span class="math display">\[
+\tag{27.16}\]</span></span> <span id="eq-turbulence-correlation-time"><span class="math display">\[
 \langle \delta B^{2} \rangle \tau_{\text{c}} \equiv \int _{0}^{\infty} \mathrm {d} \Delta t \, \langle \delta B(t) \delta B(t+\Delta t) \rangle
-\tag{27.12}\]</span></span> Here, <span class="math inline">\(\delta B(t)\)</span> is short-hand for <span class="math inline">\(\left[\delta B(\mathbf{r}) \right]_{P(t)}\)</span>, that is <span class="math inline">\(\delta B(\mathbf{r})\)</span> evaluated along the unperturbed trajectory at time t.</p>
-<p>The right-hand side of <a href="#eq-vlasov-averaged-cgs2" class="quarto-xref">Equation&nbsp;<span>27.10</span></a> is still rather unwieldy and further progress requires a number of assumptions. In addition to</p>
+\tag{27.17}\]</span></span> Here, <span class="math inline">\(\delta B(t)\)</span> is short-hand for <span class="math inline">\(\left[\delta B(\mathbf{r}) \right]_{P(t)}\)</span>, that is <span class="math inline">\(\delta B(\mathbf{r})\)</span> evaluated along the unperturbed trajectory at time t.</p>
+<p>The right-hand side of <a href="#eq-vlasov-averaged-cgs2" class="quarto-xref">Equation&nbsp;<span>27.15</span></a> is still rather unwieldy and further progress requires a number of assumptions. In addition to</p>
 <ol type="1">
 <li>Smallness of perturbations, <span class="math inline">\(|\mathbf{\delta B}| \ll |\langle \mathbf{B} \rangle|\)</span></li>
 </ol>
@@ -813,27 +895,27 @@ e \frac{\mathbf{v} \times \mathbf{\delta B}}{c} \cdot \nabla_{\mathbf{p}} \delta
 <li><p>Gyrotropy: The ensemble-averaged phase space density <span class="math inline">\(\langle f \rangle\)</span> does not depend on the azimuthal angle <span class="math inline">\(\phi\)</span>, so <span class="math inline">\(\langle f \rangle (\mathbf{r}, p, \mu, \phi, t) \to \langle f \rangle (\mathbf{r}, p, \mu, t)\)</span>.</p></li>
 <li><p>Adiabatic approximation: The phase space density only varies on time-scales much larger than the correlation time of the turbulent magnetic field, <span class="math inline">\(\tau_c\)</span>, <span id="eq-adiabatic-approx"><span class="math display">\[
 \langle f \rangle \left / \frac{\partial \langle f \rangle }{\partial t} \right . \gg \tau _{\text{c}}
-\tag{27.13}\]</span></span></p></li>
+\tag{27.18}\]</span></span></p></li>
 <li><p>Finite correlation times: The correlation times of the turbulent magnetic field are much larger than the Larmor time, <span class="math inline">\(\tau_c \gg \Omega^{-1}\)</span>.</p></li>
 <li><p>Homogeneous and stationary turbulence: the statistical moments are invariant under translations in space and time. In natural language, it means that the statistics of turbulence do not depend on when and where to take measurements.</p></li>
 </ol>
 <p>Under these conditions, the ensemble averaged Vlasov equation ultimately results in a Fokker-Planck type equation (Fokker 1914; Planck 1917), also known as the Kolmogorov forward (Kolmogorov 1931) or as the Smoluchowski equation (Bogoliubov and Krylov 1939), describing diffusion in pitch-angle, <span id="eq-fokker-planck"><span class="math display">\[
 \frac{\partial \langle f \rangle }{\partial t} + v \mu \frac{\partial \langle f \rangle }{\partial z} = \frac{\partial }{\partial \mu } \left ( D_{\mu \mu } \frac{\partial \langle f \rangle }{\partial \mu } \right ) \, .
-\tag{27.14}\]</span></span></p>
+\tag{27.19}\]</span></span></p>
 <p>Following the approach sketched above, the pitch-angle diffusion coefficient, <span id="eq-pitch-angle-diffusion-coef"><span class="math display">\[
 D_{\mu \mu} \equiv \frac{\langle (\Delta \mu )^{2} \rangle }{2 \Delta t}
-\tag{27.15}\]</span></span> can be expressed in terms of the correlation function of the magnetic field. (HOW???)</p>
-<p>If we had not decided to ignore any electric field, additional terms would have appeared in the Fokker-Planck <a href="#eq-fokker-planck" class="quarto-xref">Equation&nbsp;<span>27.14</span></a>, relating to changes in momentum <span class="math inline">\(\mathbf{p}\)</span> and pitch-angle, with diffusion coefficients <span class="math inline">\(D_{\mu p} = D_{p\mu}\)</span> and <span class="math inline">\(D_{pp}\)</span> defined analogously to <a href="#eq-pitch-angle-diffusion-coef" class="quarto-xref">Equation&nbsp;<span>27.15</span></a>.</p>
+\tag{27.20}\]</span></span> can be expressed in terms of the correlation function of the magnetic field. (HOW???)</p>
+<p>If we had not decided to ignore any electric field, additional terms would have appeared in the Fokker-Planck <a href="#eq-fokker-planck" class="quarto-xref">Equation&nbsp;<span>27.19</span></a>, relating to changes in momentum <span class="math inline">\(\mathbf{p}\)</span> and pitch-angle, with diffusion coefficients <span class="math inline">\(D_{\mu p} = D_{p\mu}\)</span> and <span class="math inline">\(D_{pp}\)</span> defined analogously to <a href="#eq-pitch-angle-diffusion-coef" class="quarto-xref">Equation&nbsp;<span>27.20</span></a>.</p>
 <p>We have furthermore assumed that <span class="math inline">\(v_A / v \ll 1\)</span> in order for <span class="math inline">\(D_{xx}, D_{yy}, D_{xy}\)</span> and <span class="math inline">\(D_{yx}\)</span> to be negligible. Not doing so, would have resulted in the additional terms <span class="math display">\[
 \frac{\partial}{\partial x} \left (D_{xx} \frac{\partial \langle f \rangle }{\partial x} + D_{xy} \frac{\partial \langle f \rangle }{\partial y} \right ) + \frac{\partial}{\partial y} \left (D_{yx} \frac{\partial \langle f \rangle }{\partial x} + D_{yy} \frac{\partial \langle f \rangle }{\partial y} \right )
-\]</span> to be added to the right-hand side of <a href="#eq-fokker-planck" class="quarto-xref">Equation&nbsp;<span>27.14</span></a>.</p>
+\]</span> to be added to the right-hand side of <a href="#eq-fokker-planck" class="quarto-xref">Equation&nbsp;<span>27.19</span></a>.</p>
 <p>In summary, under the influence of a turbulent magnetic field, charged particles are performing a random walk in pitch-angle which in the ensemble average results in diffusion in pitch-angle (cosine).</p>
 </section>
 <section id="the-diffusion-approximation" class="level3" data-number="27.4.2">
 <h3 data-number="27.4.2" class="anchored" data-anchor-id="the-diffusion-approximation"><span class="header-section-number">27.4.2</span> The diffusion approximation</h3>
 <p>Particle transport can be conveniently categorised if the mean-square displacement in direction i, <span class="math inline">\(\langle \Delta x_i^2 \rangle\)</span>, has a power law dependence,<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <span id="eq-diffusion-power-law"><span class="math display">\[
 \langle \Delta {r}_{i}^{2} \rangle \propto (\Delta t)^{\alpha}
-\tag{27.16}\]</span></span> as <span class="math display">\[
+\tag{27.21}\]</span></span> as <span class="math display">\[
 \begin{array}{r@{\quad } l}
 \alpha &lt; 1: &amp; \text{sub-diffusive,} \\
 \alpha = 1: &amp; \text{diffusive,} \\
@@ -842,7 +924,7 @@ D_{\mu \mu} \equiv \frac{\langle (\Delta \mu )^{2} \rangle }{2 \Delta t}
 \end{array}
 \]</span></p>
 <p>It seems clear that transport in any perturbative theory with <span class="math inline">\(|\mathbf{\delta B}| \ll |\langle \mathbf{B} \rangle|\)</span> must be ballistic at early enough times: Particles just gyrate around <span class="math inline">\(\langle\mathbf{B}\rangle\)</span> and <span class="math inline">\(\langle \Delta z^{2} \rangle = (v \mu \Delta t)^{2}\)</span> while <span class="math inline">\(\langle \Delta x^{2} \rangle = \langle \Delta y^{2} \rangle = 0\)</span> when integrated over full gyroperiods. At late times, that is for <span class="math inline">\(t \gg D_{\mu\mu}^{-1}\)</span>, we would expect diffusive behaviour for the transport along the field.</p>
-<p>In order to formalise this picture, we derive a spatial diffusion equation from the Fokker-Planck <a href="#eq-fokker-planck" class="quarto-xref">Equation&nbsp;<span>27.14</span></a>. To this end, we decompose <span class="math inline">\(\langle f\rangle\)</span> into an isotropic part, <span class="math inline">\(g\)</span>, and an anisotropic part, <span class="math inline">\(h\)</span>, <span class="math display">\[
+<p>In order to formalise this picture, we derive a spatial diffusion equation from the Fokker-Planck <a href="#eq-fokker-planck" class="quarto-xref">Equation&nbsp;<span>27.19</span></a>. To this end, we decompose <span class="math inline">\(\langle f\rangle\)</span> into an isotropic part, <span class="math inline">\(g\)</span>, and an anisotropic part, <span class="math inline">\(h\)</span>, <span class="math display">\[
 \langle f \rangle (p, \mu, t) = g(p, t) + h(p, \mu, t)
 \]</span> where <span class="math display">\[
 g(p, t) = \frac{1}{2}\int_{-1}^{1} \mathrm{d}\mu \langle f \rangle (p, \mu, t)
@@ -853,29 +935,29 @@ g(p, t) = \frac{1}{2}\int_{-1}^{1} \mathrm{d}\mu \langle f \rangle (p, \mu, t)
 g \left / \frac{\partial g}{\partial t} \right . \gg \tau_{\text{sc}} \quad \text{and} \quad g \left / \frac{\partial g}{\partial z} \right . \gg \lambda_{\text{sc}}
 \]</span> where <span class="math inline">\(\tau_{\text{sc}} \sim D_{\mu \mu }^{-1}\)</span> and <span class="math inline">\(\lambda_{\text{sc}} \sim v \tau_{\text{sc}}\)</span> are the scattering time and mean-free path, respectively, the phase space density will be very isotropic, <span class="math inline">\(h\ll g\)</span>. In this case, we can derive a spatial diffusion equation for the isotropic part <span class="math inline">\(g\)</span> (e.g.&nbsp;Hasselmann and Wibberenz 1970), <span id="eq-isotropic-diffusion"><span class="math display">\[
 \frac{\partial g}{\partial t} - \frac{\partial }{\partial z} \left( \kappa_{\parallel} \frac{\partial g}{\partial z} \right) = 0
-\tag{27.17}\]</span></span> with the parallel diffusion coefficient <span id="eq-parallel-diffusion-coef"><span class="math display">\[
+\tag{27.22}\]</span></span> with the parallel diffusion coefficient <span id="eq-parallel-diffusion-coef"><span class="math display">\[
 \kappa_{\parallel} = \frac{v^{2}}{8} \int_{-1}^{1} \mathrm{d} \mu \frac{(1- \ \mu^{2})^{2}}{D_{\mu\mu}}
-\tag{27.18}\]</span></span></p>
+\tag{27.23}\]</span></span></p>
 <p>Furthermore, we would expect the anisotropic part <span class="math inline">\(h\)</span> to be dominated by the <em>dipole anisotropy</em> (???), that is <span class="math inline">\(h\approx h_1\mu\)</span> with <span id="eq-dipole-anisotropy"><span class="math display">\[
 h_{1} = \frac{3}{2} \int_{-1}^{1} \mathrm{d} \mu \, \mu \, h(\mu) = - \frac{2}{v} \kappa_{\parallel} \frac{\partial g}{\partial z}
-\tag{27.19}\]</span></span></p>
+\tag{27.24}\]</span></span></p>
 </section>
 <section id="computation-of-transport-coefficients" class="level3" data-number="27.4.3">
 <h3 data-number="27.4.3" class="anchored" data-anchor-id="computation-of-transport-coefficients"><span class="header-section-number">27.4.3</span> Computation of transport coefficients</h3>
-<p>So far, we have not specified the functional form of the Fokker-Planck coefficients, e.g.&nbsp;the pitch-angle diffusion coefficient <span class="math inline">\(D_{\mu\mu}\)</span>, and its dependence on the two-point correlation function of turbulence <span class="math inline">\(P_{ij}(\mathbf{k})\)</span> that emerges in the derivation of the Fokker-Planck <a href="#eq-fokker-planck" class="quarto-xref">Equation&nbsp;<span>27.14</span></a>. An alternative to the derivation of <a href="#sec-fokker-planck" class="quarto-xref"><span>Section 27.4.1</span></a> is to directly compute the Fokker-Planck coefficients from solutions of the equations of motion. In fact, an arbitrary Fokker-Planck coefficient <span class="math inline">\(D_{PQ}\)</span> can be defined in terms of the mean displacements of the variables in question, P and Q. For instance, the pitch-angle diffusion coefficient can be derived as the <span class="math inline">\(t\to\infty\)</span> limit of the running diffusion coefficient, <span id="eq-running-diffusion-coef"><span class="math display">\[
+<p>So far, we have not specified the functional form of the Fokker-Planck coefficients, e.g.&nbsp;the pitch-angle diffusion coefficient <span class="math inline">\(D_{\mu\mu}\)</span>, and its dependence on the two-point correlation function of turbulence <span class="math inline">\(P_{ij}(\mathbf{k})\)</span> that emerges in the derivation of the Fokker-Planck <a href="#eq-fokker-planck" class="quarto-xref">Equation&nbsp;<span>27.19</span></a>. An alternative to the derivation of <a href="#sec-fokker-planck" class="quarto-xref"><span>Section 27.4.1</span></a> is to directly compute the Fokker-Planck coefficients from solutions of the equations of motion. In fact, an arbitrary Fokker-Planck coefficient <span class="math inline">\(D_{PQ}\)</span> can be defined in terms of the mean displacements of the variables in question, P and Q. For instance, the pitch-angle diffusion coefficient can be derived as the <span class="math inline">\(t\to\infty\)</span> limit of the running diffusion coefficient, <span id="eq-running-diffusion-coef"><span class="math display">\[
 D_{\mu\mu}(t) = \frac{1}{2} \frac{\mathrm{d}}{\mathrm{d}t}\left \langle (\Delta \mu )^{2} \right \rangle
-\tag{27.20}\]</span></span></p>
+\tag{27.25}\]</span></span></p>
 <p>This is a consequence of the Taylor-Green-Kubo formula (Taylor 1922; Green 1951; Kubo 1957), <span id="eq-TGK"><span class="math display">\[
 D_{\mu\mu} = \int_{0}^{\infty} \mathrm{d} t \langle \dot{\mu}(0) \dot{\mu}(t) \rangle
-\tag{27.21}\]</span></span> where the dots denote derivatives with respect to time. For diffusive transport, <a href="#eq-pitch-angle-diffusion-coef" class="quarto-xref">Equation&nbsp;<span>27.15</span></a> and <a href="#eq-running-diffusion-coef" class="quarto-xref">Equation&nbsp;<span>27.20</span></a> coincide, of course. Moreover, this allows computing the parallel diffusion coefficient <span class="math inline">\(\kappa_\parallel\)</span> without the detour of computing <span class="math inline">\(D_{\mu\mu}\)</span> first and then applying the diffusion approximation, <a href="#eq-parallel-diffusion-coef" class="quarto-xref">Equation&nbsp;<span>27.18</span></a>.</p>
-<p>From the equations of motion <a href="#eq-lorentz-force-cgs" class="quarto-xref">Equation&nbsp;<span>27.2</span></a>, we find (HOW???) <span id="eq-pitch-angle-cosine-time-derivative"><span class="math display">\[
+\tag{27.26}\]</span></span> where the dots denote derivatives with respect to time. For diffusive transport, <a href="#eq-pitch-angle-diffusion-coef" class="quarto-xref">Equation&nbsp;<span>27.20</span></a> and <a href="#eq-running-diffusion-coef" class="quarto-xref">Equation&nbsp;<span>27.25</span></a> coincide, of course. Moreover, this allows computing the parallel diffusion coefficient <span class="math inline">\(\kappa_\parallel\)</span> without the detour of computing <span class="math inline">\(D_{\mu\mu}\)</span> first and then applying the diffusion approximation, <a href="#eq-parallel-diffusion-coef" class="quarto-xref">Equation&nbsp;<span>27.23</span></a>.</p>
+<p>From the equations of motion <a href="#eq-lorentz-force-cgs" class="quarto-xref">Equation&nbsp;<span>27.7</span></a>, we find (HOW???) <span id="eq-pitch-angle-cosine-time-derivative"><span class="math display">\[
 \dot{\mu} = \frac{e}{c p} \left( \mathbf{v} \times \mathbf{B} \right)_{z} = \frac{1}{r_{\text{g}} B_z} \left(v_{x} \delta B_{x}(\mathbf{r}) - v_{y} \delta B_{y}(\mathbf{r}) \right)
-\tag{27.22}\]</span></span> and thus <span id="eq-pitch-angle-coef"><span class="math display">\[
+\tag{27.27}\]</span></span> and thus <span id="eq-pitch-angle-coef"><span class="math display">\[
 D_{\mu\mu} = \frac{1}{ B_{z} ^{2} r_{\text{g}}^{2}} \int_{0}^{\infty }\mathrm{d} t \left[ v_{x}(t) v_{x}(0) \mathcal{P}_{yy}(t) + v_{y}(t) v_{y}(0) \mathcal{P}_{xx}(t) \right]
-\tag{27.23}\]</span></span></p>
+\tag{27.28}\]</span></span></p>
 <p>Here, we have defined <span id="eq-two-point-func"><span class="math display">\[
 \mathcal{P}_{ij}(t) \equiv \langle \delta B_{i}(0) \delta B_{j}(t) \rangle
-\tag{27.24}\]</span></span> and both the velocities and the magnetic fields are to be evaluated along unperturbed trajectories. Note that the fact that the Fokker-Planck coefficients only depend on the two-point function means that we can constrain ourselves to the Gaussian part of the turbulent magnetic field.</p>
+\tag{27.29}\]</span></span> and both the velocities and the magnetic fields are to be evaluated along unperturbed trajectories. Note that the fact that the Fokker-Planck coefficients only depend on the two-point function means that we can constrain ourselves to the Gaussian part of the turbulent magnetic field.</p>
 </section>
 <section id="turbulence-geometries-and-spectra" class="level3" data-number="27.4.4">
 <h3 data-number="27.4.4" class="anchored" data-anchor-id="turbulence-geometries-and-spectra"><span class="header-section-number">27.4.4</span> Turbulence geometries and spectra</h3>
@@ -884,7 +966,7 @@ D_{\mu\mu} = \frac{1}{ B_{z} ^{2} r_{\text{g}}^{2}} \int_{0}^{\infty }\mathrm{d}
 \delta \tilde{B}_{j}(\mathbf{k}, t) &amp;= (2\pi)^{-3/2} \int_{-\infty }^{\infty} \mathrm{d}^{3} r \, \delta B_{j}(\mathbf{r}, t) \mathrm{e} ^{\imath \mathbf{k} \cdot \mathbf{r}} \\
 \delta B_{j}(\mathbf{x}, t) &amp;= (2\pi)^{-3/2} \int_{-\infty}^{\infty} \mathrm{d}^{3} k \, \delta \tilde{B}_{j}(\mathbf{k}, t) \mathrm{e} ^{-\imath \mathbf{k} \cdot \mathbf{r}}
 \end{aligned}
-\tag{27.25}\]</span></span></p>
+\tag{27.30}\]</span></span></p>
 <p>Note that for the magnetic field to have real values, <span class="math inline">\(\delta B_{j}(\mathbf{r}) = \delta B^{*}_{j}(\mathbf{r})\)</span>, requires a relation between the Fourier components and their complex conjugates, <span class="math display">\[
 \delta \tilde{B}^{*}_{j}(\mathbf{k}) = \delta \tilde{B}_{j}(-\mathbf{k})
 \]</span></p>
@@ -897,7 +979,7 @@ D_{\mu\mu} = \frac{1}{ B_{z} ^{2} r_{\text{g}}^{2}} \int_{0}^{\infty }\mathrm{d}
 \begin{aligned}
 P_{ij}(\mathbf{k}, \Delta t) \equiv &amp; (2 \pi )^{-3/2} \int _{-\infty}^{\infty} \mathrm {d} ^{3} (\Delta r) \, \mathrm {e} ^{\imath \mathbf{k} \cdot \Delta \mathbf{r}} \\ &amp; \times \langle \delta B_{i}(\mathbf{r}, t) \delta B_{j}(\mathbf{r} - \Delta \mathbf{r}\!, t') \rangle
 \end{aligned}
-\tag{27.26}\]</span></span></p>
+\tag{27.31}\]</span></span></p>
 <p>It contains all the (statistical) information on the magnetic turbulence that enters into the computation of the Fokker-Planck coefficients:</p>
 <ul>
 <li>information on the turbulence geometry, for instance whether there is a preferred direction for the propagation of waves;</li>
@@ -906,7 +988,7 @@ P_{ij}(\mathbf{k}, \Delta t) \equiv &amp; (2 \pi )^{-3/2} \int _{-\infty}^{\inft
 </ul>
 <p>Oftentimes, it is assumed that <span class="math inline">\(P_{ij}(\mathbf{k}, \Delta t)\)</span> factorises into a magnetostatic correlation tensor <span class="math inline">\(P_{ij}(\mathbf{k}) \equiv P_{ij}(\mathbf{k}, 0)\)</span> independent of time and a time-dependent dynamical correlation function <span class="math inline">\(\Gamma(\mathbf{k}, \Delta t)\)</span>, <span id="eq-turbulence-correlation-tensor-decomposition"><span class="math display">\[
 P_{ij}(\mathbf{k}, \Delta t) = P_{ij}(\mathbf{k}) \Gamma (\mathbf{k}, \Delta t)
-\tag{27.27}\]</span></span></p>
+\tag{27.32}\]</span></span></p>
 <p>In the magnetostatic approximation, we ignore any time-dependence altogether, so <span class="math display">\[
 \Gamma \equiv 1
 \]</span></p>
@@ -920,23 +1002,23 @@ P_{ij}(\mathbf{k}, \Delta t) = P_{ij}(\mathbf{k}) \Gamma (\mathbf{k}, \Delta t)
 <h4 data-number="27.4.4.1" class="anchored" data-anchor-id="d-isotropic-turbulence"><span class="header-section-number">27.4.4.1</span> 3D isotropic turbulence</h4>
 <p>For 3D isotropic turbulence the magnetostatic correlation tensor takes the form (Batchelor 1982) <span id="eq-correlation-tensor-3disotropic"><span class="math display">\[
 P^{\text{3D}}_{ij}(\mathbf{k}) = g^{\text{3D}}(k) \left( \delta _{ij} - \frac{k_{i} k_{j}}{k^{2}} + \imath \sigma(k) \epsilon_{ijm} \frac{k_{m}}{k} \right)
-\tag{27.28}\]</span></span></p>
+\tag{27.33}\]</span></span></p>
 <p>The k-dependent real functions <span class="math inline">\(g^{\text{3D}}(k)\)</span> and <span class="math inline">\(\sigma(k)\)</span> allow modelling of the overall spectrum and of a wavenumber-dependent helicity, respectively. Note that for linearly polarised waves <span class="math inline">\(\sigma(k)\equiv 0\)</span>. The normalization of <span class="math inline">\(g^{\text{3D}}(k)\)</span> is fixed by requiring <span id="eq-isotropic-normalization"><span class="math display">\[
 \begin{aligned}
 \delta B^{2} &amp;\equiv \langle \mathbf{\delta B}^{2}(\mathbf{x}) \rangle \! = \!\! \int \mathrm {d} ^{3} k \left ( P^{\text{3D}}_{xx}(\mathbf{k}) + P^{\text{3D}}_{yy}( \mathbf{k}) + P^{\text{3D}}_{zz}(\mathbf{k}) \right ) \\ &amp;= 2 \int \mathrm {d} ^{3} k \, g^{\text{3D}}(k) = 8 \pi \int _{0}^{\infty } \mathrm {d} k \, k^{2} g^{\text{3D}}(k)
 \end{aligned}
-\tag{27.29}\]</span></span></p>
+\tag{27.34}\]</span></span></p>
 </section>
 <section id="slab-turbulence" class="level4" data-number="27.4.4.2">
 <h4 data-number="27.4.4.2" class="anchored" data-anchor-id="slab-turbulence"><span class="header-section-number">27.4.4.2</span> Slab turbulence</h4>
 <p>In slab turbulence, it is assumed that all quantities are independent of the coordinates perpendicular to the background field (x and y) and that the turbulent field has no z-component. Consequently, the wave vectors <span class="math inline">\(\mathbf{k}\parallel \hat{z}\)</span> and if we further demand turbulence to be axisymmetric, the turbulence correlation tensor reads <span id="eq-correlation-tensor-slab"><span class="math display">\[
 P^{\text{slab}}_{ij}(\mathbf{k}) = g^{\text{slab}}(k_{\parallel }) \frac{\delta (k_{\perp })}{k_{\perp }} \left ( \delta _{ij} + \imath \sigma (k_{\parallel }) \epsilon _{ijz} \right )
-\tag{27.30}\]</span></span> for <span class="math inline">\(i, j \in x, y\)</span> and zero otherwise. In our case <span class="math inline">\(k_\parallel = k_z\)</span> and <span class="math inline">\(k_{\perp } = \sqrt{k_{x}^{2} + k_{y}^{2}}\)</span>. Again, <span class="math inline">\(\sigma(k_\parallel)\)</span> allows for wavenumber-dependent helicity, but vanishes for linear polarisation. The normalisation is then <span id="eq-slab-normalization"><span class="math display">\[
+\tag{27.35}\]</span></span> for <span class="math inline">\(i, j \in x, y\)</span> and zero otherwise. In our case <span class="math inline">\(k_\parallel = k_z\)</span> and <span class="math inline">\(k_{\perp } = \sqrt{k_{x}^{2} + k_{y}^{2}}\)</span>. Again, <span class="math inline">\(\sigma(k_\parallel)\)</span> allows for wavenumber-dependent helicity, but vanishes for linear polarisation. The normalisation is then <span id="eq-slab-normalization"><span class="math display">\[
 \begin{aligned}
 \delta B^{2} &amp;\equiv \int \mathrm{d} ^{3} k \left( P^{\text{slab}}_{xx}( \mathbf{k}) + P^{\text{slab}}_{yy}(\mathbf{k}) \right) \\
 &amp;= 4 \pi \int _{-\infty}^{\infty} \mathrm{d} k_{\parallel} \, g^{ \text{slab}}(k_{\parallel})
 \end{aligned}
-\tag{27.31}\]</span></span></p>
+\tag{27.36}\]</span></span></p>
 <p>While slab turbulence might seem rather restrictive a turbulence model, it is quite attractive due to its simplicity. In addition, it could be argued that it is of physical relevance in situations where the turbulence is self-generated by anisotropies in the distribution of CRs (Kulsrud and Pearce 1969; Skilling 1975): It has been shown (e.g.&nbsp;Tademaru 1969) that the modes with wavevectors along the background magnetic field grow fastest.</p>
 </section>
 <section id="composite-slab-2d-isotropic-turbulence" class="level4" data-number="27.4.4.3">
@@ -956,44 +1038,44 @@ g_{\text{BPL}}(k) = g_{0} \left ( 1 + \left ( \frac{k}{k_{0}} \right )^{1/s} \ri
 <h4 data-number="27.4.4.5" class="anchored" data-anchor-id="slab-turbulence-with-broken-power-law-spectrum"><span class="header-section-number">27.4.4.5</span> Slab turbulence with broken power law spectrum</h4>
 <p>The result for the pitch-angle diffusion coefficient in slab turbulence and for the broken power law spectrum (Shalchi 2009) is given as an example. <span id="eq-g-slab-turbulence"><span class="math display">\[
 g^{\text{slab}}(k_{\parallel }) = \frac{C \left (q, \frac{1}{2} \right )}{2 \pi k_{0}} \delta B^{2} \left ( 1 + \left ( \frac{k}{k_{0}} \right )^{2} \right )^{-q/2} \, .
-\tag{27.32}\]</span></span></p>
-<p>The function <span class="math inline">\(C(q, s)\)</span> is fixed by the normalisation condition, see <a href="#eq-slab-normalization" class="quarto-xref">Equation&nbsp;<span>27.31</span></a>, <span id="eq-slab-normalization2"><span class="math display">\[
+\tag{27.37}\]</span></span></p>
+<p>The function <span class="math inline">\(C(q, s)\)</span> is fixed by the normalisation condition, see <a href="#eq-slab-normalization" class="quarto-xref">Equation&nbsp;<span>27.36</span></a>, <span id="eq-slab-normalization2"><span class="math display">\[
 \begin{aligned}
 \frac{1}{C(q, s)} &amp; \equiv \frac{4}{k_{0}} \int_{0}^{\infty} \mathrm {d} k \, \left ( 1 + \left( \frac{k}{k_{0}} \right )^{1/s} \right)^{-q s} \\
 &amp;= \frac{4}{k_{0}} \frac{\Gamma (s(q-1)) \Gamma (1+s)}{\Gamma (q \, s)}
 \end{aligned}
-\tag{27.33}\]</span></span></p>
-<p>where <span class="math inline">\(\Gamma (\cdot)\)</span> denotes the gamma function. We have assumed that <span class="math inline">\(q&gt;1\)</span> in order for the k-integral in <a href="#eq-slab-normalization2" class="quarto-xref">Equation&nbsp;<span>27.33</span></a> to converge. For <span class="math inline">\(q=1\)</span>, instead, we need to assume a cut-off, that is <span class="math inline">\(g^{\text{slab}} = 0\)</span> for <span class="math inline">\(k_{\parallel} &gt; k_{\text{max}}\)</span>.</p>
-<p>Substituting <a href="#eq-g-slab-turbulence" class="quarto-xref">Equation&nbsp;<span>27.32</span></a> into <a href="#eq-correlation-tensor-slab" class="quarto-xref">Equation&nbsp;<span>27.30</span></a> and <a href="#eq-pitch-angle-coef" class="quarto-xref">Equation&nbsp;<span>27.23</span></a>, one encounters the resonance function (Schlickeiser 2002) <span id="eq-slab-turbulence-resonance"><span class="math display">\[
+\tag{27.38}\]</span></span></p>
+<p>where <span class="math inline">\(\Gamma (\cdot)\)</span> denotes the gamma function. We have assumed that <span class="math inline">\(q&gt;1\)</span> in order for the k-integral in <a href="#eq-slab-normalization2" class="quarto-xref">Equation&nbsp;<span>27.38</span></a> to converge. For <span class="math inline">\(q=1\)</span>, instead, we need to assume a cut-off, that is <span class="math inline">\(g^{\text{slab}} = 0\)</span> for <span class="math inline">\(k_{\parallel} &gt; k_{\text{max}}\)</span>.</p>
+<p>Substituting <a href="#eq-g-slab-turbulence" class="quarto-xref">Equation&nbsp;<span>27.37</span></a> into <a href="#eq-correlation-tensor-slab" class="quarto-xref">Equation&nbsp;<span>27.35</span></a> and <a href="#eq-pitch-angle-coef" class="quarto-xref">Equation&nbsp;<span>27.28</span></a>, one encounters the resonance function (Schlickeiser 2002) <span id="eq-slab-turbulence-resonance"><span class="math display">\[
 R^{\text{slab}} = \pi \delta (k_{\parallel } \mu v \pm \Omega )
-\tag{27.34}\]</span></span></p>
+\tag{27.39}\]</span></span></p>
 <p>Eventually, this simplifies to <span id="eq-diffusion-coef-slab-turbulence"><span class="math display">\[
 D_{\mu \mu } = \frac{\pi }{2} C \! \left ( \! q, \frac{1}{2} \! \right ) q k_{0} \frac{\delta B^{2}}{B_{z}^{2}} \frac{(1 - \mu ^{2}) \mu ^{q-1} (r_{\text{L}} k_{0})^{q-2}}{(1 + \mu ^{2} (r_{\text{L}} k_{0}))^{q/2}}
-\tag{27.35}\]</span></span></p>
+\tag{27.40}\]</span></span></p>
 </section>
 </section>
 <section id="field-line-random-walk" class="level3" data-number="27.4.5">
 <h3 data-number="27.4.5" class="anchored" data-anchor-id="field-line-random-walk"><span class="header-section-number">27.4.5</span> Field-line random walk</h3>
-<p>The computation of the pitch-angle diffusion coefficient in <a href="#eq-TGK" class="quarto-xref">Equation&nbsp;<span>27.21</span></a> and <a href="#eq-pitch-angle-coef" class="quarto-xref">Equation&nbsp;<span>27.23</span></a> is based on an evaluation of the turbulent part of the Lorentz force along trajectories around the homogeneous background field. As long as perturbations are small, this gives the dominant contribution to the parallel diffusion coefficient, <a href="#eq-parallel-diffusion-coef" class="quarto-xref">Equation&nbsp;<span>27.18</span></a>.</p>
+<p>The computation of the pitch-angle diffusion coefficient in <a href="#eq-TGK" class="quarto-xref">Equation&nbsp;<span>27.26</span></a> and <a href="#eq-pitch-angle-coef" class="quarto-xref">Equation&nbsp;<span>27.28</span></a> is based on an evaluation of the turbulent part of the Lorentz force along trajectories around the homogeneous background field. As long as perturbations are small, this gives the dominant contribution to the parallel diffusion coefficient, <a href="#eq-parallel-diffusion-coef" class="quarto-xref">Equation&nbsp;<span>27.23</span></a>.</p>
 <p>For perpendicular transport, however, there is another important contribution due to the fact that the field line is not perfectly homogeneous. Instead, the large-scale magnetic field evaluated for a particle along a field line changes direction with distance along this field line. Under certain conditions, this movement can be shown to be diffusive, see below. If the movement of the particle due to this effect is included in the computation of the mean-square displacements (or equivalently through the Taylor-Green-Kubo approach), this gives the so-called <em>field-line random walk (FLRW)</em> contribution to perpendicular transport. The contribution without this is oftentimes called the <em>microscopic contribution</em>.</p>
 <p>For slab turbulence, the microscopic diffusion coefficient vanishes (the transport is in fact sub-diffusive), hence FLRW gives the only contribution. For other turbulence geometries, FLRW can also contribute, but might not be dominating.</p>
 <p>Let’s again assume the regular background field <span class="math inline">\(\langle \mathbf{B} \rangle = B_{z} \hat{z}\)</span> to be dominating over the perturbations <span class="math inline">\(\delta\mathbf{B}\)</span>. The equation determining the field line <span class="math inline">\(\{ x(z), y(z) \}\)</span> is <span class="math display">\[
 \frac{\mathrm{d}x}{\mathrm{d}z} = \frac{\delta B_{x}}{B_{z}} \, ,\frac{\mathrm{d}y}{\mathrm{d}z} = \frac{\delta B_{y}}{B_{z}}
 \]</span> This can formally be integrated to obtain the mean square displacement in the perpendicular directions, e.g. <span id="eq-mean-sqr-displacement-perp"><span class="math display">\[
 \langle (\Delta x)^{2} \rangle \! = \! \frac{1}{B_{z}^{2}} \int _{0}^{z} \!\! \! \mathrm {d} z' \!\! \int _{0}^{z} \!\!\! \mathrm {d} z'' \langle \delta B_{x}(\mathbf{r}(z')) \delta B_{x}(\mathbf{r}(z'')) \rangle
-\tag{27.36}\]</span></span></p>
+\tag{27.41}\]</span></span></p>
 <p>In slab turbulence, the integrand only depends on z and it is easy to show that the perpendicular mean-square displacement <span class="math inline">\(\langle (\Delta r_{\perp})^{2} \rangle\)</span> is ballistic at small z and diffusive for large z, e.g. <span class="math display">\[
 \langle (\Delta x)^{2} \rangle = \left \{ \textstyle\begin{array}{l@{\quad } l} z^{2} \left ( \delta B_{x} / B_{z} \right )^{2} &amp; \text{for } z \to 0 \, , \\ 2 \kappa _{\text{FLRW}} |z| &amp; \text{for } z \to \infty \, , \end{array}\displaystyle \right .
 \]</span> with the FLRW diffusion coefficient <span class="math display">\[
 \kappa _{\text{FLRW}} = \frac{2 \pi ^{2}}{B_{z}^{2}} g^{\text{slab}}(0)
 \]</span></p>
-<p>In other turbulence geometries, the integrand in <a href="#eq-mean-sqr-displacement-perp" class="quarto-xref">Equation&nbsp;<span>27.36</span></a> also depends on x and y, such that an explicit solution is not possible without further assumptions.</p>
+<p>In other turbulence geometries, the integrand in <a href="#eq-mean-sqr-displacement-perp" class="quarto-xref">Equation&nbsp;<span>27.41</span></a> also depends on x and y, such that an explicit solution is not possible without further assumptions.</p>
 <p>If particles are assumed to diffuse along field lines, <span class="math inline">\(\langle (\Delta z)^{2} \rangle \propto \Delta t\)</span>, FLRW leads to subdiffusive perpendicular transport, <span class="math inline">\(\langle (\Delta r_{\perp})^{2} \rangle \propto \sqrt{\Delta t}\)</span>, a phenomenon known as <em>compound (sub)diffusion</em> (Jokipii 1966). Compound subdiffusion has been applied to a variety of environments like laboratory plasmas, the heliosphere, near-source transport as well as shock acceleration.</p>
 </section>
 <section id="short-comings-of-qlt" class="level3" data-number="27.4.6">
 <h3 data-number="27.4.6" class="anchored" data-anchor-id="short-comings-of-qlt"><span class="header-section-number">27.4.6</span> Short-comings of QLT</h3>
-<p>Despite its popularity, QLT exhibits a number of issues. The most well-known pathology of magnetostatic QLT is its inability to scatter particles through <span class="math inline">\(90^\circ\)</span>. While present in a number of turbulence geometries, it is easiest illustrated in slab turbulence where the dependence of the pitch-angle diffusion coefficient <span class="math inline">\(D_{\mu\mu}\)</span> on the spectrum <span class="math inline">\(g^{\text{slab}}(k)\)</span> becomes very simple. In fact, inspecting <a href="#eq-diffusion-coef-slab-turbulence" class="quarto-xref">Equation&nbsp;<span>27.35</span></a> we see that <span class="math inline">\(D_{\mu\mu}\to 0\)</span> for <span class="math inline">\(\mu\to 0\)</span>.</p>
-<p>The root cause for the <span class="math inline">\(90^\circ\)</span> problem is the narrow resonance condition in magnetostatic QLT, <span class="math inline">\(k_{\parallel } \mu \, r_{\text{L}} = \pm 1\)</span> (<a href="#eq-slab-turbulence-resonance" class="quarto-xref">Equation&nbsp;<span>27.34</span></a>). Particles at finite <span class="math inline">\(\mu\)</span> are in resonance with waves of finite parallel wavenumber, <span class="math inline">\(k_{\parallel} = \pm 1 / (\mu r_{\text{L}})\)</span>. For <span class="math inline">\(\mu\to 0\)</span>, however, the resonant parallel wavenumber grows without bounds. With the turbulence spectra being falling power laws, however, there is only little energy at small scales and the pitch-angle scattering rate vanishes. In practice, there is of course no energy at all at scales below the dissipation scale.</p>
+<p>Despite its popularity, QLT exhibits a number of issues. The most well-known pathology of magnetostatic QLT is its inability to scatter particles through <span class="math inline">\(90^\circ\)</span>. While present in a number of turbulence geometries, it is easiest illustrated in slab turbulence where the dependence of the pitch-angle diffusion coefficient <span class="math inline">\(D_{\mu\mu}\)</span> on the spectrum <span class="math inline">\(g^{\text{slab}}(k)\)</span> becomes very simple. In fact, inspecting <a href="#eq-diffusion-coef-slab-turbulence" class="quarto-xref">Equation&nbsp;<span>27.40</span></a> we see that <span class="math inline">\(D_{\mu\mu}\to 0\)</span> for <span class="math inline">\(\mu\to 0\)</span>.</p>
+<p>The root cause for the <span class="math inline">\(90^\circ\)</span> problem is the narrow resonance condition in magnetostatic QLT, <span class="math inline">\(k_{\parallel } \mu \, r_{\text{L}} = \pm 1\)</span> (<a href="#eq-slab-turbulence-resonance" class="quarto-xref">Equation&nbsp;<span>27.39</span></a>). Particles at finite <span class="math inline">\(\mu\)</span> are in resonance with waves of finite parallel wavenumber, <span class="math inline">\(k_{\parallel} = \pm 1 / (\mu r_{\text{L}})\)</span>. For <span class="math inline">\(\mu\to 0\)</span>, however, the resonant parallel wavenumber grows without bounds. With the turbulence spectra being falling power laws, however, there is only little energy at small scales and the pitch-angle scattering rate vanishes. In practice, there is of course no energy at all at scales below the dissipation scale.</p>
 </section>
 </section>
 <section id="test-particle-simulation" class="level2" data-number="27.5">
@@ -1024,7 +1106,7 @@ Mertsch, Philipp. 2020. <span>“Test Particle Simulations of Cosmic Rays.”</s
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>This is the form given in the <a href="https://stochastic-parker.readthedocs.io/en/latest/theory/parker_intro.html">GPAT model</a>. Riaan Steenkamp shows a slightly different version for the guiding center drift in his notes which absorbs the adiabatic energy change into the diffusion tensor. Also note that <span class="math inline">\(\frac{\partial f}{\partial \ln{p}} = p\partial f_0 / \partial p\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>This is the form given in the <a href="https://stochastic-parker.readthedocs.io/en/latest/theory/parker_intro.html">GPAT model</a>. Riaan Steenkamp shows a slightly different version for the guiding center drift in his notes which absorbs the adiabatic energy change into the diffusion tensor. Also note that <span class="math inline">\(\frac{\partial f_0}{\partial \ln{p}} = p\,\partial f_0 / \partial p\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>In CGS units, the electric and magnetic fields have the same unit.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>Strictly speaking, the correlation lengths and times are tensors because of the vector nature of the magnetic field in the two-point functions; here, however, we only require them for order of magnitude arguments, so we do not distinguish the different components.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>In particle transport, ballistic refers to the movement of particles with minimal influence from their environment. Imagine a particle traveling on a frictionless, straight path, almost like a bullet. That’s ballistic transport!<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
