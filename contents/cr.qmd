@@ -337,6 +337,83 @@ where $f_0(\mathbf{x}, p, t)$ is the omnidirectional distribution function as a 
 
 [^form]: This is the form given in the [GPAT model](https://stochastic-parker.readthedocs.io/en/latest/theory/parker_intro.html). Riaan Steenkamp shows a slightly different version for the guiding center drift in his notes which absorbs the adiabatic energy change into the diffusion tensor. Also note that $\frac{\partial f_0}{\partial \ln{p}} = p\,\partial f_0 / \partial p$.
 
+## Stochastic Differential Equation Approach
+
+Instead of discretizing @eq-parker-transport on a grid in $(\mathbf{x}, p)$, one can solve it by exploiting the mathematical equivalence between a Fokker-Planck-type PDE and an ensemble of stochastic Langevin equations. The distribution is then represented by a large statistical ensemble of discrete samples called _pseudo-particles_ (or stochastic tracers), whose random walks reproduce the solution of the transport equation. This is attractive because in 3D space plus 1D momentum, grid-based solvers scale poorly, suffer from numerical diffusion across strong gradients (e.g. shocks), and require large matrix inversions, whereas the SDE approach avoids all three.
+
+### From the transport equation to a Fokker-Planck equation
+
+We first rewrite the equation in terms of the differential number density $n_p(\mathbf{x}, p, t) = 4\pi p^2 f_0(\mathbf{x}, p, t)$, so that $\int n_p\,\mathrm{d}^3 x\,\mathrm{d}p$ is the total number of physical particles and $n_p$ is precisely the quantity sampled by the pseudo-particles. Multiplying @eq-parker-transport by $4\pi p^2$ and using $4\pi\partial_p(p^3 f_0) = \partial_p(p\,n_p)$, the conservative form reads
+$$
+\frac{\partial n_p}{\partial t} = -\nabla\cdot\left[ (\mathbf{U} + \mathbf{V}_d)n_p - \pmb{\kappa}_S\cdot\nabla n_p \right] - \frac{\partial}{\partial p}\left[ \dot{p}_\text{ad}\,n_p \right] + Q_p
+$$ {#eq-parker-conservative-np}
+where $\pmb{\kappa}_S$ is the symmetric part of the spatial diffusion tensor, $\mathbf{V}_d = \nabla\cdot\pmb{\kappa}_A$ is the drift velocity arising from its antisymmetric part (equivalently the guiding-center drift $\mathbf{V}_d = \frac{pv}{3q}\nabla\times\left( \mathbf{B}/B^2 \right)$), and
+$$
+\dot{p}_\text{ad} = -\frac{1}{3}(\nabla\cdot\mathbf{U})\,p
+$$ {#eq-pdot-ad}
+is the adiabatic momentum change rate.
+
+To bring the spatial part into Fokker-Planck form, we use the identity valid for a spatially varying tensor,
+$$
+\nabla\cdot\left( \pmb{\kappa}_S\cdot\nabla n_p \right) = \sum_{i,j}\frac{\partial^2}{\partial x_i\partial x_j}\left( \kappa_{S,ij}\,n_p \right) - \nabla\cdot\left[ \left( \nabla\cdot\pmb{\kappa}_S \right) n_p \right]
+$$
+with $\left( \nabla\cdot\pmb{\kappa}_S \right)_i = \partial\kappa_{S,ij}/\partial x_j$. Note the minus sign: it is the reason why the gradient of the diffusion tensor appears as an additional _deterministic_ drift, sometimes called the spurious drift, in the equations of motion below. Substituting into @eq-parker-conservative-np gives the standard forward Kolmogorov (Fokker-Planck) equation for the state vector $\mathbf{Y} = (\mathbf{x}, p)^T$,
+$$
+\frac{\partial n_p}{\partial t} = -\sum_i\frac{\partial}{\partial Y_i}\left[ a_i(\mathbf{Y}, t)\,n_p \right] + \frac{1}{2}\sum_{i,j}\frac{\partial^2}{\partial Y_i\partial Y_j}\left[ D_{ij}(\mathbf{Y}, t)\,n_p \right] + Q_p
+$$ {#eq-parker-fp}
+with the drift vector and diffusion matrix
+$$
+\mathbf{a} = \left( \mathbf{U} + \mathbf{V}_d + \nabla\cdot\pmb{\kappa}_S,\ \dot{p}_\text{ad} \right)^T, \quad \mathbf{D} = \begin{pmatrix} 2\pmb{\kappa}_S & 0 \\ 0 & 0 \end{pmatrix}
+$$ {#eq-sde-coefficients}
+The vanishing momentum block of $\mathbf{D}$ reflects that the standard PTE contains no momentum diffusion (second-order Fermi acceleration is neglected), so momentum changes are purely deterministic along a trajectory. ($\mathbf{a}$ and $\mathbf{D}$ are commonly denoted $\mathbf{A}$ and $\mathbf{B}$ in the SDE literature; we avoid those symbols here because they are already used for the vector potential and the magnetic field.)
+
+By Itô's lemma, @eq-parker-fp is equivalent to the Itô stochastic differential equation
+$$
+\mathrm{d}\mathbf{Y}(t) = \mathbf{a}(\mathbf{Y}, t)\,\mathrm{d}t + \pmb{\sigma}(\mathbf{Y}, t)\cdot\mathrm{d}\mathbf{W}(t)
+$$ {#eq-sde-ito}
+where $\pmb{\sigma}$ is any matrix satisfying $\mathbf{D} = \pmb{\sigma}\pmb{\sigma}^T = 2\pmb{\kappa}_S$ (for instance the Cholesky factor of $2\pmb{\kappa}_S$, or, in the local field-aligned frame, $\mathrm{diag}\left( \sqrt{2\kappa_\parallel}, \sqrt{2\kappa_\perp}, \sqrt{2\kappa_\perp} \right)$), and $\mathrm{d}\mathbf{W}$ is a multidimensional Wiener process with $\left< \mathrm{d}\mathbf{W} \right> = 0$ and $\left< \mathrm{d}W_i\,\mathrm{d}W_j \right> = \delta_{ij}\mathrm{d}t$, i.e. Gaussian increments of size $\mathrm{d}\mathbf{W} \sim \sqrt{\mathrm{d}t}$.
+
+### Equations of motion of a pseudo-particle
+
+Splitting the state vector back into $\mathbf{x}$ and $p$, each pseudo-particle is advanced by
+$$
+\mathrm{d}\mathbf{x} = \left[ \mathbf{U} + \nabla\cdot\pmb{\kappa} \right]\mathrm{d}t + \pmb{\sigma}\cdot\mathrm{d}\mathbf{W}_\mathbf{x}
+$$ {#eq-sde-x}
+and, for the momentum,
+$$
+\mathrm{d}p = -\frac{1}{3}(\nabla\cdot\mathbf{U})\,p\,\mathrm{d}t
+$$ {#eq-sde-p}
+
+- $\mathbf{U}$ is the bulk fluid advection.
+- $\nabla\cdot\pmb{\kappa} = \mathbf{V}_d + \nabla\cdot\pmb{\kappa}_S$ is an effective deterministic drift combining the magnetic gradient/curvature drift ($\nabla\cdot\pmb{\kappa}_A$) with the gradient of the diffusion coefficients themselves ($\nabla\cdot\pmb{\kappa}_S$, the spurious drift).
+- $\pmb{\sigma}\cdot\mathrm{d}\mathbf{W}_\mathbf{x}$ is the stochastic kick representing microscopic pitch-angle scattering off turbulent magnetic fluctuations.
+- There is no Wiener term in @eq-sde-p, since spatial diffusion in the standard PTE does not involve momentum diffusion.
+
+### Pseudo-particles and the phase-space picture
+
+A pseudo-particle is neither a physical cosmic ray executing gyro-orbits nor a single charged ion:
+
+- **Statistical representative**: it is a numerical tracer carrying a statistical weight $w_k$, i.e. a sample of the probability density $n_p(\mathbf{x}, p, t)$ rather than a chunk of matter.
+- **Coarse-grained trajectory**: a physical particle follows a helical path governed by the Lorentz force with small scattering deviations; a pseudo-particle skips the gyro-orbit and pitch-angle scales entirely and jumps on the macroscopic diffusion scale through the Wiener increments $\mathrm{d}\mathbf{W}\sim\sqrt{\mathrm{d}t}$. The trajectory is continuous but nowhere differentiable. Note also that @eq-sde-x is written in the Itô convention: a Stratonovich reformulation would move part of the spurious drift $\nabla\cdot\pmb{\kappa}_S$ into the noise term, so the convention must match the time-integration scheme.
+- **Reconstruction**: when a pseudo-particle crosses a boundary, interacts with a source, or reaches a detector, its weight $w_k$ is binned into phase-space histograms; dividing by $4\pi p^2$ recovers $f_0(\mathbf{x}, p, t)$.
+
+**Link to Liouville's theorem and test-particle simulations.** It is instructive to contrast the two "particle" pictures used in this note. In test-particle simulations (see @sec-test-particle), one integrates the equations of motion @eq-charge-particle-motion for markers in a realization of the turbulent field. Because the underlying system is Hamiltonian, Liouville's theorem guarantees conservation of phase-space volume, and hence the conservation of the phase-space density $F(\mathbf{r}, \mathbf{p}, t)$ along the flow (@eq-liouville). The numerical markers therefore merely trace a deterministic, incompressible and canonical (symplectic) map $(\mathbf{r}_0, \mathbf{p}_0)\mapsto(\mathbf{r}, \mathbf{p})$; averaging over an ensemble of turbulence realizations then yields the Fokker-Planck coefficients (@sec-fokker-planck), including the diffusion tensor $\pmb{\kappa}$ used above.
+
+The SDE approach performs the coarse-graining in the opposite order: the gyrophase and the pitch angle are averaged out _first_, producing $\pmb{\kappa}$ and $\mathbf{V}_d$, and only then are pseudo-particles advanced. The resulting stochastic map is a Markov process, not a canonical transformation: phase-space volume is not conserved, since the transport is now diffusive, and each step jumps over the gyro- and scattering scales. What both methods share is the interpretation of particles as samples of a phase-space density, markers of $F(\mathbf{r}, \mathbf{p}, t)$ along Liouville characteristics on the one hand, samples of $n_p(\mathbf{x}, p, t)$ along Itô trajectories on the other, so that the same binning machinery reconstructs the distribution function.
+
+### Forward and backward SDEs
+
+The SDE formulation admits two operational directions:
+
+- **Forward SDEs (source to observer)**: pseudo-particles are injected at the sources (a supernova remnant, a solar flare shock, ...) at $t = 0$ and propagated forward in time until they leave the system or reach a detector. This mode naturally yields the time-dependent spatial distribution of an evolving event.
+- **Backward SDEs (observer to source)**: if one only cares about the spectrum at a specific point, say a spacecraft at $1\,\text{AU}$, forward runs waste computation because most pseudo-particles miss the detector. Using the adjoint (backward Kolmogorov) equation, pseudo-particles are started at the detector at the observation time and integrated backward in time ($\tau = -t$); the source terms and boundary conditions encountered where their paths terminate are weighted to give $f_0(\mathbf{x}_\text{obs}, p, t)$ without wasting trajectories.
+
+### Practical advantages over grid-based solvers
+
+- **No grid, no CFL restriction**: there is no spatial grid to invert or resolve, and no numerical diffusion smearing strong gradients or shock interfaces.
+- **Point-value efficiency**: backward SDEs compute the spectrum at a single localized position in $\mathcal{O}(N)$ operations instead of solving for the entire global volume.
+- **Trivial parallelization**: every pseudo-particle trajectory is statistically independent of all others, so the method scales with near-ideal efficiency on CPU threads and GPUs.
+
 ## Quasilinear Theory
 
 More than 50 years since its inception, _quasi-linear theory (QLT)_ [@jokipii1966cosmic; Kennel and Engelmann 1966; Hall and Sturrock 1967; Hasselmann and Wibberenz 1970] is still very much the paradigm for phenomenological applications to Galactic cosmic rays. In QLT, the Fokker-Planck equation for the temporal evolution of the phase space density of CRs is derived in a perturbative approach where the force on a particle due to a turbulent magnetic field is evaluated along the unperturbed trajectory in a regular background field. The Fokker-Planck coefficients, most prominently the components of the spatial diffusion tensor, can be computed for a given model of turbulence, parametrised by the two-point function of the turbulent magnetic field. Famously, in QLT the interactions between plasma waves and particles are found to be resonant, meaning that particles of a certain gyroradius $r_L = v/\Omega$, $\Omega$ denoting the gyrofrequency, are only affected by waves with a wavenumber k that satisfies $k r_L \mu \approx 1$ (for low-frequency waves like Alfvén waves), where $\mu$ is the cosine of the pitch-angle, that is the angle between the particle momentum $\mathbf{p}$ and the regular magnetic field $\left<\mathbf{B}\right>$, $\mu \equiv \mathbf{p}\cdot\left< \mathbf{B} \right> / (|\mathbf{p}||\left< \mathbf{B} \right>|)$.
@@ -717,7 +794,7 @@ Despite its popularity, QLT exhibits a number of issues. The most well-known pat
 The root cause for the $90^\circ$ problem is the narrow resonance condition in magnetostatic QLT, $k_{\parallel } \mu \, r_{\text{L}} = \pm 1$ (@eq-slab-turbulence-resonance). Particles at finite $\mu$ are in resonance with waves of finite parallel wavenumber, $k_{\parallel} = \pm 1 / (\mu r_{\text{L}})$. For $\mu\to 0$, however, the resonant parallel wavenumber grows without bounds. With the turbulence spectra being falling power laws, however, there is only little energy at small scales and the pitch-angle scattering rate vanishes. In practice, there is of course no energy at all at scales below the dissipation scale.
 
 
-## Test Particle Simulation
+## Test Particle Simulation {#sec-test-particle}
 
 In the absence of a widely accepted extension of quasi-linear theory, wave-particle interactions must also be studied in numerical simulations where the equations of motion are directly solved in a realisation of the turbulent magnetic field. The applications of such test particle simulations of cosmic rays are manifold: testing transport theories, computing parameters like diffusion coefficients or making predictions for phenomena beyond standard diffusion theories, e.g. for cosmic ray small-scale anisotropies.
 
