@@ -1,0 +1,226 @@
+# Reconnection {#sec-reconnection}
+
+## Energy release in 2D flux rope relaxation and coalescence
+
+Magnetic reconnection and relaxation in magnetized plasmas frequently involve geometric reconfigurations of magnetic flux ropes. In two dimensions without a guide field, these processes are governed by the release of free magnetic energy stored in non-circular or multi-rope topological configurations.
+
+We systematically analyze two interconnected problems:
+- Geometric relaxation of an isolated flux rope: A stretched elliptical flux rope of major axis $l$ and minor axis $w$ contracting into an axisymmetric circular loop of radius $r$.
+- Hierarchical coalescence of magnetic flux ropes: The pairwise merging of $N_{\text{ropes}} = 2^N$ identical circular flux ropes into a single merged circular flux rope.
+
+### Basic Assumptions
+
+- Two-Dimensional Geometry ($2\text{D}$): All field lines lie in the $(x, y)$ plane ($\mathbf{B} = \nabla A_z \times \hat{\mathbf{z}}$), and translational symmetry holds along $\hat{\mathbf{z}}$ with zero guide field ($B_z = 0$).
+- Incompressibility: The plasma bulk flow satisfies $\nabla \cdot \mathbf{v} = 0$, implying strict conservation of the cross-sectional area enclosed by the magnetic structures.
+- Magnetic Flux Conservation: Outside of localized reconnection dissipation regions, ideal magnetohydrodynamics (MHD) holds, preserving the total magnetic flux $\Phi$.
+- Thin Flux-Tube Scaling: The magnetic flux bundle has a closed perimeter $P$, cross-sectional area $\delta S$, and volume $V = P \delta S$.
+- Symmetric Coalescence: Merging flux ropes share identical initial dimensions, magnetic fluxes, and plasma mass densities.
+
+#### Verification of Assumptions
+
+- Incompressibility ($\nabla \cdot \mathbf{v} \approx 0$): Valid when plasma bulk motion and Alfvén speeds remain significantly subsonic relative to the fast magnetosonic speed, or in high-$\beta$ regimes where the plasma acts as an incompressible fluid.
+
+- Flux Conservation ($\partial_t \Phi = 0$): By Alfvén's theorem, magnetic flux through a co-moving contour is conserved in high Lundquist number ($S \gg 1$) plasmas. The non-ideal diffusion region ($\mathbf{E} + \mathbf{v} \times \mathbf{B} = \eta \mathbf{J}$) remains spatially localized to the $X$-point ($L_{\text{diff}} \ll P$), ensuring that the global magnetic flux in the circulating loop bulk remains an adiabatic invariant.
+
+- Isoperimetric Extremum: By the isoperimetric inequality in Euclidean 2D space:$$P^2 \ge 4\pi A$$The equality holds uniquely for a circle. Because $W_B \propto P^2$ under incompressibility and flux conservation, the circular geometry represents the absolute global minimum energy state. Any deformation (such as stretching to an ellipse) introduces free magnetic energy.
+
+### Systematic Derivations
+
+#### Single Flux Rope Relaxation: Ellipse to Circle
+
+Consider an elliptical flux loop with semi-major axis $a = l/2$ and semi-minor axis $b = w/2$.
+
+1. Geometric Invariants
+By area conservation:
+$$
+A = \pi a b = \frac{\pi l w}{4} = \pi r^2 \implies r = \frac{1}{2}\sqrt{l w}
+$$
+The perimeter of the relaxed circular loop is:
+$$
+P_c = 2\pi r = \pi \sqrt{l w}
+$$
+The perimeter of the initial elliptical loop is given by the complete elliptic integral of the second kind, $E(e)$:
+$$
+P_e = 4 a E(e) = 2 l E\left(\sqrt{1 - \frac{w^2}{l^2}}\right), \quad e = \sqrt{1 - \frac{w^2}{l^2}}
+$$
+
+2. Flux and Energy Scaling
+For a closed flux rope of perimeter $P$ and flux-tube normal cross-section $\delta S$:
+$$
+\Phi = B \delta S = \text{const}
+$$
+$$
+V = P \delta S = \text{const} \implies \delta S = \frac{V}{P}
+$$
+Substituting $\delta S$ into the flux expression:
+$$
+B = \frac{\Phi}{\delta S} = \frac{\Phi P}{V} \propto P
+$$
+The total magnetic energy stored in the flux tube of volume $V$ is:
+$$
+W_B = \int \frac{B^2}{2\mu_0} dV = \frac{B^2}{2\mu_0} V = \frac{\Phi^2}{2\mu_0 V} P^2
+$$
+
+3. Energy Release and Alfvén Outflow
+The magnetic energy released during relaxation is:
+$$
+\Delta W_B = W_{B, e} - W_{B, c} = \frac{\Phi^2}{2\mu_0 V} \left( P_e^2 - P_c^2 \right) = W_{B, e} \left[ 1 - \left( \frac{P_c}{P_e} \right)^2 \right]
+$$
+Equating the released magnetic energy to the bulk kinetic energy of the plasma within the loop ($E_k = \frac{1}{2} M v^2 = \frac{1}{2} \rho V v^2$):
+$$
+\frac{1}{2} \rho V v^2 = \frac{B_e^2}{2\mu_0} V \left[ 1 - \left( \frac{P_c}{P_e} \right)^2 \right]
+$$
+Solving for the contraction velocity $v$:
+$$
+v = \frac{B_e}{\sqrt{\mu_0 \rho}} \sqrt{1 - \left( \frac{P_c}{P_e} \right)^2} = v_{A, e} \sqrt{1 - \left( \frac{P_c}{P_e} \right)^2}
+$$
+In the strongly stretched limit ($l \gg w$), $P_c / P_e \sim \pi \sqrt{w/l} \to 0$, yielding:
+$$
+v \to v_{A, e}
+$$
+The contraction velocity asymptotically approaches the initial upstream Alfvén speed.
+
+#### Coalescence of $N_{\text{ropes}} = 2^N$ Flux Ropes
+
+Consider $N_{\text{ropes}} = 2^N$ identical circular flux ropes merging into a single circular flux rope via hierarchical reconnection.
+
+1. Scaling of Perimeter and Field
+Each initial circular rope has radius $r_0$, perimeter $P_0 = 2\pi r_0$, area $A_0 = \pi r_0^2$, and carries magnetic flux $\Phi_0$.
+
+- Total initial area:
+$$
+A_{\text{total}} = 2^N A_0
+$$
+
+- Final radius of the combined circular rope:
+$$
+A_f = \pi r_f^2 = 2^N \pi r_0^2 \implies r_f = 2^{N/2} r_0
+$$
+
+- Final perimeter:
+$$
+P_f = 2\pi r_f = 2^{N/2} P_0
+$$
+
+Prior to reconnection, the total effective perimeter of the separate flux ropes is:
+$$
+P_i = 2^N P_0
+$$
+
+2. Energy Conversion Ratio
+Under conservation of total reconnected flux and volume across the coalescence cascade:
+$$
+W_B \propto P^2
+$$
+
+The ratio of final to initial magnetic energy is:
+$$
+\frac{W_{B, f}}{W_{B, i}} = \frac{P_f^2}{P_i^2} = \frac{\left(2^{N/2} P_0\right)^2}{\left(2^N P_0\right)^2} = \frac{2^N}{2^{2N}} = 2^{-N}
+$$
+
+The energy conversion ratio $\eta$, defining the fraction of magnetic energy converted to plasma kinetic and thermal energy, is:
+$$
+\eta = \frac{\Delta W_B}{W_{B, i}} = \frac{W_{B, i} - W_{B, f}}{W_{B, i}} = 1 - 2^{-N}
+$$
+
+- For a single binary merger ($N = 1$): $\eta = 1 - 2^{-1} = 50\%$
+- In the asymptotic limit of an extended merger cascade ($N \to \infty$): $\eta \to 100\%$
+
+### Important Conclusions
+
+- Geometric Origin of the Alfvén Speed: The Alfvén speed is the characteristic dynamical speed that mediates the release of free magnetic energy when flux tubes contract to satisfy the isoperimetric minimum.
+- Equipartition in Binary Reconnection: A single symmetric 2D merger of two flux ropes ($N = 1$) converts exactly $50\%$ of the initial magnetic energy into particle kinetic energy and heat, consistent with standard Sweet-Parker and Petschek reconnection invariants.
+- Exponential Energy Depletion in Cascades: For hierarchical mergers of $2^N$ ropes, the residual magnetic energy scales as $2^{-N}$, driving the energy conversion efficiency toward unity as $N$ increases.
+
+Note that these are valid without a guide field. In the presence of a strong guide field, the energy conversion efficiency is reduced, and the final state may not be a circular flux rope.
+
+## Particle Acceleration During Magnetic Reconnection
+
+In guiding-center theory, the rate of change of kinetic energy $\dot{\mathcal{E}} = q \mathbf{E} \cdot \mathbf{v}_{\text{gc}}$ separates directly into work done along the magnetic field by parallel electric fields ($E_\parallel$) and perpendicular drift work. The perpendicular drifts split into the $\mathbf{E} \times \mathbf{B}$ drift (which does zero direct work since $\mathbf{v}_E \perp \mathbf{E}$), the curvature drift (corresponding to Fermi-type acceleration via field-line contraction and curvature), and the gradient-$B$ drift (corresponding to Betatron acceleration via local magnetic field compression, linked to the conservation of the first adiabatic invariant $\mu$).
+
+Based on the studies in recent decades, Fermi acceleration is recognized as the dominant mechanism. In 2D and 3D multi-island/flux-rope reconnection:
+1. The direct parallel electric field $E_\parallel$ is strictly localized to tiny electron-scale diffusion regions around the $X$-lines, which account for only a negligible fraction of the global reconnection volume.
+2. In contrast, magnetic islands and contracting reconnected loops occupy the vast majority of the volume. As these flux ropes contract and merge, particles trapped within them reflect off the contracting ends (curvature drift aligned with the reconnection electric field), gaining parallel energy via Type-I / Type-II Fermi acceleration.
+3. Betatron acceleration contributes marginally or can even be negative (decelerating) inside islands because the core magnetic field often weakens or remains flat, whereas curvature drift consistently produces net energization across the contracting loop domain.
+
+### Guiding-Center Energy Equation Derivation
+
+Let a particle have mass $m$, charge $q$, position $\mathbf{R}$, magnetic moment $\mu = m v_\perp^2 / (2 B)$, and parallel velocity $v_\parallel$. The unit vector along the magnetic field is $\mathbf{b} = \mathbf{B}/B$.
+The non-relativistic guiding-center velocity is:
+$$
+\mathbf{v}_{\text{gc}} = v_\parallel \mathbf{b} + \mathbf{v}_E + \mathbf{v}_c + \mathbf{v}_{\nabla B}
+$$
+where:
+- $\mathbf{v}_E = \frac{\mathbf{E} \times \mathbf{B}}{B^2}$ ($\mathbf{E} \times \mathbf{B}$ drift)
+- $\mathbf{v}_c = \frac{m v_\parallel^2}{q B} (\mathbf{b} \times \boldsymbol{\kappa})$ (Curvature drift, with curvature vector $\boldsymbol{\kappa} = (\mathbf{b} \cdot \nabla)\mathbf{b}$)
+- $\mathbf{v}_{\nabla B} = \frac{\mu}{q B} (\mathbf{b} \times \nabla B)$ (Gradient-$B$ drift)
+
+The total kinetic energy of the particle is:
+$$
+\mathcal{E} = \frac{1}{2} m v_\parallel^2 + \mu B
+$$
+
+Taking the total time derivative along the guiding-center trajectory:
+$$
+\frac{d\mathcal{E}}{dt} = m v_\parallel \frac{d v_\parallel}{dt} + \mu \frac{d B}{dt} + B \frac{d\mu}{dt}
+$$
+
+Assuming the first adiabatic invariant is conserved ($d\mu/dt = 0$), the rate of kinetic energy change equals the electric work done on the guiding center:
+$$
+\frac{d\mathcal{E}}{dt} = q \mathbf{E} \cdot \mathbf{v}_{\text{gc}} = q \mathbf{E} \cdot \left( v_\parallel \mathbf{b} + \mathbf{v}_E + \mathbf{v}_c + \mathbf{v}_{\nabla B} \right)
+$$
+
+Because $\mathbf{v}_E = (\mathbf{E} \times \mathbf{B})/B^2$, $\mathbf{E} \cdot \mathbf{v}_E = 0$. The energy rate splits into three components:
+$$
+\frac{d\mathcal{E}}{dt} = \underbrace{q v_\parallel E_\parallel}_{\text{Parallel Acceleration}} + \underbrace{q \mathbf{E} \cdot \mathbf{v}_c}_{\text{Fermi Acceleration}} + \underbrace{q \mathbf{E} \cdot \mathbf{v}_{\nabla B}}_{\text{Betatron Acceleration}}
+$$
+
+### Reformulation via Drift Motion
+
+To connect these drift terms to magnetic field dynamics, we rewrite them using the ideal MHD electric field $\mathbf{E} + \mathbf{u}_E \times \mathbf{B} = 0$, where $\mathbf{u}_E = \mathbf{v}_E = \frac{\mathbf{E} \times \mathbf{B}}{B^2}$, so $\mathbf{E}_\perp = -\mathbf{u}_E \times \mathbf{B}$.
+
+#### Fermi Acceleration (Curvature Drift Term)
+
+Substitute $\mathbf{v}_c$ into the electric work:
+$$
+\left(\frac{d\mathcal{E}}{dt}\right)_{\text{Fermi}} = q \mathbf{E}_\perp \cdot \mathbf{v}_c = q \mathbf{E}_\perp \cdot \left[ \frac{m v_\parallel^2}{q B} (\mathbf{b} \times \boldsymbol{\kappa}) \right] = \frac{m v_\parallel^2}{B} (\mathbf{E}_\perp \times \mathbf{b}) \cdot \boldsymbol{\kappa}
+$$
+
+Since $\mathbf{E}_\perp \times \mathbf{b} = (-\mathbf{u}_E \times \mathbf{B}) \times \mathbf{b} = -u_E B \mathbf{b} \times (\mathbf{b} \times \dots) = B \mathbf{u}_E$:
+$$
+\left(\frac{d\mathcal{E}}{dt}\right)_{\text{Fermi}} = m v_\parallel^2 \, (\mathbf{u}_E \cdot \boldsymbol{\kappa})
+$$
+
+- Physical Interpretation: $\boldsymbol{\kappa} = (\mathbf{b} \cdot \nabla)\mathbf{b}$ points toward the center of curvature of the field line. When a bent flux tube contracts or straightens out (such as the reconnected slingshot exhaust moving at the Alfvén speed), the convection velocity $\mathbf{u}_E$ is directed along $\boldsymbol{\kappa}$ ($\mathbf{u}_E \cdot \boldsymbol{\kappa} > 0$).
+- As particles bounce between the ends of the contracting loop of length $L$, each reflection yields $\Delta v_\parallel \approx 2 u_{\text{refl}}$. The parallel energy gain satisfies:
+$$
+\frac{1}{v_\parallel} \frac{d v_\parallel}{dt} \approx -\frac{1}{L}\frac{dL}{dt}
+$$
+which is the classic first-order Fermi acceleration mechanism.
+
+#### Betatron Acceleration (Gradient-$B$ Drift Term)
+
+Substitute $\mathbf{v}_{\nabla B}$ into the electric work:
+$$
+\left(\frac{d\mathcal{E}}{dt}\right)_{\text{Beta}} = q \mathbf{E}_\perp \cdot \mathbf{v}_{\nabla B} = q \mathbf{E}_\perp \cdot \left[ \frac{\mu}{q B} (\mathbf{b} \times \nabla B) \right] = \frac{\mu}{B} (\mathbf{E}_\perp \times \mathbf{b}) \cdot \nabla B = \mu (\mathbf{u}_E \cdot \nabla B)
+$$
+
+Using Faraday's law under the frozen-in condition, this is equivalent to:
+$$
+\left(\frac{d\mathcal{E}}{dt}\right)_{\text{Beta}} = \mu \frac{\partial B}{\partial t} + \mu (\mathbf{u}_E \cdot \nabla B) = \mu \frac{d B}{dt}
+$$
+
+- Physical Interpretation: Betatron acceleration acts purely on the perpendicular energy ($\mathcal{E}_\perp = \mu B$). A particle gains energy when it drifts into a region of compressed magnetic field ($\mathbf{u}_E \cdot \nabla B > 0$ or $\partial B / \partial t > 0$).
+
+#### Connection to Drake's Findings in Reconnection
+
+Dahlin, Drake, and Swisdak (2014) integrated these guiding-center components over macroscopic PIC simulation volumes to evaluate the net rate of energy gain:
+$$
+\int d^3x \int d^3v \, f(\mathbf{x}, \mathbf{v}, t) \, \frac{d\mathcal{E}}{dt} = \int d^3x \left[ J_\parallel E_\parallel + (p_\parallel - p_\perp) \mathbf{u}_E \cdot \boldsymbol{\kappa} - p_\perp (\nabla \cdot \mathbf{u}_E) \right]
+$$
+where $p_\parallel = \int m v_\parallel^2 f d^3v$ and $p_\perp = \int \mu B f d^3v$.
+
+Their key conclusions confirmed:
+- $J_\parallel E_\parallel$ Volume Suppression: Although $E_\parallel$ is strong at the electron dissipation scale, its spatial filling factor is negligible compared to the full domain. It serves primarily as an injection mechanism for low-energy particles rather than sustaining bulk power-law acceleration.
+- Dominance of Curvature Drift (Fermi): Contracting magnetic islands and merging flux ropes provide an extended volume where field lines shorten ($\mathbf{u}_E \cdot \boldsymbol{\kappa} > 0$). Particles undergo multiple Fermi reflections, driving the non-thermal tail.
+- Suppression of Betatron Acceleration: Inside contracting islands, magnetic fields relax rather than continually compress, rendering the Betatron term weak or even negative during island coalescence.
