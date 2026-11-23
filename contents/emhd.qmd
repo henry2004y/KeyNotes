@@ -7,18 +7,25 @@ Since electrons are much lighter and more agile than ions, they can exhibit uniq
 
 * Fast Electron Motion: Electrons move much faster than ions due to their lower mass. This translates to a separation of timescales in EMHD; you study rapid electron dynamics while assuming the ions form a relatively stationary background.
 
-* Magnetic Field "Freezing": In standard MHD, the magnetic field lines are considered to be "frozen" into the plasma.  In EMHD, this concept breaks down at small scales as electrons can move independently of the magnetic field lines.
+* Magnetic Field "Freezing": In standard MHD (@sec-mhd), the magnetic field lines are considered to be "frozen" into the bulk plasma. In EMHD (scales below the ion inertial length $d_i$, @eq-i-inertial-length), ions decouple and the magnetic field is frozen into the electron fluid down to the electron inertial length $d_e$ (@eq-e-inertial-length), where electron inertia breaks frozen-in flux.
 
-* Whistler Waves: EMHD supports a unique type of plasma wave called a whistler wave. These waves are electromagnetic oscillations that propagate along magnetic field lines, driven by the motion of electrons.
+* Whistler Waves: EMHD supports whistler waves (@sec-whistler) --- electromagnetic oscillations driven by electron dynamics with $\omega \propto k^2$.
 
-* Hall Effect: Electrons, due to their small mass, are readily deflected by magnetic fields. This deflection, the basis of the Hall effect, leads to the generation of electric currents perpendicular to both the magnetic field and the direction of electron flow. These currents play a role in phenomena like magnetic reconnection.
+* Hall Effect: Electrons, due to their small mass, are readily deflected by magnetic fields. This deflection, the basis of the Hall effect, generates electric currents perpendicular to both the magnetic field and the direction of electron flow, playing a central role in collisionless magnetic reconnection (@sec-reconnection, @sec-stability-reconnection).
 
 ## Equations of EMHD
 
-The core equations of EMHD differ from standard MHD.
+The core equations of EMHD follow from the two-fluid / generalized Ohm's law framework (@sec-fluid) in the limit of immobile ions ($\mathbf{v}_i \approx 0$, $\mathbf{J} \approx -e n_e \mathbf{v}_e$):
 
-* Generalized Ohm's Law: Describes electron flow, including the Hall effect and pressure gradient terms absent in ideal MHD Ohm's Law.
+* Generalized Ohm's Law: Describes electron flow, including the Hall term $\mathbf{J}\times\mathbf{B}/(ne)$, electron pressure gradient, and electron inertia terms absent in ideal MHD Ohm's Law.
 
-* Momentum Equation for Electrons: Governs electron motion under the influence of electric and magnetic fields, as well as pressure gradients.
+* Momentum Equation for Electrons: Governs electron motion under electric and magnetic fields as well as pressure gradients.
 
 * Maxwell's Equations: Describe the evolution of the electric and magnetic fields, just as in standard MHD.
+
+::: {.callout-tip title="Related Topics"}
+- Fluid & MHD models and Generalized Ohm's Law: @sec-fluid
+- Ion and electron inertial lengths ($d_i$, $d_e$): @sec-spatial-scales
+- Whistler waves: @sec-whistler
+- Hall MHD vs. hybrid kinetic-fluid models: @sec-hybrid
+:::
