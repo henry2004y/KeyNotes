@@ -1,0 +1,182 @@
+# Whistler Waves and Wave Identification {#sec-whistler}
+
+::: {.callout-tip title="Related Chapters"}
+For cold-plasma $R$-mode and parallel wave dispersion, see @sec-waves and @sec-CPDR; for MHD, Hall-MHD, and Alfvén waves, see @sec-mhd-waves; for electron magnetohydrodynamics, see @sec-emhd; for radiation-belt wave–particle scattering, see @sec-radiation_belt; for cross-helicity and turbulence diagnostics, see @sec-turbulence; for numerical whistler benchmarks, see @sec-test.
+:::
+
+There exist different terminologies for whistler waves in the space and laboratory communities. In space science, a "whistle" is specifically defined as an electromagnetic wave excited by lightning and dispersed while propagating through the ionosphere and magnetosphere. All other excitation mechanisms lead to *whistler-mode wave*. Depending on their sound and spectrograms they are given many exotic names such as hiss, roar, saucers, chorus, risers, hooks, triggered emissions, etc, which are essentially the same thing with slightly different behaviors. In laboratory plasma physics any wave propagating in the whistler mode is simply called a *whistler wave*. However, in bounded laboratory plasmas, in particular solid state plasmas, these waves are often called *helicons*.
+
+Whistler waves are most often referring to electron whistler waves, also known as electron cyclotron waves. Electron whistler waves are VLF emissions observed in the frequency range between the lower hybrid resonance frequency $\omega_\mathrm{LH}$ (@eq-lower-hybrid-freq) and electron gyrofrequency $\Omega_\mathrm{e} = eB/m_e$.[^minimum_whistler_power]
+They are a type of electron-scale plasma waves that contribute to electron scattering, acceleration, and energy transport.[^whistler_e] They are driven by the electron temperature anisotropy ($T_{e\perp}/T_{e\parallel}>1$, and the parallel energy of the resonant electrons exceeds the magnetic energy per electron, $\mathcal{E}_\parallel = \frac{1}{2}m_e v_\parallel^2 > B^2 / 2\mu_0 n_e$, just like EMIC waves are stimulated by the temperature anisotropy of the ions [@kennel1966limit].) or by electron beams or heat fluxes [@gary1993theory], and shape the electron velocity distribution function through wave-particle interactions.[^e_aniso] (Ren+ 2020)
+
+Whistler modes are *dispersive* waves (i.e., group and phase velocities are frequency-dependent), which can propagate oblique to the static magnetic field $\mathbf{B}_0$ up to a limiting "resonance cone" angle, given for electrons by [@stenzel1999whistler]
+$$
+\theta_{\mathrm{phase, max}} = \cos^{-1}(\omega/\Omega_e)
+$$
+
+Near the oblique resonance the group and phase velocities are essentially orthogonal, and the wave energy is dominated by the electric field. For frequencies $\omega < \Omega_e/2$ there exists an oblique mode at $\theta_\mathrm{phase} = \cos^{-1}(2\omega/\Omega_e)$ with parallel group velocity called the Gendrin mode [Gendrin 1961]. Along the direction of background magnetic field $\mathbf{B}_0$ the wave magnetic field is right-hand circularly polarized.[^wave-polarization] The electric field of oblique whistlers has both space charge and inductive contributions, $\mathbf{E} = -\nabla \phi - \partial \mathbf{A}/\partial t$. At an oblique density discontinuity the reflection of whistlers produces two reflected and one transmitted mode [Lee, 1969]. Refraction of whistlers in density nonuniformities has been studied carefully [Smith, 1961; Helliwell, 1965; Walker, 1976] since it explains the remarkable *ducting* properties of whistlers. Ducting confines the wave energy in a field-aligned density crest or trough and allows oblique whistlers to propagate undamped over long distances along $\mathbf{B}_0$. All ground observations of whistlers, in particular the multiply reflected whistlers, involve ducting.
+
+[^wave-polarization]: Note that in plasma physics, the wave polarization is defined with respect to the background magnetic field $\mathbf{B}_0$, not the propagation direction $\mathbf{k}$. This is because the polarity contains physical meaning when you think them together with the cyclotron motion of electrons and ions.
+
+Plane whistler waves can decay because of
+
+* electron collisions with neutrals and ions,
+* collisionless electron cyclotron damping ($\omega - \Omega_e = \mathbf{k}\cdot\mathbf{v}_e$), and
+* Landau damping for oblique modes ($\omega = \mathbf{k}\cdot\mathbf{v}_e$).
+
+and it can grow when the distribution function at the resonant velocity has a positive slope because of
+
+* Cherenkov instabilities
+* cyclotron resonance
+* Landau resonance
+
+Whistler wave can decay into lower hybrid and kinetic Alfvén waves. Parametric instabilities can trap whistler decay waves along the resonance cone. The stability of whistlers in plasmas with non-Maxwellian distribution functions has been studied theoretically in detail [Lee and Crawford, 1970]. The interaction of Langmuir waves and whistlers can produce the observed filamentary fine structure of solar type IV radio bursts [Fomichev and Fainshtein, 1988].
+
+[^minimum_whistler_power]: [Tsurutani and Smith, 1974] said most often they are with a minimum wave power at $0.5 \Omega_\mathrm{e}$. Is is observation or theory?
+
+[^whistler_e]: From @eq-R-wave-dispersion-1 we see the contribution of electron physics in the dispersion relation.
+
+[^e_aniso]: The derivation for the instability criterion involves kinetic theory, similar to the discussion in @sec-kmhd.
+
+Note that there are also MHD whistler modes in the range of the ion cyclotron frequency $\Omega_i$ [Russell+ 1971; Albert, 1980].
+Properties of whistler waves can relate closely to electron-scale physics in magnetic reconnection (e.g. [@wang2023situ] at Mars, THEMIS observation in Earth's tail reconnection exhaust region, and lower-hybrid instability).
+
+We first see the derivations of whistler wave dispersion relation in @sec-CPDR at the low frequency MHD limit.
+Another way to derive the whistler mode dispersion relation, which is probably easier, is to include the Hall term from the generalized Ohm's law:
+$$
+\mathbf{E} = -\mathbf{U}\times\mathbf{B} + \frac{1}{ne}\mathbf{J}\times\mathbf{B}
+$$
+
+Using Ampère's law and retaining only the Hall term leads to the equation
+$$
+\dot{\mathbf{B}} = -\frac{1}{\mu_0 ne}\nabla\times[(\nabla\times\mathbf{B})\times\mathbf{B}]
+$$
+
+Performing linearization and assuming that the magnetic field is parallel to the z-axis and its perturbation is only in x and y, the last equation becomes
+$$
+\begin{aligned}
+\omega B_{1x} &= -i\frac{k_z^2 B_0}{\mu_0 ne} B_{1y} \\
+\omega B_{1y} &=  i\frac{k_z^2 B_0}{\mu_0 ne} B_{1x}
+\end{aligned}
+$$
+which easily yields
+$$
+\omega = \frac{B_0}{\mu_0 ne} k_z^2
+$$
+
+This is the $v_A\ll W$ case in @eq-R-wave-phase-speed where $v_w = W$. For a more complete derivation, see [Chen Shi's note](https://chenshihelio.github.io/notes/Hall_MHD_ion_cyclotron.pdf). The dispersion relations of whistler and ion cyclotron wave make a pair, similar to the relation between fast and slow magnetosonic waves.
+
+The dispersion property of whistler waves makes it a problem for hybrid simulations (@sec-finite_e_mass).
+
+::: {.content-visible unless-format="pdf"}
+
+![Whistler wave.](https://henry2004y.github.io/space-physics-threejs/mhd-waves.html)
+
+:::
+
+In situ measurements are sensitive to the entire spectrum of oblique whistlers ($\omega < \Omega_e \cos\theta$), hence most of the observed whistlers are oblique, unducted, magnetospherically reflected waves [@stenzel1999whistler]. ???
+
+## Ducting of Whistler Waves
+
+Ducting refers to the confinement of whistler waves within channels or "ducts" formed by variations in plasma density along the magnetic field lines. The density can be modulated by instabilities and thereby modifies the whistler wave propagation and amplitude. Most common are density modifications via the ponderomotive force, thermal pressure, and ionization, which can lead to self-focusing and filamentation instabilities.
+
+* Density Enhancements and Depletions: Whistler waves can become trapped within regions of higher or lower plasma density relative to the surrounding environment. These density variations create what are called ducts.
+
+* Refraction: The speed of a whistler wave depends on the plasma density. As whistler waves encounter changes in density along a magnetic field line, they undergo refraction (bending), similar to how light bends when passing between different materials.
+
+* Confinement: The refraction caused by density gradients can keep the whistler waves confined within the duct. The waves essentially bounce back and forth within the duct as they propagate along the magnetic field line.
+
+Types of Ducts:
+
+1. Density Enhancement Ducts: Whistler waves become trapped in regions of higher plasma density.
+2. Density Depletion Ducts: Whistler waves become trapped in regions of lower plasma density.
+
+Significance of Ducting:
+
+* Wave Guidance: Ducting allows whistler waves to travel over much longer distances than they otherwise would in a homogeneous plasma.
+* Wave Amplification: Ducting can lead to the amplification of whistler wave intensity.
+* Interaction with Particles: Ducted whistler waves can interact with charged particles trapped in the Earth's radiation belts, leading to particle acceleration, scattering, and loss. This plays a crucial role in the dynamics of the radiation belts.
+
+## Whistlers in EMHD
+
+While many wave phenomena are thought of in terms of plane monochromatic eigenmodes, a vast class of whistler phenomena arise in the form of temporal transients and spatially bounded phenomena, i.e., wave packets. Such transient phenomena are common in _electron magnetohydrodynamicss (EMHD)_ physics (@sec-emhd). In contrast to ordinary MHD where the plasma behaves like a single magnetized fluid, in EMHD only the electrons are magnetized while the ions are not. This arises on timescales $f_{ce}^{-1} < t < f_{ci}^{-1}$ and spatial scales $r_{Le} < r < r_{Li}$. The transition region is the Hall MHD. Refer to @stenzel1999whistler for more detailed comparisons.
+
+Specifically for whistlers, the whistler wave can be described by EMHD on timescales of $2\pi/\Omega_{ce}<t<2\pi/\Omega_{LH}$ and spatial scales of $L<\lambda_i$, where the ions are assumed as a motionless neutralizing background [Zhao 2017]. When magnetic field lines are fully frozen into the electron fluid, the whistler wave follows the dispersion relation $\omega=\Omega_{ce}\lambda_e^2 k^2\cos\theta$. The dispersion relation becomes $\omega=\Omega_{ce}\lambda_e^2 k^2\cos\theta/(1+\lambda_e^2 k^2)$ as the electron inertia is contained in Ohm's law. Jinsong Zhao further extended the model by taking the electron thermal pressure and the displacement current into the EMHD model.
+
+## Importance of Whistler
+
+1. They play an important role in both the acceleration and loss of electrons in the radiation belt in the inner magnetosphere (See the series of studies by Thorne, R. M).
+
+Lower energy electrons (~ keV) generate chorus waves -> relax temperature anisotropy -> waves scatter electrons into the loss cone and lead to electron precipitation into the ionosphere.
+
+2. Chorus wave is the driver of pulsating aurora (Nishimura+ 2010) and diffuse aurora (Thorne+ 2010).
+
+3. Chorus waves may be the source of hiss waves in the plasmasphere. Hiss waves play an important role in scattering electrons into the loss cone in the slot region.
+
+
+## Wave Identification {#sec-wave-identification}
+
+Measured wave spectra are complex and opaque, i.e. it is very difficult from an inspection of their shape to identify the wave modes that are present in the plasma volume under investigation. In some rare clean cases one can conclude from the observation of a particular maximum peak in the wave power or the observation of only one single field component which wave has been detected. In the general case of broad spectra or mixed spectral peaks and various field components lacking clear dominance of one field component it becomes nearly impossible to decide about the waves. Clearly, when the spectrum is a shapeless power-law one, in most cases, we are dealing with developed turbulence or localised structures in which case it makes no sense to distinguish and search for single modes. Then one must seek shelter among the well developed methods of analysing turbulence.
+
+On the other hand, if the spectra indicate the presence of single waves, one would like to have some quantities at hand which help identifying which modes one is dealing with. It would be helpful if one could measure simultaneously both, the wave frequency and the wave number spectra. This is possible, however, only with sophisticated multi-spacecraft constellations. And even then only in the rarest cases the determination of the dispersion relation from experiment will be possible.
+
+In application of these theoretical arguments to real observations one therefore has defined some quantities, called "_transport ratios_", which have turned out to be quite valuable in helping identifying some of the wave modes. Such transport ratios for electromagnetic waves have been given by [@gary1993theory].
+
+* Polarization
+
+The polarization of a wave magnetic field with respect to wave number $\mathbf{k}$ is given by
+$$
+P = i b_s / b_A
+$$
+where $b_s, b_A$ are the components of the magnetic fluctuation field $\mathbf{b}$ in the direction $\mathbf{S},\mathbf{A}$ of magnetosonic and Alfvén waves, respectively, i.e. the vector $\mathbf{A}=\mathbf{k}\times\mathbf{B}_0$ is perpendicular to the wave vector and the ambient magnetic field, while the vector $\mathbf{S}$ is perpendicular to $\mathbf{k}$ (because of the vanishing divergence $\nabla\cdot\mathbf{b} = \mathbf{k}\cdot\mathbf{b}=0$) in the plane $(\mathbf{k},\mathbf{B}_0)$. The waves are more magnetosonic or more Alfvénic whether $|P|>1$ $|P|<1$, respectively. For $\Re(P)>0 (<0)$ the waves are right-hand (left-hand) polarized.
+
+* Compression
+
+The magnetic compression of the wave measures the relative variation in the parallel magnetic fluctuation field
+$$
+C_B = \langle b_\parallel^2 \rangle / \langle |\mathbf{b}|^2 \rangle
+$$
+where the fluctuations are taken at a given pair $(\omega,\mathbf{k})$. The angular brackets $\left< ab \right>$ mean taking the real part of the correlation function of the two bracketed quantities.
+
+* Parallel compressibility
+
+This ratio together with the compression ratio provides a tool for estimating how compressive a wave is. It is defined for species $s$ as
+$$
+C_{\parallel s} = \frac{B_0^2}{\langle b_\parallel^2 \rangle} \frac{\langle b_\parallel \Delta n_s \rangle}{n_s B_0}
+$$
+
+* Non-coplanarity ratio
+
+This ratio measures the fluctuating field component out of the plane $(\mathbf{k},\mathbf{B}_0)$, and is given by
+$$
+C_c = \langle b_A^2 \rangle / \langle |\mathbf{b}|^2 \rangle
+$$
+
+* Alfvén ratio: the ratio of velocity to magnetic fluctuations
+
+Defining $\delta\mathbf{v}_A = \mathbf{b} / \sqrt{\mu_0 m_i n}$ (unit V/B), where $n$ is the total plasma density, the Alfvén ratio is defined as
+$$
+R_{As} = \langle |\delta\mathbf{v}_s|^2 \rangle / \langle |\delta\mathbf{v}_A|^2 \rangle
+$$
+where $\delta \mathbf{v}_s$ is the flow velocity of species $s$. An Alfvén wave has $\delta \mathbf{v}_i = \pm \mathbf{v}_A \mathbf{b}/\mathbf{B}_0$, and its own Alfvén ratio is $R_{Ai} = 1$. The Alfvén ratio thus measures the fraction of Alfvén waves contained in the near-zero frequency fluctuations.
+
+In another form, it can be written as
+$$
+R_A = \mu_0 n m_i \frac{|\delta v_i|^2}{|\delta\mathbf{B}|^2}
+$$
+
+One property that differs significantly is the Alfvén ratio where velocity fluctuations dominate for the kinetic slow wave and magnetic fluctuations dominate for the KAW.
+
+* Cross helicity
+
+Helicity of a wave is another identifier of the wave mode, it is in particular useful for determining the direction of propagation of the wave by considering its sign. See @sec-turbulence_cross_helicity
+
+## Animation of Waves
+
+Visualization is the best way of understanding physics.
+
+::: {.content-visible unless-format="pdf"}
+
+![Lower hybrid wave.](https://s8.gifyu.com/images/lowerhybrid.gif){#fig-lowerhybrid-wave}
+
+:::
