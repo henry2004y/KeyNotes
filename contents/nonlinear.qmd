@@ -1,6 +1,6 @@
 # Nonlinear Effects {#sec-nonlinear}
 
-In many experiments waves are no longer describable by the linear theory by the time they are observed. Consider, for instance, the case of drift waves. Because they are unstable, drift waves would, according to linear theory, increase their amplitude exponentially. This period of growth is not normally observed --- since one usually does not know when to start looking --- but instead one observes the waves only after they have grown to a large, steady amplitude. The fact that the waves are no longer growing means that the linear thoery is no longer valid, and some _nonlinear_ effect is limiting the amplitude. Theoretical explanation of this elementary observation has proved to be a surprisingly difficult problem, since the observed amplitude at saturation is rather small.
+In many experiments waves are no longer describable by the linear theory by the time they are observed. Consider, for instance, the case of drift waves. Because they are unstable, drift waves would, according to linear theory, increase their amplitude exponentially. This period of growth is not normally observed --- since one usually does not know when to start looking --- but instead one observes the waves only after they have grown to a large, steady amplitude. The fact that the waves are no longer growing means that the linear theory is no longer valid, and some _nonlinear_ effect is limiting the amplitude. Theoretical explanation of this elementary observation has proved to be a surprisingly difficult problem, since the observed amplitude at saturation is rather small.
 
 A wave can undergo a number of changes when its amplitude gets large. It can change its shape --- say, from a sine wave to a lopsided triangular waveform. This is the same as saying that Fourier components at other frequencies (or wave numbers) are generated. Ultimately, the wave can "break", like ocean waves on a beach, converting the wave energy into thermal energy of the particles. A large wave can trap particles in its potential troughs, thus changing the properties of the medium in which it propagates (e.g. nonlinear Landau damping). If a plasma is so strongly excited that a continuous spectrum of frequencies is present, it is in a state of _turbulence_. This state must be described statistically, as in the case of hydrodynamics. An important consequence of plasma turbulence is _anomalous resistivity_, in which electrons are slowed down by collisions with random electric field fluctuations, rather than with ions. This effect is used for ohmic heating of a plasma to temperature so high that ordinary resistivity is insufficient.
 
@@ -32,7 +32,7 @@ Although problems still remain to be solved in the linear theory of waves and in
 
 ## The Necessity for Sheaths {#sec-sheath}
 
-In all practical plasma devices, the plasma is contained in a vacuum chamber of finite size. What happens to the plasma at the wall? For simplicity, let us confine our attention to a one-dimensional model with no magnetic field @fig-sheath. Suppose there is no appreciable electric field inside the plasma; we can then let the potential $\phi$ be zero there. When ions and electrons hit the wall, they recombine and are lost. Since electrons have much higher thermal velocities than ions, they are lost faster and leave the plasma with a net positive charge. The plasma must then have potential positive with respect to the wall; i.e., the wall potential $\phi_w$ is negative. This potential cannot be distributed over the entire plasma, since Debye shielding will confine the potential variation to a layer of the order of several Debye lengths in thickness. This layer, which must exist on all cold walls with which the plasma is in contact, is called a sheath. The function of a sheath is to form a potential barrier so that the more mobile species, usually electrons, is confined. electrostatically. The height of the barrier adjusts itself so that the flux of electrons that wave enough energy to go over the barrier to the wall is just equal to the flux of ions reaching the wall.
+In all practical plasma devices, the plasma is contained in a vacuum chamber of finite size. What happens to the plasma at the wall? For simplicity, let us confine our attention to a one-dimensional model with no magnetic field @fig-sheath. Suppose there is no appreciable electric field inside the plasma; we can then let the potential $\phi$ be zero there. When ions and electrons hit the wall, they recombine and are lost. Since electrons have much higher thermal velocities than ions, they are lost faster and leave the plasma with a net positive charge. The plasma must then have potential positive with respect to the wall; i.e., the wall potential $\phi_w$ is negative. This potential cannot be distributed over the entire plasma, since Debye shielding will confine the potential variation to a layer of the order of several Debye lengths in thickness. This layer, which must exist on all cold walls with which the plasma is in contact, is called a sheath. The function of a sheath is to form a potential barrier so that the more mobile species, usually electrons, is confined electrostatically. The height of the barrier adjusts itself so that the flux of electrons that have enough energy to go over the barrier to the wall is just equal to the flux of ions reaching the wall.
 
 <!-- Missing image: ../images/sheath.png -->
 ::: {#fig-sheath}
@@ -54,13 +54,13 @@ The plasma potential $\phi$ forms sheaths near the walls so that electrons are r
 The potential $\phi$ in a planar sheath. Cold ions are assumed to enter the sheath with a uniform velocity $u_0$.
 :::
 
-Recall that the Debye length is derived from linearing Poisson's equation. To examine the exact behavior of $\phi(x)$ in the sheath, we must treat the nonlinear problem: we shall find that there is not always a solution. @fig-sheath-potential shows the situation near one of the walls. At the plane $x=0$, ions are imagined to enter the sheath region from the main plasma with a drift velocity $u_0$. This drift is needed to accout for the loss of ions to the wall from the region in which they were created by ionization. For simplicity, we assume $T_i=0$, so that all ions have the velocity $u_0$ at $x=0$. We consider the steady state problem in a collisionless sheath region. The potential $\phi$ is assumed to decrease monotonically with $x$. Actually, $\phi$ could have spatial oscillations, and then there would be trapped particles in the steady state. This does not happend in practice because dissipative processes tend to destroy any such highly organized state.
+Recall that the Debye length (@sec-debye) is derived from linearizing Poisson's equation. To examine the exact behavior of $\phi(x)$ in the sheath, we must treat the nonlinear problem: we shall find that there is not always a solution. @fig-sheath-potential shows the situation near one of the walls. At the plane $x=0$, ions are imagined to enter the sheath region from the main plasma with a drift velocity $u_0$. This drift is needed to account for the loss of ions to the wall from the region in which they were created by ionization. For simplicity, we assume $T_i=0$, so that all ions have the velocity $u_0$ at $x=0$. We consider the steady state problem in a collisionless sheath region. The potential $\phi$ is assumed to decrease monotonically with $x$. Actually, $\phi$ could have spatial oscillations, and then there would be trapped particles in the steady state. This does not happen in practice because dissipative processes tend to destroy any such highly organized state.
 
 If $u(x)$ is the ion velocity, conservation of energy requires
 $$
 \begin{aligned}
-\frac{1}{2}mu^2 = \frac{1}{2}mu_0^2 - e\phi(x) \\
-u = \Big( u_0^2 - \frac{2e\phi}{m_i} \Big)^{1/2}
+\frac{1}{2}m_i u^2 &= \frac{1}{2}m_i u_0^2 - e\phi(x) \\
+u &= \Big( u_0^2 - \frac{2e\phi}{m_i} \Big)^{1/2}
 \end{aligned}
 $$ {#eq-sheath_u}
 
@@ -68,7 +68,7 @@ The ion equation of continuity then gives the ion density $n_i$ in terms of the 
 $$
 \begin{aligned}
 n_0 u_0 &= n_i(x) u(x) \\
-n_i(x) &= n_0 \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{1/2}
+n_i(x) &= n_0 \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{-1/2}
 \end{aligned}
 $$ {#eq-sheath_n}
 
@@ -79,7 +79,7 @@ $$
 
 Poisson's equation is then
 $$
-\epsilon_0\frac{\mathrm{d}^2\phi}{\mathrm{d}x^2} = e(n_e - n_i) = en_0\Big[ \exp\Big( \frac{e\phi}{k_B T_e} \Big) - \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{1/2} \Big]
+\epsilon_0\frac{\mathrm{d}^2\phi}{\mathrm{d}x^2} = e(n_e - n_i) = en_0\Big[ \exp\Big( \frac{e\phi}{k_B T_e} \Big) - \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{-1/2} \Big]
 $$ {#eq-sheath1}
 
 The structure of this equation can be seen more clearly if we simplify it with the following changes in notation:
@@ -113,9 +113,9 @@ $$
 \end{aligned}
 $$ {#eq-sheath_bohm}
 
-This inequality is know as the _Bohm sheath criterion_. It says that ions must enter the sheath with a velocity greater than the acoustic velocity $v_s$. To give the ions this directed velocity $u_0$, there must be a finite electric field in the plasma. Our assumption that $\chi^\prime=0$ at $\xi=0$ is therefore only an approximate one, made possible by the fact that the scale of the sheath region is usually much smaller than the scale of the main plasma region in which the ions are accelerated. The value of $u_0$ is somewhat arbitrary, depending on where we choose to put the boundary $x=0$ between the plasma and the sheath. Of course, the ion flux $n_0u_0$ is fixed by the ion production rate, so if $u_0$ is varies, the value of $n_0$ at $x=0$ will vary inversely with $u_0$. If the ions have finite temperature, the critical drift velocity $u_0$ will be somewhat lower.
+This inequality is known as the _Bohm sheath criterion_. It says that ions must enter the sheath with a velocity greater than the acoustic velocity $v_s$. To give the ions this directed velocity $u_0$, there must be a finite electric field in the plasma. Our assumption that $\chi^\prime=0$ at $\xi=0$ is therefore only an approximate one, made possible by the fact that the scale of the sheath region is usually much smaller than the scale of the main plasma region in which the ions are accelerated. The value of $u_0$ is somewhat arbitrary, depending on where we choose to put the boundary $x=0$ between the plasma and the sheath. Of course, the ion flux $n_0u_0$ is fixed by the ion production rate, so if $u_0$ is varied, the value of $n_0$ at $x=0$ will vary inversely with $u_0$. If the ions have finite temperature, the critical drift velocity $u_0$ will be somewhat lower.
 
-The physical reason for the Bohm criterion is easily seen from a plot of the ion and electron densities vs. $\chi$ @fig-sheath-n-variation. The electron density $n_e$ falls exponentially with $\chi$, according to the Boltzmann relation. The ion density also falls, since the ions are accelerated by the sheath potential. If the ions start with a large energy, $n_i(\chi)$ falls slowly, since the sheath field causes a relatively minor change in the ions' velocity. If the ions start with a small energy, $n_i(\chi)$ falls fast, and can go belwo the $n_e$ curve. In that case, $n_e-n_i$ is positive near $\chi=0$; and @eq-sheath2 tells us that $\phi(x)$ must curve upward, in contradiction to the requirement that the sheath must repel electrons. In order for this not to happen, the slope of $n_i(\chi)$ at $\chi=0$ must be smaller (in absolute value) than that of $n_e(\chi)$; this condition is identical with the condition $\mu^2>1$.
+The physical reason for the Bohm criterion is easily seen from a plot of the ion and electron densities vs. $\chi$ (@fig-sheath-n-variation). The electron density $n_e$ falls exponentially with $\chi$, according to the Boltzmann relation. The ion density also falls, since the ions are accelerated by the sheath potential. If the ions start with a large energy, $n_i(\chi)$ falls slowly, since the sheath field causes a relatively minor change in the ions' velocity. If the ions start with a small energy, $n_i(\chi)$ falls fast, and can go below the $n_e$ curve. In that case, $n_e-n_i$ is positive near $\chi=0$; and @eq-sheath2 tells us that $\phi(x)$ must curve upward, in contradiction to the requirement that the sheath must repel electrons. In order for this not to happen, the slope of $n_i(\chi)$ at $\chi=0$ must be smaller (in absolute value) than that of $n_e(\chi)$; this condition is identical with the condition $\mu^2>1$.
 
 <!-- Missing image: ../images/sheath_n_variation.png -->
 ::: {#fig-sheath-n-variation}
@@ -220,7 +220,7 @@ $$
 
 The electron density is given by the Boltzmann relation. Poisson's equation then gives
 $$
-\epsilon_0\frac{\mathrm{d}^2\phi}{\mathrm{d}x^2} = e(n_e - n_i) = en_0\Big[ \exp\Big( \frac{e\phi}{k_B T_e} \Big) - \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{1/2} \Big]
+\epsilon_0\frac{\mathrm{d}^2\phi}{\mathrm{d}x^2} = e(n_e - n_i) = en_0\Big[ \exp\Big( \frac{e\phi}{k_B T_e} \Big) - \Big( 1 - \frac{2e\phi}{m_i u_0^2} \Big)^{-1/2} \Big]
 $$
 
 This is, of course, the same @eq-sheath1 as we had for a sheath. A shock wave is no more than a sheath moving through a plasma. We now introduce the dimensionless variables
@@ -280,16 +280,16 @@ This is exactly the same, both physically and mathematically, as the Bohm criter
 
 An upper limit to $\mu$ is imposed by the condition that the function $V(\chi)$ of @fig-shock-quasipotential must cross the $\chi$ axis for $\chi>0$; otherwise, the virtual particle will not be reflected, and the potential will rise indefinitely. From @eq-sagdeev_potential, we require
 $$
-e^\chi - 1 < \mu^2 \Big[ 1- \big( 1-\frac{2\chi}{\mu^2} \Big)^{1/2} \Big]
+e^\chi - 1 < \mu^2 \Big[ 1- \Big( 1-\frac{2\chi}{\mu^2} \Big)^{1/2} \Big]
 $$
-for some $\chi>0$. If the lower critical Mach number is surpassed ($\mu>1$), the left-and side, representing the integral of the electron density from zero to $\chi$, is initially larger than the right-hand side, representing the integral of the ion density. As $\chi$ increases, the right-hand side can catch up with the left-hand side if $\mu^2$ is not too large. However, because of the square root, the largest value $\chi$ can have is $\mu^2/2$. This is because $e\phi$ cannot exceed $\frac{1}{2}m_iu_0^2$; otherwise, ions would be excluded from the plasma in the downstream region. Inserting the largest value of $\chi$ into the above equation, we have
+for some $\chi>0$. If the lower critical Mach number is surpassed ($\mu>1$), the left-hand side, representing the integral of the electron density from zero to $\chi$, is initially larger than the right-hand side, representing the integral of the ion density. As $\chi$ increases, the right-hand side can catch up with the left-hand side if $\mu^2$ is not too large. However, because of the square root, the largest value $\chi$ can have is $\mu^2/2$. This is because $e\phi$ cannot exceed $\frac{1}{2}m_iu_0^2$; otherwise, ions would be excluded from the plasma in the downstream region. Inserting the largest value of $\chi$ into the above equation, we have
 $$
-\exp(\mu^2/2) - 1 < \mu \quad\text{or}\quad \mu < 1.6
+\exp(\mu^2/2) - 1 < \mu^2 \quad\text{or}\quad \mu < 1.6
 $$
 
-This is the upper critical Mach number. Shock waves in a cold-ion plasma therefore exist only for $1<\mu<1.6$.
+This is the upper critical Mach number. Shock waves in a cold-ion plasma therefore exist only for $1<\mu<1.6$ (see @sec-shock for magnetized MHD and collisionless shocks).
 
-As in the case of sheaths, the physical situation is best explained by a diagram of $n_i$ and $n_e$ vs. $\chi$ (@fig-shock-n). This diagram differs from @fig-sheath-n-variation because of the change of sign of $\phi$. Since the ions are now decelerated rather than accelerated, $n_i$ will appraoch infinity at $\chi=\mu^2/2$. The lowe critical Mach number ensures that the $n_i$ curve lies below the $n_e$ curve at small $\chi$, so that the potential $\phi(x)$ starts off with the right sign for its curvature. When the curve $n_{i1}$ crosses the $n_e$ curve, the soliton (@fig-shock-soliton) has an inflection point. Finally, when $\chi$ is large enough that the areas under the $n_i$ and $n_e$ curves are equal, the soliton reaches a peak, and the $n_{i1}$ and $n_e$ curves are retraced as $\chi$ goes back to zero. The equality of the areas ensures that the net charge in the soliton is zero; therefore, there is no electric field outside. If $\mu$ is larger than 1.6, we have the curve $n_{i2}$, in which the area under the curve is too small even when $\chi$ has reached its maximum value of $\mu^2/2$.
+As in the case of sheaths, the physical situation is best explained by a diagram of $n_i$ and $n_e$ vs. $\chi$ (@fig-shock-n). This diagram differs from @fig-sheath-n-variation because of the change of sign of $\phi$. Since the ions are now decelerated rather than accelerated, $n_i$ will approach infinity at $\chi=\mu^2/2$. The lower critical Mach number ensures that the $n_i$ curve lies below the $n_e$ curve at small $\chi$, so that the potential $\phi(x)$ starts off with the right sign for its curvature. When the curve $n_{i1}$ crosses the $n_e$ curve, the soliton (@fig-shock-soliton) has an inflection point. Finally, when $\chi$ is large enough that the areas under the $n_i$ and $n_e$ curves are equal, the soliton reaches a peak, and the $n_{i1}$ and $n_e$ curves are retraced as $\chi$ goes back to zero. The equality of the areas ensures that the net charge in the soliton is zero; therefore, there is no electric field outside. If $\mu$ is larger than 1.6, we have the curve $n_{i2}$, in which the area under the curve is too small even when $\chi$ has reached its maximum value of $\mu^2/2$.
 
 <!-- Missing image: ../images/shock_n.png -->
 ::: {#fig-shock-n}
@@ -343,11 +343,11 @@ m\dot{\mathbf{v}}_1 &=  -e\mathbf{E}(\mathbf{r}_0)\\
 \end{aligned}
 $$
 
-It is important to note that _in a nonlinear calculation, we cannot write $e^{i\omega t}$ and takes its real part later._ Instead, we write its real part explicitly as $\cos\omega t$. This is because products of oscillating factors appera in nonlinear theory, and the operations of multiplying and taking the real part do not commute.
+It is important to note that _in a nonlinear calculation, we cannot write $e^{i\omega t}$ and take its real part later._ Instead, we write its real part explicitly as $\cos\omega t$. This is because products of oscillating factors appear in nonlinear theory, and the operations of multiplying and taking the real part do not commute.
 
 Going to second order, we expand $\mathbf{E}(\mathbf{r})$ about $\mathbf{r}_0$:
 $$
-\mathbf{E}(\mathbf{r}) = \mathbf{E}(\mathbf{r}_0) + (\delta\mathbf{r}_0\cdot\nabla)\mathbf{E}|_{r=r_0} + ...
+\mathbf{E}(\mathbf{r}) = \mathbf{E}(\mathbf{r}_0) + (\delta\mathbf{r}_1\cdot\nabla)\mathbf{E}|_{r=r_0} + \dots
 $$
 
 We must now add the term $\mathbf{v}_1\times\mathbf{B}_1$, where $\mathbf{B}_1$ is given by Maxwell's equation:
@@ -449,7 +449,7 @@ $$
 $$ {#eq-oscillator_x1}
 where $c_1$ is a constant indicating the strength of the coupling. A similar equation holds for $x_2$:
 $$
-\ddot{x}_2 + \omega_1^2 x_2 = c_2x_1E_0
+\ddot{x}_2 + \omega_2^2 x_2 = c_2x_1E_0
 $$ {#eq-oscillator_x2}
 
 Let $x_1=\bar{x}_1 \cos\omega t$, $x_2=\bar{x}_2 \cos\omega^\prime t$, and $E_0=\bar{E}_0 \cos\omega_0 t$. @eq-oscillator_x2 becomes
