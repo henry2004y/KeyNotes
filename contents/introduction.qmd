@@ -30,7 +30,7 @@ $$
 \begin{aligned}
 &nf(\mathbf{x}+\mathrm{d}\mathbf{x},\mathbf{p}+\mathrm{d}\mathbf{p},t+\mathrm{d}t)\mathrm{d}\mathbf{x}\mathrm{d}\mathbf{p}-nf(\mathbf{x},\mathbf{p},t)\mathrm{d}\mathbf{x}\mathrm{d}\mathbf{p} \\
 =&\frac{\partial (nf(\mathbf{x},\mathbf{p},t))}{\partial t}\Big|_{\text{collision}}\mathrm{d}\mathbf{x}\mathrm{d}\mathbf{p}\mathrm{d}t \nonumber \\
-=&\frac{\partial (nf)}{\partial t}+\frac{\partial nf}{\partial \mathbf{x}}\cdot\frac{\mathbf{p}}{m}+\frac{nf}{\partial \mathbf{p}}\cdot\mathbf{F}
+=&\left(\frac{\partial (nf)}{\partial t}+\frac{\partial (nf)}{\partial \mathbf{x}}\cdot\frac{\mathbf{p}}{m}+\frac{\partial (nf)}{\partial \mathbf{p}}\cdot\mathbf{F}\right)\mathrm{d}\mathbf{x}\mathrm{d}\mathbf{p}\mathrm{d}t
 \end{aligned}
 $$
 
@@ -125,12 +125,12 @@ $$
 \frac{n_i}{n_n}\approx 2.4\times 10^{21}\frac{T^{3/2}}{n_i} \exp\left(-\frac{U_i}{k_B T}\right)
 $$ {#eq-saha}
 
-Here $n_i$ and $n_n$ are, respectively, the density (number per $\text{m}^3$) of ionized atoms and of neutral atoms, T is the gas temperature in Kelvin, $k_B$ is Boltzmann's constant, and $U_i$ is the ionization energy of the gas --- that is, the number of joules required to remove the outermost electron from an atom. For ordinary air at room temperature, we may take $n_n\approx 3\times 10^{25}\,\text{m}^{-3}$, $T\approx 300\, \text{K}$, and $U_i = 14.5\,\text{eV}$ (for nitrogen), where $1\,\text{eV} = 1.6\times 10^{19}\,\text{J}$. The fractional ionization $n_i/(n_n + n_i) \approx n_i/n_n$ is ridiculously low:
+Here $n_i$ and $n_n$ are, respectively, the density (number per $\text{m}^3$) of ionized atoms and of neutral atoms, $T$ is the gas temperature in Kelvin, $k_B$ is Boltzmann's constant, and $U_i$ is the ionization energy of the gas --- that is, the number of joules required to remove the outermost electron from an atom. For ordinary air at room temperature, we may take $n_n\approx 3\times 10^{25}\,\text{m}^{-3}$, $T\approx 300\, \text{K}$, and $U_i = 14.5\,\text{eV}$ (for nitrogen), where $1\,\text{eV} = 1.6\times 10^{-19}\,\text{J}$. The fractional ionization $n_i/(n_n + n_i) \approx n_i/n_n$ is ridiculously low:
 $$
 \frac{n_i}{n_n}\approx 10^{-122}
 $$
 
-As the temperature is raised, the degree of ionization remains low until $U_i$ is only a few times $k_B T$. Then $n_i/n_e$ rises abruptly, and the gas is in a plasma state. Further increase in temperature makes $n_n$ less than $n_i$, and the plasma eventually becomes fully ionized. This is the reason plasmas exist in astronomical bodies with temperatures of millions of degrees, but not on the earth. Life could not easily coexist with a plasma --- at least, plasma of the type we are talking about. The natural occurrence of plasmas at high temperatures is the reason for the designation "the fourth state of matter".
+As the temperature is raised, the degree of ionization remains low until $U_i$ is only a few times $k_B T$. Then $n_i/n_n$ rises abruptly, and the gas is in a plasma state. Further increase in temperature makes $n_n$ less than $n_i$, and the plasma eventually becomes fully ionized. This is the reason plasmas exist in astronomical bodies with temperatures of millions of degrees, but not on the earth. Life could not easily coexist with a plasma --- at least, plasma of the type we are talking about. The natural occurrence of plasmas at high temperatures is the reason for the designation "the fourth state of matter".
 
 Although we do not intend to emphasize the Saha equation, we should point out its physical meaning. Atoms in a gas have a spread of thermal energies, and an atom is ionized when, by chance, it suffers a collision of high enough energy to knock out an electron. In a cold gas, such energetic collisions occur infrequently, since an atom must be accelerated to much higher than the average energy by a series of "favorable" collisions. The exponential factor in @eq-saha expresses the fact that the number of fast atoms falls exponentially with $U_i/k_BT$. Once an atom is ionized, it remains charged until it meets an electron; it then very likely recombines with the electron to become neutral again. The recombination rate clearly depends on the density of electrons, which we can take as equal to $n_i$. The equilibrium ion fraction, therefore, should decrease with $n_i$; and this is the reason for the factor $n_i^{-1}$ on the right-hand side of @eq-saha. The plasma in the interstellar medium owes its existence to the low value of $n_i$ (about 1 per $\text{cm}^3$), and hence the low recombination rate.
 
@@ -138,13 +138,15 @@ Although we do not intend to emphasize the Saha equation, we should point out it
 
 Any ionized gas cannot be called a plasma, of course; there is always some small degree of ionization in any gas. A useful definition is as follows:
 
+::: {.callout-important title="Definition of a Plasma"}
 **A plasma is a quasineutral gas of charged and neutral particles which exhibits collective behavior.**
+:::
 
-We must now define "_quasineutral_" and "_collective behavior_". The meaning of quasineutrality will be made clear in Sect. 1.4 LINK?. What is meant by "collective behavior" is as follows.
+We must now define "_quasineutral_" and "_collective behavior_". The meaning of quasineutrality is made clear in @sec-debye. What is meant by "collective behavior" is as follows.
 
 Consider the forces acting on a molecule of, say, ordinary air. Since the molecule is neutral, there is no net electromagnetic force on it, and the force of gravity is negligible. The molecule moves undisturbed until it makes a collision with another molecule, and these collisions control the particle's motion. A macroscopic force applied to a neutral gas, such as from a loudspeaker generating sound waves, is transmitted to the individual atoms by collisions. The situation is totally different in a plasma, which has charged particles. As these charges move around, they can generate local concentrations of positive or negative charge, which give rise to electric fields. Motion of charges also generates currents, and hence magnetic fields. These fields affect the motion of other charged particles far away.
 
-Let us consider the effect on each other of two slightly charged regions of plasma separated by a distance $r$. ADD FIGURE! The Coulomb force between A and B diminishes as $1/r^2$. However, for a given solid angle (that is, $\Delta r/r =$ constant), the volume of plasma in B that can affect A increases as $r^3$. Therefore, elements of plasma exert a force on one another even at large distances. It is this long-ranged Coulomb force that gives the plasma a large repertoire of possible motions and enriches the field of study known as plasma physics. In fact, the most interesting results concern so-called "collisionless" plasmas, in which the long-range electromagnetic forces are so much larger than the forces due to ordinary local collisions that the latter can be neglected altogether. By "collective behavior" we mean motions that depend not only on local conditions but on the state of the plasma in remote regions as well.
+Let us consider the effect on each other of two slightly charged regions of plasma, A and B, separated by a distance $r$. The Coulomb force between A and B diminishes as $1/r^2$. However, for a given solid angle (that is, $\Delta r/r =$ constant), the volume of plasma in B that can affect A increases as $r^3$. Therefore, elements of plasma exert a force on one another even at large distances. It is this long-ranged Coulomb force that gives the plasma a large repertoire of possible motions and enriches the field of study known as plasma physics. In fact, the most interesting results concern so-called "collisionless" plasmas, in which the long-range electromagnetic forces are so much larger than the forces due to ordinary local collisions that the latter can be neglected altogether. By "collective behavior" we mean motions that depend not only on local conditions but on the state of the plasma in remote regions as well.
 
 The word "plasma" seems to be a misnomer. It comes from the Greek πλάσμα, ατoς, τo, which means something molded or fabricated. Because of collective behavior, a plasma does not tend to conform to external influences; rather, it often behaves as if it had a mind of its own.
 
@@ -154,7 +156,7 @@ Before proceeding further, it is important to review and extend our physical not
 $$
 f(v) = A \exp\left( -\frac{1}{2}mv^2/k_B T \right)
 $$ {#eq-maxwellian_1d}
-where $f\mathrm{d}u$ is the number of particles per $\text{m}^3$ with velocity between $u$ and $u+\mathrm{d}u$, $\frac{1}{2}mu^2$ is the kinetic energy, and $k_B$ is Boltzmann's constant. The density $n$, or number of particles per $\text{m}^3$, is given by
+where $f\mathrm{d}v$ is the number of particles per $\text{m}^3$ with velocity between $v$ and $v+\mathrm{d}v$, $\frac{1}{2}mv^2$ is the kinetic energy, and $k_B$ is Boltzmann's constant. The density $n$, or number of particles per $\text{m}^3$, is given by
 $$
 n = \int_{-\infty}^\infty f(v)\mathrm{d}v
 $$
@@ -235,16 +237,16 @@ Before leaving our review of the notion of temperature, we should dispel the pop
 
 (Problem 4 on P27 [@bellan2008fundamentals])
 
-A fundamental characteristic of the behavior of plasma is its ability to shield out electric potentials that are applied to it. Suppose we tried to put an electric field inside a plasma by inserting two charged balls connected to a battery (Fig. 1.3 ADD IT!). The balls would attract particles of the opposite charge, and almost immediately a cloud of ions would surround the negative ball and a cloud of electrons would surround the positive ball. (We assume that a layer of dielectric keeps the plasma from actually recombining on the surface, or that the battery is large enough to maintain the potential in spite of this.) If the plasma were cold and there were no thermal motions, there would be just as many charges in the cloud as in the ball, the shielding would be perfect, and no electric field would be present in the body of the plasma outside of the clouds. On the other hand, if the temperature is finite, those particles that are at the edge of the cloud, where the electric field is weak, have enough thermal energy to escape from the electrostatic potential well. The "edge" of the cloud then occurs at the radius where the potential energy is approximately equal to the thermal energy $k_BT$ of the particles, and the shielding is not complete. Potentials of the order of $k_BT/e$ can leak into the plasma and cause finite electric fields to exist there.
+A fundamental characteristic of the behavior of plasma is its ability to shield out electric potentials that are applied to it. Suppose we tried to put an electric field inside a plasma by inserting two charged balls connected to a battery. The balls would attract particles of the opposite charge, and almost immediately a cloud of ions would surround the negative ball and a cloud of electrons would surround the positive ball. (We assume that a layer of dielectric keeps the plasma from actually recombining on the surface, or that the battery is large enough to maintain the potential in spite of this.) If the plasma were cold and there were no thermal motions, there would be just as many charges in the cloud as in the ball, the shielding would be perfect, and no electric field would be present in the body of the plasma outside of the clouds. On the other hand, if the temperature is finite, those particles that are at the edge of the cloud, where the electric field is weak, have enough thermal energy to escape from the electrostatic potential well. The "edge" of the cloud then occurs at the radius where the potential energy is approximately equal to the thermal energy $k_BT$ of the particles, and the shielding is not complete. Potentials of the order of $k_BT/e$ can leak into the plasma and cause finite electric fields to exist there.
 
-Let us compute the approximate thickness of such a charge cloud. Let us put a point charge $q_T$ into a quasi-neutral gas of charged particles. The gas is in _local thermodynamic equilibrium_ (LTE) with ion and electron temperatures $T_e$ and $T_i$ (They are not necessarily the same, and in fact, quite different in nature.). (ADD FIGURE!) We wish to compute $\phi(x)$. For simplicity, we assume that the ion-electron mass ratio $M/m$ is infinite, so that the ions do not move but form a uniform background of positive charge. To be more precise, we can say that $M/m$ is large enough that the inertia of the ions prevents them from moving significantly on the time scale of the experiment.
+Let us compute the approximate thickness of such a charge cloud. Let us put a point charge $q_T$ into a quasi-neutral gas of charged particles. The gas is in _local thermodynamic equilibrium_ (LTE) with ion and electron temperatures $T_e$ and $T_i$ (they are not necessarily the same, and in fact are often quite different). We wish to compute $\phi(r)$. For simplicity, we assume that the ion-electron mass ratio $M/m$ is infinite, so that the ions do not move but form a uniform background of positive charge. To be more precise, we can say that $M/m$ is large enough that the inertia of the ions prevents them from moving significantly on the time scale of the experiment.
 
 Maxwell distribution:
 $$
 f(\mathbf{v})=n_0\Big( \frac{m}{2\pi kT}\Big)^{3/2}\exp\Big( -\frac{mv^2}{2kT}\Big)
 $$
 
-In the presence of a potential energy $q\phi$m the distribution function follows the Boltzmann distribution:
+In the presence of a potential energy $q\phi$, the distribution function follows the Boltzmann distribution:
 $$
 f(\mathbf{x},\mathbf{v})=n_0\Big( \frac{m}{2\pi kT}\Big)^{3/2}\exp\Big( -\frac{\frac{1}{2}mv^2+q\phi(\mathbf{x})}{kT}\Big)
 $$
@@ -279,9 +281,9 @@ $$
 
 Then we get the Boltzmann distribution of each species with a separate temperature for each.
 
-Consider a uniform plasma with $n_i=n_{i0}e^{-e\phi/k_B T_i}$, $n_e=n_{e0}e^{e\phi/k_BT_e}$, and with the quasi-neutral assumption, $n_{e0}=n_{i0}=n_0$. Introduce a point charge $q_T$ in the initially neutralized plasma. Poisson equation gives
+Consider a uniform plasma with $n_i=n_{i0}e^{-e\phi/k_B T_i}$, $n_e=n_{e0}e^{e\phi/k_BT_e}$, and with the quasi-neutral assumption, $n_{e0}=n_{i0}=n_0$. Introduce a point charge $q_T$ in the initially neutralized plasma. Poisson's equation gives
 $$
-\nabla^2 \phi=-\frac{\rho}{\epsilon_0}=-\frac{1}{\epsilon_0}\Big[ e(n_e-n_i) +q_T \delta(\mathbf{r})\Big]
+\nabla^2 \phi=-\frac{\rho}{\epsilon_0}=-\frac{1}{\epsilon_0}\Big[ e(n_i-n_e) +q_T \delta(\mathbf{r})\Big]
 $$
 
 Due to symmetry, $\phi=\phi(r)$. When the temperature is high, $q\phi(r)\ll kT$, the exponent is small and we can expand in a Taylor series and leave only the first order term. In spherical coordinates,
@@ -321,7 +323,7 @@ $$
 
 ![Electric potential.](../images/ElectricPotential.png){#fig-electric-potential}
 
-The electric potential drops very quickly (@fig-electric-potential). In other words, if you insert a charge into a neutral plasma, its potential will only effect within a small range. Recall the Gauss's law,
+The electric potential drops very quickly (@fig-electric-potential). In other words, if you insert a charge into a neutral plasma, its potential only acts within a small range. Recall Gauss's law,
 $$
 \oint\mathbf{E}\cdot \mathrm{d}\mathbf{A}=\frac{Q_T}{\epsilon_0}\rightarrow\textrm{ as }R\rightarrow \infty, \textrm{ E goes to zero.}
 $$
@@ -338,21 +340,22 @@ We are now in a position to define "quasineutrality." If the dimensions $L$ of a
 
 Additional comments:
 
-1. Plasma acts like dielectron.
-2. There is a plasma sheath near to where materials contact, inside which charge neutrality is violated. This will be discussed in @sec-sheath.
+1. Plasma acts like a dielectric.
+2. There is a plasma sheath near material boundaries, inside which charge neutrality is violated. This is discussed in @sec-sheath.
 
-## Criteria for Plasmas
+## Criteria for Plasmas {#sec-plasma-criteria}
 
-We have given two conditions that an ionized gas must satisfy to be called a plasma. A third condition has to do with collisions. The weakly ionized gas in an airplane's jet exhaust, for example, does not qualify as a plasma because the charged particles collide so frequently with neutral atoms that their motion is controlled by ordinary hydrodynamic forces rather than by electromagnetic forces. If $\omega$ is the frequency of typical plasma oscillations and $\tau$ is the mean time between collisions with neutral atoms, we require $\omega \tau > 1$ for the gas to behave like a plasma rather than a
-neutral gas.
+We have given two conditions that an ionized gas must satisfy to be called a plasma. A third condition has to do with collisions. The weakly ionized gas in an airplane's jet exhaust, for example, does not qualify as a plasma because the charged particles collide so frequently with neutral atoms that their motion is controlled by ordinary hydrodynamic forces rather than by electromagnetic forces. If $\omega$ is the frequency of typical plasma oscillations and $\tau$ is the mean time between collisions with neutral atoms, we require $\omega \tau > 1$ for the gas to behave like a plasma rather than a neutral gas.
 
-1. $\lambda_D \ll L$
-2. $N_D \gg 1$
-3. $\omega\tau > 1$
+::: {.callout-important title="Three Criteria for a Plasma"}
+1. $\lambda_D \ll L$ (quasineutrality on system scale $L$)
+2. $N_D = \frac{4}{3}\pi n \lambda_D^3 \gg 1$ (collective behavior dominates over binary collisions)
+3. $\omega\tau > 1$ (electromagnetic forces dominate over neutral collisions)
+:::
 
-Often in lectures people think the condition 1 and 2 are equivalent; they are NOT exactly. The argument would be that condition 1 is valid when the distribution is Maxwellian, which happens to be the equilibrium distribution for large number of particles; condition 2 is the statistical priori for that to be valid.
+Often in lectures people think conditions 1 and 2 are equivalent; they are NOT exactly. Condition 1 is valid when the distribution is Maxwellian, which happens to be the equilibrium distribution for a large number of particles; condition 2 is the statistical prerequisite for that to be valid.
 
-## Plasma Frequency
+## Plasma Frequency {#sec-plasma-frequency}
 
 Besides the length scale, we are also interested in time scale. The plasma frequency,
 $$
@@ -366,7 +369,7 @@ m\,\frac{\mathrm{d}^2 \delta x}{\mathrm{d}t^2} = e\,E_x = -m\,\omega_p^{~2}\,\de
 $$
 giving $\delta x = \delta x_0\,\cos\omega_p t$.
 
-Plasma frequency is closely associated with plasma oscillation and waves. A more thorough derivation is given in @sec-oscillations. Note that plasma oscillations will only be observed if the plasma system is studied over time periods $\tau$ longer than the plasma period $\tau_p\equiv 1/\omega_p$, and if external actions change the system at a rate no faster than $\omega_p$. In the opposite case, one is clearly studying something other than plasma physics (e.g., nuclear reactions), and the system cannot not usefully be considered to be a plasma. Likewise, observations over length-scales $L$ shorter than the distance $v_t\,\tau_p$ traveled by a typical plasma particle during a plasma period will also not detect plasma behaviour. In this case, particles will exit the system before completing a plasma oscillation. This distance, which is the spatial equivalent to $\tau_p$, is called the _Debye length_, and takes the form
+Plasma frequency is closely associated with plasma oscillation and waves. A more thorough derivation is given in @sec-oscillations. Note that plasma oscillations will only be observed if the plasma system is studied over time periods $\tau$ longer than the plasma period $\tau_p\equiv 1/\omega_p$, and if external actions change the system at a rate no faster than $\omega_p$. In the opposite case, one is clearly studying something other than plasma physics (e.g., nuclear reactions), and the system cannot usefully be considered to be a plasma. Likewise, observations over length-scales $L$ shorter than the distance $v_t\,\tau_p$ traveled by a typical plasma particle during a plasma period will also not detect plasma behaviour. In this case, particles will exit the system before completing a plasma oscillation. This distance, which is the spatial equivalent to $\tau_p$, is called the _Debye length_, and takes the form
 $$
 \lambda_D \equiv \sqrt{T/m}\,\,\omega_p^{-1}.
 $$
@@ -392,42 +395,42 @@ $$
 \frac{\omega_p}{\omega_{c}} = \frac{c}{V_A}
 $$ {#eq-frequency-ratio}
 
-## Spatial Scales
+## Spatial Scales {#sec-spatial-scales}
 
-- _Ion inertial length_: the scale at which ions decouple from electrons and the magnetic field becomes frozen into the electron fluid rather than the bulk plasma.
+- _Ion inertial length_: the scale at which ions decouple from electrons and the magnetic field becomes frozen into the electron fluid rather than the bulk plasma (see @sec-fluid and @sec-emhd).
 $$
 d_i = \frac{c}{\omega_{pi}} = \frac{V_{Ai}}{\omega_{ci}}
 $$ {#eq-i-inertial-length}
 where $V_{Ai}$ is the ion Alfvén speed.
 
-- _Electron inertial length (plasma skin depth)_ : the scale over which the electron distribution function can change substantially, or the depth in a plasma to which electromagnetic radiation can penetrate. 
+- _Electron inertial length (plasma skin depth)_: the scale over which the electron distribution function can change substantially, or the depth in a plasma to which electromagnetic radiation can penetrate.
 $$
 d_e = \frac{c}{\omega_{pe}} = \frac{V_{Ae}}{\omega_{ce}}
 $$ {#eq-e-inertial-length}
 where $V_{Ae}$ is the electron Alfvén speed.
 
-- _Ion gyroradius_: also known as Larmor radius, the scale of ion gyration around the magnetic field
+- _Ion gyroradius_: also known as Larmor radius, the scale of ion gyration around the magnetic field (see @sec-single):
 $$
-r_L = \frac{v_{\perp, ti}}{\omega_{c}} = \frac{mv_{\perp, ti}}{qB}
+r_{Li} = \frac{v_{\perp, ti}}{\omega_{ci}} = \frac{m_i v_{\perp, ti}}{|q_i| B}
 $$ {#eq-gyroradius-i}
-where $v_{\perp, ti} = \sqrt{p_{\perp i}/\rho}$ is the perpendicular ion thermal speed.
+where $v_{\perp, ti} = \sqrt{p_{\perp i}/\rho_i}$ is the perpendicular ion thermal speed.
 
-- _Electron gyroradius_: the scale of electron gyration around the magnetic field
+- _Electron gyroradius_: the scale of electron gyration around the magnetic field:
 $$
-r_L = \frac{v_{\perp, te}}{\omega_{c}} = \frac{mv_{\perp, te}}{qB}
+r_{Le} = \frac{v_{\perp, te}}{\omega_{ce}} = \frac{m_e v_{\perp, te}}{e B}
 $$ {#eq-gyroradius-e}
-where $v_{\perp, te} = \sqrt{p_{\perp e}/\rho}$ is the perpendicular ion thermal speed.
+where $v_{\perp, te} = \sqrt{p_{\perp e}/\rho_e}$ is the perpendicular electron thermal speed.
 
 One convenient relation between the inertial length and the gyroradius is
 $$
-\frac{r_L}{d_i} = \frac{v_{ti}}{v_A} = \sqrt{\beta/2}
+\frac{r_{Li}}{d_i} = \frac{v_{ti}}{v_A} = \sqrt{\beta_i/2}
 $$ {#eq-length-ratio}
 
-In the relativistic case, the gyroradius is given as
+In the relativistic case (see @sec-relativity and @sec-cosmic-ray), the gyroradius is given as
 $$
-r_L = \frac{p}{qB} = \frac{\gamma m v_\perp}{qB}
+r_L = \frac{p_\perp}{|q|B} = \frac{\gamma m v_\perp}{|q|B}
 $$ {#eq-gyroradius-relativistic}
-where $\gamma$ is the Lorentz factor. For astroparticle studies, people love to use [GeV] for particle energy and normalize the velocity and charge to c and e, respectively. Therefore,
+where $\gamma$ is the Lorentz factor. For astroparticle studies, people love to use [GeV] for particle energy and normalize the velocity and charge to $c$ and $e$, respectively. Therefore,
 $$
 \begin{aligned}
 \frac{r_L}{[\mathrm{m}]} &= \frac{\gamma m c^2/ [\mathrm{J}] \cdot v_\perp / c}{q/e \cdot B/[\mathrm{T}]}\cdot\frac{1}{ce} \\
@@ -440,9 +443,9 @@ $$ {#eq-gyroradius-astro}
 $$
 \lambda_{D}=\sqrt{\frac{\epsilon_0 k_B T^\ast}{e^2 n_e}} = \frac{v_\text{th}^\ast}{\omega_{pe}}
 $$ {#eq-debye-length}
-where $T^\ast=\Big( \frac{1}{T_e}+\frac{1}{T_i} \Big)^{-1}$, and $v_\text{th}^\ast$ is the corresponding thermal speed. Even in quasineutral cold plasma, where ion contribution virtually seems to be larger due to lower ion temperature, the ion term is actually often dropped, giving
+where $T^\ast=\Big( \frac{1}{T_e}+\frac{1}{T_i} \Big)^{-1}$, and $v_\text{th}^\ast$ is the corresponding thermal speed. Even in quasineutral cold plasma, where the ion contribution formally seems larger due to lower ion temperature, the ion term is often dropped, giving
 $$
-\lambda_{D}=\sqrt{\frac{\epsilon_0 k_B T_e}{e^2 n}}= \frac{m_e}{q_e}\frac{\sqrt{\epsilon_0 P_e}}{\rho_e} = \sqrt{\frac{\epsilon_0 v_{te}}{e^2 n_e}} = \frac{v_{te}}{\omega_{pe}}
+\lambda_{D}=\sqrt{\frac{\epsilon_0 k_B T_e}{e^2 n_e}}= \frac{m_e}{e}\frac{\sqrt{\epsilon_0 P_e}}{\rho_e} = \sqrt{\frac{\epsilon_0 m_e v_{te}^2}{e^2 n_e}} = \frac{v_{te}}{\omega_{pe}}
 $$ {#eq-debye-length2}
 where $v_{te} = \sqrt{P_e/\rho_e} = \sqrt{k_B T_e/m_e}$, which is only valid when the mobility of ions is negligible compared to the process's timescale.
 
