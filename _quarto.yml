@@ -7,48 +7,71 @@ book:
   author: "Hongyang Zhou"
   repo-url: https://github.com/henry2004y/KeyNotes/
   repo-branch: master
-  repo-actions: [edit]
-  date: "2026/09/25"
+  repo-actions: [edit, issue]
+  date: last-modified
+  search: true
+  page-navigation: true
   chapters:
     - index.qmd
     - contents/about.qmd
-    - contents/introduction.qmd
-    - contents/math.qmd
-    - contents/theoretical_mechanics.qmd
-    - contents/relativity.qmd
-    - contents/unit.qmd
-    - contents/single.qmd
-    - contents/fluid.qmd
-    - contents/diffres.qmd
-    - contents/wave.qmd
-    - contents/emhd.qmd
-    - contents/kinetic.qmd
-    - contents/stability.qmd
-    - contents/reconnection.qmd
-    - contents/kmhd.qmd
-    - contents/gyrokinetics.qmd
-    - contents/flr.qmd
-    - contents/nonlinear.qmd
-    - contents/turbulence.qmd
-    - contents/geometry.qmd
-    - contents/solarwind.qmd
-    - contents/shock.qmd
-    - contents/magnetosphere.qmd
-    - contents/ionosphere.qmd
-    - contents/radiationbelt.qmd
-    - contents/aurora.qmd
-    - contents/gc.qmd
-    - contents/cr.qmd
-    - contents/boundary.qmd
-    - contents/pic.qmd
-    - contents/hybrid.qmd
-    - contents/dispersion.qmd
-    - contents/raytracing.qmd
-    - contents/test.qmd
+
+    - part: "Foundations & Preliminaries"
+      chapters:
+        - contents/introduction.qmd
+        - contents/math.qmd
+        - contents/theoretical_mechanics.qmd
+        - contents/relativity.qmd
+        - contents/unit.qmd
+
+    - part: "Single-Particle Dynamics"
+      chapters:
+        - contents/single.qmd
+        - contents/gc.qmd
+
+    - part: "Fluid & Magnetohydrodynamic Theory"
+      chapters:
+        - contents/fluid.qmd
+        - contents/diffres.qmd
+        - contents/emhd.qmd
+        - contents/boundary.qmd
+
+    - part: "Waves, Kinetic Theory & Instabilities"
+      chapters:
+        - contents/wave.qmd
+        - contents/kinetic.qmd
+        - contents/dispersion.qmd
+        - contents/stability.qmd
+        - contents/kmhd.qmd
+        - contents/gyrokinetics.qmd
+        - contents/nonlinear.qmd
+        - contents/turbulence.qmd
+
+    - part: "Space & Astrophysical Plasmas"
+      chapters:
+        - contents/reconnection.qmd
+        - contents/shock.qmd
+        - contents/solarwind.qmd
+        - contents/magnetosphere.qmd
+        - contents/flr.qmd
+        - contents/ionosphere.qmd
+        - contents/radiationbelt.qmd
+        - contents/aurora.qmd
+        - contents/cr.qmd
+        - contents/geometry.qmd
+
+    - part: "Computational Plasma Physics"
+      chapters:
+        - contents/pic.qmd
+        - contents/hybrid.qmd
+        - contents/raytracing.qmd
+        - contents/test.qmd
+
+    - contents/references.qmd
+
+  appendices:
     - contents/inductance.qmd
     - contents/capacitance.qmd
     - contents/appendix.qmd
-    - contents/references.qmd
 
 bibliography: files/bibliography.bib
 
@@ -57,7 +80,16 @@ format:
     theme:
       light: cosmo
       dark: [cosmo, theme-dark.scss]
+    toc: true
+    toc-depth: 3
+    number-depth: 3
     code-fold: true
+    code-copy: true
+    link-external-newwindow: true
+    footnotes-hover: true
+    citations-hover: true
+    crossrefs-hover: true
+    smooth-scroll: true
   pdf:
     documentclass: scrreprt
     include-in-header:
@@ -68,4 +100,3 @@ format:
 execute:
   enabled: false
   freeze: true
-

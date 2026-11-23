@@ -1,7 +1,45 @@
-# Appendix {-}
+# Plasma Physics Formulary {#sec-appendix-formulary}
 
-This is the appendix.
+This appendix collects frequently used physical constants, characteristic plasma frequencies and length scales, and key dimensionless parameters in SI units (see @sec-unit for SI $\leftrightarrow$ Gaussian CGS conversions).
 
-```jl
-example_dataframe()
-```
+## Fundamental Physical Constants (SI)
+
+| Quantity | Symbol | Approximate Value |
+| :--- | :---: | :--- |
+| Speed of light in vacuum | $c$ | $2.9979 \times 10^{8}\ \mathrm{m\,s^{-1}}$ |
+| Elementary charge | $e$ | $1.6022 \times 10^{-19}\ \mathrm{C}$ |
+| Electron mass | $m_e$ | $9.1094 \times 10^{-31}\ \mathrm{kg}$ |
+| Proton mass | $m_p$ | $1.6726 \times 10^{-27}\ \mathrm{kg}$ ($m_p/m_e \approx 1836$) |
+| Vacuum permittivity | $\varepsilon_0$ | $8.8542 \times 10^{-12}\ \mathrm{F\,m^{-1}}$ |
+| Vacuum permeability | $\mu_0$ | $4\pi \times 10^{-7}\ \mathrm{H\,m^{-1}}$ |
+| Boltzmann constant | $k_B$ | $1.3806 \times 10^{-23}\ \mathrm{J\,K^{-1}}$ ($1\ \mathrm{eV} \approx 11605\ \mathrm{K}$) |
+
+: Fundamental physical constants in SI units. {#tbl-physical-constants}
+
+## Characteristic Frequencies, Speeds, and Scales
+
+| Parameter | Definition (SI) | Reference |
+| :--- | :--- | :--- |
+| Plasma frequency (species $s$) | $\omega_{ps} = \sqrt{\dfrac{n_s q_s^2}{\varepsilon_0 m_s}}$ | @sec-intro, @sec-waves |
+| Cyclotron (gyro-) frequency | $\Omega_s = \dfrac{|q_s| B}{m_s}$ | @sec-single |
+| Thermal speed | $v_{\mathrm{th},s} = \sqrt{\dfrac{2 k_B T_s}{m_s}}$ (or $\sqrt{k_B T_s / m_s}$) | @sec-intro, @sec-kinetic |
+| Alfvén speed | $v_A = \dfrac{B}{\sqrt{\mu_0 \rho}}$ | @sec-fluid, @sec-waves |
+| Ion acoustic speed | $c_s = \sqrt{\dfrac{\gamma_e k_B T_e + \gamma_i k_B T_i}{m_i}}$ | @sec-waves |
+| Debye length | $\lambda_D = \sqrt{\dfrac{\varepsilon_0 k_B T_e}{n_e e^2}}$ | @sec-debye |
+| Larmor (gyro-) radius | $r_{Ls} = \dfrac{v_\perp}{\Omega_s}$ | @sec-single |
+| Inertial length (skin depth) | $d_s = \dfrac{c}{\omega_{ps}}$ | @sec-intro, @sec-emhd |
+
+: Core plasma frequencies, speeds, and spatial scales. {#tbl-plasma-scales}
+
+## Key Dimensionless Numbers
+
+| Parameter | Definition | Physical Meaning |
+| :--- | :--- | :--- |
+| Plasma beta | $\beta = \dfrac{p}{B^2 / (2\mu_0)}$ | Ratio of thermal pressure to magnetic pressure (@sec-fluid) |
+| Alfvén Mach number | $M_A = \dfrac{v}{v_A}$ | Ratio of flow speed to Alfvén speed (@sec-shock) |
+| Sonic Mach number | $M_s = \dfrac{v}{c_s}$ | Ratio of flow speed to sound speed (@sec-shock) |
+| Magnetic Reynolds number | $R_m = \dfrac{\mu_0 L v}{\eta}$ | Ratio of magnetic advection to resistive diffusion (@sec-fluid, @sec-resistivity) |
+| Lundquist number | $S = \dfrac{\mu_0 L v_A}{\eta}$ | Ratio of resistive diffusion time to Alfvén time (@sec-reconnection) |
+| Plasma parameter | $N_D = \dfrac{4\pi}{3} n_e \lambda_D^3$ | Number of electrons in a Debye sphere ($N_D \gg 1$ for collective behavior; @sec-intro) |
+
+: Key dimensionless numbers in plasma physics. {#tbl-dimensionless-numbers}
