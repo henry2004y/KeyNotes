@@ -1,5 +1,9 @@
 # Particle-in-Cell {#sec-pic}
 
+::: {.callout-tip title="Related Chapters"}
+For the underlying Vlasov–Maxwell equations, see @sec-kinetic; for ion-kinetic / electron-fluid hybrid simulations, see @sec-hybrid; for absorbing and conducting EM boundaries, see @sec-BC; for benchmark tests, see @sec-test.
+:::
+
 ## Phase Space Sampling
 
 Let $\hat{f}(\mathbf{z})$ be a general probability density function with normalization:
@@ -27,7 +31,7 @@ This marker distribution can represent the total $f$ or the $\delta f$. (???)
 
 We can now take moments of the distribution function in the phase space (such as density), and the Monte Carlo approximation to the integration is as follows:
 $$
-M(A) = \int_\Omega A(\mathbf{z})f(\mathbf{z})dV = \sum_{i=1}^{N}A(\mathbf{z}_i)w_i + \mathcal{\frac{1}{\sqrt{N}}}
+M(A) = \int_\Omega A(\mathbf{z})f(\mathbf{z})dV = \sum_{i=1}^{N}A(\mathbf{z}_i)w_i + \mathcal{O}\left(\frac{1}{\sqrt{N}}\right)
 $$
 where $N$ is the number of markers in the phase space region $\Omega$. This Monte Carlo approximation makes the particle simulation feasible for a number of problems, even in 3D, at the cost of introducing an error on the order of $N^{-1/2}$.
 

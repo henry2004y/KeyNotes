@@ -1,5 +1,9 @@
 # Hybrid Methods {#sec-hybrid}
 
+::: {.callout-tip title="Related Chapters"}
+For full kinetic PIC methods, see @sec-pic; for MHD and two-fluid/Hall MHD equations, see @sec-fluid and @sec-emhd; for dimensionless unit conversions, see @sec-unit-value; for benchmark tests, see @sec-test.
+:::
+
 The hybrid model is valid for low-frequency physics with $\omega\sim\Omega_i$ and $kr_{Li}\sim 1$ (wavelength $\lambda\sim 6r_{Li}$), where $\omega$ is the wave frequency, $k$ is the wave number, $\Omega_i$ is the ion gyrofrequency, and $r_{Li}$ is the ion Larmor radius. For this range of wave frequency and wavelength, the ion kinetic physics in the near-Earth instabilities are resolved with grid sizes $\sim r_{Li}$ or ion inertial length $d_i$. The finite ion gyroradius effects are resolved with particle time steps $\Delta t$ much smaller than the gyroperiod.
 
 A typical time step in a global hybrid magnetosphere model is $0.05\,\Omega_0^{-1}$, where $\Omega_0$ is the upstream (solar wind) ion gyrofrequency. For IMF $B_0\sim10\,\text{nT}$, $\Omega_0 \sim 1\,\text{rad/s}$, which corresponds to $f_0\sim 1/2\pi\,\text{s}^{-1}$. Based on in-situ observations, the typical ion inertial length in the tail is $\sim 0.2\,\text{R}_\text{E}$, but smaller near the dayside magnetopause. Therefore usually discrete grid size $\Delta x = 0.1\,d_i$ is barely enough to resolve tail ion kinetic dynamics but not dayside kinetic structures.
@@ -14,7 +18,7 @@ $$
 $$
 \mathbf{J} = \sum_s q_s n_s \mathbf{u}_s - e n_e \mathbf{u}_e
 $$
-where $q_s, n_s, \mathbf{U}_s$ are the charge, number density and bulk velocity of ion species s calculated by taking moments of the distribution function
+where $q_s, n_s, \mathbf{u}_s$ are the charge, number density, and bulk velocity of ion species $s$ calculated by taking moments of the distribution function
 $$
 n_s = \int \mathrm{d}^3 v f_s(\mathbf{r}_s,\mathbf{v}_s,t)
 $$
@@ -26,7 +30,7 @@ or in the corresponding discrete forms where the distribution function is repres
 The crucial assumption in the hybrid model is the _quasi-neutrality_, that is, the electrons move fast enough to cancel any charge-density fluctuations and $\rho=0$ is always satisfied. By assuming quasi-neutrality, we can
 
 * avoid solving the conservation equations for electrons
-* avoid solving the Maxwell's equations entirely and instead use the generalized Ohm's law instead
+* avoid solving Maxwell's displacement current term and instead use the generalized Ohm's law to obtain $\mathbf{E}$
 
 The electron density thus can be written by using ion densities $n_e \approx n_i \equiv \sum_s q_s n_s /e$.
 In addition, the electron bulk velocity may also be eliminated using Ampère's law
