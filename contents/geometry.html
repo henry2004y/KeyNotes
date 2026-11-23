@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>20&nbsp; Geometry – Key Notes in Plasma Physics</title>
+<title>33&nbsp; Geometry – Key Notes in Plasma Physics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -55,22 +55,23 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../contents/solarwind.html" rel="next">
-<link href="../contents/turbulence.html" rel="prev">
+<link href="../contents/pic.html" rel="next">
+<link href="../contents/cr.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-447e42e69aaa9833c0ba1b986f430b20.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-fd0503e23dce65854c81c5baaade3bdf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-b8332284a13f2ac66e128c75679a6fb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-fd0503e23dce65854c81c5baaade3bdf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-06d6bd6e489181030889a02c125f20ad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-69a9010040ff889c89987b5205733f8a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-06d6bd6e489181030889a02c125f20ad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -98,6 +99,7 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -131,7 +133,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -154,6 +156,7 @@ window.Quarto = {
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
         if (toggle) {
+          toggle.setAttribute("aria-checked", alternate ? "true" : "false");
           if (alternate) {
             toggle.classList.add("alternate");
           } else {
@@ -183,13 +186,19 @@ window.Quarto = {
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
       setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455).
+    // Not run on load: stylesheets are set before first paint there, and
+    // scrolling would undo the scroll to a URL fragment (#14973).
+    // The one pixel nudge keeps the reader where they were.
+    const refreshSafariScrollbar = () => {
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
         manageTransitions("body", false);
-        window.scrollTo(0, 1);
+        const scrollY = window.scrollY;
+        window.scrollTo(0, scrollY > 0 ? scrollY - 1 : 1);
         setTimeout(() => {
-          window.scrollTo(0, 0);
+          window.scrollTo(0, scrollY);
           manageTransitions("body", true);
         }, 40);
       }
@@ -283,6 +292,7 @@ window.Quarto = {
       // Read the current dark / light value
       let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
+      refreshSafariScrollbar();
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
@@ -297,13 +307,13 @@ window.Quarto = {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/geometry.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Geometry</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/reconnection.html">Space &amp; Astrophysical Plasmas</a></li><li class="breadcrumb-item"><a href="../contents/geometry.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Geometry</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -314,13 +324,13 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Site">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <button type="button" role="switch" aria-checked="false" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="bi"></i></button>
 </div>
     </div>
       </div>
@@ -343,264 +353,338 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Foundations &amp; Preliminaries</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/math.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/theoretical_mechanics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Theoretical Mechanics</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/relativity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Relativity</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/unit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Unit Conversion</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Single-Particle Dynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/single.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/gc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Guiding Center</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Fluid &amp; Magnetohydrodynamic Theory</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Diffusion and Resistivity</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Waves</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/emhd.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">EMHD</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Stability</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/reconnection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Reconnection</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Geometry</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Solar Wind</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Shock</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Magnetosphere</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Ionosphere</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Aurora</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/gc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Guiding Center</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/cr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Cosmic Ray</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Waves, Kinetic Theory &amp; Instabilities</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></a>
+  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Wave Fundamentals and Cold Plasma Waves</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></span></a>
+  <a href="../contents/wave_mhd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">MHD and Alfvén Waves</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/wave_warm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Warm, Electrostatic, and Kinetic Waves</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/wave_whistler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Whistler Waves and Wave Identification</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/dispersion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Dispersion Relation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kinetic Dispersion Relation</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Stability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Space &amp; Astrophysical Plasmas</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/reconnection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Reconnection</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Shock</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Solar Wind</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Magnetosphere</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Ionosphere</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Aurora</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/cr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Cosmic Ray</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Geometry</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Computational Plasma Physics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Ray Tracing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Ray Tracing</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Tests</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/inductance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Inductance</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/capacitance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Capacitance</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Appendix</span></a>
-  </div>
-</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">References</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-controls="quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-7-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-7" aria-labelledby="quarto-sidebar-section-7-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/inductance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Inductance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/capacitance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Capacitance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Plasma Physics Formulary</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#local-coordinate-system" id="toc-local-coordinate-system" class="nav-link active" data-scroll-target="#local-coordinate-system"><span class="header-section-number">20.1</span> Local Coordinate System</a>
+  <li><a href="#local-coordinate-system" id="toc-local-coordinate-system" class="nav-link active" data-scroll-target="#local-coordinate-system"><span class="header-section-number">33.1</span> Local Coordinate System</a>
   <ul class="collapse">
-  <li><a href="#dimensionality" id="toc-dimensionality" class="nav-link" data-scroll-target="#dimensionality"><span class="header-section-number">20.1.1</span> Dimensionality</a></li>
+  <li><a href="#dimensionality" id="toc-dimensionality" class="nav-link" data-scroll-target="#dimensionality"><span class="header-section-number">33.1.1</span> Dimensionality</a></li>
   </ul></li>
-  <li><a href="#reconnection-identification" id="toc-reconnection-identification" class="nav-link" data-scroll-target="#reconnection-identification"><span class="header-section-number">20.2</span> Reconnection Identification</a>
+  <li><a href="#reconnection-identification" id="toc-reconnection-identification" class="nav-link" data-scroll-target="#reconnection-identification"><span class="header-section-number">33.2</span> Reconnection Identification</a>
   <ul class="collapse">
-  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d"><span class="header-section-number">20.2.1</span> 2D</a></li>
-  <li><a href="#d-1" id="toc-d-1" class="nav-link" data-scroll-target="#d-1"><span class="header-section-number">20.2.2</span> 3D</a></li>
-  <li><a href="#critical-points" id="toc-critical-points" class="nav-link" data-scroll-target="#critical-points"><span class="header-section-number">20.2.3</span> Critical Points</a></li>
-  <li><a href="#separatrix" id="toc-separatrix" class="nav-link" data-scroll-target="#separatrix"><span class="header-section-number">20.2.4</span> Separatrix</a></li>
+  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d"><span class="header-section-number">33.2.1</span> 2D</a></li>
+  <li><a href="#d-1" id="toc-d-1" class="nav-link" data-scroll-target="#d-1"><span class="header-section-number">33.2.2</span> 3D</a></li>
+  <li><a href="#critical-points" id="toc-critical-points" class="nav-link" data-scroll-target="#critical-points"><span class="header-section-number">33.2.3</span> Critical Points</a></li>
+  <li><a href="#separatrix" id="toc-separatrix" class="nav-link" data-scroll-target="#separatrix"><span class="header-section-number">33.2.4</span> Separatrix</a></li>
   </ul></li>
-  <li><a href="#helicity" id="toc-helicity" class="nav-link" data-scroll-target="#helicity"><span class="header-section-number">20.3</span> Helicity</a></li>
-  <li><a href="#magnetic-helicity" id="toc-magnetic-helicity" class="nav-link" data-scroll-target="#magnetic-helicity"><span class="header-section-number">20.4</span> Magnetic Helicity</a></li>
-  <li><a href="#sec-cross_helicity" id="toc-sec-cross_helicity" class="nav-link" data-scroll-target="#sec-cross_helicity"><span class="header-section-number">20.5</span> Cross Helicity</a></li>
-  <li><a href="#flux-rope-identification" id="toc-flux-rope-identification" class="nav-link" data-scroll-target="#flux-rope-identification"><span class="header-section-number">20.6</span> Flux Rope Identification</a></li>
-  <li><a href="#magnetospause-identification" id="toc-magnetospause-identification" class="nav-link" data-scroll-target="#magnetospause-identification"><span class="header-section-number">20.7</span> Magnetospause Identification</a></li>
+  <li><a href="#helicity" id="toc-helicity" class="nav-link" data-scroll-target="#helicity"><span class="header-section-number">33.3</span> Helicity</a></li>
+  <li><a href="#magnetic-helicity" id="toc-magnetic-helicity" class="nav-link" data-scroll-target="#magnetic-helicity"><span class="header-section-number">33.4</span> Magnetic Helicity</a></li>
+  <li><a href="#sec-cross_helicity" id="toc-sec-cross_helicity" class="nav-link" data-scroll-target="#sec-cross_helicity"><span class="header-section-number">33.5</span> Cross Helicity</a></li>
+  <li><a href="#flux-rope-identification" id="toc-flux-rope-identification" class="nav-link" data-scroll-target="#flux-rope-identification"><span class="header-section-number">33.6</span> Flux Rope Identification</a></li>
+  <li><a href="#magnetopause-identification" id="toc-magnetopause-identification" class="nav-link" data-scroll-target="#magnetopause-identification"><span class="header-section-number">33.7</span> Magnetopause Identification</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/geometry.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/geometry.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/henry2004y/KeyNotes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content" tabindex="-1">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/reconnection.html">Space &amp; Astrophysical Plasmas</a></li><li class="breadcrumb-item"><a href="../contents/geometry.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Geometry</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-geometry" class="quarto-section-identifier"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Geometry</span></span></h1>
+<h1 class="title"><span id="sec-geometry" class="quarto-section-identifier"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Geometry</span></span></h1>
 </div>
 
 
@@ -617,28 +701,41 @@ window.Quarto = {
 </header>
 
 
-<p>This chapter introduces the topology-related concepts in plasma physics, including ropes, knots, boundaries, and null points. Usually, observers and modelers have different views of topology because of the tools at hand: observers have probes which give measurements as a function of both time and space, while modelers have full spatial-temporal information under the given resolution. It always amazes me how observers can deduce the general picture of plasma structures with such limited data. Incorporating observation experience into physics as well as diagnosing numerical simulations with physics are our main goals in studing geometry.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Related Chapters
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For magnetic reconnection physics, see <a href="reconnection.html" class="quarto-xref"><span>Chapter 24</span></a> and <a href="stability.html#sec-stability-reconnection" class="quarto-xref"><span>Section 19.8</span></a>; for cross-helicity and turbulence, see <a href="turbulence.html" class="quarto-xref"><span>Chapter 23</span></a>; for magnetopause boundaries, see <a href="magnetosphere.html#sec-magnetopause" class="quarto-xref"><span>Section 27.7.1</span></a>.</p>
+</div>
+</div>
+<p>This chapter introduces the topology-related concepts in plasma physics, including ropes, knots, boundaries, and null points. Usually, observers and modelers have different views of topology because of the tools at hand: observers have probes which give measurements as a function of both time and space, while modelers have full spatial-temporal information under the given resolution. It always amazes me how observers can deduce the general picture of plasma structures with such limited data. Incorporating observation experience into physics as well as diagnosing numerical simulations with physics are our main goals in studying geometry.</p>
 <p>Generally speaking, there are two ways of tackling the geometry problems: physics-based methods and statistical methods (classical and machine learning). We may find harmony when combining these two families and reach optimal results.</p>
-<section id="local-coordinate-system" class="level2" data-number="20.1">
-<h2 data-number="20.1" class="anchored" data-anchor-id="local-coordinate-system"><span class="header-section-number">20.1</span> Local Coordinate System</h2>
+<section id="local-coordinate-system" class="level2" data-number="33.1">
+<h2 data-number="33.1" class="anchored" data-anchor-id="local-coordinate-system"><span class="header-section-number">33.1</span> Local Coordinate System</h2>
 <p>Define the Jacobian <span class="math inline">\(\overleftrightarrow{G} = \nabla\mathbf{B}\)</span> of the magnetic field.</p>
 <ul>
 <li><p>Minimum Directional Derivative (MDD) Method: In the MDD method, local orthogonal coordinate directions can be obtained from eigenvectors of <span class="math inline">\(\overleftrightarrow{G}^\intercal\overleftrightarrow{G}\)</span>.</p></li>
 <li><p>Minimum Gradient Analysis (MGA): In MGA, local orthogonal coordinate directions can be obtained from eigenvectors of <span class="math inline">\(\overleftrightarrow{G}\overleftrightarrow{G}^\intercal\)</span>.</p></li>
 </ul>
-<p>MGA produces a set of basis vectors that are analogous with the ones from Minimum Variance Analysis (<a href="https://henry2004y.github.io/VisAnaJulia/dev/man/analysis/#Minimum-Variance-Analysis-1">MVA</a>), with the eigenvector corresponding to the largest eigenvalue aligned with the vector that has maximal variation (which is denoted by <span class="math inline">\(\hat{L}_\mathrm{MGA}\)</span>), the second one corresponding to the intermediate (<span class="math inline">\(\hat{M}_\mathrm{MGA}\)</span>) and third the least variation (<span class="math inline">\(\hat{N}_\mathrm{MGA}\)</span>). MDD produces a set of basis vectors where the eigenvector corresponding to the largest eigenvalue shows the direction of the displacement which produces the largest variation in <span class="math inline">\(\mathbf{B}\)</span> (the cross-sheet direction in a Harris current sheet; <span class="math inline">\(\hat{L}_\mathrm{MDD}\)</span>), idem with smaller eigenvalues (<span class="math inline">\(\hat{M}_\mathrm{MDD}\)</span> and <span class="math inline">\(\hat{N}_\mathrm{MDD}\)</span>, respectively). Both of these eigensystems have the same eigenvalues, but the eigenvectors differ and are not necessarily aligned with each others. We note here that for a one-dimensional structure, both of these eigensystem have only one well-defined eigenvector, and that for a 1D current sheet structure, the well-defined eigenvectors of different bases are orthogonal to each others, as shown in Figure~<span class="math inline">\(\ref{fig:shirepro}\)</span>.</p>
+<p>MGA produces a set of basis vectors that are analogous with the ones from Minimum Variance Analysis (<a href="https://henry2004y.github.io/VisAnaJulia/dev/man/analysis/#Minimum-Variance-Analysis-1">MVA</a>), with the eigenvector corresponding to the largest eigenvalue aligned with the vector that has maximal variation (which is denoted by <span class="math inline">\(\hat{L}_\mathrm{MGA}\)</span>), the second one corresponding to the intermediate (<span class="math inline">\(\hat{M}_\mathrm{MGA}\)</span>) and third the least variation (<span class="math inline">\(\hat{N}_\mathrm{MGA}\)</span>). MDD produces a set of basis vectors where the eigenvector corresponding to the largest eigenvalue shows the direction of the displacement which produces the largest variation in <span class="math inline">\(\mathbf{B}\)</span> (the cross-sheet direction in a Harris current sheet; <span class="math inline">\(\hat{L}_\mathrm{MDD}\)</span>), idem with smaller eigenvalues (<span class="math inline">\(\hat{M}_\mathrm{MDD}\)</span> and <span class="math inline">\(\hat{N}_\mathrm{MDD}\)</span>, respectively). Both of these eigensystems have the same eigenvalues, but the eigenvectors differ and are not necessarily aligned with each others. We note here that for a one-dimensional structure, both of these eigensystems have only one well-defined eigenvector, and that for a 1D current sheet structure, the well-defined eigenvectors of different bases are orthogonal to each other, as shown in <a href="#fig-mva-mdd" class="quarto-xref">Figure&nbsp;<span>33.1</span></a>.</p>
 <div id="fig-mva-mdd" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mva-mdd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/MVA_MDD.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mva-mdd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.1: a) MVA (MGA) and b) MDD eigenvectors <span class="math inline">\(\vec{n}_\mathrm{max},\vec{n}_\mathrm{mid},\vec{n}_\mathrm{min}\)</span>, corresponding to largest, middle and minimum eigenvalues in a 1-D current sheet.
+Figure&nbsp;33.1: a) MVA (MGA) and b) MDD eigenvectors <span class="math inline">\(\vec{n}_\mathrm{max},\vec{n}_\mathrm{mid},\vec{n}_\mathrm{min}\)</span>, corresponding to largest, middle and minimum eigenvalues in a 1-D current sheet.
 </figcaption>
 </figure>
 </div>
-<section id="dimensionality" class="level3" data-number="20.1.1">
-<h3 data-number="20.1.1" class="anchored" data-anchor-id="dimensionality"><span class="header-section-number">20.1.1</span> Dimensionality</h3>
+<section id="dimensionality" class="level3" data-number="33.1.1">
+<h3 data-number="33.1.1" class="anchored" data-anchor-id="dimensionality"><span class="header-section-number">33.1.1</span> Dimensionality</h3>
 <p>MDD gives a way to define the local dimensionality of a structure from the eigenvalues of the matrix <span class="math inline">\(\overleftrightarrow{G}\overleftrightarrow{G}^\intercal\)</span>. The measures <span class="math inline">\(D_1\)</span>, <span class="math inline">\(D_2\)</span>, <span class="math inline">\(D_3\)</span> describing the one-, two- or three-dimensionality of the magnetic field and are obtained from the ratios of square roots of the eigenvalues <span class="math inline">\(\lambda_i\)</span> (<span class="math inline">\(i=1,2,3\)</span>, in descending order) of the MDD <span class="math inline">\(\overleftrightarrow{G}\overleftrightarrow{G}^\intercal\)</span>.</p>
 <p>One kind of definitions for <span class="math inline">\(D_1\)</span>, <span class="math inline">\(D_2\)</span>, <span class="math inline">\(D_3\)</span> are given below: <span class="math display">\[
 \begin{aligned}
@@ -656,8 +753,8 @@ Figure&nbsp;20.1: a) MVA (MGA) and b) MDD eigenvectors <span class="math inline"
 </ul>
 </section>
 </section>
-<section id="reconnection-identification" class="level2" data-number="20.2">
-<h2 data-number="20.2" class="anchored" data-anchor-id="reconnection-identification"><span class="header-section-number">20.2</span> Reconnection Identification</h2>
+<section id="reconnection-identification" class="level2" data-number="33.2">
+<h2 data-number="33.2" class="anchored" data-anchor-id="reconnection-identification"><span class="header-section-number">33.2</span> Reconnection Identification</h2>
 <p>Here we present analytical fields for an X-point configuration and an O-point configuration, respectively.</p>
 <div id="fig-x-o-points" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -665,12 +762,12 @@ Figure&nbsp;20.1: a) MVA (MGA) and b) MDD eigenvectors <span class="math inline"
 <img src="../images/x_o_point.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-x-o-points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.2: Example of (a) O-point and (b) X-point.
+Figure&nbsp;33.2: Example of (a) O-point and (b) X-point.
 </figcaption>
 </figure>
 </div>
-<section id="d" class="level3" data-number="20.2.1">
-<h3 data-number="20.2.1" class="anchored" data-anchor-id="d"><span class="header-section-number">20.2.1</span> 2D</h3>
+<section id="d" class="level3" data-number="33.2.1">
+<h3 data-number="33.2.1" class="anchored" data-anchor-id="d"><span class="header-section-number">33.2.1</span> 2D</h3>
 <p>Identification of 2D reconnection sites is easy. Assume the out-of-plane direction being y, with <span class="math inline">\(B_y = \mathrm{const}\)</span>. The divergence-free condition gives <span class="math display">\[
 \frac{\partial B_x}{\partial x} + \frac{\partial B_z}{\partial z} = 0
 \]</span></p>
@@ -680,61 +777,61 @@ Figure&nbsp;20.2: Example of (a) O-point and (b) X-point.
 \mathbf{B} = B_x\hat{x} + B_z\hat{z} = \hat{y}\times\nabla\psi
 \]</span></p>
 <p>The null points are simple saddle points and extremas of the flux function.</p>
-<div id="fig-mva-mdd" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-neutral-point-classification" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-mva-mdd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/MVA_MDD.png" class="img-fluid figure-img">
+<div aria-describedby="fig-neutral-point-classification-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/XO-2D.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mva-mdd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.3: Neutral point classification in a well-defined local coordinate system. On the plane where <span class="math inline">\(B_L=0\)</span> and on the subset of that plane where <span class="math inline">\(B_N = 0\)</span>, the O-points have <span class="math inline">\(\partial B_N/\partial L &lt; 0\)</span>, and X-points <span class="math inline">\(\partial B_N/\partial L &gt; 0\)</span>. Note that this classification assumes a right-handed coordinate system.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-neutral-point-classification-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;33.3: Neutral point classification in a well-defined local coordinate system. On the plane where <span class="math inline">\(B_L=0\)</span> and on the subset of that plane where <span class="math inline">\(B_N = 0\)</span>, the O-points have <span class="math inline">\(\partial B_N/\partial L &lt; 0\)</span>, and X-points <span class="math inline">\(\partial B_N/\partial L &gt; 0\)</span>. Note that this classification assumes a right-handed coordinate system.
 </figcaption>
 </figure>
 </div>
 </section>
-<section id="d-1" class="level3" data-number="20.2.2">
-<h3 data-number="20.2.2" class="anchored" data-anchor-id="d-1"><span class="header-section-number">20.2.2</span> 3D</h3>
+<section id="d-1" class="level3" data-number="33.2.2">
+<h3 data-number="33.2.2" class="anchored" data-anchor-id="d-1"><span class="header-section-number">33.2.2</span> 3D</h3>
 <p>Identification of 3D reconnection sites is not easy.</p>
 <p>Implement Lapenta’s method.</p>
 <p>The four-field junction (FFJ) method is proposed by Laitinen+ 2006. It works decently on steady reconnection cases, but not when things change drastically.</p>
 </section>
-<section id="critical-points" class="level3" data-number="20.2.3">
-<h3 data-number="20.2.3" class="anchored" data-anchor-id="critical-points"><span class="header-section-number">20.2.3</span> Critical Points</h3>
+<section id="critical-points" class="level3" data-number="33.2.3">
+<h3 data-number="33.2.3" class="anchored" data-anchor-id="critical-points"><span class="header-section-number">33.2.3</span> Critical Points</h3>
 <p>Let us discuss the problem with topological definitions (following Kenneth Rohde Christiansen and Aard Keimpema). Critical points are points where the vector vanishes (i.e.&nbsp;<span class="math inline">\(\mathbf{v}=0\)</span>). More rigidly speaking, critical points are stationary points that have a non-singular (i.e.&nbsp;no zero eigenvalues) Jacobian or vector gradient <span class="math inline">\(\nabla\mathbf{v}\)</span>. There are 6 different types of critical points, characterized by the behavior of nearby tangent curves. The position of these critical points can be found by searching all cells in the flow field. Critical points only occur in cells whree all components of the vector pass through zero. In order to find the exact location of the critical point we will have to do interpolations.</p>
 <p>We can then classify these by looking at the eigenvalues of the Jacobian matrix. The Jacobian matrix for a 2D vector <span class="math inline">\((u,v)\)</span> is given by <span id="eq-Jacobian-2d"><span class="math display">\[
 \frac{\partial(u,v)}{\partial(x,y)}\Bigg\rvert_{x_0, y_0} =
 \begin{pmatrix}
 \partial_x u &amp; \partial_y u \\ \partial_x v &amp; \partial_y v
 \end{pmatrix}\Bigg\rvert_{x_0, y_0}
-\tag{20.1}\]</span></span></p>
-<p>As seen in <a href="#fig-critical-pts-2d" class="quarto-xref">Figure&nbsp;<span>20.4</span></a> these 6 different types are classified by the sign of the real and imaginary part of the eigenvalues. The real part of the eigenvalue gives rise to an attraction (if <span class="math inline">\(RE &lt; 0\)</span>) or a repulsion (if <span class="math inline">\(RE &gt; 0\)</span>). The imaginary part of the eigenvalue give rise to a rotation of vector field around the critical point. When we have an imaginary eigenvalue we are left with an entirely rotational vector field around the critical point.</p>
+\tag{33.1}\]</span></span></p>
+<p>As seen in <a href="#fig-critical-pts-2d" class="quarto-xref">Figure&nbsp;<span>33.4</span></a> these 6 different types are classified by the sign of the real and imaginary part of the eigenvalues. The real part of the eigenvalue gives rise to an attraction (if <span class="math inline">\(RE &lt; 0\)</span>) or a repulsion (if <span class="math inline">\(RE &gt; 0\)</span>). The imaginary part of the eigenvalue give rise to a rotation of vector field around the critical point. When we have an imaginary eigenvalue we are left with an entirely rotational vector field around the critical point.</p>
 <div id="fig-critical-pts-2d" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-critical-pts-2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/critical_points_2d.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-critical-pts-2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.4: Classification of critical points, here Re1/Re2 is the real part of the first/second eigenvalue and Im1/Im2 is the imaginary part of the first/second eigenvalue.
+Figure&nbsp;33.4: Classification of critical points, here Re1/Re2 is the real part of the first/second eigenvalue and Im1/Im2 is the imaginary part of the first/second eigenvalue.
 </figcaption>
 </figure>
 </div>
 <p>The most important critical point is the <em>saddle point</em> here we have a combination of attraction in one direction and repulsion in the other. The importance of saddle points as we shall see in the next section is that the tangent curves near a critical point determine the global structure of the flow.</p>
 <p>A critical point is called <em>hyperbolic</em> if it does not have any eigenvalues with zero real part. Hyperbolic critical points are structurally stable, i.e., a small perturbation does not change their topology.</p>
 <p>Besides critical points there are also so-called attachment/detachment nodes. These are points on the wall of an object where tangent curves terminate or begin.</p>
-<p>In 3D, the most common (i.e., nondegenerate) types of critical points are sources, sinks, repelling saddles, and attracting saddles, visualized in <a href="#fig-critical-pts-3d" class="quarto-xref">Figure&nbsp;<span>20.5</span></a> (<span class="citation" data-cites="bujack2021open">(<a href="#ref-bujack2021open" role="doc-biblioref">Bujack et al. 2021</a>)</span>). Each of these types may imply a rotating pattern in a certain plane depending on the presence of eigenvalues with nonzero imaginary part. This gives rise to the eight cases shown in the figure. A 2D separatrix and two 1D separatrices originate or terminate at a saddle (if the 2D separatrix originates at the saddle, then the 1D separatrices terminate at the saddle, and vice-versa). The directions along which the separatrices approach the saddle are given by the eigenvectors of <span class="math inline">\(\nabla v\)</span>. The 1D separatrices are computed by placing two seeds at a small user-defined offset of the saddle in the direction of the eigenvectors of <span class="math inline">\(\nabla v\)</span> corresponding to the eigenvalue whose sign appears only once. The trajectories from these seeds are integrated as explained above. The 2D separatrix is computed by placing eight seeds at a small user-defined offset of the saddle in the plane spanned by the eigenvectors of ∇v corresponding to the eigenvalues whose signs appear twice. These seeds are the base for integrating a surface — the separatrix.</p>
+<p>In 3D, the most common (i.e., nondegenerate) types of critical points are sources, sinks, repelling saddles, and attracting saddles, visualized in <a href="#fig-critical-pts-3d" class="quarto-xref">Figure&nbsp;<span>33.5</span></a> (<span class="citation" data-cites="bujack2021open">(<a href="#ref-bujack2021open" role="doc-biblioref">Bujack et al. 2021</a>)</span>). Each of these types may imply a rotating pattern in a certain plane depending on the presence of eigenvalues with nonzero imaginary part. This gives rise to the eight cases shown in the figure. A 2D separatrix and two 1D separatrices originate or terminate at a saddle (if the 2D separatrix originates at the saddle, then the 1D separatrices terminate at the saddle, and vice-versa). The directions along which the separatrices approach the saddle are given by the eigenvectors of <span class="math inline">\(\nabla v\)</span>. The 1D separatrices are computed by placing two seeds at a small user-defined offset of the saddle in the direction of the eigenvectors of <span class="math inline">\(\nabla v\)</span> corresponding to the eigenvalue whose sign appears only once. The trajectories from these seeds are integrated as explained above. The 2D separatrix is computed by placing eight seeds at a small user-defined offset of the saddle in the plane spanned by the eigenvectors of ∇v corresponding to the eigenvalues whose signs appear twice. These seeds are the base for integrating a surface — the separatrix.</p>
 <div id="fig-critical-pts-3d" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-critical-pts-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/critical_points_3d.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-critical-pts-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.5: The different types of nondegenerate 3D critical points visualized with streamlines color coded in red/blue for forward/backward integration and line integral convolution in the plane of the common sign. Here the presence of the subscript <span class="math inline">\(i\)</span> means all <span class="math inline">\(i \in (1, 2, 3)\)</span>, and the order of the eigenvalues does not matter.
+Figure&nbsp;33.5: The different types of nondegenerate 3D critical points visualized with streamlines color coded in red/blue for forward/backward integration and line integral convolution in the plane of the common sign. Here the presence of the subscript <span class="math inline">\(i\)</span> means all <span class="math inline">\(i \in (1, 2, 3)\)</span>, and the order of the eigenvalues does not matter.
 </figcaption>
 </figure>
 </div>
 <p>The most important input parameters are the distance in which the separatrices are seeded away from the saddles and the parameters that are handed off to the streamline and streamsurface integrators, like step sizes and maximum number of steps.</p>
 </section>
-<section id="separatrix" class="level3" data-number="20.2.4">
-<h3 data-number="20.2.4" class="anchored" data-anchor-id="separatrix"><span class="header-section-number">20.2.4</span> Separatrix</h3>
+<section id="separatrix" class="level3" data-number="33.2.4">
+<h3 data-number="33.2.4" class="anchored" data-anchor-id="separatrix"><span class="header-section-number">33.2.4</span> Separatrix</h3>
 <p>In scientific visualization, we treat vector fields defined on a discrete set of points in a grid and interpolate linearly or multilinearly within the cells. Since piecewise linear or multilinear functions are Lipschitz continuous, streamlines always exist uniquely.</p>
 <p>A skeleton of a flow field is a figure containing the critical points of the flow field and the so-called integral curves connecting them. An integral curve can be thought of as the path a test particle takes when released infinitesimally close to a critical point. By adding e.g.&nbsp;an arrow the direction of the integral curves can be displayed; giving a global image of the flow. In the topology context, the skeleton is known as the <a href="https://en.wikipedia.org/wiki/Separatrix_(mathematics)">separatrix</a>. Separatrices are solutions which differ from their neighbors in their limit sets (?) or in their behavior in the large (?). Separatrices include critical points, periodic orbits, and invariant manifolds of saddles.</p>
 <p>In practice, separatrices are constructed by</p>
@@ -749,15 +846,15 @@ Figure&nbsp;20.5: The different types of nondegenerate 3D critical points visual
 <img src="../images/separatries_identification.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-separatrices-2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.6: Identification of separatrices in 2D.
+Figure&nbsp;33.6: Identification of separatrices in 2D.
 </figcaption>
 </figure>
 </div>
 <p>In 3D, instead of lines we may have separatrix surfaces.</p>
 </section>
 </section>
-<section id="helicity" class="level2" data-number="20.3">
-<h2 data-number="20.3" class="anchored" data-anchor-id="helicity"><span class="header-section-number">20.3</span> Helicity</h2>
+<section id="helicity" class="level2" data-number="33.3">
+<h2 data-number="33.3" class="anchored" data-anchor-id="helicity"><span class="header-section-number">33.3</span> Helicity</h2>
 <p>In fluid dynamics, helicity is, under appropriate conditions, an invariant of the Euler equations of fluid flow, having a topological interpretation as a measure of <em>linkage</em> and <em>knottedness</em> of vortex lines in the flow (Moffatt 1969).</p>
 <p>Let <span class="math inline">\(\mathbf{u}(x,t)\)</span> be the velocity field and <span class="math inline">\(\nabla\times\mathbf{u}\)</span> the corresponding vorticity field. Under the following three conditions, the vortex lines are transported with (or “frozen in”) the flow:</p>
 <ol type="1">
@@ -767,17 +864,17 @@ Figure&nbsp;20.6: Identification of separatrices in 2D.
 </ol>
 <p>Let <span class="math inline">\(V\)</span> be the volume inside such a surface. Then the helicity in <span class="math inline">\(V\)</span> is defined by <span id="eq-helicity"><span class="math display">\[
 H=\int_{{V}}{\mathbf{u}}\cdot\left(\nabla\times\mathbf{u}\right)\,dV
-\tag{20.2}\]</span></span></p>
+\tag{33.2}\]</span></span></p>
 <p>For a localised vorticity distribution in an unbounded fluid, <span class="math inline">\(V\)</span> can be taken to be the whole space, and <span class="math inline">\(H\)</span> is then the total helicity of the flow. <span class="math inline">\(H\)</span> is invariant precisely because the vortex lines are frozen in the flow and their linkage and/or knottedness is therefore conserved, as recognized by Lord Kelvin (1868). Helicity is a pseudo-scalar quantity: it changes sign under change from a right-handed to a left-handed frame of reference; it can be considered as a measure of the handedness (or chirality) of the flow. Helicity is one of the four known integral invariants of the Euler equations; the other three are energy, momentum and angular momentum.</p>
 <p>The invariance of helicity provides an essential cornerstone of the subject topological fluid dynamics and MHD, which is concerned with global properties of flows and their topological characteristics.</p>
 </section>
-<section id="magnetic-helicity" class="level2" data-number="20.4">
-<h2 data-number="20.4" class="anchored" data-anchor-id="magnetic-helicity"><span class="header-section-number">20.4</span> Magnetic Helicity</h2>
+<section id="magnetic-helicity" class="level2" data-number="33.4">
+<h2 data-number="33.4" class="anchored" data-anchor-id="magnetic-helicity"><span class="header-section-number">33.4</span> Magnetic Helicity</h2>
 <p>The helicity of a smooth vector field defined on a domain in 3D space is the standard measure of the extent to which the field lines wrap and coil around one another. As to magnetic helicity, this “vector field” is magnetic field. It is a generalization of the topological concept of <a href="https://en.wikipedia.org/wiki/Linking_number">linking number</a> to the differential quantities required to describe the magnetic field. As with many quantities in electromagnetism, magnetic helicity for describing magnetic field lines is closely related to fluid mechanical helicity for describing fluid stream lines.</p>
 <p>If magnetic field lines follow the strands of a twisted rope, this configuration would have nonzero magnetic helicity; left-handed ropes would have negative values and right-handed ropes would have positive values.</p>
 <p>Formally, <span id="eq-magnetic_helicity"><span class="math display">\[
 H=\int\mathbf{A}\cdot\mathbf{B}\mathrm{d}\mathbf{r}^3
-\tag{20.3}\]</span></span> where</p>
+\tag{33.3}\]</span></span> where</p>
 <ul>
 <li><span class="math inline">\(H\)</span> is the helicity of the entire magnetic field</li>
 <li><span class="math inline">\(\mathbf{B}\)</span> is the magnetic field strength</li>
@@ -798,25 +895,25 @@ H=\int\mathbf{A}\cdot\mathbf{B}\mathrm{d}\mathbf{r}^3
 </ol>
 <p>There are generalizations to allow for gauge-invariant definitions of helicity. [Berger &amp; Field (1984)] defined the relative magnetic helicity to be <span id="eq-relative_magnetic_helicity"><span class="math display">\[
 H = \int_V \mathbf{A}\cdot\mathbf{B} - \mathbf{A}_0\cdot\mathbf{B}_0 dV
-\tag{20.4}\]</span></span> where <span class="math inline">\(\mathbf{B}_0=\nabla\times\mathbf{A}_0\)</span> is the potential field inside <span class="math inline">\(V\)</span> with the same field outside of <span class="math inline">\(V\)</span> (see also Finn &amp; Antonsen 1985).</p>
+\tag{33.4}\]</span></span> where <span class="math inline">\(\mathbf{B}_0=\nabla\times\mathbf{A}_0\)</span> is the potential field inside <span class="math inline">\(V\)</span> with the same field outside of <span class="math inline">\(V\)</span> (see also Finn &amp; Antonsen 1985).</p>
 <p>In toroidal laboratory experiments, it is natural to consider the volume contained within conducting wall boundaries that are coincident with closed flux surfaces (i.e., the magnetic field along the wall is parallel to the boundary).</p>
 <p>The time evolution of magnetic helicity is given by <span class="math display">\[
 \frac{\mathrm{d}H}{\mathrm{d}t} = -2c\int_V \mathbf{E}\cdot\mathbf{B}dV + 2c\int_S \mathbf{A}_p\times\mathbf{E}\cdot \mathrm{d}\mathbf{S}
 \]</span> where we choose <span class="math inline">\(\nabla\times\mathbf{A}_p=0\)</span> and <span class="math inline">\(\mathbf{A}_p\cdot \mathrm{d}\mathbf{S}=0\)</span> on <span class="math inline">\(S\)</span>. The first term represents helicity dissipation when <span class="math inline">\(E_\parallel\neq 0\)</span>, which is always zero in ideal MHD. The second term represents helicity fluxes in and out of the system, for example, flux emergence from the solar photosphere corresponds to helicity injection in the corona.</p>
 </section>
-<section id="sec-cross_helicity" class="level2" data-number="20.5">
-<h2 data-number="20.5" class="anchored" data-anchor-id="sec-cross_helicity"><span class="header-section-number">20.5</span> Cross Helicity</h2>
-<p>The cross helicity measures the imbalance between interacting waves, which is important in MHD turbulence (<a href="turbulence.html#sec-turbulence_cross_helicity" class="quarto-xref"><span>Section 19.2.9</span></a>). It is given by <span id="eq-cross_helicity"><span class="math display">\[
+<section id="sec-cross_helicity" class="level2" data-number="33.5">
+<h2 data-number="33.5" class="anchored" data-anchor-id="sec-cross_helicity"><span class="header-section-number">33.5</span> Cross Helicity</h2>
+<p>The cross helicity measures the imbalance between interacting waves, which is important in MHD turbulence (<a href="turbulence.html#sec-turbulence_cross_helicity" class="quarto-xref"><span>Section 23.2.9</span></a>). It is given by <span id="eq-cross_helicity"><span class="math display">\[
 H_C = \int_V \mathbf{v}\cdot\mathbf{B} dV
-\tag{20.5}\]</span></span></p>
+\tag{33.5}\]</span></span></p>
 <p>In ideal MHD, the rate of change of <span class="math inline">\(H_C\)</span> is <span class="math display">\[
 \frac{\mathrm{d}H_C}{\mathrm{d}t} = -\oint_S \mathrm{d}\mathbf{S}\cdot \Big[ \Big(\frac{1}{2}v^2 + \frac{\gamma}{\gamma-1} \frac{p}{\rho}\Big)\mathbf{B} - \mathbf{v}\times(\mathbf{v}\times\mathbf{B}) \Big]
 \]</span></p>
 <p>This vanishes when <span class="math inline">\(\mathrm{d}\mathbf{S}\cdot\mathbf{B} = d\mathbf{S}\cdot\mathbf{V}=0\)</span> along the boundary <span class="math inline">\(S\)</span> or when the boundary conditions are periodic. Cross helicity is an ideal MHD invariant when this integral vanishes.</p>
 <p>There are discretized forms of cross helicity from the observation point of view. Check it out if you want to know more.</p>
 </section>
-<section id="flux-rope-identification" class="level2" data-number="20.6">
-<h2 data-number="20.6" class="anchored" data-anchor-id="flux-rope-identification"><span class="header-section-number">20.6</span> Flux Rope Identification</h2>
+<section id="flux-rope-identification" class="level2" data-number="33.6">
+<h2 data-number="33.6" class="anchored" data-anchor-id="flux-rope-identification"><span class="header-section-number">33.6</span> Flux Rope Identification</h2>
 <p>Using turbulence parameters to find flux ropes <span class="citation" data-cites="zhao2020identification">(<a href="#ref-zhao2020identification" role="doc-biblioref"><span class="nocase">Zhao et al.</span> 2020</a>)</span>: <span class="math display">\[
 \begin{aligned}
 \sigma_r &amp;&lt; -0.5 \\
@@ -825,10 +922,10 @@ H_C = \int_V \mathbf{v}\cdot\mathbf{B} dV
 \end{aligned}
 \]</span> where <span class="math inline">\(\sigma_m\)</span> is the <em>normalized reduced magnetic helicity</em>, which is a measure of <span class="math inline">\(\mathbf{B}\)</span> rotation. Strictly speaking, the magnetic helicity depends on the spatial properties of the magnetic field topology, and thus cannot be directly evaluated from single spacecraft measurements. However, Matthaeus+ (1982) described a reduced form of magnetic helicity that can be estimated with measurements from a single spacecraft based on the magnetic power spectrum. The normalized reduced magnetic helicity can be estimated by <span id="eq-reduced_magnetic_helicity"><span class="math display">\[
 \sigma_m(\nu, t) = \frac{2\Im[W_T^\ast(\nu, t)\cdot W_N(\nu, t)]}{|W_R(\nu, t)|^2 + |W_T(\nu, t)|^2 + |W_N(\nu, t)|^2}
-\tag{20.6}\]</span></span> where <span class="math inline">\(\nu\)</span> is the frequency associated with the Wavelet function and the sampling period of the measured magnetic field in the radial tangential normal (RTN) coordinate system. The spectra <span class="math inline">\(W_R(\nu, t)\)</span>, <span class="math inline">\(W_T(\nu, t)\)</span>, and <span class="math inline">\(W_N(\nu, t)\)</span> are the wavelet transforms of time series of <span class="math inline">\(\mathbf{B}_{1R}\)</span>, <span class="math inline">\(\mathbf{B}_{1T}\)</span>, and <span class="math inline">\(\mathbf{B}_{1N}\)</span>, respectively; and <span class="math inline">\(W_T^\ast(\nu,t)\)</span> is the conjugate of <span class="math inline">\(W_T(\nu,t)\)</span>. From the resulting spectrogram of the magnetic helicity, <span class="math inline">\(\sigma_m\)</span>, one can determine both the magnitude and the handedness (chirality) of underlying fluctuations at a specific scale. A positive value of <span class="math inline">\(\sigma_m\)</span> corresponds to right-handed chirality and a negative value to left-handed chirality.</p>
+\tag{33.6}\]</span></span> where <span class="math inline">\(\nu\)</span> is the frequency associated with the Wavelet function and the sampling period of the measured magnetic field in the radial tangential normal (RTN) coordinate system. The spectra <span class="math inline">\(W_R(\nu, t)\)</span>, <span class="math inline">\(W_T(\nu, t)\)</span>, and <span class="math inline">\(W_N(\nu, t)\)</span> are the wavelet transforms of time series of <span class="math inline">\(\mathbf{B}_{1R}\)</span>, <span class="math inline">\(\mathbf{B}_{1T}\)</span>, and <span class="math inline">\(\mathbf{B}_{1N}\)</span>, respectively; and <span class="math inline">\(W_T^\ast(\nu,t)\)</span> is the conjugate of <span class="math inline">\(W_T(\nu,t)\)</span>. From the resulting spectrogram of the magnetic helicity, <span class="math inline">\(\sigma_m\)</span>, one can determine both the magnitude and the handedness (chirality) of underlying fluctuations at a specific scale. A positive value of <span class="math inline">\(\sigma_m\)</span> corresponds to right-handed chirality and a negative value to left-handed chirality.</p>
 </section>
-<section id="magnetospause-identification" class="level2" data-number="20.7">
-<h2 data-number="20.7" class="anchored" data-anchor-id="magnetospause-identification"><span class="header-section-number">20.7</span> Magnetospause Identification</h2>
+<section id="magnetopause-identification" class="level2" data-number="33.7">
+<h2 data-number="33.7" class="anchored" data-anchor-id="magnetopause-identification"><span class="header-section-number">33.7</span> Magnetopause Identification</h2>
 <p>From pressure balance argument, let <span class="math inline">\(\beta^\ast = (p_\text{th}+p_\text{dyn})/p_B\)</span>, we can have a simple criterion: <span class="math display">\[
 \beta^\ast\simeq 1
 \]</span></p>
@@ -862,15 +959,50 @@ Woltjer, Lodewijk. 1958. <span>“A Theorem on Force-Free Magnetic Fields.”</s
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const toggle = window.document.createElement('button');
+      toggle.type = "button";
+      toggle.setAttribute("role", "switch");
+      toggle.setAttribute("aria-checked", "false");
+      toggle.classList.add('top-right');
+      toggle.classList.add('quarto-color-scheme-toggle');
+      toggle.setAttribute("aria-label", "Toggle dark mode");
+      toggle.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
       const i = window.document.createElement("i");
       i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
+      toggle.appendChild(i);
+      // Put the toggle in a landmark of its own, so that landmark navigation
+      // can reach it.
+      //
+      // The container is always a fresh direct child of body, and the toggle is
+      // never moved into page furniture that the theme or the author controls.
+      // The toggle is positioned against the page, so any ancestor that
+      // establishes a containing block captures it: a positioned element or a
+      // grid for position: absolute, and transform, filter, will-change or
+      // contain for position: fixed. A direct child of body has none of these
+      // to inherit, and the shift when one appears is silent and visual.
+      //
+      // ARIA says a document should have at most one banner, and axe reports a
+      // duplicate whether or not the banners carry distinct labels. So use a
+      // header when the page has no banner yet, and a named region otherwise.
+      //
+      // A header is a banner wherever it sits, unless it is inside sectioning
+      // content, so this cannot just look at the children of body: a custom
+      // page layout wraps the title block header in a plain div. An explicit
+      // role="banner" always counts.
+      const sectioning = 'article, aside, main, nav, section, [role="article"], [role="complementary"], [role="main"], [role="navigation"], [role="region"]';
+      const hasBanner = Array.from(
+        window.document.querySelectorAll('header:not([role]), [role="banner"]')
+      ).some(function(el) {
+        return el.hasAttribute("role") || el.closest(sectioning) === null;
+      });
+      const container = window.document.createElement(hasBanner ? "div" : "header");
+      if (hasBanner) {
+        container.setAttribute("role", "region");
+        container.setAttribute("aria-label", "Toggle dark mode");
+      }
+      container.classList.add('quarto-color-scheme-toggle-container');
+      container.appendChild(toggle);
+      window.document.body.appendChild(container);
     }
     setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
@@ -945,11 +1077,30 @@ Woltjer, Lodewijk. 1958. <span>“A Theorem on Force-Free Magnetic Fields.”</s
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
+      const newWindowLabel = "(opens in a new tab)";
+      const newWindowNoteId = "quarto-ext-newwindow-label";
+      // Links reference one hidden label through aria-describedby, so the
+      // announcement never changes their accessible name.
+      var describeNewWindow = (link) => {
+        if (!window.document.getElementById(newWindowNoteId)) {
+          var newWindowNote = window.document.createElement("span");
+          newWindowNote.id = newWindowNoteId;
+          newWindowNote.hidden = true;
+          newWindowNote.textContent = newWindowLabel;
+          window.document.body.appendChild(newWindowNote);
+        }
+        var describedBy = (link.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(newWindowNoteId)) {
+          describedBy.push(newWindowNoteId);
+          link.setAttribute("aria-describedby", describedBy.join(" "));
+        }
+      }
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -958,8 +1109,75 @@ Woltjer, Lodewijk. 1958. <span>“A Theorem on Force-Free Magnetic Fields.”</s
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            describeNewWindow(link);
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -973,6 +1191,7 @@ Woltjer, Lodewijk. 1958. <span>“A Theorem on Force-Free Magnetic Fields.”</s
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -1135,44 +1354,54 @@ Woltjer, Lodewijk. 1958. <span>“A Theorem on Force-Free Magnetic Fields.”</s
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -1271,15 +1500,18 @@ Woltjer, Lodewijk. 1958. <span>“A Theorem on Force-Free Magnetic Fields.”</s
     }
   });
   </script>
-<nav class="page-navigation">
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
   <div class="nav-page nav-page-previous">
-      <a href="../contents/turbulence.html" class="pagination-link" aria-label="Turbulence">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Turbulence</span></span>
+      <a href="../contents/cr.html" class="pagination-link" aria-label="Cosmic Ray">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Cosmic Ray</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../contents/solarwind.html" class="pagination-link" aria-label="Solar Wind">
-        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Solar Wind</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../contents/pic.html" class="pagination-link" aria-label="Particle-in-Cell">
+        <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1288,4 +1520,5 @@ Woltjer, Lodewijk. 1958. <span>“A Theorem on Force-Free Magnetic Fields.”</s
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/geometry.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/geometry.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/henry2004y/KeyNotes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>25&nbsp; Radiation Belt – Key Notes in Plasma Physics</title>
+<title>30&nbsp; Radiation Belt – Key Notes in Plasma Physics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -59,18 +59,19 @@ div.csl-indent {
 <link href="../contents/ionosphere.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-447e42e69aaa9833c0ba1b986f430b20.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-fd0503e23dce65854c81c5baaade3bdf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-b8332284a13f2ac66e128c75679a6fb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-fd0503e23dce65854c81c5baaade3bdf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-06d6bd6e489181030889a02c125f20ad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-69a9010040ff889c89987b5205733f8a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-06d6bd6e489181030889a02c125f20ad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -98,6 +99,7 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -131,7 +133,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -154,6 +156,7 @@ window.Quarto = {
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
         if (toggle) {
+          toggle.setAttribute("aria-checked", alternate ? "true" : "false");
           if (alternate) {
             toggle.classList.add("alternate");
           } else {
@@ -183,13 +186,19 @@ window.Quarto = {
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
       setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455).
+    // Not run on load: stylesheets are set before first paint there, and
+    // scrolling would undo the scroll to a URL fragment (#14973).
+    // The one pixel nudge keeps the reader where they were.
+    const refreshSafariScrollbar = () => {
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
         manageTransitions("body", false);
-        window.scrollTo(0, 1);
+        const scrollY = window.scrollY;
+        window.scrollTo(0, scrollY > 0 ? scrollY - 1 : 1);
         setTimeout(() => {
-          window.scrollTo(0, 0);
+          window.scrollTo(0, scrollY);
           manageTransitions("body", true);
         }, 40);
       }
@@ -283,6 +292,7 @@ window.Quarto = {
       // Read the current dark / light value
       let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
+      refreshSafariScrollbar();
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
@@ -297,13 +307,13 @@ window.Quarto = {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/radiationbelt.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Radiation Belt</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/reconnection.html">Space &amp; Astrophysical Plasmas</a></li><li class="breadcrumb-item"><a href="../contents/radiationbelt.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Radiation Belt</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -314,13 +324,13 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Site">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <button type="button" role="switch" aria-checked="false" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="bi"></i></button>
 </div>
     </div>
       </div>
@@ -343,258 +353,332 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Foundations &amp; Preliminaries</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/math.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/theoretical_mechanics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Theoretical Mechanics</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/relativity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Relativity</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/unit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Unit Conversion</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Single-Particle Dynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/single.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/gc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Guiding Center</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Fluid &amp; Magnetohydrodynamic Theory</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Diffusion and Resistivity</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Waves</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/emhd.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">EMHD</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Stability</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/reconnection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Reconnection</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Geometry</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Solar Wind</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Shock</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Magnetosphere</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Ionosphere</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Aurora</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/gc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Guiding Center</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/cr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Cosmic Ray</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Waves, Kinetic Theory &amp; Instabilities</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></a>
+  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Wave Fundamentals and Cold Plasma Waves</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></span></a>
+  <a href="../contents/wave_mhd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">MHD and Alfvén Waves</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/wave_warm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Warm, Electrostatic, and Kinetic Waves</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/wave_whistler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Whistler Waves and Wave Identification</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/dispersion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Dispersion Relation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kinetic Dispersion Relation</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Stability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Space &amp; Astrophysical Plasmas</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/reconnection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Reconnection</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Shock</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Solar Wind</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Magnetosphere</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Ionosphere</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Aurora</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/cr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Cosmic Ray</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Geometry</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Computational Plasma Physics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Ray Tracing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Ray Tracing</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Tests</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/inductance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Inductance</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/capacitance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Capacitance</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Appendix</span></a>
-  </div>
-</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">References</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-controls="quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-7-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-7" aria-labelledby="quarto-sidebar-section-7-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/inductance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Inductance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/capacitance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Capacitance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Plasma Physics Formulary</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#waves-in-the-radiation-belt" id="toc-waves-in-the-radiation-belt" class="nav-link active" data-scroll-target="#waves-in-the-radiation-belt"><span class="header-section-number">25.1</span> Waves in the Radiation Belt</a>
+  <li><a href="#waves-in-the-radiation-belt" id="toc-waves-in-the-radiation-belt" class="nav-link active" data-scroll-target="#waves-in-the-radiation-belt"><span class="header-section-number">30.1</span> Waves in the Radiation Belt</a>
   <ul class="collapse">
-  <li><a href="#sources-of-waves" id="toc-sources-of-waves" class="nav-link" data-scroll-target="#sources-of-waves"><span class="header-section-number">25.1.1</span> Sources of Waves</a></li>
+  <li><a href="#sources-of-waves" id="toc-sources-of-waves" class="nav-link" data-scroll-target="#sources-of-waves"><span class="header-section-number">30.1.1</span> Sources of Waves</a></li>
   </ul></li>
-  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling"><span class="header-section-number">25.2</span> Modeling</a>
+  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling"><span class="header-section-number">30.2</span> Modeling</a>
   <ul class="collapse">
-  <li><a href="#coupling-physical-processes-at-different-time-scales" id="toc-coupling-physical-processes-at-different-time-scales" class="nav-link" data-scroll-target="#coupling-physical-processes-at-different-time-scales"><span class="header-section-number">25.2.1</span> Coupling physical processes at different time scales</a></li>
+  <li><a href="#coupling-physical-processes-at-different-time-scales" id="toc-coupling-physical-processes-at-different-time-scales" class="nav-link" data-scroll-target="#coupling-physical-processes-at-different-time-scales"><span class="header-section-number">30.2.1</span> Coupling physical processes at different time scales</a></li>
   </ul></li>
-  <li><a href="#loss" id="toc-loss" class="nav-link" data-scroll-target="#loss"><span class="header-section-number">25.3</span> Loss</a></li>
-  <li><a href="#plasmasphere" id="toc-plasmasphere" class="nav-link" data-scroll-target="#plasmasphere"><span class="header-section-number">25.4</span> Plasmasphere</a></li>
+  <li><a href="#loss" id="toc-loss" class="nav-link" data-scroll-target="#loss"><span class="header-section-number">30.3</span> Loss</a></li>
+  <li><a href="#plasmasphere" id="toc-plasmasphere" class="nav-link" data-scroll-target="#plasmasphere"><span class="header-section-number">30.4</span> Plasmasphere</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/radiationbelt.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/radiationbelt.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/henry2004y/KeyNotes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content" tabindex="-1">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/reconnection.html">Space &amp; Astrophysical Plasmas</a></li><li class="breadcrumb-item"><a href="../contents/radiationbelt.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Radiation Belt</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-radiation_belt" class="quarto-section-identifier"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></h1>
+<h1 class="title"><span id="sec-radiation_belt" class="quarto-section-identifier"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></h1>
 </div>
 
 
@@ -611,6 +695,19 @@ window.Quarto = {
 </header>
 
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Related Chapters
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For adiabatic invariants and trapped-particle motion in dipole fields, see <a href="single.html" class="quarto-xref"><span>Chapter 7</span></a> and <a href="math.html#sec-dipole" class="quarto-xref"><span>Section 3.9</span></a>; for whistler waves and wave–particle interactions, see <a href="wave_whistler.html" class="quarto-xref"><span>Chapter 16</span></a> and <a href="wave_warm.html" class="quarto-xref"><span>Chapter 15</span></a>; for plasmasphere dynamics, see <a href="magnetosphere.html" class="quarto-xref"><span>Chapter 27</span></a>.</p>
+</div>
+</div>
 <p>A <a href="https://en.wikipedia.org/wiki/Van_Allen_radiation_belt">Van Allen radiation belt</a> is a zone of energetic charged particles, most of which originate from the solar wind, that are captured by and held around a planet by that planet’s magnetosphere. Earth possesses an inner belt and an outer belt.</p>
 <ol type="1">
 <li>the inner belt</li>
@@ -642,7 +739,7 @@ window.Quarto = {
 </ol>
 <ul>
 <li>Solar wind flows past the magnetosphere, drives K-H instability, and in turn triggers ULF waves.</li>
-<li>The ULF waves trigger FLR (<a href="flr.html" class="quarto-xref"><span>Chapter 17</span></a>).</li>
+<li>The ULF waves trigger FLR (<a href="flr.html" class="quarto-xref"><span>Chapter 28</span></a>).</li>
 <li>The outcome is a faster radial diffusion process?</li>
 </ul>
 <ol start="2" type="1">
@@ -653,21 +750,21 @@ window.Quarto = {
 <li>Waves accelerate electrons to MeV.</li>
 </ul>
 <p>The wave acceleration, or more specifically, wave-particle interaction, has been widely explored both theoretically and compared with observation data at Earth, Jupiter, and Saturn.</p>
-<section id="waves-in-the-radiation-belt" class="level2" data-number="25.1">
-<h2 data-number="25.1" class="anchored" data-anchor-id="waves-in-the-radiation-belt"><span class="header-section-number">25.1</span> Waves in the Radiation Belt</h2>
+<section id="waves-in-the-radiation-belt" class="level2" data-number="30.1">
+<h2 data-number="30.1" class="anchored" data-anchor-id="waves-in-the-radiation-belt"><span class="header-section-number">30.1</span> Waves in the Radiation Belt</h2>
 <div id="fig-radiation-belt-waves" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-radiation-belt-waves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1186%2Fs40623-021-01508-y/MediaObjects/40623_2021_1508_Figa_HTML.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-radiation-belt-waves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;25.1: Schematic diagram showing many of the wave modes that affect energetic electrons in the Earth’s radiation belts. Viewing from the north pole.
+Figure&nbsp;30.1: Schematic diagram showing many of the wave modes that affect energetic electrons in the Earth’s radiation belts. Viewing from the north pole.
 </figcaption>
 </figure>
 </div>
 <ul>
 <li><p>Lower hybrid waves: ???</p></li>
-<li><p>Whistler waves (<a href="wave.html#sec-CPDR" class="quarto-xref"><span>Section 10.6</span></a>)</p></li>
+<li><p>Whistler waves (<a href="wave.html#sec-CPDR" class="quarto-xref"><span>Section 13.5</span></a>)</p></li>
 <li><p>Chorus waves</p>
 <ul>
 <li>1-5 kHz (<span class="math inline">\(0.1-1.0\,f_{ce}\)</span>), well-defined narrow band</li>
@@ -687,14 +784,14 @@ Figure&nbsp;25.1: Schematic diagram showing many of the wave modes that affect e
 <img src="https://www.eoportal.org/api/cms/documents/163813/3290385/ERG_Auto6.jpeg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-arase-waves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;25.2: In-situ observation by the ERG (Arase) spacecraft. The ERG spacecraft observed chorus waves and scattered electrons in the magnetosphere, the origin of pulsation auroras. The scattered electrons precipitated into the atmosphere resulting in auroral illumination. Intermittent occurrence of chorus waves and associated electron scattering lead to auroral pulsation.
+Figure&nbsp;30.2: In-situ observation by the ERG (Arase) spacecraft. The ERG spacecraft observed chorus waves and scattered electrons in the magnetosphere, the origin of pulsation auroras. The scattered electrons precipitated into the atmosphere resulting in auroral illumination. Intermittent occurrence of chorus waves and associated electron scattering lead to auroral pulsation.
 </figcaption>
 </figure>
 </div>
 <p>Before 1990s, waves in the radiation belts are known for transferring energy from charged particles, which act as a loss process to the particles. Richard Thorne, together with his collegues, proposed that they could also the sources of energetic particles ([Horne &amp; Thorne], 1998, 2003, 2005a,b). If that is the case, <em>the wave-particle interactions must break the adiabatic invariants</em>.</p>
-<p>The theory of wave-particle interaction starts with hot plasma kinetic theory (<a href="kinetic.html#sec-HPDR" class="quarto-xref"><span>Section 12.10.1</span></a>). When the denominator goes to 0, the resonance condition is fulfilled. From observations, we learned that the wave frequencies are smaller than the gyro-frequencies. How can we have resonance then? The answer is, Doppler shift needs to be taken into account.</p>
-<section id="sources-of-waves" class="level3" data-number="25.1.1">
-<h3 data-number="25.1.1" class="anchored" data-anchor-id="sources-of-waves"><span class="header-section-number">25.1.1</span> Sources of Waves</h3>
+<p>The theory of wave-particle interaction starts with hot plasma kinetic theory (<a href="kinetic.html#sec-HPDR" class="quarto-xref"><span>Section 17.10.1</span></a>). When the denominator goes to 0, the resonance condition is fulfilled. From observations, we learned that the wave frequencies are smaller than the gyro-frequencies. How can we have resonance then? The answer is, Doppler shift needs to be taken into account.</p>
+<section id="sources-of-waves" class="level3" data-number="30.1.1">
+<h3 data-number="30.1.1" class="anchored" data-anchor-id="sources-of-waves"><span class="header-section-number">30.1.1</span> Sources of Waves</h3>
 <p>resonance can generate current =&gt; this current can generate higher frequency radiations?</p>
 <p>Whistler waves can be explained by the linear theory. However, chorus and hiss waves are highly nonlinear and thus cannot be explained by a linear theory. We conjecture that they are caused by natural plasma instabilities, but we still have little idea what exactly these instabilities are.</p>
 <p>As a rough physical picture, during the cyclotron resonance:</p>
@@ -704,19 +801,19 @@ Figure&nbsp;25.2: In-situ observation by the ERG (Arase) spacecraft. The ERG spa
 </ol>
 </section>
 </section>
-<section id="modeling" class="level2" data-number="25.2">
-<h2 data-number="25.2" class="anchored" data-anchor-id="modeling"><span class="header-section-number">25.2</span> Modeling</h2>
-<p>3D Fokker-Planck diffusion model<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> (e.g. <span class="citation" data-cites="glauert2014three">(<a href="#ref-glauert2014three" role="doc-biblioref">Glauert et al. 2014</a>)</span>) has been built to model the radiation belt electrons. In the Earth’s radiation belts, the evolution of the phase-averaged phase-space density <span class="math inline">\(f(p,r,t)\)</span> can be described by a diffusion equation (see also <a href="kinetic.html#eq-fokker_planck" class="quarto-xref">Equation&nbsp;<span>12.19</span></a>): <span id="eq-fokker_planck_general"><span class="math display">\[
+<section id="modeling" class="level2" data-number="30.2">
+<h2 data-number="30.2" class="anchored" data-anchor-id="modeling"><span class="header-section-number">30.2</span> Modeling</h2>
+<p>3D Fokker-Planck diffusion model<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> (e.g. <span class="citation" data-cites="glauert2014three">(<a href="#ref-glauert2014three" role="doc-biblioref">Glauert et al. 2014</a>)</span>) has been built to model the radiation belt electrons. In the Earth’s radiation belts, the evolution of the phase-averaged phase-space density <span class="math inline">\(f(p,r,t)\)</span> can be described by a diffusion equation (see also <a href="kinetic.html#eq-fokker_planck" class="quarto-xref">Equation&nbsp;<span>17.19</span></a>): <span id="eq-fokker_planck_general"><span class="math display">\[
 \frac{\partial f}{\partial t} = \sum_{i,j}\frac{\partial}{\partial J_i}\left[ D_{ij}\frac{\partial f}{\partial J_j} \right]
-\tag{25.1}\]</span></span></p>
+\tag{30.1}\]</span></span></p>
 <p>Here <span class="math inline">\(D_{ij}\)</span> are diffusion coefficients and <span class="math inline">\(J_i\)</span> are the action integrals, <span class="math inline">\(J_1 = 2\pi m_e \mu/|q|\)</span>, <span class="math inline">\(J_2 = J\)</span>, and <span class="math inline">\(J_3 = q|\phi|\)</span>, where <span class="math inline">\(\mu,J\)</span>, and <span class="math inline">\(\phi\)</span> are the adiabatic invariants of charged particle motion, <span class="math inline">\(m_e\)</span> is the electron mass, and <span class="math inline">\(q\)</span> the charge. The adiabatic invariants are awkward variables to visualize and relate to data so many authors transform to other coordinates. One choice is to use pitch angle, energy, and <span class="math inline">\(L^\ast=2\pi M/(|\phi| R_\text{E})\)</span> (<a href="single.html#eq-Lstar" class="quarto-xref">Equation&nbsp;<span>7.48</span></a>), where <span class="math inline">\(M=8.22\times 10^{22}\, \text{A}\,\text{m}^2\)</span> is the magnetic moment of the Earth’s dipole field and <span class="math inline">\(R_\text{E}\)</span> is the Earth’s radius, as the three independent variables.</p>
-<p>Assuming a dipole field, changing coordinates to equatorial pitch angle <span class="math inline">\(\alpha\)</span>, kinetic energy <span class="math inline">\(E\)</span>, and <span class="math inline">\(L^\ast\)</span>, and neglecting some cross derivatives, <a href="kinetic.html#eq-fokker_planck" class="quarto-xref">Equation&nbsp;<span>12.19</span></a> can be written as <span id="eq-fokker_planck_convenient"><span class="math display">\[
+<p>Assuming a dipole field, changing coordinates to equatorial pitch angle <span class="math inline">\(\alpha\)</span>, kinetic energy <span class="math inline">\(E\)</span>, and <span class="math inline">\(L^\ast\)</span>, and neglecting some cross derivatives, <a href="kinetic.html#eq-fokker_planck" class="quarto-xref">Equation&nbsp;<span>17.19</span></a> can be written as <span id="eq-fokker_planck_convenient"><span class="math display">\[
 \begin{aligned}
 \frac{\partial f}{\partial t} =&amp; \frac{1}{g(\alpha)}\frac{\partial}{\partial \alpha}\bigg\rvert_{E,L} g(\alpha)\left( D_{\alpha\alpha}\frac{\partial f}{\partial\alpha}\bigg\rvert_{E,L} + D_{\alpha E}\frac{\partial f}{\partial E}\bigg\rvert_{\alpha,L} \right) \\
 &amp;+ \frac{1}{A(E)}\frac{\partial}{\partial E}\bigg\rvert_{\alpha,L} A(E) \left( D_{EE}\frac{\partial f}{\partial E}\bigg\rvert_{\alpha,L} + D_{E\alpha}\frac{\partial f}{\partial \alpha}\bigg\rvert_{E,L} \right) \\
 &amp;+ L^2 \frac{\partial}{\partial L}\bigg\rvert_{\mu,J}\left( \frac{D_{LL}}{L^2}\frac{\partial f}{\partial L}\bigg\rvert_{\mu,J} \right)
 \end{aligned}
-\tag{25.2}\]</span></span> where <span class="math display">\[
+\tag{30.2}\]</span></span> where <span class="math display">\[
 \begin{aligned}
 g(\alpha) = T(\alpha)\sin 2\alpha \\
 A(E) = (E+E_0)(E(E+2E_0))^{1/2}
@@ -732,14 +829,14 @@ T(\alpha) = \big(1.3802 - 0.3198(\sin\alpha + \sin^{1/2} \alpha) \big)
 \left&lt; D_{EE} \right&gt; &amp;\equiv \left&lt; \frac{(\Delta E)^2}{2\Delta t} \right&gt;
 \end{aligned}
 \]</span> with units of <span class="math inline">\(\text{s}^{-1}, \text{J}\text{s}^{-1}\)</span>, and <span class="math inline">\(\text{J}^2\text{s}^{-1}\)</span>, respectively.</p>
-<p>A loss term of the form <span class="math inline">\(f/\tau_L\)</span> can be added to represent losses to the atmosphere due to collisions. Here, <span class="math inline">\(\tau_L\)</span>, the loss timescale, is equal to 1/4 of the bounce time in the loss cone and infinite elsewhere. As a first-order approximation, we can neglect the cross terms and simplify <a href="#eq-fokker_planck_convenient" class="quarto-xref">Equation&nbsp;<span>25.2</span></a> as <span id="eq-fokker_planck_nocrossterm"><span class="math display">\[
+<p>A loss term of the form <span class="math inline">\(f/\tau_L\)</span> can be added to represent losses to the atmosphere due to collisions. Here, <span class="math inline">\(\tau_L\)</span>, the loss timescale, is equal to 1/4 of the bounce time in the loss cone and infinite elsewhere. As a first-order approximation, we can neglect the cross terms and simplify <a href="#eq-fokker_planck_convenient" class="quarto-xref">Equation&nbsp;<span>30.2</span></a> as <span id="eq-fokker_planck_nocrossterm"><span class="math display">\[
 \begin{aligned}
 \frac{\partial f}{\partial t} =&amp; \frac{1}{g(\alpha)}\frac{\partial}{\partial \alpha}\bigg\rvert_{E,L} g(\alpha)\left( D_{\alpha\alpha}\frac{\partial f}{\partial\alpha}\bigg\rvert_{E,L}\right) \\
 &amp;+ \frac{1}{A(E)}\frac{\partial}{\partial E}\bigg\rvert_{\alpha,L} A(E) \left( D_{EE}\frac{\partial f}{\partial E}\bigg\rvert_{\alpha,L}\right) \\
 &amp;+ L^2 \frac{\partial}{\partial L}\bigg\rvert_{\mu,J}\left( \frac{D_{LL}}{L^2}\frac{\partial f}{\partial L}\bigg\rvert_{\mu,J} \right) \\
 &amp;- \frac{f}{\tau_L}
 \end{aligned}
-\tag{25.3}\]</span></span></p>
+\tag{30.3}\]</span></span></p>
 <p>The first three terms on the right-hand side represent pitch angle, energy, and radial diffusion, respectively. The final term accounts for losses to the atmosphere. Pitch angle diffusion has contributions from wave-particle interactions and Coulomb collisions with the atmosphere, though the latter are only significant inside the loss cone. Energy diffusion is due to wave-particle interactions and radial diffusion to interactions with large-scale fluctuations in the Earth’s magnetic and electric fields. The diffusion coefficients are based on statistical wave models derived from data. Depending on the choice of the diffusion coefficients, the Fokker-Planck equation can be linear, quasi-linear, or nonlinear.</p>
 <p>Let us make our lives even simpler by considering only the radial diffusion and loss term. The quasi-linear assumptions are:</p>
 <ul>
@@ -771,29 +868,29 @@ D_{LL}(L, t) &amp;= 10^(a K_p(t) + b)L^c \\
 \frac{\partial f}{\partial t} = L^2 \frac{\partial}{\partial L}\bigg\rvert_{\mu,J}\left( \frac{D_{LL}}{L^2}\frac{\partial f}{\partial L}\bigg\rvert_{\mu,J} \right) - \frac{\partial Cf}{\partial L}
 \]</span></p>
 <p>The job of <em>Physical-Informed Neural Network</em> (PINN) is to deduce the optimal <span class="math inline">\(D_{LL}\)</span> and <span class="math inline">\(C\)</span> based on statistics by embedding the expected form of the equation into the loss term in the neural network. As this is statistics, we can build and test any kind of relations between variables without physical interpretation, which has been critizised a lot. For example, one may ask how you can let the phase space distribution <span class="math inline">\(f\)</span> depend only on <span class="math inline">\(t\)</span> and <span class="math inline">\(L\)</span>? The information is incomplete from a physics point of view, but datawise it may just “work”, in the sense that neural network is essentially a <em>universal high-dimensional function approximator</em>.</p>
-<section id="coupling-physical-processes-at-different-time-scales" class="level3" data-number="25.2.1">
-<h3 data-number="25.2.1" class="anchored" data-anchor-id="coupling-physical-processes-at-different-time-scales"><span class="header-section-number">25.2.1</span> Coupling physical processes at different time scales</h3>
+<section id="coupling-physical-processes-at-different-time-scales" class="level3" data-number="30.2.1">
+<h3 data-number="30.2.1" class="anchored" data-anchor-id="coupling-physical-processes-at-different-time-scales"><span class="header-section-number">30.2.1</span> Coupling physical processes at different time scales</h3>
 <p>If we only look at low frequency regime, the high frequency wave-particle interactions behave as a diffusion process to the plasma. Thus the coupling idea is not to simulate everything on the same time scale, but simulate the radiation belt effect by macroscopic diffusion coefficients.</p>
 </section>
 </section>
-<section id="loss" class="level2" data-number="25.3">
-<h2 data-number="25.3" class="anchored" data-anchor-id="loss"><span class="header-section-number">25.3</span> Loss</h2>
+<section id="loss" class="level2" data-number="30.3">
+<h2 data-number="30.3" class="anchored" data-anchor-id="loss"><span class="header-section-number">30.3</span> Loss</h2>
 <p>Quantitative understanding of the electron acceleration mechanisms falls short, mostly due to the lack of understanding of the loss mechanisms.</p>
 <ul>
 <li>Bounce loss cone</li>
 <li>Drift loss cone</li>
 </ul>
 </section>
-<section id="plasmasphere" class="level2" data-number="25.4">
-<h2 data-number="25.4" class="anchored" data-anchor-id="plasmasphere"><span class="header-section-number">25.4</span> Plasmasphere</h2>
+<section id="plasmasphere" class="level2" data-number="30.4">
+<h2 data-number="30.4" class="anchored" data-anchor-id="plasmasphere"><span class="header-section-number">30.4</span> Plasmasphere</h2>
 <p>The plasmasphere is a region within the Earth’s magnetosphere that contains <em>dense, cold</em> plasma. It is located in the innermost part of the magnetosphere, and it extends from about 1,000 to 60,000 kilometers above the Earth’s surface. The plasmasphere is formed by the Earth’s magnetic field, which traps charged particles in the region, creating a donut-shaped structure around the planet.</p>
-<div id="fig-plasmasphere" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-rb-plasmasphere" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-plasmasphere-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-rb-plasmasphere-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.nasa.gov/sites/default/files/images/470173main_magnetosphere2_full.jpg" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plasmasphere-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;25.3: Plasmapshere and radiation belt as the inner magnetosphere.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rb-plasmasphere-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;30.3: Plasmasphere and radiation belt as the inner magnetosphere.
 </figcaption>
 </figure>
 </div>
@@ -823,15 +920,50 @@ Glauert, Sarah A, Richard B Horne, and Nigel P Meredith. 2014. <span>“Three-Di
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const toggle = window.document.createElement('button');
+      toggle.type = "button";
+      toggle.setAttribute("role", "switch");
+      toggle.setAttribute("aria-checked", "false");
+      toggle.classList.add('top-right');
+      toggle.classList.add('quarto-color-scheme-toggle');
+      toggle.setAttribute("aria-label", "Toggle dark mode");
+      toggle.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
       const i = window.document.createElement("i");
       i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
+      toggle.appendChild(i);
+      // Put the toggle in a landmark of its own, so that landmark navigation
+      // can reach it.
+      //
+      // The container is always a fresh direct child of body, and the toggle is
+      // never moved into page furniture that the theme or the author controls.
+      // The toggle is positioned against the page, so any ancestor that
+      // establishes a containing block captures it: a positioned element or a
+      // grid for position: absolute, and transform, filter, will-change or
+      // contain for position: fixed. A direct child of body has none of these
+      // to inherit, and the shift when one appears is silent and visual.
+      //
+      // ARIA says a document should have at most one banner, and axe reports a
+      // duplicate whether or not the banners carry distinct labels. So use a
+      // header when the page has no banner yet, and a named region otherwise.
+      //
+      // A header is a banner wherever it sits, unless it is inside sectioning
+      // content, so this cannot just look at the children of body: a custom
+      // page layout wraps the title block header in a plain div. An explicit
+      // role="banner" always counts.
+      const sectioning = 'article, aside, main, nav, section, [role="article"], [role="complementary"], [role="main"], [role="navigation"], [role="region"]';
+      const hasBanner = Array.from(
+        window.document.querySelectorAll('header:not([role]), [role="banner"]')
+      ).some(function(el) {
+        return el.hasAttribute("role") || el.closest(sectioning) === null;
+      });
+      const container = window.document.createElement(hasBanner ? "div" : "header");
+      if (hasBanner) {
+        container.setAttribute("role", "region");
+        container.setAttribute("aria-label", "Toggle dark mode");
+      }
+      container.classList.add('quarto-color-scheme-toggle-container');
+      container.appendChild(toggle);
+      window.document.body.appendChild(container);
     }
     setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
@@ -906,11 +1038,30 @@ Glauert, Sarah A, Richard B Horne, and Nigel P Meredith. 2014. <span>“Three-Di
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
+      const newWindowLabel = "(opens in a new tab)";
+      const newWindowNoteId = "quarto-ext-newwindow-label";
+      // Links reference one hidden label through aria-describedby, so the
+      // announcement never changes their accessible name.
+      var describeNewWindow = (link) => {
+        if (!window.document.getElementById(newWindowNoteId)) {
+          var newWindowNote = window.document.createElement("span");
+          newWindowNote.id = newWindowNoteId;
+          newWindowNote.hidden = true;
+          newWindowNote.textContent = newWindowLabel;
+          window.document.body.appendChild(newWindowNote);
+        }
+        var describedBy = (link.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(newWindowNoteId)) {
+          describedBy.push(newWindowNoteId);
+          link.setAttribute("aria-describedby", describedBy.join(" "));
+        }
+      }
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -919,8 +1070,75 @@ Glauert, Sarah A, Richard B Horne, and Nigel P Meredith. 2014. <span>“Three-Di
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            describeNewWindow(link);
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -934,6 +1152,7 @@ Glauert, Sarah A, Richard B Horne, and Nigel P Meredith. 2014. <span>“Three-Di
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -1096,44 +1315,54 @@ Glauert, Sarah A, Richard B Horne, and Nigel P Meredith. 2014. <span>“Three-Di
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -1232,15 +1461,18 @@ Glauert, Sarah A, Richard B Horne, and Nigel P Meredith. 2014. <span>“Three-Di
     }
   });
   </script>
-<nav class="page-navigation">
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
   <div class="nav-page nav-page-previous">
       <a href="../contents/ionosphere.html" class="pagination-link" aria-label="Ionosphere">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Ionosphere</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Ionosphere</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../contents/aurora.html" class="pagination-link" aria-label="Aurora">
-        <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Aurora</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Aurora</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1249,4 +1481,5 @@ Glauert, Sarah A, Richard B Horne, and Nigel P Meredith. 2014. <span>“Three-Di
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/radiationbelt.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/radiationbelt.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/henry2004y/KeyNotes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

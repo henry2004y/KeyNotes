@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Reconnection – Key Notes in Plasma Physics</title>
+<title>24&nbsp; Reconnection – Key Notes in Plasma Physics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,22 +36,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../contents/kmhd.html" rel="next">
-<link href="../contents/stability.html" rel="prev">
+<link href="../contents/shock.html" rel="next">
+<link href="../contents/turbulence.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-447e42e69aaa9833c0ba1b986f430b20.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-fd0503e23dce65854c81c5baaade3bdf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-b8332284a13f2ac66e128c75679a6fb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-fd0503e23dce65854c81c5baaade3bdf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-06d6bd6e489181030889a02c125f20ad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-69a9010040ff889c89987b5205733f8a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-06d6bd6e489181030889a02c125f20ad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,6 +80,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -112,7 +114,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -135,6 +137,7 @@ window.Quarto = {
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
         if (toggle) {
+          toggle.setAttribute("aria-checked", alternate ? "true" : "false");
           if (alternate) {
             toggle.classList.add("alternate");
           } else {
@@ -164,13 +167,19 @@ window.Quarto = {
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
       setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455).
+    // Not run on load: stylesheets are set before first paint there, and
+    // scrolling would undo the scroll to a URL fragment (#14973).
+    // The one pixel nudge keeps the reader where they were.
+    const refreshSafariScrollbar = () => {
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
         manageTransitions("body", false);
-        window.scrollTo(0, 1);
+        const scrollY = window.scrollY;
+        window.scrollTo(0, scrollY > 0 ? scrollY - 1 : 1);
         setTimeout(() => {
-          window.scrollTo(0, 0);
+          window.scrollTo(0, scrollY);
           manageTransitions("body", true);
         }, 40);
       }
@@ -264,6 +273,7 @@ window.Quarto = {
       // Read the current dark / light value
       let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
+      refreshSafariScrollbar();
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
@@ -278,13 +288,13 @@ window.Quarto = {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/reconnection.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Reconnection</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/reconnection.html">Space &amp; Astrophysical Plasmas</a></li><li class="breadcrumb-item"><a href="../contents/reconnection.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Reconnection</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -295,13 +305,13 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Site">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Key Notes in Plasma Physics</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/henry2004y/KeyNotes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <button type="button" role="switch" aria-checked="false" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="bi"></i></button>
 </div>
     </div>
       </div>
@@ -324,259 +334,333 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Foundations &amp; Preliminaries</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/math.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Math</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/theoretical_mechanics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Theoretical Mechanics</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/relativity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Relativity</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/unit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Unit Conversion</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Single-Particle Dynamics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/single.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Single-Particle Motions</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/gc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Guiding Center</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Fluid &amp; Magnetohydrodynamic Theory</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/fluid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plasmas as Fluid</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/diffres.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Diffusion and Resisvity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Diffusion and Resistivity</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Waves</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/emhd.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">EMHD</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Stability</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/reconnection.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Reconnection</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Geometry</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Solar Wind</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Shock</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Magnetosphere</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Ionosphere</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Aurora</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/gc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Guiding Center</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/cr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Cosmic Ray</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/boundary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Boundary Conditions</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Waves, Kinetic Theory &amp; Instabilities</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></a>
+  <a href="../contents/wave.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Wave Fundamentals and Cold Plasma Waves</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></span></a>
+  <a href="../contents/wave_mhd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">MHD and Alfvén Waves</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/wave_warm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Warm, Electrostatic, and Kinetic Waves</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/wave_whistler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Whistler Waves and Wave Identification</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/kinetic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kinetic Theory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/dispersion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Dispersion Relation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kinetic Dispersion Relation</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/stability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Stability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/kmhd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/gyrokinetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Gyrokinetics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/nonlinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Nonlinear Effects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/turbulence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Turbulence</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Space &amp; Astrophysical Plasmas</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/reconnection.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Reconnection</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/shock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Shock</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/solarwind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Solar Wind</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/magnetosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Magnetosphere</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/flr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Field Line Resonance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/ionosphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Ionosphere</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/radiationbelt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Radiation Belt</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/aurora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Aurora</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/cr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Cosmic Ray</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/geometry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Geometry</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Computational Plasma Physics</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/pic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Particle-in-Cell</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/hybrid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Hybrid Methods</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/raytracing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Ray Tracing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Ray Tracing</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Tests</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/inductance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Inductance</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/capacitance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Capacitance</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Appendix</span></a>
-  </div>
-</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">References</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-controls="quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-7-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-7" aria-labelledby="quarto-sidebar-section-7-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/inductance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Inductance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/capacitance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Capacitance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Plasma Physics Formulary</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#energy-release-in-2d-flux-rope-relaxation-and-coalescence" id="toc-energy-release-in-2d-flux-rope-relaxation-and-coalescence" class="nav-link active" data-scroll-target="#energy-release-in-2d-flux-rope-relaxation-and-coalescence"><span class="header-section-number">14.1</span> Energy release in 2D flux rope relaxation and coalescence</a>
+  <li><a href="#energy-release-in-2d-flux-rope-relaxation-and-coalescence" id="toc-energy-release-in-2d-flux-rope-relaxation-and-coalescence" class="nav-link active" data-scroll-target="#energy-release-in-2d-flux-rope-relaxation-and-coalescence"><span class="header-section-number">24.1</span> Energy release in 2D flux rope relaxation and coalescence</a>
   <ul class="collapse">
-  <li><a href="#basic-assumptions" id="toc-basic-assumptions" class="nav-link" data-scroll-target="#basic-assumptions"><span class="header-section-number">14.1.1</span> Basic Assumptions</a></li>
-  <li><a href="#systematic-derivations" id="toc-systematic-derivations" class="nav-link" data-scroll-target="#systematic-derivations"><span class="header-section-number">14.1.2</span> Systematic Derivations</a></li>
-  <li><a href="#important-conclusions" id="toc-important-conclusions" class="nav-link" data-scroll-target="#important-conclusions"><span class="header-section-number">14.1.3</span> Important Conclusions</a></li>
+  <li><a href="#basic-assumptions" id="toc-basic-assumptions" class="nav-link" data-scroll-target="#basic-assumptions"><span class="header-section-number">24.1.1</span> Basic Assumptions</a></li>
+  <li><a href="#systematic-derivations" id="toc-systematic-derivations" class="nav-link" data-scroll-target="#systematic-derivations"><span class="header-section-number">24.1.2</span> Systematic Derivations</a></li>
+  <li><a href="#important-conclusions" id="toc-important-conclusions" class="nav-link" data-scroll-target="#important-conclusions"><span class="header-section-number">24.1.3</span> Important Conclusions</a></li>
   </ul></li>
-  <li><a href="#particle-acceleration-during-magnetic-reconnection" id="toc-particle-acceleration-during-magnetic-reconnection" class="nav-link" data-scroll-target="#particle-acceleration-during-magnetic-reconnection"><span class="header-section-number">14.2</span> Particle Acceleration During Magnetic Reconnection</a>
+  <li><a href="#particle-acceleration-during-magnetic-reconnection" id="toc-particle-acceleration-during-magnetic-reconnection" class="nav-link" data-scroll-target="#particle-acceleration-during-magnetic-reconnection"><span class="header-section-number">24.2</span> Particle Acceleration During Magnetic Reconnection</a>
   <ul class="collapse">
-  <li><a href="#guiding-center-energy-equation-derivation" id="toc-guiding-center-energy-equation-derivation" class="nav-link" data-scroll-target="#guiding-center-energy-equation-derivation"><span class="header-section-number">14.2.1</span> Guiding-Center Energy Equation Derivation</a></li>
-  <li><a href="#reformulation-via-drift-motion" id="toc-reformulation-via-drift-motion" class="nav-link" data-scroll-target="#reformulation-via-drift-motion"><span class="header-section-number">14.2.2</span> Reformulation via Drift Motion</a></li>
+  <li><a href="#guiding-center-energy-equation-derivation" id="toc-guiding-center-energy-equation-derivation" class="nav-link" data-scroll-target="#guiding-center-energy-equation-derivation"><span class="header-section-number">24.2.1</span> Guiding-Center Energy Equation Derivation</a></li>
+  <li><a href="#reformulation-via-drift-motion" id="toc-reformulation-via-drift-motion" class="nav-link" data-scroll-target="#reformulation-via-drift-motion"><span class="header-section-number">24.2.2</span> Reformulation via Drift Motion</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/reconnection.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/reconnection.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/henry2004y/KeyNotes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content" tabindex="-1">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contents/reconnection.html">Space &amp; Astrophysical Plasmas</a></li><li class="breadcrumb-item"><a href="../contents/reconnection.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Reconnection</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-reconnection" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Reconnection</span></span></h1>
+<h1 class="title"><span id="sec-reconnection" class="quarto-section-identifier"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Reconnection</span></span></h1>
 </div>
 
 
@@ -593,12 +677,25 @@ window.Quarto = {
 </header>
 
 
-<section id="energy-release-in-2d-flux-rope-relaxation-and-coalescence" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="energy-release-in-2d-flux-rope-relaxation-and-coalescence"><span class="header-section-number">14.1</span> Energy release in 2D flux rope relaxation and coalescence</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Related Chapters
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For resistive tearing modes and generalized Ohm’s law in reconnection layers, see <a href="stability.html#sec-stability-reconnection" class="quarto-xref"><span>Section 19.8</span></a>; for X/O-point and flux-rope topology diagnostics, see <a href="geometry.html" class="quarto-xref"><span>Chapter 33</span></a>; for guiding-center drifts and adiabatic invariants, see <a href="single.html" class="quarto-xref"><span>Chapter 7</span></a> and <a href="gc.html" class="quarto-xref"><span>Chapter 8</span></a>; for turbulence-reconnection coupling, see <a href="turbulence.html" class="quarto-xref"><span>Chapter 23</span></a>.</p>
+</div>
+</div>
+<section id="energy-release-in-2d-flux-rope-relaxation-and-coalescence" class="level2" data-number="24.1">
+<h2 data-number="24.1" class="anchored" data-anchor-id="energy-release-in-2d-flux-rope-relaxation-and-coalescence"><span class="header-section-number">24.1</span> Energy release in 2D flux rope relaxation and coalescence</h2>
 <p>Magnetic reconnection and relaxation in magnetized plasmas frequently involve geometric reconfigurations of magnetic flux ropes. In two dimensions without a guide field, these processes are governed by the release of free magnetic energy stored in non-circular or multi-rope topological configurations.</p>
 <p>We systematically analyze two interconnected problems: - Geometric relaxation of an isolated flux rope: A stretched elliptical flux rope of major axis <span class="math inline">\(l\)</span> and minor axis <span class="math inline">\(w\)</span> contracting into an axisymmetric circular loop of radius <span class="math inline">\(r\)</span>. - Hierarchical coalescence of magnetic flux ropes: The pairwise merging of <span class="math inline">\(N_{\text{ropes}} = 2^N\)</span> identical circular flux ropes into a single merged circular flux rope.</p>
-<section id="basic-assumptions" class="level3" data-number="14.1.1">
-<h3 data-number="14.1.1" class="anchored" data-anchor-id="basic-assumptions"><span class="header-section-number">14.1.1</span> Basic Assumptions</h3>
+<section id="basic-assumptions" class="level3" data-number="24.1.1">
+<h3 data-number="24.1.1" class="anchored" data-anchor-id="basic-assumptions"><span class="header-section-number">24.1.1</span> Basic Assumptions</h3>
 <ul>
 <li>Two-Dimensional Geometry (<span class="math inline">\(2\text{D}\)</span>): All field lines lie in the <span class="math inline">\((x, y)\)</span> plane (<span class="math inline">\(\mathbf{B} = \nabla A_z \times \hat{\mathbf{z}}\)</span>), and translational symmetry holds along <span class="math inline">\(\hat{\mathbf{z}}\)</span> with zero guide field (<span class="math inline">\(B_z = 0\)</span>).</li>
 <li>Incompressibility: The plasma bulk flow satisfies <span class="math inline">\(\nabla \cdot \mathbf{v} = 0\)</span>, implying strict conservation of the cross-sectional area enclosed by the magnetic structures.</li>
@@ -606,8 +703,8 @@ window.Quarto = {
 <li>Thin Flux-Tube Scaling: The magnetic flux bundle has a closed perimeter <span class="math inline">\(P\)</span>, cross-sectional area <span class="math inline">\(\delta S\)</span>, and volume <span class="math inline">\(V = P \delta S\)</span>.</li>
 <li>Symmetric Coalescence: Merging flux ropes share identical initial dimensions, magnetic fluxes, and plasma mass densities.</li>
 </ul>
-<section id="verification-of-assumptions" class="level4" data-number="14.1.1.1">
-<h4 data-number="14.1.1.1" class="anchored" data-anchor-id="verification-of-assumptions"><span class="header-section-number">14.1.1.1</span> Verification of Assumptions</h4>
+<section id="verification-of-assumptions" class="level4">
+<h4 class="anchored" data-anchor-id="verification-of-assumptions">Verification of Assumptions</h4>
 <ul>
 <li><p>Incompressibility (<span class="math inline">\(\nabla \cdot \mathbf{v} \approx 0\)</span>): Valid when plasma bulk motion and Alfvén speeds remain significantly subsonic relative to the fast magnetosonic speed, or in high-<span class="math inline">\(\beta\)</span> regimes where the plasma acts as an incompressible fluid.</p></li>
 <li><p>Flux Conservation (<span class="math inline">\(\partial_t \Phi = 0\)</span>): By Alfvén’s theorem, magnetic flux through a co-moving contour is conserved in high Lundquist number (<span class="math inline">\(S \gg 1\)</span>) plasmas. The non-ideal diffusion region (<span class="math inline">\(\mathbf{E} + \mathbf{v} \times \mathbf{B} = \eta \mathbf{J}\)</span>) remains spatially localized to the <span class="math inline">\(X\)</span>-point (<span class="math inline">\(L_{\text{diff}} \ll P\)</span>), ensuring that the global magnetic flux in the circulating loop bulk remains an adiabatic invariant.</p></li>
@@ -615,10 +712,10 @@ window.Quarto = {
 </ul>
 </section>
 </section>
-<section id="systematic-derivations" class="level3" data-number="14.1.2">
-<h3 data-number="14.1.2" class="anchored" data-anchor-id="systematic-derivations"><span class="header-section-number">14.1.2</span> Systematic Derivations</h3>
-<section id="single-flux-rope-relaxation-ellipse-to-circle" class="level4" data-number="14.1.2.1">
-<h4 data-number="14.1.2.1" class="anchored" data-anchor-id="single-flux-rope-relaxation-ellipse-to-circle"><span class="header-section-number">14.1.2.1</span> Single Flux Rope Relaxation: Ellipse to Circle</h4>
+<section id="systematic-derivations" class="level3" data-number="24.1.2">
+<h3 data-number="24.1.2" class="anchored" data-anchor-id="systematic-derivations"><span class="header-section-number">24.1.2</span> Systematic Derivations</h3>
+<section id="single-flux-rope-relaxation-ellipse-to-circle" class="level4">
+<h4 class="anchored" data-anchor-id="single-flux-rope-relaxation-ellipse-to-circle">Single Flux Rope Relaxation: Ellipse to Circle</h4>
 <p>Consider an elliptical flux loop with semi-major axis <span class="math inline">\(a = l/2\)</span> and semi-minor axis <span class="math inline">\(b = w/2\)</span>.</p>
 <ol type="1">
 <li><p>Geometric Invariants By area conservation: <span class="math display">\[
@@ -648,8 +745,8 @@ v \to v_{A, e}
 \]</span> The contraction velocity asymptotically approaches the initial upstream Alfvén speed.</p></li>
 </ol>
 </section>
-<section id="coalescence-of-n_textropes-2n-flux-ropes" class="level4" data-number="14.1.2.2">
-<h4 data-number="14.1.2.2" class="anchored" data-anchor-id="coalescence-of-n_textropes-2n-flux-ropes"><span class="header-section-number">14.1.2.2</span> Coalescence of <span class="math inline">\(N_{\text{ropes}} = 2^N\)</span> Flux Ropes</h4>
+<section id="coalescence-of-n_textropes-2n-flux-ropes" class="level4">
+<h4 class="anchored" data-anchor-id="coalescence-of-n_textropes-2n-flux-ropes">Coalescence of <span class="math inline">\(N_{\text{ropes}} = 2^N\)</span> Flux Ropes</h4>
 <p>Consider <span class="math inline">\(N_{\text{ropes}} = 2^N\)</span> identical circular flux ropes merging into a single circular flux rope via hierarchical reconnection.</p>
 <ol type="1">
 <li>Scaling of Perimeter and Field Each initial circular rope has radius <span class="math inline">\(r_0\)</span>, perimeter <span class="math inline">\(P_0 = 2\pi r_0\)</span>, area <span class="math inline">\(A_0 = \pi r_0^2\)</span>, and carries magnetic flux <span class="math inline">\(\Phi_0\)</span>.</li>
@@ -685,8 +782,8 @@ W_B \propto P^2
 </ul>
 </section>
 </section>
-<section id="important-conclusions" class="level3" data-number="14.1.3">
-<h3 data-number="14.1.3" class="anchored" data-anchor-id="important-conclusions"><span class="header-section-number">14.1.3</span> Important Conclusions</h3>
+<section id="important-conclusions" class="level3" data-number="24.1.3">
+<h3 data-number="24.1.3" class="anchored" data-anchor-id="important-conclusions"><span class="header-section-number">24.1.3</span> Important Conclusions</h3>
 <ul>
 <li>Geometric Origin of the Alfvén Speed: The Alfvén speed is the characteristic dynamical speed that mediates the release of free magnetic energy when flux tubes contract to satisfy the isoperimetric minimum.</li>
 <li>Equipartition in Binary Reconnection: A single symmetric 2D merger of two flux ropes (<span class="math inline">\(N = 1\)</span>) converts exactly <span class="math inline">\(50\%\)</span> of the initial magnetic energy into particle kinetic energy and heat, consistent with standard Sweet-Parker and Petschek reconnection invariants.</li>
@@ -695,12 +792,12 @@ W_B \propto P^2
 <p>Note that these are valid without a guide field. In the presence of a strong guide field, the energy conversion efficiency is reduced, and the final state may not be a circular flux rope.</p>
 </section>
 </section>
-<section id="particle-acceleration-during-magnetic-reconnection" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="particle-acceleration-during-magnetic-reconnection"><span class="header-section-number">14.2</span> Particle Acceleration During Magnetic Reconnection</h2>
+<section id="particle-acceleration-during-magnetic-reconnection" class="level2" data-number="24.2">
+<h2 data-number="24.2" class="anchored" data-anchor-id="particle-acceleration-during-magnetic-reconnection"><span class="header-section-number">24.2</span> Particle Acceleration During Magnetic Reconnection</h2>
 <p>In guiding-center theory, the rate of change of kinetic energy <span class="math inline">\(\dot{\mathcal{E}} = q \mathbf{E} \cdot \mathbf{v}_{\text{gc}}\)</span> separates directly into work done along the magnetic field by parallel electric fields (<span class="math inline">\(E_\parallel\)</span>) and perpendicular drift work. The perpendicular drifts split into the <span class="math inline">\(\mathbf{E} \times \mathbf{B}\)</span> drift (which does zero direct work since <span class="math inline">\(\mathbf{v}_E \perp \mathbf{E}\)</span>), the curvature drift (corresponding to Fermi-type acceleration via field-line contraction and curvature), and the gradient-<span class="math inline">\(B\)</span> drift (corresponding to Betatron acceleration via local magnetic field compression, linked to the conservation of the first adiabatic invariant <span class="math inline">\(\mu\)</span>).</p>
 <p>Based on the studies in recent decades, Fermi acceleration is recognized as the dominant mechanism. In 2D and 3D multi-island/flux-rope reconnection: 1. The direct parallel electric field <span class="math inline">\(E_\parallel\)</span> is strictly localized to tiny electron-scale diffusion regions around the <span class="math inline">\(X\)</span>-lines, which account for only a negligible fraction of the global reconnection volume. 2. In contrast, magnetic islands and contracting reconnected loops occupy the vast majority of the volume. As these flux ropes contract and merge, particles trapped within them reflect off the contracting ends (curvature drift aligned with the reconnection electric field), gaining parallel energy via Type-I / Type-II Fermi acceleration. 3. Betatron acceleration contributes marginally or can even be negative (decelerating) inside islands because the core magnetic field often weakens or remains flat, whereas curvature drift consistently produces net energization across the contracting loop domain.</p>
-<section id="guiding-center-energy-equation-derivation" class="level3" data-number="14.2.1">
-<h3 data-number="14.2.1" class="anchored" data-anchor-id="guiding-center-energy-equation-derivation"><span class="header-section-number">14.2.1</span> Guiding-Center Energy Equation Derivation</h3>
+<section id="guiding-center-energy-equation-derivation" class="level3" data-number="24.2.1">
+<h3 data-number="24.2.1" class="anchored" data-anchor-id="guiding-center-energy-equation-derivation"><span class="header-section-number">24.2.1</span> Guiding-Center Energy Equation Derivation</h3>
 <p>Let a particle have mass <span class="math inline">\(m\)</span>, charge <span class="math inline">\(q\)</span>, position <span class="math inline">\(\mathbf{R}\)</span>, magnetic moment <span class="math inline">\(\mu = m v_\perp^2 / (2 B)\)</span>, and parallel velocity <span class="math inline">\(v_\parallel\)</span>. The unit vector along the magnetic field is <span class="math inline">\(\mathbf{b} = \mathbf{B}/B\)</span>. The non-relativistic guiding-center velocity is: <span class="math display">\[
 \mathbf{v}_{\text{gc}} = v_\parallel \mathbf{b} + \mathbf{v}_E + \mathbf{v}_c + \mathbf{v}_{\nabla B}
 \]</span> where: - <span class="math inline">\(\mathbf{v}_E = \frac{\mathbf{E} \times \mathbf{B}}{B^2}\)</span> (<span class="math inline">\(\mathbf{E} \times \mathbf{B}\)</span> drift) - <span class="math inline">\(\mathbf{v}_c = \frac{m v_\parallel^2}{q B} (\mathbf{b} \times \boldsymbol{\kappa})\)</span> (Curvature drift, with curvature vector <span class="math inline">\(\boldsymbol{\kappa} = (\mathbf{b} \cdot \nabla)\mathbf{b}\)</span>) - <span class="math inline">\(\mathbf{v}_{\nabla B} = \frac{\mu}{q B} (\mathbf{b} \times \nabla B)\)</span> (Gradient-<span class="math inline">\(B\)</span> drift)</p>
@@ -717,15 +814,15 @@ W_B \propto P^2
 \frac{d\mathcal{E}}{dt} = \underbrace{q v_\parallel E_\parallel}_{\text{Parallel Acceleration}} + \underbrace{q \mathbf{E} \cdot \mathbf{v}_c}_{\text{Fermi Acceleration}} + \underbrace{q \mathbf{E} \cdot \mathbf{v}_{\nabla B}}_{\text{Betatron Acceleration}}
 \]</span></p>
 </section>
-<section id="reformulation-via-drift-motion" class="level3" data-number="14.2.2">
-<h3 data-number="14.2.2" class="anchored" data-anchor-id="reformulation-via-drift-motion"><span class="header-section-number">14.2.2</span> Reformulation via Drift Motion</h3>
+<section id="reformulation-via-drift-motion" class="level3" data-number="24.2.2">
+<h3 data-number="24.2.2" class="anchored" data-anchor-id="reformulation-via-drift-motion"><span class="header-section-number">24.2.2</span> Reformulation via Drift Motion</h3>
 <p>To connect these drift terms to magnetic field dynamics, we rewrite them using the ideal MHD electric field <span class="math inline">\(\mathbf{E} + \mathbf{u}_E \times \mathbf{B} = 0\)</span>, where <span class="math inline">\(\mathbf{u}_E = \mathbf{v}_E = \frac{\mathbf{E} \times \mathbf{B}}{B^2}\)</span>, so <span class="math inline">\(\mathbf{E}_\perp = -\mathbf{u}_E \times \mathbf{B}\)</span>.</p>
-<section id="fermi-acceleration-curvature-drift-term" class="level4" data-number="14.2.2.1">
-<h4 data-number="14.2.2.1" class="anchored" data-anchor-id="fermi-acceleration-curvature-drift-term"><span class="header-section-number">14.2.2.1</span> Fermi Acceleration (Curvature Drift Term)</h4>
+<section id="fermi-acceleration-curvature-drift-term" class="level4">
+<h4 class="anchored" data-anchor-id="fermi-acceleration-curvature-drift-term">Fermi Acceleration (Curvature Drift Term)</h4>
 <p>Substitute <span class="math inline">\(\mathbf{v}_c\)</span> into the electric work: <span class="math display">\[
 \left(\frac{d\mathcal{E}}{dt}\right)_{\text{Fermi}} = q \mathbf{E}_\perp \cdot \mathbf{v}_c = q \mathbf{E}_\perp \cdot \left[ \frac{m v_\parallel^2}{q B} (\mathbf{b} \times \boldsymbol{\kappa}) \right] = \frac{m v_\parallel^2}{B} (\mathbf{E}_\perp \times \mathbf{b}) \cdot \boldsymbol{\kappa}
 \]</span></p>
-<p>Since <span class="math inline">\(\mathbf{E}_\perp \times \mathbf{b} = (-\mathbf{u}_E \times \mathbf{B}) \times \mathbf{b} = -u_E B \mathbf{b} \times (\mathbf{b} \times \dots) = B \mathbf{u}_E\)</span>: <span class="math display">\[
+<p>Since <span class="math inline">\(\mathbf{E}_\perp \times \mathbf{b} = (-\mathbf{u}_E \times \mathbf{B}) \times \mathbf{b} = B\left[\mathbf{u}_E(\mathbf{b}\cdot\mathbf{b}) - \mathbf{b}(\mathbf{u}_E\cdot\mathbf{b})\right] = B \mathbf{u}_E\)</span> (using <span class="math inline">\(\mathbf{u}_E \perp \mathbf{b}\)</span>): <span class="math display">\[
 \left(\frac{d\mathcal{E}}{dt}\right)_{\text{Fermi}} = m v_\parallel^2 \, (\mathbf{u}_E \cdot \boldsymbol{\kappa})
 \]</span></p>
 <ul>
@@ -735,8 +832,8 @@ W_B \propto P^2
 \]</span> which is the classic first-order Fermi acceleration mechanism.</li>
 </ul>
 </section>
-<section id="betatron-acceleration-gradient-b-drift-term" class="level4" data-number="14.2.2.2">
-<h4 data-number="14.2.2.2" class="anchored" data-anchor-id="betatron-acceleration-gradient-b-drift-term"><span class="header-section-number">14.2.2.2</span> Betatron Acceleration (Gradient-<span class="math inline">\(B\)</span> Drift Term)</h4>
+<section id="betatron-acceleration-gradient-b-drift-term" class="level4">
+<h4 class="anchored" data-anchor-id="betatron-acceleration-gradient-b-drift-term">Betatron Acceleration (Gradient-<span class="math inline">\(B\)</span> Drift Term)</h4>
 <p>Substitute <span class="math inline">\(\mathbf{v}_{\nabla B}\)</span> into the electric work: <span class="math display">\[
 \left(\frac{d\mathcal{E}}{dt}\right)_{\text{Beta}} = q \mathbf{E}_\perp \cdot \mathbf{v}_{\nabla B} = q \mathbf{E}_\perp \cdot \left[ \frac{\mu}{q B} (\mathbf{b} \times \nabla B) \right] = \frac{\mu}{B} (\mathbf{E}_\perp \times \mathbf{b}) \cdot \nabla B = \mu (\mathbf{u}_E \cdot \nabla B)
 \]</span></p>
@@ -747,8 +844,8 @@ W_B \propto P^2
 <li>Physical Interpretation: Betatron acceleration acts purely on the perpendicular energy (<span class="math inline">\(\mathcal{E}_\perp = \mu B\)</span>). A particle gains energy when it drifts into a region of compressed magnetic field (<span class="math inline">\(\mathbf{u}_E \cdot \nabla B &gt; 0\)</span> or <span class="math inline">\(\partial B / \partial t &gt; 0\)</span>).</li>
 </ul>
 </section>
-<section id="connection-to-drakes-findings-in-reconnection" class="level4" data-number="14.2.2.3">
-<h4 data-number="14.2.2.3" class="anchored" data-anchor-id="connection-to-drakes-findings-in-reconnection"><span class="header-section-number">14.2.2.3</span> Connection to Drake’s Findings in Reconnection</h4>
+<section id="connection-to-drakes-findings-in-reconnection" class="level4">
+<h4 class="anchored" data-anchor-id="connection-to-drakes-findings-in-reconnection">Connection to Drake’s Findings in Reconnection</h4>
 <p>Dahlin, Drake, and Swisdak (2014) integrated these guiding-center components over macroscopic PIC simulation volumes to evaluate the net rate of energy gain: <span class="math display">\[
 \int d^3x \int d^3v \, f(\mathbf{x}, \mathbf{v}, t) \, \frac{d\mathcal{E}}{dt} = \int d^3x \left[ J_\parallel E_\parallel + (p_\parallel - p_\perp) \mathbf{u}_E \cdot \boldsymbol{\kappa} - p_\perp (\nabla \cdot \mathbf{u}_E) \right]
 \]</span> where <span class="math inline">\(p_\parallel = \int m v_\parallel^2 f d^3v\)</span> and <span class="math inline">\(p_\perp = \int \mu B f d^3v\)</span>.</p>
@@ -764,15 +861,50 @@ W_B \propto P^2
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const toggle = window.document.createElement('button');
+      toggle.type = "button";
+      toggle.setAttribute("role", "switch");
+      toggle.setAttribute("aria-checked", "false");
+      toggle.classList.add('top-right');
+      toggle.classList.add('quarto-color-scheme-toggle');
+      toggle.setAttribute("aria-label", "Toggle dark mode");
+      toggle.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
       const i = window.document.createElement("i");
       i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
+      toggle.appendChild(i);
+      // Put the toggle in a landmark of its own, so that landmark navigation
+      // can reach it.
+      //
+      // The container is always a fresh direct child of body, and the toggle is
+      // never moved into page furniture that the theme or the author controls.
+      // The toggle is positioned against the page, so any ancestor that
+      // establishes a containing block captures it: a positioned element or a
+      // grid for position: absolute, and transform, filter, will-change or
+      // contain for position: fixed. A direct child of body has none of these
+      // to inherit, and the shift when one appears is silent and visual.
+      //
+      // ARIA says a document should have at most one banner, and axe reports a
+      // duplicate whether or not the banners carry distinct labels. So use a
+      // header when the page has no banner yet, and a named region otherwise.
+      //
+      // A header is a banner wherever it sits, unless it is inside sectioning
+      // content, so this cannot just look at the children of body: a custom
+      // page layout wraps the title block header in a plain div. An explicit
+      // role="banner" always counts.
+      const sectioning = 'article, aside, main, nav, section, [role="article"], [role="complementary"], [role="main"], [role="navigation"], [role="region"]';
+      const hasBanner = Array.from(
+        window.document.querySelectorAll('header:not([role]), [role="banner"]')
+      ).some(function(el) {
+        return el.hasAttribute("role") || el.closest(sectioning) === null;
+      });
+      const container = window.document.createElement(hasBanner ? "div" : "header");
+      if (hasBanner) {
+        container.setAttribute("role", "region");
+        container.setAttribute("aria-label", "Toggle dark mode");
+      }
+      container.classList.add('quarto-color-scheme-toggle-container');
+      container.appendChild(toggle);
+      window.document.body.appendChild(container);
     }
     setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
@@ -847,11 +979,30 @@ W_B \propto P^2
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
+      const newWindowLabel = "(opens in a new tab)";
+      const newWindowNoteId = "quarto-ext-newwindow-label";
+      // Links reference one hidden label through aria-describedby, so the
+      // announcement never changes their accessible name.
+      var describeNewWindow = (link) => {
+        if (!window.document.getElementById(newWindowNoteId)) {
+          var newWindowNote = window.document.createElement("span");
+          newWindowNote.id = newWindowNoteId;
+          newWindowNote.hidden = true;
+          newWindowNote.textContent = newWindowLabel;
+          window.document.body.appendChild(newWindowNote);
+        }
+        var describedBy = (link.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(newWindowNoteId)) {
+          describedBy.push(newWindowNoteId);
+          link.setAttribute("aria-describedby", describedBy.join(" "));
+        }
+      }
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -860,8 +1011,75 @@ W_B \propto P^2
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            describeNewWindow(link);
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -875,6 +1093,7 @@ W_B \propto P^2
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -1037,44 +1256,54 @@ W_B \propto P^2
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -1173,15 +1402,18 @@ W_B \propto P^2
     }
   });
   </script>
-<nav class="page-navigation">
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
   <div class="nav-page nav-page-previous">
-      <a href="../contents/stability.html" class="pagination-link" aria-label="Stability">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Stability</span></span>
+      <a href="../contents/turbulence.html" class="pagination-link" aria-label="Turbulence">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Turbulence</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../contents/kmhd.html" class="pagination-link" aria-label="Kinetic MHD">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Kinetic MHD</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../contents/shock.html" class="pagination-link" aria-label="Shock">
+        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Shock</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1190,4 +1422,5 @@ W_B \propto P^2
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/reconnection.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/henry2004y/KeyNotes/edit/master/contents/reconnection.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/henry2004y/KeyNotes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
