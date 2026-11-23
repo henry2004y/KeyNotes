@@ -188,7 +188,7 @@ The contribution from the dawn-to-dusk directed tail current to the Dst index is
 
 #### Dessler–Parker–Sckopke Relation {#sec-dps}
 
-The Dessler–Parker–Sckopke (DPS) theorem [@dessler1959; @sckopke1966; @vasyliunas2006] gives the magnetic disturbance field at the Earth produced by plasma trapped in the terrestrial dipole field, and is therefore the fundamental link between the geomagnetic Dst index and the properties of magnetospheric plasma. In modern notation (Gaussian units are used throughout the derivation below), their formula reads
+The Dessler–Parker–Sckopke (DPS) theorem [@dessler1959hydromagnetic; @sckopke1966general; @vasyliunas2006ionospheric] gives the magnetic disturbance field at the Earth produced by plasma trapped in the terrestrial dipole field, and is therefore the fundamental link between the geomagnetic Dst index and the properties of magnetospheric plasma. In modern notation (Gaussian units are used throughout the derivation below), their formula reads
 $$
 \boldsymbol{\mu}\cdot\mathbf{b}(0) = 2U_K + U_b + U_I
 $$ {#eq-dps-general}
@@ -196,7 +196,7 @@ where $\boldsymbol{\mu}$ is the Earth's magnetic dipole moment, $\mathbf{b}(0)$ 
 $$
 \boldsymbol{\mu}\cdot\mathbf{b}(0) \simeq 2U_K
 $$ {#eq-dps-classic}
-i.e. **the depression of the geomagnetic field is proportional to the total kinetic energy of the ring-current particles**. Below we derive @eq-dps-general step by step from the virial theorem, following the rigorous formulation of @vasyliunas2006.
+i.e. **the depression of the geomagnetic field is proportional to the total kinetic energy of the ring-current particles**. Below we derive @eq-dps-general step by step from the virial theorem, following the rigorous formulation of @vasyliunas2006ionospheric.
 
 **Step 1 — Momentum (virial) equation for the plasma**
 
@@ -245,7 +245,7 @@ The inner-boundary surface integral in @eq-dps-virial is retained on the left be
 
 **Step 3 — The "enduring system" simplification**
 
-The DPS theorem applies to systems that *endure* — that do not undergo rapid dispersion or collapse. The second time derivative of the moment of inertia (the term $\mathrm{d}^2I/\mathrm{d}t^2$ that appears in the fully expanded virial) can then be neglected, and balance of the remaining terms is the condition for the system to persist. For the magnetosphere, anchored to the massive Earth, the centre-of-mass motion is negligible, so we measure $\mathbf{r}$ from the centre of the Earth and drop the inertial time-derivative terms. Equation @eq-dps-virial then reduces to the form used by @vasyliunas2006:
+The DPS theorem applies to systems that *endure* — that do not undergo rapid dispersion or collapse. The second time derivative of the moment of inertia (the term $\mathrm{d}^2I/\mathrm{d}t^2$ that appears in the fully expanded virial) can then be neglected, and balance of the remaining terms is the condition for the system to persist. For the magnetosphere, anchored to the massive Earth, the centre-of-mass motion is negligible, so we measure $\mathbf{r}$ from the centre of the Earth and drop the inertial time-derivative terms. Equation @eq-dps-virial then reduces to the form used by @vasyliunas2006ionospheric:
 $$
 -\oint_{S_s}\mathrm{d}\mathbf{S}\cdot\mathbf{T}\cdot\mathbf{r}
 = 2U_K + U_B + U_G
@@ -311,7 +311,7 @@ $$
 + \int_V \mathrm{d}^3r\,\mathbf{f}\cdot\mathbf{r}
 + \text{(outer surface terms)}
 $$ {#eq-dps-almost}
-The outer surface integral $\oint_S \mathrm{d}\mathbf{S}\cdot\mathbf{T}\cdot\mathbf{r}$ has been expanded into its physical pieces: a total-pressure term $\oint_S \mathrm{d}\mathbf{S}\cdot\mathbf{r}\left[P_\perp + B^2/(8\pi)\right]$, a magnetotail/flux term $\oint_S \mathrm{d}\mathbf{S}\cdot[\mathbf{B}_d\times(\mathbf{r}\times\mathbf{B}_d)]/(8\pi)$, a boundary-normal-field term, and a bulk-flow term. These are the **boundary contributions** (magnetopause Chapman–Ferraro and cross-tail currents) discussed by @vasyliunas2006.
+The outer surface integral $\oint_S \mathrm{d}\mathbf{S}\cdot\mathbf{T}\cdot\mathbf{r}$ has been expanded into its physical pieces: a total-pressure term $\oint_S \mathrm{d}\mathbf{S}\cdot\mathbf{r}\left[P_\perp + B^2/(8\pi)\right]$, a magnetotail/flux term $\oint_S \mathrm{d}\mathbf{S}\cdot[\mathbf{B}_d\times(\mathbf{r}\times\mathbf{B}_d)]/(8\pi)$, a boundary-normal-field term, and a bulk-flow term. These are the **boundary contributions** (magnetopause Chapman–Ferraro and cross-tail currents) discussed by @vasyliunas2006ionospheric.
 
 **Step 6 — The complete DPS formula and the ring-current limit**
 
@@ -319,11 +319,11 @@ Restoring the outer-boundary terms explicitly, the complete, rigorously derived 
 $$
 \boldsymbol{\mu}\cdot\mathbf{b}(0) = 2U_K + U_b + U_I + \text{(magnetopause + magnetotail surface terms)}
 $$ {#eq-dps-complete}
-with $U_I \equiv \int_V\!\mathrm{d}^3r\,\mathbf{f}\cdot\mathbf{r} + U_G$ the combined ionospheric and gravitational contribution. Following @vasyliunas2006 we write this compactly as
+with $U_I \equiv \int_V\!\mathrm{d}^3r\,\mathbf{f}\cdot\mathbf{r} + U_G$ the combined ionospheric and gravitational contribution. Following @vasyliunas2006ionospheric we write this compactly as
 $$
 \boldsymbol{\mu}\cdot\mathbf{b}(0) = 2U_K + U_b + U_I
 $$ {#eq-dps-final}
-which is exactly @eq-dps-general quoted at the start. The gravitational term $U_G$ is always negative and merely reduces $U_K$ by a negligible amount for plasma, while the ionospheric term $U_I$ is proportional to the global integral of the vertical mechanical force balancing $\mathbf{J}\times\mathbf{B}/c$ in the ionosphere; @vasyliunas2006 shows it is small compared with the direct plasma contribution and can be neglected for most purposes.
+which is exactly @eq-dps-general quoted at the start. The gravitational term $U_G$ is always negative and merely reduces $U_K$ by a negligible amount for plasma, while the ionospheric term $U_I$ is proportional to the global integral of the vertical mechanical force balancing $\mathbf{J}\times\mathbf{B}/c$ in the ionosphere; @vasyliunas2006ionospheric shows it is small compared with the direct plasma contribution and can be neglected for most purposes.
 
 In the standard application to a **symmetric ring current**, the disturbance-field energy $U_b$ and the ionospheric term $U_I$ are both small relative to $2U_K$, so @eq-dps-final reduces to the classic, widely used result:
 $$
@@ -333,7 +333,7 @@ $$
 $$ {#eq-dps-ringcurrent}
 where $\xi\approx 3/2$ is an empirically determined factor that converts the global average $\mathbf{b}(0)$ into the locally measured equatorial Dst (accounting for the shielding currents), and the sign convention is $\mathrm{Dst}<0$ when $\boldsymbol{\mu}\cdot\mathbf{b}(0)>0$. Thus **a more energetic ring current produces a more negative Dst** — the quantitative basis for interpreting Dst as a measure of ring-current intensity.
 
-_Note on units._ The derivation above follows @vasyliunas2006 and uses Gaussian (cgs) units, in which the magnetic energy density is $B^2/8\pi$ and the dipole field is $\mathbf{B}_d = (3(\boldsymbol{\mu}\cdot\hat{\mathbf{r}})\hat{\mathbf{r}}-\boldsymbol{\mu})/r^3$. In SI units the same result is recovered by the replacements $B^2/8\pi\to B^2/(2\mu_0)$ and $\boldsymbol{\mu}\cdot\mathbf{b}/(4\pi)\to \mu_0\,\boldsymbol{\mu}\cdot\mathbf{b}/(4\pi)$; the final ring-current relation then reads $\mathrm{Dst}\simeq -(2U_K/\mu)\,\xi$ with the SI dipole moment $\mu$ (A·m²).
+_Note on units._ The derivation above follows @vasyliunas2006ionospheric and uses Gaussian (cgs) units, in which the magnetic energy density is $B^2/8\pi$ and the dipole field is $\mathbf{B}_d = (3(\boldsymbol{\mu}\cdot\hat{\mathbf{r}})\hat{\mathbf{r}}-\boldsymbol{\mu})/r^3$. In SI units the same result is recovered by the replacements $B^2/8\pi\to B^2/(2\mu_0)$ and $\boldsymbol{\mu}\cdot\mathbf{b}/(4\pi)\to \mu_0\,\boldsymbol{\mu}\cdot\mathbf{b}/(4\pi)$; the final ring-current relation then reads $\mathrm{Dst}\simeq -(2U_K/\mu)\,\xi$ with the SI dipole moment $\mu$ (A·m²).
 
 #### Kp
 
@@ -383,7 +383,7 @@ The location of the plasmapause is determined by the interplay between the sunwa
 
 @fig-plasmasphere shows global observations of the plasmasphere taken by the EUV instrument onboard the IMAGE satellite before and after a moderate geomagnetic storm in June 2000. Before the storm the plasmasphere was more or less symmetric. After the storm the plasmasphere was significantly eroded leaving a plume extending from the dusk toward the dayside magnetopause. When traversing the plume, the trapped radiation belt electrons, otherwise outside the plasmapause, encounter a colder and higher-density plasma with plasma wave environment similar to the plasmasphere proper. Consequently, the influence of the plasmasphere on radiation belt particles extends beyond its nominal boundary depicted in @fig-plasmapause.
 
-![Plasmapheric plume and plasmaspheric erosion as observed by the IMAGE EUV instrument. The picture is taken from above the northern hemisphere and the Sun is to the right. (Goldstein+2004)](../images/plasmasphere.png){#fig-plasmasphere}
+![Plasmaspheric plume and plasmaspheric erosion as observed by the IMAGE EUV instrument. The picture is taken from above the northern hemisphere and the Sun is to the right. (Goldstein+2004)](../images/plasmasphere.png){#fig-plasmasphere}
 
 The plasma parameters in the plasmasphere, in the plume and at the plasmapause are critical to the generation and propagation of plasma waves that, in turn, interact with the energetic particles in the ring current and radiation belts. Thus, the coldest and the hottest components of the inner magnetosphere are intimately coupled to each other through wave–particle interactions.
 
@@ -808,7 +808,7 @@ All planets may show the effect of inductance, depending on the conductivity of 
 
 ### Transport of mass, momentum, and energy
 
-Transport of mass, momentum, and energy at the magnetopause boundary drives much of the magnetospheric dynamics and is thus an important topic in magnetospheric physics. The amount of solar wind plasma and energy that enters the magnetosphere is regulated by the orientation of the interplanetary magnetic field (IMF): during southward IMFs, the major process is considered to be magnetic reconnections (@sec-reconnection), while during northward IMFs, the processes include cusp reconnection, plasma mixing/reconnection in Kelvin-Helmholtz vortices, and wave-particle diffusive processes in large-amplitude ULF waves at the magnetopause boundary (@sec-klr).
+Transport of mass, momentum, and energy at the magnetopause boundary drives much of the magnetospheric dynamics and is thus an important topic in magnetospheric physics. The amount of solar wind plasma and energy that enters the magnetosphere is regulated by the orientation of the interplanetary magnetic field (IMF): during southward IMFs, the major process is considered to be magnetic reconnections (@sec-reconnection), while during northward IMFs, the processes include cusp reconnection, plasma mixing/reconnection in Kelvin-Helmholtz vortices, and wave-particle diffusive processes in large-amplitude ULF waves at the magnetopause boundary (@sec-flr).
 
 One of the more common spectral features at the magnetopause boundary is the sharp transition in wave polarization from compressional, e.g., because of foreshock waves of the quasi‐parallel bow shock, to transverse (Alfvén) waves from the magnetosheath to the boundary layers. Mode conversion from compressional to Alfvén modes through the magnetopause can efficiently transport and heat plasma across the boundary. Multipoint measurements have verified that the dispersion of the broadband waves is consistent with the kinetic Alfvén waves (KAWs) [Chaston+,2007, 2008].
 KAWs also provide a natural explanation for the observed dawn‐dusk asymmetry in plasma entry during northward IMF because they result from mode conversion of compressional foreshock waves, which typically bathe the dawn flank for the typical Parker spiral configuration.
