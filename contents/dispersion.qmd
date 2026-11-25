@@ -2,6 +2,8 @@
 
 ::: {.callout-tip title="Related Chapters"}
 For cold-plasma, MHD/Alfvén, and warm fluid wave modes, see @sec-waves, @sec-mhd-waves, and @sec-warm-waves; for the Vlasov equation and Landau damping, see @sec-kinetic; for linear instabilities derived from kinetic dispersion relations, see @sec-stability and @sec-kmhd.
+
+For direct branch-by-branch comparisons between analytical wave theory and the `PlasmaBO.jl` hot magnetized kinetic solver, see **[PlasmaWaves.jl: Theory vs. PlasmaBO.jl](https://henry2004y.github.io/PlasmaWaves/confirm.html)**.
 :::
 
 ## The Governing Equations: Vlasov-Maxwell System
@@ -102,6 +104,6 @@ $$
 
 This integral is the bottleneck of solving the dispersion relation, and the reason why there are still new solvers coming out.
 
-In the recent work of Huasheng Xie, he expands any arbitrary $f_0$ into a sum of Hermite polynomials[^hermite]. Hermite polynomials allow the integrals to be done analytically once. He then approximates the resonance $1/(\omega - k v - n\Omega)$ using a rational function (Padé/J-pole) to avoid the singularity point. Then the highly complex integral equation turns into a standard linear algebra problem $\mathbf{M} \mathbf{X} = \omega \mathbf{X}$, allowing us to solve for all modes simultaneously without integrating.
+In the recent work of Huasheng Xie, he expands any arbitrary $f_0$ into a sum of Hermite polynomials[^hermite]. Hermite polynomials allow the integrals to be done analytically once. He then approximates the resonance $1/(\omega - k v - n\Omega)$ using a rational function (Padé/J-pole) to avoid the singularity point. Then the highly complex integral equation turns into a standard linear algebra problem $\mathbf{M} \mathbf{X} = \omega \mathbf{X}$, allowing us to solve for all modes simultaneously without integrating. See [PlasmaWaves.jl: Theory vs. PlasmaBO.jl](https://henry2004y.github.io/PlasmaWaves/confirm.html) for kinetic dispersion confirmation of MHD Alfvén, whistler, KAW, and Langmuir modes using this solver (`PlasmaBO.jl`).
 
 [^hermite]: Hermite polynomials are a set of orthogonal polynomials that can be used to represent functions in terms of their moments. This idea is also used in the multi-moment fluid model developed at Los Alamos.

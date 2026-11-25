@@ -2,6 +2,8 @@
 
 ::: {.callout-tip title="Related Chapters"}
 For general wave properties and cold-plasma dispersion theory, see @sec-waves and @sec-CPDR; for warm, electrostatic, and wave–particle resonance physics, see @sec-warm-waves; for whistler waves and wave identification ratios, see @sec-whistler; for inhomogeneous Alfvén field-line resonance, see @sec-flr; for gyrokinetic treatment of kinetic Alfvén waves, see @sec-gyrokinetics; for parametric instabilities, see @sec-parametric; for Elsässer variables and Alfvénic turbulence, see @sec-turbulence; for numerical MHD and circularly polarized Alfvén wave benchmarks, see @sec-test.
+
+For interactive Friedrich diagrams, dispersion curves, and animations, see **[PlasmaWaves.jl: MHD & Alfvén Waves](https://henry2004y.github.io/PlasmaWaves/mhd.html)** and **[Kinetic & Inertial Alfvén Waves](https://henry2004y.github.io/PlasmaWaves/kaw.html)**.
 :::
 
 ## Ideal MHD Wave Equations
@@ -121,7 +123,7 @@ $$
 $$ {#eq-mhd_fast_slow}
 
 "+" corresponds to the fast mode, or magnetosonic mode, and "-" corresponds to the slow mode.
-The Friedrich graph @fig-mhd-phase-speed-low-beta is very useful in interpreting @eq-mhd_fast_slow. Here we only show the case for $v_A>v_s$; if $v_A<v_S$, then along the background magnetic field direction $\hat{z}$ the fast wave will have a phase speed $v_\mathrm{ph} = v_s$, and the slow wave will a phase speed $v_\mathrm{ph} = v_A$ that overlaps with the Alfvén wave. Thus in the high-$\beta$ case slow wave may have a faster phase speed than the Alfvén wave at a proper angle!
+The Friedrich graph @fig-mhd-friedrich is very useful in interpreting @eq-mhd_fast_slow. Both the low-$\beta$ ($v_A>v_s$) and high-$\beta$ ($v_A<v_s$) regimes are shown; if $v_A<v_s$, then along the background magnetic field direction $\hat{z}$ the fast wave has phase speed $v_\mathrm{ph} = v_s$, and the slow wave has phase speed $v_\mathrm{ph} = v_A$ overlapping with the Alfvén wave. Thus in the high-$\beta$ case the slow wave may have a faster phase speed than the Alfvén wave at a proper angle!
 
 Another thing to be careful about is that when you observe a wave propagating at the Alfvén speed along the field line, you need more information to determine the characteristics of the wave:
 
@@ -129,10 +131,19 @@ Another thing to be careful about is that when you observe a wave propagating at
 * Check the polarization to see if it is an cyclotron wave.
 * Check the parallel electric field to see if has kinetic features.
 
+![Friedrich phase-velocity diagrams in the $(v_x, v_z)$ plane for low-$\beta$ ($v_s/v_A = 0.5$, left) and high-$\beta$ ($v_s/v_A = 1.4$, right), showing fast, shear Alfvén, and slow phase-speed surfaces together with the slow-mode group-velocity cusp, generated with [PlasmaWaves.jl](https://henry2004y.github.io/PlasmaWaves/mhd.html#Static-Friedrich-Diagrams-and-Transport-Ratios).](../images/pw_friedrich.png){#fig-mhd-friedrich}
+
 ::: {.content-visible unless-format="pdf"}
+```{=html}
+<figure style="text-align: center;">
+  <video src="https://henry2004y.github.io/PlasmaWaves/assets/gallery/friedrich_sweep.mp4" autoplay loop muted playsinline controls style="max-width: 100%; border-radius: 8px;"></video>
+  <figcaption>Friedrich phase-velocity diagram sweeping $v_s / v_A$ smoothly between the low-$\beta$ and high-$\beta$ regimes — from <a href="https://henry2004y.github.io/PlasmaWaves/mhd.html#Friedrich-Diagram-Regime-Sweep" target="_blank" rel="noopener">PlasmaWaves.jl</a>.</figcaption>
+</figure>
+```
+:::
 
-![Friedrich diagram showing the variation of the phase velocities of the three MHD waves with direction of propagation in the x-z plane when $v_A>v_s$, i.e. low-$\beta$ case. The background magnetic field is along the z-direction.](https://farside.ph.utexas.edu/teaching/plasma/Plasma/img2325.png){#fig-mhd-phase-speed-low-beta}
-
+::: {.content-visible when-format="pdf"}
+*Animation: [Friedrich Diagram Regime Sweep (PlasmaWaves.jl)](https://henry2004y.github.io/PlasmaWaves/mhd.html#Friedrich-Diagram-Regime-Sweep).*
 :::
 
 Given the velocity perturbation $\mathbf{v}_1 = (v_x, 0, v_z)$, the other perturbations are given as
@@ -192,9 +203,16 @@ $$
 Thus, in low-$\beta$ plasmas the slow wave is a sound wave modified by the presence of the magnetic field.
 
 ::: {.content-visible unless-format="pdf"}
+```{=html}
+<figure style="text-align: center;">
+  <video src="https://henry2004y.github.io/PlasmaWaves/assets/gallery/magnetosonic_waves.mp4" autoplay loop muted playsinline controls style="max-width: 100%; border-radius: 8px;"></video>
+  <figcaption>Fast vs. slow magnetosonic waves showing reinforcing vs. opposing plasma and magnetic pressure perturbations — from <a href="https://henry2004y.github.io/PlasmaWaves/mhd.html#Fast-vs.-Slow-Magnetosonic-Waves" target="_blank" rel="noopener">PlasmaWaves.jl</a>.</figcaption>
+</figure>
+```
+:::
 
-[Fast wave.](https://henry2004y.github.io/space-physics-threejs/mhd-waves.html)
-
+::: {.content-visible when-format="pdf"}
+*Animation: [Fast vs. Slow Magnetosonic Waves (PlasmaWaves.jl)](https://henry2004y.github.io/PlasmaWaves/mhd.html#Fast-vs.-Slow-Magnetosonic-Waves).*
 :::
 
 Sometimes the fast wave dispersion relation is written in alternative ways. Let $a=\omega/(k_\parallel v_A)=\omega/(k\cos\theta\,v_A)$. From @eq-mhd_fast_slow, we have
@@ -246,9 +264,16 @@ SAW has a wave vector $\mathbf{k}$ in the XZ-plane. $\mathbf{E}$ shall oscillate
 $\mathbf{E}$ (or $\mathbf{B}_1$) in @eq-mhd_Alfven_perturbations shows that the Alfvén wave in a uniform plasma is a linearly polarized wave if $\mathbf{v}_1 = (0, v_y, 0)$. If instead we set $\mathbf{k}=(0,0,k)$ ($\theta=0^\circ$) and $\mathbf{v}_1 = (v_x, v_y, 0)$, then $\mathbf{k}\cdot\mathbf{v}=0\Rightarrow \rho_1=0$ but $\mathbf{E}=-\mathbf{v}\times\mathbf{B}_0 = kv_y\hat{x} - kv_x\hat{y}$ can be a circularly polarized wave or else. Correlated $\mathbf{B}_1$ and $\mathbf{v}$ corresponds to waves propagating anti-parallel to the $\mathbf{B}_0$ ($\mathbf{k}\cdot\mathbf{B}_0<0$), and anti-correlated $\mathbf{B}_1$ and $\mathbf{v}$ corresponds to waves propagating parallel to the $\mathbf{B}_0$ ($\mathbf{k}\cdot\mathbf{B}_0>0$). (This is the same as expressed by the Alfvénicity condition @eq-Alfvenity.) The resultant magnetic field then exhibits shear, thus the Alfvén wave is called the _shear Alfvén wave_ (SAW). An interactive animation of SAW is linked below.
 
 ::: {.content-visible unless-format="pdf"}
+```{=html}
+<figure style="text-align: center;">
+  <video src="https://henry2004y.github.io/PlasmaWaves/assets/gallery/alfven_wave.mp4" autoplay loop muted playsinline controls style="max-width: 100%; border-radius: 8px;"></video>
+  <figcaption>Shear Alfvén wave propagation showing transverse magnetic field line oscillation and fluid velocity — from <a href="https://henry2004y.github.io/PlasmaWaves/mhd.html#Wave-Propagation-Animations" target="_blank" rel="noopener">PlasmaWaves.jl</a>.</figcaption>
+</figure>
+```
+:::
 
-[Alfvén wave.](https://henry2004y.github.io/space-physics-threejs/mhd-waves.html)
-
+::: {.content-visible when-format="pdf"}
+*Animation: [Shear Alfvén Wave (PlasmaWaves.jl)](https://henry2004y.github.io/PlasmaWaves/mhd.html#Wave-Propagation-Animations).*
 :::
 
 To understand what happens physically in an Alfvén wave, recall that this is an electromagnetic wave with a fluctuating magnetic field $\mathbf{B}_1$ given by
@@ -291,7 +316,20 @@ $$
 |k_x| = \bigg\lvert\frac{\partial \ln B_{1y}}{\partial x}\bigg\rvert \simeq \bigg\lvert\frac{\mathrm{d} \omega_A(x)}{\mathrm{d} x}\bigg\rvert t
 $$ {#eq-mhd_alfven_wavenumber_nonuniform}
 
-That $|k_x|$ increases with $t$ is significant, since it implies that any initially long-scale perturbations will evolve into short scales. This point is illustrated in Figure ??? (CAN I PERFORM THE SIMULATION?); showing the evolution of a smooth $B_{1y}$ at $t=0$ to a spatially fast varying $B_{1y}$ at a later $t$.
+That $|k_x|$ increases with $t$ is significant, since it implies that any initially long-scale perturbations will evolve into short scales. This evolution of a smooth $B_{1y}$ at $t=0$ into spatially fast-varying perturbations at later $t$ is illustrated in the phase-mixing animation below.
+
+::: {.content-visible unless-format="pdf"}
+```{=html}
+<figure style="text-align: center;">
+  <video src="https://henry2004y.github.io/PlasmaWaves/assets/gallery/phase_mixing.mp4" autoplay loop muted playsinline controls style="max-width: 100%; border-radius: 8px;"></video>
+  <figcaption>Non-uniform shear Alfvén wave phase mixing showing $|k_x| \simeq |\omega_A'(x)| t$ developing fine transverse structure over time — from <a href="https://henry2004y.github.io/PlasmaWaves/mhd.html#Non-Uniform-SAW-Phase-Mixing" target="_blank" rel="noopener">PlasmaWaves.jl</a>.</figcaption>
+</figure>
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+*Animation: [Non-Uniform SAW Phase Mixing (PlasmaWaves.jl)](https://henry2004y.github.io/PlasmaWaves/mhd.html#Non-Uniform-SAW-Phase-Mixing).*
+:::
 
 Another consequence of $|k_x|$ increasing with $t$ is the temporal decay of $B_{1x}$. From $\nabla\cdot\mathbf{B}_1 \simeq \nabla_\perp\cdot\mathbf{B}_{1\perp}=0$, we can readily derive that, for $|\omega_A^\prime t|\gg |k_y|$:
 $$
@@ -872,6 +910,8 @@ $$
 \left\lvert \frac{\delta E_\parallel}{\delta E_\perp} \right\rvert = k_\parallel k_\perp\frac{r_{fL}^2}{1+k_\perp^2r_{iL}^2}
 $$
 
+![Comparison of ideal SAW, Bessel KAW, two-fluid Padé KAW, and IAW phase speeds (left), and KAW polarization ratio $|\delta E_\perp / (v_A \delta B_\perp)|$ and parallel electric field ratio $|\delta E_\parallel / \delta E_\perp|$ (right), generated with [PlasmaWaves.jl](https://henry2004y.github.io/PlasmaWaves/kaw.html#Dispersion-and-Field-Ratios).](../images/pw_kaw_iaw_dispersion.png){#fig-kaw-iaw-dispersion}
+
 It has been shown that KAWs can be generated via magnetic reconnection, mode conversion, and phase mixing.
 
 [@gurram2021shear] used a 2D VPIC simulation to show a transition from KAWs to SAWs from the immediate vicinity of the reconnection region to the exhaust. They checked two important quantities we have seen above:
@@ -881,9 +921,26 @@ It has been shown that KAWs can be generated via magnetic reconnection, mode con
 
 It would be very intuitive to compare animations between [MHD Alfvén waves](https://youtu.be/7RB_kD9aSqo) and [kinetic Alfvén waves](https://youtu.be/aRLXQRvwCas). In a typical MHD Alfvén wave, the particles (yellow) move freely along the magnetic field lines (blue). In a kinetic Alfvén wave, some particles become trapped in the weak spots of the wave's magnetic field and ride along with the wave as it moves through space.
 
+::: {.content-visible unless-format="pdf"}
+```{=html}
+<figure style="text-align: center;">
+  <video src="https://henry2004y.github.io/PlasmaWaves/assets/gallery/kaw_vs_saw.mp4" autoplay loop muted playsinline controls style="max-width: 100%; border-radius: 8px;"></video>
+  <figcaption>Kinetic Alfvén wave (KAW) vs. ideal shear Alfvén wave (SAW) showing finite $E_\parallel$ and resonant electron trapping — from <a href="https://henry2004y.github.io/PlasmaWaves/kaw.html#KAW-vs.-Ideal-SAW-Electron-Trapping" target="_blank" rel="noopener">PlasmaWaves.jl</a>.</figcaption>
+</figure>
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+*Animation: [KAW vs. Ideal SAW Electron Trapping (PlasmaWaves.jl)](https://henry2004y.github.io/PlasmaWaves/kaw.html#KAW-vs.-Ideal-SAW-Electron-Trapping).*
+:::
+
+::: {.content-visible unless-format="pdf"}
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aRLXQRvwCas" title="Kinetic Alfvén wave" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7RB_kD9aSqo" title="Shear Alfvén wave" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+:::
 
 Almost half a century after the discovery of KAW, [@chen2021physics] demonstrated that the proper treatment of this wave requires gyrokinetics (@sec-gyrokinetics). However, under some circumstances ($\beta\gg 1$?) the two-fluid theory can recover most if not all of the KAW physics. I need to go over the derivations!
 

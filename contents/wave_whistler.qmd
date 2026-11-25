@@ -2,6 +2,8 @@
 
 ::: {.callout-tip title="Related Chapters"}
 For cold-plasma $R$-mode and parallel wave dispersion, see @sec-waves and @sec-CPDR; for MHD, Hall-MHD, and Alfvén waves, see @sec-mhd-waves; for electron magnetohydrodynamics, see @sec-emhd; for radiation-belt wave–particle scattering, see @sec-radiation_belt; for cross-helicity and turbulence diagnostics, see @sec-turbulence; for numerical whistler benchmarks, see @sec-test.
+
+For helical whistler/EMIC animations, wave packets, and `PlasmaBO.jl` benchmarks, see **[PlasmaWaves.jl: Cold Plasma & Whistlers](https://henry2004y.github.io/PlasmaWaves/cold.html)** and **[Theory vs. PlasmaBO.jl](https://henry2004y.github.io/PlasmaWaves/confirm.html)**.
 :::
 
 There exist different terminologies for whistler waves in the space and laboratory communities. In space science, a "whistle" is specifically defined as an electromagnetic wave excited by lightning and dispersed while propagating through the ionosphere and magnetosphere. All other excitation mechanisms lead to *whistler-mode wave*. Depending on their sound and spectrograms they are given many exotic names such as hiss, roar, saucers, chorus, risers, hooks, triggered emissions, etc, which are essentially the same thing with slightly different behaviors. In laboratory plasma physics any wave propagating in the whistler mode is simply called a *whistler wave*. However, in bounded laboratory plasmas, in particular solid state plasmas, these waves are often called *helicons*.
@@ -69,9 +71,16 @@ This is the $v_A\ll W$ case in @eq-R-wave-phase-speed where $v_w = W$. For a mor
 The dispersion property of whistler waves makes it a problem for hybrid simulations (@sec-finite_e_mass).
 
 ::: {.content-visible unless-format="pdf"}
+```{=html}
+<figure style="text-align: center;">
+  <video src="https://henry2004y.github.io/PlasmaWaves/assets/gallery/whistler_emic.mp4" autoplay loop muted playsinline controls style="max-width: 100%; border-radius: 8px;"></video>
+  <figcaption>Right-hand helical Whistler wave vs. left-hand EMIC wave propagation along $\mathbf{B}_0$ — from <a href="https://henry2004y.github.io/PlasmaWaves/cold.html#Whistler-vs.-EMIC-Helical-Polarization" target="_blank" rel="noopener">PlasmaWaves.jl</a>.</figcaption>
+</figure>
+```
+:::
 
-![Whistler wave.](https://henry2004y.github.io/space-physics-threejs/mhd-waves.html)
-
+::: {.content-visible when-format="pdf"}
+*Animation: [Whistler vs. EMIC Helical Polarization (PlasmaWaves.jl)](https://henry2004y.github.io/PlasmaWaves/cold.html#Whistler-vs.-EMIC-Helical-Polarization).*
 :::
 
 In situ measurements are sensitive to the entire spectrum of oblique whistlers ($\omega < \Omega_e \cos\theta$), hence most of the observed whistlers are oblique, unducted, magnetospherically reflected waves [@stenzel1999whistler]. ???
@@ -102,6 +111,19 @@ Significance of Ducting:
 While many wave phenomena are thought of in terms of plane monochromatic eigenmodes, a vast class of whistler phenomena arise in the form of temporal transients and spatially bounded phenomena, i.e., wave packets. Such transient phenomena are common in _electron magnetohydrodynamicss (EMHD)_ physics (@sec-emhd). In contrast to ordinary MHD where the plasma behaves like a single magnetized fluid, in EMHD only the electrons are magnetized while the ions are not. This arises on timescales $f_{ce}^{-1} < t < f_{ci}^{-1}$ and spatial scales $r_{Le} < r < r_{Li}$. The transition region is the Hall MHD. Refer to @stenzel1999whistler for more detailed comparisons.
 
 Specifically for whistlers, the whistler wave can be described by EMHD on timescales of $2\pi/\Omega_{ce}<t<2\pi/\Omega_{LH}$ and spatial scales of $L<\lambda_i$, where the ions are assumed as a motionless neutralizing background [Zhao 2017]. When magnetic field lines are fully frozen into the electron fluid, the whistler wave follows the dispersion relation $\omega=\Omega_{ce}\lambda_e^2 k^2\cos\theta$. The dispersion relation becomes $\omega=\Omega_{ce}\lambda_e^2 k^2\cos\theta/(1+\lambda_e^2 k^2)$ as the electron inertia is contained in Ohm's law. Jinsong Zhao further extended the model by taking the electron thermal pressure and the displacement current into the EMHD model.
+
+::: {.content-visible unless-format="pdf"}
+```{=html}
+<figure style="text-align: center;">
+  <video src="https://henry2004y.github.io/PlasmaWaves/assets/gallery/whistler_packet.mp4" autoplay loop muted playsinline controls style="max-width: 100%; border-radius: 8px;"></video>
+  <figcaption>Dispersive whistler wave packet propagation where higher-frequency components travel faster ($v_g \propto \sqrt{\omega}$) and outrun lower-frequency components — from <a href="https://henry2004y.github.io/PlasmaWaves/cold.html#Dispersive-Whistler-Wave-Packet" target="_blank" rel="noopener">PlasmaWaves.jl</a>.</figcaption>
+</figure>
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+*Animation: [Dispersive Whistler Wave Packet (PlasmaWaves.jl)](https://henry2004y.github.io/PlasmaWaves/cold.html#Dispersive-Whistler-Wave-Packet).*
+:::
 
 ## Importance of Whistler
 
@@ -167,6 +189,8 @@ $$
 
 One property that differs significantly is the Alfvén ratio where velocity fluctuations dominate for the kinetic slow wave and magnetic fluctuations dominate for the KAW.
 
+![Magnetic compressibility $C_B$ and Alfvén ratio $R_A$ vs. propagation angle $\theta$ for fast, shear Alfvén, and slow magnetosonic modes, generated with [PlasmaWaves.jl](https://henry2004y.github.io/PlasmaWaves/mhd.html#Static-Friedrich-Diagrams-and-Transport-Ratios).](../images/pw_transport_ratios.png){#fig-transport-ratios}
+
 * Cross helicity
 
 Helicity of a wave is another identifier of the wave mode, it is in particular useful for determining the direction of propagation of the wave by considering its sign. See @sec-turbulence_cross_helicity
@@ -176,7 +200,25 @@ Helicity of a wave is another identifier of the wave mode, it is in particular u
 Visualization is the best way of understanding physics.
 
 ::: {.content-visible unless-format="pdf"}
-
-![Lower hybrid wave.](https://s8.gifyu.com/images/lowerhybrid.gif){#fig-lowerhybrid-wave}
-
+```{=html}
+<figure style="text-align: center;">
+  <video src="https://henry2004y.github.io/PlasmaWaves/assets/gallery/hybrid_waves.mp4" autoplay loop muted playsinline controls style="max-width: 100%; border-radius: 8px;"></video>
+  <figcaption>Lower hybrid wave illustrating unmagnetized electron response and magnetized ion polarization drift — from <a href="https://henry2004y.github.io/PlasmaWaves/cold.html#Lower-Hybrid-Wave" target="_blank" rel="noopener">PlasmaWaves.jl</a>.</figcaption>
+</figure>
+```
 :::
+
+::: {.content-visible when-format="pdf"}
+*Animation: [Lower Hybrid Wave (PlasmaWaves.jl)](https://henry2004y.github.io/PlasmaWaves/cold.html#Lower-Hybrid-Wave).*
+:::
+
+The full set of companion wave animations, dispersion diagrams, symbolic derivations, and kinetic benchmarks is hosted on **[PlasmaWaves.jl](https://henry2004y.github.io/PlasmaWaves/)**:
+
+| Topic | Contents & Animations | PlasmaWaves.jl Page |
+| :--- | :--- | :--- |
+| **MHD & Alfvén Waves** | Friedrich diagrams & $\beta$-sweep, Shear Alfvén, Fast/Slow magnetosonic, Phase mixing | [MHD & Alfvén Waves](https://henry2004y.github.io/PlasmaWaves/mhd.html) |
+| **Cold Plasma & Whistlers** | Parallel dispersion, CMA diagram, Whistler/EMIC, Whistler packet, Faraday rotation, Lower hybrid | [Cold Plasma & Whistlers](https://henry2004y.github.io/PlasmaWaves/cold.html) |
+| **Kinetic & Inertial Alfvén** | KAW/IAW dispersion & field ratios, KAW vs. SAW electron trapping | [Kinetic & Inertial Alfvén](https://henry2004y.github.io/PlasmaWaves/kaw.html) |
+| **Kinetic, Landau & Bernstein** | Vlasov Langmuir & ion-acoustic damping, $(x, v)$ phase space, Electron Bernstein waves | [Kinetic, Landau & Bernstein](https://henry2004y.github.io/PlasmaWaves/kinetic.html) |
+| **Theory vs. `PlasmaBO.jl`** | Hot magnetized kinetic dispersion confirmation across wave regimes | [Theory vs. PlasmaBO.jl](https://henry2004y.github.io/PlasmaWaves/confirm.html) |
+| **Symbolic Derivations** | `Symbolics.jl` dispersion matrices, group velocities, and LaTeX formulas | [Symbolic Derivations](https://henry2004y.github.io/PlasmaWaves/symbolic.html) |
