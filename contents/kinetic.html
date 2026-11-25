@@ -733,6 +733,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>For fluid reductions derived from velocity moments, see <a href="fluid.html" class="quarto-xref"><span>Chapter 9</span></a>; for the magnetized Vlasov–Maxwell dielectric tensor, see <a href="dispersion.html" class="quarto-xref"><span>Chapter 18</span></a>; for reduced low-frequency kinetics, see <a href="gyrokinetics.html" class="quarto-xref"><span>Chapter 21</span></a>; for kinetic particle simulations, see <a href="pic.html" class="quarto-xref"><span>Chapter 34</span></a>.</p>
+<p>For Vlasov electrostatic dispersion curves, <span class="math inline">\((x, v)\)</span> phase-space Landau damping animations, and <code>PlasmaBO.jl</code> benchmarks, see <strong><a href="https://henry2004y.github.io/PlasmaWaves/kinetic.html">PlasmaWaves.jl: Kinetic, Landau &amp; Bernstein</a></strong> and <strong><a href="https://henry2004y.github.io/PlasmaWaves/confirm.html">Theory vs.&nbsp;PlasmaBO.jl</a></strong>.</p>
 </div>
 </div>
 <section id="phase-space" class="level2" data-number="17.1">
@@ -1397,6 +1398,20 @@ f_1 &amp;= \frac{ieE_x}{m}\frac{\partial f_0/\partial v_x}{\omega - kv_x}
 \end{aligned}
 \]</span></p>
 <p>Since <span class="math inline">\(\Im(\omega)\)</span> is negative, there is a collisionless damping of plasma waves; this is called <em>Landau damping</em>. As is evident from the expression, this damping is extremely small for small <span class="math inline">\(k\lambda_D\)</span>, but becomes important for <span class="math inline">\(k\lambda_D = \mathcal{O}(1)\)</span>. This effect is connected with <span class="math inline">\(f_1\)</span>, the distortion of the distribution function caused by the wave.</p>
+<div id="fig-landau-dispersion" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-landau-dispersion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/pw_landau_dispersion.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-landau-dispersion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.9: Left: Langmuir wave Vlasov dispersion vs.&nbsp;Bohm–Gross approximation and Landau damping rate <span class="math inline">\(-\gamma/\omega_{pe}\)</span> as a function of <span class="math inline">\(k\lambda_{De}\)</span>. Right: Ion-acoustic wave damping ratio <span class="math inline">\(|\gamma/\omega_r|\)</span> as a function of <span class="math inline">\(T_e/T_i\)</span>. Generated with <a href="https://henry2004y.github.io/PlasmaWaves/kinetic.html#Unmagnetized-Vlasov-Electrostatic-Dispersion">PlasmaWaves.jl</a>.
+</figcaption>
+</figure>
+</div>
+<figure style="text-align: center;" class="figure">
+  <video src="https://henry2004y.github.io/PlasmaWaves/assets/gallery/landau_damping.mp4" autoplay="" loop="" muted="" playsinline="" controls="" style="max-width: 100%; border-radius: 8px;"></video>
+  <figcaption>Langmuir wave collisionless Landau damping and $(x, v)$ phase-space evolution of resonant electrons — from <a href="https://henry2004y.github.io/PlasmaWaves/kinetic.html#Kinetic-Wave-Animations" target="_blank" rel="noopener">PlasmaWaves.jl</a>.</figcaption>
+</figure>
 </section>
 <section id="sec-landau_damping" class="level2" data-number="17.6">
 <h2 data-number="17.6" class="anchored" data-anchor-id="sec-landau_damping"><span class="header-section-number">17.6</span> The Meaning of Landau Damping</h2>
@@ -1609,7 +1624,11 @@ W_w = \frac{\epsilon E_1^2}{2}
 <p>Electrons are not the only resonant particles. If a wave has a slow enough phase velocity to match the thermal velocity of ions, ion Landau damping can occur. The ion acoustic wave, for instance, is greatly affected by Landau damping. Recall from the fluid theory that the dispersion relation for ion waves is <span class="math display">\[
 \frac{\omega}{k} = v_s = \Big( \frac{k_BT_e + \gamma_i k_B T_i}{m_i} \Big)^{1/2}
 \]</span></p>
-<p>If <span class="math inline">\(T_e \le T_i\)</span>, the phase velocity lies in the region where <span class="math inline">\(f_{0i}(v)\)</span> has a negative slope, as shown in Fig.7-30(A)(ADD IT!!!). Consequently, ion waves are heavily Landau-damped if <span class="math inline">\(T_e \le T_i\)</span>. Ion waves are observable only if <span class="math inline">\(T_e \gg T_i\)</span>(Fig.7-30(B)), so that the phase velocity lies far in the tail of the ion velocity distribution. A clever way to introduce Landau damping in a controlled manner was employed by Alexeff, Jones, and Montgomery. A weakly damped ion wave was created in a heavy-ion plasma (such as xenon) with <span class="math inline">\(T_e \gg T_i\)</span>. A small amount of a light atom (helium) was then added. Since the helium had about the temperature as the xenon but had much smaller mass, its distribution function was much broader, as shown by the dashed curve in Fig.7-30(B). The resonant helium ions then caused the wave to damp.</p>
+<p>If <span class="math inline">\(T_e \le T_i\)</span>, the phase velocity lies in the region where <span class="math inline">\(f_{0i}(v)\)</span> has a negative slope, so ion waves are heavily Landau-damped (see the right panel of <a href="#fig-landau-dispersion" class="quarto-xref">Figure&nbsp;<span>17.9</span></a>). Ion waves are weakly damped and observable only if <span class="math inline">\(T_e \gg T_i\)</span>, so that the phase velocity lies far in the tail of the ion velocity distribution. A clever way to introduce Landau damping in a controlled manner was employed by Alexeff, Jones, and Montgomery. A weakly damped ion wave was created in a heavy-ion plasma (such as xenon) with <span class="math inline">\(T_e \gg T_i\)</span>. A small amount of a light atom (helium) was then added. Since the helium had about the same temperature as the xenon but had much smaller mass, its distribution function was much broader, and the resonant helium ions then caused the wave to damp.</p>
+<figure style="text-align: center;" class="figure">
+  <video src="https://henry2004y.github.io/PlasmaWaves/assets/gallery/ion_acoustic.mp4" autoplay="" loop="" muted="" playsinline="" controls="" style="max-width: 100%; border-radius: 8px;"></video>
+  <figcaption>Ion-acoustic wave damping comparison between $T_e / T_i = 15$ (weakly damped) and $T_e / T_i = 1$ (strongly ion-Landau-damped) — from <a href="https://henry2004y.github.io/PlasmaWaves/kinetic.html#Kinetic-Wave-Animations" target="_blank" rel="noopener">PlasmaWaves.jl</a>.</figcaption>
+</figure>
 <section id="the-plasma-dispersion-function" class="level3" data-number="17.9.1">
 <h3 data-number="17.9.1" class="anchored" data-anchor-id="the-plasma-dispersion-function"><span class="header-section-number">17.9.1</span> The Plasma Dispersion Function</h3>
 <p>To introduce some of the standard terminlogy of kinetic theory, we now calculate the ion Landau damping of ion acoustic waves in the absence of magnetic fields. Ions and electrons follow the Vlasov equation and have perturbations of the form <span class="math inline">\(f_1\propto\exp(ikx-i\omega t)\)</span> indicating plane waves propagating in the x direction. The solution for <span class="math inline">\(f_1\)</span> is given by the linearized momentum equation with appropriate modifications: <span class="math display">\[
@@ -1804,7 +1823,20 @@ k_\perp^2 + \sum_s k_D^2 e^{-b}\sum_{n=1}^{\infty} I_n(b)\Big[ 2-\frac{\omega}{\
 <p><span class="math display">\[
 \frac{k_\perp^2}{k_D^2} = 2\omega_c^2 \sum_{n=1}^\infty \frac{e^{-b}I_n(b)}{\omega^2 - n\omega_c^2}n^2 \equiv \alpha(\omega, b)
 \]</span></p>
-<p>… (ADD fig.7-33!!!)</p>
+<div id="fig-bernstein-dispersion" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bernstein-dispersion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/pw_bernstein_dispersion.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bernstein-dispersion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.10: Electron Bernstein wave (<span class="math inline">\(k_\parallel = 0\)</span>) dispersion passbands between consecutive cyclotron harmonics <span class="math inline">\(\omega/\Omega_e = n\)</span>, generated with <a href="https://henry2004y.github.io/PlasmaWaves/kinetic.html#Unmagnetized-Vlasov-Electrostatic-Dispersion">PlasmaWaves.jl</a>.
+</figcaption>
+</figure>
+</div>
+<figure style="text-align: center;" class="figure">
+  <video src="https://henry2004y.github.io/PlasmaWaves/assets/gallery/bernstein_wave.mp4" autoplay="" loop="" muted="" playsinline="" controls="" style="max-width: 100%; border-radius: 8px;"></video>
+  <figcaption>Electron Bernstein wave propagating perpendicular to $\mathbf{B}_0$ via cyclotron harmonic coupling — from <a href="https://henry2004y.github.io/PlasmaWaves/kinetic.html#Electron-Bernstein-Wave" target="_blank" rel="noopener">PlasmaWaves.jl</a>.</figcaption>
+</figure>
 <p>To obtain the fluid limit, we repalce <span class="math inline">\(I_n(b)\)</span> by its small-<span class="math inline">\(b\)</span> value <span class="math inline">\((b/2)^n/n!\)</span>. Only the <span class="math inline">\(n=1\)</span> term remains in the limit <span class="math inline">\(b\rightarrow 0\)</span>, and we obtain</p>
 <p><span class="math display">\[
 1 = \frac{\omega_p^2}{\omega_c^2}\frac{2}{b}\frac{b}{2}\Big( \frac{\omega^2}{\omega_c^2} - 1\Big)^{-1} = \frac{\omega_p^2}{\omega^2 - \omega_c^2}

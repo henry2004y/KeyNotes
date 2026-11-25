@@ -682,6 +682,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>For cold-plasma, MHD/Alfvén, and warm fluid wave modes, see <a href="wave.html" class="quarto-xref"><span>Chapter 13</span></a>, <a href="wave_mhd.html" class="quarto-xref"><span>Chapter 14</span></a>, and <a href="wave_warm.html" class="quarto-xref"><span>Chapter 15</span></a>; for the Vlasov equation and Landau damping, see <a href="kinetic.html" class="quarto-xref"><span>Chapter 17</span></a>; for linear instabilities derived from kinetic dispersion relations, see <a href="stability.html" class="quarto-xref"><span>Chapter 19</span></a> and <a href="kmhd.html" class="quarto-xref"><span>Chapter 20</span></a>.</p>
+<p>For direct branch-by-branch comparisons between analytical wave theory and the <code>PlasmaBO.jl</code> hot magnetized kinetic solver, see <strong><a href="https://henry2004y.github.io/PlasmaWaves/confirm.html">PlasmaWaves.jl: Theory vs.&nbsp;PlasmaBO.jl</a></strong>.</p>
 </div>
 </div>
 <section id="the-governing-equations-vlasov-maxwell-system" class="level2" data-number="18.1">
@@ -749,7 +750,7 @@ e^{i z \sin \theta} = \sum_{n=-\infty}^{\infty} J_n(z) e^{i n \theta}
 \chi \sim \sum_n \int_{0}^{\infty} v_\perp dv_\perp \int_{-\infty}^{\infty} dv_\parallel \frac{H_n(v_\perp, v_\parallel) J_n^2(\lambda)}{\omega - k_\parallel v_\parallel - n\Omega}
 \]</span></p>
 <p>This integral is the bottleneck of solving the dispersion relation, and the reason why there are still new solvers coming out.</p>
-<p>In the recent work of Huasheng Xie, he expands any arbitrary <span class="math inline">\(f_0\)</span> into a sum of Hermite polynomials<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Hermite polynomials allow the integrals to be done analytically once. He then approximates the resonance <span class="math inline">\(1/(\omega - k v - n\Omega)\)</span> using a rational function (Padé/J-pole) to avoid the singularity point. Then the highly complex integral equation turns into a standard linear algebra problem <span class="math inline">\(\mathbf{M} \mathbf{X} = \omega \mathbf{X}\)</span>, allowing us to solve for all modes simultaneously without integrating.</p>
+<p>In the recent work of Huasheng Xie, he expands any arbitrary <span class="math inline">\(f_0\)</span> into a sum of Hermite polynomials<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Hermite polynomials allow the integrals to be done analytically once. He then approximates the resonance <span class="math inline">\(1/(\omega - k v - n\Omega)\)</span> using a rational function (Padé/J-pole) to avoid the singularity point. Then the highly complex integral equation turns into a standard linear algebra problem <span class="math inline">\(\mathbf{M} \mathbf{X} = \omega \mathbf{X}\)</span>, allowing us to solve for all modes simultaneously without integrating. See <a href="https://henry2004y.github.io/PlasmaWaves/confirm.html">PlasmaWaves.jl: Theory vs.&nbsp;PlasmaBO.jl</a> for kinetic dispersion confirmation of MHD Alfvén, whistler, KAW, and Langmuir modes using this solver (<code>PlasmaBO.jl</code>).</p>
 
 
 </section>
